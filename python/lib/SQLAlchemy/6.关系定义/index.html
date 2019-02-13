@@ -40,7 +40,7 @@
     
     
       
-        <title>4.外键 - 静态博客</title>
+        <title>6. 关系定义 - 静态博客</title>
       
     
     
@@ -87,6 +87,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -109,7 +113,7 @@
                 静态博客
               </span>
               <span class="md-header-nav__topic">
-                4.外键
+                6. 关系定义
               </span>
             
           
@@ -1402,10 +1406,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Python
@@ -1421,10 +1427,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
     
     <label class="md-nav__link" for="nav-2-1">
       库学习
@@ -1440,11 +1448,152 @@
           
           
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-1" type="checkbox" id="nav-2-1-1" checked>
+    
+    <label class="md-nav__link" for="nav-2-1-1">
+      SQLAlchemy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-1">
+        SQLAlchemy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
 
   <li class="md-nav__item">
-    <a href="../index.md" title="SQLAlchemy" class="md-nav__link">
-      SQLAlchemy
+    <a href="../1.创建表" title="1. 创建表" class="md-nav__link">
+      1. 创建表
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2.基本操作/" title="2. 基本操作" class="md-nav__link">
+      2. 基本操作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../3.回顾/" title="3. 回顾" class="md-nav__link">
+      3. 回顾
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../4.统计分组/" title="4. 统计分组" class="md-nav__link">
+      4. 统计分组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../5.外键/" title="5. 外键" class="md-nav__link">
+      5. 外键
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        6. 关系定义
+      </label>
+    
+    <a href="./" title="6. 关系定义" class="md-nav__link md-nav__link--active">
+      6. 关系定义
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 一对多关系" class="md-nav__link">
+    1. 一对多关系
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 一对一关系" class="md-nav__link">
+    2. 一对一关系
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" title="3. 多对多关系" class="md-nav__link">
+    3. 多对多关系
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" title="4. 映射到数据" class="md-nav__link">
+    4. 映射到数据
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -1561,83 +1710,282 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 一对多关系" class="md-nav__link">
+    1. 一对多关系
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 一对一关系" class="md-nav__link">
+    2. 一对一关系
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" title="3. 多对多关系" class="md-nav__link">
+    3. 多对多关系
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" title="4. 映射到数据" class="md-nav__link">
+    4. 映射到数据
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>4.外键</h1>
+                  <h1>6. 关系定义</h1>
                 
-                <p>MySQL
-<div class="codehilite"><pre><span></span>mysql&gt; select * from student;
-+----+------+---------------+--------+
-| id | name | register_date | gender |
-+----+------+---------------+--------+
-|  1 | s2   | 2015-03-01    | F      |
-+----+------+---------------+--------+
-1 row in set (0.00 sec)
+                <h4 id="1">1. 一对多关系<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<p>对于一个普通的博客应用来说，用户和文章显然是一个一对多的关系，一篇文章属于一个用户，一个用户可以写很多篇文章，那么他们之间的关系可以这样定义：</p>
+<p><div class="codehilite"><pre><span></span>class User(Base):
 
-mysql&gt; select * from user;
-+----+------+----------+
-| id | name | password |
-+----+------+----------+
-|  1 | rain | 12345    |
-|  2 | leco | 666666   |
-+----+------+----------+
-2 rows in set (0.00 sec)
-</pre></div></p>
-<p>code</p>
-<div class="codehilite"><pre><span></span>from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, DATE, Enum
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import func
+    __tablename__ = &#39;users&#39;
 
-# 创建连接
-engine = create_engine(&quot;mysql+pymysql://root:root@127.0.0.1/cmz&quot;, encoding=&#39;utf-8&#39;, echo=False)
-Base = declarative_base()  # 生成ORM基类
-
-
-# 创建表结构
-class User(Base):
-    __tablename__ = &#39;user&#39;  # 表名
     id = Column(Integer, primary_key=True)
-    name = Column(String(32))
-    password = Column(String(64))
-
-
-class Student(Base):
-    __tablename__ = &#39;student&#39;  # 表名
-    id = Column(Integer, primary_key=True)  # 字段，整形，主键 column是导入的
-    name = Column(String(32), nullable=False)
-    register_date = Column(DATE, nullable=False)
-    gender = Column(String(32), nullable=False)
+    username = Column(String(64), nullable=False, index=True)
+    password = Column(String(64), nullable=False)
+    email = Column(String(64), nullable=False, index=True)
+    articles = relationship(&#39;Article&#39;)
 
     def __repr__(self):
-        return &quot;&lt;%s name:%s&gt;&quot; % (self.id, self.name)
+        return &#39;%s(%r)&#39; % (self.__class__.__name__, self.username)
 
 
-# 直接调用基类下的方法
-Base.metadata.create_all(engine)
+class Article(Base):
 
-# 实例与socket绑定,创建与数据库的绘画session class，注意，这里返回
-# 给session的是一个class，不是实例
-Session_class = sessionmaker(bind=engine)
-# 生成session实例，cursor
-Session = Session_class()
+    __tablename__ = &#39;articles&#39;
 
-# s1 = Student(name=&quot;s2&quot;, register_date=&quot;2015-03-01&quot;, gender=&quot;F&quot;)
-# Session.add(s1)
+    id = Column(Integer, primary_key=True)
+    title = Column(String(255), nullable=False, index=True)
+    content = Column(Text)
+    user_id = Column(Integer, ForeignKey(&#39;users.id&#39;))
+    author = relationship(&#39;User&#39;)
 
-print(Session.query(User, Student).filter(User.id == Student.id).all())
-print(Session.query(User, Student).filter(User.id == Student.id).first())
-Session.commit()
+    def __repr__(self):
+        return &#39;%s(%r)&#39; % (self.__class__.__name__, self.title)
+</pre></div>
+每篇文章有一个外键指向 users 表中的主键 id， 而在 User 中使用 SQLAlchemy 提供的 relationship 描述 关系。而用户与文章的之间的这个关系是双向的，所以我们看到上面的两张表中都定义了 relationship。</p>
+<p>SQLAlchemy 提供了 backref 让我们可以只需要定义一个关系：</p>
+<p><div class="codehilite"><pre><span></span>articles = relationship(&#39;Article&#39;, backref=&#39;author&#39;)
+</pre></div>
+添加了这个就可以不用再在 Article 中定义 relationship 了！</p>
+<h4 id="2">2. 一对一关系<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<p>在 User 中我们只定义了几个必须的字段， 但通常用户还有很多其他信息，但这些信息可能不是必须填写的，我们可以把它们放到另一张 UserInfo 表中，这样User 和 UserInfo 就形成了一对一的关系。你可能会奇怪一对一关系为什么不在一对多关系前面？那是因为一对一关系是基于一对多定义的：</p>
+<p><div class="codehilite"><pre><span></span>class User(Base):
+
+    __tablename__ = &#39;users&#39;
+
+    id = Column(Integer, primary_key=True)
+    username = Column(String(64), nullable=False, index=True)
+    password = Column(String(64), nullable=False)
+    email = Column(String(64), nullable=False, index=True)
+    articles = relationship(&#39;Article&#39;, backref=&#39;author&#39;)
+    userinfo = relationship(&#39;UserInfo&#39;, backref=&#39;user&#39;, uselist=False)
+
+    def __repr__(self):
+        return &#39;%s(%r)&#39; % (self.__class__.__name__, self.username)
+
+
+class UserInfo(Base):
+
+    __tablename__ = &#39;userinfos&#39;
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(64))
+    qq = Column(String(11))
+    phone = Column(String(11))
+    link = Column(String(64))
+    user_id = Column(Integer, ForeignKey(&#39;users.id&#39;))
+</pre></div>
+定义方法和一对多相同，只是需要添加 userlist=False </p>
+<h4 id="3">3. 多对多关系<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
+<p>一遍博客通常有一个分类，好几个标签。标签与博客之间就是一个多对多的关系。多对多关系不能直接定义，需要分解成俩个一对多的关系，为此，需要一张额外的表来协助完成：</p>
+<div class="codehilite"><pre><span></span>article_tag = Table(
+    &#39;article_tag&#39;, Base.metadata,
+    Column(&#39;article_id&#39;, Integer, ForeignKey(&#39;articles.id&#39;)),
+    Column(&#39;tag_id&#39;, Integer, ForeignKey(&#39;tags.id&#39;))
+)
+
+
+class Tag(Base):
+
+    __tablename__ = &#39;tags&#39;
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(64), nullable=False, index=True)
+
+    def __repr__(self):
+        return &#39;%s(%r)&#39; % (self.__class__.__name__, self.name)
 </pre></div>
 
-<p>执行结果
-<div class="codehilite"><pre><span></span>[(&lt;__main__.User object at 0x000002717E36D8D0&gt;, &lt;1 name:s2&gt;)]
-(&lt;__main__.User object at 0x000001CF04082320&gt;, s2)
+<h4 id="4">4. 映射到数据<a class="headerlink" href="#4" title="Permanent link">&para;</a></h4>
+<p>表已经描述好了，在文件末尾使用下面的命令在我们连接的数据库中创建对应的表：</p>
+<div class="codehilite"><pre><span></span>if __name__ == &#39;__main__&#39;:
+    Base.metadata.create_all(engine)
+</pre></div>
+
+<p>完整代码
+<div class="codehilite"><pre><span></span># coding: utf-8
+
+import random
+from faker import Factory
+
+from sqlalchemy import create_engine, Table
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import ForeignKey
+from sqlalchemy import Column, String, Integer, Text
+from sqlalchemy.orm import sessionmaker, relationship
+
+engine = create_engine(&quot;mysql+pymysql://root:root@127.0.0.1/blog&quot;, encoding=&#39;utf-8&#39;, echo=False)
+Base = declarative_base()
+
+
+class User(Base):
+    __tablename__ = &#39;users&#39;
+
+    id = Column(Integer, primary_key=True)
+    username = Column(String(64), nullable=False, index=True)
+    password = Column(String(64), nullable=False)
+    email = Column(String(64), nullable=False, index=True)
+    articles = relationship(&#39;Article&#39;, backref=&#39;author&#39;)
+    userinfo = relationship(&#39;UserInfo&#39;, backref=&#39;user&#39;, uselist=False)
+
+    def __repr__(self):
+        return &#39;%s(%r)&#39; % (self.__class__.__name__, self.username)
+
+
+class UserInfo(Base):
+    __tablename__ = &#39;userinfos&#39;
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(64))
+    qq = Column(String(11))
+    phone = Column(String(11))
+    link = Column(String(64))
+    user_id = Column(Integer, ForeignKey(&#39;users.id&#39;))
+
+
+class Article(Base):
+    __tablename__ = &#39;articles&#39;
+
+    id = Column(Integer, primary_key=True)
+    title = Column(String(255), nullable=False, index=True)
+    content = Column(Text)
+    user_id = Column(Integer, ForeignKey(&#39;users.id&#39;))
+    cate_id = Column(Integer, ForeignKey(&#39;categories.id&#39;))
+    tags = relationship(&#39;Tag&#39;, secondary=&#39;article_tag&#39;, backref=&#39;articles&#39;)
+
+    def __repr__(self):
+        return &#39;%s(%r)&#39; % (self.__class__.__name__, self.title)
+
+
+class Category(Base):
+    __tablename__ = &#39;categories&#39;
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(64), nullable=False, index=True)
+    articles = relationship(&#39;Article&#39;, backref=&#39;category&#39;)
+
+    def __repr__(self):
+        return &#39;%s(%r)&#39; % (self.__class__.__name__, self.name)
+
+
+article_tag = Table(
+    &#39;article_tag&#39;, Base.metadata,
+    Column(&#39;article_id&#39;, Integer, ForeignKey(&#39;articles.id&#39;)),
+    Column(&#39;tag_id&#39;, Integer, ForeignKey(&#39;tags.id&#39;))
+)
+
+
+class Tag(Base):
+    __tablename__ = &#39;tags&#39;
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(64), nullable=False, index=True)
+
+    def __repr__(self):
+        return &#39;%s(%r)&#39; % (self.__class__.__name__, self.name)
+
+
+if __name__ == &#39;__main__&#39;:
+    Base.metadata.create_all(engine)
+
+    faker = Factory.create()
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    faker_users = [User(
+        username=faker.name(),
+        password=faker.word(),
+        email=faker.email(),
+    ) for i in range(10)]
+    session.add_all(faker_users)
+
+    faker_categories = [Category(name=faker.word()) for i in range(5)]
+    session.add_all(faker_categories)
+
+    faker_tags = [Tag(name=faker.word()) for i in range(20)]
+    session.add_all(faker_tags)
+
+    for i in range(100):
+        article = Article(
+            title=faker.sentence(),
+            content=&#39; &#39;.join(faker.sentences(nb=random.randint(10, 20))),
+            author=random.choice(faker_users),
+            category=random.choice(faker_categories)
+        )
+        for tag in random.sample(faker_tags, random.randint(2, 5)):
+            article.tags.append(tag)
+        session.add(article)
+
+    session.commit()
+</pre></div></p>
+<p>检查mysql
+<div class="codehilite"><pre><span></span>mysql&gt; show tables;
++----------------+
+| Tables_in_blog |
++----------------+
+| article_tag    |
+| articles       |
+| categories     |
+| tags           |
+| userinfos      |
+| users          |
++----------------+
+6 rows in set (0.00 sec)
 </pre></div></p>
                 
                   
@@ -1655,6 +2003,41 @@ Session.commit()
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../5.外键/" title="5. 外键" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                5. 外键
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../../../linux/server/sersync/" title="1. sersync" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                1. sersync
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

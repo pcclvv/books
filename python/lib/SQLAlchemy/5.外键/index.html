@@ -40,7 +40,7 @@
     
     
       
-        <title>2.回顾 - 静态博客</title>
+        <title>5. 外键 - 静态博客</title>
       
     
     
@@ -109,7 +109,7 @@
                 静态博客
               </span>
               <span class="md-header-nav__topic">
-                2.回顾
+                5. 外键
               </span>
             
           
@@ -1402,10 +1402,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Python
@@ -1421,10 +1423,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
     
     <label class="md-nav__link" for="nav-2-1">
       库学习
@@ -1440,11 +1444,104 @@
           
           
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-1" type="checkbox" id="nav-2-1-1" checked>
+    
+    <label class="md-nav__link" for="nav-2-1-1">
+      SQLAlchemy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-1">
+        SQLAlchemy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
 
   <li class="md-nav__item">
-    <a href="../index.md" title="SQLAlchemy" class="md-nav__link">
-      SQLAlchemy
+    <a href="../1.创建表" title="1. 创建表" class="md-nav__link">
+      1. 创建表
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2.基本操作/" title="2. 基本操作" class="md-nav__link">
+      2. 基本操作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../3.回顾/" title="3. 回顾" class="md-nav__link">
+      3. 回顾
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../4.统计分组/" title="4. 统计分组" class="md-nav__link">
+      4. 统计分组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+    <a href="./" title="5. 外键" class="md-nav__link md-nav__link--active">
+      5. 外键
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../6.关系定义/" title="6. 关系定义" class="md-nav__link">
+      6. 关系定义
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -1567,22 +1664,32 @@
               
                 
                 
-                  <h1>2.回顾</h1>
+                  <h1>5. 外键</h1>
                 
-                <p>回滚之前
-<div class="codehilite"><pre><span></span>mysql&gt; select * from user;
+                <p>MySQL
+<div class="codehilite"><pre><span></span>mysql&gt; select * from student;
++----+------+---------------+--------+
+| id | name | register_date | gender |
++----+------+---------------+--------+
+|  1 | s2   | 2015-03-01    | F      |
++----+------+---------------+--------+
+1 row in set (0.00 sec)
+
+mysql&gt; select * from user;
 +----+------+----------+
 | id | name | password |
 +----+------+----------+
 |  1 | rain | 12345    |
+|  2 | leco | 666666   |
 +----+------+----------+
-1 row in set (0.00 sec)
+2 rows in set (0.00 sec)
 </pre></div></p>
-<p>执行代码
+<p>code</p>
 <div class="codehilite"><pre><span></span>from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, DATE, Enum
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import func
 
 # 创建连接
 engine = create_engine(&quot;mysql+pymysql://root:root@127.0.0.1/cmz&quot;, encoding=&#39;utf-8&#39;, echo=False)
@@ -1597,6 +1704,17 @@ class User(Base):
     password = Column(String(64))
 
 
+class Student(Base):
+    __tablename__ = &#39;student&#39;  # 表名
+    id = Column(Integer, primary_key=True)  # 字段，整形，主键 column是导入的
+    name = Column(String(32), nullable=False)
+    register_date = Column(DATE, nullable=False)
+    gender = Column(String(32), nullable=False)
+
+    def __repr__(self):
+        return &quot;&lt;%s name:%s&gt;&quot; % (self.id, self.name)
+
+
 # 直接调用基类下的方法
 Base.metadata.create_all(engine)
 
@@ -1606,36 +1724,18 @@ Session_class = sessionmaker(bind=engine)
 # 生成session实例，cursor
 Session = Session_class()
 
-# 创建用户
-fake_user = User(name=&#39;leco&#39;, password=&quot;666666&quot;)
-Session.add(fake_user)
-# 回滚
-Session.rollback()
+# s1 = Student(name=&quot;s2&quot;, register_date=&quot;2015-03-01&quot;, gender=&quot;F&quot;)
+# Session.add(s1)
+
+print(Session.query(User, Student).filter(User.id == Student.id).all())
+print(Session.query(User, Student).filter(User.id == Student.id).first())
 Session.commit()
 </pre></div>
-执行后结果
-<div class="codehilite"><pre><span></span>mysql&gt; select * from user;
-+----+------+----------+
-| id | name | password |
-+----+------+----------+
-|  1 | rain | 12345    |
-+----+------+----------+
-1 row in set (0.00 sec)
+
+<p>执行结果
+<div class="codehilite"><pre><span></span>[(&lt;__main__.User object at 0x000002717E36D8D0&gt;, &lt;1 name:s2&gt;)]
+(&lt;__main__.User object at 0x000001CF04082320&gt;, s2)
 </pre></div></p>
-<p>删除Session.rollback()
-执行后结果</p>
-<p><div class="codehilite"><pre><span></span>mysql&gt; select * from user;
-+----+------+----------+
-| id | name | password |
-+----+------+----------+
-|  1 | rain | 12345    |
-|  2 | leco | 666666   |
-+----+------+----------+
-2 rows in set (0.00 sec)
-</pre></div>
-注意:
-- 回滚就是mysql的一个事务的特性，要么全部执行，要么全部不执行
-- 回滚通过通过捕获异常来实现回滚。</p>
                 
                   
                 
@@ -1652,6 +1752,41 @@ Session.commit()
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../4.统计分组/" title="4. 统计分组" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                4. 统计分组
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../6.关系定义/" title="6. 关系定义" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                6. 关系定义
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

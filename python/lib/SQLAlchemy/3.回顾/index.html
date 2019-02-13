@@ -40,7 +40,7 @@
     
     
       
-        <title>0.创建表 - 静态博客</title>
+        <title>3. 回顾 - 静态博客</title>
       
     
     
@@ -109,7 +109,7 @@
                 静态博客
               </span>
               <span class="md-header-nav__topic">
-                0.创建表
+                3. 回顾
               </span>
             
           
@@ -1402,10 +1402,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Python
@@ -1421,10 +1423,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
     
     <label class="md-nav__link" for="nav-2-1">
       库学习
@@ -1440,11 +1444,104 @@
           
           
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-1" type="checkbox" id="nav-2-1-1" checked>
+    
+    <label class="md-nav__link" for="nav-2-1-1">
+      SQLAlchemy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-1">
+        SQLAlchemy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
 
   <li class="md-nav__item">
-    <a href="../index.md" title="SQLAlchemy" class="md-nav__link">
-      SQLAlchemy
+    <a href="../1.创建表" title="1. 创建表" class="md-nav__link">
+      1. 创建表
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2.基本操作/" title="2. 基本操作" class="md-nav__link">
+      2. 基本操作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+    <a href="./" title="3. 回顾" class="md-nav__link md-nav__link--active">
+      3. 回顾
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../4.统计分组/" title="4. 统计分组" class="md-nav__link">
+      4. 统计分组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../5.外键/" title="5. 外键" class="md-nav__link">
+      5. 外键
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../6.关系定义/" title="6. 关系定义" class="md-nav__link">
+      6. 关系定义
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -1567,88 +1664,75 @@
               
                 
                 
-                  <h1>0.创建表</h1>
+                  <h1>3. 回顾</h1>
                 
-                <ul>
-<li>通过sql建表</li>
-</ul>
-<p><div class="codehilite"><pre><span></span>from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-
-sql = &#39;&#39;&#39;create table test1(
-    id int not null primary key,
-    name varchar(50),
-    age int,
-    address varchar(100));
-&#39;&#39;&#39;
-
-engine = create_engine(&quot;mysql+pymysql://root:root@127.0.0.1/cmz&quot;, encoding=&#39;utf-8&#39;, echo=False)
-conn = engine.connect()
-conn.execute(sql)
-engine.connect()  # 表示获取到数据库连接。类似我们在MySQLdb中游标course的作用。
-</pre></div>
-查看MySQL
-<div class="codehilite"><pre><span></span>mysql&gt; show tables like &#39;test1&#39;;
-+-----------------------+
-| Tables_in_cmz (test1) |
-+-----------------------+
-| test1                 |
-+-----------------------+
+                <p>回滚之前
+<div class="codehilite"><pre><span></span>mysql&gt; select * from user;
++----+------+----------+
+| id | name | password |
++----+------+----------+
+|  1 | rain | 12345    |
++----+------+----------+
 1 row in set (0.00 sec)
-
-mysql&gt; desc test1;
-+---------+--------------+------+-----+---------+-------+
-| Field   | Type         | Null | Key | Default | Extra |
-+---------+--------------+------+-----+---------+-------+
-| id      | int(11)      | NO   | PRI | NULL    |       |
-| name    | varchar(50)  | YES  |     | NULL    |       |
-| age     | int(11)      | YES  |     | NULL    |       |
-| address | varchar(100) | YES  |     | NULL    |       |
-+---------+--------------+------+-----+---------+-------+
-4 rows in set (0.01 sec)
 </pre></div></p>
-<ul>
-<li>通过ORM建表</li>
-</ul>
+<p>执行代码
 <div class="codehilite"><pre><span></span>from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import sessionmaker
-engine = create_engine(&quot;mysql+pymysql://root:root@127.0.0.1/cmz&quot;, encoding=&#39;utf-8&#39;, echo=True)
-# echo=True，就是把整个过程打印出来
+
+# 创建连接
+engine = create_engine(&quot;mysql+pymysql://root:root@127.0.0.1/cmz&quot;, encoding=&#39;utf-8&#39;, echo=False)
 Base = declarative_base()  # 生成ORM基类
 
 
-class Test2(Base):
-    __tablename__ = &#39;test2&#39;  # 表名
-    id = Column(Integer, primary_key=True)  # 字段，整形，主键 column是导入的
+# 创建表结构
+class User(Base):
+    __tablename__ = &#39;user&#39;  # 表名
+    id = Column(Integer, primary_key=True)
     name = Column(String(32))
     password = Column(String(64))
 
 
-# 创建表结构
+# 直接调用基类下的方法
 Base.metadata.create_all(engine)
+
+# 实例与socket绑定,创建与数据库的绘画session class，注意，这里返回
+# 给session的是一个class，不是实例
+Session_class = sessionmaker(bind=engine)
+# 生成session实例，cursor
+Session = Session_class()
+
+# 创建用户
+fake_user = User(name=&#39;leco&#39;, password=&quot;666666&quot;)
+Session.add(fake_user)
+# 回滚
+Session.rollback()
+Session.commit()
 </pre></div>
-
-<p>查看MySQL
-<div class="codehilite"><pre><span></span>mysql&gt; show tables like &#39;test2&#39;;
-+-----------------------+
-| Tables_in_cmz (test2) |
-+-----------------------+
-| test2                 |
-+-----------------------+
+执行后结果
+<div class="codehilite"><pre><span></span>mysql&gt; select * from user;
++----+------+----------+
+| id | name | password |
++----+------+----------+
+|  1 | rain | 12345    |
++----+------+----------+
 1 row in set (0.00 sec)
-
-mysql&gt; desc test2;
-+----------+-------------+------+-----+---------+----------------+
-| Field    | Type        | Null | Key | Default | Extra          |
-+----------+-------------+------+-----+---------+----------------+
-| id       | int(11)     | NO   | PRI | NULL    | auto_increment |
-| name     | varchar(32) | YES  |     | NULL    |                |
-| password | varchar(64) | YES  |     | NULL    |                |
-+----------+-------------+------+-----+---------+----------------+
-3 rows in set (0.01 sec)
 </pre></div></p>
+<p>删除Session.rollback()
+执行后结果</p>
+<p><div class="codehilite"><pre><span></span>mysql&gt; select * from user;
++----+------+----------+
+| id | name | password |
++----+------+----------+
+|  1 | rain | 12345    |
+|  2 | leco | 666666   |
++----+------+----------+
+2 rows in set (0.00 sec)
+</pre></div>
+注意:
+- 回滚就是mysql的一个事务的特性，要么全部执行，要么全部不执行
+- 回滚通过通过捕获异常来实现回滚。</p>
                 
                   
                 
@@ -1665,6 +1749,41 @@ mysql&gt; desc test2;
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../2.基本操作/" title="2. 基本操作" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                2. 基本操作
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../4.统计分组/" title="4. 统计分组" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                4. 统计分组
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
