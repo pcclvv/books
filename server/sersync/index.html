@@ -1778,10 +1778,33 @@
 - 快速：第一次同步时 rsync 会复制全部内容，但在下一次只传输修改过的文件。rsync 在传输数据的过程中可以实行压缩及解压缩操作，因此可以使用更少的带宽。
 - 安全：可以使用scp、ssh等方式来传输文件，当然也可以通过直接的socket连接。
 - 支持匿名传输，以方便进行网站镜象。</p>
-<p>IP | 角色  |  安装软件 | 目录 | 目的
----|---|---|---|---|---
-192.168.91.166 | Rsync 服务端 | rsync |  /data | 将192.168.91.156 rsync 客户端上的/data下目录实时推送到192.168.91.166 rsync服务器端/data下
-192.168.91.156 | Rsync 客户端 | serync|  /data  | </p>
+<table>
+<thead>
+<tr>
+<th>IP</th>
+<th>角色</th>
+<th>安装软件</th>
+<th>目录</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>192.168.91.166</td>
+<td>Rsync 服务端</td>
+<td>rsync</td>
+<td>/data</td>
+<td>将192.168.91.156 rsync 客户端上的/data下目录实时推送到192.168.91.166 rsync服务器端/data下</td>
+</tr>
+<tr>
+<td>192.168.91.156</td>
+<td>Rsync 客户端</td>
+<td>serync</td>
+<td>/data</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="rsync_1">二.rsync的安装<a class="headerlink" href="#rsync_1" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>yum install -y rsync
 </pre></div>
