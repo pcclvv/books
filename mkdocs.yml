@@ -163,6 +163,16 @@ nav:
             - excel库:
                 - 1. xlrd_xlwt: python/lib/execel/1.xlrd_xlwt.md
                 - 2. openpyxl: python/lib/execel/2.openpyxl.md
+            - 加解密库:
+                - 1. base4: python/lib/encryption_decryption/base64/1.base64使用.md
+                - 2. 加解密execl表: python/lib/encryption_decryption/base64/2.案例.md
+            - 邮件库:
+                - 1. 单人接受文件: python/lib/email/smtp/1.s.md
+                - 2. 多人接受文件: python/lib/email/smtp/2.d.md
+            - wordcloud库:
+                - 1. wordcloud: python/lib/wordcloud/1.wordcloud.md
+            - yield库:    
+                - 1. yield: python/lib/yield/1.yield.md
     - Linux:
           - 服务: 
             - 1. sersync: linux/server/sersync.md
