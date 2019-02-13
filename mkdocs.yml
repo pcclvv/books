@@ -59,7 +59,7 @@ extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
 
 nav:
-    - python:
+    - 测试:
       - 服务:
           - mkdocs 服务:
               - 一. 介绍: index.md
@@ -146,7 +146,17 @@ nav:
               - 五. 使用建议: recommend.md
               - 六. 联系方式: contact.md
 
-          - sersync 服务: 
-              - 一. 细节:
-                  - 1. 部署: server/sersync.md
-          
+    - Python:
+          - 库学习:
+            - SQLAlchemy:  
+                - 1. 创建表: python/lib/SQLAlchemy/1.创建表.md
+                - 2. 基本操作: python/lib/SQLAlchemy/2.基本操作.md
+                - 3. 回滚: python/lib/SQLAlchemy/3.回滚.md
+                - 4. 统计分组: python/lib/SQLAlchemy/4.统计分组.md
+                - 5. 外键: python/lib/SQLAlchemy/5.外键.md
+                - 6. 关系定义: python/lib/SQLAlchemy/6.关系定义.md
+    - Linux:
+          - 服务: 
+            - 1. sersync: linux/server/sersync.md
+    - 前端:
+          - Vue: frontend/vue/index.md
