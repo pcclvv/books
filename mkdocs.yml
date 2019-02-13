@@ -1,10 +1,7 @@
-site_name: 博客
-site_description: mkdocs搭建，使用material主题，并包含官方支持的markdown语法，包括传统语法和扩展语法
-site_author: 小慢哥
-site_url: https://cyent.github.io/markdown-with-mkdocs-material/
+site_name: 静态博客
+site_description: 博客
+site_author: 流浪地球
 
-repo_name: 'caimengzhi/markdown-with-mkdocs-material'
-repo_url: 'https://github.com/caimengzhi/books.git'
 
 theme:
   name: material
@@ -148,3 +145,4 @@ nav:
                   - 8. mkdocs.yml范例: appendix/yml.md
               - 五. 使用建议: recommend.md
               - 六. 联系方式: contact.md
+
