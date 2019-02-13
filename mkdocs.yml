@@ -146,3 +146,7 @@ nav:
               - 五. 使用建议: recommend.md
               - 六. 联系方式: contact.md
 
+          - sersync 服务: 
+              - 一. 细节:
+                  - 1. 部署: server/sersync.md
+          
