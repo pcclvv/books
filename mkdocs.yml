@@ -148,13 +148,21 @@ nav:
 
     - Python:
           - 库学习:
-            - SQLAlchemy:  
+            - SQLAlchemy库:  
                 - 1. 创建表: python/lib/SQLAlchemy/1.创建表.md
                 - 2. 基本操作: python/lib/SQLAlchemy/2.基本操作.md
                 - 3. 回滚: python/lib/SQLAlchemy/3.回滚.md
                 - 4. 统计分组: python/lib/SQLAlchemy/4.统计分组.md
                 - 5. 外键: python/lib/SQLAlchemy/5.外键.md
                 - 6. 关系定义: python/lib/SQLAlchemy/6.关系定义.md
+            - YAML库:
+                - 1. yaml语法: python/lib/yaml/1.yaml语法.md
+                - 2. yaml使用: python/lib/yaml/2.yaml使用.md
+            - sh库:
+                - 1. sh使用: python/lib/sh/1.sh.md
+            - excel库:
+                - 1. xlrd_xlwt: python/lib/execel/1.xlrd_xlwt.md
+                - 2. openpyxl: python/lib/execel/2.openpyxl.md
     - Linux:
           - 服务: 
             - 1. sersync: linux/server/sersync.md
