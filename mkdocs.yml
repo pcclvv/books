@@ -1,0 +1,7 @@
+site_name: 笔记
+nav:
+  - 首页: index.md
+  - 有关: about.md
+  - Git: [git.md,git_reset.md]
+
+theme:  material
