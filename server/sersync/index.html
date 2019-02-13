@@ -40,7 +40,7 @@
     
     
       
-        <title>Sersync数据同步 - 静态博客</title>
+        <title>sersync 服务 - 静态博客</title>
       
     
     
@@ -113,7 +113,7 @@
                 静态博客
               </span>
               <span class="md-header-nav__topic">
-                Sersync数据同步
+                sersync 服务
               </span>
             
           
@@ -182,10 +182,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
     
     <label class="md-nav__link" for="nav-1">
       python
@@ -201,10 +203,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1" type="checkbox" id="nav-1-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1" type="checkbox" id="nav-1-1" checked>
     
     <label class="md-nav__link" for="nav-1-1">
       服务
@@ -1396,11 +1400,157 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="/server/sersync.md" title="sersync 服务" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        sersync 服务
+      </label>
+    
+    <a href="./" title="sersync 服务" class="md-nav__link md-nav__link--active">
       sersync 服务
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rsync" title="一.rsync介绍" class="md-nav__link">
+    一.rsync介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rsync_1" title="二.rsync的安装" class="md-nav__link">
+    二.rsync的安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rsyncssh" title="三.rsync通过ssh认证传输" class="md-nav__link">
+    三.rsync通过ssh认证传输
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" title="3.1将数据发送到远端" class="md-nav__link">
+    3.1将数据发送到远端
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" title="3.2从远端拉取数据" class="md-nav__link">
+    3.2从远端拉取数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rsync_2" title="四.通过rsync认证传输" class="md-nav__link">
+    四.通过rsync认证传输
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" title="4.1备份服务器配置" class="md-nav__link">
+    4.1备份服务器配置
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#411rsync" title="4.1.1创建rsync同步用户" class="md-nav__link">
+    4.1.1创建rsync同步用户
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412" title="4.1.2修改配置文件" class="md-nav__link">
+    4.1.2修改配置文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#413" title="4.1.3添加密码文件" class="md-nav__link">
+    4.1.3添加密码文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4219216891156" title="4.2源数据服务器配置也就是客户端192.168.91.156" class="md-nav__link">
+    4.2源数据服务器配置也就是客户端192.168.91.156
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421" title="4.2.1配置密码文件" class="md-nav__link">
+    4.2.1配置密码文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422" title="4.2.2向备份服务器发送数据" class="md-nav__link">
+    4.2.2向备份服务器发送数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1997,6 +2147,27 @@ rsync error: error in rsync protocoldata stream (code 12) at io.c(604) [sender=2
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../contact/" title="六. 联系方式" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                六. 联系方式
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
