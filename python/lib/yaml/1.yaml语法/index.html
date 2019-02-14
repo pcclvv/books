@@ -436,7 +436,12 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#constructorsrepresentersresolvers" title="三、构造器(constructors)、表示器(representers)、解析器(resolvers )" class="md-nav__link">
     三、构造器(constructors)、表示器(representers)、解析器(resolvers )
   </a>
@@ -455,11 +460,6 @@
   <a href="#2yamladd_constructor-yamladd_representer" title="2、yaml.add_constructor 和 yaml.add_representer" class="md-nav__link">
     2、yaml.add_constructor 和 yaml.add_representer
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2174,7 +2174,12 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#constructorsrepresentersresolvers" title="三、构造器(constructors)、表示器(representers)、解析器(resolvers )" class="md-nav__link">
     三、构造器(constructors)、表示器(representers)、解析器(resolvers )
   </a>
@@ -2193,11 +2198,6 @@
   <a href="#2yamladd_constructor-yamladd_representer" title="2、yaml.add_constructor 和 yaml.add_representer" class="md-nav__link">
     2、yaml.add_constructor 和 yaml.add_representer
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2363,8 +2363,8 @@ name: Lily
 age: 19
 </pre></div>
 
-<h4 id="constructorsrepresentersresolvers">三、构造器(constructors)、表示器(representers)、解析器(resolvers )<a class="headerlink" href="#constructorsrepresentersresolvers" title="Permanent link">&para;</a></h4>
-<h5 id="1yamlyamlobject">1、yaml.YAMLObject<a class="headerlink" href="#1yamlyamlobject" title="Permanent link">&para;</a></h5>
+<h3 id="constructorsrepresentersresolvers">三、构造器(constructors)、表示器(representers)、解析器(resolvers )<a class="headerlink" href="#constructorsrepresentersresolvers" title="Permanent link">&para;</a></h3>
+<h4 id="1yamlyamlobject">1、yaml.YAMLObject<a class="headerlink" href="#1yamlyamlobject" title="Permanent link">&para;</a></h4>
 <p>yaml.YAMLObject用元类来注册一个构造器（也就是代码里的 init() 方法），让你把yaml节点转为Python对象实例，用表示器（也就是代码里的 repr() 函数）来让你把Python对象转为yaml节点，看代码：
 <div class="codehilite"><pre><span></span>import yaml
 class Person(yaml.YAMLObject):
@@ -2390,7 +2390,7 @@ print (lily)  # yaml转为Python对象实例
 
 Person(name=Lily, age=19)
 </pre></div></p>
-<h5 id="2yamladd_constructor-yamladd_representer">2、yaml.add_constructor 和 yaml.add_representer<a class="headerlink" href="#2yamladd_constructor-yamladd_representer" title="Permanent link">&para;</a></h5>
+<h4 id="2yamladd_constructor-yamladd_representer">2、yaml.add_constructor 和 yaml.add_representer<a class="headerlink" href="#2yamladd_constructor-yamladd_representer" title="Permanent link">&para;</a></h4>
 <p>你可能在使用过程中并不想通过上面这种元类的方式，而是想定义正常的类，那么，可以用这两种方法</p>
 <p><div class="codehilite"><pre><span></span>import yaml
 
