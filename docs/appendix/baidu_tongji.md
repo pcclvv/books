@@ -1,6 +1,6 @@
 先在百度统计里创建添加站点，以本站为例:
 
-![](./../../img/baidu_tongji_1.png)
+![](./../img/baidu_tongji_1.png)
 
 确定后会看到javascript代码，复制代码
 
@@ -25,4 +25,4 @@ extra_javascript:
 
 效果: js会自动加在</body>前，以本站为例:
 
-![](./../../img/baidu_tongji_2.png)
+![](./../img/baidu_tongji_2.png)

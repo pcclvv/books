@@ -1,10 +1,12 @@
-site_name: 静态博客
-site_description: 博客
+site_name: 笔记
+site_description: 笔记
 site_author: 流浪地球
 
 
 theme:
   name: material
+  #name: readthedocs
+  highlightjs: true
   palette:
     primary: 'Blue Grey'
     accent: 'Pink'
@@ -14,6 +16,11 @@ theme:
     #text: 'Ubuntu'
     #code: 'Ubuntu Mono'
   language: 'zh'
+  shortcuts:
+        help: 191    # ?
+        next: 78     # n
+        previous: 80 # p
+        search: 83   # s
 
 extra:
   social:
@@ -59,6 +66,44 @@ extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
 
 nav:
+    - Python:
+          - 库学习:
+            - 1. SQLAlchemy库:  
+                - 1. 创建表: python/lib/SQLAlchemy/1.创建表.md
+                - 2. 基本操作: python/lib/SQLAlchemy/2.基本操作.md
+                - 3. 回滚: python/lib/SQLAlchemy/3.回滚.md
+                - 4. 统计分组: python/lib/SQLAlchemy/4.统计分组.md
+                - 5. 外键: python/lib/SQLAlchemy/5.外键.md
+                - 6. 关系定义: python/lib/SQLAlchemy/6.关系定义.md
+            - 2. YAML库:
+                - 1. yaml语法: python/lib/yaml/1.yaml语法.md
+                - 2. yaml使用: python/lib/yaml/2.yaml使用.md
+            - 3. sh库:
+                - 1. sh使用: python/lib/sh/1.sh.md
+            - 4. excel库:
+                - 1. xlrd_xlwt: python/lib/execel/1.xlrd_xlwt.md
+                - 2. openpyxl: python/lib/execel/2.openpyxl.md
+            - 5. 加解密库:
+                - 1. base4: python/lib/encryption_decryption/base64/1.base64使用.md
+                - 2. 加解密execl表: python/lib/encryption_decryption/base64/2.案例.md
+            - 6. 邮件库:
+                - 1. 单人接受文件: python/lib/email/smtp/1.s.md
+                - 2. 多人接受文件: python/lib/email/smtp/2.d.md
+            - 7. wordcloud库:
+                - 1. wordcloud: python/lib/wordcloud/1.wordcloud.md
+            - 8. yield库:    
+                - 1. yield: python/lib/yield/1.yield.md
+            - 9. 数据处理库: 
+                - 1. numPy: 
+                    - 1. 介绍: python/lib/numPy/1.index.md
+                - 2. pandas: 
+                    - 1. 介绍: python/lib/pandas/1.index.md                    
+    - Linux:
+          - 服务: 
+            - 1. sersync: linux/server/sersync.md
+    - 前端:
+          - Vue: frontend/vue/index.md
+          
     - 测试:
       - 服务:
           - mkdocs 服务:
@@ -146,35 +191,3 @@ nav:
               - 五. 使用建议: recommend.md
               - 六. 联系方式: contact.md
 
-    - Python:
-          - 库学习:
-            - SQLAlchemy库:  
-                - 1. 创建表: python/lib/SQLAlchemy/1.创建表.md
-                - 2. 基本操作: python/lib/SQLAlchemy/2.基本操作.md
-                - 3. 回滚: python/lib/SQLAlchemy/3.回滚.md
-                - 4. 统计分组: python/lib/SQLAlchemy/4.统计分组.md
-                - 5. 外键: python/lib/SQLAlchemy/5.外键.md
-                - 6. 关系定义: python/lib/SQLAlchemy/6.关系定义.md
-            - YAML库:
-                - 1. yaml语法: python/lib/yaml/1.yaml语法.md
-                - 2. yaml使用: python/lib/yaml/2.yaml使用.md
-            - sh库:
-                - 1. sh使用: python/lib/sh/1.sh.md
-            - excel库:
-                - 1. xlrd_xlwt: python/lib/execel/1.xlrd_xlwt.md
-                - 2. openpyxl: python/lib/execel/2.openpyxl.md
-            - 加解密库:
-                - 1. base4: python/lib/encryption_decryption/base64/1.base64使用.md
-                - 2. 加解密execl表: python/lib/encryption_decryption/base64/2.案例.md
-            - 邮件库:
-                - 1. 单人接受文件: python/lib/email/smtp/1.s.md
-                - 2. 多人接受文件: python/lib/email/smtp/2.d.md
-            - wordcloud库:
-                - 1. wordcloud: python/lib/wordcloud/1.wordcloud.md
-            - yield库:    
-                - 1. yield: python/lib/yield/1.yield.md
-    - Linux:
-          - 服务: 
-            - 1. sersync: linux/server/sersync.md
-    - 前端:
-          - Vue: frontend/vue/index.md

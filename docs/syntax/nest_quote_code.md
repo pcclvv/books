@@ -36,7 +36,7 @@
   ```
 ```
 
-![](./../../img/nest_error_example.png)
+![](./../img/nest_error_example.png)
 
 要解决这个问题，就要在空行之后的新行再用>表示未中断，比如：
 ```text

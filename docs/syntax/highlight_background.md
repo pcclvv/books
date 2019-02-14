@@ -16,7 +16,7 @@
 
 **模块2: pymdownx.critic**
 
-![](./../../img/hl_critic.png)
+![](./../img/hl_critic.png)
 
 效果
 
@@ -36,7 +36,7 @@
 
 	用法:
 
-	![](./../../img/hl_critic_block.png)
+	![](./../img/hl_critic_block.png)
 
 	效果:
 
@@ -58,13 +58,13 @@
 
 依赖模块: pymdownx.critic
 
-![](./../../img/hl_critic_underline.png)
+![](./../img/hl_critic_underline.png)
 
 效果
 
 Hello, {++my++} world!
 
-支持嵌套，详见[绿色区块嵌套高亮代码示例](./../../syntax/nest_green_code/)
+支持嵌套，详见[绿色区块嵌套高亮代码示例](./../syntax/nest_green_code/)
 
 ## **红色(横线)**
 
@@ -74,13 +74,13 @@ Hello, {++my++} world!
 
 依赖模块: pymdownx.tidle
 
-![](./../../img/hl_tilde.png)
+![](./../img/hl_tilde.png)
 
 效果
 
 {--delete me--}
 
-支持嵌套，详见[红色区块嵌套高亮代码示例](./../../syntax/nest_red_code/)
+支持嵌套，详见[红色区块嵌套高亮代码示例](./../syntax/nest_red_code/)
 
 ## **绿色+红色(下划线+横线)**
 
@@ -92,17 +92,17 @@ Hello, {++my++} world!
 
 - 先使用红色(横线)，再使用绿色(下划线)
 
-	![](./../../img/hl_delete_and_insert.png)
+	![](./../img/hl_delete_and_insert.png)
 
 - 使用专门的语法，依赖模块pymdownx.tidle
 
-	![](./../../img/hl_replace.png)
+	![](./../img/hl_replace.png)
 
 这2种方式效果完全一致，包括实际看到的样式和html都是相同的
 
 Hello, {~~my~>our~~} world!
 
-支持嵌套，详见[绿色+红色区块嵌套高亮代码示例](./../../syntax/nest_greenred_code/)
+支持嵌套，详见[绿色+红色区块嵌套高亮代码示例](./../syntax/nest_greenred_code/)
 
 ## **灰色**
 
@@ -112,7 +112,7 @@ Hello, {~~my~>our~~} world!
 
 依赖模块: pymdownx.critic
 
-![](./../../img/hl_critic_note.png)
+![](./../img/hl_critic_note.png)
 
 效果
 

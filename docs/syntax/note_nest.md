@@ -21,16 +21,16 @@
     ### h3
 ```
 
-![](./../../img/note_content_h1.png)
+![](./../img/note_content_h1.png)
 
 ## **注解嵌套代码块**
 
 ---
 
-详见[注解嵌套代码块](./../../syntax/nest_note_code/)章节
+详见[注解嵌套代码块](./../syntax/nest_note_code/)章节
 
 ## **注解嵌套注解**
 
 ---
 
-详见[注解嵌套注解](./../../syntax/nest_note_note/)章节
+详见[注解嵌套注解](./../syntax/nest_note_note/)章节

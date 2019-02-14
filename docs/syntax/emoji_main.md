@@ -27,7 +27,7 @@ emoji是日本在无线通信中所使用的视觉情感符号，已被unicode�
 
 		https://cdn.jsdelivr.net/emojione/assets/svg/1f92e.svg 这个是2.2.7之后才有的，需要付费才能获得图标，未付费直接访问会得到报错：
 
-		![](./../../img/emoji_denied.png)
+		![](./../img/emoji_denied.png)
 
 		https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f92e.png 这个是png，不属于付费部分，访问这个url可以看到图标
 

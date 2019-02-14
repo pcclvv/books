@@ -7,11 +7,11 @@
 如
 
 ```text
-![hello](./../../img/test_icon.png "title")
+![hello](./../img/test_icon.png "title")
 ```
 
 效果
 
-![hello](./../../img/test_icon.png "title")
+![hello](./../img/test_icon.png "title")
 
 鼠标悬停在图标上可以看到"title"字样

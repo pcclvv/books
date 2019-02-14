@@ -1,4 +1,4 @@
-![](./../../img/nest_block_hl_yellow.png)
+![](./../img/nest_block_hl_yellow.png)
 
 效果
 
