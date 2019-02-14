@@ -103,6 +103,8 @@ nav:
             - 1. sersync: linux/server/sersync.md
     - 前端:
           - Vue: frontend/vue/index.md
+    - 教程:
+          - 教程: course/index.md
           
     - 测试:
       - 服务:
