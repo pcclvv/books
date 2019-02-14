@@ -236,17 +236,21 @@ root@leco:~/book/books# /etc/init.d/nginx restart
 root@leco:~/book/books# mkdocs gh-deploy
 INFO    -  Cleaning site directory
 INFO    -  Building documentation to directory: /root/book/books/site
-WARNING -  Documentation file 'python/lib/execel/2.openpyxl.md' contains a link to 'python/lib/execel/或list(sheet.columns)[index]' which is not found in the documentation files.
 INFO    -  Copying '/root/book/books/site' to 'gh-pages' branch and pushing to GitHub.
 INFO    -  Your documentation should shortly be available at: https://caimengzhi.github.io/books/
 ```
 
 #### 2.5 配置快捷命令
+##### 2.5.1 编辑配置文件
 
 ```
 root@leco:~/book/books/docs/course# egrep -irn 'cmz' /root/.bashrc
 84:alias cmzb='cd /root/book/books;mkdocs build;cd -'
 85:alias cmzd='cd /root/book/books;mkdocs gh-deploy;cd -'
+```
+##### 2.5.2 生效环境变量
+```
+root@leco:~/book/books/docs/course# source /root/.bashrc
 ```
 下次登录root用户的时候，在任何目录下都可以执行cmzb。
 
@@ -254,7 +258,6 @@ root@leco:~/book/books/docs/course# egrep -irn 'cmz' /root/.bashrc
 root@leco:~/book/books/docs/course# cmzd
 INFO    -  Cleaning site directory
 INFO    -  Building documentation to directory: /root/book/books/site
-WARNING -  Documentation file 'python/lib/execel/2.openpyxl.md' contains a link to 'python/lib/execel/或list(sheet.columns)[index]' which is not found in the documentation files.
 INFO    -  Copying '/root/book/books/site' to 'gh-pages' branch and pushing to GitHub.
 INFO    -  Your documentation should shortly be available at: https://caimengzhi.github.io/books/
 ```
