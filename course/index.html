@@ -933,6 +933,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#25" title="2.5 配置快捷命令" class="md-nav__link">
+    2.5 配置快捷命令
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2266,6 +2273,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#25" title="2.5 配置快捷命令" class="md-nav__link">
+    2.5 配置快捷命令
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2467,6 +2481,19 @@ INFO    -  Copying &#39;/root/book/books/site&#39; to &#39;gh-pages&#39; branch 
 INFO    -  Your documentation should shortly be available at: https://caimengzhi.github.io/books/
 </pre></div>
 <img alt="" src="../img/nest_block_hl_red.png" /></p>
+<h4 id="25">2.5 配置快捷命令<a class="headerlink" href="#25" title="Permanent link">&para;</a></h4>
+<p><div class="codehilite"><pre><span></span>root@leco:~/book/books/docs/course# egrep -irn &#39;cmz&#39; /root/.bashrc
+84:alias cmzb=&#39;cd /root/book/books;mkdocs build;cd -&#39;
+85:alias cmzd=&#39;cd /root/book/books;mkdocs gh-deploy;cd -&#39;
+</pre></div>
+下次登录root用户的时候，在任何目录下都可以执行cmzb。</p>
+<div class="codehilite"><pre><span></span>root@leco:~/book/books/docs/course# cmzd
+INFO    -  Cleaning site directory
+INFO    -  Building documentation to directory: /root/book/books/site
+WARNING -  Documentation file &#39;python/lib/execel/2.openpyxl.md&#39; contains a link to &#39;python/lib/execel/或list(sheet.columns)[index]&#39; which is not found in the documentation files.
+INFO    -  Copying &#39;/root/book/books/site&#39; to &#39;gh-pages&#39; branch and pushing to GitHub.
+INFO    -  Your documentation should shortly be available at: https://caimengzhi.github.io/books/
+</pre></div>
                 
                   
                 
