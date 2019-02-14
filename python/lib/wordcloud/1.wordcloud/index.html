@@ -1844,18 +1844,12 @@
     2.2 参数
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#23" title="2.3 代码" class="md-nav__link">
     2.3 代码
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2074,18 +2068,12 @@
     2.2 参数
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#23" title="2.3 代码" class="md-nav__link">
     2.3 代码
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2138,7 +2126,7 @@ In [6]: W = WordCloud()
 
 <h3 id="22">2.2 参数<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
 <p>在wordcloud作为对象时，大家要注意字母的大小写。</p>
-<p>总的来说，生成一个漂亮的词云文件三步就可以完成。即：
+<p>总的来说，生成一个漂亮的词云文件三步就可以完成.
 - 1、配置对象参数<br />
 - 2、加载词云文本<br />
 - 3、输出词云文件 （如果不加说明默认的图片大小为400 * 200）</p>
@@ -2161,7 +2149,7 @@ In [6]: W = WordCloud()
 </tr>
 </tbody>
 </table>
-<h5 id="23">2.3 代码<a class="headerlink" href="#23" title="Permanent link">&para;</a></h5>
+<h3 id="23">2.3 代码<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>#!/usr/bin/python
 # _*_ coding: utf-8 _*_
 
@@ -2230,19 +2218,16 @@ w.to_file(&quot;love.png&quot;)  # 保存
 <td>background_color</td>
 <td>指定图片颜色</td>
 </tr>
-<tr>
-<td>&gt; mask 用法</td>
-<td></td>
-</tr>
-<tr>
-<td><div class="codehilite"><pre><span></span>From scipy.misc import imread
-M = imread(&#39;pic.png&#39;)
-W = WordCloud(mask=M)
-</pre></div></td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>mask 用法
+<div class="codehilite"><pre><span></span>From scipy.misc import imread
+M = imread(&#39;pic.png&#39;)
+W = WordCloud(mask=M)
+</pre></div></p>
+</div>
                 
                   
                 
