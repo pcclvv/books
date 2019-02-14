@@ -272,6 +272,7 @@ root@leco:~/book/books/docs/course# ls ~/book/books/docs/pictures/course/1.png
 
 展示效果
 ![](../pictures/course/1.png)
+![](../pictures/course/1.gif)
 
 ??? note "注意图片相对位置"
 	```text
