@@ -1,2 +1,2 @@
 静态博客
-[BOOK ADDRESS](https://caimengzhi.github.io/books)
+[博客地址](https://caimengzhi.github.io/books)
