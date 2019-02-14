@@ -413,8 +413,7 @@
     5、基本类型：
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#6" title="6、引用" class="md-nav__link">
@@ -434,11 +433,6 @@
   <a href="#8" title="8、分段" class="md-nav__link">
     8、分段
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2157,8 +2151,7 @@
     5、基本类型：
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#6" title="6、引用" class="md-nav__link">
@@ -2178,11 +2171,6 @@
   <a href="#8" title="8、分段" class="md-nav__link">
     8、分段
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2343,7 +2331,7 @@ str2: &quot;Hello\nWorld&quot;
 <p><div class="codehilite"><pre><span></span>{&#39;str1&#39;: &#39;Hello\\nWorld&#39;, &#39;str2&#39;: &#39;Hello\nWorld&#39;}
 </pre></div>
 可以看到，单引号中的’\n’最后是输出了，双引号中的’\n’最后是转义成了回车 </p>
-<h5 id="6">6、引用<a class="headerlink" href="#6" title="Permanent link">&para;</a></h5>
+<h4 id="6">6、引用<a class="headerlink" href="#6" title="Permanent link">&para;</a></h4>
 <p>&amp; 和 * 用于引用</p>
 <p><div class="codehilite"><pre><span></span>name: &amp;name 灰蓝
 tester: *name
@@ -2356,7 +2344,7 @@ tester: 灰蓝
 <div class="codehilite"><pre><span></span>{&#39;name&#39;: &#39;灰蓝&#39;, &#39;tester&#39;: &#39;灰蓝&#39;}
 </pre></div>
 
-<h5 id="7">7、强制转换<a class="headerlink" href="#7" title="Permanent link">&para;</a></h5>
+<h4 id="7">7、强制转换<a class="headerlink" href="#7" title="Permanent link">&para;</a></h4>
 <p>yaml是可以进行强制转换的，用 !! 实现，如下：
 <div class="codehilite"><pre><span></span>str: !!str 3.14
 int: !!int &quot;123&quot;
@@ -2365,7 +2353,7 @@ int: !!int &quot;123&quot;
 <div class="codehilite"><pre><span></span>{&#39;int&#39;: 123, &#39;str&#39;: &#39;3.14&#39;}
 </pre></div>
 明显能够看出123被强转成了int类型，而float型的3.14则被强转成了str型。 </p>
-<h5 id="8">8、分段<a class="headerlink" href="#8" title="Permanent link">&para;</a></h5>
+<h4 id="8">8、分段<a class="headerlink" href="#8" title="Permanent link">&para;</a></h4>
 <p>在同一个yaml文件中，可以用 — 来分段，这样可以将多个文档写在一个文件中</p>
 <div class="codehilite"><pre><span></span>---
 name: James
