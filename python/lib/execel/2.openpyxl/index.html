@@ -2522,8 +2522,8 @@ Workbook对象一个Workbook对象代表一个Excel文档，因此在操作Excel
 filename 是一个文件名，也可以是一个打开的文件对象。
 </pre></div>
 PS：Workbook和load_workbook相同，返回的都是一个Workbook对象</p>
-<p>Workbook对象提供了很多属性和方法，其中，大部分方法都与sheet有关，部分属性如下：</p>
-<p><div class="codehilite"><pre><span></span>active：    获取当前活跃的Worksheet
+<p>Workbook对象提供了很多属性和方法，其中，大部分方法都与sheet有关，部分属性如下：
+<div class="codehilite"><pre><span></span>active：    获取当前活跃的Worksheet
 worksheets：以列表的形式返回所有的Worksheet(表格)
 read_only： 判断是否以read_only模式打开Excel文档
 encoding：  获取文档的字符集编码
@@ -2640,7 +2640,7 @@ c_char = get_column_letter(5)          # c_char = &#39;E‘
 
 <h5 id="13">1.3 获取行和列<a class="headerlink" href="#13" title="Permanent link">&para;</a></h5>
 <p>在处理Excel表格有时可能需要对表格进行遍历查找，openpyxl中便提供了一个行和列的生成器(sheet.rows和sheet.columns),这两个生成器里面是每一行（或列）的数据，每一行（或列）又由一个tuple包裹，借此可以很方便地完成对行和列的遍历</p>
-<p><div class="codehilite"><pre><span></span># 对行进行遍历,输出A1,B1,C1
+<div class="codehilite"><pre><span></span># 对行进行遍历,输出A1,B1,C1
 for row in sheet.rows:
     for cell in row:
         print(cell.value)
@@ -2650,7 +2650,11 @@ for column in sheet.columns:
     for cell in column:
         print(cell.value)
 </pre></div>
+
+<blockquote>
+<p>tip
 学习时还发现也可以通过list(sheet.rows)<a href="或list(sheet.columns)[index]">index</a>对某一行或列进行遍历，而在此值得注意的是，由于sheet.rows(或sheet.columns)是生成器类型，是不能直接调用的，需将其转化为一个list类型，然后再通过索引遍历</p>
+</blockquote>
 <p><div class="codehilite"><pre><span></span># 对某一特定的行进行遍历
 for cell in list(sheet.rows)[0]:  # 第0行
     print(cell.value)
