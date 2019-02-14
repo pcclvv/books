@@ -2415,16 +2415,10 @@ yaml.add_representer(Person, person_repr)  # 用add_representer方法为对象�
 print (yaml.dump(james))  # 加了表示器之后
 </pre></div>
 输出</p>
-<div class="codehilite"><pre><span></span>!!python/object:__main__.Person {age: 20, name: James}
-
-!person {age: 20, name: James}
-
-Person(Lily, 19)
-</pre></div>
-
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>第一行是没加表示器之前，多丑！中间那行是加了表示器之后，变成了规范的格式，下面添加了构造器，能够把 !person 标签转化为Person对象。 </p>
-</blockquote>
+</div>
 <h4 id="_1">四、示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <p>yaml是一种很清晰、简洁的格式，而且跟Python非常合拍，非常容易操作，我们在搭建自动化测试框架的时候，可以采用yaml作为配置文件，或者用例文件，下面给出一个用例的示例</p>
 <div class="codehilite"><pre><span></span># Test using included Django test app
