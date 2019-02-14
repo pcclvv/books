@@ -2445,7 +2445,7 @@ To git@github.com:caimengzhi/books.git
 </pre></div>
 
 <blockquote>
-<p>执行 mkdocs build的时候必须在这目录下此时会生成静态文件site</p>
+<p>执行 mkdocs build的时候必须在这目录下因为会去找配置文件，执行后此时会生成静态文件site</p>
 </blockquote>
 <h5 id="242-sitenginx">2.4.2 site结和nginx<a class="headerlink" href="#242-sitenginx" title="Permanent link">&para;</a></h5>
 <div class="codehilite"><pre><span></span>root@leco:~/book/books# ll site
@@ -2516,8 +2516,8 @@ INFO    -  Your documentation should shortly be available at: https://caimengzhi
 </pre></div>
 
 <p>展示效果
-<img alt="" src="./../pictures/1.png" /></p>
-<details class="note"><summary>注意图片相对位置</summary><div class="codehilite"><pre><span></span>1. ![](./../pictures/1.png) 期中图片的位置是./../pictures/1.png是根据markdown文件所在位置去找图片的相对位置
+<img alt="" src="../pictures/course/1.png" /></p>
+<details class="note"><summary>注意图片相对位置</summary><div class="codehilite"><pre><span></span>1. ![](../pictures/course/1.png) 期中图片的位置是../pictures/course/1.png是根据markdown文件所在位置去找图片的相对位置
 2. 我试过绝对路径不行，你们试试看
 </pre></div>
 
