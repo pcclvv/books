@@ -1844,12 +1844,18 @@
     2.2 参数
   </a>
   
-</li>
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#23" title="2.3 代码" class="md-nav__link">
     2.3 代码
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2068,12 +2074,18 @@
     2.2 参数
   </a>
   
-</li>
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#23" title="2.3 代码" class="md-nav__link">
     2.3 代码
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2108,22 +2120,23 @@
                 
                   <h1>1. wordcloud</h1>
                 
-                <h4 id="1">1. 安装<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>pip install wordcloud
+                <h2 id="1">1. 安装<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<details class="note"><summary>若下载慢，可更换安装源为豆瓣</summary><div class="codehilite"><pre><span></span>sudo pip install --trusted-host pypi.douban.com -i http://pypi.douban.com/simple/ wordcloud
 </pre></div>
 
-<h4 id="2-word-cloud">2. word cloud 库介绍<a class="headerlink" href="#2-word-cloud" title="Permanent link">&para;</a></h4>
+</details>
+<h2 id="2-word-cloud">2. word cloud 库介绍<a class="headerlink" href="#2-word-cloud" title="Permanent link">&para;</a></h2>
 <p>wordcloud库，可以说是python非常优秀的词云展示第三方库。词云以词语为基本单位更加直观和艺术的展示文本，下面给大家看一个示例：</p>
 <p><img alt="" src="../../../../pictures/lib/wordcloud/1.png" title="图1" />
 <img alt="" src="../../../../pictures/lib/wordcloud/2.png" title="图2" /></p>
-<h5 id="21">2.1 介绍<a class="headerlink" href="#21" title="Permanent link">&para;</a></h5>
+<h3 id="21">2.1 介绍<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
 <p>接下来，介绍下wordcloud的基本使用。wordcloud把词云当作一个对象，它可以将文本中词语出现的频率作为一个参数绘制词云，而词云的大小、颜色、形状等都是可以设定的。</p>
 <div class="codehilite"><pre><span></span>In [5]: from wordcloud import WordCloud
 
 In [6]: W = WordCloud()
 </pre></div>
 
-<h5 id="22">2.2 参数<a class="headerlink" href="#22" title="Permanent link">&para;</a></h5>
+<h3 id="22">2.2 参数<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
 <p>在wordcloud作为对象时，大家要注意字母的大小写。</p>
 <p>总的来说，生成一个漂亮的词云文件三步就可以完成。即：
 - 1、配置对象参数<br />
@@ -2162,7 +2175,7 @@ w.to_file(&quot;love.png&quot;)  # 保存
 <p>运行结果
 <div class="codehilite"><pre><span></span>images/love.png&lt;文件内&gt;
 </pre></div></p>
-<h5 id="24">2.4 注意<a class="headerlink" href="#24" title="Permanent link">&para;</a></h5>
+<h3 id="24">2.4 注意<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
 <p>wordcloud做词频统计分为以下几个步骤：</p>
 <p>1、分隔：以空格分隔单词<br />
 2、统计 ：单词出现的次数并过滤<br />
