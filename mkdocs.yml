@@ -4,7 +4,6 @@ site_author: 流浪地球
 
 repo_name: 'caimengzhi/books'
 repo_url: 'https://github.com/caimengzhi/books'
-
 theme:
   name: material
   #name: readthedocs
@@ -32,7 +31,7 @@ extra:
     language: 'jp'
 
 markdown_extensions:
-  - admonition：
+  - admonition
   - codehilite:
       guess_lang: false
       linenums: false
@@ -105,6 +104,15 @@ nav:
             - 1. sersync: linux/server/sersync.md
     - 前端:
           - Vue: frontend/vue/index.md
+    - 工具:
+          - 1. git: 
+            - 1. git: git/1.git.md
+            - 2. git回滚: git/2.git_rollback.md
+            - 3. git分支: git/3.git_branch.md
+            - 4. git 标签: git/4.git_lab.md
+          - 2. github: git/5.github.md
+          - 3. gitlab:
+            - 1. gitlab: git/6.gitlab.md
     - 教程:
           - 教程: course/index.md
           
