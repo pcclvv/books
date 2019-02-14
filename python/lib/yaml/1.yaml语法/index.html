@@ -87,7 +87,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#yaml" tabindex="1" class="md-skip">
+      <a href="#url" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -366,6 +366,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#url" title="一、学习 url" class="md-nav__link">
+    一、学习 url
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#yaml" title="二、yaml语法" class="md-nav__link">
     二、yaml语法
   </a>
@@ -376,13 +383,6 @@
           <li class="md-nav__item">
   <a href="#1" title="1、基本规则" class="md-nav__link">
     1、基本规则
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#url" title="学习 url" class="md-nav__link">
-    学习 url
   </a>
   
 </li>
@@ -413,7 +413,8 @@
     5、基本类型：
   </a>
   
-</li>
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#6" title="6、引用" class="md-nav__link">
@@ -440,8 +441,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#constructorsrepresentersresolvers" title="三、构造器(constructors)、表示器(representers)、解析器(resolvers )" class="md-nav__link">
     三、构造器(constructors)、表示器(representers)、解析器(resolvers )
   </a>
@@ -467,11 +468,16 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_1" title="四、示例" class="md-nav__link">
     四、示例
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2104,6 +2110,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#url" title="一、学习 url" class="md-nav__link">
+    一、学习 url
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#yaml" title="二、yaml语法" class="md-nav__link">
     二、yaml语法
   </a>
@@ -2114,13 +2127,6 @@
           <li class="md-nav__item">
   <a href="#1" title="1、基本规则" class="md-nav__link">
     1、基本规则
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#url" title="学习 url" class="md-nav__link">
-    学习 url
   </a>
   
 </li>
@@ -2151,7 +2157,8 @@
     5、基本类型：
   </a>
   
-</li>
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#6" title="6、引用" class="md-nav__link">
@@ -2178,8 +2185,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#constructorsrepresentersresolvers" title="三、构造器(constructors)、表示器(representers)、解析器(resolvers )" class="md-nav__link">
     三、构造器(constructors)、表示器(representers)、解析器(resolvers )
   </a>
@@ -2205,11 +2212,16 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_1" title="四、示例" class="md-nav__link">
     四、示例
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2232,8 +2244,10 @@
                 
                   <h1>1. yaml语法</h1>
                 
-                <h4 id="yaml">二、yaml语法<a class="headerlink" href="#yaml" title="Permanent link">&para;</a></h4>
-<h5 id="1">1、基本规则<a class="headerlink" href="#1" title="Permanent link">&para;</a></h5>
+                <h3 id="url">一、学习 url<a class="headerlink" href="#url" title="Permanent link">&para;</a></h3>
+<p><a href="https://ansible-tran.readthedocs.io/en/latest/docs/YAMLSyntax.html">yaml语法 学习网站 </a></p>
+<h3 id="yaml">二、yaml语法<a class="headerlink" href="#yaml" title="Permanent link">&para;</a></h3>
+<h4 id="1">1、基本规则<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>大小写敏感</li>
 <li>使用缩进表示层级关系</li>
@@ -2243,9 +2257,7 @@
 <li>YAML 还有一个小的怪癖. 所有的 YAML 文件开始行都应该是 ---. 这是 YAML 格式的一部分, 表明一个文件的开始.</li>
 <li>列表中的所有成员都开始于相同的缩进级别, 并且使用一个 "- " 作为开头(一个横杠和一个空格)</li>
 </ul>
-<h5 id="url">学习 url<a class="headerlink" href="#url" title="Permanent link">&para;</a></h5>
-<p><a href="https://ansible-tran.readthedocs.io/en/latest/docs/YAMLSyntax.html">yaml语法 学习网站 </a></p>
-<h5 id="2yaml">2、yaml转字典<a class="headerlink" href="#2yaml" title="Permanent link">&para;</a></h5>
+<h4 id="2yaml">2、yaml转字典<a class="headerlink" href="#2yaml" title="Permanent link">&para;</a></h4>
 <p>yaml中支持映射或字典的表示，如下：
 <div class="codehilite"><pre><span></span># 下面格式读到Python里会是个dict
 name: 灰蓝
@@ -2256,7 +2268,7 @@ job: Tester
 <div class="codehilite"><pre><span></span>{&#39;name&#39;: &#39;灰蓝&#39;, &#39;age&#39;: 0, &#39;job&#39;: &#39;Tester&#39;}
 </pre></div>
 
-<h5 id="3yaml">3、yaml转列表<a class="headerlink" href="#3yaml" title="Permanent link">&para;</a></h5>
+<h4 id="3yaml">3、yaml转列表<a class="headerlink" href="#3yaml" title="Permanent link">&para;</a></h4>
 <p>yaml中支持列表或数组的表示，如下：
 <div class="codehilite"><pre><span></span># 下面格式读到Python里会是个list
 - 灰蓝
@@ -2267,7 +2279,7 @@ job: Tester
 <div class="codehilite"><pre><span></span>[&#39;灰蓝&#39;, 0, &#39;Tester&#39;]
 </pre></div>
 
-<h5 id="4">4、复合结构：<a class="headerlink" href="#4" title="Permanent link">&para;</a></h5>
+<h4 id="4">4、复合结构：<a class="headerlink" href="#4" title="Permanent link">&para;</a></h4>
 <p>字典和列表可以复合起来使用，如下：</p>
 <p><div class="codehilite"><pre><span></span># 下面格式读到Python里是个list里包含dict
 - name: 灰蓝
@@ -2280,17 +2292,18 @@ job: Tester
 <div class="codehilite"><pre><span></span>[{&#39;name&#39;: &#39;灰蓝&#39;, &#39;age&#39;: 0, &#39;job&#39;: &#39;Tester&#39;}, {&#39;name&#39;: &#39;James&#39;, &#39;age&#39;: 30}]
 </pre></div>
 
-<h5 id="5">5、基本类型：<a class="headerlink" href="#5" title="Permanent link">&para;</a></h5>
+<h4 id="5">5、基本类型：<a class="headerlink" href="#5" title="Permanent link">&para;</a></h4>
 <p>yaml中有以下基本类型：</p>
-<p><div class="codehilite"><pre><span></span>1  字符串
-2  整型
-3  浮点型
-4  布尔型
-5  null
-6  时间
-7  日期
-</pre></div>
-我们写个例子来看下：</p>
+<ul>
+<li>1  字符串</li>
+<li>2  整型</li>
+<li>3  浮点型</li>
+<li>4  布尔型</li>
+<li>5  null</li>
+<li>6  时间</li>
+<li>7  日期</li>
+</ul>
+<p>我们写个例子来看下：</p>
 <p><div class="codehilite"><pre><span></span># 这个例子输出一个字典，其中value包括所有基本类型
 str: &quot;Hello World!&quot;
 int: 110
