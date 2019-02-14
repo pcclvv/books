@@ -2653,7 +2653,8 @@ for column in sheet.columns:
 
 <blockquote>
 <p>tip
-学习时还发现也可以通过list(sheet.rows)<a href="或list(sheet.columns)[index]">index</a>对某一行或列进行遍历，而在此值得注意的是，由于sheet.rows(或sheet.columns)是生成器类型，是不能直接调用的，需将其转化为一个list类型，然后再通过索引遍历</p>
+<div class="codehilite"><pre><span></span>学习时还发现也可以通过list(sheet.rows)[index](或list(sheet.columns)[index])对某一行或列进行遍历，而在此值得注意的是，由于sheet.rows(或sheet.columns)是生成器类型，是不能直接调用的，需将其转化为一个list类型，然后再通过索引遍历
+</pre></div></p>
 </blockquote>
 <p><div class="codehilite"><pre><span></span># 对某一特定的行进行遍历
 for cell in list(sheet.rows)[0]:  # 第0行
