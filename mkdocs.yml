@@ -100,19 +100,22 @@ nav:
                 - 2. pandas: 
                     - 1. 介绍: python/lib/pandas/1.index.md                    
     - Linux:
-          - 服务: 
+          - 小工具: 
             - 1. sersync: linux/server/sersync.md
+            - 2. elinks: tools/elinks/1.index.md
+            - 3. Linux终端录屏和回放: tools/script_scriptreplay/1.index.md
     - 前端:
           - Vue: frontend/vue/index.md
-    - 工具:
+    - 服务:
           - 1. git: 
-            - 1. git: git/1.git.md
-            - 2. git回滚: git/2.git_rollback.md
-            - 3. git分支: git/3.git_branch.md
-            - 4. git 标签: git/4.git_lab.md
-          - 2. github: git/5.github.md
+            - 1. git: tools/git/1.git.md
+            - 2. git回滚: tools/git/2.git_rollback.md
+            - 3. git分支: tools/git/3.git_branch.md
+            - 4. git 标签: tools/git/4.git_lab.md
+          - 2. github: tools/github/1.github.md
           - 3. gitlab:
-            - 1. gitlab: git/6.gitlab.md
+            - 1. gitlab: tools/gitlab/1.gitlab.md
+            - 2. 关闭注册: tools/gitlab/2.gitlab_close_register.md
     - 教程:
           - 教程: course/index.md
           

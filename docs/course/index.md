@@ -2,7 +2,7 @@
 ### 1. 克隆项目
 
 ```
-root@leco:/tmp/leco# git clone git@github.com:caimengzhi/books.git
+root@leco:/tmp/leco# git clone https://github.com/caimengzhi/books.git
 正克隆到 'books'...
 remote: Enumerating objects: 1879, done.
 remote: Counting objects: 100% (1879/1879), done.
