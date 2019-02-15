@@ -899,22 +899,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lecoleco-script-help-usage-script-options-file-make-a-typescript-of-a-terminal-session-a-append-append-the-output-c-command-command-run-command-rather-than-interactive-shell-e-return-return-exit-code-of-the-child-process-f-flush-run-flush-after-each-write-force-use-output-file-even-when-it-is-a-link-q-quiet-be-quiet-t-timingfile-output-timing-data-to-stderr-or-to-file-v-version-output-version-information-and-exit-h-help-display-this-help-and-exit-for-more-details-see-script1-a-c-shell-r-f-f-ps-f-q-script-t-v-script-h-scripthelp" title="leco@leco:~$ script --help" class="md-nav__link">
-    leco@leco:~$ script --help
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#23-script" title="2.3 退出script" class="md-nav__link">
     2.3 退出script
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2458,22 +2451,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lecoleco-script-help-usage-script-options-file-make-a-typescript-of-a-terminal-session-a-append-append-the-output-c-command-command-run-command-rather-than-interactive-shell-e-return-return-exit-code-of-the-child-process-f-flush-run-flush-after-each-write-force-use-output-file-even-when-it-is-a-link-q-quiet-be-quiet-t-timingfile-output-timing-data-to-stderr-or-to-file-v-version-output-version-information-and-exit-h-help-display-this-help-and-exit-for-more-details-see-script1-a-c-shell-r-f-f-ps-f-q-script-t-v-script-h-scripthelp" title="leco@leco:~$ script --help" class="md-nav__link">
-    leco@leco:~$ script --help
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#23-script" title="2.3 退出script" class="md-nav__link">
     2.3 退出script
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2536,7 +2522,7 @@ script 的好处就在于你在终端中的所有操作、敲过的命令和打�
 
 <h4 id="22-script">2.2 script命令操作<a class="headerlink" href="#22-script" title="Permanent link">&para;</a></h4>
 <p>使用 script --help 命令来查看 script命令的用法</p>
-<h2 id="lecoleco-script-help-usage-script-options-file-make-a-typescript-of-a-terminal-session-a-append-append-the-output-c-command-command-run-command-rather-than-interactive-shell-e-return-return-exit-code-of-the-child-process-f-flush-run-flush-after-each-write-force-use-output-file-even-when-it-is-a-link-q-quiet-be-quiet-t-timingfile-output-timing-data-to-stderr-or-to-file-v-version-output-version-information-and-exit-h-help-display-this-help-and-exit-for-more-details-see-script1-a-c-shell-r-f-f-ps-f-q-script-t-v-script-h-scripthelp"><div class="codehilite"><pre><span></span>leco@leco:~$ script --help
+<p><div class="codehilite"><pre><span></span>leco@leco:~$ script --help
 Usage:
  script [options] [file]
 Make a typescript of a terminal session.
@@ -2561,14 +2547,11 @@ For more details see script(1).
 -t选项  指明输出录制的时间数据
 -V选项  输出script的版本信息，然后退出
 -h选项  输出script的help信息，然后退出
-</pre></div><a class="headerlink" href="#lecoleco-script-help-usage-script-options-file-make-a-typescript-of-a-terminal-session-a-append-append-the-output-c-command-command-run-command-rather-than-interactive-shell-e-return-return-exit-code-of-the-child-process-f-flush-run-flush-after-each-write-force-use-output-file-even-when-it-is-a-link-q-quiet-be-quiet-t-timingfile-output-timing-data-to-stderr-or-to-file-v-version-output-version-information-and-exit-h-help-display-this-help-and-exit-for-more-details-see-script1-a-c-shell-r-f-f-ps-f-q-script-t-v-script-h-scripthelp" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p>[file] 选项</p>
-<ul>
-<li>
-<p>1、当file为空时，操作内容将记录到当前目录中名称为typescript的文本文件中。
-<div class="codehilite"><pre><span></span>root@leco:~/summer# ls      # 之前是没有文件的
+</pre></div>
+-  [file] 选项</p>
+<div class="codehilite"><pre><span></span>- 1、当file为空时，操作内容将记录到当前目录中名称为typescript的文本文件中。
+```
+root@leco:~/summer# ls      # 之前是没有文件的
 root@leco:~/summer# script  # 启动，默认保存是typescript文件
 脚本已启动，文件为 typescript
 root@leco:~/summer# exit    #退出
@@ -2583,11 +2566,11 @@ root@leco:~/summer# exit
 exit
 
 脚本完成，于 2019年01月23日 星期三 09时57分03秒
-</pre></div></p>
-</li>
-<li>
-<p>2、如果指定file，那么将把终端的操作内容记录到file文件中。
-<div class="codehilite"><pre><span></span>root@leco:~/summer# rm typescript           # 删除之前做实验的默认输出文件
+```
+
+- 2、如果指定file，那么将把终端的操作内容记录到file文件中。
+```
+root@leco:~/summer# rm typescript           # 删除之前做实验的默认输出文件
 root@leco:~/summer# ls
 root@leco:~/summer# script summerout.log    # 指定输出文件
 脚本已启动，文件为 summerout.log
@@ -2610,11 +2593,10 @@ root@leco:~/summer# exit
 exit
 
 脚本完成，于 2019年01月23日 星期三 09时59分25秒
-</pre></div></p>
-</li>
-</ul>
-</li>
-</ul>
+```
+</pre></div>
+
+
 <hr />
 <ul>
 <li>查看版本
