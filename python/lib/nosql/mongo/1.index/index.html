@@ -971,6 +971,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#211-code" title="2.11 code" class="md-nav__link">
+    2.11 code
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2893,6 +2900,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#211-code" title="2.11 code" class="md-nav__link">
+    2.11 code
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3320,6 +3334,113 @@ delete_one()即删除第一条符合条件的数据，delete_many()即删除所�
 <p>另外还可以对索引进行操作，如create_index() 、create_indexes() 、drop_index()等。</p>
 <p>详细用法可以参见官方文档：<a href="http://api.mongodb.com/python/current/api/pymongo/collection.html">http://api.mongodb.com/python/current/api/pymongo/collection.html</a></p>
 <p>另外还有对数据库、集合本身以及其他的一些操作，在这不再一一讲解，可以参见官方文档：<a href="http://api.mongodb.com/python/current/api/pymongo/">http://api.mongodb.com/python/current/api/pymongo/</a></p>
+<h3 id="211-code">2.11 code<a class="headerlink" href="#211-code" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import pymongo
+import datetime
+
+
+def get_db():
+    # 建立连接
+    client = pymongo.MongoClient(host=&quot;127.0.0.1&quot;, port=27017)
+    db = client[&#39;example&#39;]
+    #或者 db = client.example
+    return db
+
+
+def get_collection(db):
+    # 选择集合（mongo中collection和database都是延时创建的）
+    coll = db[&#39;informations&#39;]
+    print (db.collection_names())
+    return coll
+
+
+def insert_one_doc(db):
+    # 插入一个document
+    coll = db[&#39;informations&#39;]
+    information = {&quot;name&quot;: &quot;quyang&quot;, &quot;age&quot;: &quot;25&quot;}
+    information_id = coll.insert(information)
+    print(information_id)
+
+
+def insert_multi_docs(db):
+    # 批量插入documents,插入一个数组
+    coll = db[&#39;informations&#39;]
+    information = [{&quot;name&quot;: &quot;xiaoming&quot;, &quot;age&quot;: &quot;25&quot;}, {&quot;name&quot;: &quot;xiaoqiang&quot;, &quot;age&quot;: &quot;24&quot;}]
+    information_id = coll.insert(information)
+    print(information_id)
+
+
+def get_one_doc(db):
+    # 有就返回一个，没有就返回None
+    coll = db[&#39;informations&#39;]
+    print(coll.find_one())  # 返回第一条记录
+    print(coll.find_one({&quot;name&quot;: &quot;quyang&quot;}))
+    print(coll.find_one({&quot;name&quot;: &quot;none&quot;}))
+
+
+def get_one_by_id(db):
+    # 通过objectid来查找一个doc
+    coll = db[&#39;informations&#39;]
+    obj = coll.find_one()
+    obj_id = obj[&quot;_id&quot;]
+    print(&quot;_id 为ObjectId类型，obj_id:&quot; + str(obj_id))
+
+    print(coll.find_one({&quot;_id&quot;: obj_id}))
+    # 需要注意这里的obj_id是一个对象，不是一个str，使用str类型作为_id的值无法找到记录
+    print(&quot;_id 为str类型 &quot;)
+    print(coll.find_one({&quot;_id&quot;: str(obj_id)}))
+    # 可以通过ObjectId方法把str转成ObjectId类型
+    from bson.objectid import ObjectId
+
+    print (&quot;_id 转换成ObjectId类型&quot;)
+    print (coll.find_one({&quot;_id&quot;: ObjectId(str(obj_id))}))
+
+
+def get_many_docs(db):
+    # mongo中提供了过滤查找的方法，可以通过各种条件筛选来获取数据集，还可以对数据进行计数，排序等处理
+    coll = db[&#39;informations&#39;]
+    #ASCENDING = 1 升序;DESCENDING = -1降序;default is ASCENDING
+    for item in coll.find().sort(&quot;age&quot;, pymongo.DESCENDING):
+        print(item)
+
+    count = coll.count()
+    print (&quot;集合中所有数据 %s个&quot; % int(count))
+
+    #条件查询
+    count = coll.find({&quot;name&quot;:&quot;quyang&quot;}).count()
+    print (&quot;quyang: %s&quot;%count)
+
+def clear_all_datas(db):
+    #清空一个集合中的所有数据
+    db[&quot;informations&quot;].remove()
+
+if __name__ == &#39;__main__&#39;:
+    db = get_db()
+    my_collection = get_collection(db)
+    post = {&quot;author&quot;: &quot;Mike&quot;, &quot;text&quot;: &quot;My first blog post!&quot;, &quot;tags&quot;: [&quot;mongodb&quot;, &quot;python&quot;, &quot;pymongo&quot;],
+            &quot;date&quot;: datetime.datetime.utcnow()}
+    # 插入记录
+    my_collection.insert(post)
+    insert_one_doc(db)
+    # 条件查询
+    print (my_collection.find_one({&quot;x&quot;: &quot;10&quot;}))
+    # 查询表中所有的数据
+    for iii in my_collection.find():
+        print(iii)
+    print (my_collection.count())
+    my_collection.update({&quot;author&quot;: &quot;Mike&quot;},
+                         {&quot;author&quot;: &quot;quyang&quot;, &quot;text&quot;: &quot;My first blog post!&quot;, &quot;tags&quot;: [&quot;mongodb&quot;, &quot;python&quot;, &quot;pymongo&quot;],
+                          &quot;date&quot;: datetime.datetime.utcnow()})
+    for jjj in my_collection.find():
+        print (jjj)
+    get_one_doc(db)
+    get_one_by_id(db)
+    get_many_docs(db)
+    # clear_all_datas(db)
+</pre></div>
                 
                   
                 
