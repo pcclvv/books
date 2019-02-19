@@ -40,7 +40,7 @@
     
     
       
-        <title>2. 加解密execl表 - 笔记</title>
+        <title>1. mongo - 笔记</title>
       
     
     
@@ -106,6 +106,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -128,7 +132,7 @@
                 笔记
               </span>
               <span class="md-header-nav__topic">
-                2. 加解密execl表
+                1. mongo
               </span>
             
           
@@ -513,12 +517,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-5" type="checkbox" id="nav-1-1-5" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-5" type="checkbox" id="nav-1-1-5">
     
     <label class="md-nav__link" for="nav-1-1-5">
       5. 加解密库
@@ -536,7 +538,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../1.base64使用/" title="1. base4" class="md-nav__link">
+    <a href="../../../encryption_decryption/base64/1.base64使用/" title="1. base4" class="md-nav__link">
       1. base4
     </a>
   </li>
@@ -546,18 +548,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="2. 加解密execl表" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../../encryption_decryption/base64/2.案例/" title="2. 加解密execl表" class="md-nav__link">
       2. 加解密execl表
     </a>
-    
   </li>
 
         
@@ -690,10 +685,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-9" type="checkbox" id="nav-1-1-9">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-9" type="checkbox" id="nav-1-1-9" checked>
     
     <label class="md-nav__link" for="nav-1-1-9">
       9. Nosql
@@ -709,11 +706,284 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../../nosql/mongo/1.index/" title="1. mongo" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        1. mongo
+      </label>
+    
+    <a href="./" title="1. mongo" class="md-nav__link md-nav__link--active">
       1. mongo
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 介绍" class="md-nav__link">
+    1. 介绍
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" title="1.1 安装" class="md-nav__link">
+    1.1 安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-pymongo" title="1.2 测试pymongo" class="md-nav__link">
+    1.2 测试pymongo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 详细" class="md-nav__link">
+    2. 详细
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-mongodb" title="2.1 连接MongoDB" class="md-nav__link">
+    2.1 连接MongoDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" title="2.2 指定数据库" class="md-nav__link">
+    2.2 指定数据库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" title="2.3 指定集合" class="md-nav__link">
+    2.3 指定集合
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" title="2.4 插入数据" class="md-nav__link">
+    2.4 插入数据
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" title="2.4.1 单条插入" class="md-nav__link">
+    2.4.1 单条插入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242" title="2.4.2 多条插入" class="md-nav__link">
+    2.4.2 多条插入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243" title="2.4.3 新单条插入" class="md-nav__link">
+    2.4.3 新单条插入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#244" title="2.4.4 新多条插入" class="md-nav__link">
+    2.4.4 新多条插入
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" title="2.5 查询数据" class="md-nav__link">
+    2.5 查询数据
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251-find_one" title="2.5.1 find_one()" class="md-nav__link">
+    2.5.1 find_one()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252-find" title="2.5.2 find()" class="md-nav__link">
+    2.5.2 find()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#253" title="2.5.3 比较符号" class="md-nav__link">
+    2.5.3 比较符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#254" title="2.5.4 功能符号" class="md-nav__link">
+    2.5.4 功能符号
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25_1" title="2.5 计数" class="md-nav__link">
+    2.5 计数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" title="2.6 排序" class="md-nav__link">
+    2.6 排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" title="2.7 偏移" class="md-nav__link">
+    2.7 偏移
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-limit" title="2.8 limit" class="md-nav__link">
+    2.8 limit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29" title="2.9 更新" class="md-nav__link">
+    2.9 更新
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#291-update" title="2.9.1 update" class="md-nav__link">
+    2.9.1 update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#292-update_one" title="2.9.2 update_one" class="md-nav__link">
+    2.9.2 update_one
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#293-update_many" title="2.9.3 update_many" class="md-nav__link">
+    2.9.3 update_many
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#210" title="2.10 删除" class="md-nav__link">
+    2.10 删除
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2101-remove" title="2.10.1 remove" class="md-nav__link">
+    2.10.1 remove
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2102-delete_one" title="2.10.2 delete_one" class="md-nav__link">
+    2.10.2 delete_one
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2103-delete_many" title="2.10.3 delete_many" class="md-nav__link">
+    2.10.3 delete_many
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2104" title="2.10.4 更多" class="md-nav__link">
+    2.10.4 更多
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -2371,167 +2641,688 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 介绍" class="md-nav__link">
+    1. 介绍
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" title="1.1 安装" class="md-nav__link">
+    1.1 安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-pymongo" title="1.2 测试pymongo" class="md-nav__link">
+    1.2 测试pymongo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 详细" class="md-nav__link">
+    2. 详细
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-mongodb" title="2.1 连接MongoDB" class="md-nav__link">
+    2.1 连接MongoDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" title="2.2 指定数据库" class="md-nav__link">
+    2.2 指定数据库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" title="2.3 指定集合" class="md-nav__link">
+    2.3 指定集合
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" title="2.4 插入数据" class="md-nav__link">
+    2.4 插入数据
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" title="2.4.1 单条插入" class="md-nav__link">
+    2.4.1 单条插入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242" title="2.4.2 多条插入" class="md-nav__link">
+    2.4.2 多条插入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243" title="2.4.3 新单条插入" class="md-nav__link">
+    2.4.3 新单条插入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#244" title="2.4.4 新多条插入" class="md-nav__link">
+    2.4.4 新多条插入
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" title="2.5 查询数据" class="md-nav__link">
+    2.5 查询数据
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251-find_one" title="2.5.1 find_one()" class="md-nav__link">
+    2.5.1 find_one()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252-find" title="2.5.2 find()" class="md-nav__link">
+    2.5.2 find()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#253" title="2.5.3 比较符号" class="md-nav__link">
+    2.5.3 比较符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#254" title="2.5.4 功能符号" class="md-nav__link">
+    2.5.4 功能符号
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25_1" title="2.5 计数" class="md-nav__link">
+    2.5 计数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" title="2.6 排序" class="md-nav__link">
+    2.6 排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" title="2.7 偏移" class="md-nav__link">
+    2.7 偏移
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-limit" title="2.8 limit" class="md-nav__link">
+    2.8 limit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29" title="2.9 更新" class="md-nav__link">
+    2.9 更新
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#291-update" title="2.9.1 update" class="md-nav__link">
+    2.9.1 update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#292-update_one" title="2.9.2 update_one" class="md-nav__link">
+    2.9.2 update_one
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#293-update_many" title="2.9.3 update_many" class="md-nav__link">
+    2.9.3 update_many
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#210" title="2.10 删除" class="md-nav__link">
+    2.10 删除
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2101-remove" title="2.10.1 remove" class="md-nav__link">
+    2.10.1 remove
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2102-delete_one" title="2.10.2 delete_one" class="md-nav__link">
+    2.10.2 delete_one
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2103-delete_many" title="2.10.3 delete_many" class="md-nav__link">
+    2.10.3 delete_many
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2104" title="2.10.4 更多" class="md-nav__link">
+    2.10.4 更多
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/caimengzhi/books/edit/master/docs/python/lib/encryption_decryption/base64/2.案例.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/caimengzhi/books/edit/master/docs/python/lib/nosql/mongo/1.index.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>2. 加解密execl表</h1>
+                  <h1>1. mongo</h1>
                 
-                <p>要求：</p>
-<ul>
-<li>操作excel</li>
-<li>加解密excel某行数据</li>
-<li>加解密excel某列数据</li>
-</ul>
-<div class="codehilite"><pre><span></span>#!/usr/bin/python
-# _*_ coding: utf-8 _*_
-&quot;&quot;&quot;
-@Author  : summer
-@File    : 加解密.py
-@Software: PyCharm
-&quot;&quot;&quot;
+                <h2 id="1">1. 介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>MongoDB 是目前最流行的 NoSQL 数据库之一，使用的数据类型 BSON（类似 JSON）。</p>
+<p style="text-indent:2em"> Python 要连接 MongoDB 需要 MongoDB 驱动，这里我们使用 PyMongo 驱动来连接。</p>
 
-import os
-import base64
-import openpyxl
-
-
-class encryption_decryption():
-    def __init__(self, filename, sheet_name=&quot;Sheet1&quot;, row=None, column=None):
-        self.filename = filename
-        self.row = row
-        self.column = column
-        self.sheet_name = sheet_name
-        self.row = row
-        self.wb = None
-        if not self.check_filename():
-            exit(&quot;%s 文件不在&quot; % self.filename)
-
-    def check_filename(self):
-        flag = False
-        if os.path.exists(self.filename):
-            wb = openpyxl.load_workbook(self.filename)
-            self.wb = wb
-            flag = True
-        return flag
-
-    # 加密某行数据
-    def encryption_row(self):
-        sheet = self.wb[self.sheet_name]         # 获取到哪一页
-        for cell in list(sheet.rows)[self.row]:  # 第row行
-            cell.value = base64.b64encode(str(cell.value).encode(&#39;UTF-8&#39;))
-        self.wb.save(&#39;加密行.xlsx&#39;)
-
-    # 解密某行数据
-    def decryption_row(self):
-        sheet = self.wb[self.sheet_name]         # 获取到哪一页
-        for cell in list(sheet.rows)[self.row]:  # 第row行
-            cell.value = str(base64.b64decode(cell.value), &#39;utf-8&#39;)
-        self.wb.save(&#39;解密行.xlsx&#39;)
-
-    # 加密某列数据
-    def encryption_column(self):
-        sheet = self.wb[self.sheet_name]
-        for cell in list(sheet.columns)[self.column]:  # 第column列
-            cell.value = base64.b64encode(str(cell.value).encode(&#39;UTF-8&#39;))
-        self.wb.save(&#39;加密列.xlsx&#39;)
-
-    # 解密某列数据
-    def decryption_column(self):
-        sheet = self.wb[self.sheet_name]
-        for cell in list(sheet.columns)[self.column]:  # 第column列
-            cell.value = str(base64.b64decode(str(cell.value)), &#39;utf-8&#39;)
-            self.wb.save(&#39;解密列.xlsx&#39;)
-
-
-if __name__ == &#39;__main__&#39;:
-
-    # 加密某行
-    obj = encryption_decryption(r&quot;.\example.xlsx&quot;, &quot;Sheet1&quot;, row=2)
-    obj.encryption_row()
-    # 解密某行
-    obj.decryption_row()
-
-    # 加密某列
-    obj = encryption_decryption(r&quot;.\example.xlsx&quot;, column=2)
-    obj.encryption_column()
-    # 解密某列
-    obj.decryption_column()
+<h3 id="11">1.1 安装<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>pip 是一个通用的 Python 包管理工具，提供了对 Python 包的查找、下载、安装、卸载的功能。</p>
+<p><div class="codehilite"><pre><span></span>python3 -m pip3 install pymongo
+</pre></div>
+也可以指定安装的版本:</p>
+<p><div class="codehilite"><pre><span></span>python3 -m pip3 install pymongo==3.5.1
+</pre></div>
+更新 pymongo 命令：</p>
+<p><div class="codehilite"><pre><span></span>python3 -m pip3 install --upgrade pymongo
+</pre></div>
+旧版的 Python 可以使用 easy_install 来安装，easy_install 也是 Python 包管理工具。</p>
+<p><div class="codehilite"><pre><span></span>python -m easy_install pymongo
+</pre></div>
+更新 pymongo 命令：</p>
+<div class="codehilite"><pre><span></span>python -m easy_install -U pymongo
 </pre></div>
 
-<p>改进版
-<div class="codehilite"><pre><span></span>#!/usr/bin/python
-# _*_ coding: utf-8 _*_
-&quot;&quot;&quot;
-@Time    : 2019/1/23 16:22
-@File    : 加解密.py
-@Software: PyCharm
-&quot;&quot;&quot;
+<h3 id="12-pymongo">1.2 测试pymongo<a class="headerlink" href="#12-pymongo" title="Permanent link">&para;</a></h3>
+<p>接下来我们可以创建一个测试文件 test_mongodb.py，代码如下
+<div class="codehilite"><pre><span></span>root@leco:/home/leco# cat test_mongodb.py
+#!/usr/bin/python3
 
-import os
-import base64
-import openpyxl
-
-
-class encryption_decryption():
-    def __init__(self, filename, sheet_name=&quot;Sheet1&quot;, row=None, column=None):
-        self.filename = filename
-        self.row = row
-        self.column = column
-        self.sheet_name = sheet_name
-        self.row = row
-        self.wb = None
-        if not self.check_filename():
-            exit(&quot;%s 文件不在&quot; % self.filename)
-
-    def check_filename(self):
-        if os.path.exists(self.filename):
-            self.wb = openpyxl.load_workbook(self.filename)
-            return True
-        return False
-
-    def base(self, col_row, mode, outfilename):
-        sheet = self.wb[self.sheet_name]  # 获取到哪一页
-        if col_row == &quot;行&quot;:  # 行
-            for cell in list(sheet.rows)[self.row]:
-                if mode == &quot;加密&quot;:
-                    cell.value = base64.b64encode(str(cell.value).encode(&#39;UTF-8&#39;))
-                elif mode == &quot;解密&quot;:
-                    cell.value = str(base64.b64decode(cell.value), &#39;utf-8&#39;)
-                else:
-                    exit(&quot;编码方式不对。只能有，加密encrypt和解密decrypt&quot;)
-        elif col_row == &quot;列&quot;:
-            for cell in list(sheet.columns)[self.column]:  # 第column列
-                if mode == &quot;加密&quot;:
-                    cell.value = base64.b64encode(str(cell.value).encode(&#39;UTF-8&#39;))
-                elif mode == &quot;解密&quot;:
-                    cell.value = str(base64.b64decode(str(cell.value)), &#39;utf-8&#39;)
-                else:
-                    exit(&quot;编码方式不对。只能有，加密encrypt和解密decrypt&quot;)
-        else:
-            exit(&quot;行列不对。只能有选择加密行或者加密列&quot;)
-        self.wb.save(outfilename)
-
-    def data(self, col_row, mode, outfilename):
-        self.base(col_row, mode, outfilename)
-
-
-if __name__ == &#39;__main__&#39;:
-
-    # 加解密行
-    obj = encryption_decryption(r&quot;.\example.xlsx&quot;, &quot;Sheet1&quot;, row=2)
-    obj.data(&quot;行&quot;, &quot;加密&quot;, &quot;加密行测试.xlsx&quot;)
-    obj.data(&quot;行&quot;, &quot;解密&quot;, &quot;解密行测试.xlsx&quot;)
-
-    # 加解密列
-    obj = encryption_decryption(r&quot;.\example.xlsx&quot;, &quot;Sheet1&quot;, column=2)
-    obj.data(&quot;列&quot;, &quot;加密&quot;, &quot;加密列测试.xlsx&quot;)
-    obj.data(&quot;列&quot;, &quot;解密&quot;, &quot;解密列测试.xlsx&quot;)
+import pymongo
+root@leco:/home/leco# python3 test_mongodb.py
+root@leco:/home/leco# echo $?
+0
 </pre></div></p>
+<p>执行以上代码文件，如果没有出现错误，表示安装成功。</p>
+<h2 id="2">2. 详细<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21-mongodb">2.1 连接MongoDB<a class="headerlink" href="#21-mongodb" title="Permanent link">&para;</a></h3>
+<p>连接MongoDB我们需要使用PyMongo库里面的MongoClient，一般来说传入MongoDB的IP及端口即可，第一个参数为地址host，第二个参数为端口port，端口如果不传默认是27017。</p>
+<p><div class="codehilite"><pre><span></span>import pymongo
+client = pymongo.MongoClient(host=&#39;localhost&#39;, port=27017)
+</pre></div>
+这样我们就可以创建一个MongoDB的连接对象了。
+另外MongoClient的第一个参数host还可以直接传MongoDB的连接字符串，以mongodb开头，例如：</p>
+<p><div class="codehilite"><pre><span></span>client = MongoClient(&#39;mongodb://localhost:27017/&#39;)
+</pre></div>
+可以达到同样的连接效果。</p>
+<h3 id="22">2.2 指定数据库<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>MongoDB中还分为一个个数据库，我们接下来的一步就是指定要操作哪个数据库，在这里我以test_mongo_db数据库为例进行说明，所以下一步我们需要在程序中指定要使用的数据库。调用client的test_mongo_db属性即可返回test_mongo_db数据库。</p>
+<div class="codehilite"><pre><span></span>db = client.test_mongo_db
+或者
+db = client[&#39;test_mongo_db&#39;]
+</pre></div>
+
+<h3 id="23">2.3 指定集合<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p>MongoDB的每个数据库又包含了许多集合Collection，也就类似与关系型数据库中的表，下一步我们需要指定要操作的集合，在这里我们指定一个集合名称为informations，informations集合。还是和指定数据库类似，指定集合也有两种方式:</p>
+<div class="codehilite"><pre><span></span>collection = db.informations
+或者
+collection = db[&#39;informations&#39;]
+</pre></div>
+
+<h3 id="24">2.4 插入数据<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<h4 id="241">2.4.1 单条插入<a class="headerlink" href="#241" title="Permanent link">&para;</a></h4>
+<p>接下来我们便可以进行数据插入了，对于informations这个Collection，我们新建一条数据，以字典的形式表示：</p>
+<p><div class="codehilite"><pre><span></span>information = {&quot;name&quot;: &quot;张三&quot;, &quot;age&quot;: &quot;25&quot;}
+</pre></div>
+在这里我们指定了姓名、年龄然后接下来直接调用collection的insert()方法即可插入数据。</p>
+<p><div class="codehilite"><pre><span></span>result = collection.insert(information)
+print(result)
+</pre></div>
+在MongoDB中，每条数据其实都有一个_id属性来唯一标识，如果没有显式指明_id，MongoDB会自动产生一个ObjectId类型的_id属性。insert()方法会在执行后返回的_id值。运行结果：</p>
+<div class="codehilite"><pre><span></span>5c6b659b1607c47f8abe6ab7
+</pre></div>
+
+<h4 id="242">2.4.2 多条插入<a class="headerlink" href="#242" title="Permanent link">&para;</a></h4>
+<p>当然我们也可以同时插入多条数据，只需要以列表形式传递即可，示例如下：</p>
+<p><div class="codehilite"><pre><span></span>information = [{&quot;name&quot;: &quot;小明&quot;, &quot;age&quot;: &quot;25&quot;}, {&quot;name&quot;: &quot;小强&quot;, &quot;age&quot;: &quot;24&quot;}]
+information_id = collection.insert(information)
+print(information_id)
+
+或者
+xiaoming={&quot;name&quot;: &quot;小明&quot;, &quot;age&quot;: &quot;25&quot;}
+xiaoqiang= {&quot;name&quot;: &quot;小强&quot;, &quot;age&quot;: &quot;24&quot;}
+information_id = collection.insert([xiaoming,xiaoqiang])
+print(information_id)
+</pre></div>
+返回的结果是对应的_id的集合，运行结果：</p>
+<div class="codehilite"><pre><span></span>[ObjectId(&#39;5c6b65c01607c47f8abe6ab8&#39;), ObjectId(&#39;5c6b65c01607c47f8abe6ab9&#39;)]
+</pre></div>
+
+<h4 id="243">2.4.3 新单条插入<a class="headerlink" href="#243" title="Permanent link">&para;</a></h4>
+<p>实际上在PyMongo 3.X版本中，insert()方法官方已经不推荐使用了，当然继续使用也没有什么问题，官方推荐使用insert_one()和insert_many()方法将插入单条和多条记录分开。</p>
+<p><div class="codehilite"><pre><span></span>lisi = {&quot;name&quot;: &quot;李四&quot;, &quot;age&quot;: &quot;25&quot;}
+result = collection.insert_one(lisi)
+print(result.inserted_id)
+</pre></div>
+返回结果和insert()方法不同，这次返回的是InsertOneResult对象，我们可以调用其inserted_id属性获取_id。结果是</p>
+<div class="codehilite"><pre><span></span>5c6b65df1607c47f8abe6aba
+</pre></div>
+
+<h4 id="244">2.4.4 新多条插入<a class="headerlink" href="#244" title="Permanent link">&para;</a></h4>
+<p>对于insert_many()方法，我们可以将数据以列表形式传递即可，示例如下：
+<div class="codehilite"><pre><span></span>wangwu={&quot;name&quot;: &quot;王五&quot;, &quot;age&quot;: &quot;25&quot;}
+zhaoliu= {&quot;name&quot;: &quot;赵六&quot;, &quot;age&quot;: &quot;24&quot;}
+result = collection.insert_many([wangwu,zhaoliu])
+print(result)
+print(result.inserted_ids)
+</pre></div>
+结果是:</p>
+<div class="codehilite"><pre><span></span>&lt;pymongo.results.InsertManyResult object at 0x7f3cf2dc68c8&gt;
+[ObjectId(&#39;5c6b66081607c47f8abe6abb&#39;), ObjectId(&#39;5c6b66081607c47f8abe6abc&#39;)]
+</pre></div>
+
+<p>insert_many()方法返回的类型是InsertManyResult，调用inserted_ids属性可以获取插入数据的_id列表.</p>
+<h3 id="25">2.5 查询数据<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
+<h4 id="251-find_one">2.5.1 find_one()<a class="headerlink" href="#251-find_one" title="Permanent link">&para;</a></h4>
+<p>插入数据后我们可以利用find_one(),find_one()查询得到是单个结果。</p>
+<p><div class="codehilite"><pre><span></span>result = collection.find_one({&#39;name&#39;: &#39;张三&#39;})
+print(type(result))
+print(result)
+</pre></div>
+结果是:</p>
+<p><div class="codehilite"><pre><span></span>&lt;class &#39;dict&#39;&gt;
+{&#39;_id&#39;: ObjectId(&#39;5c6b659b1607c47f8abe6ab7&#39;), &#39;name&#39;: &#39;张三&#39;, &#39;age&#39;: &#39;25&#39;}
+</pre></div>
+可以发现它多了一个_id属性，这就是MongoDB在插入的过程中自动添加的。</p>
+<p>我们也可以直接根据ObjectId来查询，这里需要使用bson库里面的ObjectId。</p>
+<p><div class="codehilite"><pre><span></span>In [27]: from bson.objectid import ObjectId
+
+In [28]: result = collection.find_one({&#39;_id&#39;:ObjectId(&#39;5c6b659b1607c47f8abe6ab7&#39;)})
+
+In [29]: print(result)
+{&#39;_id&#39;: ObjectId(&#39;5c6b659b1607c47f8abe6ab7&#39;), &#39;name&#39;: &#39;张三&#39;, &#39;age&#39;: &#39;25&#39;}
+</pre></div>
+其查询结果依然是字典类型，运行结果：</p>
+<p><div class="codehilite"><pre><span></span>{&#39;_id&#39;: ObjectId(&#39;5c6b659b1607c47f8abe6ab7&#39;), &#39;name&#39;: &#39;张三&#39;, &#39;age&#39;: &#39;25&#39;}
+</pre></div>
+当然如果查询结果不存在则会返回None.</p>
+<h4 id="252-find">2.5.2 find()<a class="headerlink" href="#252-find" title="Permanent link">&para;</a></h4>
+<p>find()则返回多个结果。对于多条数据的查询，我们可以使用find()方法，例如在这里查找年龄为25的数据，</p>
+<p><div class="codehilite"><pre><span></span>results = collection.find({&#39;age&#39;: &#39;25&#39;})
+print(results)
+for result in results:
+    print(result)
+</pre></div>
+结果是:</p>
+<p><div class="codehilite"><pre><span></span>{&#39;_id&#39;: ObjectId(&#39;5c6b659b1607c47f8abe6ab7&#39;), &#39;name&#39;: &#39;张三&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b65c01607c47f8abe6ab8&#39;), &#39;name&#39;: &#39;小明&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b65df1607c47f8abe6aba&#39;), &#39;name&#39;: &#39;李四&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b66081607c47f8abe6abb&#39;), &#39;name&#39;: &#39;王五&#39;, &#39;age&#39;: &#39;25&#39;}
+</pre></div>
+返回结果是Cursor类型，相当于一个生成器，我们需要遍历取到所有的结果，每一个结果都是字典类型。</p>
+<p>如果要查询年龄大于20的数据，则写法如下：</p>
+<p><div class="codehilite"><pre><span></span>results = collection.find({&#39;age&#39;: {&#39;$gt&#39;: &#39;20&#39;}})
+</pre></div>
+测试</p>
+<p><div class="codehilite"><pre><span></span>In [38]: results = collection.find({&#39;age&#39;: {&#39;$gt&#39;: &#39;20&#39;}})
+
+In [39]: for data in results:
+    ...:     print(data)
+    ...: 
+{&#39;_id&#39;: ObjectId(&#39;5c6b659b1607c47f8abe6ab7&#39;), &#39;name&#39;: &#39;张三&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b65c01607c47f8abe6ab8&#39;), &#39;name&#39;: &#39;小明&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b65c01607c47f8abe6ab9&#39;), &#39;name&#39;: &#39;小强&#39;, &#39;age&#39;: &#39;24&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b65df1607c47f8abe6aba&#39;), &#39;name&#39;: &#39;李四&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b66081607c47f8abe6abb&#39;), &#39;name&#39;: &#39;王五&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b66081607c47f8abe6abc&#39;), &#39;name&#39;: &#39;赵六&#39;, &#39;age&#39;: &#39;24&#39;}
+</pre></div>
+在这里查询的条件键值已经不是单纯的数字了，而是一个字典，其键名为比较符号$gt，意思是大于，键值为20，这样便可以查询出所有年龄大于20的数据。</p>
+<h4 id="253">2.5.3 比较符号<a class="headerlink" href="#253" title="Permanent link">&para;</a></h4>
+<p>在这里将比较符号归纳如下表：</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$lt</td>
+<td>小于</td>
+<td>{'age': {'$lt': 20}}</td>
+</tr>
+<tr>
+<td>$gt</td>
+<td>大于</td>
+<td>{'age': {'$gt': 20}}</td>
+</tr>
+<tr>
+<td>$lte</td>
+<td>小于等于</td>
+<td>{'age': {'$lte': 20}}</td>
+</tr>
+<tr>
+<td>$gte</td>
+<td>大于等于</td>
+<td>{'age': {'$gte': 20}}</td>
+</tr>
+<tr>
+<td>$ne</td>
+<td>不等于</td>
+<td>{'age': {'$ne': 20}}</td>
+</tr>
+<tr>
+<td>$in</td>
+<td>在范围内</td>
+<td>{'age': {'$in': [20, 23]}}</td>
+</tr>
+<tr>
+<td>$nin</td>
+<td>不在范围内</td>
+<td>{'age': {'$nin': [20, 23]}}</td>
+</tr>
+</tbody>
+</table>
+<p>另外还可以进行正则匹配查询，例如查询名字以M开头的学生数据，示例如下：</p>
+<p><div class="codehilite"><pre><span></span>results = collection.find({&#39;name&#39;: {&#39;$regex&#39;: &#39;^M.*&#39;}})
+</pre></div>
+在这里使用了$regex来指定正则匹配，^M.*代表以M开头的正则表达式，这样就可以查询所有符合该正则的结果。</p>
+<h4 id="254">2.5.4 功能符号<a class="headerlink" href="#254" title="Permanent link">&para;</a></h4>
+<p>在这里将一些功能符号再归类如下：</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+<th>例子</th>
+<th>例子含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$regex</td>
+<td>匹配正则</td>
+<td>{'name': {'$regex': '^M.*'}}</td>
+<td>name以M开头</td>
+</tr>
+<tr>
+<td>$exists</td>
+<td>属性是否存在</td>
+<td>{'name': {'$exists': True}}</td>
+<td>name属性存在</td>
+</tr>
+<tr>
+<td>$type</td>
+<td>类型判断</td>
+<td>{'age': {'$type': 'int'}}</td>
+<td>age的类型为int</td>
+</tr>
+<tr>
+<td>$mod</td>
+<td>数字模操作</td>
+<td>{'age': {'$mod': [5, 0]}}</td>
+<td>年龄模5余0</td>
+</tr>
+<tr>
+<td>$text</td>
+<td>文本查询</td>
+<td>{'<span><span class="MathJax_Preview">text': {'</span><script type="math/tex">text': {'</script></span>search': 'Mike'}}</td>
+<td>text类型的属性中包含Mike字符串</td>
+</tr>
+<tr>
+<td>$where</td>
+<td>高级条件查询</td>
+<td>{'$where': 'obj.fans_count == obj.follows_count'}</td>
+<td>自身粉丝数等于关注数</td>
+</tr>
+<tr>
+<td>这些操作的更详细用法在可以在MongoDB官方文档找到：<a href="https://docs.mongodb.com/manual/reference/operator/query/">https://docs.mongodb.com/manual/reference/operator/query/</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="25_1">2.5 计数<a class="headerlink" href="#25_1" title="Permanent link">&para;</a></h3>
+<p>要统计查询结果有多少条数据，可以调用count()方法，如统计所有数据条数：</p>
+<p><div class="codehilite"><pre><span></span>In [40]: count = collection.find().count()
+In [41]: print(count)
+6
+</pre></div>
+或者统计符合某个条件的数据：</p>
+<div class="codehilite"><pre><span></span>In [43]: count = collection.find({&#39;age&#39;: &#39;25&#39;}).count()
+In [44]: print(count)
+4
+</pre></div>
+
+<h3 id="26">2.6 排序<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
+<p>可以调用sort方法，传入排序的字段及升降序标志即可，示例如下：</p>
+<div class="codehilite"><pre><span></span>In [45]: results = collection.find().sort(&#39;name&#39;, pymongo.ASCENDING)
+In [46]: print([result[&#39;name&#39;] for result in results])
+[&#39;小强&#39;, &#39;小明&#39;, &#39;张三&#39;, &#39;李四&#39;, &#39;王五&#39;, &#39;赵六&#39;]
+</pre></div>
+
+<h3 id="27">2.7 偏移<a class="headerlink" href="#27" title="Permanent link">&para;</a></h3>
+<p>在某些情况下我们可能想只取某几个元素，在这里可以利用skip()方法偏移几个位置，比如偏移2，就忽略前2个元素，得到第三个及以后的元素。</p>
+<div class="codehilite"><pre><span></span>In [47]: results = collection.find().sort(&#39;name&#39;, pymongo.ASCENDING).skip(2)
+In [48]: print([result[&#39;name&#39;] for result in results])
+[&#39;张三&#39;, &#39;李四&#39;, &#39;王五&#39;, &#39;赵六&#39;]
+</pre></div>
+
+<h3 id="28-limit">2.8 limit<a class="headerlink" href="#28-limit" title="Permanent link">&para;</a></h3>
+<p>可以用limit()方法指定要取的结果个数，示例如下：</p>
+<p><div class="codehilite"><pre><span></span>In [49]: results = collection.find().sort(&#39;name&#39;, pymongo.ASCENDING).skip(2).limit(2)
+In [50]: print([result[&#39;name&#39;] for result in results])
+[&#39;张三&#39;, &#39;李四&#39;]
+</pre></div>
+如果不加limit()原本会返回三个结果，加了限制之后，会截取2个结果返回。</p>
+<p>值得注意的是，在数据库数量非常庞大的时候，如千万、亿级别，最好不要使用大的偏移量来查询数据，很可能会导致内存溢出。可以使用类似find({'_id': {'$gt': ObjectId('593278c815c2602678bb2b8d')}}) 这样的方法来查询，记录好上次查询的_id。</p>
+<h3 id="29">2.9 更新<a class="headerlink" href="#29" title="Permanent link">&para;</a></h3>
+<h4 id="291-update">2.9.1 update<a class="headerlink" href="#291-update" title="Permanent link">&para;</a></h4>
+<p>对于数据更新可以使用update()方法，指定更新的条件和更新后的数据即可，例如：
+没修改之前</p>
+<div class="codehilite"><pre><span></span>&gt; db.informations.find()
+{ &quot;_id&quot; : ObjectId(&quot;5c6b659b1607c47f8abe6ab7&quot;), &quot;name&quot; : &quot;张三&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b65c01607c47f8abe6ab8&quot;), &quot;name&quot; : &quot;小明&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b65c01607c47f8abe6ab9&quot;), &quot;name&quot; : &quot;小强&quot;, &quot;age&quot; : &quot;24&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b65df1607c47f8abe6aba&quot;), &quot;name&quot; : &quot;李四&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b66081607c47f8abe6abb&quot;), &quot;name&quot; : &quot;王五&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b66081607c47f8abe6abc&quot;), &quot;name&quot; : &quot;赵六&quot;, &quot;age&quot; : &quot;24&quot; }
+</pre></div>
+
+<p><div class="codehilite"><pre><span></span>In [51]: condition = {&#39;name&#39;: &#39;张三&#39;}
+In [52]: user = collection.find_one(condition)
+In [53]: user[&#39;age&#39;]=20
+In [54]: result = collection.update(condition, user)
+/usr/local/bin/ipython:1: DeprecationWarning: update is deprecated. Use replace_one, update_one or update_many instead.
+  #!/usr/local/bin/python3.6
+In [55]: print(result)
+{&#39;ok&#39;: 1, &#39;nModified&#39;: 1, &#39;n&#39;: 1, &#39;updatedExisting&#39;: True}
+</pre></div>
+修改之后</p>
+<p><div class="codehilite"><pre><span></span>&gt; db.informations.find()
+{ &quot;_id&quot; : ObjectId(&quot;5c6b659b1607c47f8abe6ab7&quot;), &quot;name&quot; : &quot;张三&quot;, &quot;age&quot; : 20 }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b65c01607c47f8abe6ab8&quot;), &quot;name&quot; : &quot;小明&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b65c01607c47f8abe6ab9&quot;), &quot;name&quot; : &quot;小强&quot;, &quot;age&quot; : &quot;24&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b65df1607c47f8abe6aba&quot;), &quot;name&quot; : &quot;李四&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b66081607c47f8abe6abb&quot;), &quot;name&quot; : &quot;王五&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b66081607c47f8abe6abc&quot;), &quot;name&quot; : &quot;赵六&quot;, &quot;age&quot; : &quot;24&quot; }
+</pre></div>
+返回结果是字典形式，ok即代表执行成功，nModified代表影响的数据条数。
+另外update()方法其实也是官方不推荐使用的方法，在这里也分了update_one()方法和update_many()方法，用法更加严格，第二个参数需要使用$类型操作符作为字典的键名，我们用示例感受一下。</p>
+<h4 id="292-update_one">2.9.2 update_one<a class="headerlink" href="#292-update_one" title="Permanent link">&para;</a></h4>
+<p><div class="codehilite"><pre><span></span>condition = {&#39;name&#39;: &#39;李四&#39;}
+user = collection.find_one(condition)
+user[&#39;age&#39;] = 26
+result = collection.update_one(condition, {&#39;$set&#39;: user})
+print(result)
+print(result.matched_count, result.modified_count)
+</pre></div>
+在这里调用了update_one方法，第二个参数不能再直接传入修改后的字典，而是需要使用{'$set': user}这样的形式，其返回结果是UpdateResult类型，然后调用matched_count和modified_count属性分别可以获得匹配的数据条数和影响的数据条数。</p>
+<p>再看一个例子</p>
+<p><div class="codehilite"><pre><span></span>condition = {&#39;age&#39;: {&#39;$gt&#39;: 20}}
+result = collection.update_one(condition, {&#39;$inc&#39;: {&#39;age&#39;: 1}})
+print(result)
+print(result.matched_count, result.modified_count)
+</pre></div>
+在这里我们指定查询条件为年龄大于20，然后更新条件为{'$inc': {'age': 1}} ，也就是年龄加1，执行之后会讲第一条符合条件的数据年龄加1。</p>
+<h4 id="293-update_many">2.9.3 update_many<a class="headerlink" href="#293-update_many" title="Permanent link">&para;</a></h4>
+<p>如果调用update_many()方法，则会将所有符合条件的数据都更新，示例如下：</p>
+<div class="codehilite"><pre><span></span>condition = {&#39;age&#39;: {&#39;$gt&#39;: 20}}
+result = collection.update_many(condition, {&#39;$inc&#39;: {&#39;age&#39;: 1}})
+print(result)
+print(result.matched_count, result.modified_count)
+</pre></div>
+
+<h3 id="210">2.10 删除<a class="headerlink" href="#210" title="Permanent link">&para;</a></h3>
+<h4 id="2101-remove">2.10.1 remove<a class="headerlink" href="#2101-remove" title="Permanent link">&para;</a></h4>
+<p>删除操作比较简单，直接调用remove()方法指定删除的条件即可，符合条件的所有数据均会被删除，示例如下</p>
+<p><div class="codehilite"><pre><span></span>result = collection.remove({&#39;name&#39;: &#39;王五&#39;})
+print(result)
+</pre></div>
+运行</p>
+<p><div class="codehilite"><pre><span></span>n [66]: result = collection.remove({&#39;name&#39;: &#39;王五&#39;})
+/usr/local/bin/ipython:1: DeprecationWarning: remove is deprecated. Use delete_one or delete_many instead.
+  #!/usr/local/bin/python3.6
+
+In [67]: print(result)
+{&#39;ok&#39;: 1, &#39;n&#39;: 1}
+</pre></div>
+另外依然存在两个新的推荐方法，delete_one()和delete_many()方法.</p>
+<h4 id="2102-delete_one">2.10.2 delete_one<a class="headerlink" href="#2102-delete_one" title="Permanent link">&para;</a></h4>
+<p><div class="codehilite"><pre><span></span>result = collection.delete_one({&#39;name&#39;: &#39;赵六&#39;})
+print(result)
+print(result.deleted_count)
+</pre></div>
+过程</p>
+<div class="codehilite"><pre><span></span>In [68]: result = collection.delete_one({&#39;name&#39;: &#39;赵六&#39;})
+
+In [69]: print(result)
+&lt;pymongo.results.DeleteResult object at 0x7f3d00039188&gt;
+
+In [70]: print(result.deleted_count)
+1
+</pre></div>
+
+<h4 id="2103-delete_many">2.10.3 delete_many<a class="headerlink" href="#2103-delete_many" title="Permanent link">&para;</a></h4>
+<p><div class="codehilite"><pre><span></span>result = collection.delete_many({&#39;age&#39;: {&#39;$lt&#39;: 10}})
+print(result.deleted_count)
+</pre></div>
+delete_one()即删除第一条符合条件的数据，delete_many()即删除所有符合条件的数据，返回结果是DeleteResult类型，可以调用deleted_count属性获取删除的数据条数。</p>
+<h4 id="2104">2.10.4 更多<a class="headerlink" href="#2104" title="Permanent link">&para;</a></h4>
+<p>另外PyMongo还提供了一些组合方法，如find_one_and_delete() 、find_one_and_replace() 、find_one_and_update() ，就是查找后删除、替换、更新操作，用法与上述方法基本一致。</p>
+<p>另外还可以对索引进行操作，如create_index() 、create_indexes() 、drop_index()等。</p>
+<p>详细用法可以参见官方文档：<a href="http://api.mongodb.com/python/current/api/pymongo/collection.html">http://api.mongodb.com/python/current/api/pymongo/collection.html</a></p>
+<p>另外还有对数据库、集合本身以及其他的一些操作，在这不再一一讲解，可以参见官方文档：<a href="http://api.mongodb.com/python/current/api/pymongo/">http://api.mongodb.com/python/current/api/pymongo/</a></p>
                 
                   
                 
@@ -2552,7 +3343,7 @@ if __name__ == &#39;__main__&#39;:
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../1.base64使用/" title="1. base4" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../../yield/1.yield/" title="1. yield" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -2561,19 +3352,19 @@ if __name__ == &#39;__main__&#39;:
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                1. base4
+                1. yield
               </span>
             </div>
           </a>
         
         
-          <a href="../../../email/smtp/1.s/" title="1. 单人接受文件" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../../numPy/1.index/" title="1. 介绍" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                1. 单人接受文件
+                1. 介绍
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
