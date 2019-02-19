@@ -2945,15 +2945,17 @@
 <p><div class="codehilite"><pre><span></span>python3 -m pip3 install pymongo==3.5.1
 </pre></div>
 更新 pymongo 命令：</p>
-<p><div class="codehilite"><pre><span></span>python3 -m pip3 install --upgrade pymongo
-</pre></div>
-旧版的 Python 可以使用 easy_install 来安装，easy_install 也是 Python 包管理工具。</p>
-<p><div class="codehilite"><pre><span></span>python -m easy_install pymongo
-</pre></div>
-更新 pymongo 命令：</p>
-<div class="codehilite"><pre><span></span>python -m easy_install -U pymongo
+<div class="codehilite"><pre><span></span>python3 -m pip3 install --upgrade pymongo
 </pre></div>
 
+<details class="note"><summary>旧版本</summary><div class="codehilite"><pre><span></span>旧版的 Python 可以使用 easy_install 来安装，easy_install 也是 Python 包管理工具。
+python3 -m easy_install pymongo
+
+更新 pymongo 命令：
+python3 -m easy_install -U pymongo
+</pre></div>
+
+</details>
 <h3 id="12-pymongo">1.2 测试pymongo<a class="headerlink" href="#12-pymongo" title="Permanent link">&para;</a></h3>
 <p>接下来我们可以创建一个测试文件 test_mongodb.py，代码如下
 <div class="codehilite"><pre><span></span>root@leco:/home/leco# cat test_mongodb.py
