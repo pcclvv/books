@@ -3184,14 +3184,11 @@ In [39]: for data in results:
 <td>{'$where': 'obj.fans_count == obj.follows_count'}</td>
 <td>自身粉丝数等于关注数</td>
 </tr>
-<tr>
-<td>这些操作的更详细用法在可以在MongoDB官方文档找到：<a href="https://docs.mongodb.com/manual/reference/operator/query/">https://docs.mongodb.com/manual/reference/operator/query/</a></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<blockquote>
+<p>这些操作的更详细用法在可以在MongoDB官方文档找到：<a href="https://docs.mongodb.com/manual/reference/operator/query/">https://docs.mongodb.com/manual/reference/operator/query/</a></p>
+</blockquote>
 <h3 id="25_1">2.5 计数<a class="headerlink" href="#25_1" title="Permanent link">&para;</a></h3>
 <p>要统计查询结果有多少条数据，可以调用count()方法，如统计所有数据条数：</p>
 <p><div class="codehilite"><pre><span></span>In [40]: count = collection.find().count()
