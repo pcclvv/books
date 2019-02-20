@@ -1525,8 +1525,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#36" title="3.6" class="md-nav__link">
-    3.6
+  <a href="#36" title="3.6 其他操作" class="md-nav__link">
+    3.6 其他操作
   </a>
   
     <nav class="md-nav">
@@ -3981,8 +3981,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#36" title="3.6" class="md-nav__link">
-    3.6
+  <a href="#36" title="3.6 其他操作" class="md-nav__link">
+    3.6 其他操作
   </a>
   
     <nav class="md-nav">
@@ -5285,15 +5285,97 @@ Out[76]: b&#39;zhangsanlisi&#39;
 <h4 id="3511-zremrangebyscore">3.5.11 zremrangebyscore<a class="headerlink" href="#3511-zremrangebyscore" title="Permanent link">&para;</a></h4>
 <h4 id="3512-zinterstore">3.5.12 zinterstore<a class="headerlink" href="#3512-zinterstore" title="Permanent link">&para;</a></h4>
 <h4 id="3514-zunionstore">3.5.14 zunionstore<a class="headerlink" href="#3514-zunionstore" title="Permanent link">&para;</a></h4>
-<h3 id="36">3.6<a class="headerlink" href="#36" title="Permanent link">&para;</a></h3>
+<h3 id="36">3.6 其他操作<a class="headerlink" href="#36" title="Permanent link">&para;</a></h3>
 <h4 id="361-delete">3.6.1 delete<a class="headerlink" href="#361-delete" title="Permanent link">&para;</a></h4>
+<p>delete(*names)</p>
+<div class="codehilite"><pre><span></span>#根据name删除redis中的任意数据类型
+In [80]: r.exists(&#39;name&#39;)
+Out[80]: True
+
+In [81]: r.delete(&#39;name&#39;)
+Out[81]: 1
+
+In [82]: r.exists(&#39;name&#39;)
+Out[82]: False
+
+In [83]: r.get(&#39;name&#39;)
+</pre></div>
+
 <h4 id="362-exists">3.6.2 exists<a class="headerlink" href="#362-exists" title="Permanent link">&para;</a></h4>
+<p>exists(name)</p>
+<div class="codehilite"><pre><span></span>#检测redis的name是否存在
+In [79]: r.get(&#39;name&#39;)
+Out[79]: b&#39;zhangsanlisi&#39;
+
+In [80]: r.exists(&#39;name&#39;)
+Out[80]: True
+</pre></div>
+
 <h4 id="363-keys">3.6.3 keys<a class="headerlink" href="#363-keys" title="Permanent link">&para;</a></h4>
+<p>keys(pattern='*')</p>
+<div class="codehilite"><pre><span></span>#根据* ？等通配符匹配获取redis的name
+In [88]: r.keys(pattern=&#39;*&#39;)
+Out[88]: [b&#39;num&#39;, b&#39;k1&#39;, b&#39;k2&#39;, b&#39;mount&#39;, b&#39;k3&#39;]
+</pre></div>
+
 <h4 id="364-expire">3.6.4 expire<a class="headerlink" href="#364-expire" title="Permanent link">&para;</a></h4>
+<p>expire(name ,time)</p>
+<div class="codehilite"><pre><span></span># 为某个name设置超时时间
+In [92]: r.get(&#39;k1&#39;)
+Out[92]: b&#39;v1&#39;
+
+In [93]: r.expire(&#39;k1&#39;,2)  # 配置过期时间为2秒
+Out[93]: True
+
+In [94]: r.get(&#39;k1&#39;)
+</pre></div>
+
 <h4 id="365-rename">3.6.5 rename<a class="headerlink" href="#365-rename" title="Permanent link">&para;</a></h4>
+<p>rename(src, dst)</p>
+<div class="codehilite"><pre><span></span># 重命名
+In [97]: r.rename(&#39;k2&#39;,&#39;k22&#39;)
+Out[97]: True
+
+In [98]: r.get(&#39;k2&#39;)
+
+In [99]: r.get(&#39;k22&#39;)
+Out[99]: b&#39;v2&#39;
+</pre></div>
+
 <h4 id="366-move">3.6.6 move<a class="headerlink" href="#366-move" title="Permanent link">&para;</a></h4>
+<p>move(name, db))</p>
+<div class="codehilite"><pre><span></span># 将redis的某个值移动到指定的db下
+In [105]: r.move(&#39;k3&#39;,2)
+Out[105]: True
+
+127.0.0.1:6379&gt; keys *
+1) &quot;num&quot;
+2) &quot;k22&quot;
+3) &quot;mount&quot;
+
+127.0.0.1:6379[3]&gt; select 2
+OK
+127.0.0.1:6379[2]&gt; keys *
+1) &quot;k3&quot;
+127.0.0.1:6379[2]&gt;
+</pre></div>
+
 <h4 id="367-randomkey">3.6.7 randomkey<a class="headerlink" href="#367-randomkey" title="Permanent link">&para;</a></h4>
+<p>randomkey()</p>
+<div class="codehilite"><pre><span></span>#随机获取一个redis的name（不删除）
+In [100]: r.randomkey()
+Out[100]: b&#39;mount&#39;
+
+In [101]: r.randomkey()
+Out[101]: b&#39;k3&#39;
+</pre></div>
+
 <h4 id="368-type">3.6.8 type<a class="headerlink" href="#368-type" title="Permanent link">&para;</a></h4>
+<p>type(name)</p>
+<div class="codehilite"><pre><span></span># 获取name对应值的类型
+In [102]: r.type(&#39;k3&#39;)
+Out[102]: b&#39;string&#39;
+</pre></div>
                 
                   
                 
