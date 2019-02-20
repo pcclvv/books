@@ -2863,21 +2863,25 @@
 <h4 id="122">1.2.2 离线安装<a class="headerlink" href="#122" title="Permanent link">&para;</a></h4>
 <p>Memcached源码包安装的时候需要依赖于libevent</p>
 <ul>
-<li>安装依赖库
+<li>安装依赖库</li>
+</ul>
 <div class="codehilite"><pre><span></span># Ubuntu
 apt-get install libevent-dev
 # CentOS
 yum install libevent-devel
-</pre></div><blockquote>
+</pre></div>
+
+<blockquote>
 <p>不安装库的时候，编译时候报错如下</p>
 </blockquote>
-</li>
-</ul>
-<p><div class="codehilite"><pre><span></span>checking for libevent directory... configure: error: libevent is required.  You can get it from http://www.monkey.org/~provos/libevent/
+<div class="codehilite"><pre><span></span>checking for libevent directory... configure: error: libevent is required.  You can get it from http://www.monkey.org/~provos/libevent/
 
       If it&#39;s already installed, specify its path using --with-libevent=/dir/
 </pre></div>
-- 编译安装memcached</p>
+
+<ul>
+<li>编译安装memcached</li>
+</ul>
 <p><div class="codehilite"><pre><span></span>wget https://memcached.org/latest
 tar -zxf memcached-1.x.x.tar.gz
 cd memcached-1.x.x
