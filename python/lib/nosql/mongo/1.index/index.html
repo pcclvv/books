@@ -3051,13 +3051,41 @@ Out[4]: &#39;v1
 </pre></div>
 
 <h3 id="23">2.3 其他命令测试<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
-<p>用nc命令操作memcached
-- 存储数据：printf "set key 0 10 6\r\nresult\r\n" |nc 192.168.5.110 11211
-- 获取数据：printf "get key\r\n" |nc 192.168.5.110 11211
-- 删除数据：printf "delete key\r\n" |nc 192.168.5.110 11211
-- 查看状态：printf "stats\r\n" |nc 192.168.5.110 11211
-- 模拟top命令查看状态：watch "echo stats" |nc 192.168.5.110 11211
-- 清空缓存：printf "flush_all\r\n" |nc 192.168.5.110 11211 (小心操作，清空了缓存就没了）</p>
+<p>用nc命令操作memcached</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>存储数据</td>
+<td>printf "set key 0 10 6\r\nresult\r\n"</td>
+</tr>
+<tr>
+<td>获取数据</td>
+<td>printf "get key\r\n"</td>
+</tr>
+<tr>
+<td>删除数据</td>
+<td>printf "delete key\r\n"</td>
+</tr>
+<tr>
+<td>查看状态</td>
+<td>printf "stats\r\n"</td>
+</tr>
+<tr>
+<td>模拟top命令查看状态</td>
+<td>watch "echo stats"</td>
+</tr>
+<tr>
+<td>清空缓存</td>
+<td>printf "flush_all\r\n"</td>
+</tr>
+</tbody>
+</table>
 <h3 id="23_1">2.3 集群<a class="headerlink" href="#23_1" title="Permanent link">&para;</a></h3>
 <p>python-memcached模块原生支持集群操作，其原理是在内存中维护一个主机列表，且集群中主机的权重值和主机在列表中重复出现的次数成正比。</p>
 <p><div class="codehilite"><pre><span></span>主机     权重
