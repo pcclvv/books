@@ -1,0 +1,3614 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="笔记">
+      
+      
+      
+        <meta name="author" content="流浪地球">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.3.0">
+    
+    
+      
+        <title>1. mongo - 笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/application.572ca0f0.css">
+      
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546e7a">
+      
+    
+    
+      <script src="../../../../../assets/javascripts/modernizr.962652e9.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="pink">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../../../.." title="笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                笔记
+              </span>
+              <span class="md-header-nav__topic">
+                1. mongo
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/caimengzhi/books/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      caimengzhi/books
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../../../.." title="笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    笔记
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/caimengzhi/books/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      caimengzhi/books
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+    
+    <label class="md-nav__link" for="nav-1">
+      Python
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1" type="checkbox" id="nav-1-1" checked>
+    
+    <label class="md-nav__link" for="nav-1-1">
+      库学习
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-1">
+        库学习
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-1" type="checkbox" id="nav-1-1-1">
+    
+    <label class="md-nav__link" for="nav-1-1-1">
+      1. SQLAlchemy库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-1-1">
+        1. SQLAlchemy库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../SQLAlchemy/1.创建表/" title="1. 创建表" class="md-nav__link">
+      1. 创建表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../SQLAlchemy/2.基本操作/" title="2. 基本操作" class="md-nav__link">
+      2. 基本操作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../SQLAlchemy/3.回滚/" title="3. 回滚" class="md-nav__link">
+      3. 回滚
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../SQLAlchemy/4.统计分组/" title="4. 统计分组" class="md-nav__link">
+      4. 统计分组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../SQLAlchemy/5.外键/" title="5. 外键" class="md-nav__link">
+      5. 外键
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../SQLAlchemy/6.关系定义/" title="6. 关系定义" class="md-nav__link">
+      6. 关系定义
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-2" type="checkbox" id="nav-1-1-2">
+    
+    <label class="md-nav__link" for="nav-1-1-2">
+      2. YAML库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-1-2">
+        2. YAML库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../yaml/1.yaml语法/" title="1. yaml语法" class="md-nav__link">
+      1. yaml语法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../yaml/2.yaml使用/" title="2. yaml使用" class="md-nav__link">
+      2. yaml使用
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-3" type="checkbox" id="nav-1-1-3">
+    
+    <label class="md-nav__link" for="nav-1-1-3">
+      3. sh库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-1-3">
+        3. sh库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../sh/1.sh/" title="1. sh使用" class="md-nav__link">
+      1. sh使用
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-4" type="checkbox" id="nav-1-1-4">
+    
+    <label class="md-nav__link" for="nav-1-1-4">
+      4. excel库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-1-4">
+        4. excel库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../execel/1.xlrd_xlwt/" title="1. xlrd_xlwt" class="md-nav__link">
+      1. xlrd_xlwt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../execel/2.openpyxl/" title="2. openpyxl" class="md-nav__link">
+      2. openpyxl
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-5" type="checkbox" id="nav-1-1-5">
+    
+    <label class="md-nav__link" for="nav-1-1-5">
+      5. 加解密库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-1-5">
+        5. 加解密库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../encryption_decryption/base64/1.base64使用/" title="1. base4" class="md-nav__link">
+      1. base4
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../encryption_decryption/base64/2.案例/" title="2. 加解密execl表" class="md-nav__link">
+      2. 加解密execl表
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-6" type="checkbox" id="nav-1-1-6">
+    
+    <label class="md-nav__link" for="nav-1-1-6">
+      6. 邮件库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-1-6">
+        6. 邮件库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../email/smtp/1.s/" title="1. 单人接受文件" class="md-nav__link">
+      1. 单人接受文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../email/smtp/2.d/" title="2. 多人接受文件" class="md-nav__link">
+      2. 多人接受文件
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-7" type="checkbox" id="nav-1-1-7">
+    
+    <label class="md-nav__link" for="nav-1-1-7">
+      7. wordcloud库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-1-7">
+        7. wordcloud库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../wordcloud/1.wordcloud/" title="1. wordcloud" class="md-nav__link">
+      1. wordcloud
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-8" type="checkbox" id="nav-1-1-8">
+    
+    <label class="md-nav__link" for="nav-1-1-8">
+      8. yield库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-1-8">
+        8. yield库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../yield/1.yield/" title="1. yield" class="md-nav__link">
+      1. yield
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-9" type="checkbox" id="nav-1-1-9" checked>
+    
+    <label class="md-nav__link" for="nav-1-1-9">
+      9. Nosql
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-1-9">
+        9. Nosql
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-9-1" type="checkbox" id="nav-1-1-9-1" checked>
+    
+    <label class="md-nav__link" for="nav-1-1-9-1">
+      1. mongo
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-1-1-9-1">
+        1. mongo
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        1. mongo
+      </label>
+    
+    <a href="./" title="1. mongo" class="md-nav__link md-nav__link--active">
+      1. mongo
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 介绍" class="md-nav__link">
+    1. 介绍
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" title="1.1 安装" class="md-nav__link">
+    1.1 安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-pymongo" title="1.2 测试pymongo" class="md-nav__link">
+    1.2 测试pymongo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 详细" class="md-nav__link">
+    2. 详细
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-mongodb" title="2.1 连接MongoDB" class="md-nav__link">
+    2.1 连接MongoDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" title="2.2 指定数据库" class="md-nav__link">
+    2.2 指定数据库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" title="2.3 指定集合" class="md-nav__link">
+    2.3 指定集合
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" title="2.4 插入数据" class="md-nav__link">
+    2.4 插入数据
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" title="2.4.1 单条插入" class="md-nav__link">
+    2.4.1 单条插入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242" title="2.4.2 多条插入" class="md-nav__link">
+    2.4.2 多条插入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243" title="2.4.3 新单条插入" class="md-nav__link">
+    2.4.3 新单条插入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#244" title="2.4.4 新多条插入" class="md-nav__link">
+    2.4.4 新多条插入
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" title="2.5 查询数据" class="md-nav__link">
+    2.5 查询数据
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251-find_one" title="2.5.1 find_one()" class="md-nav__link">
+    2.5.1 find_one()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252-find" title="2.5.2 find()" class="md-nav__link">
+    2.5.2 find()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#253" title="2.5.3 比较符号" class="md-nav__link">
+    2.5.3 比较符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#254" title="2.5.4 功能符号" class="md-nav__link">
+    2.5.4 功能符号
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25_1" title="2.5 计数" class="md-nav__link">
+    2.5 计数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" title="2.6 排序" class="md-nav__link">
+    2.6 排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" title="2.7 偏移" class="md-nav__link">
+    2.7 偏移
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-limit" title="2.8 limit" class="md-nav__link">
+    2.8 limit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29" title="2.9 更新" class="md-nav__link">
+    2.9 更新
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#291-update" title="2.9.1 update" class="md-nav__link">
+    2.9.1 update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#292-update_one" title="2.9.2 update_one" class="md-nav__link">
+    2.9.2 update_one
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#293-update_many" title="2.9.3 update_many" class="md-nav__link">
+    2.9.3 update_many
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#210" title="2.10 删除" class="md-nav__link">
+    2.10 删除
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2101-remove" title="2.10.1 remove" class="md-nav__link">
+    2.10.1 remove
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2102-delete_one" title="2.10.2 delete_one" class="md-nav__link">
+    2.10.2 delete_one
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2103-delete_many" title="2.10.3 delete_many" class="md-nav__link">
+    2.10.3 delete_many
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2104" title="2.10.4 更多" class="md-nav__link">
+    2.10.4 更多
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#211-code" title="2.11 code" class="md-nav__link">
+    2.11 code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-9-2" type="checkbox" id="nav-1-1-9-2">
+    
+    <label class="md-nav__link" for="nav-1-1-9-2">
+      2. memcached
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-1-1-9-2">
+        2. memcached
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../memcached/memcached.index/" title="1. memcached" class="md-nav__link">
+      1. memcached
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-10" type="checkbox" id="nav-1-1-10">
+    
+    <label class="md-nav__link" for="nav-1-1-10">
+      10. 数据处理库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-1-10">
+        10. 数据处理库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-10-1" type="checkbox" id="nav-1-1-10-1">
+    
+    <label class="md-nav__link" for="nav-1-1-10-1">
+      1. numPy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-1-1-10-1">
+        1. numPy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../numPy/1.index/" title="1. 介绍" class="md-nav__link">
+      1. 介绍
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-10-2" type="checkbox" id="nav-1-1-10-2">
+    
+    <label class="md-nav__link" for="nav-1-1-10-2">
+      2. pandas
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-1-1-10-2">
+        2. pandas
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../pandas/1.index/" title="1. 介绍" class="md-nav__link">
+      1. 介绍
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Linux
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      小工具
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        小工具
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../linux/server/sersync/" title="1. sersync" class="md-nav__link">
+      1. sersync
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tools/elinks/1.index/" title="2. elinks" class="md-nav__link">
+      2. elinks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tools/script_scriptreplay/1.index/" title="3. Linux终端录屏和回放" class="md-nav__link">
+      3. Linux终端录屏和回放
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      前端
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        前端
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../frontend/vue/" title="Vue" class="md-nav__link">
+      Vue
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      服务
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        服务
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      1. git
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        1. git
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tools/git/1.git/" title="1. git" class="md-nav__link">
+      1. git
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tools/git/2.git_rollback/" title="2. git回滚" class="md-nav__link">
+      2. git回滚
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tools/git/3.git_branch/" title="3. git分支" class="md-nav__link">
+      3. git分支
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tools/git/4.git_lab/" title="4. git 标签" class="md-nav__link">
+      4. git 标签
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tools/github/1.github/" title="2. github" class="md-nav__link">
+      2. github
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3">
+      3. gitlab
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        3. gitlab
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tools/gitlab/1.gitlab/" title="1. gitlab" class="md-nav__link">
+      1. gitlab
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tools/gitlab/2.gitlab_close_register/" title="2. 关闭注册" class="md-nav__link">
+      2. 关闭注册
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      教程
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        教程
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../course/" title="教程" class="md-nav__link">
+      教程
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      测试
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        测试
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1" type="checkbox" id="nav-6-1">
+    
+    <label class="md-nav__link" for="nav-6-1">
+      服务
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-1">
+        服务
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1-1" type="checkbox" id="nav-6-1-1">
+    
+    <label class="md-nav__link" for="nav-6-1-1">
+      mkdocs 服务
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-1-1">
+        mkdocs 服务
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../.." title="一. 介绍" class="md-nav__link">
+      一. 介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1-1-2" type="checkbox" id="nav-6-1-1-2">
+    
+    <label class="md-nav__link" for="nav-6-1-1-2">
+      二. 安装
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-6-1-1-2">
+        二. 安装
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../install/local/" title="1. 本地环境搭建" class="md-nav__link">
+      1. 本地环境搭建
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../install/github-pages/" title="2. 发布至GitHub Pages" class="md-nav__link">
+      2. 发布至GitHub Pages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../install/http-server/" title="3. 发布至自己的HTTP Server" class="md-nav__link">
+      3. 发布至自己的HTTP Server
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1-1-3" type="checkbox" id="nav-6-1-1-3">
+    
+    <label class="md-nav__link" for="nav-6-1-1-3">
+      三. 语法
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-6-1-1-3">
+        三. 语法
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/main/" title="1. 语法总览" class="md-nav__link">
+      1. 语法总览
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/headline/" title="2. 标题" class="md-nav__link">
+      2. 标题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/paragraph/" title="3. 段落" class="md-nav__link">
+      3. 段落
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/quote/" title="4. 引用" class="md-nav__link">
+      4. 引用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/table/" title="5. 表格" class="md-nav__link">
+      5. 表格
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1-1-3-6" type="checkbox" id="nav-6-1-1-3-6">
+    
+    <label class="md-nav__link" for="nav-6-1-1-3-6">
+      6. 代码
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-6-1-1-3-6">
+        6. 代码
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/code_inline/" title="6.1. 行内" class="md-nav__link">
+      6.1. 行内
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/code_block/" title="6.2. 区块" class="md-nav__link">
+      6.2. 区块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/code_highlight/" title="6.3. 高亮" class="md-nav__link">
+      6.3. 高亮
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1-1-3-7" type="checkbox" id="nav-6-1-1-3-7">
+    
+    <label class="md-nav__link" for="nav-6-1-1-3-7">
+      7. 字体样式
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-6-1-1-3-7">
+        7. 字体样式
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/font_stress/" title="7.1. 斜体,粗体,粗斜体" class="md-nav__link">
+      7.1. 斜体,粗体,粗斜体
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/font_updown/" title="7.2. 上标,下标" class="md-nav__link">
+      7.2. 上标,下标
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/font_underline/" title="7.3. 下划线" class="md-nav__link">
+      7.3. 下划线
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/font_line/" title="7.4. 横线" class="md-nav__link">
+      7.4. 横线
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/font_underline_line/" title="7.5. 下划线+横线" class="md-nav__link">
+      7.5. 下划线+横线
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1-1-3-8" type="checkbox" id="nav-6-1-1-3-8">
+    
+    <label class="md-nav__link" for="nav-6-1-1-3-8">
+      8. 列表
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-6-1-1-3-8">
+        8. 列表
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/list_noseq/" title="8.1. 无序列表" class="md-nav__link">
+      8.1. 无序列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/list_seq/" title="8.2. 有序列表" class="md-nav__link">
+      8.2. 有序列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/list_task/" title="8.3. 任务列表" class="md-nav__link">
+      8.3. 任务列表
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/cutline/" title="9. 分割线" class="md-nav__link">
+      9. 分割线
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1-1-3-10" type="checkbox" id="nav-6-1-1-3-10">
+    
+    <label class="md-nav__link" for="nav-6-1-1-3-10">
+      10. 链接
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-6-1-1-3-10">
+        10. 链接
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/link_normal/" title="10.1. 普通链接" class="md-nav__link">
+      10.1. 普通链接
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/link_auto/" title="10.2. 自动链接" class="md-nav__link">
+      10.2. 自动链接
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/link_anchor/" title="10.3. 锚点提示" class="md-nav__link">
+      10.3. 锚点提示
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1-1-3-11" type="checkbox" id="nav-6-1-1-3-11">
+    
+    <label class="md-nav__link" for="nav-6-1-1-3-11">
+      11. 图片
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-6-1-1-3-11">
+        11. 图片
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/image_inline/" title="11.1. 行内式" class="md-nav__link">
+      11.1. 行内式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/image_index/" title="11.2. 参考式" class="md-nav__link">
+      11.2. 参考式
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/escape/" title="12. 转义" class="md-nav__link">
+      12. 转义
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1-1-3-13" type="checkbox" id="nav-6-1-1-3-13">
+    
+    <label class="md-nav__link" for="nav-6-1-1-3-13">
+      13. 高亮
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-6-1-1-3-13">
+        13. 高亮
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/highlight_code/" title="13.1. 代码高亮" class="md-nav__link">
+      13.1. 代码高亮
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/highlight_background/" title="13.2. 背景高亮" class="md-nav__link">
+      13.2. 背景高亮
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1-1-3-14" type="checkbox" id="nav-6-1-1-3-14">
+    
+    <label class="md-nav__link" for="nav-6-1-1-3-14">
+      14. 注解
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-6-1-1-3-14">
+        14. 注解
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/note_main/" title="14.1. 介绍" class="md-nav__link">
+      14.1. 介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/note_full/" title="14.2. 完整格式" class="md-nav__link">
+      14.2. 完整格式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/note_empty-title/" title="14.3. 空标题" class="md-nav__link">
+      14.3. 空标题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/note_none-title/" title="14.4. 无标题" class="md-nav__link">
+      14.4. 无标题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/note_none-type/" title="14.5. 无类型" class="md-nav__link">
+      14.5. 无类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/note_details/" title="14.6. 折叠" class="md-nav__link">
+      14.6. 折叠
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/note_style/" title="14.7. 11种颜色样式" class="md-nav__link">
+      14.7. 11种颜色样式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/note_nest/" title="14.8. 嵌套" class="md-nav__link">
+      14.8. 嵌套
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/footnote/" title="15. 脚注" class="md-nav__link">
+      15. 脚注
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/meta/" title="16. 元信息" class="md-nav__link">
+      16. 元信息
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1-1-3-17" type="checkbox" id="nav-6-1-1-3-17">
+    
+    <label class="md-nav__link" for="nav-6-1-1-3-17">
+      17. 数学公式
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-6-1-1-3-17">
+        17. 数学公式
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/math_main/" title="17.1. 介绍" class="md-nav__link">
+      17.1. 介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/math_js/" title="17.2. 导入js" class="md-nav__link">
+      17.2. 导入js
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/math_usage/" title="17.3. 用法" class="md-nav__link">
+      17.3. 用法
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1-1-3-18" type="checkbox" id="nav-6-1-1-3-18">
+    
+    <label class="md-nav__link" for="nav-6-1-1-3-18">
+      18. emoji
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-6-1-1-3-18">
+        18. emoji
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/emoji_main/" title="18.1. 介绍" class="md-nav__link">
+      18.1. 介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/emoji_principle/" title="18.2. 工作原理" class="md-nav__link">
+      18.2. 工作原理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/emoji_usage/" title="18.3. 最佳实践" class="md-nav__link">
+      18.3. 最佳实践
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/symbol/" title="19. 特殊符号" class="md-nav__link">
+      19. 特殊符号
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1-1-3-20" type="checkbox" id="nav-6-1-1-3-20">
+    
+    <label class="md-nav__link" for="nav-6-1-1-3-20">
+      20. 嵌套
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-6-1-1-3-20">
+        20. 嵌套
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/nest_main/" title="20.1. 介绍" class="md-nav__link">
+      20.1. 介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/nest_note_note/" title="20.2. 注解-注解" class="md-nav__link">
+      20.2. 注解-注解
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/nest_list_list/" title="20.3. 列表-列表" class="md-nav__link">
+      20.3. 列表-列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/nest_quote_quote/" title="20.4. 引用-引用" class="md-nav__link">
+      20.4. 引用-引用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/nest_note_code/" title="20.5. 注解-代码块" class="md-nav__link">
+      20.5. 注解-代码块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/nest_list_code/" title="20.6. 列表-代码块" class="md-nav__link">
+      20.6. 列表-代码块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/nest_quote_code/" title="20.7. 引用-代码块" class="md-nav__link">
+      20.7. 引用-代码块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/nest_yellow_code/" title="20.8. 黄色区块-代码" class="md-nav__link">
+      20.8. 黄色区块-代码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/nest_green_code/" title="20.9. 绿色区块-代码" class="md-nav__link">
+      20.9. 绿色区块-代码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/nest_red_code/" title="20.10. 红色区块-代码" class="md-nav__link">
+      20.10. 红色区块-代码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/nest_greenred_code/" title="20.11. 绿接红区块-代码" class="md-nav__link">
+      20.11. 绿接红区块-代码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/nest_note_list_quote/" title="20.12. 注解-列表-引用" class="md-nav__link">
+      20.12. 注解-列表-引用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/nest_list_list_quote/" title="20.13. 列表-列表-引用" class="md-nav__link">
+      20.13. 列表-列表-引用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../syntax/nest_quote_quote_code/" title="20.14. 引用-引用-代码" class="md-nav__link">
+      20.14. 引用-引用-代码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1-1-4" type="checkbox" id="nav-6-1-1-4">
+    
+    <label class="md-nav__link" for="nav-6-1-1-4">
+      四. 附录
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-6-1-1-4">
+        四. 附录
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../appendix/pygments/" title="1. 支持代码高亮的语言" class="md-nav__link">
+      1. 支持代码高亮的语言
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../appendix/emoji_shortname/" title="2. emojione全名短名映射表" class="md-nav__link">
+      2. emojione全名短名映射表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../appendix/baidu_tongji/" title="3. 添加百度统计" class="md-nav__link">
+      3. 添加百度统计
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../appendix/color/" title="4. 配色" class="md-nav__link">
+      4. 配色
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../appendix/module/" title="5. 模块介绍" class="md-nav__link">
+      5. 模块介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../appendix/level/" title="6. mkdocs层级关系" class="md-nav__link">
+      6. mkdocs层级关系
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../appendix/search/" title="7. 支持中文搜索" class="md-nav__link">
+      7. 支持中文搜索
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../appendix/yml/" title="8. mkdocs.yml范例" class="md-nav__link">
+      8. mkdocs.yml范例
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../recommend/" title="五. 使用建议" class="md-nav__link">
+      五. 使用建议
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../contact/" title="六. 联系方式" class="md-nav__link">
+      六. 联系方式
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 介绍" class="md-nav__link">
+    1. 介绍
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" title="1.1 安装" class="md-nav__link">
+    1.1 安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-pymongo" title="1.2 测试pymongo" class="md-nav__link">
+    1.2 测试pymongo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 详细" class="md-nav__link">
+    2. 详细
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-mongodb" title="2.1 连接MongoDB" class="md-nav__link">
+    2.1 连接MongoDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" title="2.2 指定数据库" class="md-nav__link">
+    2.2 指定数据库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" title="2.3 指定集合" class="md-nav__link">
+    2.3 指定集合
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" title="2.4 插入数据" class="md-nav__link">
+    2.4 插入数据
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" title="2.4.1 单条插入" class="md-nav__link">
+    2.4.1 单条插入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242" title="2.4.2 多条插入" class="md-nav__link">
+    2.4.2 多条插入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243" title="2.4.3 新单条插入" class="md-nav__link">
+    2.4.3 新单条插入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#244" title="2.4.4 新多条插入" class="md-nav__link">
+    2.4.4 新多条插入
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" title="2.5 查询数据" class="md-nav__link">
+    2.5 查询数据
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251-find_one" title="2.5.1 find_one()" class="md-nav__link">
+    2.5.1 find_one()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252-find" title="2.5.2 find()" class="md-nav__link">
+    2.5.2 find()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#253" title="2.5.3 比较符号" class="md-nav__link">
+    2.5.3 比较符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#254" title="2.5.4 功能符号" class="md-nav__link">
+    2.5.4 功能符号
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25_1" title="2.5 计数" class="md-nav__link">
+    2.5 计数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" title="2.6 排序" class="md-nav__link">
+    2.6 排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" title="2.7 偏移" class="md-nav__link">
+    2.7 偏移
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-limit" title="2.8 limit" class="md-nav__link">
+    2.8 limit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29" title="2.9 更新" class="md-nav__link">
+    2.9 更新
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#291-update" title="2.9.1 update" class="md-nav__link">
+    2.9.1 update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#292-update_one" title="2.9.2 update_one" class="md-nav__link">
+    2.9.2 update_one
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#293-update_many" title="2.9.3 update_many" class="md-nav__link">
+    2.9.3 update_many
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#210" title="2.10 删除" class="md-nav__link">
+    2.10 删除
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2101-remove" title="2.10.1 remove" class="md-nav__link">
+    2.10.1 remove
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2102-delete_one" title="2.10.2 delete_one" class="md-nav__link">
+    2.10.2 delete_one
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2103-delete_many" title="2.10.3 delete_many" class="md-nav__link">
+    2.10.3 delete_many
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2104" title="2.10.4 更多" class="md-nav__link">
+    2.10.4 更多
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#211-code" title="2.11 code" class="md-nav__link">
+    2.11 code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/caimengzhi/books/edit/master/docs/python/lib/nosql/mongo/mongo.index.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>1. mongo</h1>
+                
+                <h2 id="1">1. 介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>MongoDB 是目前最流行的 NoSQL 数据库之一，使用的数据类型 BSON（类似 JSON）。</p>
+<p style="text-indent:2em"> Python 要连接 MongoDB 需要 MongoDB 驱动，这里我们使用 PyMongo 驱动来连接。</p>
+
+<h3 id="11">1.1 安装<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>pip 是一个通用的 Python 包管理工具，提供了对 Python 包的查找、下载、安装、卸载的功能。</p>
+<p><div class="codehilite"><pre><span></span>python3 -m pip3 install pymongo
+</pre></div>
+也可以指定安装的版本:</p>
+<p><div class="codehilite"><pre><span></span>python3 -m pip3 install pymongo==3.5.1
+</pre></div>
+更新 pymongo 命令：</p>
+<p><div class="codehilite"><pre><span></span>python3 -m pip3 install --upgrade pymongo
+</pre></div>
+旧版的 Python 可以使用 easy_install 来安装，easy_install 也是 Python 包管理工具。</p>
+<p><div class="codehilite"><pre><span></span>python -m easy_install pymongo
+</pre></div>
+更新 pymongo 命令：</p>
+<div class="codehilite"><pre><span></span>python -m easy_install -U pymongo
+</pre></div>
+
+<h3 id="12-pymongo">1.2 测试pymongo<a class="headerlink" href="#12-pymongo" title="Permanent link">&para;</a></h3>
+<p>接下来我们可以创建一个测试文件 test_mongodb.py，代码如下
+<div class="codehilite"><pre><span></span>root@leco:/home/leco# cat test_mongodb.py
+#!/usr/bin/python3
+
+import pymongo
+root@leco:/home/leco# python3 test_mongodb.py
+root@leco:/home/leco# echo $?
+0
+</pre></div></p>
+<p>执行以上代码文件，如果没有出现错误，表示安装成功。</p>
+<h2 id="2">2. 详细<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21-mongodb">2.1 连接MongoDB<a class="headerlink" href="#21-mongodb" title="Permanent link">&para;</a></h3>
+<p>连接MongoDB我们需要使用PyMongo库里面的MongoClient，一般来说传入MongoDB的IP及端口即可，第一个参数为地址host，第二个参数为端口port，端口如果不传默认是27017。</p>
+<p><div class="codehilite"><pre><span></span>import pymongo
+client = pymongo.MongoClient(host=&#39;localhost&#39;, port=27017)
+</pre></div>
+这样我们就可以创建一个MongoDB的连接对象了。
+另外MongoClient的第一个参数host还可以直接传MongoDB的连接字符串，以mongodb开头，例如：</p>
+<p><div class="codehilite"><pre><span></span>client = MongoClient(&#39;mongodb://localhost:27017/&#39;)
+</pre></div>
+可以达到同样的连接效果。</p>
+<h3 id="22">2.2 指定数据库<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>MongoDB中还分为一个个数据库，我们接下来的一步就是指定要操作哪个数据库，在这里我以test_mongo_db数据库为例进行说明，所以下一步我们需要在程序中指定要使用的数据库。调用client的test_mongo_db属性即可返回test_mongo_db数据库。</p>
+<div class="codehilite"><pre><span></span>db = client.test_mongo_db
+或者
+db = client[&#39;test_mongo_db&#39;]
+</pre></div>
+
+<h3 id="23">2.3 指定集合<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p>MongoDB的每个数据库又包含了许多集合Collection，也就类似与关系型数据库中的表，下一步我们需要指定要操作的集合，在这里我们指定一个集合名称为informations，informations集合。还是和指定数据库类似，指定集合也有两种方式:</p>
+<div class="codehilite"><pre><span></span>collection = db.informations
+或者
+collection = db[&#39;informations&#39;]
+</pre></div>
+
+<h3 id="24">2.4 插入数据<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<h4 id="241">2.4.1 单条插入<a class="headerlink" href="#241" title="Permanent link">&para;</a></h4>
+<p>接下来我们便可以进行数据插入了，对于informations这个Collection，我们新建一条数据，以字典的形式表示：</p>
+<p><div class="codehilite"><pre><span></span>information = {&quot;name&quot;: &quot;张三&quot;, &quot;age&quot;: &quot;25&quot;}
+</pre></div>
+在这里我们指定了姓名、年龄然后接下来直接调用collection的insert()方法即可插入数据。</p>
+<p><div class="codehilite"><pre><span></span>result = collection.insert(information)
+print(result)
+</pre></div>
+在MongoDB中，每条数据其实都有一个_id属性来唯一标识，如果没有显式指明_id，MongoDB会自动产生一个ObjectId类型的_id属性。insert()方法会在执行后返回的_id值。运行结果：</p>
+<div class="codehilite"><pre><span></span>5c6b659b1607c47f8abe6ab7
+</pre></div>
+
+<h4 id="242">2.4.2 多条插入<a class="headerlink" href="#242" title="Permanent link">&para;</a></h4>
+<p>当然我们也可以同时插入多条数据，只需要以列表形式传递即可，示例如下：</p>
+<p><div class="codehilite"><pre><span></span>information = [{&quot;name&quot;: &quot;小明&quot;, &quot;age&quot;: &quot;25&quot;}, {&quot;name&quot;: &quot;小强&quot;, &quot;age&quot;: &quot;24&quot;}]
+information_id = collection.insert(information)
+print(information_id)
+
+或者
+xiaoming={&quot;name&quot;: &quot;小明&quot;, &quot;age&quot;: &quot;25&quot;}
+xiaoqiang= {&quot;name&quot;: &quot;小强&quot;, &quot;age&quot;: &quot;24&quot;}
+information_id = collection.insert([xiaoming,xiaoqiang])
+print(information_id)
+</pre></div>
+返回的结果是对应的_id的集合，运行结果：</p>
+<div class="codehilite"><pre><span></span>[ObjectId(&#39;5c6b65c01607c47f8abe6ab8&#39;), ObjectId(&#39;5c6b65c01607c47f8abe6ab9&#39;)]
+</pre></div>
+
+<h4 id="243">2.4.3 新单条插入<a class="headerlink" href="#243" title="Permanent link">&para;</a></h4>
+<p>实际上在PyMongo 3.X版本中，insert()方法官方已经不推荐使用了，当然继续使用也没有什么问题，官方推荐使用insert_one()和insert_many()方法将插入单条和多条记录分开。</p>
+<p><div class="codehilite"><pre><span></span>lisi = {&quot;name&quot;: &quot;李四&quot;, &quot;age&quot;: &quot;25&quot;}
+result = collection.insert_one(lisi)
+print(result.inserted_id)
+</pre></div>
+返回结果和insert()方法不同，这次返回的是InsertOneResult对象，我们可以调用其inserted_id属性获取_id。结果是</p>
+<div class="codehilite"><pre><span></span>5c6b65df1607c47f8abe6aba
+</pre></div>
+
+<h4 id="244">2.4.4 新多条插入<a class="headerlink" href="#244" title="Permanent link">&para;</a></h4>
+<p>对于insert_many()方法，我们可以将数据以列表形式传递即可，示例如下：
+<div class="codehilite"><pre><span></span>wangwu={&quot;name&quot;: &quot;王五&quot;, &quot;age&quot;: &quot;25&quot;}
+zhaoliu= {&quot;name&quot;: &quot;赵六&quot;, &quot;age&quot;: &quot;24&quot;}
+result = collection.insert_many([wangwu,zhaoliu])
+print(result)
+print(result.inserted_ids)
+</pre></div>
+结果是:</p>
+<div class="codehilite"><pre><span></span>&lt;pymongo.results.InsertManyResult object at 0x7f3cf2dc68c8&gt;
+[ObjectId(&#39;5c6b66081607c47f8abe6abb&#39;), ObjectId(&#39;5c6b66081607c47f8abe6abc&#39;)]
+</pre></div>
+
+<p>insert_many()方法返回的类型是InsertManyResult，调用inserted_ids属性可以获取插入数据的_id列表.</p>
+<h3 id="25">2.5 查询数据<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
+<h4 id="251-find_one">2.5.1 find_one()<a class="headerlink" href="#251-find_one" title="Permanent link">&para;</a></h4>
+<p>插入数据后我们可以利用find_one(),find_one()查询得到是单个结果。</p>
+<p><div class="codehilite"><pre><span></span>result = collection.find_one({&#39;name&#39;: &#39;张三&#39;})
+print(type(result))
+print(result)
+</pre></div>
+结果是:</p>
+<p><div class="codehilite"><pre><span></span>&lt;class &#39;dict&#39;&gt;
+{&#39;_id&#39;: ObjectId(&#39;5c6b659b1607c47f8abe6ab7&#39;), &#39;name&#39;: &#39;张三&#39;, &#39;age&#39;: &#39;25&#39;}
+</pre></div>
+可以发现它多了一个_id属性，这就是MongoDB在插入的过程中自动添加的。</p>
+<p>我们也可以直接根据ObjectId来查询，这里需要使用bson库里面的ObjectId。</p>
+<p><div class="codehilite"><pre><span></span>In [27]: from bson.objectid import ObjectId
+
+In [28]: result = collection.find_one({&#39;_id&#39;:ObjectId(&#39;5c6b659b1607c47f8abe6ab7&#39;)})
+
+In [29]: print(result)
+{&#39;_id&#39;: ObjectId(&#39;5c6b659b1607c47f8abe6ab7&#39;), &#39;name&#39;: &#39;张三&#39;, &#39;age&#39;: &#39;25&#39;}
+</pre></div>
+其查询结果依然是字典类型，运行结果：</p>
+<p><div class="codehilite"><pre><span></span>{&#39;_id&#39;: ObjectId(&#39;5c6b659b1607c47f8abe6ab7&#39;), &#39;name&#39;: &#39;张三&#39;, &#39;age&#39;: &#39;25&#39;}
+</pre></div>
+当然如果查询结果不存在则会返回None.</p>
+<h4 id="252-find">2.5.2 find()<a class="headerlink" href="#252-find" title="Permanent link">&para;</a></h4>
+<p>find()则返回多个结果。对于多条数据的查询，我们可以使用find()方法，例如在这里查找年龄为25的数据，</p>
+<p><div class="codehilite"><pre><span></span>results = collection.find({&#39;age&#39;: &#39;25&#39;})
+print(results)
+for result in results:
+    print(result)
+</pre></div>
+结果是:</p>
+<p><div class="codehilite"><pre><span></span>{&#39;_id&#39;: ObjectId(&#39;5c6b659b1607c47f8abe6ab7&#39;), &#39;name&#39;: &#39;张三&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b65c01607c47f8abe6ab8&#39;), &#39;name&#39;: &#39;小明&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b65df1607c47f8abe6aba&#39;), &#39;name&#39;: &#39;李四&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b66081607c47f8abe6abb&#39;), &#39;name&#39;: &#39;王五&#39;, &#39;age&#39;: &#39;25&#39;}
+</pre></div>
+返回结果是Cursor类型，相当于一个生成器，我们需要遍历取到所有的结果，每一个结果都是字典类型。</p>
+<p>如果要查询年龄大于20的数据，则写法如下：</p>
+<p><div class="codehilite"><pre><span></span>results = collection.find({&#39;age&#39;: {&#39;$gt&#39;: &#39;20&#39;}})
+</pre></div>
+测试</p>
+<p><div class="codehilite"><pre><span></span>In [38]: results = collection.find({&#39;age&#39;: {&#39;$gt&#39;: &#39;20&#39;}})
+
+In [39]: for data in results:
+    ...:     print(data)
+    ...: 
+{&#39;_id&#39;: ObjectId(&#39;5c6b659b1607c47f8abe6ab7&#39;), &#39;name&#39;: &#39;张三&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b65c01607c47f8abe6ab8&#39;), &#39;name&#39;: &#39;小明&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b65c01607c47f8abe6ab9&#39;), &#39;name&#39;: &#39;小强&#39;, &#39;age&#39;: &#39;24&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b65df1607c47f8abe6aba&#39;), &#39;name&#39;: &#39;李四&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b66081607c47f8abe6abb&#39;), &#39;name&#39;: &#39;王五&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b66081607c47f8abe6abc&#39;), &#39;name&#39;: &#39;赵六&#39;, &#39;age&#39;: &#39;24&#39;}
+</pre></div>
+在这里查询的条件键值已经不是单纯的数字了，而是一个字典，其键名为比较符号$gt，意思是大于，键值为20，这样便可以查询出所有年龄大于20的数据。</p>
+<h4 id="253">2.5.3 比较符号<a class="headerlink" href="#253" title="Permanent link">&para;</a></h4>
+<p>在这里将比较符号归纳如下表：</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$lt</td>
+<td>小于</td>
+<td>{'age': {'$lt': 20}}</td>
+</tr>
+<tr>
+<td>$gt</td>
+<td>大于</td>
+<td>{'age': {'$gt': 20}}</td>
+</tr>
+<tr>
+<td>$lte</td>
+<td>小于等于</td>
+<td>{'age': {'$lte': 20}}</td>
+</tr>
+<tr>
+<td>$gte</td>
+<td>大于等于</td>
+<td>{'age': {'$gte': 20}}</td>
+</tr>
+<tr>
+<td>$ne</td>
+<td>不等于</td>
+<td>{'age': {'$ne': 20}}</td>
+</tr>
+<tr>
+<td>$in</td>
+<td>在范围内</td>
+<td>{'age': {'$in': [20, 23]}}</td>
+</tr>
+<tr>
+<td>$nin</td>
+<td>不在范围内</td>
+<td>{'age': {'$nin': [20, 23]}}</td>
+</tr>
+</tbody>
+</table>
+<p>另外还可以进行正则匹配查询，例如查询名字以M开头的学生数据，示例如下：</p>
+<p><div class="codehilite"><pre><span></span>results = collection.find({&#39;name&#39;: {&#39;$regex&#39;: &#39;^M.*&#39;}})
+</pre></div>
+在这里使用了$regex来指定正则匹配，^M.*代表以M开头的正则表达式，这样就可以查询所有符合该正则的结果。</p>
+<h4 id="254">2.5.4 功能符号<a class="headerlink" href="#254" title="Permanent link">&para;</a></h4>
+<p>在这里将一些功能符号再归类如下：</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+<th>例子</th>
+<th>例子含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$regex</td>
+<td>匹配正则</td>
+<td>{'name': {'$regex': '^M.*'}}</td>
+<td>name以M开头</td>
+</tr>
+<tr>
+<td>$exists</td>
+<td>属性是否存在</td>
+<td>{'name': {'$exists': True}}</td>
+<td>name属性存在</td>
+</tr>
+<tr>
+<td>$type</td>
+<td>类型判断</td>
+<td>{'age': {'$type': 'int'}}</td>
+<td>age的类型为int</td>
+</tr>
+<tr>
+<td>$mod</td>
+<td>数字模操作</td>
+<td>{'age': {'$mod': [5, 0]}}</td>
+<td>年龄模5余0</td>
+</tr>
+<tr>
+<td>$text</td>
+<td>文本查询</td>
+<td>{'<span><span class="MathJax_Preview">text': {'</span><script type="math/tex">text': {'</script></span>search': 'Mike'}}</td>
+<td>text类型的属性中包含Mike字符串</td>
+</tr>
+<tr>
+<td>$where</td>
+<td>高级条件查询</td>
+<td>{'$where': 'obj.fans_count == obj.follows_count'}</td>
+<td>自身粉丝数等于关注数</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>这些操作的更详细用法在可以在MongoDB官方文档找到：<a href="https://docs.mongodb.com/manual/reference/operator/query/">https://docs.mongodb.com/manual/reference/operator/query/</a></p>
+</blockquote>
+<h3 id="25_1">2.5 计数<a class="headerlink" href="#25_1" title="Permanent link">&para;</a></h3>
+<p>要统计查询结果有多少条数据，可以调用count()方法，如统计所有数据条数：</p>
+<p><div class="codehilite"><pre><span></span>In [40]: count = collection.find().count()
+In [41]: print(count)
+6
+</pre></div>
+或者统计符合某个条件的数据：</p>
+<div class="codehilite"><pre><span></span>In [43]: count = collection.find({&#39;age&#39;: &#39;25&#39;}).count()
+In [44]: print(count)
+4
+</pre></div>
+
+<h3 id="26">2.6 排序<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
+<p>可以调用sort方法，传入排序的字段及升降序标志即可，示例如下：</p>
+<div class="codehilite"><pre><span></span>In [45]: results = collection.find().sort(&#39;name&#39;, pymongo.ASCENDING)
+In [46]: print([result[&#39;name&#39;] for result in results])
+[&#39;小强&#39;, &#39;小明&#39;, &#39;张三&#39;, &#39;李四&#39;, &#39;王五&#39;, &#39;赵六&#39;]
+</pre></div>
+
+<h3 id="27">2.7 偏移<a class="headerlink" href="#27" title="Permanent link">&para;</a></h3>
+<p>在某些情况下我们可能想只取某几个元素，在这里可以利用skip()方法偏移几个位置，比如偏移2，就忽略前2个元素，得到第三个及以后的元素。</p>
+<div class="codehilite"><pre><span></span>In [47]: results = collection.find().sort(&#39;name&#39;, pymongo.ASCENDING).skip(2)
+In [48]: print([result[&#39;name&#39;] for result in results])
+[&#39;张三&#39;, &#39;李四&#39;, &#39;王五&#39;, &#39;赵六&#39;]
+</pre></div>
+
+<h3 id="28-limit">2.8 limit<a class="headerlink" href="#28-limit" title="Permanent link">&para;</a></h3>
+<p>可以用limit()方法指定要取的结果个数，示例如下：</p>
+<p><div class="codehilite"><pre><span></span>In [49]: results = collection.find().sort(&#39;name&#39;, pymongo.ASCENDING).skip(2).limit(2)
+In [50]: print([result[&#39;name&#39;] for result in results])
+[&#39;张三&#39;, &#39;李四&#39;]
+</pre></div>
+如果不加limit()原本会返回三个结果，加了限制之后，会截取2个结果返回。</p>
+<p>值得注意的是，在数据库数量非常庞大的时候，如千万、亿级别，最好不要使用大的偏移量来查询数据，很可能会导致内存溢出。可以使用类似find({'_id': {'$gt': ObjectId('593278c815c2602678bb2b8d')}}) 这样的方法来查询，记录好上次查询的_id。</p>
+<h3 id="29">2.9 更新<a class="headerlink" href="#29" title="Permanent link">&para;</a></h3>
+<h4 id="291-update">2.9.1 update<a class="headerlink" href="#291-update" title="Permanent link">&para;</a></h4>
+<p>对于数据更新可以使用update()方法，指定更新的条件和更新后的数据即可，例如：
+没修改之前</p>
+<div class="codehilite"><pre><span></span>&gt; db.informations.find()
+{ &quot;_id&quot; : ObjectId(&quot;5c6b659b1607c47f8abe6ab7&quot;), &quot;name&quot; : &quot;张三&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b65c01607c47f8abe6ab8&quot;), &quot;name&quot; : &quot;小明&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b65c01607c47f8abe6ab9&quot;), &quot;name&quot; : &quot;小强&quot;, &quot;age&quot; : &quot;24&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b65df1607c47f8abe6aba&quot;), &quot;name&quot; : &quot;李四&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b66081607c47f8abe6abb&quot;), &quot;name&quot; : &quot;王五&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b66081607c47f8abe6abc&quot;), &quot;name&quot; : &quot;赵六&quot;, &quot;age&quot; : &quot;24&quot; }
+</pre></div>
+
+<p><div class="codehilite"><pre><span></span>In [51]: condition = {&#39;name&#39;: &#39;张三&#39;}
+In [52]: user = collection.find_one(condition)
+In [53]: user[&#39;age&#39;]=20
+In [54]: result = collection.update(condition, user)
+/usr/local/bin/ipython:1: DeprecationWarning: update is deprecated. Use replace_one, update_one or update_many instead.
+  #!/usr/local/bin/python3.6
+In [55]: print(result)
+{&#39;ok&#39;: 1, &#39;nModified&#39;: 1, &#39;n&#39;: 1, &#39;updatedExisting&#39;: True}
+</pre></div>
+修改之后</p>
+<p><div class="codehilite"><pre><span></span>&gt; db.informations.find()
+{ &quot;_id&quot; : ObjectId(&quot;5c6b659b1607c47f8abe6ab7&quot;), &quot;name&quot; : &quot;张三&quot;, &quot;age&quot; : 20 }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b65c01607c47f8abe6ab8&quot;), &quot;name&quot; : &quot;小明&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b65c01607c47f8abe6ab9&quot;), &quot;name&quot; : &quot;小强&quot;, &quot;age&quot; : &quot;24&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b65df1607c47f8abe6aba&quot;), &quot;name&quot; : &quot;李四&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b66081607c47f8abe6abb&quot;), &quot;name&quot; : &quot;王五&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b66081607c47f8abe6abc&quot;), &quot;name&quot; : &quot;赵六&quot;, &quot;age&quot; : &quot;24&quot; }
+</pre></div>
+返回结果是字典形式，ok即代表执行成功，nModified代表影响的数据条数。
+另外update()方法其实也是官方不推荐使用的方法，在这里也分了update_one()方法和update_many()方法，用法更加严格，第二个参数需要使用$类型操作符作为字典的键名，我们用示例感受一下。</p>
+<h4 id="292-update_one">2.9.2 update_one<a class="headerlink" href="#292-update_one" title="Permanent link">&para;</a></h4>
+<p><div class="codehilite"><pre><span></span>condition = {&#39;name&#39;: &#39;李四&#39;}
+user = collection.find_one(condition)
+user[&#39;age&#39;] = 26
+result = collection.update_one(condition, {&#39;$set&#39;: user})
+print(result)
+print(result.matched_count, result.modified_count)
+</pre></div>
+在这里调用了update_one方法，第二个参数不能再直接传入修改后的字典，而是需要使用{'$set': user}这样的形式，其返回结果是UpdateResult类型，然后调用matched_count和modified_count属性分别可以获得匹配的数据条数和影响的数据条数。</p>
+<p>再看一个例子</p>
+<p><div class="codehilite"><pre><span></span>condition = {&#39;age&#39;: {&#39;$gt&#39;: 20}}
+result = collection.update_one(condition, {&#39;$inc&#39;: {&#39;age&#39;: 1}})
+print(result)
+print(result.matched_count, result.modified_count)
+</pre></div>
+在这里我们指定查询条件为年龄大于20，然后更新条件为{'$inc': {'age': 1}} ，也就是年龄加1，执行之后会讲第一条符合条件的数据年龄加1。</p>
+<h4 id="293-update_many">2.9.3 update_many<a class="headerlink" href="#293-update_many" title="Permanent link">&para;</a></h4>
+<p>如果调用update_many()方法，则会将所有符合条件的数据都更新，示例如下：</p>
+<div class="codehilite"><pre><span></span>condition = {&#39;age&#39;: {&#39;$gt&#39;: 20}}
+result = collection.update_many(condition, {&#39;$inc&#39;: {&#39;age&#39;: 1}})
+print(result)
+print(result.matched_count, result.modified_count)
+</pre></div>
+
+<h3 id="210">2.10 删除<a class="headerlink" href="#210" title="Permanent link">&para;</a></h3>
+<h4 id="2101-remove">2.10.1 remove<a class="headerlink" href="#2101-remove" title="Permanent link">&para;</a></h4>
+<p>删除操作比较简单，直接调用remove()方法指定删除的条件即可，符合条件的所有数据均会被删除，示例如下</p>
+<p><div class="codehilite"><pre><span></span>result = collection.remove({&#39;name&#39;: &#39;王五&#39;})
+print(result)
+</pre></div>
+运行</p>
+<p><div class="codehilite"><pre><span></span>n [66]: result = collection.remove({&#39;name&#39;: &#39;王五&#39;})
+/usr/local/bin/ipython:1: DeprecationWarning: remove is deprecated. Use delete_one or delete_many instead.
+  #!/usr/local/bin/python3.6
+
+In [67]: print(result)
+{&#39;ok&#39;: 1, &#39;n&#39;: 1}
+</pre></div>
+另外依然存在两个新的推荐方法，delete_one()和delete_many()方法.</p>
+<h4 id="2102-delete_one">2.10.2 delete_one<a class="headerlink" href="#2102-delete_one" title="Permanent link">&para;</a></h4>
+<p><div class="codehilite"><pre><span></span>result = collection.delete_one({&#39;name&#39;: &#39;赵六&#39;})
+print(result)
+print(result.deleted_count)
+</pre></div>
+过程</p>
+<div class="codehilite"><pre><span></span>In [68]: result = collection.delete_one({&#39;name&#39;: &#39;赵六&#39;})
+
+In [69]: print(result)
+&lt;pymongo.results.DeleteResult object at 0x7f3d00039188&gt;
+
+In [70]: print(result.deleted_count)
+1
+</pre></div>
+
+<h4 id="2103-delete_many">2.10.3 delete_many<a class="headerlink" href="#2103-delete_many" title="Permanent link">&para;</a></h4>
+<p><div class="codehilite"><pre><span></span>result = collection.delete_many({&#39;age&#39;: {&#39;$lt&#39;: 10}})
+print(result.deleted_count)
+</pre></div>
+delete_one()即删除第一条符合条件的数据，delete_many()即删除所有符合条件的数据，返回结果是DeleteResult类型，可以调用deleted_count属性获取删除的数据条数。</p>
+<h4 id="2104">2.10.4 更多<a class="headerlink" href="#2104" title="Permanent link">&para;</a></h4>
+<p>另外PyMongo还提供了一些组合方法，如find_one_and_delete() 、find_one_and_replace() 、find_one_and_update() ，就是查找后删除、替换、更新操作，用法与上述方法基本一致。</p>
+<p>另外还可以对索引进行操作，如create_index() 、create_indexes() 、drop_index()等。</p>
+<p>详细用法可以参见官方文档：<a href="http://api.mongodb.com/python/current/api/pymongo/collection.html">http://api.mongodb.com/python/current/api/pymongo/collection.html</a></p>
+<p>另外还有对数据库、集合本身以及其他的一些操作，在这不再一一讲解，可以参见官方文档：<a href="http://api.mongodb.com/python/current/api/pymongo/">http://api.mongodb.com/python/current/api/pymongo/</a></p>
+<h3 id="211-code">2.11 code<a class="headerlink" href="#211-code" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import pymongo
+import datetime
+
+
+def get_db():
+    # 建立连接
+    client = pymongo.MongoClient(host=&quot;127.0.0.1&quot;, port=27017)
+    # host 指定要链接的mongo server的主机。port是端口
+    db = client[&#39;test_mongo_db&#39;]
+    #或者 db = client.test_mongo_db
+    return db
+
+
+def get_collection(db):
+    # 选择集合(mongo中collection和database都是延时创建的)
+    coll = db[&#39;informations&#39;]
+    print (db.collection_names())
+    return coll
+
+
+def insert_one_doc(db):
+    # 插入一个document
+    coll = db[&#39;informations&#39;]
+    information = {&quot;name&quot;: &quot;summer&quot;, &quot;age&quot;: &quot;25&quot;}
+    information_id = coll.insert(information)
+    print(information_id)
+
+
+def insert_multi_docs(db):
+    # 批量插入documents,插入一个数组
+    coll = db[&#39;informations&#39;]
+    information = [{&quot;name&quot;: &quot;小明&quot;, &quot;age&quot;: &quot;25&quot;}, {&quot;name&quot;: &quot;小强&quot;, &quot;age&quot;: &quot;24&quot;}]
+    information_id = coll.insert(information)
+    print(information_id)
+
+
+def get_one_doc(db):
+    # 有就返回一个，没有就返回None
+    coll = db[&#39;informations&#39;]
+    print(coll.find_one())  # 返回第一条记录
+    print(coll.find_one({&quot;name&quot;: &quot;summer&quot;}))
+    print(coll.find_one({&quot;name&quot;: &quot;none&quot;}))
+
+
+def get_one_by_id(db):
+    # 通过objectid来查找一个doc
+    coll = db[&#39;informations&#39;]
+    obj = coll.find_one()
+    obj_id = obj[&quot;_id&quot;]
+    print(&quot;_id 为ObjectId类型，obj_id:&quot; + str(obj_id))
+
+    print(coll.find_one({&quot;_id&quot;: obj_id}))
+    # 需要注意这里的obj_id是一个对象，不是一个str，使用str类型作为_id的值无法找到记录
+    print(&quot;_id 为str类型 &quot;)
+    print(coll.find_one({&quot;_id&quot;: str(obj_id)}))
+    # 可以通过ObjectId方法把str转成ObjectId类型
+    from bson.objectid import ObjectId
+
+    print (&quot;_id 转换成ObjectId类型&quot;)
+    print (coll.find_one({&quot;_id&quot;: ObjectId(str(obj_id))}))
+
+
+def get_many_docs(db):
+    # mongo中提供了过滤查找的方法，可以通过各种条件筛选来获取数据集，还可以对数据进行计数，排序等处理
+    coll = db[&#39;informations&#39;]
+    # ASCENDING = 1 升序;DESCENDING = -1降序;default is ASCENDING
+    for item in coll.find().sort(&quot;age&quot;, pymongo.DESCENDING):
+        print(item)
+
+    count = coll.count()
+    print (&quot;集合中所有数据 %s个&quot; % int(count))
+
+    # 条件查询
+    count = coll.find({&quot;name&quot;:&quot;summer&quot;}).count()
+    print (&quot;summer: %s&quot;%count)
+
+def clear_all_datas(db):
+    # 清空一个集合中的所有数据
+    db[&quot;informations&quot;].remove()
+
+if __name__ == &#39;__main__&#39;:
+    db = get_db()
+    my_collection = get_collection(db)
+    post = {&quot;author&quot;: &quot;Mike&quot;, &quot;text&quot;: &quot;My first blog post!&quot;, &quot;tags&quot;: [&quot;mongodb&quot;, &quot;python&quot;, &quot;pymongo&quot;],
+            &quot;date&quot;: datetime.datetime.utcnow()}
+    # 插入记录
+    my_collection.insert(post)
+    insert_one_doc(db)
+    # 条件查询
+    print (my_collection.find_one({&quot;x&quot;: &quot;10&quot;}))
+    # 查询表中所有的数据
+    for data in my_collection.find():
+        print(data)
+    print (my_collection.count())
+    my_collection.update({&quot;author&quot;: &quot;Mike&quot;},
+                         {&quot;author&quot;: &quot;summer&quot;, &quot;text&quot;: &quot;My first blog post!&quot;, &quot;tags&quot;: [&quot;mongodb&quot;, &quot;python&quot;, &quot;pymongo&quot;],
+                          &quot;date&quot;: datetime.datetime.utcnow()})
+    for data in my_collection.find():
+        print (data)
+    get_one_doc(db)
+    get_one_by_id(db)
+    get_many_docs(db)
+    # clear_all_datas(db)
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../../yield/1.yield/" title="1. yield" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                1. yield
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../memcached/memcached.index/" title="1. memcached" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                1. memcached
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/caimengzhi" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../../assets/javascripts/application.a353778b.js"></script>
+      
+        
+        
+          
+          <script src="../../../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../../../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../../../../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../../.."}})</script>
+      
+        <script src="../../../../../js/extra.js"></script>
+      
+        <script src="../../../../../js/baidu-tongji.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

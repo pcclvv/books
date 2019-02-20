@@ -94,7 +94,12 @@ nav:
                 - 1. wordcloud: python/lib/wordcloud/1.wordcloud.md
             - 8. yield库:    
                 - 1. yield: python/lib/yield/1.yield.md
-            - 9. 数据处理库: 
+            - 9. Nosql:
+                - 1. mongo:    
+                    - 1. mongo: python/lib/nosql/mongo/mongo.index.md
+                - 2. memcached:
+                    - 1. memcached: python/lib/nosql/memcached/memcached.index.md
+            - 10. 数据处理库: 
                 - 1. numPy: 
                     - 1. 介绍: python/lib/numPy/1.index.md
                 - 2. pandas: 
