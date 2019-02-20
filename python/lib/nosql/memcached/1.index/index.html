@@ -40,7 +40,7 @@
     
     
       
-        <title>1. mongo - 笔记</title>
+        <title>2. memcached - 笔记</title>
       
     
     
@@ -132,7 +132,7 @@
                 笔记
               </span>
               <span class="md-header-nav__topic">
-                1. mongo
+                2. memcached
               </span>
             
           
@@ -706,12 +706,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-9-1" type="checkbox" id="nav-1-1-9-1" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-9-1" type="checkbox" id="nav-1-1-9-1">
     
     <label class="md-nav__link" for="nav-1-1-9-1">
       1. mongo
@@ -719,6 +717,44 @@
     <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
       <label class="md-nav__title" for="nav-1-1-9-1">
         1. mongo
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mongo/1.index/" title="1. mongo" class="md-nav__link">
+      1. mongo
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-9-2" type="checkbox" id="nav-1-1-9-2" checked>
+    
+    <label class="md-nav__link" for="nav-1-1-9-2">
+      2. memcached
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-1-1-9-2">
+        2. memcached
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -736,11 +772,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        1. mongo
+        2. memcached
       </label>
     
-    <a href="./" title="1. mongo" class="md-nav__link md-nav__link--active">
-      1. mongo
+    <a href="./" title="2. memcached" class="md-nav__link md-nav__link--active">
+      2. memcached
     </a>
     
       
@@ -941,26 +977,6 @@
   <a href="#26" title="2.6 统计操作" class="md-nav__link">
     2.6 统计操作
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#261-stats" title="2.6.1 stats" class="md-nav__link">
-    2.6.1 stats
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#262-slabs" title="2.6.2 slabs" class="md-nav__link">
-    2.6.2 slabs
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2841,26 +2857,6 @@
     2.6 统计操作
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#261-stats" title="2.6.1 stats" class="md-nav__link">
-    2.6.1 stats
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#262-slabs" title="2.6.2 slabs" class="md-nav__link">
-    2.6.2 slabs
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -2884,10 +2880,10 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/caimengzhi/books/edit/master/docs/python/lib/nosql/mongo/mongo.index.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/caimengzhi/books/edit/master/docs/python/lib/nosql/memcached/1.index.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>1. mongo</h1>
+                  <h1>2. memcached</h1>
                 
                 <h2 id="1">1. 介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>这个模块是一个Python操作memcached的一个API接口。</p>
@@ -2898,7 +2894,7 @@
 <p>Memcached是一个内存中的键值存储，用于从数据库调用，API调用或页面呈现的结果中获取任意数据（字符串，对象）的小块。</p>
 <p>Memcached简单而强大。其简单的设计促进了快速部署，易于开发，并解决了大型数据缓存面临的许多问题。其API适用于大多数流行语言。</p>
 <blockquote>
-<p>以上内容摘自官网的介绍的翻译，具体信息访问官网</p>
+<p>以上内容摘自官网的介绍f翻译，具体信息访问官网</p>
 </blockquote>
 <h3 id="12">1.2 安装<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
 <h4 id="121">1.2.1 在线安装<a class="headerlink" href="#121" title="Permanent link">&para;</a></h4>
@@ -2917,25 +2913,21 @@
 <h4 id="122">1.2.2 离线安装<a class="headerlink" href="#122" title="Permanent link">&para;</a></h4>
 <p>Memcached源码包安装的时候需要依赖于libevent</p>
 <ul>
-<li>安装依赖库</li>
-</ul>
+<li>安装依赖库
 <div class="codehilite"><pre><span></span># Ubuntu
 apt-get install libevent-dev
 # CentOS
 yum install libevent-devel
-</pre></div>
-
-<blockquote>
+</pre></div><blockquote>
 <p>不安装库的时候，编译时候报错如下</p>
 </blockquote>
-<div class="codehilite"><pre><span></span>checking for libevent directory... configure: error: libevent is required.  You can get it from http://www.monkey.org/~provos/libevent/
+</li>
+</ul>
+<p><div class="codehilite"><pre><span></span>checking for libevent directory... configure: error: libevent is required.  You can get it from http://www.monkey.org/~provos/libevent/
 
       If it&#39;s already installed, specify its path using --with-libevent=/dir/
 </pre></div>
-
-<ul>
-<li>编译安装memcached</li>
-</ul>
+- 编译安装memcached</p>
 <p><div class="codehilite"><pre><span></span>wget https://memcached.org/latest
 tar -zxf memcached-1.x.x.tar.gz
 cd memcached-1.x.x
@@ -3065,41 +3057,14 @@ Out[4]: &#39;v1
 </pre></div>
 
 <h3 id="23">2.3 其他命令测试<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
-<p>用nc命令操作memcached</p>
-<table>
-<thead>
-<tr>
-<th>功能</th>
-<th>命令</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>存储数据</td>
-<td>printf "set key 0 10 6\r\nresult\r\n"</td>
-</tr>
-<tr>
-<td>获取数据</td>
-<td>printf "get key\r\n"</td>
-</tr>
-<tr>
-<td>删除数据</td>
-<td>printf "delete key\r\n"</td>
-</tr>
-<tr>
-<td>查看状态</td>
-<td>printf "stats\r\n"</td>
-</tr>
-<tr>
-<td>模拟top命令查看状态</td>
-<td>watch "echo stats"</td>
-</tr>
-<tr>
-<td>清空缓存</td>
-<td>printf "flush_all\r\n"</td>
-</tr>
-</tbody>
-</table>
+<p>用nc命令操作memcached
+1. 1）存储数据：printf "set key 0 10 6\r\nresult\r\n" |nc 192.168.5.110 11211
+1. 2）获取数据：printf "get key\r\n" |nc 192.168.5.110 11211
+1. 3）删除数据：printf "delete key\r\n" |nc 192.168.5.110 11211
+1. 4）查看状态：printf "stats\r\n" |nc 192.168.5.110 11211
+1. 5）模拟top命令查看状态：watch "echo stats" |nc 192.168.5.110 11211
+1. 
+1. 6）清空缓存：printf "flush_all\r\n" |nc 192.168.5.110 11211 (小心操作，清空了缓存就没了）</p>
 <h3 id="23_1">2.3 集群<a class="headerlink" href="#23_1" title="Permanent link">&para;</a></h3>
 <p>python-memcached模块原生支持集群操作，其原理是在内存中维护一个主机列表，且集群中主机的权重值和主机在列表中重复出现的次数成正比。</p>
 <p><div class="codehilite"><pre><span></span>主机     权重
@@ -3148,9 +3113,8 @@ value1
 <h4 id="241-setset_multi">2.4.1 set/set_multi<a class="headerlink" href="#241-setset_multi" title="Permanent link">&para;</a></h4>
 <ul>
 <li>set : 设置一个键值对，如果Key不存在，则创建，如果key存在，则修改。</li>
-<li>set_multi : 设置多个键值对，如果key不存在，则创建，如果key存在，则修改。</li>
-</ul>
-<p><div class="codehilite"><pre><span></span>root@leco:~/code/memcached# cat set.py
+<li>set_multi : 设置多个键值对，如果key不存在，则创建，如果key存在，则修改。
+<div class="codehilite"><pre><span></span>root@leco:~/code/memcached# cat set.py
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 import memcache
@@ -3167,7 +3131,8 @@ age = mc.get(&#39;age&#39;)
 job = mc.get(&#39;job&#39;)
 print(&#39;set_multi用法:&#39;,name,age,job)
 </pre></div>
-运行结果</p>
+运行结果</li>
+</ul>
 <div class="codehilite"><pre><span></span>root@leco:~/code/memcached# python3 set.py
 set用法 jack
 set_multi用法: jack 19 IT
@@ -3196,7 +3161,7 @@ v1
 </pre></div>
 
 <h4 id="243-replace">2.4.3 replace<a class="headerlink" href="#243-replace" title="Permanent link">&para;</a></h4>
-<p>replace修改某个key的值，如果key不存在，返回False</p>
+<p>replace修改某个key的值，如果key不存在，返回False
 <div class="codehilite"><pre><span></span>root@leco:~/code/memcached# cat replace.py
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
@@ -3220,8 +3185,7 @@ ret_name =  True   # key存在替换成功
 ret1 =  李四       # 修改后的值
 rereplace =  False # key不存在，替换失败
 ret2 =  None       # 不存在的key，返回False
-</pre></div>
-
+</pre></div></p>
 <h4 id="244-appendprepend">2.4.4 append/prepend<a class="headerlink" href="#244-appendprepend" title="Permanent link">&para;</a></h4>
 <ul>
 <li>append : 修改指定key的值，在该值后面追加内容。</li>
@@ -3288,8 +3252,7 @@ True
 <h4 id="251-getget_multi">2.5.1 get,get_multi<a class="headerlink" href="#251-getget_multi" title="Permanent link">&para;</a></h4>
 <ul>
 <li>get : 获取一个键值对。</li>
-<li>get_multi : 获取多个键值对。</li>
-</ul>
+<li>get_multi : 获取多个键值对。
 <div class="codehilite"><pre><span></span>root@leco:~/code/memcached# cat get.py
 #!/usr/bin/env python3
 #coding:utf8
@@ -3305,17 +3268,16 @@ print(&#39;get_multi&#39;,re)                        # 获取多个键值对的�
 root@leco:~/code/memcached# python3 get.py
 get jack
 get_multi jack
-</pre></div>
-
-<blockquote>
+</pre></div><blockquote>
 <p>若是get的key不存在的话，返回为空。</p>
 </blockquote>
+</li>
+</ul>
 <h4 id="252-deletedelete_multi">2.5.2 delete/delete_multi<a class="headerlink" href="#252-deletedelete_multi" title="Permanent link">&para;</a></h4>
 <ul>
 <li>delete : 在Memcached中删除指定的一个键值对。</li>
-<li>delete_multi : 在Memcached中删除指定多个键值对。</li>
-</ul>
-<p><div class="codehilite"><pre><span></span>root@leco:~/code/memcached# cat del.py
+<li>delete_multi : 在Memcached中删除指定多个键值对。
+<div class="codehilite"><pre><span></span>root@leco:~/code/memcached# cat del.py
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 import memcache
@@ -3333,7 +3295,8 @@ mc.delete_multi([&#39;name2&#39;,&#39;name3&#39;])
 name1,name2,name3 = mc.get(&#39;name1&#39;),mc.get(&#39;name2&#39;),mc.get(&#39;name3&#39;)
 print(&#39;name1 = %s, name2=%s, name3=%s&#39; %(name1,name2,name3))
 </pre></div>
-运行结果</p>
+运行结果</li>
+</ul>
 <div class="codehilite"><pre><span></span>root@leco:~/code/memcached# python3 del.py
 name1 = JACK1, name2=JACK2, name3=JACK3
 删除 jack
@@ -3368,21 +3331,6 @@ root@leco:~/code/memcached# python3 decr.py
 </pre></div>
 
 <h3 id="26">2.6 统计操作<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
-<h4 id="261-stats">2.6.1 stats<a class="headerlink" href="#261-stats" title="Permanent link">&para;</a></h4>
-<p>Memcached stats命令用于返回统计信息例如PID（进程号），版本号，连接数等。</p>
-<div class="codehilite"><pre><span></span>root@leco:~/code/memcached# cat stats.py
-#!/usr/bin/env python
-# -*- coding:utf-8 -*-
-import memcache
-mc = memcache.Client([&#39;127.0.0.1:11211&#39;])
-ret = mc.get_stats()
-print(ret)
-root@leco:~/code/memcached# python3 stats.py
-[(b&#39;127.0.0.1:11211 (1)&#39;, {b&#39;pid&#39;: b&#39;7862&#39;, b&#39;uptime&#39;: b&#39;6680&#39;, b&#39;time&#39;: b&#39;1550635332&#39;, b&#39;version&#39;: b&#39;1.5.12&#39;, b&#39;libevent&#39;: b&#39;2.0.21-stable&#39;, b&#39;pointer_size&#39;: b&#39;64&#39;, b&#39;rusage_user&#39;: b&#39;0.537668&#39;, b&#39;rusage_system&#39;: b&#39;0.414349&#39;, b&#39;max_connections&#39;: b&#39;256&#39;, b&#39;curr_connections&#39;: b&#39;2&#39;, b&#39;total_connections&#39;: b&#39;31&#39;, b&#39;rejected_connections&#39;: b&#39;0&#39;, b&#39;connection_structures&#39;: b&#39;4&#39;, b&#39;reserved_fds&#39;: b&#39;20&#39;, b&#39;cmd_get&#39;: b&#39;77&#39;, b&#39;cmd_set&#39;: b&#39;65&#39;, b&#39;cmd_flush&#39;: b&#39;0&#39;, b&#39;cmd_touch&#39;: b&#39;0&#39;, b&#39;get_hits&#39;: b&#39;67&#39;, b&#39;get_misses&#39;: b&#39;10&#39;, b&#39;get_expired&#39;: b&#39;0&#39;, b&#39;get_flushed&#39;: b&#39;0&#39;, b&#39;delete_misses&#39;: b&#39;4&#39;, b&#39;delete_hits&#39;: b&#39;6&#39;, b&#39;incr_misses&#39;: b&#39;0&#39;, b&#39;incr_hits&#39;: b&#39;2&#39;, b&#39;decr_misses&#39;: b&#39;0&#39;, b&#39;decr_hits&#39;: b&#39;1&#39;, b&#39;cas_misses&#39;: b&#39;0&#39;, b&#39;cas_hits&#39;: b&#39;0&#39;, b&#39;cas_badval&#39;: b&#39;0&#39;, b&#39;touch_hits&#39;: b&#39;0&#39;, b&#39;touch_misses&#39;: b&#39;0&#39;, b&#39;auth_cmds&#39;: b&#39;0&#39;, b&#39;auth_errors&#39;: b&#39;0&#39;, b&#39;bytes_read&#39;: b&#39;2630&#39;, b&#39;bytes_written&#39;: b&#39;4681&#39;, b&#39;limit_maxbytes&#39;: b&#39;10485760&#39;, b&#39;accepting_conns&#39;: b&#39;1&#39;, b&#39;listen_disabled_num&#39;: b&#39;0&#39;, b&#39;time_in_listen_disabled_us&#39;: b&#39;0&#39;, b&#39;threads&#39;: b&#39;4&#39;, b&#39;conn_yields&#39;: b&#39;0&#39;, b&#39;hash_power_level&#39;: b&#39;16&#39;, b&#39;hash_bytes&#39;: b&#39;524288&#39;, b&#39;hash_is_expanding&#39;: b&#39;0&#39;, b&#39;slab_reassign_rescues&#39;: b&#39;0&#39;, b&#39;slab_reassign_chunk_rescues&#39;: b&#39;0&#39;, b&#39;slab_reassign_evictions_nomem&#39;: b&#39;0&#39;, b&#39;slab_reassign_inline_reclaim&#39;: b&#39;0&#39;, b&#39;slab_reassign_busy_items&#39;: b&#39;0&#39;, b&#39;slab_reassign_busy_deletes&#39;: b&#39;0&#39;, b&#39;slab_reassign_running&#39;: b&#39;0&#39;, b&#39;slabs_moved&#39;: b&#39;0&#39;, b&#39;lru_crawler_running&#39;: b&#39;0&#39;, b&#39;lru_crawler_starts&#39;:b&#39;3825&#39;, b&#39;lru_maintainer_juggles&#39;: b&#39;14452&#39;, b&#39;malloc_fails&#39;: b&#39;0&#39;, b&#39;log_worker_dropped&#39;: b&#39;0&#39;, b&#39;log_worker_written&#39;: b&#39;0&#39;, b&#39;log_watcher_skipped&#39;: b&#39;0&#39;, b&#39;log_watcher_sent&#39;: b&#39;0&#39;, b&#39;bytes&#39;: b&#39;520&#39;, b&#39;curr_items&#39;: b&#39;8&#39;, b&#39;total_items&#39;: b&#39;56&#39;, b&#39;slab_global_page_pool&#39;: b&#39;0&#39;, b&#39;expired_unfetched&#39;: b&#39;0&#39;, b&#39;evicted_unfetched&#39;: b&#39;0&#39;, b&#39;evicted_active&#39;: b&#39;0&#39;, b&#39;evictions&#39;: b&#39;0&#39;, b&#39;reclaimed&#39;: b&#39;0&#39;, b&#39;crawler_reclaimed&#39;: b&#39;0&#39;, b&#39;crawler_items_checked&#39;: b&#39;41&#39;, b&#39;lrutail_reflocked&#39;: b&#39;4&#39;, b&#39;moves_to_cold&#39;: b&#39;24&#39;, b&#39;moves_to_warm&#39;: b&#39;8&#39;, b&#39;moves_within_lru&#39;: b&#39;1&#39;, b&#39;direct_reclaims&#39;: b&#39;0&#39;, b&#39;lru_bumps_dropped&#39;: b&#39;0&#39;})]
-</pre></div>
-
-<h4 id="262-slabs">2.6.2 slabs<a class="headerlink" href="#262-slabs" title="Permanent link">&para;</a></h4>
-<p>Memcached stats slabs 命令用于显示各个slab的信息，包括chunk的大小、数目、使用情况等。</p>
                 
                   
                 
@@ -3403,7 +3351,7 @@ root@leco:~/code/memcached# python3 stats.py
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../../yield/1.yield/" title="1. yield" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../mongo/1.index/" title="1. mongo" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -3412,7 +3360,7 @@ root@leco:~/code/memcached# python3 stats.py
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                1. yield
+                1. mongo
               </span>
             </div>
           </a>
