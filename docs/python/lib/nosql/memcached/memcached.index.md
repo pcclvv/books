@@ -369,7 +369,7 @@ B用户刷新页面从memecache中读取到ticket_count = 88
 
 A,B用户均购买该趟列车的票，并修改ticket_count的值
 
-A修改后，ticket_count = 887
+A修改后，ticket_count = 87
 
 B修改后，ticket_count = 87
 
