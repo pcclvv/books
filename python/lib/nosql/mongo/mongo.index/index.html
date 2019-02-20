@@ -40,7 +40,7 @@
     
     
       
-        <title>1. memcached - 笔记</title>
+        <title>1. mongo - 笔记</title>
       
     
     
@@ -132,7 +132,7 @@
                 笔记
               </span>
               <span class="md-header-nav__topic">
-                1. memcached
+                1. mongo
               </span>
             
           
@@ -706,10 +706,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-9-1" type="checkbox" id="nav-1-1-9-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-9-1" type="checkbox" id="nav-1-1-9-1" checked>
     
     <label class="md-nav__link" for="nav-1-1-9-1">
       1. mongo
@@ -717,44 +719,6 @@
     <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
       <label class="md-nav__title" for="nav-1-1-9-1">
         1. mongo
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../mongo/1.index/" title="1. mongo" class="md-nav__link">
-      1. mongo
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-9-2" type="checkbox" id="nav-1-1-9-2" checked>
-    
-    <label class="md-nav__link" for="nav-1-1-9-2">
-      2. memcached
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
-      <label class="md-nav__title" for="nav-1-1-9-2">
-        2. memcached
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -772,11 +736,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        1. memcached
+        1. mongo
       </label>
     
-    <a href="./" title="1. memcached" class="md-nav__link md-nav__link--active">
-      1. memcached
+    <a href="./" title="1. mongo" class="md-nav__link md-nav__link--active">
+      1. mongo
     </a>
     
       
@@ -796,57 +760,16 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-memcached" title="1.1 什么是Memcached？" class="md-nav__link">
-    1.1 什么是Memcached？
+  <a href="#11" title="1.1 安装" class="md-nav__link">
+    1.1 安装
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#12" title="1.2 安装" class="md-nav__link">
-    1.2 安装
+  <a href="#12-pymongo" title="1.2 测试pymongo" class="md-nav__link">
+    1.2 测试pymongo
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#121" title="1.2.1 在线安装" class="md-nav__link">
-    1.2.1 在线安装
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#122" title="1.2.2 离线安装" class="md-nav__link">
-    1.2.2 离线安装
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#123" title="1.2.3 启动" class="md-nav__link">
-    1.2.3 启动
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#124" title="1.2.4 设置开机启动" class="md-nav__link">
-    1.2.4 设置开机启动
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#125" title="1.2.5 停止" class="md-nav__link">
-    1.2.5 停止
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -856,80 +779,66 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-memcached" title="2. memcached库" class="md-nav__link">
-    2. memcached库
+  <a href="#2" title="2. 详细" class="md-nav__link">
+    2. 详细
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21" title="2.1 安装" class="md-nav__link">
-    2.1 安装
+  <a href="#21-mongodb" title="2.1 连接MongoDB" class="md-nav__link">
+    2.1 连接MongoDB
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#22" title="2.2 测试" class="md-nav__link">
-    2.2 测试
+  <a href="#22" title="2.2 指定数据库" class="md-nav__link">
+    2.2 指定数据库
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#23" title="2.3 其他命令测试" class="md-nav__link">
-    2.3 其他命令测试
+  <a href="#23" title="2.3 指定集合" class="md-nav__link">
+    2.3 指定集合
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#23_1" title="2.3 集群" class="md-nav__link">
-    2.3 集群
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24" title="2.4 存储操作" class="md-nav__link">
-    2.4 存储操作
+  <a href="#24" title="2.4 插入数据" class="md-nav__link">
+    2.4 插入数据
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#241-setset_multi" title="2.4.1 set/set_multi" class="md-nav__link">
-    2.4.1 set/set_multi
+  <a href="#241" title="2.4.1 单条插入" class="md-nav__link">
+    2.4.1 单条插入
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#242-add" title="2.4.2 add" class="md-nav__link">
-    2.4.2 add
+  <a href="#242" title="2.4.2 多条插入" class="md-nav__link">
+    2.4.2 多条插入
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#243-replace" title="2.4.3 replace" class="md-nav__link">
-    2.4.3 replace
+  <a href="#243" title="2.4.3 新单条插入" class="md-nav__link">
+    2.4.3 新单条插入
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#244-appendprepend" title="2.4.4 append/prepend" class="md-nav__link">
-    2.4.4 append/prepend
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#245-getscas" title="2.4.5 gets/cas" class="md-nav__link">
-    2.4.5 gets/cas
+  <a href="#244" title="2.4.4 新多条插入" class="md-nav__link">
+    2.4.4 新多条插入
   </a>
   
 </li>
@@ -940,30 +849,37 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#25" title="2.5 查找操作" class="md-nav__link">
-    2.5 查找操作
+  <a href="#25" title="2.5 查询数据" class="md-nav__link">
+    2.5 查询数据
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#251-getget_multi" title="2.5.1 get,get_multi" class="md-nav__link">
-    2.5.1 get,get_multi
+  <a href="#251-find_one" title="2.5.1 find_one()" class="md-nav__link">
+    2.5.1 find_one()
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#252-deletedelete_multi" title="2.5.2 delete/delete_multi" class="md-nav__link">
-    2.5.2 delete/delete_multi
+  <a href="#252-find" title="2.5.2 find()" class="md-nav__link">
+    2.5.2 find()
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#254-incredecr" title="2.5.4 incre/decr" class="md-nav__link">
-    2.5.4 incre/decr
+  <a href="#253" title="2.5.3 比较符号" class="md-nav__link">
+    2.5.3 比较符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#254" title="2.5.4 功能符号" class="md-nav__link">
+    2.5.4 功能符号
   </a>
   
 </li>
@@ -974,8 +890,111 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#26" title="2.6 统计操作" class="md-nav__link">
-    2.6 统计操作
+  <a href="#25_1" title="2.5 计数" class="md-nav__link">
+    2.5 计数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" title="2.6 排序" class="md-nav__link">
+    2.6 排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" title="2.7 偏移" class="md-nav__link">
+    2.7 偏移
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-limit" title="2.8 limit" class="md-nav__link">
+    2.8 limit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29" title="2.9 更新" class="md-nav__link">
+    2.9 更新
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#291-update" title="2.9.1 update" class="md-nav__link">
+    2.9.1 update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#292-update_one" title="2.9.2 update_one" class="md-nav__link">
+    2.9.2 update_one
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#293-update_many" title="2.9.3 update_many" class="md-nav__link">
+    2.9.3 update_many
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#210" title="2.10 删除" class="md-nav__link">
+    2.10 删除
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2101-remove" title="2.10.1 remove" class="md-nav__link">
+    2.10.1 remove
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2102-delete_one" title="2.10.2 delete_one" class="md-nav__link">
+    2.10.2 delete_one
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2103-delete_many" title="2.10.3 delete_many" class="md-nav__link">
+    2.10.3 delete_many
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2104" title="2.10.4 更多" class="md-nav__link">
+    2.10.4 更多
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#211-code" title="2.11 code" class="md-nav__link">
+    2.11 code
   </a>
   
 </li>
@@ -993,6 +1012,42 @@
   
 </nav>
     
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-9-2" type="checkbox" id="nav-1-1-9-2">
+    
+    <label class="md-nav__link" for="nav-1-1-9-2">
+      2. memcached
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-1-1-9-2">
+        2. memcached
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../memcached/memcached.index/" title="1. memcached" class="md-nav__link">
+      1. memcached
+    </a>
   </li>
 
         
@@ -2675,57 +2730,16 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-memcached" title="1.1 什么是Memcached？" class="md-nav__link">
-    1.1 什么是Memcached？
+  <a href="#11" title="1.1 安装" class="md-nav__link">
+    1.1 安装
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#12" title="1.2 安装" class="md-nav__link">
-    1.2 安装
+  <a href="#12-pymongo" title="1.2 测试pymongo" class="md-nav__link">
+    1.2 测试pymongo
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#121" title="1.2.1 在线安装" class="md-nav__link">
-    1.2.1 在线安装
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#122" title="1.2.2 离线安装" class="md-nav__link">
-    1.2.2 离线安装
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#123" title="1.2.3 启动" class="md-nav__link">
-    1.2.3 启动
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#124" title="1.2.4 设置开机启动" class="md-nav__link">
-    1.2.4 设置开机启动
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#125" title="1.2.5 停止" class="md-nav__link">
-    1.2.5 停止
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2735,80 +2749,66 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-memcached" title="2. memcached库" class="md-nav__link">
-    2. memcached库
+  <a href="#2" title="2. 详细" class="md-nav__link">
+    2. 详细
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21" title="2.1 安装" class="md-nav__link">
-    2.1 安装
+  <a href="#21-mongodb" title="2.1 连接MongoDB" class="md-nav__link">
+    2.1 连接MongoDB
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#22" title="2.2 测试" class="md-nav__link">
-    2.2 测试
+  <a href="#22" title="2.2 指定数据库" class="md-nav__link">
+    2.2 指定数据库
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#23" title="2.3 其他命令测试" class="md-nav__link">
-    2.3 其他命令测试
+  <a href="#23" title="2.3 指定集合" class="md-nav__link">
+    2.3 指定集合
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#23_1" title="2.3 集群" class="md-nav__link">
-    2.3 集群
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24" title="2.4 存储操作" class="md-nav__link">
-    2.4 存储操作
+  <a href="#24" title="2.4 插入数据" class="md-nav__link">
+    2.4 插入数据
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#241-setset_multi" title="2.4.1 set/set_multi" class="md-nav__link">
-    2.4.1 set/set_multi
+  <a href="#241" title="2.4.1 单条插入" class="md-nav__link">
+    2.4.1 单条插入
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#242-add" title="2.4.2 add" class="md-nav__link">
-    2.4.2 add
+  <a href="#242" title="2.4.2 多条插入" class="md-nav__link">
+    2.4.2 多条插入
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#243-replace" title="2.4.3 replace" class="md-nav__link">
-    2.4.3 replace
+  <a href="#243" title="2.4.3 新单条插入" class="md-nav__link">
+    2.4.3 新单条插入
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#244-appendprepend" title="2.4.4 append/prepend" class="md-nav__link">
-    2.4.4 append/prepend
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#245-getscas" title="2.4.5 gets/cas" class="md-nav__link">
-    2.4.5 gets/cas
+  <a href="#244" title="2.4.4 新多条插入" class="md-nav__link">
+    2.4.4 新多条插入
   </a>
   
 </li>
@@ -2819,30 +2819,37 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#25" title="2.5 查找操作" class="md-nav__link">
-    2.5 查找操作
+  <a href="#25" title="2.5 查询数据" class="md-nav__link">
+    2.5 查询数据
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#251-getget_multi" title="2.5.1 get,get_multi" class="md-nav__link">
-    2.5.1 get,get_multi
+  <a href="#251-find_one" title="2.5.1 find_one()" class="md-nav__link">
+    2.5.1 find_one()
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#252-deletedelete_multi" title="2.5.2 delete/delete_multi" class="md-nav__link">
-    2.5.2 delete/delete_multi
+  <a href="#252-find" title="2.5.2 find()" class="md-nav__link">
+    2.5.2 find()
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#254-incredecr" title="2.5.4 incre/decr" class="md-nav__link">
-    2.5.4 incre/decr
+  <a href="#253" title="2.5.3 比较符号" class="md-nav__link">
+    2.5.3 比较符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#254" title="2.5.4 功能符号" class="md-nav__link">
+    2.5.4 功能符号
   </a>
   
 </li>
@@ -2853,8 +2860,111 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#26" title="2.6 统计操作" class="md-nav__link">
-    2.6 统计操作
+  <a href="#25_1" title="2.5 计数" class="md-nav__link">
+    2.5 计数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" title="2.6 排序" class="md-nav__link">
+    2.6 排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" title="2.7 偏移" class="md-nav__link">
+    2.7 偏移
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-limit" title="2.8 limit" class="md-nav__link">
+    2.8 limit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29" title="2.9 更新" class="md-nav__link">
+    2.9 更新
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#291-update" title="2.9.1 update" class="md-nav__link">
+    2.9.1 update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#292-update_one" title="2.9.2 update_one" class="md-nav__link">
+    2.9.2 update_one
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#293-update_many" title="2.9.3 update_many" class="md-nav__link">
+    2.9.3 update_many
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#210" title="2.10 删除" class="md-nav__link">
+    2.10 删除
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2101-remove" title="2.10.1 remove" class="md-nav__link">
+    2.10.1 remove
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2102-delete_one" title="2.10.2 delete_one" class="md-nav__link">
+    2.10.2 delete_one
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2103-delete_many" title="2.10.3 delete_many" class="md-nav__link">
+    2.10.3 delete_many
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2104" title="2.10.4 更多" class="md-nav__link">
+    2.10.4 更多
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#211-code" title="2.11 code" class="md-nav__link">
+    2.11 code
   </a>
   
 </li>
@@ -2880,457 +2990,520 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/caimengzhi/books/edit/master/docs/python/lib/nosql/memcached/1.index.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/caimengzhi/books/edit/master/docs/python/lib/nosql/mongo/mongo.index.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>1. memcached</h1>
+                  <h1>1. mongo</h1>
                 
                 <h2 id="1">1. 介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>这个模块是一个Python操作memcached的一个API接口。</p>
-<p>Memcached官网：<a href="http://memcached.org/">http://memcached.org/</a></p>
-<p>模块官网：<a href="https://pypi.python.org/pypi/python-memcached/">https://pypi.python.org/pypi/python-memcached/</a></p>
-<h3 id="11-memcached">1.1 什么是Memcached？<a class="headerlink" href="#11-memcached" title="Permanent link">&para;</a></h3>
-<p>免费和开源，高性能，分布式内存对象缓存系统，本质上是通用的，但旨在通过减轻数据库负载来加速动态Web应用程序。</p>
-<p>Memcached是一个内存中的键值存储，用于从数据库调用，API调用或页面呈现的结果中获取任意数据（字符串，对象）的小块。</p>
-<p>Memcached简单而强大。其简单的设计促进了快速部署，易于开发，并解决了大型数据缓存面临的许多问题。其API适用于大多数流行语言。</p>
-<blockquote>
-<p>以上内容摘自官网的介绍f翻译，具体信息访问官网</p>
-</blockquote>
-<h3 id="12">1.2 安装<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
-<h4 id="121">1.2.1 在线安装<a class="headerlink" href="#121" title="Permanent link">&para;</a></h4>
-<ul>
-<li>ubuntu</li>
-</ul>
-<div class="codehilite"><pre><span></span>apt-get install memcached
+<p>MongoDB 是目前最流行的 NoSQL 数据库之一，使用的数据类型 BSON（类似 JSON）。</p>
+<p style="text-indent:2em"> Python 要连接 MongoDB 需要 MongoDB 驱动，这里我们使用 PyMongo 驱动来连接。</p>
+
+<h3 id="11">1.1 安装<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>pip 是一个通用的 Python 包管理工具，提供了对 Python 包的查找、下载、安装、卸载的功能。</p>
+<p><div class="codehilite"><pre><span></span>python3 -m pip3 install pymongo
+</pre></div>
+也可以指定安装的版本:</p>
+<p><div class="codehilite"><pre><span></span>python3 -m pip3 install pymongo==3.5.1
+</pre></div>
+更新 pymongo 命令：</p>
+<p><div class="codehilite"><pre><span></span>python3 -m pip3 install --upgrade pymongo
+</pre></div>
+旧版的 Python 可以使用 easy_install 来安装，easy_install 也是 Python 包管理工具。</p>
+<p><div class="codehilite"><pre><span></span>python -m easy_install pymongo
+</pre></div>
+更新 pymongo 命令：</p>
+<div class="codehilite"><pre><span></span>python -m easy_install -U pymongo
 </pre></div>
 
-<ul>
-<li>centos</li>
-</ul>
-<div class="codehilite"><pre><span></span>yum install memcached
-</pre></div>
+<h3 id="12-pymongo">1.2 测试pymongo<a class="headerlink" href="#12-pymongo" title="Permanent link">&para;</a></h3>
+<p>接下来我们可以创建一个测试文件 test_mongodb.py，代码如下
+<div class="codehilite"><pre><span></span>root@leco:/home/leco# cat test_mongodb.py
+#!/usr/bin/python3
 
-<h4 id="122">1.2.2 离线安装<a class="headerlink" href="#122" title="Permanent link">&para;</a></h4>
-<p>Memcached源码包安装的时候需要依赖于libevent</p>
-<ul>
-<li>安装依赖库
-<div class="codehilite"><pre><span></span># Ubuntu
-apt-get install libevent-dev
-# CentOS
-yum install libevent-devel
-</pre></div><blockquote>
-<p>不安装库的时候，编译时候报错如下</p>
-</blockquote>
-</li>
-</ul>
-<p><div class="codehilite"><pre><span></span>checking for libevent directory... configure: error: libevent is required.  You can get it from http://www.monkey.org/~provos/libevent/
-
-      If it&#39;s already installed, specify its path using --with-libevent=/dir/
-</pre></div>
-- 编译安装memcached</p>
-<p><div class="codehilite"><pre><span></span>wget https://memcached.org/latest
-tar -zxf memcached-1.x.x.tar.gz
-cd memcached-1.x.x
-./configure --prefix=/usr/local/memcached
-make &amp;&amp; make test &amp;&amp; sudo make install
-</pre></div>
-具体参数见./configure --help全选项，SASL支持需要一些可选附加库。</p>
-<p>操作过程</p>
-<p><div class="codehilite"><pre><span></span>root@leco:/usr/local/src# wget http://www.memcached.org/files/memcached-1.5.12.tar.gz
---2019-02-20 09:55:44--  http://www.memcached.org/files/memcached-1.5.12.tar.gz
-正在解析主机 www.memcached.org (www.memcached.org)... 107.170.231.145
-正在连接 www.memcached.org (www.memcached.org)|107.170.231.145|:80... 已连接。
-省略。。。
-
-root@leco:/usr/local/src# ls memcached-1.5.12.tar.gz
-memcached-1.5.12.tar.gz
-root@leco:/usr/local/src# tar xf memcached-1.5.12.tar.gz
-root@leco:/usr/local/src# cd memcached-1.5.12
-root@leco:/usr/local/src/memcached-1.5.12# ./configure --prefix=/usr/local/memcached
-root@leco:/usr/local/src/memcached-1.5.12# make &amp;&amp; sudo make install
-root@leco:/usr/local/src/memcached-1.5.12# echo $?
+import pymongo
+root@leco:/home/leco# python3 test_mongodb.py
+root@leco:/home/leco# echo $?
 0
-
-# 添加环境变量
-root@leco:/usr/local/src/memcached-1.5.12# vim /etc/profile
-root@leco:/usr/local/src/memcached-1.5.12# tail -1 /etc/profile
-export PATH=$PATH:/usr/local/memcached/bin
-root@leco:/usr/local/src/memcached-1.5.12# source /etc/profile
+</pre></div></p>
+<p>执行以上代码文件，如果没有出现错误，表示安装成功。</p>
+<h2 id="2">2. 详细<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21-mongodb">2.1 连接MongoDB<a class="headerlink" href="#21-mongodb" title="Permanent link">&para;</a></h3>
+<p>连接MongoDB我们需要使用PyMongo库里面的MongoClient，一般来说传入MongoDB的IP及端口即可，第一个参数为地址host，第二个参数为端口port，端口如果不传默认是27017。</p>
+<p><div class="codehilite"><pre><span></span>import pymongo
+client = pymongo.MongoClient(host=&#39;localhost&#39;, port=27017)
 </pre></div>
-以上是源码包安装，可以安装最新版本的，要是在线安装，都是基于系统源安装的。推荐源码安装</p>
-<h4 id="123">1.2.3 启动<a class="headerlink" href="#123" title="Permanent link">&para;</a></h4>
-<p><div class="codehilite"><pre><span></span>root@leco:~# memcached -d -m 10 -u root -l 0.0.0.0 -p 11211 -c 256 -P /tmp/memcached.pid
-root@leco:~# netstat -lnp|grep 11211
-tcp        0      0 0.0.0.0:11211           0.0.0.0:*               LISTEN      7862/memcached
-unix  2      [ ACC ]     流        LISTENING     100911211 11507/unity-files-d @leco-com.canonical.Unity.Scope.files.T5294429510698002
-
-root@leco:~# telnet localhost 11211
-Trying 127.0.0.1...
-Connected to localhost.
-Escape character is &#39;^]&#39;.
-如果出现以上内容就代表启动成功！
+这样我们就可以创建一个MongoDB的连接对象了。
+另外MongoClient的第一个参数host还可以直接传MongoDB的连接字符串，以mongodb开头，例如：</p>
+<p><div class="codehilite"><pre><span></span>client = MongoClient(&#39;mongodb://localhost:27017/&#39;)
 </pre></div>
-参数说明</p>
+可以达到同样的连接效果。</p>
+<h3 id="22">2.2 指定数据库<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>MongoDB中还分为一个个数据库，我们接下来的一步就是指定要操作哪个数据库，在这里我以test_mongo_db数据库为例进行说明，所以下一步我们需要在程序中指定要使用的数据库。调用client的test_mongo_db属性即可返回test_mongo_db数据库。</p>
+<div class="codehilite"><pre><span></span>db = client.test_mongo_db
+或者
+db = client[&#39;test_mongo_db&#39;]
+</pre></div>
+
+<h3 id="23">2.3 指定集合<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p>MongoDB的每个数据库又包含了许多集合Collection，也就类似与关系型数据库中的表，下一步我们需要指定要操作的集合，在这里我们指定一个集合名称为informations，informations集合。还是和指定数据库类似，指定集合也有两种方式:</p>
+<div class="codehilite"><pre><span></span>collection = db.informations
+或者
+collection = db[&#39;informations&#39;]
+</pre></div>
+
+<h3 id="24">2.4 插入数据<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<h4 id="241">2.4.1 单条插入<a class="headerlink" href="#241" title="Permanent link">&para;</a></h4>
+<p>接下来我们便可以进行数据插入了，对于informations这个Collection，我们新建一条数据，以字典的形式表示：</p>
+<p><div class="codehilite"><pre><span></span>information = {&quot;name&quot;: &quot;张三&quot;, &quot;age&quot;: &quot;25&quot;}
+</pre></div>
+在这里我们指定了姓名、年龄然后接下来直接调用collection的insert()方法即可插入数据。</p>
+<p><div class="codehilite"><pre><span></span>result = collection.insert(information)
+print(result)
+</pre></div>
+在MongoDB中，每条数据其实都有一个_id属性来唯一标识，如果没有显式指明_id，MongoDB会自动产生一个ObjectId类型的_id属性。insert()方法会在执行后返回的_id值。运行结果：</p>
+<div class="codehilite"><pre><span></span>5c6b659b1607c47f8abe6ab7
+</pre></div>
+
+<h4 id="242">2.4.2 多条插入<a class="headerlink" href="#242" title="Permanent link">&para;</a></h4>
+<p>当然我们也可以同时插入多条数据，只需要以列表形式传递即可，示例如下：</p>
+<p><div class="codehilite"><pre><span></span>information = [{&quot;name&quot;: &quot;小明&quot;, &quot;age&quot;: &quot;25&quot;}, {&quot;name&quot;: &quot;小强&quot;, &quot;age&quot;: &quot;24&quot;}]
+information_id = collection.insert(information)
+print(information_id)
+
+或者
+xiaoming={&quot;name&quot;: &quot;小明&quot;, &quot;age&quot;: &quot;25&quot;}
+xiaoqiang= {&quot;name&quot;: &quot;小强&quot;, &quot;age&quot;: &quot;24&quot;}
+information_id = collection.insert([xiaoming,xiaoqiang])
+print(information_id)
+</pre></div>
+返回的结果是对应的_id的集合，运行结果：</p>
+<div class="codehilite"><pre><span></span>[ObjectId(&#39;5c6b65c01607c47f8abe6ab8&#39;), ObjectId(&#39;5c6b65c01607c47f8abe6ab9&#39;)]
+</pre></div>
+
+<h4 id="243">2.4.3 新单条插入<a class="headerlink" href="#243" title="Permanent link">&para;</a></h4>
+<p>实际上在PyMongo 3.X版本中，insert()方法官方已经不推荐使用了，当然继续使用也没有什么问题，官方推荐使用insert_one()和insert_many()方法将插入单条和多条记录分开。</p>
+<p><div class="codehilite"><pre><span></span>lisi = {&quot;name&quot;: &quot;李四&quot;, &quot;age&quot;: &quot;25&quot;}
+result = collection.insert_one(lisi)
+print(result.inserted_id)
+</pre></div>
+返回结果和insert()方法不同，这次返回的是InsertOneResult对象，我们可以调用其inserted_id属性获取_id。结果是</p>
+<div class="codehilite"><pre><span></span>5c6b65df1607c47f8abe6aba
+</pre></div>
+
+<h4 id="244">2.4.4 新多条插入<a class="headerlink" href="#244" title="Permanent link">&para;</a></h4>
+<p>对于insert_many()方法，我们可以将数据以列表形式传递即可，示例如下：
+<div class="codehilite"><pre><span></span>wangwu={&quot;name&quot;: &quot;王五&quot;, &quot;age&quot;: &quot;25&quot;}
+zhaoliu= {&quot;name&quot;: &quot;赵六&quot;, &quot;age&quot;: &quot;24&quot;}
+result = collection.insert_many([wangwu,zhaoliu])
+print(result)
+print(result.inserted_ids)
+</pre></div>
+结果是:</p>
+<div class="codehilite"><pre><span></span>&lt;pymongo.results.InsertManyResult object at 0x7f3cf2dc68c8&gt;
+[ObjectId(&#39;5c6b66081607c47f8abe6abb&#39;), ObjectId(&#39;5c6b66081607c47f8abe6abc&#39;)]
+</pre></div>
+
+<p>insert_many()方法返回的类型是InsertManyResult，调用inserted_ids属性可以获取插入数据的_id列表.</p>
+<h3 id="25">2.5 查询数据<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
+<h4 id="251-find_one">2.5.1 find_one()<a class="headerlink" href="#251-find_one" title="Permanent link">&para;</a></h4>
+<p>插入数据后我们可以利用find_one(),find_one()查询得到是单个结果。</p>
+<p><div class="codehilite"><pre><span></span>result = collection.find_one({&#39;name&#39;: &#39;张三&#39;})
+print(type(result))
+print(result)
+</pre></div>
+结果是:</p>
+<p><div class="codehilite"><pre><span></span>&lt;class &#39;dict&#39;&gt;
+{&#39;_id&#39;: ObjectId(&#39;5c6b659b1607c47f8abe6ab7&#39;), &#39;name&#39;: &#39;张三&#39;, &#39;age&#39;: &#39;25&#39;}
+</pre></div>
+可以发现它多了一个_id属性，这就是MongoDB在插入的过程中自动添加的。</p>
+<p>我们也可以直接根据ObjectId来查询，这里需要使用bson库里面的ObjectId。</p>
+<p><div class="codehilite"><pre><span></span>In [27]: from bson.objectid import ObjectId
+
+In [28]: result = collection.find_one({&#39;_id&#39;:ObjectId(&#39;5c6b659b1607c47f8abe6ab7&#39;)})
+
+In [29]: print(result)
+{&#39;_id&#39;: ObjectId(&#39;5c6b659b1607c47f8abe6ab7&#39;), &#39;name&#39;: &#39;张三&#39;, &#39;age&#39;: &#39;25&#39;}
+</pre></div>
+其查询结果依然是字典类型，运行结果：</p>
+<p><div class="codehilite"><pre><span></span>{&#39;_id&#39;: ObjectId(&#39;5c6b659b1607c47f8abe6ab7&#39;), &#39;name&#39;: &#39;张三&#39;, &#39;age&#39;: &#39;25&#39;}
+</pre></div>
+当然如果查询结果不存在则会返回None.</p>
+<h4 id="252-find">2.5.2 find()<a class="headerlink" href="#252-find" title="Permanent link">&para;</a></h4>
+<p>find()则返回多个结果。对于多条数据的查询，我们可以使用find()方法，例如在这里查找年龄为25的数据，</p>
+<p><div class="codehilite"><pre><span></span>results = collection.find({&#39;age&#39;: &#39;25&#39;})
+print(results)
+for result in results:
+    print(result)
+</pre></div>
+结果是:</p>
+<p><div class="codehilite"><pre><span></span>{&#39;_id&#39;: ObjectId(&#39;5c6b659b1607c47f8abe6ab7&#39;), &#39;name&#39;: &#39;张三&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b65c01607c47f8abe6ab8&#39;), &#39;name&#39;: &#39;小明&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b65df1607c47f8abe6aba&#39;), &#39;name&#39;: &#39;李四&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b66081607c47f8abe6abb&#39;), &#39;name&#39;: &#39;王五&#39;, &#39;age&#39;: &#39;25&#39;}
+</pre></div>
+返回结果是Cursor类型，相当于一个生成器，我们需要遍历取到所有的结果，每一个结果都是字典类型。</p>
+<p>如果要查询年龄大于20的数据，则写法如下：</p>
+<p><div class="codehilite"><pre><span></span>results = collection.find({&#39;age&#39;: {&#39;$gt&#39;: &#39;20&#39;}})
+</pre></div>
+测试</p>
+<p><div class="codehilite"><pre><span></span>In [38]: results = collection.find({&#39;age&#39;: {&#39;$gt&#39;: &#39;20&#39;}})
+
+In [39]: for data in results:
+    ...:     print(data)
+    ...: 
+{&#39;_id&#39;: ObjectId(&#39;5c6b659b1607c47f8abe6ab7&#39;), &#39;name&#39;: &#39;张三&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b65c01607c47f8abe6ab8&#39;), &#39;name&#39;: &#39;小明&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b65c01607c47f8abe6ab9&#39;), &#39;name&#39;: &#39;小强&#39;, &#39;age&#39;: &#39;24&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b65df1607c47f8abe6aba&#39;), &#39;name&#39;: &#39;李四&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b66081607c47f8abe6abb&#39;), &#39;name&#39;: &#39;王五&#39;, &#39;age&#39;: &#39;25&#39;}
+{&#39;_id&#39;: ObjectId(&#39;5c6b66081607c47f8abe6abc&#39;), &#39;name&#39;: &#39;赵六&#39;, &#39;age&#39;: &#39;24&#39;}
+</pre></div>
+在这里查询的条件键值已经不是单纯的数字了，而是一个字典，其键名为比较符号$gt，意思是大于，键值为20，这样便可以查询出所有年龄大于20的数据。</p>
+<h4 id="253">2.5.3 比较符号<a class="headerlink" href="#253" title="Permanent link">&para;</a></h4>
+<p>在这里将比较符号归纳如下表：</p>
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>描述</th>
+<th>符号</th>
+<th>含义</th>
+<th>例子</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>-d</td>
-<td>是启动一个守护进程</td>
+<td>$lt</td>
+<td>小于</td>
+<td>{'age': {'$lt': 20}}</td>
 </tr>
 <tr>
-<td>-m</td>
-<td>是分配给Memcache使用的内存数量，单位是MB</td>
+<td>$gt</td>
+<td>大于</td>
+<td>{'age': {'$gt': 20}}</td>
 </tr>
 <tr>
-<td>-u</td>
-<td>是运行Memcache的用户</td>
+<td>$lte</td>
+<td>小于等于</td>
+<td>{'age': {'$lte': 20}}</td>
 </tr>
 <tr>
-<td>-l</td>
-<td>是监听的服务器IP地址</td>
+<td>$gte</td>
+<td>大于等于</td>
+<td>{'age': {'$gte': 20}}</td>
 </tr>
 <tr>
-<td>-p</td>
-<td>是设置Memcache监听的端口,最好是1024以上的端口</td>
+<td>$ne</td>
+<td>不等于</td>
+<td>{'age': {'$ne': 20}}</td>
 </tr>
 <tr>
-<td>-c</td>
-<td>选项是最大运行的并发连接数，默认是1024，按照你服务器的负载量来设定</td>
+<td>$in</td>
+<td>在范围内</td>
+<td>{'age': {'$in': [20, 23]}}</td>
 </tr>
 <tr>
-<td>-P</td>
-<td>是设置保存Memcache的pid文件</td>
+<td>$nin</td>
+<td>不在范围内</td>
+<td>{'age': {'$nin': [20, 23]}}</td>
 </tr>
 </tbody>
 </table>
-<h4 id="124">1.2.4 设置开机启动<a class="headerlink" href="#124" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>echo &#39;memcached -d -m 10 -u root -l 0.0.0.0 -p 11211 -c 256 -P /tmp/memcached.pid&#39; &gt;&gt; /etc/rc.local
+<p>另外还可以进行正则匹配查询，例如查询名字以M开头的学生数据，示例如下：</p>
+<p><div class="codehilite"><pre><span></span>results = collection.find({&#39;name&#39;: {&#39;$regex&#39;: &#39;^M.*&#39;}})
 </pre></div>
-
-<h4 id="125">1.2.5 停止<a class="headerlink" href="#125" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>pkill `cat /tmp/memcached.pid`
-</pre></div>
-
-<h2 id="2-memcached">2. memcached库<a class="headerlink" href="#2-memcached" title="Permanent link">&para;</a></h2>
-<h3 id="21">2.1 安装<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
-<p><div class="codehilite"><pre><span></span>root@leco:/home/leco# pip install python3-memcached
-Collecting python3-memcached
-  Downloading https://files.pythonhosted.org/packages/14/fa/cd0d93c30722db0cfa777ec9cd0203fa7da2771a5c70c9908f471944b6e2/python3-memcached-1.51.tar.gz
-Building wheels for collected packages: python3-memcached
-  Running setup.py bdist_wheel for python3-memcached ... done
-  Stored in directory: /root/.cache/pip/wheels/6b/50/29/888c59a274ac0e5d3831987eec3a6f6c4562e021c2fc0311b0
-Successfully built python3-memcached
-Installing collected packages: python3-memcached
-Successfully installed python3-memcached-1.51
-
-root@leco:~/book# pip -V
-pip 9.0.1 from /usr/local/lib/python3.6/site-packages (python 3.6)
-root@leco:~/book# python3.6
-Python 3.6.1 (default, Mar 21 2018, 13:46:25)
-[GCC 5.4.0 20160609] on linux
-Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
-&gt;&gt;&gt; import memcache
-&gt;&gt;&gt;
-</pre></div>
-导入没有报错就表示安装成功。</p>
-<h3 id="22">2.2 测试<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>root@leco:~/book# ipython
-Python 3.6.1 (default, Mar 21 2018, 13:46:25)
-Type &#39;copyright&#39;, &#39;credits&#39; or &#39;license&#39; for more information
-IPython 6.2.1 -- An enhanced Interactive Python. Type &#39;?&#39; for help.
-# 导入模块
-In [1]: import memcache
-# 链接，ip：port
-In [2]: conn = memcache.Client([&#39;127.0.0.1:11211&#39;])
-# 设置 key:value
-In [3]: conn.set(&#39;k1&#39;, &#39;v1&#39;)
-Out[3]: True
-# 取值
-In [4]: conn.get(&#39;k1&#39;)
-Out[4]: &#39;v1
-</pre></div>
-
-<h3 id="23">2.3 其他命令测试<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
-<p>用nc命令操作memcached
-1. 1）存储数据：printf "set key 0 10 6\r\nresult\r\n" |nc 192.168.5.110 11211
-1. 2）获取数据：printf "get key\r\n" |nc 192.168.5.110 11211
-1. 3）删除数据：printf "delete key\r\n" |nc 192.168.5.110 11211
-1. 4）查看状态：printf "stats\r\n" |nc 192.168.5.110 11211
-1. 5）模拟top命令查看状态：watch "echo stats" |nc 192.168.5.110 11211
-1. 
-1. 6）清空缓存：printf "flush_all\r\n" |nc 192.168.5.110 11211 (小心操作，清空了缓存就没了）</p>
-<h3 id="23_1">2.3 集群<a class="headerlink" href="#23_1" title="Permanent link">&para;</a></h3>
-<p>python-memcached模块原生支持集群操作，其原理是在内存中维护一个主机列表，且集群中主机的权重值和主机在列表中重复出现的次数成正比。</p>
-<p><div class="codehilite"><pre><span></span>主机     权重
-1.1.1.1   1
-1.1.1.2   2
-1.1.1.3   1
-
-那么在内存中主机列表为：
-    host_list = [&quot;1.1.1.1&quot;, &quot;1.1.1.2&quot;, &quot;1.1.1.2&quot;, &quot;1.1.1.3&quot;, ]
-</pre></div>
-用户如果要在内存中创建一个键值对（如：k1 = "value1"），那么要执行以下步骤：</p>
-<ol>
-<li>根据算法将k1转换成一个数字</li>
-<li>将数字和主机列表长度求余数，得到一个值N（0 &lt;= N &lt; 长度）</li>
-<li>在主机列表中根据第二步得到的值为索引获取主机，例如: host_list[N]</li>
-<li>连接将第三步中获取的主机，将k1 = "value1" 放置在该服务器的内存中</li>
-</ol>
-<p>另外在启动两个服务</p>
-<p><div class="codehilite"><pre><span></span>memcached -d -m 10 -u root -l 0.0.0.0 -p 11212 -c 256 -P /tmp/memcached2.pid
-memcached -d -m 10 -u root -l 0.0.0.0 -p 11213 -c 256 -P /tmp/memcached3.pid
-</pre></div>
-操作过程</p>
-<div class="codehilite"><pre><span></span>root@leco:~# memcached -d -m 10 -u root -l 0.0.0.0 -p 11212 -c 256 -P /tmp/memcached2.pid
-root@leco:~# memcached -d -m 10 -u root -l 0.0.0.0 -p 11213 -c 256 -P /tmp/memcached3.pid
-root@leco:~# netstat -lnp|grep memcached
-tcp        0      0 0.0.0.0:11211           0.0.0.0:*               LISTEN      7862/memcached
-tcp        0      0 0.0.0.0:11212           0.0.0.0:*               LISTEN      11748/memcached
-tcp        0      0 0.0.0.0:11213           0.0.0.0:*               LISTEN      11759/memcached
-</pre></div>
-
-<p><div class="codehilite"><pre><span></span>root@leco:~/code/memcached# cat test1.py
-#!/usr/bin/env python3
-#coding:utf8
-import memcache
-mc = memcache.Client([(&#39;127.0.0.1:11211&#39;, 1), (&#39;127.0.0.1:11212&#39;, 2),(&#39;127.0.0.1:11213&#39;,3)])
-mc.set(&#39;k1&#39;,&#39;value1&#39;)
-ret = mc.get(&#39;k1&#39;)
-print (ret)
-</pre></div>
-运行结果</p>
-<div class="codehilite"><pre><span></span>root@leco:~/code/memcached# python3.6 test1.py
-value1
-</pre></div>
-
-<h3 id="24">2.4 存储操作<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
-<h4 id="241-setset_multi">2.4.1 set/set_multi<a class="headerlink" href="#241-setset_multi" title="Permanent link">&para;</a></h4>
-<ul>
-<li>set : 设置一个键值对，如果Key不存在，则创建，如果key存在，则修改。</li>
-<li>set_multi : 设置多个键值对，如果key不存在，则创建，如果key存在，则修改。
-<div class="codehilite"><pre><span></span>root@leco:~/code/memcached# cat set.py
-#!/usr/bin/env python
-# -*- coding:utf-8 -*-
-import memcache
-mc = memcache.Client([&#39;127.0.0.1:11211&#39;])
-mc.set(&#39;name&#39;,&#39;jack&#39;)
-re = mc.get(&#39;name&#39;)
-print(&#39;set用法&#39;,re) #设置一个键值对
-
-dic = {&#39;name&#39;:&#39;jack&#39;,&#39;age&#39;:&#39;19&#39;,&#39;job&#39;:&#39;IT&#39;}
-mc.set_multi(dic)  #设置多个键值对
-#或者mc.set_multi({&#39;name&#39;:&#39;jack&#39;,&#39;age&#39;:&#39;19&#39;,&#39;job&#39;:&#39;IT&#39;})
-name = mc.get(&#39;name&#39;)
-age = mc.get(&#39;age&#39;)
-job = mc.get(&#39;job&#39;)
-print(&#39;set_multi用法:&#39;,name,age,job)
-</pre></div>
-运行结果</li>
-</ul>
-<div class="codehilite"><pre><span></span>root@leco:~/code/memcached# python3 set.py
-set用法 jack
-set_multi用法: jack 19 IT
-</pre></div>
-
-<h4 id="242-add">2.4.2 add<a class="headerlink" href="#242-add" title="Permanent link">&para;</a></h4>
-<p>添加一条键值对，如果已经存在的key，重复执行add操作返回值为flase。</p>
-<p><div class="codehilite"><pre><span></span>root@leco:~/code/memcached# cat add.py
-#!/usr/bin/env python3
-#coding:utf8
-import memcache
-mc = memcache.Client([(&#39;127.0.0.1:11211&#39;, 1)])
-ret1 = mc.add(&#39;add&#39;,&#39;v1&#39;)
-ret2 = mc.add(&#39;add&#39;,&#39;v2&#39;)
-ret = mc.get(&#39;add&#39;)
-
-print(ret1)
-print(ret2)
-print(ret)
-</pre></div>
-运行结果</p>
-<div class="codehilite"><pre><span></span>root@leco:~/code/memcached# python2 add.py
-True  # 第一添加add 这个键时候，之前是没有的，所有可以创建。
-False # 第二次再次添加add这个键时候，之前有了add这个键，所以创建失败
-v1
-</pre></div>
-
-<h4 id="243-replace">2.4.3 replace<a class="headerlink" href="#243-replace" title="Permanent link">&para;</a></h4>
-<p>replace修改某个key的值，如果key不存在，返回False
-<div class="codehilite"><pre><span></span>root@leco:~/code/memcached# cat replace.py
-#!/usr/bin/env python
-# -*- coding:utf-8 -*-
-import memcache
-mc = memcache.Client([&#39;127.0.0.1:11211&#39;])
-mc.set(&#39;name&#39;,&#39;张三&#39;)
-re = mc.get(&#39;name&#39;)
-print(re)
-
-ret_name = mc.replace(&#39;name&#39;,&#39;李四&#39;)
-ret1 = mc.get(&#39;name&#39;)
-rereplace = mc.replace(&#39;name10&#39;,&#39;hahaha&#39;)
-ret2 = mc.get(&#39;name10&#39;)
-print(&quot;ret_name = &quot;,ret_name)
-print(&quot;ret1 = &quot;,ret1)
-print(&quot;rereplace = &quot;,rereplace)
-print(&quot;ret2 = &quot;,ret2)
-root@leco:~/code/memcached# python3 replace.py
-张三
-ret_name =  True   # key存在替换成功
-ret1 =  李四       # 修改后的值
-rereplace =  False # key不存在，替换失败
-ret2 =  None       # 不存在的key，返回False
-</pre></div></p>
-<h4 id="244-appendprepend">2.4.4 append/prepend<a class="headerlink" href="#244-appendprepend" title="Permanent link">&para;</a></h4>
-<ul>
-<li>append : 修改指定key的值，在该值后面追加内容。</li>
-<li>prepend : 修改指定key的值，在该值前面插入内容。</li>
-</ul>
-<p><div class="codehilite"><pre><span></span>root@leco:~/code/memcached# cat append.py
-#!/usr/bin/env python
-# -*- coding:utf-8 -*-
-import memcache
-mc = memcache.Client([&#39;127.0.0.1:11211&#39;])
-mc.set(&#39;num&#39;,&#39;我是中间部分&#39;)
-re = mc.get(&#39;num&#39;)
-print(re)
-
-mc.append(&#39;num&#39;,&#39;我是后面部分&#39;)   # 在我是中间部分后追加
-re = mc.get(&#39;num&#39;)
-print(re)
-
-mc.prepend(&#39;num&#39;,&#39;我是开头部分&#39;)  # 在我是中间部分前追加
-re = mc.get(&#39;num&#39;)
-print(re)
-</pre></div>
-运行结果</p>
-<div class="codehilite"><pre><span></span>root@leco:~/code/memcached# python3 append.py
-我是中间部分
-我是中间部分我是后面部分
-我是开头部分我是中间部分我是后面部分
-</pre></div>
-
-<h4 id="245-getscas">2.4.5 gets/cas<a class="headerlink" href="#245-getscas" title="Permanent link">&para;</a></h4>
-<p>使用缓存系统共享数据资源就必然绕不开数据争夺和脏数据（数据混乱）的问题。</p>
-<p>假设去往徐州的高铁G88列车剩余票数保存在memcache中，ticket_count = 88</p>
-<p>A用户刷新页面从memecache中读取到ticket_count = 88</p>
-<p>B用户刷新页面从memecache中读取到ticket_count = 88</p>
-<p>A,B用户均购买该趟列车的票，并修改ticket_count的值</p>
-<p>A修改后，ticket_count = 887</p>
-<p>B修改后，ticket_count = 87</p>
-<p>然而正确数字应该是86，数据就混乱了。</p>
-<p>如果想要避免这种情况的发生，则可以使用  gets　和　cas</p>
-<p><div class="codehilite"><pre><span></span>root@leco:~/code/memcached# cat gets.py
-#!/usr/bin/env python
-# -*- coding:utf-8 -*-
-import memcache
-mc = memcache.Client([&#39;127.0.0.1:11211&#39;])
-mc.set(&#39;ticket&#39;,&#39;88&#39;)
-reget = mc.get(&#39;ticket&#39;)
-print(&#39;剩余票数&#39;,reget)
-ret = mc.gets(&#39;ticket&#39;)
-print(ret)
-# 如果有人在gets之后和cas之前修改了product_count，那么，
-# 下面的设置将会执行失败，剖出异常，从而避免非正常数据的产生
-recas = mc.cas(&#39;ticket&#39;,&#39;88&#39;)
-print(recas)
-ret = mc.gets(&#39;ticket&#39;)
-print(&#39;剩余票数&#39;,ret)
-root@leco:~/code/memcached# python3 gets.py
-剩余票数 88
-88
-True
-剩余票数 88
-</pre></div>
-本质上每次执行gets时，会从memcache中获取一个自增的数字，通过cas去修改gets的值时，会携带之前获取的自增和memcache中的自增值进行比较，如果相等，则可以提交，如果不相等，那么表示在gets和cas执行之间，又有其他人执行了gets，则不允许修改。</p>
-<h3 id="25">2.5 查找操作<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
-<h4 id="251-getget_multi">2.5.1 get,get_multi<a class="headerlink" href="#251-getget_multi" title="Permanent link">&para;</a></h4>
-<ul>
-<li>get : 获取一个键值对。</li>
-<li>get_multi : 获取多个键值对。
-<div class="codehilite"><pre><span></span>root@leco:~/code/memcached# cat get.py
-#!/usr/bin/env python3
-#coding:utf8
-import memcache
-mc = memcache.Client([&#39;127.0.0.1:11211&#39;])
-mc.set(&#39;name&#39;,&#39;jack&#39;)
-re = mc.get(&#39;name&#39;)
-print(&#39;get&#39;,re)                              # 获取一个键值对
-dic = {&#39;name&#39;:&#39;jack&#39;,&#39;age&#39;:&#39;20&#39;,&#39;job&#39;:&#39;IT&#39;}
-mc.set_multi(dic)
-regetmu=mc.get_multi([&#39;name&#39;,&#39;age&#39;,&#39;job&#39;])
-print(&#39;get_multi&#39;,re)                        # 获取多个键值对的值
-root@leco:~/code/memcached# python3 get.py
-get jack
-get_multi jack
-</pre></div><blockquote>
-<p>若是get的key不存在的话，返回为空。</p>
+在这里使用了$regex来指定正则匹配，^M.*代表以M开头的正则表达式，这样就可以查询所有符合该正则的结果。</p>
+<h4 id="254">2.5.4 功能符号<a class="headerlink" href="#254" title="Permanent link">&para;</a></h4>
+<p>在这里将一些功能符号再归类如下：</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+<th>例子</th>
+<th>例子含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$regex</td>
+<td>匹配正则</td>
+<td>{'name': {'$regex': '^M.*'}}</td>
+<td>name以M开头</td>
+</tr>
+<tr>
+<td>$exists</td>
+<td>属性是否存在</td>
+<td>{'name': {'$exists': True}}</td>
+<td>name属性存在</td>
+</tr>
+<tr>
+<td>$type</td>
+<td>类型判断</td>
+<td>{'age': {'$type': 'int'}}</td>
+<td>age的类型为int</td>
+</tr>
+<tr>
+<td>$mod</td>
+<td>数字模操作</td>
+<td>{'age': {'$mod': [5, 0]}}</td>
+<td>年龄模5余0</td>
+</tr>
+<tr>
+<td>$text</td>
+<td>文本查询</td>
+<td>{'<span><span class="MathJax_Preview">text': {'</span><script type="math/tex">text': {'</script></span>search': 'Mike'}}</td>
+<td>text类型的属性中包含Mike字符串</td>
+</tr>
+<tr>
+<td>$where</td>
+<td>高级条件查询</td>
+<td>{'$where': 'obj.fans_count == obj.follows_count'}</td>
+<td>自身粉丝数等于关注数</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>这些操作的更详细用法在可以在MongoDB官方文档找到：<a href="https://docs.mongodb.com/manual/reference/operator/query/">https://docs.mongodb.com/manual/reference/operator/query/</a></p>
 </blockquote>
-</li>
-</ul>
-<h4 id="252-deletedelete_multi">2.5.2 delete/delete_multi<a class="headerlink" href="#252-deletedelete_multi" title="Permanent link">&para;</a></h4>
-<ul>
-<li>delete : 在Memcached中删除指定的一个键值对。</li>
-<li>delete_multi : 在Memcached中删除指定多个键值对。
-<div class="codehilite"><pre><span></span>root@leco:~/code/memcached# cat del.py
-#!/usr/bin/env python
-# -*- coding:utf-8 -*-
-import memcache
-mc = memcache.Client([&#39;127.0.0.1:11211&#39;])
-mc.set(&#39;name1&#39;,&#39;JACK1&#39;)
-mc.set(&#39;name2&#39;,&#39;JACK2&#39;)
-mc.set(&#39;name3&#39;,&#39;JACK3&#39;)
-name1,name2,name3 = mc.get(&#39;name1&#39;),mc.get(&#39;name2&#39;),mc.get(&#39;name3&#39;)
-print(&#39;name1 = %s, name2=%s, name3=%s&#39; %(name1,name2,name3))
-mc.delete(&#39;name1&#39;)
-re = mc.get(&#39;name&#39;)
-print(&#39;删除&#39;,re)  #删除一个键值对
-
-mc.delete_multi([&#39;name2&#39;,&#39;name3&#39;])
-name1,name2,name3 = mc.get(&#39;name1&#39;),mc.get(&#39;name2&#39;),mc.get(&#39;name3&#39;)
-print(&#39;name1 = %s, name2=%s, name3=%s&#39; %(name1,name2,name3))
+<h3 id="25_1">2.5 计数<a class="headerlink" href="#25_1" title="Permanent link">&para;</a></h3>
+<p>要统计查询结果有多少条数据，可以调用count()方法，如统计所有数据条数：</p>
+<p><div class="codehilite"><pre><span></span>In [40]: count = collection.find().count()
+In [41]: print(count)
+6
 </pre></div>
-运行结果</li>
-</ul>
-<div class="codehilite"><pre><span></span>root@leco:~/code/memcached# python3 del.py
-name1 = JACK1, name2=JACK2, name3=JACK3
-删除 jack
-name1 = None, name2=None, name3=None
+或者统计符合某个条件的数据：</p>
+<div class="codehilite"><pre><span></span>In [43]: count = collection.find({&#39;age&#39;: &#39;25&#39;}).count()
+In [44]: print(count)
+4
 </pre></div>
 
-<h4 id="254-incredecr">2.5.4 incre/decr<a class="headerlink" href="#254-incredecr" title="Permanent link">&para;</a></h4>
-<ul>
-<li>decr : 自减，将Memcached中的一个值增加N（N默认为1）</li>
-<li>incr  : 自增，将Memcached中的一个值减少N（N默认为1）</li>
-</ul>
-<div class="codehilite"><pre><span></span>root@leco:~/code/memcached# cat decr.py
-#!/usr/bin/env python
-# -*- coding:utf-8 -*-
-import memcache
-mc = memcache.Client([&#39;127.0.0.1:11211&#39;])
-mc.set(&#39;num&#39;,1)
-ret = mc.get(&#39;num&#39;)
-print(&#39;原始值&#39;,ret)
-
-mc.incr(&#39;num&#39;,9)
-ret = mc.get(&#39;num&#39;)
-print(&#39;加值后结果 = &#39;,ret)
-
-mc.decr(&#39;num&#39;,5)
-ret = mc.get(&#39;num&#39;)
-print(&#39;减值后结果 = &#39;,ret)
-root@leco:~/code/memcached# python3 decr.py
-原始值 1
-加值后结果 =  10
-减值后结果 =  5
+<h3 id="26">2.6 排序<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
+<p>可以调用sort方法，传入排序的字段及升降序标志即可，示例如下：</p>
+<div class="codehilite"><pre><span></span>In [45]: results = collection.find().sort(&#39;name&#39;, pymongo.ASCENDING)
+In [46]: print([result[&#39;name&#39;] for result in results])
+[&#39;小强&#39;, &#39;小明&#39;, &#39;张三&#39;, &#39;李四&#39;, &#39;王五&#39;, &#39;赵六&#39;]
 </pre></div>
 
-<h3 id="26">2.6 统计操作<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
+<h3 id="27">2.7 偏移<a class="headerlink" href="#27" title="Permanent link">&para;</a></h3>
+<p>在某些情况下我们可能想只取某几个元素，在这里可以利用skip()方法偏移几个位置，比如偏移2，就忽略前2个元素，得到第三个及以后的元素。</p>
+<div class="codehilite"><pre><span></span>In [47]: results = collection.find().sort(&#39;name&#39;, pymongo.ASCENDING).skip(2)
+In [48]: print([result[&#39;name&#39;] for result in results])
+[&#39;张三&#39;, &#39;李四&#39;, &#39;王五&#39;, &#39;赵六&#39;]
+</pre></div>
+
+<h3 id="28-limit">2.8 limit<a class="headerlink" href="#28-limit" title="Permanent link">&para;</a></h3>
+<p>可以用limit()方法指定要取的结果个数，示例如下：</p>
+<p><div class="codehilite"><pre><span></span>In [49]: results = collection.find().sort(&#39;name&#39;, pymongo.ASCENDING).skip(2).limit(2)
+In [50]: print([result[&#39;name&#39;] for result in results])
+[&#39;张三&#39;, &#39;李四&#39;]
+</pre></div>
+如果不加limit()原本会返回三个结果，加了限制之后，会截取2个结果返回。</p>
+<p>值得注意的是，在数据库数量非常庞大的时候，如千万、亿级别，最好不要使用大的偏移量来查询数据，很可能会导致内存溢出。可以使用类似find({'_id': {'$gt': ObjectId('593278c815c2602678bb2b8d')}}) 这样的方法来查询，记录好上次查询的_id。</p>
+<h3 id="29">2.9 更新<a class="headerlink" href="#29" title="Permanent link">&para;</a></h3>
+<h4 id="291-update">2.9.1 update<a class="headerlink" href="#291-update" title="Permanent link">&para;</a></h4>
+<p>对于数据更新可以使用update()方法，指定更新的条件和更新后的数据即可，例如：
+没修改之前</p>
+<div class="codehilite"><pre><span></span>&gt; db.informations.find()
+{ &quot;_id&quot; : ObjectId(&quot;5c6b659b1607c47f8abe6ab7&quot;), &quot;name&quot; : &quot;张三&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b65c01607c47f8abe6ab8&quot;), &quot;name&quot; : &quot;小明&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b65c01607c47f8abe6ab9&quot;), &quot;name&quot; : &quot;小强&quot;, &quot;age&quot; : &quot;24&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b65df1607c47f8abe6aba&quot;), &quot;name&quot; : &quot;李四&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b66081607c47f8abe6abb&quot;), &quot;name&quot; : &quot;王五&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b66081607c47f8abe6abc&quot;), &quot;name&quot; : &quot;赵六&quot;, &quot;age&quot; : &quot;24&quot; }
+</pre></div>
+
+<p><div class="codehilite"><pre><span></span>In [51]: condition = {&#39;name&#39;: &#39;张三&#39;}
+In [52]: user = collection.find_one(condition)
+In [53]: user[&#39;age&#39;]=20
+In [54]: result = collection.update(condition, user)
+/usr/local/bin/ipython:1: DeprecationWarning: update is deprecated. Use replace_one, update_one or update_many instead.
+  #!/usr/local/bin/python3.6
+In [55]: print(result)
+{&#39;ok&#39;: 1, &#39;nModified&#39;: 1, &#39;n&#39;: 1, &#39;updatedExisting&#39;: True}
+</pre></div>
+修改之后</p>
+<p><div class="codehilite"><pre><span></span>&gt; db.informations.find()
+{ &quot;_id&quot; : ObjectId(&quot;5c6b659b1607c47f8abe6ab7&quot;), &quot;name&quot; : &quot;张三&quot;, &quot;age&quot; : 20 }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b65c01607c47f8abe6ab8&quot;), &quot;name&quot; : &quot;小明&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b65c01607c47f8abe6ab9&quot;), &quot;name&quot; : &quot;小强&quot;, &quot;age&quot; : &quot;24&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b65df1607c47f8abe6aba&quot;), &quot;name&quot; : &quot;李四&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b66081607c47f8abe6abb&quot;), &quot;name&quot; : &quot;王五&quot;, &quot;age&quot; : &quot;25&quot; }
+{ &quot;_id&quot; : ObjectId(&quot;5c6b66081607c47f8abe6abc&quot;), &quot;name&quot; : &quot;赵六&quot;, &quot;age&quot; : &quot;24&quot; }
+</pre></div>
+返回结果是字典形式，ok即代表执行成功，nModified代表影响的数据条数。
+另外update()方法其实也是官方不推荐使用的方法，在这里也分了update_one()方法和update_many()方法，用法更加严格，第二个参数需要使用$类型操作符作为字典的键名，我们用示例感受一下。</p>
+<h4 id="292-update_one">2.9.2 update_one<a class="headerlink" href="#292-update_one" title="Permanent link">&para;</a></h4>
+<p><div class="codehilite"><pre><span></span>condition = {&#39;name&#39;: &#39;李四&#39;}
+user = collection.find_one(condition)
+user[&#39;age&#39;] = 26
+result = collection.update_one(condition, {&#39;$set&#39;: user})
+print(result)
+print(result.matched_count, result.modified_count)
+</pre></div>
+在这里调用了update_one方法，第二个参数不能再直接传入修改后的字典，而是需要使用{'$set': user}这样的形式，其返回结果是UpdateResult类型，然后调用matched_count和modified_count属性分别可以获得匹配的数据条数和影响的数据条数。</p>
+<p>再看一个例子</p>
+<p><div class="codehilite"><pre><span></span>condition = {&#39;age&#39;: {&#39;$gt&#39;: 20}}
+result = collection.update_one(condition, {&#39;$inc&#39;: {&#39;age&#39;: 1}})
+print(result)
+print(result.matched_count, result.modified_count)
+</pre></div>
+在这里我们指定查询条件为年龄大于20，然后更新条件为{'$inc': {'age': 1}} ，也就是年龄加1，执行之后会讲第一条符合条件的数据年龄加1。</p>
+<h4 id="293-update_many">2.9.3 update_many<a class="headerlink" href="#293-update_many" title="Permanent link">&para;</a></h4>
+<p>如果调用update_many()方法，则会将所有符合条件的数据都更新，示例如下：</p>
+<div class="codehilite"><pre><span></span>condition = {&#39;age&#39;: {&#39;$gt&#39;: 20}}
+result = collection.update_many(condition, {&#39;$inc&#39;: {&#39;age&#39;: 1}})
+print(result)
+print(result.matched_count, result.modified_count)
+</pre></div>
+
+<h3 id="210">2.10 删除<a class="headerlink" href="#210" title="Permanent link">&para;</a></h3>
+<h4 id="2101-remove">2.10.1 remove<a class="headerlink" href="#2101-remove" title="Permanent link">&para;</a></h4>
+<p>删除操作比较简单，直接调用remove()方法指定删除的条件即可，符合条件的所有数据均会被删除，示例如下</p>
+<p><div class="codehilite"><pre><span></span>result = collection.remove({&#39;name&#39;: &#39;王五&#39;})
+print(result)
+</pre></div>
+运行</p>
+<p><div class="codehilite"><pre><span></span>n [66]: result = collection.remove({&#39;name&#39;: &#39;王五&#39;})
+/usr/local/bin/ipython:1: DeprecationWarning: remove is deprecated. Use delete_one or delete_many instead.
+  #!/usr/local/bin/python3.6
+
+In [67]: print(result)
+{&#39;ok&#39;: 1, &#39;n&#39;: 1}
+</pre></div>
+另外依然存在两个新的推荐方法，delete_one()和delete_many()方法.</p>
+<h4 id="2102-delete_one">2.10.2 delete_one<a class="headerlink" href="#2102-delete_one" title="Permanent link">&para;</a></h4>
+<p><div class="codehilite"><pre><span></span>result = collection.delete_one({&#39;name&#39;: &#39;赵六&#39;})
+print(result)
+print(result.deleted_count)
+</pre></div>
+过程</p>
+<div class="codehilite"><pre><span></span>In [68]: result = collection.delete_one({&#39;name&#39;: &#39;赵六&#39;})
+
+In [69]: print(result)
+&lt;pymongo.results.DeleteResult object at 0x7f3d00039188&gt;
+
+In [70]: print(result.deleted_count)
+1
+</pre></div>
+
+<h4 id="2103-delete_many">2.10.3 delete_many<a class="headerlink" href="#2103-delete_many" title="Permanent link">&para;</a></h4>
+<p><div class="codehilite"><pre><span></span>result = collection.delete_many({&#39;age&#39;: {&#39;$lt&#39;: 10}})
+print(result.deleted_count)
+</pre></div>
+delete_one()即删除第一条符合条件的数据，delete_many()即删除所有符合条件的数据，返回结果是DeleteResult类型，可以调用deleted_count属性获取删除的数据条数。</p>
+<h4 id="2104">2.10.4 更多<a class="headerlink" href="#2104" title="Permanent link">&para;</a></h4>
+<p>另外PyMongo还提供了一些组合方法，如find_one_and_delete() 、find_one_and_replace() 、find_one_and_update() ，就是查找后删除、替换、更新操作，用法与上述方法基本一致。</p>
+<p>另外还可以对索引进行操作，如create_index() 、create_indexes() 、drop_index()等。</p>
+<p>详细用法可以参见官方文档：<a href="http://api.mongodb.com/python/current/api/pymongo/collection.html">http://api.mongodb.com/python/current/api/pymongo/collection.html</a></p>
+<p>另外还有对数据库、集合本身以及其他的一些操作，在这不再一一讲解，可以参见官方文档：<a href="http://api.mongodb.com/python/current/api/pymongo/">http://api.mongodb.com/python/current/api/pymongo/</a></p>
+<h3 id="211-code">2.11 code<a class="headerlink" href="#211-code" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import pymongo
+import datetime
+
+
+def get_db():
+    # 建立连接
+    client = pymongo.MongoClient(host=&quot;127.0.0.1&quot;, port=27017)
+    # host 指定要链接的mongo server的主机。port是端口
+    db = client[&#39;test_mongo_db&#39;]
+    #或者 db = client.test_mongo_db
+    return db
+
+
+def get_collection(db):
+    # 选择集合(mongo中collection和database都是延时创建的)
+    coll = db[&#39;informations&#39;]
+    print (db.collection_names())
+    return coll
+
+
+def insert_one_doc(db):
+    # 插入一个document
+    coll = db[&#39;informations&#39;]
+    information = {&quot;name&quot;: &quot;summer&quot;, &quot;age&quot;: &quot;25&quot;}
+    information_id = coll.insert(information)
+    print(information_id)
+
+
+def insert_multi_docs(db):
+    # 批量插入documents,插入一个数组
+    coll = db[&#39;informations&#39;]
+    information = [{&quot;name&quot;: &quot;小明&quot;, &quot;age&quot;: &quot;25&quot;}, {&quot;name&quot;: &quot;小强&quot;, &quot;age&quot;: &quot;24&quot;}]
+    information_id = coll.insert(information)
+    print(information_id)
+
+
+def get_one_doc(db):
+    # 有就返回一个，没有就返回None
+    coll = db[&#39;informations&#39;]
+    print(coll.find_one())  # 返回第一条记录
+    print(coll.find_one({&quot;name&quot;: &quot;summer&quot;}))
+    print(coll.find_one({&quot;name&quot;: &quot;none&quot;}))
+
+
+def get_one_by_id(db):
+    # 通过objectid来查找一个doc
+    coll = db[&#39;informations&#39;]
+    obj = coll.find_one()
+    obj_id = obj[&quot;_id&quot;]
+    print(&quot;_id 为ObjectId类型，obj_id:&quot; + str(obj_id))
+
+    print(coll.find_one({&quot;_id&quot;: obj_id}))
+    # 需要注意这里的obj_id是一个对象，不是一个str，使用str类型作为_id的值无法找到记录
+    print(&quot;_id 为str类型 &quot;)
+    print(coll.find_one({&quot;_id&quot;: str(obj_id)}))
+    # 可以通过ObjectId方法把str转成ObjectId类型
+    from bson.objectid import ObjectId
+
+    print (&quot;_id 转换成ObjectId类型&quot;)
+    print (coll.find_one({&quot;_id&quot;: ObjectId(str(obj_id))}))
+
+
+def get_many_docs(db):
+    # mongo中提供了过滤查找的方法，可以通过各种条件筛选来获取数据集，还可以对数据进行计数，排序等处理
+    coll = db[&#39;informations&#39;]
+    # ASCENDING = 1 升序;DESCENDING = -1降序;default is ASCENDING
+    for item in coll.find().sort(&quot;age&quot;, pymongo.DESCENDING):
+        print(item)
+
+    count = coll.count()
+    print (&quot;集合中所有数据 %s个&quot; % int(count))
+
+    # 条件查询
+    count = coll.find({&quot;name&quot;:&quot;summer&quot;}).count()
+    print (&quot;summer: %s&quot;%count)
+
+def clear_all_datas(db):
+    # 清空一个集合中的所有数据
+    db[&quot;informations&quot;].remove()
+
+if __name__ == &#39;__main__&#39;:
+    db = get_db()
+    my_collection = get_collection(db)
+    post = {&quot;author&quot;: &quot;Mike&quot;, &quot;text&quot;: &quot;My first blog post!&quot;, &quot;tags&quot;: [&quot;mongodb&quot;, &quot;python&quot;, &quot;pymongo&quot;],
+            &quot;date&quot;: datetime.datetime.utcnow()}
+    # 插入记录
+    my_collection.insert(post)
+    insert_one_doc(db)
+    # 条件查询
+    print (my_collection.find_one({&quot;x&quot;: &quot;10&quot;}))
+    # 查询表中所有的数据
+    for data in my_collection.find():
+        print(data)
+    print (my_collection.count())
+    my_collection.update({&quot;author&quot;: &quot;Mike&quot;},
+                         {&quot;author&quot;: &quot;summer&quot;, &quot;text&quot;: &quot;My first blog post!&quot;, &quot;tags&quot;: [&quot;mongodb&quot;, &quot;python&quot;, &quot;pymongo&quot;],
+                          &quot;date&quot;: datetime.datetime.utcnow()})
+    for data in my_collection.find():
+        print (data)
+    get_one_doc(db)
+    get_one_by_id(db)
+    get_many_docs(db)
+    # clear_all_datas(db)
+</pre></div>
                 
                   
                 
@@ -3351,7 +3524,7 @@ root@leco:~/code/memcached# python3 decr.py
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../mongo/1.index/" title="1. mongo" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../../yield/1.yield/" title="1. yield" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -3360,19 +3533,19 @@ root@leco:~/code/memcached# python3 decr.py
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                1. mongo
+                1. yield
               </span>
             </div>
           </a>
         
         
-          <a href="../../../numPy/1.index/" title="1. 介绍" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../memcached/memcached.index/" title="1. memcached" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                1. 介绍
+                1. memcached
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
