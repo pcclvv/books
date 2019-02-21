@@ -3014,20 +3014,22 @@
 docker的registry是用本地存储或者s3都是可以的，harbor的功能是在此之上提供用户权限管理、镜像复制等功能，提高使用的registry的效率。Harbor的镜像拷贝功能是通过docker registry的API去拷贝，这种做法屏蔽了繁琐的底层文件操作、不仅可以利用现有docker registry功能不必重复造轮子，而且可以解决冲突和一致性的问题。</p>
 <h3 id="11-harbor">1.1 Harbor架构<a class="headerlink" href="#11-harbor" title="Permanent link">&para;</a></h3>
 <p><img alt="Harbor架构图" src="../../../../pictures/linux/harbor/pic1.png" /></p>
-<p>主要组件包括:
-- Proxy：对应启动组件nginx。它是一个nginx反向代理，代理Notary client（镜像认证）、Docker client（镜像上传下载等）和浏览器的访问请求（Core Service）给后端的各服务；
-- UI（Core Service）：对应启动组件harbor-ui。底层数据存储使用mysql数据库，主要提供了四个子功能：
-- UI：一个web管理页面ui；
-- API：Harbor暴露的API服务；
-- Auth：用户认证服务，decode后的token中的用户信息在这里进行认证；auth后端可以接db、ldap、uaa三种认证实现；
-- Token服务（上图中未体现）：负责根据用户在每个project中的role来为每一个docker push/pull命令issuing一个token，如果从docker client发送给registry的请求没有带token，registry会重定向请求到token服务创建token。
-- Registry：对应启动组件registry。负责存储镜像文件，和处理镜像的pull/push命令。Harbor对镜像进行强制的访问控制，Registry会将客户端的每个pull、push请求转发到token服务来获取有效的token。
-- Admin Service：对应启动组件harbor-adminserver。是系统的配置管理中心附带检查存储用量，ui和jobserver启动时候需要加载adminserver的配置；
-- Job Sevice：对应启动组件harbor-jobservice。负责镜像复制工作的，他和registry通信，从一个registry pull镜像然后push到另一个registry，并记录job_log；
-- Log Collector：对应启动组件harbor-log。日志汇总组件，通过docker的log-driver把日志汇总到一起；
-- Volnerability Scanning：对应启动组件clair。负责镜像扫描
-- Notary：对应启动组件notary。负责镜像认证
-- DB：对应启动组件harbor-db，负责存储project、 user、 role、replication、image_scan、access等的metadata数据。</p>
+<p>主要组件包括:</p>
+<ul>
+<li>Proxy：对应启动组件nginx。它是一个nginx反向代理，代理Notary client（镜像认证）、Docker client（镜像上传下载等）和浏览器的访问请求（Core Service）给后端的各服务；</li>
+<li>UI（Core Service）：对应启动组件harbor-ui。底层数据存储使用mysql数据库，主要提供了四个子功能：</li>
+<li>UI：一个web管理页面ui；</li>
+<li>API：Harbor暴露的API服务；</li>
+<li>Auth：用户认证服务，decode后的token中的用户信息在这里进行认证；auth后端可以接db、ldap、uaa三种认证实现；</li>
+<li>Token服务（上图中未体现）：负责根据用户在每个project中的role来为每一个docker push/pull命令issuing一个token，如果从docker client发送给registry的请求没有带token，registry会重定向请求到token服务创建token。</li>
+<li>Registry：对应启动组件registry。负责存储镜像文件，和处理镜像的pull/push命令。Harbor对镜像进行强制的访问控制，Registry会将客户端的每个pull、push请求转发到token服务来获取有效的token。</li>
+<li>Admin Service：对应启动组件harbor-adminserver。是系统的配置管理中心附带检查存储用量，ui和jobserver启动时候需要加载adminserver的配置；</li>
+<li>Job Sevice：对应启动组件harbor-jobservice。负责镜像复制工作的，他和registry通信，从一个registry pull镜像然后push到另一个registry，并记录job_log；</li>
+<li>Log Collector：对应启动组件harbor-log。日志汇总组件，通过docker的log-driver把日志汇总到一起；</li>
+<li>Volnerability Scanning：对应启动组件clair。负责镜像扫描</li>
+<li>Notary：对应启动组件notary。负责镜像认证</li>
+<li>DB：对应启动组件harbor-db，负责存储project、 user、 role、replication、image_scan、access等的metadata数据。</li>
+</ul>
 <h3 id="12-docker-registery">1.2 Docker Registery<a class="headerlink" href="#12-docker-registery" title="Permanent link">&para;</a></h3>
 <ul>
 <li>1.Registry用于保存docker镜像，包括镜像的层次结构和元数据</li>
