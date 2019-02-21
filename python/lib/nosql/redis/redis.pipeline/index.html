@@ -842,6 +842,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2-python-redis-pipeline" title="2. Python Redis pipeline操作" class="md-nav__link">
+    2. Python Redis pipeline操作
+  </a>
+  
+</li>
+      
       
       
       
@@ -2530,6 +2537,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2-python-redis-pipeline" title="2. Python Redis pipeline操作" class="md-nav__link">
+    2. Python Redis pipeline操作
+  </a>
+  
+</li>
+      
       
       
       
@@ -2570,36 +2584,167 @@
 127.0.0.1:6379&gt; get k3
 &quot;v3&quot;
 </pre></div>
-<div align="center"> <img alt="执行过程" src="../../../../../pictures/lib/nosql/redis/1.png" title="不带pipeline" /></p>
+<img alt="执行过程" src="../../../../../pictures/lib/nosql/redis/1.png" title="不带pipeline" /></p>
 <p>&#160; &#160; &#160; &#160;由于通信会有网络延迟，假如client和server之间的包传输时间需要0.125秒。那么上面的三个命令6个报文至少需要0.75秒才能完成。这样即使redis每秒能处理100个命令，而我们的client也只能一秒钟发出四个命令。这显然没有充分利用 redis的处理能力。</p>
 <p>&#160; &#160; &#160; &#160;而管道（pipeline）可以一次性发送多条命令并在执行完后一次性将结果返回，pipeline通过减少客户端与redis的通信次数来实现降低往返延时时间，而且Pipeline 实现的原理是队列，而队列的原理是时先进先出，这样就保证数据的顺序性。 Pipeline 的默认的同步的个数为53个，也就是说arges中累加到53条数据时会把数据提交。其过程如下图所示：client可以将三个命令放到一个tcp报文一起发送，server则可以将三条命令的处理结果放到一个tcp报文返回。</p>
-<div align="center"> ![执行过程](../../../../pictures/lib/nosql/redis/2.png "带pipeline")
+<p><img alt="执行过程" src="../../../../../pictures/lib/nosql/redis/2.png" title="带pipeline" /></p>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>用 pipeline方式打包命令发送，redis必须在处理完所有命令前先缓存起所有命令的处理结果。打包的命令越多，缓存消耗内存也越多。所以并不是打包的命令越多越好。具体多少合适需要根据具体情况测试。</p>
+</div>
+<h2 id="2-python-redis-pipeline">2. Python Redis pipeline操作<a class="headerlink" href="#2-python-redis-pipeline" title="Permanent link">&para;</a></h2>
+<p><div class="codehilite"><pre><span></span>#!/usr/bin/python
+# _*_ coding: utf-8 _*_
+&quot;&quot;&quot;
+@Time    : 2019/2/21 13:25
+@File    : pipeline_demo.py
+@Author  : summer
+@Software: PyCharm
+&quot;&quot;&quot;
 
-!!! note "注意"
-    用 pipeline方式打包命令发送，redis必须在处理完所有命令前先缓存起所有命令的处理结果。打包的命令越多，缓存消耗内存也越多。所以并不是打包的命令越多越好。具体多少合适需要根据具体情况测试。
+import redis
+import time
 
-## 2. Python Redis pipeline操作
-wzxhzdk:1
-运行结果
+r = redis.Redis(host=&#39;127.0.0.1&#39;, port=6379, password=&#39;&#39;)
 
-wzxhzdk:2
-try_pipeline平均处理时间：0.004987478256225586
 
-without_pipeline平均处理时间：0.03494906425476074
+def try_pipeline():
+    start = time.time()
+    with r.pipeline(transaction=False) as p:
+        p.sadd(&#39;set1&#39;, 1).sadd(&#39;set2&#39;, 2).srem(&#39;set2&#39;, 2).lpush(&#39;list1&#39;, 1).lrange(&#39;list2&#39;, 0, -1)
+        p.execute()
+    print(time.time() - start)
 
-我们的批量里有5个操作，在处理时间维度上性能提升了7倍！
 
-pipeline批量操作只进行一次网络往返，可以看到节省的时间基本都是网路延迟。
+def without_pipeline():
+    start = time.time()
+    r.sadd(&#39;seta&#39;, 1)
+    r.sadd(&#39;seta&#39;, 2)
+    r.srem(&#39;seta&#39;, 2)
+    r.lpush(&#39;lista&#39;, 1
+    r.lrange(&#39;lista&#39;, 0, -1)
+    print(time.time() - start)
 
-2、pipeline与transation
 
-pipeline不仅仅用来批量的提交命令，还用来实现事务transation。
-使用transaction与否不同之处在与创建pipeline实例的时候，transaction是否打开，默认是打开的。
+if __name__ == &#39;__main__&#39;:
+    try_pipeline()
+    without_pipeline()
+</pre></div>
+运行结果</p>
+<p><div class="codehilite"><pre><span></span>D:\code\code-flask\code-flask\venv\Scripts\python.exe D:/code/code-flask/code-flask/2019-02-20/1.py
+0.004987478256225586
+0.03494906425476074
+</pre></div>
+try_pipeline平均处理时间：0.004987478256225586</p>
+<p>without_pipeline平均处理时间：0.03494906425476074</p>
+<p>我们的批量里有5个操作，在处理时间维度上性能提升了7倍！</p>
+<p>pipeline批量操作只进行一次网络往返，可以看到节省的时间基本都是网路延迟。</p>
+<p>2、pipeline与transation</p>
+<p>pipeline不仅仅用来批量的提交命令，还用来实现事务transation。
+使用transaction与否不同之处在与创建pipeline实例的时候，transaction是否打开，默认是打开的。</p>
+<p><div class="codehilite"><pre><span></span>#!/usr/bin/python
+# _*_ coding: utf-8 _*_
+&quot;&quot;&quot;
+@Time    : 2019/2/21 13:25
+@File    : pipeline_demo.py
+@Author  : summer
+@Software: PyCharm
+&quot;&quot;&quot;
+# -*- coding:utf-8 -*-
 
-wzxhzdk:3
-运行结果
+import redis
+from redis import WatchError
+from concurrent.futures import ProcessPoolExecutor
 
-wzxhzdk:4
+r = redis.Redis(host=&#39;127.0.0.1&#39;, port=6379)
+
+
+# 减库存函数, 循环直到减库存完成
+# 库存充足, 减库存成功, 返回True
+# 库存不足, 减库存失败, 返回False
+def decr_stock():
+
+    # python中redis事务是通过pipeline的封装实现的
+    with r.pipeline() as pipe:
+        while True:
+            try:
+                # watch库存键, multi后如果该key被其他客户端改变, 事务操作会抛出WatchError异常
+                pipe.watch(&#39;stock:count&#39;)
+                count = int(pipe.get(&#39;stock:count&#39;))
+                if count &gt; 0:  # 有库存
+                    # 事务开始
+                    pipe.multi()
+                    pipe.decr(&#39;stock:count&#39;)
+                    # 把命令推送过去
+                    # execute返回命令执行结果列表, 这里只有一个decr返回当前值
+                    print(pipe.execute()[0])
+                    return True
+                else:
+                    return False
+            except WatchError as ex:
+                # 打印WatchError异常, 观察被watch锁住的情况
+                print(ex, &#39;锁住了&#39;)
+                pipe.unwatch()
+
+
+def worker():
+    while True:
+        # 没有库存就退出
+        if not decr_stock():
+            break
+
+
+# 实验开始 设置库存为20
+r.set(&quot;stock:count&quot;, 20)
+
+
+# 多进程模拟多个客户端提交
+if __name__ == &#39;__main__&#39;:
+
+    with ProcessPoolExecutor(max_workers=2) as pool:
+        for _ in range(10):
+            pool.submit(worker)
+</pre></div>
+运行结果</p>
+<div class="codehilite"><pre><span></span>D:\code\code-flask\code-flask\venv\Scripts\python.exe D:/code/code-flask/code-flask/2019-02-20/1.py
+19
+18
+17
+16
+19
+18
+Watched variable changed. 锁住了
+17
+Watched variable changed. 锁住了
+16
+Watched variable changed. 锁住了
+15
+Watched variable changed. 锁住了
+Watched variable changed. 锁住了
+14
+13
+Watched variable changed. 锁住了
+12
+Watched variable changed. 锁住了
+11
+Watched variable changed. 锁住了
+10
+9
+Watched variable changed. 锁住了
+8
+7
+6
+5
+Watched variable changed. 锁住了
+4
+3
+2
+1
+Watched variable changed. 锁住了
+0
+
+Process finished with exit code 0
+</pre></div>
                 
                   
                 
