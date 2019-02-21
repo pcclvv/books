@@ -2817,18 +2817,21 @@ QUEUED
 </pre></div>
 对于入队错误，redis 2.6.5版本后，会记录这种错误，并且在执行EXEC的时候，报错并回滚事务中所有的命令，并且终止事务</p>
 <h3 id="24">2.4 执行错误放过<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
-<p><div class="codehilite"><pre><span></span>127.0.0.1:6379&gt; HSET key1 field1 1
+<p><div class="codehilite"><pre><span></span>127.0.0.1:6379&gt; flushall
+OK
+127.0.0.1:6379&gt; MULTI
+OK
+127.0.0.1:6379&gt; set k1 v1
 QUEUED
-127.0.0.1:6379&gt; HSET key2 field1 1
+127.0.0.1:6379&gt; set k2 v2 v3
 QUEUED
 127.0.0.1:6379&gt; exec
-1) (integer) 1
-2) (integer) 1
+1) OK
+2) (error) ERR syntax error
 127.0.0.1:6379&gt; keys *
-1) &quot;key2&quot;
-2) &quot;key1&quot;
-127.0.0.1:6379&gt; get keys1
-(nil)
+1) &quot;k1&quot;
+127.0.0.1:6379&gt; get k1
+&quot;v1&quot;
 </pre></div>
 当遇到执行错误时，redis放过这种错误，保证事务执行完成。</p>
 <div class="admonition note">
