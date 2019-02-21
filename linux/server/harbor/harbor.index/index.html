@@ -1313,6 +1313,67 @@
     4.2 下载安装
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421" title="4.2.1 关闭仓库" class="md-nav__link">
+    4.2.1 关闭仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422" title="4.2.2 修改配置文件" class="md-nav__link">
+    4.2.2 修改配置文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423" title="4.2.3 开始安装" class="md-nav__link">
+    4.2.3 开始安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#424" title="4.2.4 安装编排工具" class="md-nav__link">
+    4.2.4 安装编排工具
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-web" title="4.3 Web操作" class="md-nav__link">
+    4.3 Web操作
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431" title="4.3.1 简单介绍" class="md-nav__link">
+    4.3.1 简单介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#426" title="4.2.6" class="md-nav__link">
+    4.2.6
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2979,6 +3040,67 @@
     4.2 下载安装
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421" title="4.2.1 关闭仓库" class="md-nav__link">
+    4.2.1 关闭仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422" title="4.2.2 修改配置文件" class="md-nav__link">
+    4.2.2 修改配置文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423" title="4.2.3 开始安装" class="md-nav__link">
+    4.2.3 开始安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#424" title="4.2.4 安装编排工具" class="md-nav__link">
+    4.2.4 安装编排工具
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-web" title="4.3 Web操作" class="md-nav__link">
+    4.3 Web操作
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431" title="4.3.1 简单介绍" class="md-nav__link">
+    4.3.1 简单介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#426" title="4.2.6" class="md-nav__link">
+    4.2.6
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -3248,6 +3370,196 @@ REPOSITORY TAG IMAGE ID CREATED SIZE
 <li><a href="https://github.com/goharbor/harbor/blob/master/docs/installation_guide.md">安装步骤</a></li>
 </ul>
 <h3 id="42">4.2 下载安装<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<p><img alt="版本" src="../../../../pictures/linux/harbor/pic2.png" />
+<img alt="下载地址选择" src="../../../../pictures/linux/harbor/pic3.png" /></p>
+<p>下载安装后上传到服务器上，解压配置安装。</p>
+<h4 id="421">4.2.1 关闭仓库<a class="headerlink" href="#421" title="Permanent link">&para;</a></h4>
+<p>关闭之前自带（github自己的）的镜像仓库</p>
+<div class="codehilite"><pre><span></span>[root@leco ~]# netstat -lnp|grep 5000
+tcp6 0 0 :::5000 :::* LISTEN 17540/registry
+[root@leco ~]# systemctl stop docker-distribution
+[root@leco ~]# netstat -lnp|grep 500
+[root@leco opt]# ls
+harbor-offline-installer-v1.5.3.tgz myimages.gz
+[root@leco opt]# tar xf harbor-offline-installer-v1.5.3.tgz -C /usr/local/
+[root@leco opt]# cd /usr/local/harbor/
+[root@leco harbor]# pwd
+/usr/local/harbor
+[root@leco harbor]# ll
+total 895716
+drwxr-xr-x 4 root root        37 Sep 20 17:37 common
+-rw-r--r-- 1 root root      1185 Sep 12 14:19 docker-compose.clair.yml
+-rw-r--r-- 1 root root      1725 Sep 12 14:19 docker-compose.notary.yml
+-rw-r--r-- 1 root root      3596 Sep 12 14:19 docker-compose.yml
+drwxr-xr-x 3 root root       156 Sep 12 14:19 ha
+-rw-r--r-- 1 root root      6955 Sep 20 17:32 harbor.cfg
+-rw-r--r-- 1 root root      6956 Sep 20 17:31 harbor.cfg.ori
+-rw-r--r-- 1 root root 915878468 Sep 12 14:21 harbor.v1.5.3.tar.gz
+-rwxr-xr-x 1 root root      5773 Sep 12 14:19 install.sh
+-rw-r--r-- 1 root root     10764 Sep 12 14:19 LICENSE
+-rw-r--r-- 1 root root       482 Sep 12 14:19 NOTICE
+-rw-r--r-- 1 root root   1247461 Sep 12 14:19 open_source_license
+-rwxr-xr-x 1 root root     27840 Sep 12 14:19 prepare
+[root@leco harbor]# cp harbor.cfg harbor.cfg.ori
+</pre></div>
+
+<h4 id="422">4.2.2 修改配置文件<a class="headerlink" href="#422" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>[root@leco harbor]# diff harbor.cfg harbor.cfg.ori
+7c7
+&lt; hostname = 192.168.183.134
+---
+&gt; hostname = reg.mydomain.com
+修改hostname，hostname是对外访问的的地址，可以域名可以ip地址，我们这使用ip（也就是docker的私有仓库地址）
+</pre></div>
+
+<h4 id="423">4.2.3 开始安装<a class="headerlink" href="#423" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>[root@leco harbor]# sh install.sh
+
+[Step 0]: checking installation environment ...
+
+Note: docker version: 18.06.1
+✖ Need to install docker-compose(1.7.1+) by yourself first and run this script again.
+</pre></div>
+
+<h4 id="424">4.2.4 安装编排工具<a class="headerlink" href="#424" title="Permanent link">&para;</a></h4>
+<p>先要安装docker-compose 因为harbor使用通过docker-compose编排工具去安装</p>
+<p><div class="codehilite"><pre><span></span>[root@leco harbor]# yum install -y docker-compose
+[root@leco harbor]# sh install.sh
+
+[Step 0]: checking installation environment ...
+
+Note: docker version: 18.06.1
+
+Note: docker-compose version: 1.18.0
+
+[Step 1]: loading Harbor images ...
+dba693fc2701: Loading layer [==================================================&gt;] 133.4MB/133.4MB
+5773887c4c41: Loading layer [==================================================&gt;] 30.09MB/30.09MB
+6fc2abbcae42: Loading layer [==================================================&gt;] 15.37MB/15.37MB
+d85f176a11ec: Loading layer [==================================================&gt;] 15.37MB/15.37MB
+Loaded image: vmware/harbor-adminserver:v1.5.3
+462b14c85230: Loading layer [==================================================&gt;] 410.1MB/410.1MB
+c2e0c8cb2903: Loading layer [==================================================&gt;] 9.216kB/9.216kB
+11bdb24cded2: Loading layer [==================================================&gt;] 9.216kB/9.216kB
+5d8f974b49ef: Loading layer [==================================================&gt;] 7.68kB/7.68kB
+ee04f13f4147: Loading layer [==================================================&gt;] 1.536kB/1.536kB
+799db4dfe41a: Loading layer [==================================================&gt;] 11.78kB/11.78kB
+f7d813585bdd: Loading layer [==================================================&gt;] 2.56kB/2.56kB
+6300bbdbd7ab: Loading layer [==================================================&gt;] 3.072kB/3.072kB
+Loaded image: vmware/harbor-db:v1.5.3
+1d7516778a05: Loading layer [==================================================&gt;] 30.09MB/30.09MB
+f7ec8d1b47d0: Loading layer [==================================================&gt;] 20.91MB/20.91MB
+22b0ad749c21: Loading layer [==================================================&gt;] 20.91MB/20.91MB
+Loaded image: vmware/harbor-jobservice:v1.5.3
+2d449d67c05a: Loading layer [==================================================&gt;] 89.58MB/89.58MB
+0bfd4e706575: Loading layer [==================================================&gt;] 3.072kB/3.072kB
+6100e173c230: Loading layer [==================================================&gt;] 59.9kB/59.9kB
+86fe093d1358: Loading layer [==================================================&gt;] 61.95kB/61.95kB
+Loaded image: vmware/redis-photon:v1.5.3
+Loaded image: photon:1.0
+3bf3086a6569: Loading layer [==================================================&gt;] 30.09MB/30.09MB
+641d0f77d675: Loading layer [==================================================&gt;] 10.95MB/10.95MB
+89efbaabea87: Loading layer [==================================================&gt;] 17.3MB/17.3MB
+1276e51f4dc2: Loading layer [==================================================&gt;] 15.87kB/15.87kB
+49e187d04e78: Loading layer [==================================================&gt;] 3.072kB/3.072kB
+e62fbfea411d: Loading layer [==================================================&gt;] 28.24MB/28.24MB
+Loaded image: vmware/notary-signer-photon:v0.5.1-v1.5.3
+Loaded image: vmware/mariadb-photon:v1.5.3
+201f6ade61d8: Loading layer [==================================================&gt;] 102.5MB/102.5MB
+81221fbb5879: Loading layer [==================================================&gt;] 6.656kB/6.656kB
+2268e3c9e521: Loading layer [==================================================&gt;] 2.048kB/2.048kB
+9fca06f4b193: Loading layer [==================================================&gt;] 7.68kB/7.68kB
+Loaded image: vmware/postgresql-photon:v1.5.3
+11d6e8a232c9: Loading layer [==================================================&gt;] 30.09MB/30.09MB
+42650b04d53d: Loading layer [==================================================&gt;] 24.41MB/24.41MB
+a1cd8af19e29: Loading layer [==================================================&gt;] 7.168kB/7.168kB
+4b1cda90ba19: Loading layer [==================================================&gt;] 10.56MB/10.56MB
+1351f0f3006a: Loading layer [==================================================&gt;] 24.4MB/24.4MB
+Loaded image: vmware/harbor-ui:v1.5.3
+e335f4c3af7d: Loading layer [==================================================&gt;] 79.93MB/79.93MB
+2aea487bc2c4: Loading layer [==================================================&gt;] 3.584kB/3.584kB
+d2efec3de68b: Loading layer [==================================================&gt;] 3.072kB/3.072kB
+d0d71a5ce1dd: Loading layer [==================================================&gt;] 4.096kB/4.096kB
+19930367abf0: Loading layer [==================================================&gt;] 3.584kB/3.584kB
+03e5b7640db5: Loading layer [==================================================&gt;] 9.728kB/9.728kB
+Loaded image: vmware/harbor-log:v1.5.3
+5aebe8cc938c: Loading layer [==================================================&gt;] 11.97MB/11.97MB
+Loaded image: vmware/nginx-photon:v1.5.3
+ede6a57cbd7e: Loading layer [==================================================&gt;] 30.09MB/30.09MB
+4d6dd4fc1d87: Loading layer [==================================================&gt;] 2.56kB/2.56kB
+c86a69f49f60: Loading layer [==================================================&gt;] 2.56kB/2.56kB
+0cf6e04c5927: Loading layer [==================================================&gt;] 2.048kB/2.048kB
+6fbff4fe9739: Loading layer [==================================================&gt;] 22.8MB/22.8MB
+6f527a618092: Loading layer [==================================================&gt;] 22.8MB/22.8MB
+Loaded image: vmware/registry-photon:v2.6.2-v1.5.3
+e29a8834501b: Loading layer [==================================================&gt;] 12.16MB/12.16MB
+aaf67f1da2c7: Loading layer [==================================================&gt;] 17.3MB/17.3MB
+8d5718232133: Loading layer [==================================================&gt;] 15.87kB/15.87kB
+fc89aca1dd12: Loading layer [==================================================&gt;] 3.072kB/3.072kB
+076eb5a76f6d: Loading layer [==================================================&gt;] 29.46MB/29.46MB
+Loaded image: vmware/notary-server-photon:v0.5.1-v1.5.3
+454c81edbd3b: Loading layer [==================================================&gt;] 135.2MB/135.2MB
+e99db1275091: Loading layer [==================================================&gt;] 395.4MB/395.4MB
+051e4ee23882: Loading layer [==================================================&gt;] 9.216kB/9.216kB
+6cca4437b6f6: Loading layer [==================================================&gt;] 9.216kB/9.216kB
+1d48fc08c8bc: Loading layer [==================================================&gt;] 7.68kB/7.68kB
+0419724fd942: Loading layer [==================================================&gt;] 1.536kB/1.536kB
+543c0c1ee18d: Loading layer [==================================================&gt;] 655.2MB/655.2MB
+4190aa7e89b8: Loading layer [==================================================&gt;] 103.9kB/103.9kB
+Loaded image: vmware/harbor-migrator:v1.5.0
+45878c64fc3c: Loading layer [==================================================&gt;] 165.3MB/165.3MB
+fc3d407ce98f: Loading layer [==================================================&gt;] 10.93MB/10.93MB
+d7a0785bb902: Loading layer [==================================================&gt;] 2.048kB/2.048kB
+a17e0f23bc84: Loading layer [==================================================&gt;] 48.13kB/48.13kB
+57c7181f2336: Loading layer [==================================================&gt;] 10.97MB/10.97MB
+Loaded image: vmware/clair-photon:v2.0.5-v1.5.3
+
+
+[Step 2]: preparing environment ...
+Generated and saved secret to file: /data/secretkey
+Generated configuration file: ./common/config/nginx/nginx.conf
+Generated configuration file: ./common/config/adminserver/env
+Generated configuration file: ./common/config/ui/env
+Generated configuration file: ./common/config/registry/config.yml
+Generated configuration file: ./common/config/db/env
+Generated configuration file: ./common/config/jobservice/env
+Generated configuration file: ./common/config/jobservice/config.yml
+Generated configuration file: ./common/config/log/logrotate.conf
+Generated configuration file: ./common/config/jobservice/config.yml
+Generated configuration file: ./common/config/ui/app.conf
+Generated certificate, key file: ./common/config/ui/private_key.pem, cert file: ./common/config/registry/root.crt
+The configuration files are ready, please use docker-compose to start the service.
+Creating harbor-log ... done
+
+[Step 3]: checking existing instance of Harbor ...
+
+Creating registry ... done
+Creating harbor-ui ... done
+Creating network &quot;harbor_harbor&quot; with the default driver
+Creating nginx ... done
+Creating harbor-db ...
+Creating registry ...
+Creating harbor-adminserver ...
+Creating redis ...
+Creating harbor-ui ...
+Creating harbor-jobservice ...
+Creating nginx ...
+
+✔ ----Harbor has been installed and started successfully.----
+
+Now you should be able to visit the admin portal at http://192.168.183.134.
+For more details, please visit https://github.com/vmware/harbor .
+</pre></div>
+可以看到以上已经安装完了。我们通过web访问h可以看到以上已经安装完了。我们通过web访问harbor。
+安装完毕后查看docker</p>
+<p><img alt="docker镜像" src="../../../../pictures/linux/harbor/pic4.png" /></p>
+<p>Harbor其实也是加载docker镜像</p>
+<h3 id="43-web">4.3 Web操作<a class="headerlink" href="#43-web" title="Permanent link">&para;</a></h3>
+<h4 id="431">4.3.1 简单介绍<a class="headerlink" href="#431" title="Permanent link">&para;</a></h4>
+<p><img alt="首页" src="../../../../pictures/linux/harbor/pic5.png" /></p>
+<p>默认账号和密码在配置文件中，账号是==admin== 密码是==Harbor12345==</p>
+<p><img alt="首页" src="../../../../pictures/linux/harbor/pic6.png" /></p>
+<h4 id="426">4.2.6<a class="headerlink" href="#426" title="Permanent link">&para;</a></h4>
                 
                   
                 
