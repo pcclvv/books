@@ -969,32 +969,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-11" type="checkbox" id="nav-1-1-11" checked>
     
     <label class="md-nav__link" for="nav-1-1-11">
-      11. 工具
+      11. uuid
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
       <label class="md-nav__title" for="nav-1-1-11">
-        11. 工具
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-11-1" type="checkbox" id="nav-1-1-11-1" checked>
-    
-    <label class="md-nav__link" for="nav-1-1-11-1">
-      1. uuid
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
-      <label class="md-nav__title" for="nav-1-1-11-1">
-        1. uuid
+        11. uuid
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1049,11 +1028,6 @@
   
 </nav>
     
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
         
@@ -2663,13 +2637,15 @@
                 
                 <h2 id="1">1. 介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>&#160; &#160; &#160; &#160;uuid是128位的全局唯一标识符（univeral unique identifier），通常用32位的一个字符串的形式来表现。有时也称guid(global unique identifier)。python中自带了uuid模块来进行uuid的生成和管理工作。（具体从哪个版本开始有的不清楚。。）</p>
-<p>&#160; &#160; &#160; &#160;python中的uuid模块基于信息如MAC地址、时间戳、命名空间、随机数、伪随机数来uuid。具体方法有如下几个：　　
-- uuid.uuid1()　　基于MAC地址，时间戳，随机数来生成唯一的uuid，可以保证全球范围内的唯一性。
-- uuid.uuid2()　　算法与uuid1相同，不同的是把时间戳的前4位置换为POSIX的UID。不过需要注意的是python中没有基于DCE的算法，所以python的uuid模块中没有uuid2这个方法。
-- uuid.uuid3(namespace,name)　　通过计算一个命名空间和名字的md5散列值来给出一个uuid，所以可以保证命名空间中的不同名字具有不同的uuid，但是相同的名字就是相同的uuid了。【感谢评论区大佬指出】namespace并不是一个自己手动指定的字符串或其他量，而是在uuid模块中本身给出的一些值。比如uuid.NAMESPACE_DNS，uuid.NAMESPACE_OID，uuid.NAMESPACE_OID这些值。这些值本身也是UUID对象，根据一定的规则计算得出。
-- uuid.uuid4()　　通过伪随机数得到uuid，是有一定概率重复的
-- uuid.uuid5(namespace,name)　　和uuid3基本相同，只不过采用的散列算法是sha1
-　　</p>
+<p>&#160; &#160; &#160; &#160;python中的uuid模块基于信息如MAC地址、时间戳、命名空间、随机数、伪随机数来uuid。具体方法有如下几个：　</p>
+<ul>
+<li>uuid.uuid1()　　基于MAC地址，时间戳，随机数来生成唯一的uuid，可以保证全球范围内的唯一性。</li>
+<li>uuid.uuid2()　　算法与uuid1相同，不同的是把时间戳的前4位置换为POSIX的UID。不过需要注意的是python中没有基于DCE的算法，所以python的uuid模块中没有uuid2这个方法。</li>
+<li>uuid.uuid3(namespace,name)　　通过计算一个命名空间和名字的md5散列值来给出一个uuid，所以可以保证命名空间中的不同名字具有不同的uuid，但是相同的名字就是相同的uuid了。【感谢评论区大佬指出】namespace并不是一个自己手动指定的字符串或其他量，而是在uuid模块中本身给出的一些值。比如uuid.NAMESPACE_DNS，uuid.NAMESPACE_OID，uuid.NAMESPACE_OID这些值。这些值本身也是UUID对象，根据一定的规则计算得出。</li>
+<li>uuid.uuid4()　　通过伪随机数得到uuid，是有一定概率重复的</li>
+<li>uuid.uuid5(namespace,name)　　和uuid3基本相同，只不过采用的散列算法是sha1
+　　</li>
+</ul>
 <p>&#160; &#160; &#160; &#160;UUID: 通用唯一标识符 ( Universally Unique Identifier ), 对于所有的UUID它可以保证在空间和时间上的唯一性. 它是通过MAC地址, 时间戳, 命名空间, 随机数, 伪随机数来保证生成ID的唯一性, 有着固定的大小( 128 bit ).  它的唯一性和一致性特点使得可以无需注册过程就能够产生一个新的UUID. UUID可以被用作多种用途, 既可以用来短时间内标记一个对象, 也可以可靠的辨别网络中的持久性对象. </p>
 <p>&#160; &#160; &#160; &#160;为什么要使用UUID?</p>
 <p>&#160; &#160; &#160; &#160;很多应用场景需要一个id, 但是又不要求这个id 有具体的意义, 仅仅用来标识一个对象. 常见的例子有数据库表的id 字段. 另一个例子是前端的各种UI库, 因为它们通常需要动态创建各种UI元素, 这些元素需要唯一的id , 这时候就需要使用UUID了. </p>
