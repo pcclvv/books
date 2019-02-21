@@ -1588,6 +1588,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#369-dbsize" title="3.6.9 dbsize" class="md-nav__link">
+    3.6.9 dbsize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3610-flushdb" title="3.6.10 flushdb" class="md-nav__link">
+    3.6.10 flushdb
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3611-save" title="3.6.11 save" class="md-nav__link">
+    3.6.11 save
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4068,6 +4089,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#369-dbsize" title="3.6.9 dbsize" class="md-nav__link">
+    3.6.9 dbsize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3610-flushdb" title="3.6.10 flushdb" class="md-nav__link">
+    3.6.10 flushdb
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3611-save" title="3.6.11 save" class="md-nav__link">
+    3.6.11 save
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6257,6 +6299,63 @@ Out[101]: b&#39;k3&#39;
 <div class="codehilite"><pre><span></span># 获取name对应值的类型
 In [102]: r.type(&#39;k3&#39;)
 Out[102]: b&#39;string&#39;
+</pre></div>
+
+<h4 id="369-dbsize">3.6.9 dbsize<a class="headerlink" href="#369-dbsize" title="Permanent link">&para;</a></h4>
+<p>数据库中多少个条数</p>
+<div class="codehilite"><pre><span></span>In [96]: r.dbsize()
+Out[96]: 1
+</pre></div>
+
+<h4 id="3610-flushdb">3.6.10 flushdb<a class="headerlink" href="#3610-flushdb" title="Permanent link">&para;</a></h4>
+<ul>
+<li>flushdb 清空数据库</li>
+<li>flushall 删除所有现有的数据库</li>
+</ul>
+<p><div class="codehilite"><pre><span></span>In [97]: r.flushdb()
+Out[97]: True
+In [99]: r.flushall()
+Out[99]: True
+</pre></div>
+redis操作</p>
+<div class="codehilite"><pre><span></span>127.0.0.1:6379&gt; SELECT 1
+OK
+127.0.0.1:6379[1]&gt; set  k1 1
+OK
+127.0.0.1:6379[1]&gt; select 2
+OK
+127.0.0.1:6379[2]&gt; set k2 2
+OK
+127.0.0.1:6379[2]&gt; keys *
+1) &quot;k2&quot;
+127.0.0.1:6379[2]&gt; FLUSHDB
+OK
+127.0.0.1:6379[2]&gt; keys *
+(empty list or set)
+127.0.0.1:6379[2]&gt; select 1
+OK
+127.0.0.1:6379[1]&gt; keys *
+1) &quot;k1&quot;
+127.0.0.1:6379[1]&gt;
+127.0.0.1:6379[1]&gt;
+127.0.0.1:6379[1]&gt; select 2
+OK
+127.0.0.1:6379[2]&gt; set k2 2
+OK
+127.0.0.1:6379[2]&gt; FLUSHALL
+OK
+127.0.0.1:6379[2]&gt; keys *
+(empty list or set)
+127.0.0.1:6379[2]&gt; select 1
+OK
+127.0.0.1:6379[1]&gt; keys *
+(empty list or set)
+</pre></div>
+
+<h4 id="3611-save">3.6.11 save<a class="headerlink" href="#3611-save" title="Permanent link">&para;</a></h4>
+<p>强行把数据库保存到硬盘。保存时阻塞</p>
+<div class="codehilite"><pre><span></span>In [98]: r.save()
+Out[98]: True
 </pre></div>
                 
                   
