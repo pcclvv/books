@@ -786,11 +786,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-9-3" type="checkbox" id="nav-1-1-9-3" checked>
     
     <label class="md-nav__link" for="nav-1-1-9-3">
-      2. redis
+      3. redis
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
       <label class="md-nav__title" for="nav-1-1-9-3">
-        2. redis
+        3. redis
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1124,8 +1124,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#335-hmget" title="3.3.5 hmget" class="md-nav__link">
-    3.3.5 hmget
+  <a href="#335-hmgethmgetall" title="3.3.5 hmget/hmgetall" class="md-nav__link">
+    3.3.5 hmget/hmgetall
   </a>
   
 </li>
@@ -3580,8 +3580,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#335-hmget" title="3.3.5 hmget" class="md-nav__link">
-    3.3.5 hmget
+  <a href="#335-hmgethmgetall" title="3.3.5 hmget/hmgetall" class="md-nav__link">
+    3.3.5 hmget/hmgetall
   </a>
   
 </li>
@@ -5227,44 +5227,588 @@ Out[76]: b&#39;zhangsanlisi&#39;
 </pre></div>
 
 <h3 id="33-hash">3.3 Hash<a class="headerlink" href="#33-hash" title="Permanent link">&para;</a></h3>
+<p>redis中的Hash 在内存中类似于一个name对应一个dic来存储 </p>
 <h4 id="331-hset">3.3.1 hset<a class="headerlink" href="#331-hset" title="Permanent link">&para;</a></h4>
+<p>hset(name, key, value)</p>
+<p><div class="codehilite"><pre><span></span>name对应的hash中设置一个键值对（不存在，则创建，否则，修改）
+r.hset(&quot;hash_name&quot;,&quot;key1&quot;,&quot;values1&quot;)
+</pre></div>
+操作过程</p>
+<div class="codehilite"><pre><span></span>In [12]: r.hset(&#39;hash_name&#39;,&#39;key1&#39;,&#39;values1&#39;)
+Out[12]: 1
+127.0.0.1:6379&gt; TYPE hash_name
+hash
+127.0.0.1:6379&gt; HGETALL hash_name
+1) &quot;key1&quot;
+2) &quot;values1&quot;
+127.0.0.1:6379&gt; HGET hash_name key1
+&quot;values1&quot;
+</pre></div>
+
 <h4 id="332-hget">3.3.2 hget<a class="headerlink" href="#332-hget" title="Permanent link">&para;</a></h4>
+<p>hget(name,key)  取单个key值
+<div class="codehilite"><pre><span></span>r.hset(&quot;hash_name&quot;,&quot;key1&quot;,&quot;values1&quot;)
+#在hash_name对应的hash中根据key获取value
+print(r.hget(&quot;hash_name&quot;,&quot;key1&quot;))#输出:aa
+</pre></div>
+操作过程</p>
+<div class="codehilite"><pre><span></span>In [13]: r.hset(&quot;hash_name&quot;,&quot;key1&quot;,&quot;values1&quot;)
+Out[13]: 0
+
+In [14]: r.hget(&quot;hash_name&quot;,&quot;key1&quot;)
+Out[14]: b&#39;values1&#39;
+</pre></div>
+
 <h4 id="333-hgetall">3.3.3 hgetall<a class="headerlink" href="#333-hgetall" title="Permanent link">&para;</a></h4>
+<p>hgetall(name) 获取name对应hash的所有键值</p>
+<div class="codehilite"><pre><span></span>In [22]: r.hset(&quot;hash_name&quot;,&quot;key1&quot;,&quot;values1&quot;)
+Out[22]: 1
+
+In [23]: r.hset(&quot;hash_name&quot;,&quot;key2&quot;,&quot;values2&quot;)
+Out[23]: 1
+
+In [24]: r.hset(&quot;hash_name&quot;,&quot;key3&quot;,&quot;values3&quot;)
+Out[24]: 1
+
+In [25]: r.hget(&#39;hash_name&#39;,&#39;key1&#39;)
+Out[25]: b&#39;values1&#39;
+
+In [26]: r.hget(&#39;hash_name&#39;,&#39;key&#39;)
+
+In [27]: r.hget(&#39;hash_name&#39;,&#39;key2&#39;)
+Out[27]: b&#39;values2&#39;
+
+In [28]: r.hget(&#39;hash_name&#39;,&#39;key3&#39;)
+Out[28]: b&#39;values3&#39;
+
+In [29]: r.hgetall(&#39;hash_name&#39;)
+Out[29]: {b&#39;key1&#39;: b&#39;values1&#39;, b&#39;key2&#39;: b&#39;values2&#39;, b&#39;key3&#39;: b&#39;values3&#39;}
+</pre></div>
+
 <h4 id="334-hmset">3.3.4 hmset<a class="headerlink" href="#334-hmset" title="Permanent link">&para;</a></h4>
-<h4 id="335-hmget">3.3.5 hmget<a class="headerlink" href="#335-hmget" title="Permanent link">&para;</a></h4>
+<p>hmset(name, mapping)  在name对应的hash中批量设置键值对,mapping:字典</p>
+<div class="codehilite"><pre><span></span>In [33]: dic={&quot;name&quot;:&quot;summer&quot;,&quot;job&quot;:&quot;IT&quot;}
+
+In [34]: r.hmset(&#39;dic_name&#39;,dic)
+Out[34]: True
+
+127.0.0.1:6379&gt; HGETALL dic_name
+1) &quot;name&quot;
+2) &quot;summer&quot;
+3) &quot;job&quot;
+4) &quot;IT&quot;
+</pre></div>
+
+<h4 id="335-hmgethmgetall">3.3.5 hmget/hmgetall<a class="headerlink" href="#335-hmgethmgetall" title="Permanent link">&para;</a></h4>
+<p>hmget(name, keys, *args) 在name对应的hash中获取多个key的值</p>
+<div class="codehilite"><pre><span></span>In [36]: r.hmget(&#39;dic_name&#39;,&#39;name&#39;)
+Out[36]: [b&#39;summer&#39;]
+
+In [37]: r.hmget(&#39;dic_name&#39;,&#39;job&#39;)
+Out[37]: [b&#39;IT&#39;]
+</pre></div>
+
 <h4 id="336-hlenhkeyshvals">3.3.6 hlen/hkeys/hvals<a class="headerlink" href="#336-hlenhkeyshvals" title="Permanent link">&para;</a></h4>
+<p>hlen(name)、hkeys(name)、hvals(name)</p>
+<p><div class="codehilite"><pre><span></span>dic={&quot;name&quot;:&quot;summer&quot;,&quot;job&quot;:&quot;IT&quot;,&#39;age&#39;:30}
+r.hmset(&quot;dic_name&quot;,dic)
+
+#hlen(name) 获取hash中键值对的个数
+print(r.hlen(&quot;dic_name&quot;))
+
+#hkeys(name) 获取hash中所有的key的值
+print(r.hkeys(&quot;dic_name&quot;))
+
+#hvals(name) 获取hash中所有的value的值
+print(r.hvals(&quot;dic_name&quot;))
+</pre></div>
+操作过程</p>
+<div class="codehilite"><pre><span></span>In [40]: dic={&quot;name&quot;:&quot;summer&quot;,&quot;job&quot;:&quot;IT&quot;,&#39;age&#39;:30}
+
+In [41]: r.hmset(&#39;dic_name&#39;,dic)
+Out[41]: True
+
+In [42]: r.hlen(&#39;dic_name&#39;)
+Out[42]: 3
+
+In [43]: r.hkeys(&#39;dic_name&#39;)
+Out[43]: [b&#39;name&#39;, b&#39;job&#39;, b&#39;age&#39;]
+
+In [44]: r.hvals(&#39;dic_name&#39;)
+Out[44]: [b&#39;summer&#39;, b&#39;IT&#39;, b&#39;30&#39;]
+</pre></div>
+
 <h4 id="337-hexists">3.3.7 hexists<a class="headerlink" href="#337-hexists" title="Permanent link">&para;</a></h4>
+<p>hexists(name, key)  检查name对应的hash是否存在当前传入的key</p>
+<div class="codehilite"><pre><span></span>In [45]: r.hexists(&quot;dic_name&quot;,&quot;a1&quot;)
+Out[45]: False
+
+In [46]: r.hexists(&quot;dic_name&quot;,&quot;name&quot;)
+Out[46]: True
+</pre></div>
+
 <h4 id="338-hdel">3.3.8 hdel<a class="headerlink" href="#338-hdel" title="Permanent link">&para;</a></h4>
+<p>hdel(name,*keys) 删除指定name对应的key所在的键值对</p>
+<div class="codehilite"><pre><span></span>In [46]: r.hexists(&quot;dic_name&quot;,&quot;name&quot;)
+Out[46]: True
+
+In [47]: r.hkeys(&#39;dic_name&#39;)
+Out[47]: [b&#39;name&#39;, b&#39;job&#39;, b&#39;age&#39;]
+
+In [48]: r.hvals(&#39;dic_name&#39;)
+Out[48]: [b&#39;summer&#39;, b&#39;IT&#39;, b&#39;30&#39;]
+
+In [49]: r.hdel(&#39;dic_name&#39;,&#39;job&#39;)
+Out[49]: 1
+
+In [50]: r.hkeys(&#39;dic_name&#39;)
+Out[50]: [b&#39;name&#39;, b&#39;age&#39;]
+
+127.0.0.1:6379&gt; HGETALL dic_name
+1) &quot;name&quot;
+2) &quot;summer&quot;
+3) &quot;age&quot;
+4) &quot;30&quot;
+</pre></div>
+
 <h4 id="339-hincrby">3.3.9 hincrby<a class="headerlink" href="#339-hincrby" title="Permanent link">&para;</a></h4>
+<p>hincrby(name, key, amount=1)  </p>
+<p>自增hash中key对应的值，不存在则创建key=amount(amount为整数)</p>
+<div class="codehilite"><pre><span></span>In [52]: r.hincrby(&quot;num&quot;,&quot;data&quot;,amount=2)
+Out[52]: 2
+127.0.0.1:6379&gt; keys *
+1) &quot;num&quot;
+2) &quot;hash_name&quot;
+3) &quot;dic_name&quot;
+127.0.0.1:6379&gt; type num
+hash
+127.0.0.1:6379&gt; HGETALL num
+1) &quot;data&quot;
+2) &quot;2&quot;
+</pre></div>
+
 <h4 id="3310-hincrbyfloat">3.3.10 hincrbyfloat<a class="headerlink" href="#3310-hincrbyfloat" title="Permanent link">&para;</a></h4>
+<p>hincrbyfloat(name, key, amount=1.0)
+自增hash中key对应的值，不存在则创建key=amount(amount为浮点数)</p>
+<div class="codehilite"><pre><span></span>In [54]: r.hincrby(&quot;floatnum&quot;,&quot;float1&quot;,amount=2)
+Out[54]: 2
+127.0.0.1:6379&gt; keys *
+1) &quot;floatnum&quot;
+2) &quot;num&quot;
+3) &quot;hash_name&quot;
+4) &quot;dic_name&quot;
+127.0.0.1:6379&gt; type floatnum
+hash
+127.0.0.1:6379&gt; HGETALL floatnum
+1) &quot;float1&quot;
+2) &quot;2&quot;
+127.0.0.1:6379&gt; HGET floatnum float1
+&quot;2&quot;
+</pre></div>
+
 <h4 id="3311-hscan">3.3.11 hscan<a class="headerlink" href="#3311-hscan" title="Permanent link">&para;</a></h4>
+<p>hscan(name, cursor=0, match=None, count=None)</p>
 <h4 id="3312-hscan_iter">3.3.12 hscan_iter<a class="headerlink" href="#3312-hscan_iter" title="Permanent link">&para;</a></h4>
+<p>hscan_iter(name, match=None, count=None)</p>
 <h3 id="34-list">3.4 List<a class="headerlink" href="#34-list" title="Permanent link">&para;</a></h3>
+<p>redis中的List在在内存中按照一个name对应一个List来存储 </p>
 <h4 id="341-lpush">3.4.1 lpush<a class="headerlink" href="#341-lpush" title="Permanent link">&para;</a></h4>
+<p>lpush(name,values) </p>
+<p>在name对应的list中添加元素，每个新的元素都添加到列表的最左边</p>
+<p><div class="codehilite"><pre><span></span># 在name对应的list中添加元素，每个新的元素都添加到列表的最左边
+r.lpush(&#39;list&#39;,5)
+r.lpush(&#39;list&#39;,2,3,4) # 保存在列表中的顺序为5，4，3，2
+</pre></div>
+操作过程</p>
+<div class="codehilite"><pre><span></span>In [58]: r.lpush(&#39;list&#39;,2)
+Out[58]: 1
+
+In [59]: r.lpush(&#39;list&#39;,3,4,5)
+Out[59]: 4
+
+127.0.0.1:6379&gt; LRANGE list 0 6
+1) &quot;5&quot;
+2) &quot;4&quot;
+3) &quot;3&quot;
+4) &quot;2&quot;
+</pre></div>
+
 <h4 id="342-rpush">3.4.2 rpush<a class="headerlink" href="#342-rpush" title="Permanent link">&para;</a></h4>
+<p>rpush(name,values)
+同lpush，但每个新的元素都添加到列表的最右边</p>
+<div class="codehilite"><pre><span></span>In [61]: r.rpush(&#39;rlist&#39;,2)
+Out[61]: 1
+
+In [62]: r.rpush(&#39;rlist&#39;,3,4,5)
+Out[62]: 4
+127.0.0.1:6379&gt; keys *
+1) &quot;rlist&quot;
+2) &quot;list&quot;
+127.0.0.1:6379&gt; LRANGE rlist 0 6
+1) &quot;2&quot;
+2) &quot;3&quot;
+3) &quot;4&quot;
+4) &quot;5&quot;
+</pre></div>
+
 <h4 id="343-lpushx">3.4.3 lpushx<a class="headerlink" href="#343-lpushx" title="Permanent link">&para;</a></h4>
+<p>lpushx(name,value)</p>
+<p>在name对应的list中添加元素，只有name已经存在时，值添加到列表的最左边</p>
 <h4 id="344-rpushx">3.4.4 rpushx<a class="headerlink" href="#344-rpushx" title="Permanent link">&para;</a></h4>
+<p>rpushx(name,value)</p>
+<p>在name对应的list中添加元素，只有name已经存在时，值添加到列表的最右边</p>
 <h4 id="345-llen">3.4.5 llen<a class="headerlink" href="#345-llen" title="Permanent link">&para;</a></h4>
+<p>llen(name) name对应的list元素的个数</p>
+<div class="codehilite"><pre><span></span>In [63]: r.llen(&#39;rlist&#39;)
+Out[63]: 4
+</pre></div>
+
 <h4 id="346-linsert">3.4.6 linsert<a class="headerlink" href="#346-linsert" title="Permanent link">&para;</a></h4>
+<p>linsert(name, where, refvalue, value))</p>
+<p><div class="codehilite"><pre><span></span># 在name对应的列表的某一个值前或后插入一个新值
+r.linsert(&quot;rlist&quot;,&quot;BEFORE&quot;,&quot;2&quot;,&quot;before&quot;)#在列表内找到第一个元素2，在它前面插入SS
+
+&#39;&#39;&#39;参数：
+     name: redis的name
+     where: BEFORE（前）或AFTER（后）
+     refvalue: 列表内的值
+     value: 要插入的数据&#39;&#39;&#39;
+</pre></div>
+操作</p>
+<div class="codehilite"><pre><span></span>插入之前
+127.0.0.1:6379&gt; LRANGE rlist 0 6
+1) &quot;2&quot;
+2) &quot;3&quot;
+3) &quot;4&quot;
+4) &quot;5&quot;
+In [64]: r.linsert(&quot;rlist&quot;,&quot;BEFORE&quot;,&quot;2&quot;,&quot;before&quot;)
+Out[64]: 5
+插入之后
+127.0.0.1:6379&gt; LRANGE rlist 0 6
+1) &quot;before&quot;
+2) &quot;2&quot;
+3) &quot;3&quot;
+4) &quot;4&quot;
+5) &quot;5&quot;
+</pre></div>
+
 <h4 id="347-lset">3.4.7 lset<a class="headerlink" href="#347-lset" title="Permanent link">&para;</a></h4>
+<p>r.lset(name, index, value)</p>
+<p><div class="codehilite"><pre><span></span>#对list中的某一个索引位置重新赋值
+r.lset(&quot;rlist&quot;,0,&quot;bbb&quot;)
+</pre></div>
+操作过程</p>
+<div class="codehilite"><pre><span></span>修改之前
+127.0.0.1:6379&gt; LRANGE rlist 0 -1
+1) &quot;before&quot;
+2) &quot;2&quot;
+3) &quot;3&quot;
+4) &quot;4_before&quot;
+5) &quot;4&quot;
+6) &quot;4_after&quot;
+7) &quot;4_before&quot;
+8) &quot;5&quot;
+
+# 修改第0位是0
+In [68]: r.lset(&#39;rlist&#39;,0,0)
+Out[68]: True
+
+修改之后
+127.0.0.1:6379&gt; LRANGE rlist 0 -1
+1) &quot;0&quot;
+2) &quot;2&quot;
+3) &quot;3&quot;
+4) &quot;4_before&quot;
+5) &quot;4&quot;
+6) &quot;4_after&quot;
+7) &quot;4_before&quot;
+8) &quot;5&quot;
+</pre></div>
+
 <h4 id="348-lrem">3.4.8 lrem<a class="headerlink" href="#348-lrem" title="Permanent link">&para;</a></h4>
+<p>r.lrem(name, value, num) </p>
+<p><div class="codehilite"><pre><span></span>删除name对应的list中的指定值
+r.lrem(&quot;rlist&quot;,&quot;data&quot;,num=0)
+
+&#39;&#39;&#39; 
+参数：
+    name:  redis的name
+    value: 要删除的值
+    num:   num=0 删除列表中所有的指定值；
+           num=2 从前到后，删除2个；
+           num=-2 从后向前，删除2个
+</pre></div>
+操作过程</p>
+<div class="codehilite"><pre><span></span>删除之前
+127.0.0.1:6379&gt; LRANGE rlist 0 -1
+1) &quot;0&quot;
+2) &quot;2&quot;
+3) &quot;3&quot;
+4) &quot;4_before&quot;
+5) &quot;4&quot;
+6) &quot;4_after&quot;
+7) &quot;4_before&quot;
+8) &quot;5&quot;
+
+In [69]: r.lrem(&#39;rlist&#39;,&#39;4_before&#39;,3)
+Out[69]: 2
+
+删除之后
+127.0.0.1:6379&gt; LRANGE rlist 0 -1
+1) &quot;0&quot;
+2) &quot;2&quot;
+3) &quot;3&quot;
+4) &quot;4&quot;
+5) &quot;4_after&quot;
+6) &quot;5&quot;
+</pre></div>
+
 <h4 id="349-lpop">3.4.9 lpop<a class="headerlink" href="#349-lpop" title="Permanent link">&para;</a></h4>
+<p>lpop(name) 移除列表的左侧第一个元素，返回值则是第一个元素
+操作过程</p>
+<div class="codehilite"><pre><span></span>127.0.0.1:6379&gt; LRANGE rlist 0 -1
+1) &quot;0&quot;
+2) &quot;2&quot;
+3) &quot;3&quot;
+4) &quot;4&quot;
+5) &quot;4_after&quot;
+6) &quot;5&quot;
+
+In [70]: r.lpop(&quot;rlist&quot;)
+Out[70]: b&#39;0&#39;
+
+127.0.0.1:6379&gt; LRANGE rlist 0 -1
+1) &quot;2&quot;
+2) &quot;3&quot;
+3) &quot;4&quot;
+4) &quot;4_after&quot;
+5) &quot;5&quot;
+</pre></div>
+
 <h4 id="3410-lindex">3.4.10 lindex<a class="headerlink" href="#3410-lindex" title="Permanent link">&para;</a></h4>
+<p>lindex(name, index) 根据索引获取列表内元素
+操作过程</p>
+<div class="codehilite"><pre><span></span>127.0.0.1:6379&gt; LRANGE rlist 0 -1
+1) &quot;2&quot;
+2) &quot;3&quot;
+3) &quot;4&quot;
+4) &quot;4_after&quot;
+5) &quot;5&quot;
+In [72]: r.lindex(&#39;rlist&#39;,&#39;2&#39;)
+Out[72]: b&#39;4&#39;
+
+In [73]: r.lindex(&#39;rlist&#39;,&#39;3&#39;)
+Out[73]: b&#39;4_after
+</pre></div>
+
 <h4 id="3411-lrange">3.4.11 lrange<a class="headerlink" href="#3411-lrange" title="Permanent link">&para;</a></h4>
+<p>lrange(name, start, end) 分片获取元素</p>
+<div class="codehilite"><pre><span></span>127.0.0.1:6379&gt; LRANGE rlist 0 -1
+1) &quot;2&quot;
+2) &quot;3&quot;
+3) &quot;4&quot;
+4) &quot;4_after&quot;
+5) &quot;5&quot;
+In [74]: r.lrange(&#39;rlist&#39;,0,3)
+Out[74]: [b&#39;2&#39;, b&#39;3&#39;, b&#39;4&#39;, b&#39;4_after&#39;]
+
+In [75]: r.lrange(&#39;rlist&#39;,0,-1)
+Out[75]: [b&#39;2&#39;, b&#39;3&#39;, b&#39;4&#39;, b&#39;4_after&#39;, b&#39;5&#39;]
+</pre></div>
+
 <h4 id="3412-ltrim">3.4.12 ltrim<a class="headerlink" href="#3412-ltrim" title="Permanent link">&para;</a></h4>
+<p>ltrim(name, start, end) 移除列表内没有在该索引之内的值</p>
+<div class="codehilite"><pre><span></span>127.0.0.1:6379&gt; LRANGE rlist 0 -1
+1) &quot;2&quot;
+2) &quot;3&quot;
+3) &quot;4&quot;
+4) &quot;4_after&quot;
+5) &quot;5&quot;
+
+In [76]: r.ltrim(&#39;rlist&#39;,0,2) # 保留索引 0 到2的值，其他都删除
+Out[76]: True
+
+127.0.0.1:6379&gt; LRANGE rlist 0 -1
+1) &quot;2&quot;
+2) &quot;3&quot;
+3) &quot;4&quot;
+</pre></div>
+
 <h4 id="3413-rpoplpush">3.4.13 rpoplpush<a class="headerlink" href="#3413-rpoplpush" title="Permanent link">&para;</a></h4>
+<p>rpoplpush(src, dst)</p>
+<p>从一个列表取出最右边的元素，同时将其添加至另一个列表的最左边
+- src 要取数据的列表
+- dst 要添加数据的列表</p>
 <h4 id="3414-brpoplpush">3.4.14 brpoplpush<a class="headerlink" href="#3414-brpoplpush" title="Permanent link">&para;</a></h4>
+<p>brpoplpush(src, dst, timeout=0)</p>
+<p>同rpoplpush，多了个timeout, timeout：取数据的列表没元素后的阻塞时间，0为一直阻塞</p>
 <h4 id="3415-blpop">3.4.15 blpop<a class="headerlink" href="#3415-blpop" title="Permanent link">&para;</a></h4>
+<p>blpop(keys, timeout)</p>
+<p><div class="codehilite"><pre><span></span>将多个列表排列,按照从左到右去移除各个列表内的元素
+r.lpush(&quot;rlist1&quot;,3,4,5)
+r.lpush(&quot;rlist2&quot;,3,4,5)
+
+while True:
+    print(r.blpop([&quot;rlist1&quot;,&quot;rlist2&quot;],timeout=0))
+    print(r.lrange(&quot;rlist1&quot;,0,-1),r.lrange(&quot;rlist2&quot;,0,-1))
+
+&#39;&#39;&#39;keys: redis的name的集合
+   timeout: 超时时间，获取完所有列表的元素之后，阻塞等待列表内有数据的时间（秒）, 0 表示永远阻塞&#39;&#39;&#39;
+</pre></div>
+操作过程</p>
+<div class="codehilite"><pre><span></span>In [86]: r.lpush(&quot;rlist2&quot;,3,4,5)
+Out[86]: 3
+In [87]: r.lpush(&quot;rlist1&quot;,3,4,5)
+Out[87]: 3
+127.0.0.1:6379&gt; LRANGE rlist1 0 -1
+1) &quot;5&quot;
+2) &quot;4&quot;
+3) &quot;3&quot;
+127.0.0.1:6379&gt; LRANGE rlist2 0 -1
+1) &quot;5&quot;
+2) &quot;4&quot;
+3) &quot;3&quot;
+
+In [90]: r.blpop([&quot;rlist1&quot;,&quot;rlist2&quot;],timeout=0)
+Out[90]: (b&#39;rlist1&#39;, b&#39;5&#39;)
+
+127.0.0.1:6379&gt; LRANGE rlist1 0 -1
+1) &quot;4&quot;
+2) &quot;3&quot;
+127.0.0.1:6379&gt; LRANGE rlist2 0 -1
+1) &quot;5&quot;
+2) &quot;4&quot;
+3) &quot;3&quot;
+</pre></div>
+
 <h4 id="3416-brpop">3.4.16 brpop<a class="headerlink" href="#3416-brpop" title="Permanent link">&para;</a></h4>
+<p>r.brpop(keys, timeout)</p>
+<p>同blpop，将多个列表排列,按照从右像左去移除各个列表内的元素
+操作过程</p>
+<div class="codehilite"><pre><span></span>127.0.0.1:6379&gt; flushall
+OK
+
+In [5]: r.lpush(&quot;list1&quot;,1,2,3,4,5)
+Out[5]: 5
+
+In [6]: r.lpush(&quot;list2&quot;,1,2,3,4,5)
+Out[6]: 5
+
+127.0.0.1:6379&gt; LRANGE list1 0 -1
+1) &quot;5&quot;
+2) &quot;4&quot;
+3) &quot;3&quot;
+4) &quot;2&quot;
+5) &quot;1&quot;
+127.0.0.1:6379&gt; LRANGE list2 0 -1
+1) &quot;5&quot;
+2) &quot;4&quot;
+3) &quot;3&quot;
+4) &quot;2&quot;
+5) &quot;1&quot;
+
+In [7]: r.blpop([&quot;list1&quot;,&quot;list2&quot;],timeout=0)
+Out[7]: (b&#39;list1&#39;, b&#39;5&#39;)
+
+127.0.0.1:6379&gt; LRANGE list1 0 -1
+1) &quot;4&quot;
+2) &quot;3&quot;
+3) &quot;2&quot;
+4) &quot;1&quot;
+127.0.0.1:6379&gt; LRANGE list2 0 -1
+1) &quot;5&quot;
+2) &quot;4&quot;
+3) &quot;3&quot;
+4) &quot;2&quot;
+5) &quot;1&quot;
+</pre></div>
+
 <h3 id="34-set">3.4 Set<a class="headerlink" href="#34-set" title="Permanent link">&para;</a></h3>
+<p>Set集合就是不允许重复的列表 </p>
 <h4 id="341-sadd">3.4.1 sadd<a class="headerlink" href="#341-sadd" title="Permanent link">&para;</a></h4>
+<p>sadd(name,values) 给name对应的集合中添加元素</p>
+<div class="codehilite"><pre><span></span>In [8]: r.sadd(&#39;set1&#39;,&#39;aa&#39;)
+Out[8]: 1
+
+In [9]: r.sadd(&#39;set1&#39;,&#39;aa&#39;,&#39;bb&#39;)
+Out[9]: 1
+
+127.0.0.1:6379&gt; keys *
+1) &quot;set1&quot;
+2) &quot;list2&quot;
+3) &quot;list1&quot;
+4) &quot;list&quot;
+127.0.0.1:6379&gt; type set1
+set
+127.0.0.1:6379&gt; SMEMBERS set1
+1) &quot;bb&quot;
+2) &quot;aa&quot;
+</pre></div>
+
 <h4 id="342-smembers">3.4.2 smembers<a class="headerlink" href="#342-smembers" title="Permanent link">&para;</a></h4>
+<p>smembers(name) 获取name对应的集合的所有成员</p>
+<div class="codehilite"><pre><span></span>In [10]: r.smembers(&#39;set1&#39;)
+Out[10]: {b&#39;aa&#39;, b&#39;bb&#39;}
+</pre></div>
+
 <h4 id="343-scard">3.4.3 scard<a class="headerlink" href="#343-scard" title="Permanent link">&para;</a></h4>
+<p>scard(name) 获取name对应的集合中的元素个数</p>
+<div class="codehilite"><pre><span></span>In [11]: r.scard(&#39;set1&#39;)
+Out[11]: 2
+</pre></div>
+
 <h4 id="344-sdiff">3.4.4 sdiff<a class="headerlink" href="#344-sdiff" title="Permanent link">&para;</a></h4>
+<p>sdiff(keys, *args)</p>
+<div class="codehilite"><pre><span></span>在第一个set1对应的集合中且不在其他name对应的集合的元素集合
+In [13]: r.sadd(&quot;set1&quot;,&quot;aa&quot;,&quot;bb&quot;)
+Out[13]: 0
+
+In [14]: r.sadd(&quot;set2&quot;,&quot;bb&quot;,&quot;cc&quot;)
+Out[14]: 2
+
+In [15]: r.sadd(&quot;set3&quot;,&quot;bb&quot;,&quot;cc&quot;,&quot;dd&quot;)
+Out[15]: 3
+
+In [16]: r.sdiff(&quot;set1&quot;,&quot;set2&quot;,&quot;set3&quot;)
+Out[16]: {b&#39;aa&#39;}
+</pre></div>
+
 <h4 id="345-sdiffstore">3.4.5 sdiffstore<a class="headerlink" href="#345-sdiffstore" title="Permanent link">&para;</a></h4>
+<p>sdiffstore(dest, keys, *args)
+相当于把sdiff获取的值加入到dest对应的集合中</p>
+<div class="codehilite"><pre><span></span>In [17]: r.sdiffstore(&#39;set_dest&#39;,&quot;set1&quot;,&quot;set2&quot;,&quot;set3&quot;)
+Out[17]: 1
+
+In [18]: r.smembers(&#39;set_dest&#39;)
+Out[18]: {b&#39;aa&#39;}
+</pre></div>
+
 <h4 id="346-sinter">3.4.6 sinter<a class="headerlink" href="#346-sinter" title="Permanent link">&para;</a></h4>
+<p>sinter(keys, *args)  获取多个name对应集合的并集</p>
+<div class="codehilite"><pre><span></span>In [19]: r.sinter(&#39;set1&#39;,&#39;set2&#39;,&#39;set3&#39;)
+Out[19]: {b&#39;bb&#39;}
+</pre></div>
+
 <h4 id="347-sinterstore">3.4.7 sinterstore<a class="headerlink" href="#347-sinterstore" title="Permanent link">&para;</a></h4>
+<p>获取多个对应集合的并集，再讲其加入到dest对应的集合中
+<div class="codehilite"><pre><span></span>In [20]: r.sinterstore(&#39;sinterstore&#39;,&#39;set1&#39;,&#39;set2&#39;,&#39;set3&#39;)
+Out[20]: 1
+
+In [21]: r.smembers(&#39;sinterstore&#39;)
+Out[21]: {b&#39;bb&#39;}
+</pre></div></p>
 <h4 id="348-sismember">3.4.8 sismember<a class="headerlink" href="#348-sismember" title="Permanent link">&para;</a></h4>
+<p>sismember(name, value) 检查value是否是name对应的集合内的元素</p>
+<div class="codehilite"><pre><span></span>In [22]: r.sismember(&#39;set1&#39;,&#39;abc&#39;)
+Out[22]: False
+
+In [23]: r.sismember(&#39;set1&#39;,&#39;aa&#39;)
+Out[23]: True
+
+In [24]: r.smembers(&#39;set1&#39;)
+Out[24]: {b&#39;aa&#39;, b&#39;bb&#39;}
+</pre></div>
+
 <h4 id="349-smove">3.4.9 smove<a class="headerlink" href="#349-smove" title="Permanent link">&para;</a></h4>
 <h4 id="3410-spop">3.4.10 spop<a class="headerlink" href="#3410-spop" title="Permanent link">&para;</a></h4>
 <h4 id="3411-srandmember">3.4.11 srandmember<a class="headerlink" href="#3411-srandmember" title="Permanent link">&para;</a></h4>
