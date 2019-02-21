@@ -1471,8 +1471,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#357-zrank" title="3.5.7 zrank" class="md-nav__link">
-    3.5.7 zrank
+  <a href="#357-zrankzrevrank" title="3.5.7 zrank/zrevrank" class="md-nav__link">
+    3.5.7 zrank/zrevrank
   </a>
   
 </li>
@@ -3927,8 +3927,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#357-zrank" title="3.5.7 zrank" class="md-nav__link">
-    3.5.7 zrank
+  <a href="#357-zrankzrevrank" title="3.5.7 zrank/zrevrank" class="md-nav__link">
+    3.5.7 zrank/zrevrank
   </a>
   
 </li>
@@ -5810,25 +5810,339 @@ Out[24]: {b&#39;aa&#39;, b&#39;bb&#39;}
 </pre></div>
 
 <h4 id="349-smove">3.4.9 smove<a class="headerlink" href="#349-smove" title="Permanent link">&para;</a></h4>
+<p>smove(src, dst, value) 把src 集合中的value值移动到dst集合中
+<div class="codehilite"><pre><span></span>In [25]: r.smembers(&#39;set1&#39;)
+Out[25]: {b&#39;aa&#39;, b&#39;bb&#39;}
+
+In [26]: r.smembers(&#39;set2&#39;)
+Out[26]: {b&#39;bb&#39;, b&#39;cc&#39;}
+
+In [27]: r.smove(&#39;set1&#39;,&#39;set2&#39;,&#39;aa&#39;)
+Out[27]: True
+
+In [28]: r.smembers(&#39;set2&#39;)
+Out[28]: {b&#39;aa&#39;, b&#39;bb&#39;, b&#39;cc&#39;}
+
+In [29]: r.smembers(&#39;set1&#39;)
+Out[29]: {b&#39;bb&#39;}
+</pre></div></p>
 <h4 id="3410-spop">3.4.10 spop<a class="headerlink" href="#3410-spop" title="Permanent link">&para;</a></h4>
+<p>spop(name) 从集合的左侧移除一个元素，并将其返回</p>
+<div class="codehilite"><pre><span></span>In [36]: r.smembers(&#39;set2&#39;)
+Out[36]: {b&#39;aa&#39;, b&#39;bb&#39;, b&#39;cc&#39;}
+
+In [37]: r.spop(&#39;set2&#39;)
+Out[37]: b&#39;aa&#39;
+
+In [38]: r.smembers(&#39;set2&#39;)
+Out[38]: {b&#39;bb&#39;, b&#39;cc&#39;}
+</pre></div>
+
 <h4 id="3411-srandmember">3.4.11 srandmember<a class="headerlink" href="#3411-srandmember" title="Permanent link">&para;</a></h4>
+<p>srandmember(name, numbers) 从name对应的集合中随机获取numbers个元素</p>
+<div class="codehilite"><pre><span></span>In [40]: r.sadd(&quot;set_random&quot;,1,2,3,4,5,6)
+Out[40]: 6
+
+In [41]: r.smembers(&#39;set_random&#39;)
+Out[41]: {b&#39;1&#39;, b&#39;2&#39;, b&#39;3&#39;, b&#39;4&#39;, b&#39;5&#39;, b&#39;6&#39;}
+
+In [42]: r.srandmember(&#39;set_random&#39;,2)
+Out[42]: [b&#39;1&#39;, b&#39;2&#39;]
+
+In [43]: r.srandmember(&#39;set_random&#39;,2)
+Out[43]: [b&#39;5&#39;, b&#39;2&#39;]
+</pre></div>
+
 <h4 id="3412-srem">3.4.12 srem<a class="headerlink" href="#3412-srem" title="Permanent link">&para;</a></h4>
+<p>srem(name, values) 删除name对应的集合中的某些值</p>
+<div class="codehilite"><pre><span></span>In [45]: r.smembers(&#39;set&#39;)
+Out[45]: {b&#39;1&#39;, b&#39;2&#39;, b&#39;3&#39;, b&#39;4&#39;, b&#39;5&#39;, b&#39;6&#39;}
+
+In [46]: r.srem(&#39;set&#39;,&#39;3&#39;)
+Out[46]: 1
+
+In [47]: r.smembers(&#39;set&#39;)
+Out[47]: {b&#39;1&#39;, b&#39;2&#39;, b&#39;4&#39;, b&#39;5&#39;, b&#39;6&#39;}
+</pre></div>
+
 <h4 id="3414-sunion">3.4.14 sunion<a class="headerlink" href="#3414-sunion" title="Permanent link">&para;</a></h4>
+<p>sunion(keys, *args) 获取多个name对应的集合的并集</p>
+<div class="codehilite"><pre><span></span>In [54]: r.sadd(&quot;set1&quot;,1,2,3,4,5,6)
+Out[54]: 0
+
+In [55]: r.sadd(&quot;set2&quot;,4,5,6,7,8.9)
+Out[55]: 0
+
+In [56]: r.sunion(&#39;set1&#39;,&#39;set2&#39;)
+Out[56]: {b&#39;1&#39;, b&#39;2&#39;, b&#39;3&#39;, b&#39;4&#39;, b&#39;5&#39;, b&#39;6&#39;, b&#39;7&#39;, b&#39;8.9&#39;, b&#39;bb&#39;, b&#39;cc&#39;}
+</pre></div>
+
 <h4 id="3414-sunionstore">3.4.14 sunionstore<a class="headerlink" href="#3414-sunionstore" title="Permanent link">&para;</a></h4>
+<p>sunionstore(dest,keys, *args)</p>
+<p>获取多个name对应的集合的并集，并将结果保存到dest集合中对应的集合中</p>
+<div class="codehilite"><pre><span></span>In [57]: r.sunionstore(&#39;union_set&#39;,&#39;set1&#39;,&#39;set2&#39;)
+Out[57]: 10
+
+In [58]: r.smembers(&#39;union_set&#39;)
+Out[58]: {b&#39;1&#39;, b&#39;2&#39;, b&#39;3&#39;, b&#39;4&#39;, b&#39;5&#39;, b&#39;6&#39;, b&#39;7&#39;, b&#39;8.9&#39;, b&#39;bb&#39;, b&#39;cc&#39;}
+</pre></div>
+
 <h3 id="35">3.5 有序集合<a class="headerlink" href="#35" title="Permanent link">&para;</a></h3>
+<p>在集合的基础上，为每元素排序，元素的排序需要根据另外一个值来进行比较，所以，对于有序集合，每一个元素有两个值，即：值和分数，分数专门用来做排序。</p>
 <h4 id="351-zadd">3.5.1 zadd<a class="headerlink" href="#351-zadd" title="Permanent link">&para;</a></h4>
+<p>zadd(name, *args, **kwargs)  在name对应的有序集合中添加元素</p>
+<div class="codehilite"><pre><span></span>In [59]: r.zadd(&quot;zset1&quot;, &quot;a1&quot;, 2, &quot;a2&quot;, 3,&quot;a4&quot;,5)
+Out[59]: 3
+
+In [63]: r.zadd(&quot;zset2&quot;,a=10,b=20)
+Out[63]: 2
+
+127.0.0.1:6379&gt; ZRANGE zset1 0 -1 WITHSCORES
+1) &quot;a1&quot;
+2) &quot;2&quot;
+3) &quot;a2&quot;
+4) &quot;3&quot;
+5) &quot;a4&quot;
+6) &quot;5&quot;
+127.0.0.1:6379&gt; ZRANGE zset2 0 -1 WITHSCORES
+1) &quot;a&quot;
+2) &quot;10&quot;
+3) &quot;b&quot;
+4) &quot;20&quot;
+</pre></div>
+
 <h4 id="352-zcard">3.5.2 zcard<a class="headerlink" href="#352-zcard" title="Permanent link">&para;</a></h4>
+<p>zcard(name) 获取有序集合内元素的数量
+<div class="codehilite"><pre><span></span>In [64]: r.zcard(&#39;zset1&#39;)
+Out[64]: 3
+
+In [65]: r.zcard(&#39;zset2&#39;)
+Out[65]: 2
+</pre></div></p>
 <h4 id="353-zcount">3.5.3 zcount<a class="headerlink" href="#353-zcount" title="Permanent link">&para;</a></h4>
+<p>zcount(name, min, max) 获取有序集合中分数在[min,max]之间的个数</p>
+<div class="codehilite"><pre><span></span>In [66]: r.zcount(&quot;zset1&quot;,1,5)
+Out[66]: 3
+</pre></div>
+
 <h4 id="354-zincrby">3.5.4 zincrby<a class="headerlink" href="#354-zincrby" title="Permanent link">&para;</a></h4>
+<p>zincrby(name, value, amount)  自增有序集合内value对应的分数</p>
+<div class="codehilite"><pre><span></span>127.0.0.1:6379&gt; ZRANGE zset1 0 -1 WITHSCORES
+1) &quot;a1&quot;
+2) &quot;2&quot;
+3) &quot;a2&quot;
+4) &quot;3&quot;
+5) &quot;a4&quot;
+6) &quot;5&quot;
+
+In [68]: r.zincrby(&quot;zset1&quot;,&quot;a1&quot;,amount=2)
+Out[68]: 4.0
+
+127.0.0.1:6379&gt; ZRANGE zset1 0 -1 WITHSCORES
+1) &quot;a2&quot;
+2) &quot;3&quot;
+3) &quot;a1&quot;
+4) &quot;4&quot;
+5) &quot;a4&quot;
+6) &quot;5&quot;
+</pre></div>
+
+<blockquote>
+<p>本来a1=2 然后加2后变成4也就是 a1=4,所以向后排列</p>
+</blockquote>
 <h4 id="355-zrange">3.5.5 zrange<a class="headerlink" href="#355-zrange" title="Permanent link">&para;</a></h4>
+<p>zrange( name, start, end, desc=False, withscores=False, score_cast_func=float)</p>
+<p>按照索引范围获取name对应的有序集合的元素
+aa=r.zrange("zset_name",0,1,desc=False,withscores=True,score_cast_func=int)
+print(aa)</p>
+<div class="codehilite"><pre><span></span>参数：
+    name    redis的name
+    start   有序集合索引起始位置
+    end     有序集合索引结束位置
+    desc    排序规则，默认按照分数从小到大排序
+    withscores  是否获取元素的分数，默认只获取元素的值
+    score_cast_func 对分数进行数据转换的函数
+</pre></div>
+
+<div class="codehilite"><pre><span></span>127.0.0.1:6379&gt; ZRANGE zset1 0 -1 WITHSCORES
+1) &quot;a2&quot;
+2) &quot;3&quot;
+3) &quot;a1&quot;
+4) &quot;4&quot;
+5) &quot;a4&quot;
+6) &quot;5&quot;
+
+In [69]: r.zrange(&#39;zset1&#39;,0,1)
+Out[69]: [b&#39;a2&#39;, b&#39;a1&#39;]
+
+In [70]: r.zrange(&#39;zset1&#39;,0,-1)
+Out[70]: [b&#39;a2&#39;, b&#39;a1&#39;, b&#39;a4&#39;]
+</pre></div>
+
 <h4 id="356-zrevrange">3.5.6 zrevrange<a class="headerlink" href="#356-zrevrange" title="Permanent link">&para;</a></h4>
-<h4 id="357-zrank">3.5.7 zrank<a class="headerlink" href="#357-zrank" title="Permanent link">&para;</a></h4>
+<p>zrevrange(name, start, end, withscores=False, score_cast_func=float)
+同zrange，集合是从大到小排序的
+<div class="codehilite"><pre><span></span>In [71]: r.zrevrange(&#39;zset1&#39;,0,-1)
+Out[71]: [b&#39;a4&#39;, b&#39;a1&#39;, b&#39;a2&#39;]
+</pre></div></p>
+<h4 id="357-zrankzrevrank">3.5.7 zrank/zrevrank<a class="headerlink" href="#357-zrankzrevrank" title="Permanent link">&para;</a></h4>
+<p>zrank(name, value)、zrevrank(name, value)</p>
+<p>获取value值在name对应的有序集合中的排行位置（从0开始）</p>
+<div class="codehilite"><pre><span></span>127.0.0.1:6379&gt; ZRANGE zset1 0 -1 WITHSCORES
+1) &quot;a2&quot;
+2) &quot;3&quot;
+3) &quot;a1&quot;
+4) &quot;4&quot;
+5) &quot;a4&quot;
+6) &quot;5&quot;
+
+In [72]: r.zrank(&#39;zset1&#39;,&#39;a1&#39;)
+Out[72]: 1
+
+In [73]: r.zrank(&#39;zset1&#39;,&#39;a2&#39;)
+Out[73]: 0
+
+In [74]: r.zrevrank(&#39;zset1&#39;,&#39;a1&#39;)
+Out[74]: 1
+</pre></div>
+
 <h4 id="358-zscore">3.5.8 zscore<a class="headerlink" href="#358-zscore" title="Permanent link">&para;</a></h4>
+<p>zscore(name, value) 获取name对应有序集合中 value 对应的分数
+<div class="codehilite"><pre><span></span>In [75]: r.zscore(&#39;zset1&#39;,&#39;a2&#39;)
+Out[75]: 3.0
+</pre></div></p>
 <h4 id="359-zrem">3.5.9 zrem<a class="headerlink" href="#359-zrem" title="Permanent link">&para;</a></h4>
+<p>zrem(name, values) 删除name对应的有序集合中值是values的成员</p>
+<div class="codehilite"><pre><span></span>127.0.0.1:6379&gt; ZRANGE zset1 0 -1 WITHSCORES
+1) &quot;a2&quot;
+2) &quot;3&quot;
+3) &quot;a1&quot;
+4) &quot;4&quot;
+5) &quot;a4&quot;
+6) &quot;5&quot;
+
+In [76]: r.zrem(&#39;zset1&#39;,&#39;a1&#39;,&#39;a2&#39;)
+Out[76]: 2
+
+127.0.0.1:6379&gt; ZRANGE zset1 0 -1 WITHSCORES
+1) &quot;a4&quot;
+2) &quot;5&quot;
+</pre></div>
+
 <h4 id="3510-zremrangebyrank">3.5.10 zremrangebyrank<a class="headerlink" href="#3510-zremrangebyrank" title="Permanent link">&para;</a></h4>
+<p>zremrangebyrank(name, min, max)  根据排行范围删除</p>
+<div class="codehilite"><pre><span></span>127.0.0.1:6379&gt; flushall
+OK
+In [78]: r.zadd(&#39;zset1&#39;,a1=10,a2=20,a3=30,a4=40,a5=50)
+Out[78]: 5
+127.0.0.1:6379&gt; ZRANGE zset1 0 -1 WITHSCORES
+ 1) &quot;a1&quot;
+ 2) &quot;10&quot;
+ 3) &quot;a2&quot;
+ 4) &quot;20&quot;
+ 5) &quot;a3&quot;
+ 6) &quot;30&quot;
+ 7) &quot;a4&quot;
+ 8) &quot;40&quot;
+ 9) &quot;a5&quot;
+10) &quot;50&quot;
+In [80]: r.zremrangebyrank(&#39;zet1&#39;, 1, 20)
+Out[80]: 0
+
+In [81]: r.zremrangebyrank(&#39;zset1&#39;, 1, 20)
+Out[81]: 4
+
+127.0.0.1:6379&gt; ZRANGE zset1 0 -1 WITHSCORES
+1) &quot;a1&quot;
+2) &quot;10&quot;
+</pre></div>
+
 <h4 id="3511-zremrangebyscore">3.5.11 zremrangebyscore<a class="headerlink" href="#3511-zremrangebyscore" title="Permanent link">&para;</a></h4>
+<p>zremrangebyscore(name, min, max) 根据分数范围删除</p>
+<div class="codehilite"><pre><span></span>127.0.0.1:6379&gt; flushall
+OK
+In [82]: r.zadd(&#39;zset1&#39;,a1=10,a2=20,a3=30,a4=40,a5=50)
+Out[82]: 5
+127.0.0.1:6379&gt; keys *
+1) &quot;zset1&quot;
+127.0.0.1:6379&gt; ZRANGE zset1 0 -1 WITHSCORES
+ 1) &quot;a1&quot;
+ 2) &quot;10&quot;
+ 3) &quot;a2&quot;
+ 4) &quot;20&quot;
+ 5) &quot;a3&quot;
+ 6) &quot;30&quot;
+ 7) &quot;a4&quot;
+ 8) &quot;40&quot;
+ 9) &quot;a5&quot;
+10) &quot;50&quot;
+In [83]: r.zremrangebyscore(&#39;zset1&#39;,1,30)
+Out[83]: 3
+127.0.0.1:6379&gt; ZRANGE zset1 0 -1 WITHSCORES
+1) &quot;a4&quot;
+2) &quot;40&quot;
+3) &quot;a5&quot;
+4) &quot;50&quot;
+</pre></div>
+
+<blockquote>
+<p>分数从 1 到 30(include 30) 的都被删除了</p>
+</blockquote>
 <h4 id="3512-zinterstore">3.5.12 zinterstore<a class="headerlink" href="#3512-zinterstore" title="Permanent link">&para;</a></h4>
+<p>zinterstore(dest, keys, aggregate=None)</p>
+<div class="codehilite"><pre><span></span>In [84]: r.zadd(&quot;zset_name&quot;, &quot;a1&quot;, 6, &quot;a2&quot;, 2,&quot;a3&quot;,5)
+Out[84]: 3
+
+In [85]: r.zadd(&#39;zset_name1&#39;, a1=7,b1=10, b2=5)
+Out[85]: 3
+
+127.0.0.1:6379&gt; ZRANGE zset_name 0 -1 WITHSCORES
+1) &quot;a2&quot;
+2) &quot;2&quot;
+3) &quot;a3&quot;
+4) &quot;5&quot;
+5) &quot;a1&quot;
+6) &quot;6&quot;
+127.0.0.1:6379&gt; ZRANGE zset_name1 0 -1 WITHSCORES
+1) &quot;b2&quot;
+2) &quot;5&quot;
+3) &quot;a1&quot;
+4) &quot;7&quot;
+5) &quot;b1&quot;
+6) &quot;10&quot;
+
+# 获取两个有序集合的交集并放入dest集合，如果遇到相同值不同分数，则按照aggregate进行操作
+# aggregate的值为: SUM  MIN  MAX
+
+In [86]: r.zinterstore(&quot;zset_name2&quot;,(&quot;zset_name1&quot;,&quot;zset_name&quot;),aggregate=&quot;MAX&quot;)
+Out[86]: 1
+
+127.0.0.1:6379&gt; keys *
+1) &quot;zset_name&quot;
+2) &quot;zset_name2&quot;
+3) &quot;zset_name1&quot;
+4) &quot;zset1&quot;
+127.0.0.1:6379&gt; ZRANGE zset_name2 0 -1 WITHSCORES
+1) &quot;a1&quot;
+2) &quot;7&quot;
+</pre></div>
+
 <h4 id="3514-zunionstore">3.5.14 zunionstore<a class="headerlink" href="#3514-zunionstore" title="Permanent link">&para;</a></h4>
+<p>zunionstore(dest, keys, aggregate=None)
+获取两个有序集合的并集并放入dest集合，其他同zinterstore，</p>
+<div class="codehilite"><pre><span></span>In [89]: r.zadd(&quot;zset_union_name1&quot;, &quot;a1&quot;, 6, &quot;a2&quot;, 2,&quot;a3&quot;,5)
+Out[89]: 3
+
+In [90]: r.zadd(&#39;zset_union_name2&#39;, a1=7,b1=10, b2=5)
+Out[90]: 3
+
+In [91]: r.zunionstore(&quot;zset_union_name&quot;,(&quot;zset_union_name1&quot;,&quot;zset_union_name2&quot;),aggregate=&quot;MAX&quot;)
+Out[91]: 5
+
+In [92]: print(r.zscan(&quot;zset_union_name&quot;))
+(0, [(b&#39;a2&#39;, 2.0), (b&#39;a3&#39;, 5.0), (b&#39;b2&#39;, 5.0), (b&#39;a1&#39;, 7.0), (b&#39;b1&#39;, 10.0)])
+</pre></div>
+
 <h3 id="36">3.6 其他操作<a class="headerlink" href="#36" title="Permanent link">&para;</a></h3>
 <h4 id="361-delete">3.6.1 delete<a class="headerlink" href="#361-delete" title="Permanent link">&para;</a></h4>
 <p>delete(*names)</p>
