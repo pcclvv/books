@@ -1269,6 +1269,40 @@
     4.2 安装python
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421" title="4.2.1 下载" class="md-nav__link">
+    4.2.1 下载
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422" title="4.2.2 解压" class="md-nav__link">
+    4.2.2 解压
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422_1" title="4.2.2 编译安装" class="md-nav__link">
+    4.2.2 编译安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423" title="4.2.3 测试" class="md-nav__link">
+    4.2.3 测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2991,6 +3025,40 @@
     4.2 安装python
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421" title="4.2.1 下载" class="md-nav__link">
+    4.2.1 下载
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422" title="4.2.2 解压" class="md-nav__link">
+    4.2.2 解压
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422_1" title="4.2.2 编译安装" class="md-nav__link">
+    4.2.2 编译安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423" title="4.2.3 测试" class="md-nav__link">
+    4.2.3 测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -3119,8 +3187,7 @@
 <h2 id="1">1. 介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>&#160; &#160; &#160; &#160;uWSGI是一个Web服务器，它实现了WSGI协议、uwsgi、http等协议。Nginx中HttpUwsgiModule的作用是与uWSGI服务器进行交换。
 要注意 WSGI / uwsgi / uWSGI 这三个概念的区分。</p>
-<p>&#160; &#160; &#160;
-&#160;WSGI是一种Web服务器网关接口。它是一个Web服务器（如nginx，uWSGI等服务器）与web应用（如用Flask框架写的程序）通信的一种规范。
+<p>&#160; &#160; &#160;&#160;WSGI是一种Web服务器网关接口。它是一个Web服务器（如nginx，uWSGI等服务器）与web应用（如用Flask框架写的程序）通信的一种规范。
 &#160; &#160; &#160; &#160;uwsgi是一种线路协议而不是通信协议，在此常用于在uWSGI服务器与其他网络服务器的数据通信。而uWSGI是实现了uwsgi和WSGI两种协议的Web服务器。</p>
 <p>&#160; &#160; &#160; &#160;uwsgi协议是一个uWSGI服务器自有的协议，它用于定义传输信息的类型（type of information），每一个uwsgi packet前4byte为传输信息类型描述，它与WSGI相比是两样东西。</p>
 <h2 id="2">2. 原理<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
@@ -3166,15 +3233,21 @@ six==1.12.0
 </pre></div>
 
 <h3 id="42-python">4.2 安装python<a class="headerlink" href="#42-python" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>(1)下载
-[root@leco ~]# wget https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz
-(2)解压
-[root@leco ~]# tar xf Python-3.7.1.tgz
-(3)编译安装
-[root@leco ~]# cd Python-3.7.1
+<h4 id="421">4.2.1 下载<a class="headerlink" href="#421" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>[root@leco ~]# wget https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz
+</pre></div>
+
+<h4 id="422">4.2.2 解压<a class="headerlink" href="#422" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>[root@leco ~]# tar xf Python-3.7.1.tgz
+</pre></div>
+
+<h4 id="422_1">4.2.2 编译安装<a class="headerlink" href="#422_1" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>[root@leco ~]# cd Python-3.7.1
 [root@leco Python-3.7.1]#  ./configure &amp;&amp; make &amp;&amp; make install
-(4)测试
-[root@leco Python-3.7.1]# python3 -V
+</pre></div>
+
+<h4 id="423">4.2.3 测试<a class="headerlink" href="#423" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>[root@leco Python-3.7.1]# python3 -V
 Python 3.7.1
 [root@leco Python-3.7.1]# pip3 -V
 pip 10.0.1 from /usr/local/lib/python3.7/site-packages/pip (python 3.7)
@@ -3397,8 +3470,8 @@ server{
                 alias /usr/share/nginx/html/bookms/static; #要与之前django的setting.py中添加的static静态文件转移目录一致
             }
             location / {
-        uwsgi_pass  django;
-            include     /usr/share/nginx/html/bookms/conf/uwsgi_params;
+                uwsgi_pass  django;
+                include     /usr/share/nginx/html/bookms/conf/uwsgi_params;
             }
 
 }
@@ -3500,7 +3573,7 @@ Starting nginx:                                            [  OK  ]
 
 <h2 id="8">8. 浏览器测试<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
 <p><img alt="浏览器访问1" src="../../../../pictures/linux/deploy_django/5.png" /></p>
-<p><img alt="浏览器访问2" src="../../../../pictures/linux/deploy_django/5.png" /></p>
+<p><img alt="浏览器访问2" src="../../../pictures/linux/deploy_django/6.png" /></p>
                 
                   
                 
