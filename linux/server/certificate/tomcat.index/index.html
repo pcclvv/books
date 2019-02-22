@@ -1316,8 +1316,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8" title="8. 客户端信任服务器证书" class="md-nav__link">
-    8. 客户端信任服务器证书
+  <a href="#8" title="8. 服务器端信任客户端证书" class="md-nav__link">
+    8. 服务器端信任客户端证书
   </a>
   
     <nav class="md-nav">
@@ -2956,8 +2956,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8" title="8. 客户端信任服务器证书" class="md-nav__link">
-    8. 客户端信任服务器证书
+  <a href="#8" title="8. 服务器端信任客户端证书" class="md-nav__link">
+    8. 服务器端信任客户端证书
   </a>
   
     <nav class="md-nav">
@@ -3175,7 +3175,7 @@ Certificate was added to keystore
 <div class="codehilite"><pre><span></span>keytool -list -keystore /ssl/tomcat.keystore (tomcat为你设置服务器端的证书名)。
 </pre></div>
 
-<h2 id="8">8. 客户端信任服务器证书<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<h2 id="8">8. 服务器端信任客户端证书<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>root@lt4:/ssl# keytool -list -keystore /ssl/tomcat.keystore 
 Enter keystore password:   #输入密码111111
 
@@ -3195,8 +3195,10 @@ Certificate fingerprint (SHA1): E9:A0:65:DB:60:B6:87:0F:60:85:47:8D:41:57:0F:FC:
 <div class="codehilite"><pre><span></span>keytool -keystore /ssl/tomcat.keystore -export -alias tomcat -file /ssl/tomcat.cer
 </pre></div>
 
-<p>!!! info '证书名'
-    tomcat为你设置服务器端的证书名</p>
+<div class="admonition info">
+<p class="admonition-title">证书名</p>
+<p>tomcat为你设置服务器端的证书名</p>
+</div>
 <div class="codehilite"><pre><span></span>root@lt4:/ssl# keytool -keystore /ssl/tomcat.keystore -export -alias tomcat -file /ssl/tomcat.cer
 Enter keystore password:  #输入密码111111
 Certificate stored in file &lt;/ssl/tomcat.cer&gt;
