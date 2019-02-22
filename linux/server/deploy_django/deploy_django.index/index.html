@@ -3390,7 +3390,7 @@ ALLOWED_HOSTS = [&#39;*&#39;]
 <div class="admonition quote">
 <p class="admonition-title">地址限制</p>
 </div>
-<p>&lt;code&gt; * &lt;/code&gt;表示不限制访问的IP地址</p>
+<p>星号表示不限制访问的IP地址</p>
 <h3 id="52">5.2 数据配置<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>(venv) [root@leco bookms]# vim bookms_02/settings.py
 DATABASES = {
@@ -3665,13 +3665,13 @@ bookms.conf  socket.xml  uwsgi.ini  uwsgi.log  uwsgi_params  uwsgi.pid
 31939 ?        S      0:00  \_ uwsgi --ini uwsgi.ini
 </pre></div>
 
-<p>!!! note '注意'
-    uwsgi在哪个目录启动，就会在哪个目录生成uwsgi.pid和uswgi.log文件。 
-    启动：uwsgi --ini uwsgi.ini 
-    停止：uwsgi --stop uwsgi.pid 
-    重启：uwsgi --reload uwsgi.pid 
-    强制停止：killall -9 uwsgi 
-    这里我们启动uwsgi服务，可以通过ps -ef | grep uwsgi看到已经有四个uwsgi服务启动。</p>
+<details class="note"><summary>注意</summary><p>uwsgi在哪个目录启动，就会在哪个目录生成uwsgi.pid和uswgi.log文件。 
+启动：uwsgi --ini uwsgi.ini 
+停止：uwsgi --stop uwsgi.pid 
+重启：uwsgi --reload uwsgi.pid 
+强制停止：killall -9 uwsgi 
+这里我们启动uwsgi服务，可以通过ps -ef | grep uwsgi看到已经有四个uwsgi服务启动。</p>
+</details>
 <div class="codehilite"><pre><span></span>/usr/share/nginx/html/bookms/conf
 (venv) [root@leco conf]# pwd
 /usr/share/nginx/html/bookms/conf
