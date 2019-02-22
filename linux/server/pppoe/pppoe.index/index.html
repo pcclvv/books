@@ -3047,6 +3047,28 @@ yum install rp-pppoe
 
 <h4 id="22">2.2 查看配置文件<a class="headerlink" href="#22" title="Permanent link">&para;</a></h4>
 <p>配置文件目录在/etc/ppp下</p>
+<div class="codehilite"><pre><span></span>[root@mfsdata02 ~]# cd /etc/ppp/
+[root@mfsdata02 ppp]# cp chap-secrets chap-secrets.ori
+[root@mfsdata02 ppp]# cp pppoe-server-options pppoe-server-options.ori
+[root@mfsdata02 ppp]# ll
+total 64
+-rw-------  1 root root  189 Jan 16 19:09 chap-secrets
+-rw-------  1 root root   78 Jan 16 18:33 chap-secrets.ori
+-rwxr-xr-x. 1 root root 2276 May 11  2016 firewall-masq
+-rwxr-xr-x. 1 root root  978 May 11  2016 firewall-standalone
+-rwxr-xr-x. 1 root root  386 Apr 12  2016 ip-down
+-rwxr-xr-x. 1 root root 3262 Apr 12  2016 ip-down.ipv6to4
+-rwxr-xr-x. 1 root root  430 Apr 12  2016 ip-up
+-rwxr-xr-x. 1 root root 6517 Apr 12  2016 ip-up.ipv6to4
+-rwxr-xr-x. 1 root root 1687 Apr 12  2016 ipv6-down
+-rwxr-xr-x. 1 root root 3196 Apr 12  2016 ipv6-up
+-rw-r--r--. 1 root root    5 Mar 16  2015 options
+-rw-------. 1 root root   77 Mar 16  2015 pap-secrets
+drwxr-xr-x. 2 root root 4096 Jul 13  2016 peers
+-rw-r--r--  1 root root  140 Jan 16 18:33 pppoe-server-options
+-rw-r--r--  1 root root  104 Jan 16 18:32 pppoe-server-options.ori
+</pre></div>
+
 <div class="admonition note">
 <p class="admonition-title">备份</p>
 <p>pppoe-server-options.ori 是我手动备份的文件，主要修改这两个配置文件</p>
@@ -3098,13 +3120,16 @@ eth0为出口的网卡，就是可以和外网连通的那块。到现在这个p
 <h4 id="27">2.7 启动<a class="headerlink" href="#27" title="Permanent link">&para;</a></h4>
 <p>启动pppoe服务</p>
 <div class="codehilite"><pre><span></span>[root@mfsdata02 ppp]# pppoe-server -I eth1 -L 192.168.10.109 -R 192.168.10.2 -N 20
-I：指定响应PPPOE请求的端口，现在使用的eth1，也就是内网的。
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">参数解释</p>
+<p>I：指定响应PPPOE请求的端口，现在使用的eth1，也就是内网的。
 L：PPPOE服务器的IP地址，客户端连接可以看到的服务器地址，可以是任意也就是pppoe客户端的虚拟网关。
 （注意：此IP地址可以不是网卡的IP地址，而是PPPOE服务器的虚拟IP，我使用了本地的ip)
 R：这是分配给客户端的地址池起始地址，本例中从192.168.10.2开始
-N：地址池的IP地址递增几个，本例中添增10，也就是从192.168.10.2开始分配，一共分配20个IP地址
-</pre></div>
-
+N：地址池的IP地址递增几个，本例中添增10，也就是从192.168.10.2开始分配，一共分配20个IP地址</p>
+</div>
 <h4 id="28">2.8 配置自启动<a class="headerlink" href="#28" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span>[root@mfsdata02 ppp]# echo &quot;pppoe-server -I eth1 -L 192.168.10.109 -R 192.168.10.2 -N 20&quot; &gt;&gt; /etc/rc.d/rc.local
 
