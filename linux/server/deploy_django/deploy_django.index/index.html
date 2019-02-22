@@ -3665,12 +3665,14 @@ bookms.conf  socket.xml  uwsgi.ini  uwsgi.log  uwsgi_params  uwsgi.pid
 31939 ?        S      0:00  \_ uwsgi --ini uwsgi.ini
 </pre></div>
 
-<details class="note"><summary>注意</summary><p>uwsgi在哪个目录启动，就会在哪个目录生成uwsgi.pid和uswgi.log文件。 
-启动：uwsgi --ini uwsgi.ini 
-停止：uwsgi --stop uwsgi.pid 
-重启：uwsgi --reload uwsgi.pid 
-强制停止：killall -9 uwsgi 
-这里我们启动uwsgi服务，可以通过ps -ef | grep uwsgi看到已经有四个uwsgi服务启动。</p>
+<details class="note"><summary>注意</summary><div class="codehilite"><pre><span></span><span class="n">uwsgi在哪个目录启动</span><span class="err">，就会在哪个目录生成</span><span class="n">uwsgi</span><span class="o">.</span><span class="n">pid和uswgi</span><span class="o">.</span><span class="n">log文件</span><span class="err">。</span> 
+<span class="err">启动：</span><span class="n">uwsgi</span> <span class="o">--</span><span class="n">ini</span> <span class="n">uwsgi</span><span class="o">.</span><span class="n">ini</span> 
+<span class="err">停止：</span><span class="n">uwsgi</span> <span class="o">--</span><span class="n">stop</span> <span class="n">uwsgi</span><span class="o">.</span><span class="n">pid</span> 
+<span class="err">重启：</span><span class="n">uwsgi</span> <span class="o">--</span><span class="nb">reload</span> <span class="n">uwsgi</span><span class="o">.</span><span class="n">pid</span> 
+<span class="err">强制停止：</span><span class="n">killall</span> <span class="o">-</span><span class="mi">9</span> <span class="n">uwsgi</span> 
+<span class="err">这里我们启动</span><span class="n">uwsgi服务</span><span class="err">，可以通过</span><span class="n">ps</span> <span class="o">-</span><span class="n">ef</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">uwsgi看到已经有四个uwsgi服务启动</span><span class="err">。</span>
+</pre></div>
+
 </details>
 <div class="codehilite"><pre><span></span>/usr/share/nginx/html/bookms/conf
 (venv) [root@leco conf]# pwd
