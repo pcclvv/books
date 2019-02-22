@@ -1367,8 +1367,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#62" title="6.2 数据表创建" class="md-nav__link">
-    6.2 数据表创建
+  <a href="#62" title="6.2 数据迁移" class="md-nav__link">
+    6.2 数据迁移
   </a>
   
 </li>
@@ -3123,8 +3123,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#62" title="6.2 数据表创建" class="md-nav__link">
-    6.2 数据表创建
+  <a href="#62" title="6.2 数据迁移" class="md-nav__link">
+    6.2 数据迁移
   </a>
   
 </li>
@@ -3229,9 +3229,18 @@ six==1.12.0
 </pre></div></p>
 <h2 id="4-linux">4. Linux端操作<a class="headerlink" href="#4-linux" title="Permanent link">&para;</a></h2>
 <h3 id="41-nginx">4.1 安装nginx<a class="headerlink" href="#41-nginx" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>ubuntu 系统
+<div class="codehilite"><pre><span></span>[root@leco etc]# apt-get install nginx 
+</pre></div></p>
+</li>
+<li>
+<p>centos系统
 <div class="codehilite"><pre><span></span>[root@leco etc]# yum install nginx 
-</pre></div>
-
+</pre></div></p>
+</li>
+</ul>
 <h3 id="42-python">4.2 安装python<a class="headerlink" href="#42-python" title="Permanent link">&para;</a></h3>
 <h4 id="421">4.2.1 下载<a class="headerlink" href="#421" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span>[root@leco ~]# wget https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tgz
@@ -3271,7 +3280,7 @@ book  bookms_02  db.sqlite3  manage.py  requirements.txt  static  templates  ven
 (venv) [root@cairui bookms]#
 </pre></div>
 
-<p>进入后会多(venv)，虚拟环境的名字。</p>
+<p>进入虚拟环境后前面会多(venv),(venv)是虚拟环境的名字。</p>
 <div class="codehilite"><pre><span></span>(venv) [root@leco bookms]# pip install -r requirements.txt
 (venv) [root@leco bookms]# pip list
 Package      Version
@@ -3292,10 +3301,11 @@ wheel        0.32.3
 
 <h2 id="5">5. 配置<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
 <h3 id="51">5.1 访问设置<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>(venv) [root@leco bookms]# vim bookms_02/settings.py
+<p><div class="codehilite"><pre><span></span>(venv) [root@leco bookms]# vim bookms_02/settings.py
 ALLOWED_HOSTS = [&#39;*&#39;]
 </pre></div>
-
+!!! quote '地址限制'
+    * 表示不限制访问的IP地址</p>
 <h3 id="52">5.2 数据配置<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>(venv) [root@leco bookms]# vim bookms_02/settings.py
 DATABASES = {
@@ -3310,6 +3320,13 @@ DATABASES = {
 }
 </pre></div>
 
+<p>!!! quote '配置参数详解'
+    'ENGINE': 'django.db.backends.mysql', # 使用mysql数据库
+    'NAME': 'book_orm',                   # 指定数据库名，需要手动先创建
+    'USER':'root',                        # 数据库登录用户名
+    'PASSWORD':'root',                    # 数据库登录用户名对应的密码
+    'HOST':'127.0.0.1',                   # mysql数据库的IP地址。
+    'PORT':'3306',                        # mysql端口</p>
 <h2 id="6">6.创建数据库<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
 <h3 id="61">6.1 创建数据库<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>[root@leco Python-3.7.1]# mysql -uroot -p
@@ -3328,15 +3345,24 @@ Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the cu
 mysql&gt; create database book_orm DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 </pre></div>
 
-<h3 id="62">6.2 数据表创建<a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
+<h3 id="62">6.2 数据迁移<a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
+<p>数据表创建</p>
 <div class="codehilite"><pre><span></span>(venv) [root@leco bookms]# ls
 book  bookms_02  db.sqlite3  manage.py  requirements.txt  static  templates  venv
 (venv) [root@leco bookms]# python3 manage.py makemigrations
 (venv) [root@leco bookms]# python3 manage.py migrate
 </pre></div>
 
+<p>!!! tip '区别'
+    python manage.py makemigrations 
+    makemigrations会在当前目录下生成一个migrations文件夹，该文件夹的内容就是数据库要执行的内容 </p>
+<div class="codehilite"><pre><span></span>python manage.py migrate 
+migrate就是执行之前生成的migrations文件，这一步才是操作数据库的一步
+</pre></div>
+
+
 <h3 id="63">6.3 测试<a class="headerlink" href="#63" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>(venv) [root@leco bookms]# python3 manage.py runserver 0.0.0.0:7000
+<p><div class="codehilite"><pre><span></span>(venv) [root@leco bookms]# python3 manage.py runserver 0.0.0.0:7000
 Performing system checks...
 
 System check identified no issues (0 silenced).
@@ -3449,9 +3475,8 @@ Quit the server with CONTROL-C.
   &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-测试OK。
 </pre></div>
-
+以上测试OK。</p>
 <h3 id="64">6.4 创建配置文件<a class="headerlink" href="#64" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>(venv) [root@leco bookms]# mkdir conf
 (venv) [root@leco bookms]# mv bookms.conf socket.xml uwsgi.ini uwsgi_params conf/
@@ -3467,7 +3492,7 @@ server{
             charset utf-8;
             access_log off;
             location /static {
-                alias /usr/share/nginx/html/bookms/static; #要与之前django的setting.py中添加的static静态文件转移目录一致
+                alias /usr/share/nginx/html/bookms/static; # 要与之前django的setting.py中添加的static静态文件转移目录一致
             }
             location / {
                 uwsgi_pass  django;
@@ -3484,6 +3509,7 @@ server{
     &lt;processes&gt;4&lt;/processes&gt; &lt;!-- 进程数 --&gt;
     &lt;daemonize&gt;uwsgi.log&lt;/daemonize&gt;
 &lt;/uwsgi&gt;
+
 (venv) [root@leco conf]# cat uwsgi.ini
 [uwsgi]
 # Django-related settings
