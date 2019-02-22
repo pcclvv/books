@@ -1406,6 +1406,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#9" title="9. 汇总配置文件" class="md-nav__link">
+    9. 汇总配置文件
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-booksconf" title="9.1 books.conf" class="md-nav__link">
+    9.1 books.conf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-socketxml" title="9.2 socket.xml" class="md-nav__link">
+    9.2 socket.xml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-uwsgiini" title="9.3 uwsgi.ini" class="md-nav__link">
+    9.3 uwsgi.ini
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-uwsgi_params" title="9.4 uwsgi_params" class="md-nav__link">
+    9.4 uwsgi_params
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -3162,6 +3203,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#9" title="9. 汇总配置文件" class="md-nav__link">
+    9. 汇总配置文件
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-booksconf" title="9.1 books.conf" class="md-nav__link">
+    9.1 books.conf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-socketxml" title="9.2 socket.xml" class="md-nav__link">
+    9.2 socket.xml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-uwsgiini" title="9.3 uwsgi.ini" class="md-nav__link">
+    9.3 uwsgi.ini
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-uwsgi_params" title="9.4 uwsgi_params" class="md-nav__link">
+    9.4 uwsgi_params
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -3307,10 +3389,8 @@ ALLOWED_HOSTS = [&#39;*&#39;]
 
 <div class="admonition quote">
 <p class="admonition-title">地址限制</p>
-<ul>
-<li>表示不限制访问的IP地址</li>
-</ul>
 </div>
+<p>&lt;code&gt; * &lt;/code&gt;表示不限制访问的IP地址</p>
 <h3 id="52">5.2 数据配置<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>(venv) [root@leco bookms]# vim bookms_02/settings.py
 DATABASES = {
@@ -3362,14 +3442,16 @@ book  bookms_02  db.sqlite3  manage.py  requirements.txt  static  templates  ven
 (venv) [root@leco bookms]# python3 manage.py migrate
 </pre></div>
 
-<p>!!! tip '区别'
-    python manage.py makemigrations 
-    makemigrations会在当前目录下生成一个migrations文件夹，该文件夹的内容就是数据库要执行的内容 </p>
-<div class="codehilite"><pre><span></span>python manage.py migrate 
-migrate就是执行之前生成的migrations文件，这一步才是操作数据库的一步
+<div class="admonition tip">
+<p class="admonition-title">区别</p>
+<div class="codehilite"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">makemigrations</span> 
+<span class="n">makemigrations会在当前目录下生成一个migrations文件夹</span><span class="err">，该文件夹的内容就是数据库要执行的内容</span> 
+
+<span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">migrate</span> 
+<span class="n">migrate就是执行之前生成的migrations文件</span><span class="err">，这一步才是操作数据库的一步</span> 
 </pre></div>
 
-
+</div>
 <h3 id="63">6.3 测试<a class="headerlink" href="#63" title="Permanent link">&para;</a></h3>
 <p><div class="codehilite"><pre><span></span>(venv) [root@leco bookms]# python3 manage.py runserver 0.0.0.0:7000
 Performing system checks...
@@ -3609,6 +3691,81 @@ Starting nginx:                                            [  OK  ]
 <h2 id="8">8. 浏览器测试<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
 <p><img alt="浏览器访问1" src="../../../../pictures/linux/deploy_django/5.png" /></p>
 <p><img alt="浏览器访问2" src="../../../../pictures/linux/deploy_django/6.png" /></p>
+<h2 id="9">9. 汇总配置文件<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<h3 id="91-booksconf">9.1 books.conf<a class="headerlink" href="#91-booksconf" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>upstream django {
+    # server unix:///path/to/your/mysite/mysite.sock; # for a file socket
+    # 设置本地服务的端口
+    server 127.0.0.1:8000; # for a web port socket (we&#39;ll use this first)
+}
+server{
+            listen 80;
+            server_name localhost;
+            charset utf-8;
+            access_log off;
+            location /static {
+                alias /usr/share/nginx/html/bookms/static; #要与之前django的setting.py中添加的static静态文件转移目录一致
+            }
+            location / {
+                uwsgi_pass  django;
+                include     /usr/share/nginx/html/bookms/conf/uwsgi_params; 
+            }
+
+}
+</pre></div>
+
+<h3 id="92-socketxml">9.2 socket.xml<a class="headerlink" href="#92-socketxml" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>&lt;uwsgi&gt;
+    &lt;socket&gt;:8000&lt;/socket&gt;
+    &lt;chdir&gt;/usr/share/nginx/html/HelloWorld&lt;/chdir&gt;
+    &lt;module&gt;hello.wsgi&lt;/module&gt;
+    &lt;processes&gt;4&lt;/processes&gt; &lt;!-- 进程数 --&gt; 
+    &lt;daemonize&gt;uwsgi.log&lt;/daemonize&gt;
+&lt;/uwsgi&gt;
+</pre></div>
+
+<h3 id="93-uwsgiini">9.3 uwsgi.ini<a class="headerlink" href="#93-uwsgiini" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>[uwsgi]
+# Django-related settings
+# Django项目本地端口
+socket = :8000
+# 项目根目录位置
+chdir = /usr/share/nginx/html/bookms
+# wsgi.py文件在项目的中的相对位置
+wsgi-file = /usr/share/nginx/html/bookms/bookms_02/wsgi.py
+module =booksms.wsgi
+# 进程设置，无需变动
+# master
+master = true
+# maximum number of worker processes
+# 启动4个uwsgi进程
+processes = 4
+# ... with appropriate permissions - may be needed
+# chmod-socket    = 664
+# clear environment on exit
+vacuum = true
+pidfile=uwsgi.pid
+daemonize=uwsgi.log
+</pre></div>
+
+<h3 id="94-uwsgi_params">9.4 uwsgi_params<a class="headerlink" href="#94-uwsgi_params" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>uwsgi_param  QUERY_STRING       $query_string;
+uwsgi_param  REQUEST_METHOD     $request_method;
+uwsgi_param  CONTENT_TYPE       $content_type;
+uwsgi_param  CONTENT_LENGTH     $content_length;
+
+uwsgi_param  REQUEST_URI        $request_uri;
+uwsgi_param  PATH_INFO          $document_uri;
+uwsgi_param  DOCUMENT_ROOT      $document_root;
+uwsgi_param  SERVER_PROTOCOL    $server_protocol;
+uwsgi_param  REQUEST_SCHEME     $scheme;
+uwsgi_param  HTTPS              $https if_not_empty;
+
+uwsgi_param  REMOTE_ADDR        $remote_addr;
+uwsgi_param  REMOTE_PORT        $remote_port;
+uwsgi_param  SERVER_PORT        $server_port;
+uwsgi_param  SERVER_NAME        $server_name;
+</pre></div>
                 
                   
                 
