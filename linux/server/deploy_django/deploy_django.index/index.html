@@ -3301,11 +3301,16 @@ wheel        0.32.3
 
 <h2 id="5">5. 配置<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
 <h3 id="51">5.1 访问设置<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
-<p><div class="codehilite"><pre><span></span>(venv) [root@leco bookms]# vim bookms_02/settings.py
+<div class="codehilite"><pre><span></span>(venv) [root@leco bookms]# vim bookms_02/settings.py
 ALLOWED_HOSTS = [&#39;*&#39;]
 </pre></div>
-!!! quote '地址限制'
-    * 表示不限制访问的IP地址</p>
+
+<div class="admonition quote">
+<p class="admonition-title">地址限制</p>
+<ul>
+<li>表示不限制访问的IP地址</li>
+</ul>
+</div>
 <h3 id="52">5.2 数据配置<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>(venv) [root@leco bookms]# vim bookms_02/settings.py
 DATABASES = {
@@ -3320,13 +3325,15 @@ DATABASES = {
 }
 </pre></div>
 
-<p>!!! quote '配置参数详解'
-    'ENGINE': 'django.db.backends.mysql', # 使用mysql数据库
-    'NAME': 'book_orm',                   # 指定数据库名，需要手动先创建
-    'USER':'root',                        # 数据库登录用户名
-    'PASSWORD':'root',                    # 数据库登录用户名对应的密码
-    'HOST':'127.0.0.1',                   # mysql数据库的IP地址。
-    'PORT':'3306',                        # mysql端口</p>
+<div class="admonition quote">
+<p class="admonition-title">配置参数详解</p>
+<p>'ENGINE': 'django.db.backends.mysql', # 使用mysql数据库
+'NAME': 'book_orm',                   # 指定数据库名，需要手动先创建
+'USER':'root',                        # 数据库登录用户名
+'PASSWORD':'root',                    # 数据库登录用户名对应的密码
+'HOST':'127.0.0.1',                   # mysql数据库的IP地址。
+'PORT':'3306',                        # mysql端口</p>
+</div>
 <h2 id="6">6.创建数据库<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
 <h3 id="61">6.1 创建数据库<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>[root@leco Python-3.7.1]# mysql -uroot -p
