@@ -106,10 +106,6 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#usrbinenv-python" tabindex="1" class="md-skip">
-        跳转至
-      </a>
-    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -853,8 +849,6 @@
   <li class="md-nav__item md-nav__item--active">
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
     
     
     <a href="./" title="5. redis sentinel" class="md-nav__link md-nav__link--active">
@@ -2823,21 +2817,6 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -2846,28 +2825,54 @@
                   <a href="https://github.com/caimengzhi/books/edit/master/docs/python/lib/nosql/redis/redis.sentinel.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="usrbinenv-python">!/usr/bin/env python<a class="headerlink" href="#usrbinenv-python" title="Permanent link">&para;</a></h1>
-<h1 id="-codingutf-8-">-<em>- coding:utf-8 -</em>-<a class="headerlink" href="#-codingutf-8-" title="Permanent link">&para;</a></h1>
-<h1 id="author-summer">author: summer<a class="headerlink" href="#author-summer" title="Permanent link">&para;</a></h1>
-<p>from redis.sentinel import Sentinel</p>
-<h1 id="_1">连接哨兵服务器(主机名也可以用域名)<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>sentinel = Sentinel([('10.211.55.20', 26379),
-                     ('10.211.55.20', 26380),
-                     ],
-                    socket_timeout=0.5)</p>
-<h1 id="_2">获取主服务器地址<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
-<p>master = sentinel.discover_master('mymaster')
-print(master)</p>
-<h1 id="_3"># 获取从服务器地址<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
-<p>slave = sentinel.discover_slaves('mymaster')
-print(slave)</p>
-<h1 id="_4"># 获取主服务器进行写入<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
-<p>master = sentinel.master_for('mymaster')
-master.set('foo', 'bar')</p>
-<h1 id="round-roubin"># # 获取从服务器进行读取（默认是round-roubin）<a class="headerlink" href="#round-roubin" title="Permanent link">&para;</a></h1>
-<p>slave = sentinel.slave_for('mymaster', password='redis_auth_pass')
-r_ret = slave.get('foo')
-print(r_ret)</p>
+                  <h1>5. redis sentinel</h1>
+                
+                <div class="codehilite"><pre><span></span>root@leco:~/code/redis# !py
+python sentinel.py
+当前master =  (&#39;127.0.0.1&#39;, 6379)
+当前slave =  [(&#39;127.0.0.1&#39;, 10380), (&#39;127.0.0.1&#39;, 10381)]
+b&#39;cmz&#39;
+root@leco:~/code/redis# cat sentinel.py
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# author: summer
+
+from redis.sentinel import Sentinel
+
+# 连接哨兵服务器(主机名也可以用域名)
+sentinel = Sentinel([(&#39;127.0.0.1&#39;, 26379),
+                     (&#39;127.0.0.1&#39;, 26380),
+                     (&#39;127.0.0.1&#39;, 26381)],
+                    socket_timeout=0.5)
+
+# 获取主服务器地址
+master = sentinel.discover_master(&#39;mymaster&#39;)
+print(&quot;当前master = &quot;, master)
+
+# 获取从服务器地址
+slave = sentinel.discover_slaves(&#39;mymaster&#39;)
+print(&quot;当前slave = &quot;, slave)
+
+
+# 获取主服务器进行写入
+master = sentinel.master_for(&#39;mymaster&#39;)
+master.set(&#39;name&#39;,&#39;summer&#39;)
+
+
+
+# 获取从服务器进行读取（默认是round-roubin）
+#slave = sentinel.slave_for(&#39;mymaster&#39;, password=&#39;redis_auth_pass&#39;)
+slave = sentinel.slave_for(&#39;mymaster&#39;)
+data = slave.get(&#39;name&#39;)
+print(data)
+</pre></div>
+
+<p>运行结果
+<div class="codehilite"><pre><span></span>root@leco:~/code/redis# python sentinel.py
+当前master =  (&#39;127.0.0.1&#39;, 6379)
+当前slave =  [(&#39;127.0.0.1&#39;, 10380), (&#39;127.0.0.1&#39;, 10381)]
+b&#39;cmz&#39;
+</pre></div></p>
                 
                   
                 
