@@ -3677,8 +3677,8 @@
 - 测试及排错</p>
 <h3 id="43">4.3 拓扑演变<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
 <h4 id="431">4.3.1 开始模式<a class="headerlink" href="#431" title="Permanent link">&para;</a></h4>
-<p><img alt="redis-sentinel 开始架构图" src="../../../../pictures/linux/redis/redis-sentinel/p2.png" />
-&#160; &#160; &#160; &#160; 开始的三个sentinel监控一个redis的主。当redis主宕机以后，架构图又变了模式。</p>
+<p><img alt="redis-sentinel 开始架构图" src="../../../../pictures/linux/redis/redis-sentinel/p2.png" /></p>
+<p>&#160; &#160; &#160; &#160; 开始的三个sentinel监控一个redis的主。当redis主宕机以后，架构图又变了模式。</p>
 <h4 id="432-master">4.3.2 master宕机<a class="headerlink" href="#432-master" title="Permanent link">&para;</a></h4>
 <p>&#160; &#160; &#160; &#160; Master redis宕机后，新主启动，在master redis在指定时间没有响应，三个sentinel仲裁有两人认为下线此时仲裁处新主redis，启动新的master redis后，sentinel同时监控老的master redis。</p>
 <p><img alt="redis-sentinel master宕机开始架构图" src="../../../../pictures/linux/redis/redis-sentinel/p3.png" /></p>
@@ -3691,7 +3691,10 @@
 root@leco:~# docker run -itd --privileged -p 36381:6379 -p 36382:26379 -v /usr/local/src/ sentienl2  bash 
 root@leco:~# docker run -itd --privileged -p 36383:6379 -p 36384:26379 -v /usr/local/src/ sentienl3  bash  
 </pre></div></p>
-<details class="quote 参数解释"><summary>Quote</summary><div class="codehilite"><pre><span></span><span class="err">此时端口映射出</span><span class="n">redis的端口6379和sentinel的端口26379到宿主机</span><span class="err">。加</span><span class="o">--</span><span class="n">privileged</span> <span class="err">是获取至高无上的</span><span class="n">root权限</span><span class="err">。</span> <span class="o">-</span><span class="n">v是数据卷管理</span><span class="err">。</span><span class="o">-</span><span class="n">d是后台方式运行</span><span class="err">，为了在容器内</span><span class="n">exit后容器不退出</span><span class="err">。</span>
+<details class="note 参数解释"><summary>Note</summary><div class="codehilite"><pre><span></span><span class="err">此时端口映射出</span><span class="n">redis的端口6379和sentinel的端口26379到宿主机</span><span class="err">。</span>
+<span class="o">--</span><span class="n">privileged</span> <span class="err">是获取至高无上的</span><span class="n">root权限</span><span class="err">。</span> 
+<span class="o">-</span><span class="n">v是数据卷管理</span><span class="err">。</span>
+<span class="o">-</span><span class="n">d是后台方式运行</span><span class="err">，为了在容器内</span><span class="n">exit后容器不退出</span><span class="err">。</span>
 </pre></div>
 
 </details>
@@ -3865,12 +3868,10 @@ Starting Redis server...
 root@8d7240ab9c47:~#  /etc/init.d/redis stop
 </pre></div>
 
-<div class="admonition note">
-<p class="admonition-title">注意</p>
-<div class="codehilite"><pre><span></span> <span class="err">其他两个从</span><span class="n">redis启动方式一样</span><span class="err">。</span>
+<details class="note"><summary>注意</summary><div class="codehilite"><pre><span></span> <span class="err">其他两个从</span><span class="n">redis启动方式一样</span><span class="err">。</span>
 </pre></div>
 
-</div>
+</details>
 <h3 id="48">4.8 测试主从<a class="headerlink" href="#48" title="Permanent link">&para;</a></h3>
 <p>&#160; &#160; &#160; &#160;保证三台redis都启动后，查看</p>
 <p><div class="codehilite"><pre><span></span>127.0.0.1:6379&gt; info
