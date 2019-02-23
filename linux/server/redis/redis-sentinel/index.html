@@ -3578,13 +3578,13 @@
 <h3 id="22-sentinel">2.2 开多少个Sentinel合适<a class="headerlink" href="#22-sentinel" title="Permanent link">&para;</a></h3>
 <p>&#160; &#160; &#160; &#160;开3个Sentinel，或者说开奇数个，Sentinel的原理就是一直监视着master是否在线，如果是挂掉，Sentinel的集群追选举其中一个领头Sentinel，然后由于领头的Sentinel执行slaveof命令让slave作为master，然后Sentinel集群机选监视新的master，老的master还是会一直监视着如果启动了那么老的master会做为新的master的slave</p>
 <h3 id="23-sentinelmaster">2.3 Sentinel判断master下线的两种标准<a class="headerlink" href="#23-sentinelmaster" title="Permanent link">&para;</a></h3>
-<ol>
+<ul>
 <li>主观下线  </li>
-</ol>
+</ul>
 <p>&#160; &#160; &#160; &#160; Sentinel发现master没有在指定时间返回信息，这种情况呗认为主观下线。[指定时间：这个时间是我们设置的]</p>
-<ol>
+<ul>
 <li>客观下线</li>
-</ol>
+</ul>
 <p>&#160; &#160; &#160; &#160; sentinel询问Sentinel集群，篮下其他的Sentinel是否也标记这个master是否下线如果标记Sentinel下线的个数达到一个阈值，Sentinel会将master标记为主观下线，这时候会选取领头的Sentinel，由Sentinel选取master下面的一个slave去作为新的master。</p>
 <h2 id="3">3. 准备<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <h3 id="31">3.1 条件<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
