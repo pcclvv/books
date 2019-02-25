@@ -2991,21 +2991,19 @@
 import yagmail
 
 #链接邮箱服务器
-yag = yagmail.SMTP(user=&quot;caimengzhi@163.com&quot;, password=&quot;caimengzhi&quot;, host=&#39;smtp.163.com&#39;)
+yag = yagmail.SMTP(user=&quot;17761739482@163.com&quot;, password=&quot;leco1234&quot;, host=&#39;smtp.163.com&#39;)
 
 # 邮箱正文
 contents = [&#39;邮件正文&#39;]
 
 # 发送邮件
-yag.send(&#39;caimengzhi@qq.com&#39;, &#39;主题: subject&#39;, contents)
+yag.send(&#39;610658552@qq.com&#39;, &#39;主题: subject&#39;, contents)
 print(&quot;已发送邮件&quot;)
 </pre></div>
 
 <p><img alt="不带附件邮件" src="../../../../../pictures/lib/email/simple_demo1.png" title="不带附件邮件" /></p>
 <p><img alt="不带附件邮件" src="../../../../../pictures/lib/email/simple_demo2.png" title="不带附件邮件" /></p>
-<div class="admonition note">
-<p class="admonition-title">参数解释</p>
-<div class="codehilite"><pre><span></span><span class="mf">1.</span> <span class="n">user</span>      <span class="err">登录邮箱，邮箱账号</span>
+<details class="note"><summary>参数解释</summary><div class="codehilite"><pre><span></span><span class="mf">1.</span> <span class="n">user</span>      <span class="err">登录邮箱，邮箱账号</span>
 <span class="mf">2.</span> <span class="n">password</span>  <span class="mi">163</span><span class="o">/</span><span class="mi">126</span><span class="o">/</span><span class="n">qq</span> <span class="err">等邮箱的授权码</span>
 <span class="mf">3.</span> <span class="n">host</span>      <span class="err">邮件服务器主机名</span> 
     <span class="o">-</span>  <span class="n">smtp</span><span class="o">.</span><span class="mf">126.</span><span class="n">com</span>
@@ -3015,16 +3013,16 @@ print(&quot;已发送邮件&quot;)
 <span class="mf">5.</span> <span class="n">subject</span>   <span class="err">邮件主题</span>
 </pre></div>
 
-</div>
+</details>
 <h3 id="32">3.2 带附件<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
 <ul>
 <li>单人接受邮件
 <div class="codehilite"><pre><span></span>root@leco:~/code/email# cat single.py
 import yagmail
 
-yag = yagmail.SMTP(user=&#39;caimengzhi@163.com&#39;, password=&#39;caimengzhi&#39;, host=&#39;smtp.163.com&#39;, port=&#39;465&#39;)
+yag = yagmail.SMTP(user=&#39;17761739482@163.com&#39;, password=&#39;leco1234&#39;, host=&#39;smtp.163.com&#39;, port=&#39;465&#39;)
 body = &quot;邮件正文: 这是最近工作的文件，请查收。&quot;
-yag.send(to=&#39;caimengzhi@qq.com&#39;, subject=&#39;邮件标题: 工作文件&#39;, contents=[body, &#39;./linux.jpg&#39;, &#39;./lib_yagmail.py&#39;])
+yag.send(to=&#39;610658552@qq.com&#39;, subject=&#39;邮件标题: 工作文件&#39;, contents=[body, &#39;./linux.jpg&#39;, &#39;./lib_yagmail.py&#39;])
 print(&quot;已发送邮件&quot;)
 </pre></div></li>
 </ul>
@@ -3032,21 +3030,25 @@ print(&quot;已发送邮件&quot;)
 <ul>
 <li>多人接受邮件</li>
 </ul>
-<p><div class="codehilite"><pre><span></span>root@leco:~/code/email# cat many.py
+<p><div class="codehilite"><pre><span></span>root@leco:~/code/email# cat 3.py
 import yagmail
 
-yag = yagmail.SMTP(user=&#39;caimengzhi@163.com&#39;, password=&#39;caimengzhi&#39;, host=&#39;smtp.163.com&#39;, port=&#39;465&#39;)
+yag = yagmail.SMTP(user=&#39;17761739482@163.com&#39;, password=&#39;leco1234&#39;, host=&#39;smtp.163.com&#39;, port=&#39;465&#39;)
 body = &quot;邮件正文: 这是最近工作的文件，请查收。&quot;
-yag.send([&#39;caimengzhi@qq.com&#39;,&#39;caimengzhi@163.com&#39;], subject=&#39;邮件标题: 工作文件&#39;, contents=[body, &#39;./linux.jpg&#39;, &#39;./lib_yagmail.py&#39;])
+yag.send([&#39;610658552@qq.com&#39;,&#39;17761739482@163.com&#39;], subject=&#39;邮件标题: 工作文件&#39;, contents=[body, &#39;./linux.jpg&#39;, &#39;./lib_yagmail.py&#39;])
 print(&quot;已发送邮件&quot;)
 </pre></div>
 <img alt="多人接受邮件" src="../../../../../pictures/lib/email/double.png" title="多人接受邮件" /></p>
-<div class="admonition note">
-<p class="admonition-title">参数解释</p>
-<div class="codehilite"><pre><span></span><span class="err">单人和多人接受的区别就是</span>
+<details class="note"><summary>参数解释</summary><div class="codehilite"><pre><span></span><span class="err">单人和多人接受的区别就是</span>
 <span class="o">-</span> <span class="err">单人接受邮件，就写一个接受邮件人邮箱</span>
 <span class="o">-</span> <span class="err">单人接受邮件，就写一个接受邮件人邮箱列表，把所有接受人邮箱写到这个列表里面</span>
 <span class="o">./</span><span class="n">linux</span><span class="o">.</span><span class="n">jpg</span> <span class="o">./</span><span class="n">lib_yagmail</span><span class="o">.</span><span class="n">py</span> <span class="err">要发送的邮件附件</span>
+</pre></div>
+
+</details>
+<div class="admonition danager">
+<p class="admonition-title">注意</p>
+<div class="codehilite"><pre><span></span>  <span class="err">以上所有</span><span class="n">code的个人信息</span><span class="err">，我都换成</span><span class="n">caimengzhi</span><span class="err">，根据自己的实际情况填写</span>
 </pre></div>
 
 </div>
