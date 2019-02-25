@@ -670,6 +670,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#321" title="3.2.1 单人接受邮件" class="md-nav__link">
+    3.2.1 单人接受邮件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" title="3.2.2 多人接受邮件" class="md-nav__link">
+    3.2.2 多人接受邮件
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2951,6 +2965,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#321" title="3.2.1 单人接受邮件" class="md-nav__link">
+    3.2.1 单人接受邮件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" title="3.2.2 多人接受邮件" class="md-nav__link">
+    3.2.2 多人接受邮件
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2991,13 +3019,13 @@
 import yagmail
 
 #链接邮箱服务器
-yag = yagmail.SMTP(user=&quot;17761739482@163.com&quot;, password=&quot;leco1234&quot;, host=&#39;smtp.163.com&#39;)
+yag = yagmail.SMTP(user=&quot;caimengzhi@163.com&quot;, password=&quot;caimengzhi&quot;, host=&#39;smtp.163.com&#39;)
 
 # 邮箱正文
 contents = [&#39;邮件正文&#39;]
 
 # 发送邮件
-yag.send(&#39;610658552@qq.com&#39;, &#39;主题: subject&#39;, contents)
+yag.send(&#39;caimengzhi@qq.com&#39;, &#39;主题: subject&#39;, contents)
 print(&quot;已发送邮件&quot;)
 </pre></div>
 
@@ -3006,36 +3034,33 @@ print(&quot;已发送邮件&quot;)
 <details class="note"><summary>参数解释</summary><div class="codehilite"><pre><span></span><span class="mf">1.</span> <span class="n">user</span>      <span class="err">登录邮箱，邮箱账号</span>
 <span class="mf">2.</span> <span class="n">password</span>  <span class="mi">163</span><span class="o">/</span><span class="mi">126</span><span class="o">/</span><span class="n">qq</span> <span class="err">等邮箱的授权码</span>
 <span class="mf">3.</span> <span class="n">host</span>      <span class="err">邮件服务器主机名</span> 
-    <span class="o">-</span>  <span class="n">smtp</span><span class="o">.</span><span class="mf">126.</span><span class="n">com</span>
-    <span class="o">-</span>  <span class="n">smtp</span><span class="o">.</span><span class="mf">163.</span><span class="n">com</span>
-    <span class="o">-</span>  <span class="n">smtp</span><span class="o">.</span><span class="n">qq</span><span class="o">.</span><span class="n">com</span>
+                <span class="o">-</span>  <span class="n">smtp</span><span class="o">.</span><span class="mf">126.</span><span class="n">com</span>
+                <span class="o">-</span>  <span class="n">smtp</span><span class="o">.</span><span class="mf">163.</span><span class="n">com</span>
+                <span class="o">-</span>  <span class="n">smtp</span><span class="o">.</span><span class="n">qq</span><span class="o">.</span><span class="n">com</span>
 <span class="mf">4.</span> <span class="n">contents</span>  <span class="err">邮件正文</span>
 <span class="mf">5.</span> <span class="n">subject</span>   <span class="err">邮件主题</span>
 </pre></div>
 
 </details>
 <h3 id="32">3.2 带附件<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
-<ul>
-<li>单人接受邮件
+<h3 id="321">3.2.1 单人接受邮件<a class="headerlink" href="#321" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>root@leco:~/code/email# cat single.py
 import yagmail
 
-yag = yagmail.SMTP(user=&#39;17761739482@163.com&#39;, password=&#39;leco1234&#39;, host=&#39;smtp.163.com&#39;, port=&#39;465&#39;)
+yag = yagmail.SMTP(user=&#39;caimengzhi@163.com&#39;, password=&#39;caimengzhi&#39;, host=&#39;smtp.163.com&#39;, port=&#39;465&#39;)
 body = &quot;邮件正文: 这是最近工作的文件，请查收。&quot;
-yag.send(to=&#39;610658552@qq.com&#39;, subject=&#39;邮件标题: 工作文件&#39;, contents=[body, &#39;./linux.jpg&#39;, &#39;./lib_yagmail.py&#39;])
+yag.send(to=&#39;caimengzhi@qq.com&#39;, subject=&#39;邮件标题: 工作文件&#39;, contents=[body, &#39;./linux.jpg&#39;, &#39;./lib_yagmail.py&#39;])
 print(&quot;已发送邮件&quot;)
-</pre></div></li>
-</ul>
+</pre></div>
+
 <p><img alt="单人接受邮件" src="../../../../../pictures/lib/email/single.png" title="单人接受邮件" /></p>
-<ul>
-<li>多人接受邮件</li>
-</ul>
-<p><div class="codehilite"><pre><span></span>root@leco:~/code/email# cat 3.py
+<h3 id="322">3.2.2 多人接受邮件<a class="headerlink" href="#322" title="Permanent link">&para;</a></h3>
+<p><div class="codehilite"><pre><span></span>root@leco:~/code/email# cat many.py
 import yagmail
 
-yag = yagmail.SMTP(user=&#39;17761739482@163.com&#39;, password=&#39;leco1234&#39;, host=&#39;smtp.163.com&#39;, port=&#39;465&#39;)
+yag = yagmail.SMTP(user=&#39;caimengzhi@163.com&#39;, password=&#39;caimengzhi&#39;, host=&#39;smtp.163.com&#39;, port=&#39;465&#39;)
 body = &quot;邮件正文: 这是最近工作的文件，请查收。&quot;
-yag.send([&#39;610658552@qq.com&#39;,&#39;17761739482@163.com&#39;], subject=&#39;邮件标题: 工作文件&#39;, contents=[body, &#39;./linux.jpg&#39;, &#39;./lib_yagmail.py&#39;])
+yag.send([&#39;caimengzhi@qq.com&#39;,&#39;caimengzhi@163.com&#39;], subject=&#39;邮件标题: 工作文件&#39;, contents=[body, &#39;./linux.jpg&#39;, &#39;./lib_yagmail.py&#39;])
 print(&quot;已发送邮件&quot;)
 </pre></div>
 <img alt="多人接受邮件" src="../../../../../pictures/lib/email/double.png" title="多人接受邮件" /></p>
