@@ -2991,13 +2991,13 @@
 import yagmail
 
 #链接邮箱服务器
-yag = yagmail.SMTP(user=&quot;17761739482@163.com&quot;, password=&quot;leco1234&quot;, host=&#39;smtp.163.com&#39;)
+yag = yagmail.SMTP(user=&quot;caimengzhi@163.com&quot;, password=&quot;caimengzhi&quot;, host=&#39;smtp.163.com&#39;)
 
 # 邮箱正文
 contents = [&#39;邮件正文&#39;]
 
 # 发送邮件
-yag.send(&#39;610658552@qq.com&#39;, &#39;主题: subject&#39;, contents)
+yag.send(&#39;caimengzhi@qq.com&#39;, &#39;主题: subject&#39;, contents)
 print(&quot;已发送邮件&quot;)
 </pre></div>
 
@@ -3022,9 +3022,9 @@ print(&quot;已发送邮件&quot;)
 <div class="codehilite"><pre><span></span>root@leco:~/code/email# cat single.py
 import yagmail
 
-yag = yagmail.SMTP(user=&#39;17761739482@163.com&#39;, password=&#39;leco1234&#39;, host=&#39;smtp.163.com&#39;, port=&#39;465&#39;)
+yag = yagmail.SMTP(user=&#39;caimengzhi@163.com&#39;, password=&#39;caimengzhi&#39;, host=&#39;smtp.163.com&#39;, port=&#39;465&#39;)
 body = &quot;邮件正文: 这是最近工作的文件，请查收。&quot;
-yag.send(to=&#39;610658552@qq.com&#39;, subject=&#39;邮件标题: 工作文件&#39;, contents=[body, &#39;./linux.jpg&#39;, &#39;./lib_yagmail.py&#39;])
+yag.send(to=&#39;caimengzhi@qq.com&#39;, subject=&#39;邮件标题: 工作文件&#39;, contents=[body, &#39;./linux.jpg&#39;, &#39;./lib_yagmail.py&#39;])
 print(&quot;已发送邮件&quot;)
 </pre></div></li>
 </ul>
@@ -3032,12 +3032,12 @@ print(&quot;已发送邮件&quot;)
 <ul>
 <li>多人接受邮件</li>
 </ul>
-<p><div class="codehilite"><pre><span></span>root@leco:~/code/email# cat 3.py
+<p><div class="codehilite"><pre><span></span>root@leco:~/code/email# cat many.py
 import yagmail
 
-yag = yagmail.SMTP(user=&#39;17761739482@163.com&#39;, password=&#39;leco1234&#39;, host=&#39;smtp.163.com&#39;, port=&#39;465&#39;)
+yag = yagmail.SMTP(user=&#39;caimengzhi@163.com&#39;, password=&#39;caimengzhi&#39;, host=&#39;smtp.163.com&#39;, port=&#39;465&#39;)
 body = &quot;邮件正文: 这是最近工作的文件，请查收。&quot;
-yag.send([&#39;610658552@qq.com&#39;,&#39;17761739482@163.com&#39;], subject=&#39;邮件标题: 工作文件&#39;, contents=[body, &#39;./linux.jpg&#39;, &#39;./lib_yagmail.py&#39;])
+yag.send([&#39;caimengzhi@qq.com&#39;,&#39;caimengzhi@163.com&#39;], subject=&#39;邮件标题: 工作文件&#39;, contents=[body, &#39;./linux.jpg&#39;, &#39;./lib_yagmail.py&#39;])
 print(&quot;已发送邮件&quot;)
 </pre></div>
 <img alt="多人接受邮件" src="../../../../../pictures/lib/email/double.png" title="多人接受邮件" /></p>
