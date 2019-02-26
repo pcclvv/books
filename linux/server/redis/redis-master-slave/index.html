@@ -1636,36 +1636,36 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#221-master" title="2.2.1 master配置" class="md-nav__link">
-    2.2.1 master配置
+  <a href="#23-master" title="2.3 master配置" class="md-nav__link">
+    2.3 master配置
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#222-slave" title="2.2.2 slave配置" class="md-nav__link">
-    2.2.2 slave配置
+  <a href="#24-slave" title="2.4 slave配置" class="md-nav__link">
+    2.4 slave配置
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#223" title="2.2.3 启动" class="md-nav__link">
-    2.2.3 启动
+  <a href="#25" title="2.5 启动" class="md-nav__link">
+    2.5 启动
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#224" title="2.2.4 检查主从" class="md-nav__link">
-    2.2.4 检查主从
+  <a href="#26" title="2.6 检查主从" class="md-nav__link">
+    2.6 检查主从
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#225-slave" title="2.2.5 查看slave" class="md-nav__link">
-    2.2.5 查看slave
+  <a href="#27-slave" title="2.7 查看slave" class="md-nav__link">
+    2.7 查看slave
   </a>
   
 </li>
@@ -1676,15 +1676,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#23" title="2.3 手动切换身份" class="md-nav__link">
-    2.3 手动切换身份
+  <a href="#28" title="2.8 手动切换身份" class="md-nav__link">
+    2.8 手动切换身份
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#24" title="2.4 健康检查" class="md-nav__link">
-    2.4 健康检查
+  <a href="#29" title="2.9 健康检查" class="md-nav__link">
+    2.9 健康检查
   </a>
   
 </li>
@@ -3071,36 +3071,36 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#221-master" title="2.2.1 master配置" class="md-nav__link">
-    2.2.1 master配置
+  <a href="#23-master" title="2.3 master配置" class="md-nav__link">
+    2.3 master配置
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#222-slave" title="2.2.2 slave配置" class="md-nav__link">
-    2.2.2 slave配置
+  <a href="#24-slave" title="2.4 slave配置" class="md-nav__link">
+    2.4 slave配置
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#223" title="2.2.3 启动" class="md-nav__link">
-    2.2.3 启动
+  <a href="#25" title="2.5 启动" class="md-nav__link">
+    2.5 启动
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#224" title="2.2.4 检查主从" class="md-nav__link">
-    2.2.4 检查主从
+  <a href="#26" title="2.6 检查主从" class="md-nav__link">
+    2.6 检查主从
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#225-slave" title="2.2.5 查看slave" class="md-nav__link">
-    2.2.5 查看slave
+  <a href="#27-slave" title="2.7 查看slave" class="md-nav__link">
+    2.7 查看slave
   </a>
   
 </li>
@@ -3111,15 +3111,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#23" title="2.3 手动切换身份" class="md-nav__link">
-    2.3 手动切换身份
+  <a href="#28" title="2.8 手动切换身份" class="md-nav__link">
+    2.8 手动切换身份
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#24" title="2.4 健康检查" class="md-nav__link">
-    2.4 健康检查
+  <a href="#29" title="2.9 健康检查" class="md-nav__link">
+    2.9 健康检查
   </a>
   
 </li>
@@ -3169,7 +3169,7 @@ root@leco:/usr/local/redis# vim redis1/etc/redis.conf
 root@leco:/usr/local/redis# cat redis1/etc/redis.conf
 </pre></div>
 
-<h3 id="221-master">2.2.1 master配置<a class="headerlink" href="#221-master" title="Permanent link">&para;</a></h3>
+<h3 id="23-master">2.3 master配置<a class="headerlink" href="#23-master" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>root@leco:/usr/local/redis# cat redis1/etc/redis.conf
 daemonize yes
 pidfile &quot;/usr/local/redis/redis1/log/redis.pid&quot;
@@ -3189,7 +3189,7 @@ appendfsync always
 bind 0.0.0.0
 </pre></div>
 
-<h3 id="222-slave">2.2.2 slave配置<a class="headerlink" href="#222-slave" title="Permanent link">&para;</a></h3>
+<h3 id="24-slave">2.4 slave配置<a class="headerlink" href="#24-slave" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>root@leco:/usr/local/redis# cat redis2/etc/redis.conf
 daemonize yes
 pidfile &quot;/usr/local/redis/redis1/log/redis.pid&quot;
@@ -3224,7 +3224,7 @@ OK
 </pre></div>
 
 </details>
-<h3 id="223">2.2.3 启动<a class="headerlink" href="#223" title="Permanent link">&para;</a></h3>
+<h3 id="25">2.5 启动<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>root@leco:/usr/local/redis# redis-server /usr/local/redis/redis1/etc/redis.conf
 root@leco:/usr/local/redis# redis-server /usr/local/redis/redis2/etc/redis.conf
 root@leco:/usr/local/redis# ps axf|egrep &#39;8379|8380&#39; | grep -v grep
@@ -3232,7 +3232,7 @@ root@leco:/usr/local/redis# ps axf|egrep &#39;8379|8380&#39; | grep -v grep
  6663 ?        Ssl    0:00 redis-server 0.0.0.0:8380
 </pre></div>
 
-<h3 id="224">2.2.4 检查主从<a class="headerlink" href="#224" title="Permanent link">&para;</a></h3>
+<h3 id="26">2.6 检查主从<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>root@leco:/usr/local/redis# redis-cli -p 8379
 127.0.0.1:8379&gt; keys *
 (empty list or set)
@@ -3344,7 +3344,7 @@ cluster_enabled:0
 db0:keys=1,expires=0,avg_ttl=0
 </pre></div>
 
-<h3 id="225-slave">2.2.5 查看slave<a class="headerlink" href="#225-slave" title="Permanent link">&para;</a></h3>
+<h3 id="27-slave">2.7 查看slave<a class="headerlink" href="#27-slave" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>127.0.0.1:8379&gt;  INFO replication
 # Replication
 role:master
@@ -3357,7 +3357,7 @@ repl_backlog_first_byte_offset:2
 repl_backlog_histlen:307
 </pre></div>
 
-<h2 id="23">2.3 手动切换身份<a class="headerlink" href="#23" title="Permanent link">&para;</a></h2>
+<h2 id="28">2.8 手动切换身份<a class="headerlink" href="#28" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>root@leco:/usr/local/redis# redis-cli -p 8380
 127.0.0.1:8380&gt; info
 # Server
@@ -3562,7 +3562,7 @@ db0:keys=1,expires=0,avg_ttl=0
 127.0.0.1:8380&gt;
 </pre></div>
 
-<h2 id="24">2.4 健康检查<a class="headerlink" href="#24" title="Permanent link">&para;</a></h2>
+<h2 id="29">2.9 健康检查<a class="headerlink" href="#29" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>127.0.0.1:8380&gt; slaveof localhost 8379
 OK
 127.0.0.1:8380&gt; MONITOR
