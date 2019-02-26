@@ -1670,22 +1670,22 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#28" title="2.8 手动切换身份" class="md-nav__link">
     2.8 手动切换身份
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#29" title="2.9 健康检查" class="md-nav__link">
     2.9 健康检查
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3105,22 +3105,22 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#28" title="2.8 手动切换身份" class="md-nav__link">
     2.8 手动切换身份
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#29" title="2.9 健康检查" class="md-nav__link">
     2.9 健康检查
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3357,7 +3357,7 @@ repl_backlog_first_byte_offset:2
 repl_backlog_histlen:307
 </pre></div>
 
-<h2 id="28">2.8 手动切换身份<a class="headerlink" href="#28" title="Permanent link">&para;</a></h2>
+<h3 id="28">2.8 手动切换身份<a class="headerlink" href="#28" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>root@leco:/usr/local/redis# redis-cli -p 8380
 127.0.0.1:8380&gt; info
 # Server
@@ -3562,7 +3562,7 @@ db0:keys=1,expires=0,avg_ttl=0
 127.0.0.1:8380&gt;
 </pre></div>
 
-<h2 id="29">2.9 健康检查<a class="headerlink" href="#29" title="Permanent link">&para;</a></h2>
+<h3 id="29">2.9 健康检查<a class="headerlink" href="#29" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>127.0.0.1:8380&gt; slaveof localhost 8379
 OK
 127.0.0.1:8380&gt; MONITOR
@@ -3574,6 +3574,13 @@ root@leco:/usr/local/redis# redis-cli -p 8380
 127.0.0.1:8380&gt; ping
 PONG
 </pre></div>
+
+<div class="admonition info">
+<p class="admonition-title">注意</p>
+<div class="codehilite"><pre><span></span><span class="err">以上配置</span><span class="n">master主从是单个机器上启动的多少实例</span><span class="err">，多机主从，类似，配置文件稍微修改。</span>
+</pre></div>
+
+</div>
                 
                   
                 
