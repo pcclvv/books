@@ -3210,13 +3210,10 @@ bind 0.0.0.0
 slaveof 172.17.0.2 8379 
 </pre></div>
 
-<div class="codehilite"><pre><span></span>127.0.0.1:8380&gt; slaveof localhost 8379
-OK
-</pre></div>
-
 <div class="admonition note">
-<p class="admonition-title">手动配置从</p>
-<div class="codehilite"><pre><span></span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">8380</span><span class="o">&gt;</span> <span class="n">slaveof</span> <span class="n">localhost</span> <span class="mi">6380</span>
+<p class="admonition-title">手动配置主</p>
+<div class="codehilite"><pre><span></span><span class="err">在从上配置要同步的主</span>
+<span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">8380</span><span class="o">&gt;</span> <span class="n">slaveof</span> <span class="n">localhost</span> <span class="mi">6380</span>
 </pre></div>
 
 </div>
@@ -3345,6 +3342,7 @@ db0:keys=1,expires=0,avg_ttl=0
 </pre></div>
 
 <h3 id="27-slave">2.7 查看slave<a class="headerlink" href="#27-slave" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;在主上执行 info repliaction
 <div class="codehilite"><pre><span></span>127.0.0.1:8379&gt;  INFO replication
 # Replication
 role:master
@@ -3355,9 +3353,9 @@ repl_backlog_active:1
 repl_backlog_size:1048576
 repl_backlog_first_byte_offset:2
 repl_backlog_histlen:307
-</pre></div>
-
+</pre></div></p>
 <h3 id="28">2.8 手动切换身份<a class="headerlink" href="#28" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;Master不可用的情况下，停止Master，将Slave的设定无效化后，Slave升级为Master
 <div class="codehilite"><pre><span></span>root@leco:/usr/local/redis# redis-cli -p 8380
 127.0.0.1:8380&gt; info
 # Server
@@ -3560,21 +3558,22 @@ cluster_enabled:0
 # Keyspace
 db0:keys=1,expires=0,avg_ttl=0
 127.0.0.1:8380&gt;
-</pre></div>
-
+</pre></div></p>
 <h3 id="29">2.9 健康检查<a class="headerlink" href="#29" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160; Slave按照repl-ping-slave-period的间隔（默认10秒），向Master发送ping。</p>
+<p>&#160; &#160; &#160; &#160;如果主从间的链接中断后，再次连接的时候，2.8以前按照full sync再同期。2.8以后，因为有backlog的设定，backlog存在master的内存里，重新连接之前，如果redis没有重启，并且offset在backlog保存的范围内，可以实现从断开地方同期，不符合这个条件，还是full sync</p>
+<p>&#160; &#160; &#160; &#160; 用monitor命令，可以看到slave在发送ping
 <div class="codehilite"><pre><span></span>127.0.0.1:8380&gt; slaveof localhost 8379
 OK
 127.0.0.1:8380&gt; MONITOR
 OK
 1551153843.193225 [0 127.0.0.1:8379] &quot;PING&quot;
-
-或者
-root@leco:/usr/local/redis# redis-cli -p 8380
+</pre></div></p>
+<p>&#160; &#160; &#160; &#160; 用ping命令，可以看到slave在发送ping
+<div class="codehilite"><pre><span></span>root@leco:/usr/local/redis# redis-cli -p 8380
 127.0.0.1:8380&gt; ping
 PONG
-</pre></div>
-
+</pre></div></p>
 <div class="admonition info">
 <p class="admonition-title">注意</p>
 <div class="codehilite"><pre><span></span><span class="err">以上配置</span><span class="n">master主从是单个机器上启动的多少实例</span><span class="err">，多机主从，类似，配置文件稍微修改。</span>
