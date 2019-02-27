@@ -1429,6 +1429,67 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#12" title="1.2 删除语法" class="md-nav__link">
+    1.2 删除语法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 创建操作" class="md-nav__link">
+    2. 创建操作
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" title="2.1 创建集合" class="md-nav__link">
+    2.1 创建集合
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" title="2.2 查看集合" class="md-nav__link">
+    2.2 查看集合
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" title="2.4 自动创建" class="md-nav__link">
+    2.4 自动创建
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" title="3. 删除操作" class="md-nav__link">
+    3. 删除操作
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" title="3.1 删除集合" class="md-nav__link">
+    3.1 删除集合
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3065,6 +3126,67 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#12" title="1.2 删除语法" class="md-nav__link">
+    1.2 删除语法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 创建操作" class="md-nav__link">
+    2. 创建操作
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" title="2.1 创建集合" class="md-nav__link">
+    2.1 创建集合
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" title="2.2 查看集合" class="md-nav__link">
+    2.2 查看集合
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" title="2.4 自动创建" class="md-nav__link">
+    2.4 自动创建
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" title="3. 删除操作" class="md-nav__link">
+    3. 删除操作
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" title="3.1 删除集合" class="md-nav__link">
+    3.1 删除集合
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3100,22 +3222,80 @@
 <p class="admonition-title">参数说明</p>
 <div class="codehilite"><pre><span></span><span class="n">name</span><span class="p">:</span>    <span class="err">要创建的集合名称</span>
 <span class="n">options</span><span class="p">:</span> <span class="err">可选参数</span><span class="p">,</span> <span class="err">指定有关内存大小及索引的选项</span>
-
-<span class="n">options</span> <span class="err">可以是如下参数：</span>
-
-<span class="err">字段</span> <span class="o">|</span> <span class="err">类型</span> <span class="o">|</span> <span class="err">描述</span>
-<span class="o">---|---</span>
-
-<span class="n">capped</span><span class="o">|</span> <span class="err">布尔</span><span class="o">|</span> <span class="err">（可选）如果为</span> <span class="n">true</span><span class="err">，则创建固定集合。固定集合是指有着固定大小的集合，当达到最大值时，它会自动覆盖最早的文档。</span>
-<span class="err">当该值为</span> <span class="n">true</span> <span class="err">时，必须指定</span> <span class="n">size</span> <span class="err">参数。</span>
-<span class="n">autoIndexId</span> <span class="o">|</span><span class="err">布尔</span><span class="o">|</span>    <span class="err">（可选）如为</span> <span class="n">true</span><span class="err">，自动在</span> <span class="n">_id</span> <span class="err">字段创建索引。默认为</span> <span class="n">false</span><span class="err">。</span>
-<span class="n">size</span><span class="o">|</span>   <span class="err">数值</span><span class="o">|</span> <span class="err">（可选）为固定集合指定一个最大值（以字节计）。</span>
-<span class="err">如果</span> <span class="n">capped</span> <span class="err">为</span> <span class="n">true</span><span class="err">，也需要指定该字段。</span>
-<span class="nb">max</span> <span class="o">|</span><span class="err">数值</span> <span class="o">|</span><span class="err">（可选）指定固定集合中包含文档的最大数量。</span>
-<span class="err">在插入文档时，</span><span class="n">MongoDB</span> <span class="err">首先检查固定集合的</span> <span class="n">size</span> <span class="err">字段，然后检查</span> <span class="nb">max</span> <span class="err">字段。</span>
 </pre></div>
 
 </div>
+<p>options 可以是如下参数：
+字段 | 类型 | 描述
+---|---
+capped| 布尔| （可选）如果为 true，则创建固定集合。固定集合是指有着固定大小的集合，当达到最大值时，它会自动覆盖最早的文档。
+当该值为 true 时，必须指定 size 参数。
+autoIndexId |布尔|    （可选）如为 true，自动在 _id 字段创建索引。默认为 false。
+size|   数值| （可选）为固定集合指定一个最大值（以字节计）。
+如果 capped 为 true，也需要指定该字段。
+max |数值 |（可选）指定固定集合中包含文档的最大数量。
+在插入文档时，MongoDB 首先检查固定集合的 size 字段，然后检查 max 字段。</p>
+<h3 id="12">1.2 删除语法<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;MongoDB 中使用 drop() 方法来删除集合。</p>
+<p><div class="codehilite"><pre><span></span>db.collection.drop()
+</pre></div>
+&#160; &#160; &#160; &#160;如果成功删除选定集合，则 drop() 方法返回 true，否则返回 false。</p>
+<h2 id="2">2. 创建操作<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 创建集合<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;在 cmz 数据库中创建 col 集合：</p>
+<div class="codehilite"><pre><span></span>&gt; show dbs;
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+&gt; use cmz;
+switched to db cmz
+&gt; db.test.insert({&quot;name&quot;:&quot;caimengzhi&quot;})
+WriteResult({ &quot;nInserted&quot; : 1 })
+&gt; db.createCollection(&#39;col&#39;)
+{ &quot;ok&quot; : 1 }
+&gt; show dbs;
+admin   0.000GB
+cmz     0.000GB
+config  0.000GB
+local   0.000GB
+</pre></div>
+
+<h3 id="22">2.2 查看集合<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;在 cmz 数据库中创建 col 集合：
+如果要查看已有集合，可以使用 show collections 命令：</p>
+<div class="codehilite"><pre><span></span>&gt; show collections
+col
+test
+&gt; show tables;
+col
+test
+</pre></div>
+
+<h3 id="24">2.4 自动创建<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;在 MongoDB 中，你不需要创建集合。当你插入一些文档时，MongoDB 会自动创建集合。
+<div class="codehilite"><pre><span></span>&gt; db.col2.insert({&quot;name&quot;:&quot;caimengzhi&quot;})
+WriteResult({ &quot;nInserted&quot; : 1 })
+&gt; show tables
+col
+col2
+test
+</pre></div></p>
+<h2 id="3">3. 删除操作<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 删除集合<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;在数据库 mydb 中，我们可以先通过 show collections 命令查看已存在的集合：</p>
+<p><div class="codehilite"><pre><span></span>&gt; use cmz
+switched to db cmz
+&gt; show tables;
+col
+col2
+test
+&gt; db.col2.drop()
+true
+&gt; show tables
+col
+test
+</pre></div>
+从结果中可以看出 col2 集合已被删除。</p>
                 
                   
                 
