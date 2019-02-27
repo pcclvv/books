@@ -3225,16 +3225,53 @@
 </pre></div>
 
 </div>
-<p>options 可以是如下参数：
-字段 | 类型 | 描述
----|---|---
-capped| 布尔| （可选）如果为 true，则创建固定集合。固定集合是指有着固定大小的集合，当达到最大值时，它会自动覆盖最早的文档。
-当该值为 true 时，必须指定 size 参数。
-autoIndexId |布尔|    （可选）如为 true，自动在 _id 字段创建索引。默认为 false。
-size|   数值| （可选）为固定集合指定一个最大值（以字节计）。
-如果 capped 为 true，也需要指定该字段。
-max |数值 |（可选）指定固定集合中包含文档的最大数量。
-在插入文档时，MongoDB 首先检查固定集合的 size 字段，然后检查 max 字段。</p>
+<p>&#160; &#160; &#160; &#160;options 可以是如下参数：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>capped</td>
+<td>布尔</td>
+<td>（可选）如果为 true，则创建固定集合。固定集合是指有着固定大小的集合，当达到最大值时，它会自动覆盖最早的文档。</td>
+</tr>
+<tr>
+<td>当该值为 true 时，必须指定 size 参数。</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>autoIndexId</td>
+<td>布尔</td>
+<td>（可选）如为 true，自动在 _id 字段创建索引。默认为 false。</td>
+</tr>
+<tr>
+<td>size</td>
+<td>数值</td>
+<td>（可选）为固定集合指定一个最大值（以字节计）。</td>
+</tr>
+<tr>
+<td>如果 capped 为 true，也需要指定该字段。</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>max</td>
+<td>数值</td>
+<td>（可选）指定固定集合中包含文档的最大数量。</td>
+</tr>
+<tr>
+<td>在插入文档时，MongoDB 首先检查固定集合的 size 字段，然后检查 max 字段。</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h3 id="12">1.2 删除语法<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
 <p>&#160; &#160; &#160; &#160;MongoDB 中使用 drop() 方法来删除集合。</p>
 <p><div class="codehilite"><pre><span></span>db.collection.drop()
