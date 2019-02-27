@@ -3258,26 +3258,32 @@ insert query update delete getmore command dirty used flushes vsize   res qrw ar
     *0    *0     *0     *0       0     1|0  0.0% 0.0%       0 1.00G 43.0M 0|0 1|0   157b   62.1k    5 Feb 27 13:58:36.473
 </pre></div>
 
+<div class="admonition tip">
+<p class="admonition-title">参数说明</p>
+<div class="codehilite"><pre><span></span><span class="n">insert</span> <span class="err">每秒插入量</span>
+<span class="n">query</span> <span class="err">每秒查询量</span>
+<span class="n">update</span> <span class="err">每秒更新量</span>
+<span class="n">delete</span> <span class="err">每秒删除量</span>
+<span class="n">conn</span> <span class="err">当前连接数</span>
+<span class="n">qr</span><span class="o">|</span><span class="n">qw</span> <span class="err">客户端查询排队长度（读</span><span class="o">|</span><span class="err">写）最好为</span><span class="mi">0</span><span class="err">，如果有堆积，数据库处理慢。</span>
+<span class="n">ar</span><span class="o">|</span><span class="n">aw</span> <span class="err">活跃客户端数量（读</span><span class="o">|</span><span class="err">写）</span>
+<span class="n">time</span> <span class="err">当前时间</span>
+</pre></div>
+
+</div>
 <h2 id="3-mongotop">3. mongotop 命令<a class="headerlink" href="#3-mongotop" title="Permanent link">&para;</a></h2>
 <h3 id="31">3.1 不带参数<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
 <p>&#160; &#160; &#160; &#160;mongotop也是mongodb下的一个内置工具，mongotop提供了一个方法，用来跟踪一个MongoDB的实例，查看哪些大量的时间花费在读取和写入数据。 mongotop提供每个集合的水平的统计数据。默认情况下，mongotop返回值的每一秒。</p>
 <p>&#160; &#160; &#160; &#160;启动你的Mongod服务,然后输入mongotop命令，如下所示：</p>
-<div class="codehilite"><pre><span></span>[root@leco ~]# mongotop
-2019-02-27T13:59:52.914+0800    connected to: 127.0.0.1
-
-                    ns    total    read    write    2019-02-27T13:59:53+08:00
-  admin.$cmd.aggregate      0ms     0ms      0ms
-    admin.system.roles      0ms     0ms      0ms
-  admin.system.version      0ms     0ms      0ms
-               cmz.col      0ms     0ms      0ms
-              cmz.col2      0ms     0ms      0ms
-              cmz.col3      0ms     0ms      0ms
-              cmz.test      0ms     0ms      0ms
-config.system.sessions      0ms     0ms      0ms
-     local.startup_log      0ms     0ms      0ms
-  local.system.replset      0ms     0ms      0ms
+<div class="admonition tip">
+<p class="admonition-title">参数说明</p>
+<div class="codehilite"><pre><span></span><span class="n">ns</span>   <span class="err">：</span> <span class="err">数据库命名空间，后者结合了数据库名称和集合。</span>
+<span class="n">total</span><span class="err">：</span> <span class="n">mongod在这个命令空间上花费的总时间</span><span class="err">。</span>
+<span class="n">read</span> <span class="err">：</span> <span class="err">在这个命令空间上</span><span class="n">mongod执行读操作花费的时间</span><span class="err">。</span>
+<span class="n">write</span><span class="err">：</span> <span class="err">在这个命名空间上</span><span class="n">mongod进行写操作花费的时间</span><span class="err">。</span>
 </pre></div>
 
+</div>
 <h3 id="32">3.2 带参数<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
 <p><div class="codehilite"><pre><span></span>[root@leco ~]# mongotop 10
 2019-02-27T14:00:54.803+0800    connected to: 127.0.0.1
