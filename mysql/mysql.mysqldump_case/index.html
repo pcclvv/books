@@ -1899,6 +1899,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#3" title="3. 优缺点" class="md-nav__link">
+    3. 优缺点
+  </a>
+  
+</li>
+      
       
       
       
@@ -3500,6 +3507,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#3" title="3. 优缺点" class="md-nav__link">
+    3. 优缺点
+  </a>
+  
+</li>
+      
       
       
       
@@ -3593,6 +3607,21 @@ cmz_2019-02-28
 <div class="codehilite"><pre><span></span>root@leco:/opt/bin# crontab -l | grep mysql_table
 0    0   *   *   *    /bin/bash  /opt/bin/mysql_table.sh  &gt;/dev/null 2&gt;&amp;1
 </pre></div>
+
+<h2 id="3">3. 优缺点<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">比较</p>
+<div class="codehilite"><pre><span></span><span class="mf">1.</span> <span class="err">优点：</span>
+  <span class="err">恢复简单，可以使用管道将他们输入到</span><span class="n">mysql</span>
+  <span class="err">与存储引擎无关，因为是从</span><span class="n">MySQL服务器中提取数据而生成的</span><span class="err">，所以消除了底层数据存储的不同</span>
+  <span class="err">有助于避免数据损坏。若磁盘驱动器有故障而要复制原始文件时，此时将得到一个损坏的备份</span>
+
+<span class="mf">2.</span> <span class="err">缺点：</span>
+  <span class="err">必须有数据库服务器完成逻辑工作，需要更多地</span><span class="n">cpu周期</span>
+  <span class="err">逻辑备份还原速度慢：需要</span><span class="n">MySQL加载和解释语句</span><span class="err">、转化存储格式、重建引擎</span>
+</pre></div>
+
+</div>
                 
                   
                 
