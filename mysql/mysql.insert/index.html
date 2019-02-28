@@ -40,7 +40,7 @@
     
     
       
-        <title>9. SQL delete - 笔记</title>
+        <title>15. SQL INSERT - 笔记</title>
       
     
     
@@ -132,7 +132,7 @@
                 笔记
               </span>
               <span class="md-header-nav__topic">
-                9. SQL delete
+                15. SQL INSERT
               </span>
             
           
@@ -1624,92 +1624,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        9. SQL delete
-      </label>
-    
-    <a href="./" title="9. SQL delete" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../mysql.delete/" title="9. SQL delete" class="md-nav__link">
       9. SQL delete
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" title="1. 介绍" class="md-nav__link">
-    1. 介绍
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-delete" title="2. delete 用法" class="md-nav__link">
-    2. delete 用法
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" title="2.1 删除部分" class="md-nav__link">
-    2.1 删除部分
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22" title="2.2 清空表" class="md-nav__link">
-    2.2 清空表
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#221-delete" title="2.2.1 delete" class="md-nav__link">
-    2.2.1 delete
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#222-truncate" title="2.2.2  truncate" class="md-nav__link">
-    2.2.2  truncate
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1777,11 +1696,85 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../mysql.insert/" title="15. SQL INSERT" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        15. SQL INSERT
+      </label>
+    
+    <a href="./" title="15. SQL INSERT" class="md-nav__link md-nav__link--active">
       15. SQL INSERT
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 介绍" class="md-nav__link">
+    1. 介绍
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" title="1.1 环境准备" class="md-nav__link">
+    1.1 环境准备
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 开始" class="md-nav__link">
+    2. 开始
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" title="2.1 语法" class="md-nav__link">
+    2.1 语法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" title="2.2 操作" class="md-nav__link">
+    2.2 操作
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -3385,47 +3378,40 @@
     1. 介绍
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-delete" title="2. delete 用法" class="md-nav__link">
-    2. delete 用法
-  </a>
-  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21" title="2.1 删除部分" class="md-nav__link">
-    2.1 删除部分
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22" title="2.2 清空表" class="md-nav__link">
-    2.2 清空表
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#221-delete" title="2.2.1 delete" class="md-nav__link">
-    2.2.1 delete
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#222-truncate" title="2.2.2  truncate" class="md-nav__link">
-    2.2.2  truncate
+  <a href="#11" title="1.1 环境准备" class="md-nav__link">
+    1.1 环境准备
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 开始" class="md-nav__link">
+    2. 开始
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" title="2.1 语法" class="md-nav__link">
+    2.1 语法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" title="2.2 操作" class="md-nav__link">
+    2.2 操作
+  </a>
   
 </li>
         
@@ -3450,135 +3436,69 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/caimengzhi/books/edit/master/docs/mysql/mysql.delete.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/caimengzhi/books/edit/master/docs/mysql/mysql.insert.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <p><center><h1> MySQL delete </h1></center></p>
+                <p><center><h1> MySQL INSERT </h1></center></p>
 <h2 id="1">1. 介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>&#160; &#160; &#160; &#160;你可以使用 SQL 的 DELETE FROM 命令来==删除 MySQL 数据表中的记录==。</p>
-<p>&#160; &#160; &#160; &#160;你可以在 mysql&gt; 命令提示符执行该命令。以下是 SQL DELETE 语句从 MySQL 数据表中删除数据的通用语法：</p>
-<div class="codehilite"><pre><span></span>DELETE FROM table_name [WHERE Clause]
-</pre></div>
+<h3 id="11">1.1 环境准备<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>mysql&gt; drop table info;
+Query OK, 0 rows affected (0.02 sec)
 
-<ul>
-<li>如果没有指定 WHERE 子句，MySQL 表中的所有记录将被删除。</li>
-<li>你可以在 WHERE 子句中指定任何条件</li>
-<li>您可以在单个表中一次性删除记录。</li>
-</ul>
-<blockquote>
-<p>当你想删除数据表中指定的记录时 WHERE 子句是非常有用的。</p>
-</blockquote>
-<details class="danger"><summary>注意</summary><div class="codehilite"><pre><span></span><span class="err">删除表格中的记录时要小心！</span>
-<span class="err">注意</span><span class="n">SQL</span> <span class="n">DELETE</span> <span class="err">语句中的</span> <span class="n">WHERE</span> <span class="err">子句！</span>
-<span class="n">WHERE子句指定需要删除哪些记录</span><span class="err">。如果省略了</span><span class="n">WHERE子句</span><span class="err">，表中所有记录都将被删除！</span>
-</pre></div>
+mysql&gt; create table info(
+    -&gt; id int not null,
+    -&gt; name varchar(20),
+    -&gt; age int not null,
+    -&gt; score int not null
+    -&gt; );
+Query OK, 0 rows affected (0.05 sec)
 
-</details>
-<h2 id="2-delete">2. delete 用法<a class="headerlink" href="#2-delete" title="Permanent link">&para;</a></h2>
-<p>&#160; &#160; &#160; &#160;delete 语句用于从表中删除数据。</p>
-<h3 id="21">2.1 删除部分<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
-<p>快捷命令</p>
-<p><div class="codehilite"><pre><span></span>select * from leco;
-delete from leco where id=1;
-select * from leco;
-delete from leco where name = &quot;赵六&quot;;
-select * from leco;
-</pre></div>
-操作过程</p>
-<div class="codehilite"><pre><span></span>mysql&gt; select * from leco;
-+------+--------+--------+------+
-| id   | name   | sex    | age  |
-+------+--------+--------+------+
-|    1 | 张三   | female |   20 |
-|    2 | 李四   | male   |   20 |
-|    3 | 王五   | male   |   20 |
-|    4 | 赵六   | female |   20 |
-+------+--------+--------+------+
+mysql&gt; desc info;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | NO   |     | NULL    |       |
+| name  | varchar(20) | YES  |     | NULL    |       |
+| age   | int(11)     | NO   |     | NULL    |       |
+| score | int(11)     | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
 4 rows in set (0.00 sec)
 
-mysql&gt; delete from leco where id=1;
-Query OK, 1 row affected (0.01 sec)
-
-mysql&gt; select * from leco;
-+------+--------+--------+------+
-| id   | name   | sex    | age  |
-+------+--------+--------+------+
-|    2 | 李四   | male   |   20 |
-|    3 | 王五   | male   |   20 |
-|    4 | 赵六   | female |   20 |
-+------+--------+--------+------+
-3 rows in set (0.00 sec)
-
-mysql&gt; delete from leco where name = &quot;赵六&quot;;
-Query OK, 1 row affected (0.00 sec)
-
-mysql&gt; select * from leco;
-+------+--------+------+------+
-| id   | name   | sex  | age  |
-+------+--------+------+------+
-|    2 | 李四   | male |   20 |
-|    3 | 王五   | male |   20 |
-+------+--------+------+------+
-2 rows in set (0.00 sec)
-</pre></div>
-
-<h3 id="22">2.2 清空表<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
-<h4 id="221-delete">2.2.1 delete<a class="headerlink" href="#221-delete" title="Permanent link">&para;</a></h4>
-<p>快捷命令
-<div class="codehilite"><pre><span></span>insert into leco(id,name,sex,age) values(1,&quot;张三&quot;,&quot;female&quot;,18);
-insert into leco(id,name,sex,age) values(2,&quot;李四&quot;,&quot;male&quot;,20);
-insert into leco(id,name,sex,age) values(3,&quot;王五&quot;,&quot;male&quot;,30);
-insert into leco(id,name,sex,age) values(4,&quot;赵六&quot;,&quot;female&quot;,40);
-delete from leco;
-</pre></div>
-操作过程
-<div class="codehilite"><pre><span></span>mysql&gt; select * from leco;
-+------+--------+------+------+
-| id   | name   | sex  | age  |
-+------+--------+------+------+
-|    2 | 李四   | male |   20 |
-|    3 | 王五   | male |   20 |
-+------+--------+------+------+
-2 rows in set (0.00 sec)
-
-mysql&gt; delete from leco;
-Query OK, 2 rows affected (0.00 sec)
-
-mysql&gt; select * from leco;
+mysql&gt; select * from info;
 Empty set (0.00 sec)
+</pre></div>
+
+<h2 id="2">2. 开始<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 语法<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;INSERT INTO 语句用于向表格中插入新的行</p>
+<p><div class="codehilite"><pre><span></span>INSERT INTO table_name (列1, 列2,...) VALUES (值1, 值2,....)
+</pre></div>
+或者
+<div class="codehilite"><pre><span></span>INSERT INTO table_name VALUES (值1, 值2,....)
 </pre></div></p>
-<h4 id="222-truncate">2.2.2  truncate<a class="headerlink" href="#222-truncate" title="Permanent link">&para;</a></h4>
-<p><div class="codehilite"><pre><span></span>truncate table_name;
-</pre></div>
-例子</p>
-<div class="codehilite"><pre><span></span>mysql&gt; insert into leco(id,name,sex,age) values(1,&quot;张三&quot;,&quot;female&quot;,18);
+<h3 id="22">2.2 操作<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>mysql&gt; insert into info(id,name,age,score) values(1,&quot;张三&quot;,18,80);
 Query OK, 1 row affected (0.00 sec)
 
-mysql&gt; insert into leco(id,name,sex,age) values(2,&quot;李四&quot;,&quot;male&quot;,20);
+mysql&gt; select * from info;
++----+--------+-----+-------+
+| id | name   | age | score |
++----+--------+-----+-------+
+|  1 | 张三   |  18 |    80 |
++----+--------+-----+-------+
+1 row in set (0.00 sec)
+
+mysql&gt; insert into info values(2,&quot;李四&quot;,20,55);
 Query OK, 1 row affected (0.01 sec)
 
-mysql&gt; insert into leco(id,name,sex,age) values(3,&quot;王五&quot;,&quot;male&quot;,30);
-Query OK, 1 row affected (0.03 sec)
-
-mysql&gt; insert into leco(id,name,sex,age) values(4,&quot;赵六&quot;,&quot;female&quot;,40);
-Query OK, 1 row affected (0.01 sec)
-
-mysql&gt; select * from leco;
-+------+--------+--------+------+
-| id   | name   | sex    | age  |
-+------+--------+--------+------+
-|    1 | 张三   | female |   18 |
-|    2 | 李四   | male   |   20 |
-|    3 | 王五   | male   |   30 |
-|    4 | 赵六   | female |   40 |
-+------+--------+--------+------+
-4 rows in set (0.00 sec)
-
-mysql&gt; truncate leco;
-Query OK, 0 rows affected (0.04 sec)
-
-mysql&gt; select * from leco;
-Empty set (0.00 sec)
+mysql&gt; select * from info;
++----+--------+-----+-------+
+| id | name   | age | score |
++----+--------+-----+-------+
+|  1 | 张三   |  18 |    80 |
+|  2 | 李四   |  20 |    55 |
++----+--------+-----+-------+
+2 rows in set (0.00 sec)
 </pre></div>
                 
                   
@@ -3600,7 +3520,7 @@ Empty set (0.00 sec)
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../mysql.update/" title="8. SQL update" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../mysql.orderby/" title="14. SQL ORDER" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -3609,19 +3529,19 @@ Empty set (0.00 sec)
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                8. SQL update
+                14. SQL ORDER
               </span>
             </div>
           </a>
         
         
-          <a href="../mysql.like/" title="10. SQL like" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../frontend/vue/" title="Vue" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                10. SQL like
+                Vue
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
