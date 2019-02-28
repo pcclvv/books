@@ -40,7 +40,7 @@
     
     
       
-        <title>10. SQL delete - 笔记</title>
+        <title>10. SQL like - 笔记</title>
       
     
     
@@ -132,7 +132,7 @@
                 笔记
               </span>
               <span class="md-header-nav__topic">
-                10. SQL delete
+                10. SQL like
               </span>
             
           
@@ -1645,11 +1645,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        10. SQL delete
+        10. SQL like
       </label>
     
-    <a href="./" title="10. SQL delete" class="md-nav__link md-nav__link--active">
-      10. SQL delete
+    <a href="./" title="10. SQL like" class="md-nav__link md-nav__link--active">
+      10. SQL like
     </a>
     
       
@@ -3514,15 +3514,45 @@ mysql&gt; select * from leco where name like &#39;张三%&#39;;
 
 <h2 id="3">3. 匹配<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <h3 id="31">3.1 匹配位<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
-<p>like 匹配/模糊匹配，会与 % 和 _ 结合使用。</p>
-<ul>
-<li>'%a'     //以a结尾的数据</li>
-<li>'a%'     //以a开头的数据</li>
-<li>'%a%'    //含有a的数据</li>
-<li>'<em>a</em>'    //三位且中间字母是a的</li>
-<li>'_a'     //两位且结尾字母是a的</li>
-<li>'a_'     //两位且开头字母是a的</li>
-</ul>
+<p>&#160; &#160; &#160; &#160; like 匹配/模糊匹配，会与 % 和 _ 结合使用。</p>
+<div class="codehilite"><pre><span></span>％ - 百分号表示零个，一个或多个字符
+_ - 下划线表示单个字符
+</pre></div>
+
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>'%a'</td>
+<td>以a结尾的数据</td>
+</tr>
+<tr>
+<td>'a%'</td>
+<td>以a开头的数据</td>
+</tr>
+<tr>
+<td>'%a%'</td>
+<td>含有a的数据</td>
+</tr>
+<tr>
+<td>'<em>a</em>'</td>
+<td>三位且中间字母是a的</td>
+</tr>
+<tr>
+<td>'_a'</td>
+<td>两位且结尾字母是a的</td>
+</tr>
+<tr>
+<td>'a_'</td>
+<td>两位且开头字母是a的</td>
+</tr>
+</tbody>
+</table>
 <h3 id="32">3.2 例子<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>查询以 张三 字段开头的信息。
 SELECT * FROM leco WHERE name LIKE &#39;张三%&#39;;
