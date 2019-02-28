@@ -182,7 +182,7 @@ nav:
             - 1. mysqldump 参数: mysql/mysql.mysqldump.md
             - 2. mysqldump 脚本: mysql/mysql.mysqldump_case.md
             - 2. xtrabackup: linux/server/xtrabackup/xtrabackup.index.md
-        - 4. MySQL 主从:
+        - 4. MySQL 复制:
             - 1. 主从: mysql/mysql.master-slave.md
             - 2. 主主: mysql/mysql.master-master.md
             
