@@ -1590,8 +1590,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../mysql.select/" title="6. SQL select" class="md-nav__link">
-      6. SQL select
+    <a href="../mysql.select/" title="6. SQL SELECT" class="md-nav__link">
+      6. SQL SELECT
     </a>
   </li>
 
@@ -1602,8 +1602,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../mysql.where/" title="7. SQL where" class="md-nav__link">
-      7. SQL where
+    <a href="../mysql.where/" title="7. SQL WHERE" class="md-nav__link">
+      7. SQL WHERE
     </a>
   </li>
 
@@ -1614,8 +1614,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../mysql.update/" title="8. SQL update" class="md-nav__link">
-      8. SQL update
+    <a href="../mysql.update/" title="8. SQL UPDATE" class="md-nav__link">
+      8. SQL UPDATE
     </a>
   </li>
 
@@ -1626,8 +1626,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../mysql.delete/" title="9. SQL delete" class="md-nav__link">
-      9. SQL delete
+    <a href="../mysql.delete/" title="9. SQL DELETE" class="md-nav__link">
+      9. SQL DELETE
     </a>
   </li>
 
@@ -1638,8 +1638,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../mysql.like/" title="10. SQL like" class="md-nav__link">
-      10. SQL like
+    <a href="../mysql.like/" title="10. SQL LIKE" class="md-nav__link">
+      10. SQL LIKE
     </a>
   </li>
 
@@ -1650,8 +1650,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../mysql.distinct/" title="11. SQL distinct" class="md-nav__link">
-      11. SQL distinct
+    <a href="../mysql.distinct/" title="11. SQL DISTINCT" class="md-nav__link">
+      11. SQL DISTINCT
     </a>
   </li>
 
@@ -1775,6 +1775,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../mysql.desc/" title="16. SQL DESC" class="md-nav__link">
+      16. SQL DESC
+    </a>
   </li>
 
         
@@ -3442,6 +3454,15 @@
                 <p><center><h1> MySQL INSERT </h1></center></p>
 <h2 id="1">1. 介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <h3 id="11">1.1 环境准备<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p><div class="codehilite"><pre><span></span>drop table info;
+create table info(
+id int not null,
+name varchar(20),
+age int not null,
+score int not null
+);
+</pre></div>
+操作过程
 <div class="codehilite"><pre><span></span>mysql&gt; drop table info;
 Query OK, 0 rows affected (0.02 sec)
 
@@ -3466,8 +3487,7 @@ mysql&gt; desc info;
 
 mysql&gt; select * from info;
 Empty set (0.00 sec)
-</pre></div>
-
+</pre></div></p>
 <h2 id="2">2. 开始<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <h3 id="21">2.1 语法<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
 <p>&#160; &#160; &#160; &#160;INSERT INTO 语句用于向表格中插入新的行</p>
@@ -3535,13 +3555,13 @@ mysql&gt; select * from info;
           </a>
         
         
-          <a href="../../frontend/vue/" title="Vue" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../mysql.desc/" title="16. SQL DESC" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                Vue
+                16. SQL DESC
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
