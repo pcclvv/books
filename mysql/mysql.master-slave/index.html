@@ -40,7 +40,7 @@
     
     
       
-        <title>1. 主从原理 - 笔记</title>
+        <title>1. 主从 - 笔记</title>
       
     
     
@@ -132,7 +132,7 @@
                 笔记
               </span>
               <span class="md-header-nav__topic">
-                1. 主从原理
+                1. 主从
               </span>
             
           
@@ -1918,11 +1918,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        1. 主从原理
+        1. 主从
       </label>
     
-    <a href="./" title="1. 主从原理" class="md-nav__link md-nav__link--active">
-      1. 主从原理
+    <a href="./" title="1. 主从" class="md-nav__link md-nav__link--active">
+      1. 主从
     </a>
     
       
@@ -2118,6 +2118,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../mysql.master-master/" title="2. 主主" class="md-nav__link">
+      2. 主主
+    </a>
   </li>
 
         
@@ -3903,6 +3915,7 @@
 <th>角色</th>
 <th>mysql版本号</th>
 <th>系统</th>
+<th>主机名</th>
 </tr>
 </thead>
 <tbody>
@@ -3911,12 +3924,14 @@
 <td>mysql master</td>
 <td>5.7</td>
 <td>ubuntu16</td>
+<td>leco</td>
 </tr>
 <tr>
 <td>192.168.2.148</td>
 <td>mysql slave</td>
 <td>5.7</td>
 <td>ubuntu16</td>
+<td>manage01</td>
 </tr>
 </tbody>
 </table>
@@ -4115,6 +4130,17 @@ No query specified
 <blockquote>
 <p>以上看到两个yes一般都是主从OK。</p>
 </blockquote>
+<p>&#160; &#160; &#160; &#160; 当Slave_IO_Running和Slave_SQL_Running都为YES的时候就表示主从同步设置成功了。接下来就可以进行一些验证了，比如在主master数据库的test数据库的一张表中插入一条数据，在slave的test库的相同数据表中查看是否有新增的数据即可验证主从复制功能是否有效，还可以关闭slave（mysql&gt;stop slave;）,然后再修改master，看slave是否也相应修改（停止slave后，master的修改不会同步到slave），就可以完成主从复制功能的验证了。</p>
+<p>&#160; &#160; &#160; &#160; 还可以用到的其他相关参数：master开启二进制日志后默认记录所有库所有表的操作，可以通过配置来指定只记录指定的数据库甚至指定的表的操作，具体在mysql配置文件的[mysqld]可添加修改如下选项：</p>
+<div class="codehilite"><pre><span></span># 不同步哪些数据库  
+binlog-ignore-db = mysql  
+binlog-ignore-db = test  
+binlog-ignore-db = information_schema  
+
+# 只同步哪些数据库，除此之外，其他不同步  
+binlog-do-db = game
+</pre></div>
+
 <h2 id="7">7. 测试<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
 <h3 id="71">7.1 主加数据<a class="headerlink" href="#71" title="Permanent link">&para;</a></h3>
 <p>&#160; &#160; &#160; &#160; 在主mysql上添加一些数据</p>
@@ -4219,13 +4245,13 @@ mysql&gt; select * from info;
           </a>
         
         
-          <a href="../../frontend/vue/" title="Vue" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../mysql.master-master/" title="2. 主主" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                Vue
+                2. 主主
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
