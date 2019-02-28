@@ -3553,15 +3553,16 @@ BETWEEN value1 AND value2
 +----+--------+-----+-------+
 5 rows in set (0.00 sec)
 
-mysql&gt; select * from info where age in (20,40);
+mysql&gt; select * from info where age between 20 and 40;
 +----+--------+-----+-------+
 | id | name   | age | score |
 +----+--------+-----+-------+
 |  2 | 张三   |  40 |    66 |
 |  3 | 李四   |  20 |    55 |
+|  4 | 王五   |  30 |    89 |
 |  5 | 赵六   |  40 |    77 |
 +----+--------+-----+-------+
-3 rows in set (0.00 sec)
+4 rows in set (0.00 sec)
 </pre></div></p>
                 
                   
