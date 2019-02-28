@@ -1,57 +1,43 @@
-# 基于mkdocs-material搭建个人静态博客(含支持的markdown语法)
 
-## **本文主题**
+<center><h1><font face="STCAIYUN">你该起飞了</font></h1></center>
 
----
+## 喜欢
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=825 height=86 src="//music.163.com/outchain/player?type=2&id=554242032&auto=1&height=66"></iframe>
 
-1. mkdocs-material入门，包括安装、运行、发布至github-pages及个人站点
+## 寄语
+&#160; &#160; &#160; &#160;常听人说，年轻就是资本，因为年轻，所以有无限的可能。这句话，我只同意一半。我一直觉得，年轻不是资本，年轻又努力才会成为资本。清楚自己想要的，然后一步一步接近目标，既有雄心万丈的抱负、水滴石穿的坚持，也要有不轻易服输的勇气和迎难而上的韧劲！
 
-2. markdown语法，包括传统语法和mkdocs-material支持的扩展语法
+![link](./pictures/index/p1.png)
 
-## **mkdocs-material是什么**
+&#160; &#160; &#160; &#160;一颗石榴种子的三种结局：放到花盆里栽种，最多只能长到半米多高！放到缸里栽种，就能够长到一米多高！放到庭院空地里栽种，就能够长到四五米高！大境界才能有大胸怀，大格局才大有作为！
 
----
+![link](./pictures/index/p2.png)
 
-符合google material ui规范的静态文档网站生成器，使用markdown进行文档书写
+&#160; &#160; &#160; &#160;如果你不能给自己一张耀眼的文凭、一段荡气回肠的爱情，那么，你还可以给自己一个九成九会遭到嘲笑的梦想。因为，总有一天，它会让你闪闪发光！
 
-**mkdocs**
+![link](./pictures/index/p3.png)
 
-- python编写的markdown解释器、编译器，带有本地cli工具
+&#160; &#160; &#160; &#160;用人品去感动别人，用改变去影响别人，用状态去燃烧别人，用行动去带动别人，用阳光去照耀别人，用坚持去赢得别人，要求自己每天都去做与目标有关的事情，哪怕每天只进步一点点，坚持下来你就是最优秀卓越的！不忘初心，方得始终！感恩一切！用爱做人，用心做事！
 
-- 自带基于Tornado的小型http服务，用于本地调试
+&#160; &#160; &#160; &#160;如果有一天，你的努力配得上你的梦想，那么你的梦想也绝对不会辜负你的努力。
 
-- 内置一键式发布至GitHub Pages
+![link](./pictures/index/p4.png)
 
-- 内置mkdocs风格、readthedocs风格的主题，并支持自定义主题
+&#160; &#160; &#160; &#160;鹰，没人鼓掌，也在飞翔。草，没人关注，也在成长。深山的野花，没人欣赏，也在芬芳。做事，不需要人人都理解，只需要尽心尽力。做人，不需要人人都喜欢，只需要坦坦荡荡。执着，注定有孤独与彷徨。就算遍体鳞伤，也要撑起坚强。人生一世,草木一秋。一辈子，并不长，既然来了，就要展现精彩，活得漂亮！
 
-- 支持调用python模块实现语法及渲染的扩展
+![link](./pictures/index/p5.png)
 
-**mkdocs-material**
+&#160; &#160; &#160; &#160;达到目标的最好办法，就是投入自己百分之百的时间和精力去完成它。
 
-- python模块，符合google material ui规范的mkdocs自定义主题
+![link](./pictures/index/p6.png)
 
-- 针对特定语法、功能做了渲染优化
+&#160; &#160; &#160; &#160;女人千万要工作，千万要独立，千万要自信。不要让阳台，灶台，成为你的人生舞台。不要让油味，烟味，成为你的女人味！
 
-- 根据客户端浏览器页面尺寸自动缩放，对PC、移动设备都友好
+![link](./pictures/index/p7.png)
 
-- 丰富的页面配色，多达19种主体配色和16种悬停链接文字配色
 
-最佳实践: 建议仅使用[mkdocs-material](http://squidfunk.github.io/mkdocs-material/)官网支持的语法、功能，这样不会有渲染方面的异常，除非自己对mkdocs、mkdocs-material、html、js、css有一定的了解。
+&#160; &#160; &#160; &#160;生活就是这样，脚长在自己身上，往前走就对了，直到向往的风景，变成走过的地方！
 
-本文所有阐述的语法均是mkdocs-material官网推荐的。
+![link](./pictures/index/p8.png)
 
-## **写在前面**
-
----
-
-1. 本文大部分内容均是个人理解，不保证准确性。
-
-2. 本文主要是阐述markdown语法，因此关于mkdocs-material的高级配置、python markdown和pymdowx模块所支持的markdown语法不在本文阐述范围。有兴趣的可以自己到相应官网了解，具体如下:
-
-	- [mkdocs](http://www.mkdocs.org)
-
-	- [mkdocs-material](http://squidfunk.github.io/mkdocs-material/)
-
-	- [python markdown](http://pythonhosted.org/Markdown/ "Markdown")
-
-	- [pymdownx](http://facelessuser.github.io/pymdown-extensions/ "pymdown-extensions")
+&#160; &#160; &#160; &#160;运气是努力的附属品。没有经过实力的原始积累，给你运气你也抓不住。上天给予每个人的都一样，但每个人的准备却不一样。不要羡慕那些总能撞大运的人，你必须很努力，才能遇上好运气。

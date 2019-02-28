@@ -1,0 +1,218 @@
+site_name: 笔记
+site_description: 笔记
+site_author: 流浪地球
+
+repo_name: 'caimengzhi/books'
+repo_url: 'https://github.com/caimengzhi/books'
+theme:
+  name: material
+  #name: readthedocs
+  highlightjs: true
+  palette:
+    primary: 'Blue Grey'
+    accent: 'Pink'
+  feature:
+    tabs: false
+  #font:
+    #text: 'Ubuntu'
+    #code: 'Ubuntu Mono'
+  language: 'zh'
+  shortcuts:
+        help: 191    # ?
+        next: 78     # n
+        previous: 80 # p
+        search: 83   # s
+
+extra:
+  social:
+    - type: github
+      link: https://github.com/caimengzhi
+  search:
+    language: 'jp'
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+      linenums: false
+  - toc:
+      permalink: true
+  - footnotes
+  - meta
+  - def_list
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_png
+      #emoji_generator: !!python/name:pymdownx.emoji.to_svg
+      #emoji_generator: !!python/name:pymdownx.emoji.to_png_sprite
+      #emoji_generator: !!python/name:pymdownx.emoji.to_svg_sprite
+      #emoji_generator: !!python/name:pymdownx.emoji.to_awesome
+      #emoji_generator: !!python/name:pymdownx.emoji.to_alt
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist
+  - pymdownx.tilde
+
+extra_javascript:
+  - 'js/extra.js'
+  - 'js/baidu-tongji.js'
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+
+nav:
+    - Python:
+          - 库学习:
+            - 1. SQLAlchemy库:  
+                - 1. 创建表: python/lib/SQLAlchemy/1.创建表.md
+                - 2. 基本操作: python/lib/SQLAlchemy/2.基本操作.md
+                - 3. 回滚: python/lib/SQLAlchemy/3.回滚.md
+                - 4. 统计分组: python/lib/SQLAlchemy/4.统计分组.md
+                - 5. 外键: python/lib/SQLAlchemy/5.外键.md
+                - 6. 关系定义: python/lib/SQLAlchemy/6.关系定义.md
+            - 2. YAML库:
+                - 1. yaml语法: python/lib/yaml/1.yaml语法.md
+                - 2. yaml使用: python/lib/yaml/2.yaml使用.md
+            - 3. sh库:
+                - 1. sh使用: python/lib/sh/1.sh.md
+            - 4. excel库:
+                - 1. xlrd_xlwt: python/lib/execel/1.xlrd_xlwt.md
+                - 2. openpyxl: python/lib/execel/2.openpyxl.md
+            - 5. 加解密库:
+                - 1. base4: python/lib/encryption_decryption/base64/1.base64使用.md
+                - 2. 加解密execl表: python/lib/encryption_decryption/base64/2.案例.md
+            - 6. 邮件库:
+                - 1. 单人接受文件: python/lib/email/smtp/1.s.md
+                - 2. 多人接受文件: python/lib/email/smtp/2.d.md
+            - 7. wordcloud库:
+                - 1. wordcloud: python/lib/wordcloud/1.wordcloud.md
+            - 8. yield库:    
+                - 1. yield: python/lib/yield/1.yield.md
+            - 9. Nosql:
+                - 1. mongo:    
+                    - 1. mongo: python/lib/nosql/mongo/mongo.index.md
+                - 2. memcached:
+                    - 1. memcached: python/lib/nosql/memcached/memcached.index.md
+                - 3. redis:
+                    - 1. redis: python/lib/nosql/redis/redis.index.md
+                    - 2. redis pipeline: python/lib/nosql/redis/redis.pipeline.md
+                    - 3. redis transaction: python/lib/nosql/redis/redis.transaction.md
+                    - 4. redis pub_sub: python/lib/nosql/redis/redis.pub_sub.md
+            - 10. 数据处理库: 
+                - 1. numPy: 
+                    - 1. 介绍: python/lib/numPy/1.index.md
+                - 2. pandas: 
+                    - 1. 介绍: python/lib/pandas/1.index.md                    
+    - Linux:
+          - 小工具: 
+            - 1. sersync: linux/server/sersync.md
+            - 2. elinks: tools/elinks/1.index.md
+            - 3. Linux终端录屏和回放: tools/script_scriptreplay/1.index.md
+    - 前端:
+          - Vue: frontend/vue/index.md
+    - 服务:
+          - 1. git: 
+            - 1. git: tools/git/1.git.md
+            - 2. git回滚: tools/git/2.git_rollback.md
+            - 3. git分支: tools/git/3.git_branch.md
+            - 4. git 标签: tools/git/4.git_lab.md
+          - 2. github: tools/github/1.github.md
+          - 3. gitlab:
+            - 1. gitlab: tools/gitlab/1.gitlab.md
+            - 2. 关闭注册: tools/gitlab/2.gitlab_close_register.md
+    - 教程:
+          - 教程: course/index.md
+          
+    - 测试:
+      - 服务:
+          - mkdocs 服务:
+              - 一. 介绍: index.md
+              - 二. 安装:
+                  - 1. 本地环境搭建: install/local.md
+                  - 2. 发布至GitHub Pages: install/github-pages.md
+                  - 3. 发布至自己的HTTP Server: install/http-server.md
+              - 三. 语法:
+                  - 1. 语法总览: syntax/main.md
+                  - 2. 标题: syntax/headline.md
+                  - 3. 段落: syntax/paragraph.md
+                  - 4. 引用: syntax/quote.md
+                  - 5. 表格: syntax/table.md
+                  - 6. 代码:
+                      - 6.1. 行内: syntax/code_inline.md
+                      - 6.2. 区块: syntax/code_block.md
+                      - 6.3. 高亮: syntax/code_highlight.md
+                  - 7. 字体样式:
+                      - 7.1. 斜体,粗体,粗斜体: syntax/font_stress.md
+                      - 7.2. 上标,下标: syntax/font_updown.md
+                      - 7.3. 下划线: syntax/font_underline.md
+                      - 7.4. 横线: syntax/font_line.md
+                      - 7.5. 下划线+横线: syntax/font_underline_line.md
+                  - 8. 列表:
+                      - 8.1. 无序列表: syntax/list_noseq.md
+                      - 8.2. 有序列表: syntax/list_seq.md
+                      - 8.3. 任务列表: syntax/list_task.md
+                  - 9. 分割线: syntax/cutline.md
+                  - 10. 链接:
+                      - 10.1. 普通链接: syntax/link_normal.md
+                      - 10.2. 自动链接: syntax/link_auto.md
+                      - 10.3. 锚点提示: syntax/link_anchor.md
+                  - 11. 图片:
+                      - 11.1. 行内式: syntax/image_inline.md
+                      - 11.2. 参考式: syntax/image_index.md
+                  - 12. 转义: syntax/escape.md
+                  - 13. 高亮:
+                      - 13.1. 代码高亮: syntax/highlight_code.md
+                      - 13.2. 背景高亮: syntax/highlight_background.md
+                  - 14. 注解:
+                      - 14.1. 介绍: syntax/note_main.md
+                      - 14.2. 完整格式: syntax/note_full.md
+                      - 14.3. 空标题: syntax/note_empty-title.md
+                      - 14.4. 无标题: syntax/note_none-title.md
+                      - 14.5. 无类型: syntax/note_none-type.md
+                      - 14.6. 折叠: syntax/note_details.md
+                      - 14.7. 11种颜色样式: syntax/note_style.md
+                      - 14.8. 嵌套: syntax/note_nest.md
+                  - 15. 脚注: syntax/footnote.md
+                  - 16. 元信息: syntax/meta.md
+                  - 17. 数学公式:
+                      - 17.1. 介绍: syntax/math_main.md
+                      - 17.2. 导入js: syntax/math_js.md
+                      - 17.3. 用法: syntax/math_usage.md
+                  - 18. emoji:
+                      - 18.1. 介绍: syntax/emoji_main.md
+                      - 18.2. 工作原理: syntax/emoji_principle.md
+                      - 18.3. 最佳实践: syntax/emoji_usage.md
+                  - 19. 特殊符号: syntax/symbol.md
+                  - 20. 嵌套:
+                      - 20.1. 介绍: syntax/nest_main.md
+                      - 20.2. 注解-注解: syntax/nest_note_note.md
+                      - 20.3. 列表-列表: syntax/nest_list_list.md
+                      - 20.4. 引用-引用: syntax/nest_quote_quote.md
+                      - 20.5. 注解-代码块: syntax/nest_note_code.md
+                      - 20.6. 列表-代码块: syntax/nest_list_code.md
+                      - 20.7. 引用-代码块: syntax/nest_quote_code.md
+                      - 20.8. 黄色区块-代码: syntax/nest_yellow_code.md
+                      - 20.9. 绿色区块-代码: syntax/nest_green_code.md
+                      - 20.10. 红色区块-代码: syntax/nest_red_code.md
+                      - 20.11. 绿接红区块-代码: syntax/nest_greenred_code.md
+                      - 20.12. 注解-列表-引用: syntax/nest_note_list_quote.md
+                      - 20.13. 列表-列表-引用: syntax/nest_list_list_quote.md
+                      - 20.14. 引用-引用-代码: syntax/nest_quote_quote_code.md
+              - 四. 附录:
+                  - 1. 支持代码高亮的语言: appendix/pygments.md
+                  - 2. emojione全名短名映射表: appendix/emoji_shortname.md
+                  - 3. 添加百度统计: appendix/baidu_tongji.md
+                  - 4. 配色: appendix/color.md
+                  - 5. 模块介绍: appendix/module.md
+                  - 6. mkdocs层级关系: appendix/level.md
+                  - 7. 支持中文搜索: appendix/search.md
+                  - 8. mkdocs.yml范例: appendix/yml.md
+              - 五. 使用建议: recommend.md
+              - 六. 联系方式: contact.md
+

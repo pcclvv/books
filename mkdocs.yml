@@ -64,7 +64,18 @@ markdown_extensions:
 extra_javascript:
   - 'js/extra.js'
   - 'js/baidu-tongji.js'
-  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+  #- 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+  #- 'https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js'
+  #- 'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'
+  #- 'https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js'
+  #- 'https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js'
+  #- 'js/umlconvert.js'
+  - js/webfont.js
+  - js/snap.svg-min.js
+  - js/underscore-min.js
+  - js/sequence-diagram-min.js   
+  - js/uml-converter.js
+  - js/sequence-loader.js
 
 nav:
     - Python:
@@ -88,8 +99,8 @@ nav:
                 - 1. base4: python/lib/encryption_decryption/base64/1.base64使用.md
                 - 2. 加解密execl表: python/lib/encryption_decryption/base64/2.案例.md
             - 6. 邮件库:
-                - 1. 单人接受文件: python/lib/email/smtp/1.s.md
-                - 2. 多人接受文件: python/lib/email/smtp/2.d.md
+                - 1. smtp: python/lib/email/smtp/lib_smtp.md
+                - 2. yagmail: python/lib/email/smtp/lib_yagmail.md
             - 7. wordcloud库:
                 - 1. wordcloud: python/lib/wordcloud/1.wordcloud.md
             - 8. yield库:    
@@ -99,16 +110,82 @@ nav:
                     - 1. mongo: python/lib/nosql/mongo/mongo.index.md
                 - 2. memcached:
                     - 1. memcached: python/lib/nosql/memcached/memcached.index.md
+                - 3. redis:
+                    - 1. redis: python/lib/nosql/redis/redis.index.md
+                    - 2. redis pipeline: python/lib/nosql/redis/redis.pipeline.md
+                    - 3. redis transaction: python/lib/nosql/redis/redis.transaction.md
+                    - 4. redis pub_sub: python/lib/nosql/redis/redis.pub_sub.md
+                    - 5. redis sentinel: python/lib/nosql/redis/redis.sentinel.md
             - 10. 数据处理库: 
                 - 1. numPy: 
                     - 1. 介绍: python/lib/numPy/1.index.md
                 - 2. pandas: 
-                    - 1. 介绍: python/lib/pandas/1.index.md                    
+                    - 1. 介绍: python/lib/pandas/1.index.md   
+            - 11. uuid:
+                - 1. uuid: python/lib/uuid/uuid.index.md
+            - 12. LRU:
+                - 1. LRU: python/lib/LRU/LRU.index.md
+            - 13. getpass: 
+                - 1. getpass: python/lib/getpass/getpass.index.md
     - Linux:
           - 小工具: 
-            - 1. sersync: linux/server/sersync.md
+            - 1. sersync: linux/server/sersync/sersync.md
             - 2. elinks: tools/elinks/1.index.md
             - 3. Linux终端录屏和回放: tools/script_scriptreplay/1.index.md
+          - 服务:
+            - 1. Harbor: 
+                - 1. Harbor: linux/server/harbor/harbor.index.md
+            - 2. PPPOE:
+                - 1. PPPOE: linux/server/pppoe/pppoe.index.md
+            - 3. django项目部署: linux/server/deploy_django/deploy_django.index.md
+          - 证书:
+            - 1. Tomcat:
+                - 1. Tomcat: linux/server/certificate/tomcat.index.md
+          - Nosql:
+            - 1. MonogoDB:
+                - 1. MonogoDB 介绍: linux/nosql/mongo/mongo.index.md
+                - 2. MonogoDB 数据库: linux/nosql/mongo/mongo.databases.md
+                - 3. MonogoDB 集合: linux/nosql/mongo/mongo.collection.md
+                - 4. MonogoDB 文档: linux/nosql/mongo/mongo.doc.md
+                - 5. MonogoDB 条件查询: linux/nosql/mongo/mongo.conditional_query.md
+                - 6. MonogoDB 模糊查询: linux/nosql/mongo/mongo.fuzzy_enquiry.md
+                - 7. MonogoDB $type: linux/nosql/mongo/mongo.type.md
+                - 8. MonogoDB LS: linux/nosql/mongo/mongo.limit_skip.md
+                - 9. MonogoDB 排序: linux/nosql/mongo/mongo.sort.md
+                - 10. MonogoDB 备份与恢复: linux/nosql/mongo/mongo.backup_recovery.md
+                - 11. MonogoDB 监控: linux/nosql/mongo/mongo.monitor.md
+    - mysql:
+        - 1. MySQL 基础:
+            - 1. MySQL 介绍: mysql/mysql.index.md
+            - 2. MySQL 初识: mysql/mysql.info.md
+            - 3. MySQL 链接: mysql/mysql.conn.md
+            - 4. MySQL 库: mysql/mysql.database.md
+            - 5. MySQL 表: mysql/mysql.table.md
+            - 6. SQL SELECT: mysql/mysql.select.md
+            - 7. SQL WHERE: mysql/mysql.where.md
+            - 8. SQL UPDATE: mysql/mysql.update.md
+            - 9. SQL DELETE: mysql/mysql.delete.md
+            - 10. SQL LIKE: mysql/mysql.like.md
+            - 11. SQL DISTINCT: mysql/mysql.distinct.md
+            - 12. SQL LIMIT: mysql/mysql.limit.md
+            - 13. SQL AND_OR: mysql/mysql.and_or.md
+            - 14. SQL ORDER: mysql/mysql.orderby.md
+            - 15. SQL INSERT: mysql/mysql.insert.md
+            - 16. SQL DESC: mysql/mysql.desc.md
+            - 17. SQL IN: mysql/mysql.in.md
+            - 18. SQL BETWEEN: mysql/mysql.between.md
+            - 19. SQL ALIAS: mysql/mysql.alias.md
+        - 2. MySQL 进阶:
+            - 1. SQL PK: mysql/mysql.pk.md
+            - 2. SQL INCREMENT: mysql/mysql.increment.md
+        - 3. MySQL 容灾:
+            - 1. mysqldump 参数: mysql/mysql.mysqldump.md
+            - 2. mysqldump 脚本: mysql/mysql.mysqldump_case.md
+            - 2. xtrabackup: linux/server/xtrabackup/xtrabackup.index.md
+        - 4. MySQL 主从:
+            - 1. 主从: mysql/mysql.master-slave.md
+            - 2. 主主: mysql/mysql.master-master.md
+            
     - 前端:
           - Vue: frontend/vue/index.md
     - 服务:
@@ -121,6 +198,11 @@ nav:
           - 3. gitlab:
             - 1. gitlab: tools/gitlab/1.gitlab.md
             - 2. 关闭注册: tools/gitlab/2.gitlab_close_register.md
+            - 3. 找回root密码: tools/gitlab/3.set_root_pwd.md
+          - 4. nosql:
+            - 1. redis:
+                - 1. redis-主从: linux/server/redis/redis-master-slave.md
+                - 2. redis-sentinel: linux/server/redis/redis-sentinel.md
     - 教程:
           - 教程: course/index.md
           
