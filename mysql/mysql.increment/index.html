@@ -3581,7 +3581,7 @@
 <p>&#160; &#160; &#160; &#160;我们通常希望在每次插入新记录时自动创建主键字段的值。我们可以在表中创建一个自动增量（auto-increment）字段。</p>
 <h2 id="1_1">1. 操作<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h2>
 <h3 id="11-id">1.1 不设置字段id<a class="headerlink" href="#11-id" title="Permanent link">&para;</a></h3>
-<p>以下SQL语句将ifo表中的id列定义为自动递增（auto-increment）主键字段：
+<p>以下SQL语句将info表中的id列定义为自动递增（auto-increment）主键字段：
 <div class="codehilite"><pre><span></span>drop table info;
 create table info(
 id int not null primary key auto_increment,
@@ -3851,6 +3851,7 @@ mysql&gt; select * from info;
 5 rows in set (0.00 sec)
 </pre></div>
 
+<p>&#160; &#160; &#160; &#160; 从上面结果看出，我们在不设置步长的时候，每次插入数据的时候，id都是默认自动增长1，而我们认为设置id后，每次都会基于设置的id自增长。</p>
 <div class="admonition danger">
 <p class="admonition-title">删除</p>
 <div class="codehilite"><pre><span></span><span class="err">以上的删除，修改等操作，在正式环境上请酌情使用。</span>
