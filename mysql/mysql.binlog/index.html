@@ -40,7 +40,7 @@
     
     
       
-        <title>13. SQL AND_OR - 笔记</title>
+        <title>3. binlog - 笔记</title>
       
     
     
@@ -132,7 +132,7 @@
                 笔记
               </span>
               <span class="md-header-nav__topic">
-                13. SQL AND_OR
+                3. binlog
               </span>
             
           
@@ -1528,12 +1528,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
     
     <label class="md-nav__link" for="nav-3-1">
       1. MySQL 基础
@@ -1693,99 +1691,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        13. SQL AND_OR
-      </label>
-    
-    <a href="./" title="13. SQL AND_OR" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../mysql.and_or/" title="13. SQL AND_OR" class="md-nav__link">
       13. SQL AND_OR
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" title="1. 介绍" class="md-nav__link">
-    1. 介绍
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" title="1.1 环境准备" class="md-nav__link">
-    1.1 环境准备
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" title="1.2 开始" class="md-nav__link">
-    1.2 开始
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" title="2. 用法" class="md-nav__link">
-    2. 用法
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21-and" title="2.1 AND" class="md-nav__link">
-    2.1 AND
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22-or" title="2.2 OR" class="md-nav__link">
-    2.2 OR
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23-and-or" title="2.3 结合 AND 和 OR 运算符" class="md-nav__link">
-    2.3 结合 AND 和 OR 运算符
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -2026,10 +1936,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5" checked>
     
     <label class="md-nav__link" for="nav-3-5">
       5. MySQL OTHER
@@ -2081,11 +1993,174 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../mysql.binlog/" title="3. binlog" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        3. binlog
+      </label>
+    
+    <a href="./" title="3. binlog" class="md-nav__link md-nav__link--active">
       3. binlog
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 介绍" class="md-nav__link">
+    1. 介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-binlog" title="2. 开启binlog" class="md-nav__link">
+    2. 开启binlog
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" title="3. 常用操作" class="md-nav__link">
+    3. 常用操作
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" title="3.1 日志列表" class="md-nav__link">
+    3.1 日志列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" title="3.2 查看最新" class="md-nav__link">
+    3.2 查看最新
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" title="3.3 刷新" class="md-nav__link">
+    3.3 刷新
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" title="3.4 清除" class="md-nav__link">
+    3.4 清除
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" title="4. 查看日志内容" class="md-nav__link">
+    4. 查看日志内容
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" title="4.1 日志路径" class="md-nav__link">
+    4.1 日志路径
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-binlog" title="4.2 binlog查看" class="md-nav__link">
+    4.2 binlog查看
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421-sql" title="4.2.1 非SQL方式显示" class="md-nav__link">
+    4.2.1 非SQL方式显示
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422-sql" title="4.2.2 SQL方式显示" class="md-nav__link">
+    4.2.2 SQL方式显示
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-binlog" title="5. binlog相关参数" class="md-nav__link">
+    5. binlog相关参数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-binlog" title="5.1 binlog配置" class="md-nav__link">
+    5.1 binlog配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#51-binlog_1" title="5.1 binlog模式" class="md-nav__link">
+    5.1 binlog模式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-binlog" title="5.2 binlog 保存天数" class="md-nav__link">
+    5.2 binlog 保存天数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -3658,19 +3733,47 @@
     1. 介绍
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-binlog" title="2. 开启binlog" class="md-nav__link">
+    2. 开启binlog
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" title="3. 常用操作" class="md-nav__link">
+    3. 常用操作
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11" title="1.1 环境准备" class="md-nav__link">
-    1.1 环境准备
+  <a href="#31" title="3.1 日志列表" class="md-nav__link">
+    3.1 日志列表
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#12" title="1.2 开始" class="md-nav__link">
-    1.2 开始
+  <a href="#32" title="3.2 查看最新" class="md-nav__link">
+    3.2 查看最新
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" title="3.3 刷新" class="md-nav__link">
+    3.3 刷新
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" title="3.4 清除" class="md-nav__link">
+    3.4 清除
   </a>
   
 </li>
@@ -3681,30 +3784,77 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" title="2. 用法" class="md-nav__link">
-    2. 用法
+  <a href="#4" title="4. 查看日志内容" class="md-nav__link">
+    4. 查看日志内容
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21-and" title="2.1 AND" class="md-nav__link">
-    2.1 AND
+  <a href="#41" title="4.1 日志路径" class="md-nav__link">
+    4.1 日志路径
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#22-or" title="2.2 OR" class="md-nav__link">
-    2.2 OR
+  <a href="#42-binlog" title="4.2 binlog查看" class="md-nav__link">
+    4.2 binlog查看
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421-sql" title="4.2.1 非SQL方式显示" class="md-nav__link">
+    4.2.1 非SQL方式显示
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#23-and-or" title="2.3 结合 AND 和 OR 运算符" class="md-nav__link">
-    2.3 结合 AND 和 OR 运算符
+  <a href="#422-sql" title="4.2.2 SQL方式显示" class="md-nav__link">
+    4.2.2 SQL方式显示
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-binlog" title="5. binlog相关参数" class="md-nav__link">
+    5. binlog相关参数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-binlog" title="5.1 binlog配置" class="md-nav__link">
+    5.1 binlog配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#51-binlog_1" title="5.1 binlog模式" class="md-nav__link">
+    5.1 binlog模式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-binlog" title="5.2 binlog 保存天数" class="md-nav__link">
+    5.2 binlog 保存天数
   </a>
   
 </li>
@@ -3730,129 +3880,368 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/caimengzhi/books/edit/master/docs/mysql/mysql.and_or.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/caimengzhi/books/edit/master/docs/mysql/mysql.binlog.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <p><center><h1> MySQL AND_OR </h1></center></p>
+                <p><center><h1> MySQL binlog </h1></center></p>
 <h2 id="1">1. 介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<h3 id="11">1.1 环境准备<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
-<p><div class="codehilite"><pre><span></span>truncate leco;
-
-insert into leco(id,name,sex,age) values(1,&quot;张三&quot;,&quot;female&quot;,18);
-insert into leco(id,name,sex,age) values(4,&quot;张三&quot;,&quot;male&quot;,40);
-insert into leco(id,name,sex,age) values(2,&quot;李四&quot;,&quot;male&quot;,20);
-insert into leco(id,name,sex,age) values(3,&quot;王五&quot;,&quot;male&quot;,30);
-insert into leco(id,name,sex,age) values(4,&quot;赵六&quot;,&quot;female&quot;,40);
-</pre></div>
-操作过程
-<div class="codehilite"><pre><span></span>mysql&gt; truncate leco;
-Query OK, 0 rows affected (0.04 sec)
-
-mysql&gt; insert into leco(id,name,sex,age) values(1,&quot;张三&quot;,&quot;female&quot;,18);
-Query OK, 1 row affected (0.00 sec)
-
-mysql&gt; insert into leco(id,name,sex,age) values(4,&quot;张三&quot;,&quot;male&quot;,40);
-Query OK, 1 row affected (0.01 sec)
-
-mysql&gt; insert into leco(id,name,sex,age) values(2,&quot;李四&quot;,&quot;male&quot;,20);
-Query OK, 1 row affected (0.02 sec)
-
-mysql&gt; insert into leco(id,name,sex,age) values(3,&quot;王五&quot;,&quot;male&quot;,30);
-Query OK, 1 row affected (0.01 sec)
-
-mysql&gt; insert into leco(id,name,sex,age) values(4,&quot;赵六&quot;,&quot;female&quot;,40);
-Query OK, 1 row affected (0.01 sec)
-
-mysql&gt; select * from leco;
-+------+--------+--------+------+
-| id   | name   | sex    | age  |
-+------+--------+--------+------+
-|    1 | 张三   | female |   18 |
-|    4 | 张三   | male   |   40 |
-|    2 | 李四   | male   |   20 |
-|    3 | 王五   | male   |   30 |
-|    4 | 赵六   | female |   40 |
-+------+--------+--------+------+
-5 rows in set (0.00 sec)
-</pre></div></p>
-<h3 id="12">1.2 开始<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
-<p>&#160; &#160; &#160; &#160;AND 和 OR 运算符用于基于一个以上的条件对记录进行过滤。</p>
-<p>&#160; &#160; &#160; &#160;AND 和 OR 运算符</p>
+<p>&#160; &#160; &#160; &#160; binlog 基本认识</p>
+<p>&#160; &#160; &#160; &#160;MySQL的二进制日志可以说是MySQL最重要的日志了，它记录了所有的DDL和DML(除了数据查询语句)语句，以事件形式记录，还包含语句所执行的消耗的时间，MySQL的二进制日志是事务安全型的。</p>
+<p>&#160; &#160; &#160; &#160;一般来说开启二进制日志大概会有1%的性能损耗(参见MySQL官方中文手册 5.1.24版)。二进制有两个最重要的使用场景: </p>
 <ul>
-<li>AND 和 OR 可在 WHERE 子语句中把两个或多个条件结合起来。</li>
-<li>如果第一个条件和第二个条件都成立，则 AND 运算符显示一条记录。</li>
-<li>如果第一个条件和第二个条件中只要有一个成立，则 OR 运算符显示一条记录。</li>
+<li>MySQL Replication在Master端开启binlog，Mster把它的二进制日志传递给slaves来达到master-slave数据一致的目的。 </li>
+<li>自然就是数据恢复了，通过使用mysqlbinlog工具来使恢复数据。</li>
 </ul>
-<h2 id="2">2. 用法<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<p>&#160; &#160; &#160; &#160; 以下我们将在 SQL AND_OR 命令中使用 从MySQL数据表 leco 中读取数据。</p>
-<h3 id="21-and">2.1 AND<a class="headerlink" href="#21-and" title="Permanent link">&para;</a></h3>
-<p>&#160; &#160; &#160; &#160;  在leco表中找出name是张三且sex是male的信息
-<div class="codehilite"><pre><span></span>mysql&gt; select * from leco;
-+------+--------+--------+------+
-| id   | name   | sex    | age  |
-+------+--------+--------+------+
-|    1 | 张三   | female |   18 |
-|    4 | 张三   | male   |   40 |
-|    2 | 李四   | male   |   20 |
-|    3 | 王五   | male   |   30 |
-|    4 | 赵六   | female |   40 |
-+------+--------+--------+------+
-5 rows in set (0.00 sec)
-
-mysql&gt; select * from leco where name = &quot;张三&quot; and sex = &#39;male&#39;;
-+------+--------+------+------+
-| id   | name   | sex  | age  |
-+------+--------+------+------+
-|    4 | 张三   | male |   40 |
-+------+--------+------+------+
-1 row in set (0.00 sec)
-</pre></div></p>
-<h3 id="22-or">2.2 OR<a class="headerlink" href="#22-or" title="Permanent link">&para;</a></h3>
-<p>&#160; &#160; &#160; &#160;  在leco表中找出name是张三或者name是李四的人信息
-<div class="codehilite"><pre><span></span>mysql&gt; select * from leco;
-+------+--------+--------+------+
-| id   | name   | sex    | age  |
-+------+--------+--------+------+
-|    1 | 张三   | female |   18 |
-|    4 | 张三   | male   |   40 |
-|    2 | 李四   | male   |   20 |
-|    3 | 王五   | male   |   30 |
-|    4 | 赵六   | female |   40 |
-+------+--------+--------+------+
-5 rows in set (0.00 sec)
-
-mysql&gt; select * from leco where name = &quot;张三&quot; or name= &#39;李四&#39;;
-+------+--------+--------+------+
-| id   | name   | sex    | age  |
-+------+--------+--------+------+
-|    1 | 张三   | female |   18 |
-|    4 | 张三   | male   |   40 |
-|    2 | 李四   | male   |   20 |
-+------+--------+--------+------+
-3 rows in set (0.00 sec)
-</pre></div></p>
-<h3 id="23-and-or">2.3 结合 AND 和 OR 运算符<a class="headerlink" href="#23-and-or" title="Permanent link">&para;</a></h3>
-<p>&#160; &#160; &#160; &#160; 找出年龄是18岁或者20岁，且sex是female的人员信息
-<div class="codehilite"><pre><span></span>mysql&gt; select * from leco;
-+------+--------+--------+------+
-| id   | name   | sex    | age  |
-+------+--------+--------+------+
-|    1 | 张三   | female |   18 |
-|    4 | 张三   | male   |   40 |
-|    2 | 李四   | male   |   20 |
-|    3 | 王五   | male   |   30 |
-|    4 | 赵六   | female |   40 |
-+------+--------+--------+------+
-5 rows in set (0.00 sec)
-
-mysql&gt; select * from leco where (age=18 or age=20) and sex=&#39;female&#39;;
-+------+--------+--------+------+
-| id   | name   | sex    | age  |
-+------+--------+--------+------+
-|    1 | 张三   | female |   18 |
-+------+--------+--------+------+
+<p>&#160; &#160; &#160; &#160;二进制日志包括两类文件：二进制日志索引文件（文件名后缀为.index）用于记录所有的二进制文件，二进制日志文件（文件名后缀为.00000*）记录数据库所有的DDL和DML(除了数据查询语句)语句事件。 </p>
+<h2 id="2-binlog">2. 开启binlog<a class="headerlink" href="#2-binlog" title="Permanent link">&para;</a></h2>
+<p>&#160; &#160; &#160; &#160;找到配置文件，配置好以下，然后重启mysql。</p>
+<p><div class="codehilite"><pre><span></span>root@leco:/etc/mysql/mysql.conf.d# grep &#39;log_bin&#39; mysqld.cnf
+log_bin         = /var/log/mysql/mysql-bin.log
+</pre></div>
+登录查看</p>
+<div class="codehilite"><pre><span></span>mysql&gt; show variables like &#39;log_bin&#39;;
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| log_bin       | ON    |
++---------------+-------+
 1 row in set (0.01 sec)
-</pre></div></p>
+</pre></div>
+
+<blockquote>
+<p>ON表示已经开启binlog日志</p>
+</blockquote>
+<h2 id="3">3. 常用操作<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 日志列表<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;查看所有binlog日志列表</p>
+<div class="codehilite"><pre><span></span>mysql&gt; show master logs;
++------------------+-----------+
+| Log_name         | File_size |
++------------------+-----------+
+| mysql-bin.000001 |      2846 |
+| mysql-bin.000002 |      1058 |
+| mysql-bin.000003 |     10287 |
++------------------+-----------+
+3 rows in set (0.00 sec)
+</pre></div>
+
+<h3 id="32">3.2 查看最新<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;查看master状态，即最后(最新)一个binlog日志的编号名称，及其最后一个操作事件pos结束点(Position)值</p>
+<div class="codehilite"><pre><span></span>mysql&gt; show master status;
++------------------+----------+--------------+------------------+-------------------+
+| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set |
++------------------+----------+--------------+------------------+-------------------+
+| mysql-bin.000003 |    10287 |              |                  |                   |
++------------------+----------+--------------+------------------+-------------------+
+1 row in set (0.00 sec)
+</pre></div>
+
+<h3 id="33">3.3 刷新<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;刷新log日志，自此刻开始产生一个新编号的binlog日志文件
+<div class="codehilite"><pre><span></span>mysql&gt; flush logs;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql&gt; show master logs;
++------------------+-----------+
+| Log_name         | File_size |
++------------------+-----------+
+| mysql-bin.000001 |      2846 |
+| mysql-bin.000002 |      1058 |
+| mysql-bin.000003 |     10334 |
+| mysql-bin.000004 |       154 |
++------------------+-----------+
+4 rows in set (0.00 sec)
+</pre></div>
+可以看出多了一个mysql-bin.000004 文件</p>
+<div class="admonition tip">
+<p class="admonition-title">注意</p>
+<div class="codehilite"><pre><span></span><span class="err">每当</span><span class="n">mysqld服务重启时</span><span class="err">，会自动执行此命令，刷新</span><span class="n">binlog日志</span><span class="err">；在</span><span class="n">mysqldump备份数据时加</span> <span class="o">-</span><span class="n">F</span> <span class="err">选项也会刷新</span><span class="n">binlog日志</span><span class="err">；</span>
+</pre></div>
+
+</div>
+<h3 id="34">3.4 清除<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;重置(清空)所有binlog日志</p>
+<div class="codehilite"><pre><span></span>mysql&gt; reset master;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql&gt; show master logs;
++------------------+-----------+
+| Log_name         | File_size |
++------------------+-----------+
+| mysql-bin.000001 |       154 |
++------------------+-----------+
+1 row in set (0.00 sec)
+</pre></div>
+
+<div class="admonition danger">
+<p class="admonition-title">注意</p>
+<div class="codehilite"><pre><span></span><span class="err">在生产环境上，不要操作。</span>
+</pre></div>
+
+</div>
+<h2 id="4">4. 查看日志内容<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 日志路径<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<p><div class="codehilite"><pre><span></span>mysql&gt; show variables like &#39;log_%&#39;;
++----------------------------------------+--------------------------------+
+| Variable_name                          | Value                          |
++----------------------------------------+--------------------------------+
+| log_bin                                | ON                             |
+| log_bin_basename                       | /var/log/mysql/mysql-bin       |
+| log_bin_index                          | /var/log/mysql/mysql-bin.index |
+| log_bin_trust_function_creators        | OFF                            |
+| log_bin_use_v1_row_events              | OFF                            |
+| log_builtin_as_identified_by_password  | OFF                            |
+| log_error                              | /var/log/mysql/error.log       |
+| log_error_verbosity                    | 3                              |
+| log_output                             | FILE                           |
+| log_queries_not_using_indexes          | OFF                            |
+| log_slave_updates                      | OFF                            |
+| log_slow_admin_statements              | OFF                            |
+| log_slow_slave_statements              | OFF                            |
+| log_statements_unsafe_for_binlog       | ON                             |
+| log_syslog                             | OFF                            |
+| log_syslog_facility                    | daemon                         |
+| log_syslog_include_pid                 | ON                             |
+| log_syslog_tag                         |                                |
+| log_throttle_queries_not_using_indexes | 0                              |
+| log_timestamps                         | UTC                            |
+| log_warnings                           | 2                              |
++----------------------------------------+--------------------------------+
+21 rows in set (0.00 sec)
+</pre></div>
+也可以查看服务器的配置文件中查找。</p>
+<div class="codehilite"><pre><span></span>root@leco:/etc/mysql/mysql.conf.d# egrep  &#39;log_bin&#39; mysqld.cnf
+log_bin         = /var/log/mysql/mysql-bin.log
+root@leco:/var/log/mysql# ll
+总用量 52
+drwxr-x---  2 mysql adm    4096 3月   1 10:46 ./
+drwxrwxr-x 31 root  syslog 4096 3月   1 07:35 ../
+-rw-r-----  1 mysql adm       0 3月   1 07:35 error.log
+-rw-r-----  1 mysql adm    6604 3月   1 02:00 error.log.1.gz
+-rw-r-----  1 mysql adm    2902 2月  27 09:09 error.log.2.gz
+-rw-r-----  1 mysql adm    4906 2月  26 18:08 error.log.3.gz
+-rw-r-----  1 mysql adm    1460 2月  25 09:52 error.log.4.gz
+-rw-r-----  1 mysql adm     324 2月  24 20:01 error.log.5.gz
+-rw-r-----  1 mysql adm      20 2月  23 07:35 error.log.6.gz
+-rw-r-----  1 mysql adm      20 2月  22 07:35 error.log.7.gz
+-rw-r-----  1 mysql mysql   154 3月   1 10:46 mysql-bin.000001
+-rw-r-----  1 mysql mysql    32 3月   1 10:46 mysql-bin.index
+</pre></div>
+
+<h3 id="42-binlog">4.2 binlog查看<a class="headerlink" href="#42-binlog" title="Permanent link">&para;</a></h3>
+<h4 id="421-sql">4.2.1 非SQL方式显示<a class="headerlink" href="#421-sql" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>root@leco:/var/log/mysql# mysqlbinlog -v mysql-bin.000004
+/*!50530 SET @@SESSION.PSEUDO_SLAVE_MODE=1*/;
+/*!50003 SET @OLD_COMPLETION_TYPE=@@COMPLETION_TYPE,COMPLETION_TYPE=0*/;
+DELIMITER /*!*/;
+# at 4
+#190301 11:04:46 server id 1  end_log_pos 123 CRC32 0x14abee01  Start: binlog v 4, server v 5.7.25-0ubuntu0.16.04.2-log created 190301 11:04:46
+# Warning: this binlog is either in use or was not closed properly.
+BINLOG &#39;
+TqF4XA8BAAAAdwAAAHsAAAABAAQANS43LjI1LTB1YnVudHUwLjE2LjA0LjItbG9nAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAEzgNAAgAEgAEBAQEEgAAXwAEGggAAAAICAgCAAAACgoKKioAEjQA
+AQHuqxQ=
+&#39;/*!*/;
+# at 123
+#190301 11:04:46 server id 1  end_log_pos 154 CRC32 0x0bab435e  Previous-GTIDs
+# [empty]
+# at 154
+#190301 11:04:49 server id 1  end_log_pos 219 CRC32 0x6b8e78b8  Anonymous_GTID  last_committed=0    sequence_number=1   rbr_only=no
+SET @@SESSION.GTID_NEXT= &#39;ANONYMOUS&#39;/*!*/;
+# at 219
+#190301 11:04:49 server id 1  end_log_pos 317 CRC32 0x82a1e13d  Query   thread_id=16    exec_time=0 error_code=0
+use `summer`/*!*/;
+SET TIMESTAMP=1551409489/*!*/;
+SET @@session.pseudo_thread_id=16/*!*/;
+SET @@session.foreign_key_checks=1, @@session.sql_auto_is_null=0, @@session.unique_checks=1, @@session.autocommit=1/*!*/;
+SET @@session.sql_mode=1436549152/*!*/;
+SET @@session.auto_increment_increment=2, @@session.auto_increment_offset=1/*!*/;
+/*!\C utf8 *//*!*/;
+SET @@session.character_set_client=33,@@session.collation_connection=33,@@session.collation_server=8/*!*/;
+SET @@session.time_zone=&#39;SYSTEM&#39;/*!*/;
+SET @@session.lc_time_names=0/*!*/;
+SET @@session.collation_database=DEFAULT/*!*/;
+flush privileges
+/*!*/;
+# at 317
+#190301 11:13:38 server id 1  end_log_pos 382 CRC32 0x2b5aab56  Anonymous_GTID  last_committed=1    sequence_number=2   rbr_only=no
+SET @@SESSION.GTID_NEXT= &#39;ANONYMOUS&#39;/*!*/;
+# at 382
+#190301 11:13:38 server id 1  end_log_pos 507 CRC32 0xcffec2b7  Query   thread_id=16    exec_time=0 error_code=0
+SET TIMESTAMP=1551410018/*!*/;
+DROP TABLE `cmz` /* generated by server */
+/*!*/;
+SET @@SESSION.GTID_NEXT= &#39;AUTOMATIC&#39; /* added by mysqlbinlog */ /*!*/;
+DELIMITER ;
+# End of log file
+/*!50003 SET COMPLETION_TYPE=@OLD_COMPLETION_TYPE*/;
+/*!50530 SET @@SESSION.PSEUDO_SLAVE_MODE=0*/;
+root@leco:/var/log/mysql#
+</pre></div>
+
+<p>&#160; &#160; &#160; &#160;mysqlbinlog有一个参数--verbose(或-v)，将自动生成带注释的SQL语句（在行事件中重构伪SQL语句），其实这个并非原始SQL语句，而是伪SQL，如果使用这个参数两次(如-v -v)，则输出列的描述信息，会生成字段的类型、长度、是否为null等属性信息：</p>
+<p>&#160; &#160; &#160; &#160;以上显示不是我们真实输入的SQL语句。其实这里的SQL语句不是原始SQL语句，那么能否看到原始SQL语句呢？答案是可以，但是必须设置系统变量binlog_rows_query_log_events。</p>
+<h4 id="422-sql">4.2.2 SQL方式显示<a class="headerlink" href="#422-sql" title="Permanent link">&para;</a></h4>
+<p>开启</p>
+<p><div class="codehilite"><pre><span></span>root@leco:/var/log/mysql# vim /etc/mysql/mysql.conf.d/mysqld.cnf
+root@leco:/var/log/mysql# /etc/init.d/mysql restart
+[ ok ] Restarting mysql (via systemctl): mysql.service.
+mysql&gt; show variables like &#39;binlog_rows_query_log_events&#39;;
++------------------------------+-------+
+| Variable_name                | Value |
++------------------------------+-------+
+| binlog_rows_query_log_events | ON    |
++------------------------------+-------+
+1 row in set (0.00 sec)
+</pre></div>
+插入点数据</p>
+<p><div class="codehilite"><pre><span></span>mysql&gt; use summer;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql&gt; insert into cmz(name,age,score) values(&quot;cmz1 from leco data&quot;,40,88);
+Query OK, 1 row affected (0.01 sec)
+
+mysql&gt; insert into cmz(name,age,score) values(&quot;cmz1 from leco data&quot;,40,88);
+Query OK, 1 row affected (0.01 sec)
+
+mysql&gt; insert into cmz(name,age,score) values(&quot;cmz1 from leco data&quot;,40,88);
+Query OK, 1 row affected (0.01 sec)
+
+mysql&gt; insert into cmz(name,age,score) values(&quot;cmz1 from leco data&quot;,40,88);
+Query OK, 1 row affected (0.01 sec)
+
+mysql&gt; flush logs;
+Query OK, 0 rows affected (0.06 sec)
+</pre></div>
+此时在查看binlog日志</p>
+<div class="codehilite"><pre><span></span>root@leco:/var/log/mysql# mysqlbinlog --base64-output=DECODE-ROWS  -vv mysql-bin.000005
+/*!50530 SET @@SESSION.PSEUDO_SLAVE_MODE=1*/;
+/*!50003 SET @OLD_COMPLETION_TYPE=@@COMPLETION_TYPE,COMPLETION_TYPE=0*/;
+DELIMITER /*!*/;
+# at 4
+#190301 14:23:31 server id 1  end_log_pos 123 CRC32 0xc790f07e  Start: binlog v 4, server v 5.7.25-0ubuntu0.16.04.2-log created 190301 14:23:31
+# at 123
+#190301 14:23:31 server id 1  end_log_pos 154 CRC32 0xc5c3c48e  Previous-GTIDs
+# [empty]
+# at 154
+#190301 14:24:16 server id 1  end_log_pos 219 CRC32 0x34abaaba  Anonymous_GTID  last_committed=0    sequence_number=1   rbr_only=no
+SET @@SESSION.GTID_NEXT= &#39;ANONYMOUS&#39;/*!*/;
+# at 219
+#190301 14:24:16 server id 1  end_log_pos 420 CRC32 0xa5400620  Query   thread_id=18    exec_time=0 error_code=0
+use `summer`/*!*/;
+SET TIMESTAMP=1551421456/*!*/;
+SET @@session.pseudo_thread_id=18/*!*/;
+SET @@session.foreign_key_checks=1, @@session.sql_auto_is_null=0, @@session.unique_checks=1, @@session.autocommit=1/*!*/;
+SET @@session.sql_mode=1436549152/*!*/;
+SET @@session.auto_increment_increment=2, @@session.auto_increment_offset=1/*!*/;
+/*!\C utf8 *//*!*/;
+SET @@session.character_set_client=33,@@session.collation_connection=33,@@session.collation_server=8/*!*/;
+SET @@session.lc_time_names=0/*!*/;
+SET @@session.collation_database=DEFAULT/*!*/;
+create table cmz(
+id int not null primary key auto_increment,
+name varchar(20),
+age int not null,
+score int not null
+)
+/*!*/;
+# at 420
+#190301 14:24:19 server id 1  end_log_pos 485 CRC32 0x57042dad  Anonymous_GTID  last_committed=1    sequence_number=2   rbr_only=yes
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+SET @@SESSION.GTID_NEXT= &#39;ANONYMOUS&#39;/*!*/;
+# at 485
+#190301 14:24:19 server id 1  end_log_pos 564 CRC32 0xbd0e31f3  Query   thread_id=18    exec_time=0 error_code=0
+SET TIMESTAMP=1551421459/*!*/;
+BEGIN
+/*!*/;
+# at 564
+#190301 14:24:19 server id 1  end_log_pos 654 CRC32 0xe97dcc67  Rows_query
+# insert into cmz(name,age,score) values(&quot;cmz from leco data&quot;,18,88)
+# at 654
+#190301 14:24:19 server id 1  end_log_pos 707 CRC32 0x0e55c20a  Table_map: `summer`.`cmz` mapped to number 131
+# at 707
+#190301 14:24:19 server id 1  end_log_pos 774 CRC32 0x45930630  Write_rows: table id 131 flags: STMT_END_F
+### INSERT INTO `summer`.`cmz`
+### SET
+###   @1=1 /* INT meta=0 nullable=0 is_null=0 */
+###   @2=&#39;cmz from leco data&#39; /* VARSTRING(20) meta=20 nullable=1 is_null=0 */
+###   @3=18 /* INT meta=0 nullable=0 is_null=0 */
+###   @4=88 /* INT meta=0 nullable=0 is_null=0 */
+# at 774
+#190301 14:24:19 server id 1  end_log_pos 805 CRC32 0x06220d41  Xid = 257
+COMMIT/*!*/;
+# at 805
+#190301 14:24:19 server id 1  end_log_pos 870 CRC32 0xff42bcfd  Anonymous_GTID  last_committed=2    sequence_number=3   rbr_only=yes
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+SET @@SESSION.GTID_NEXT= &#39;ANONYMOUS&#39;/*!*/;
+# at 870
+#190301 14:24:19 server id 1  end_log_pos 949 CRC32 0xa586b903  Query   thread_id=18    exec_time=0 error_code=0
+SET TIMESTAMP=1551421459/*!*/;
+BEGIN
+/*!*/;
+# at 949
+#190301 14:24:19 server id 1  end_log_pos 1040 CRC32 0x1c25f21f     Rows_query
+# insert into cmz(name,age,score) values(&quot;cmz1 from leco data&quot;,40,88)
+# at 1040
+#190301 14:24:19 server id 1  end_log_pos 1093 CRC32 0x6c8d4461     Table_map: `summer`.`cmz` mapped to number 131
+# at 1093
+#190301 14:24:19 server id 1  end_log_pos 1161 CRC32 0x32c5030c     Write_rows: table id 131 flags: STMT_END_F
+### INSERT INTO `summer`.`cmz`
+### SET
+###   @1=3 /* INT meta=0 nullable=0 is_null=0 */
+###   @2=&#39;cmz1 from leco data&#39; /* VARSTRING(20) meta=20 nullable=1 is_null=0 */
+###   @3=40 /* INT meta=0 nullable=0 is_null=0 */
+###   @4=88 /* INT meta=0 nullable=0 is_null=0 */
+# at 1161
+#190301 14:24:19 server id 1  end_log_pos 1192 CRC32 0xc1579343     Xid = 258
+COMMIT/*!*/;
+# at 1192
+#190301 14:25:08 server id 1  end_log_pos 1239 CRC32 0x4fde8e8c     Rotate to mysql-bin.000006  pos: 4
+SET @@SESSION.GTID_NEXT= &#39;AUTOMATIC&#39; /* added by mysqlbinlog */ /*!*/;
+DELIMITER ;
+# End of log file
+/*!50003 SET COMPLETION_TYPE=@OLD_COMPLETION_TYPE*/;
+/*!50530 SET @@SESSION.PSEUDO_SLAVE_MODE=0*/;
+</pre></div>
+
+<p>可以看到以上出现我们输入的真实SQL语句。</p>
+<h2 id="5-binlog">5. binlog相关参数<a class="headerlink" href="#5-binlog" title="Permanent link">&para;</a></h2>
+<h3 id="51-binlog">5.1 binlog配置<a class="headerlink" href="#51-binlog" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160; 开启binlog日志(在[mysqld]下修改或添加如下配置)</p>
+<div class="codehilite"><pre><span></span>server-id=1
+log-bin=mysql-bin
+binlog_format=MIXED
+</pre></div>
+
+<h3 id="51-binlog_1">5.1 binlog模式<a class="headerlink" href="#51-binlog_1" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160; Mysql复制主要有三种方式：基于SQL语句的复制(statement-based replication, SBR)，基于行的复制(row-based replication, RBR)，混合模式复制(mixed-based replication, MBR)。对应的，binlog的格式也有三种：STATEMENT，ROW，MIXED。</p>
+<ul>
+<li>STATEMENT模式（SBR）</li>
+</ul>
+<p>&#160; &#160; &#160; &#160; 每一条会修改数据的sql语句会记录到binlog中。优点是并不需要记录每一条sql语句和每一行的数据变化，减少了binlog日志量，节约IO，提高性能。缺点是在某些情况下会导致master-slave中的数据不一致(如sleep()函数， last_insert_id()，以及user-defined functions(udf)等会出现问题)</p>
+<ul>
+<li>ROW模式（RBR）</li>
+</ul>
+<p>&#160; &#160; &#160; &#160; 不记录每条sql语句的上下文信息，仅需记录哪条数据被修改了，修改成什么样了。而且不会出现某些特定情况下的存储过程、或function、或trigger的调用和触发无法被正确复制的问题。缺点是会产生大量的日志，尤其是alter table的时候会让日志暴涨。</p>
+<ul>
+<li>MIXED模式（MBR）</li>
+</ul>
+<p>&#160; &#160; &#160; &#160; 以上两种模式的混合使用，一般的复制使用STATEMENT模式保存binlog，对于STATEMENT模式无法复制的操作使用ROW模式保存binlog，MySQL会根据执行的SQL语句选择日志保存方式。</p>
+<h3 id="52-binlog">5.2 binlog 保存天数<a class="headerlink" href="#52-binlog" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>mysql&gt; show variables like &#39;%expire_logs_days%&#39;;
++------------------+-------+
+| Variable_name    | Value |
++------------------+-------+
+| expire_logs_days | 10    |
++------------------+-------+
+1 row in set (0.00 sec)
+</pre></div>
+
+<blockquote>
+<p>0 表示永不过期</p>
+</blockquote>
                 
                   
                 
@@ -3873,7 +4262,7 @@ mysql&gt; select * from leco where (age=18 or age=20) and sex=&#39;female&#39;;
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../mysql.limit/" title="12. SQL LIMIT" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../mysql.delete_truncate_drop/" title="3. 表删除" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -3882,19 +4271,19 @@ mysql&gt; select * from leco where (age=18 or age=20) and sex=&#39;female&#39;;
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                12. SQL LIMIT
+                3. 表删除
               </span>
             </div>
           </a>
         
         
-          <a href="../mysql.orderby/" title="14. SQL ORDER" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../frontend/vue/" title="Vue" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                14. SQL ORDER
+                Vue
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
