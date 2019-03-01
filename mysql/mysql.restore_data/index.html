@@ -2223,22 +2223,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#531-0" title="5.3.1 恢复之前0点备份。" class="md-nav__link">
-    5.3.1 恢复之前0点备份。
+  <a href="#531-0" title="5.3.1 恢复之前0点备份" class="md-nav__link">
+    5.3.1 恢复之前0点备份
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#532-1-sql" title="5.3.2 方法1 - 恢复-通过修改错sql" class="md-nav__link">
-    5.3.2 方法1 - 恢复-通过修改错sql
+  <a href="#532-1-sql" title="5.3.2 方法1 - 恢复-修改错sql" class="md-nav__link">
+    5.3.2 方法1 - 恢复-修改错sql
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#533-2-" title="5.3.3 方法2 - 恢复- 通过点" class="md-nav__link">
-    5.3.3 方法2 - 恢复- 通过点
+  <a href="#533-2-" title="5.3.3 方法2 - 恢复- 点" class="md-nav__link">
+    5.3.3 方法2 - 恢复- 点
   </a>
   
 </li>
@@ -4022,22 +4022,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#531-0" title="5.3.1 恢复之前0点备份。" class="md-nav__link">
-    5.3.1 恢复之前0点备份。
+  <a href="#531-0" title="5.3.1 恢复之前0点备份" class="md-nav__link">
+    5.3.1 恢复之前0点备份
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#532-1-sql" title="5.3.2 方法1 - 恢复-通过修改错sql" class="md-nav__link">
-    5.3.2 方法1 - 恢复-通过修改错sql
+  <a href="#532-1-sql" title="5.3.2 方法1 - 恢复-修改错sql" class="md-nav__link">
+    5.3.2 方法1 - 恢复-修改错sql
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#533-2-" title="5.3.3 方法2 - 恢复- 通过点" class="md-nav__link">
-    5.3.3 方法2 - 恢复- 通过点
+  <a href="#533-2-" title="5.3.3 方法2 - 恢复- 点" class="md-nav__link">
+    5.3.3 方法2 - 恢复- 点
   </a>
   
 </li>
@@ -5002,7 +5002,7 @@ No query specified
 </pre></div>
 &#160; &#160; &#160; &#160;通过分析，造成数据库破坏的pos点区间是介于 1661--1786 之间（这是按照日志区间的pos节点算的），因为在上面的binlog日志看出在28 row看到执行了drop指令，只要恢复到1661之前就可。</p>
 <h3 id="53">5.3 开始恢复<a class="headerlink" href="#53" title="Permanent link">&para;</a></h3>
-<h4 id="531-0">5.3.1 恢复之前0点备份。<a class="headerlink" href="#531-0" title="Permanent link">&para;</a></h4>
+<h4 id="531-0">5.3.1 恢复之前0点备份<a class="headerlink" href="#531-0" title="Permanent link">&para;</a></h4>
 <p>快速命令</p>
 <p><div class="codehilite"><pre><span></span>cd /mysqldataback/
 gzip -d summer_2019-03-01.sql.gz
@@ -5165,7 +5165,7 @@ mysql&gt; select * from cmz;
 4 rows in set (0,00 sec)
 </pre></div>
 这样就恢复了截至当日凌晨(0:00)前的备份数据都恢复了。但是这个仅仅只0点备份的时候，0点以后到drop之间的数据怎么恢复呢</p>
-<h4 id="532-1-sql">5.3.2 方法1 - 恢复-通过修改错sql<a class="headerlink" href="#532-1-sql" title="Permanent link">&para;</a></h4>
+<h4 id="532-1-sql">5.3.2 方法1 - 恢复-修改错sql<a class="headerlink" href="#532-1-sql" title="Permanent link">&para;</a></h4>
 <p>语法</p>
 <div class="codehilite"><pre><span></span>mysqlbinlog mysql-bin.0000xx | mysql -u用户名 -p密码 数据库名
 </pre></div>
@@ -5235,7 +5235,7 @@ mysql&gt; select * from cmz;
 </ol>
 </li>
 </ul>
-<h4 id="533-2-">5.3.3 方法2 - 恢复- 通过点<a class="headerlink" href="#533-2-" title="Permanent link">&para;</a></h4>
+<h4 id="533-2-">5.3.3 方法2 - 恢复- 点<a class="headerlink" href="#533-2-" title="Permanent link">&para;</a></h4>
 <p>删除表</p>
 <p><div class="codehilite"><pre><span></span>mysql&gt; show tables;
 +------------------+
