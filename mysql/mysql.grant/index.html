@@ -40,7 +40,7 @@
     
     
       
-        <title>12. SQL LIMIT - 笔记</title>
+        <title>20. SQL GRANT - 笔记</title>
       
     
     
@@ -132,7 +132,7 @@
                 笔记
               </span>
               <span class="md-header-nav__topic">
-                12. SQL LIMIT
+                20. SQL GRANT
               </span>
             
           
@@ -1681,72 +1681,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        12. SQL LIMIT
-      </label>
-    
-    <a href="./" title="12. SQL LIMIT" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../mysql.limit/" title="12. SQL LIMIT" class="md-nav__link">
       12. SQL LIMIT
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" title="1. 介绍" class="md-nav__link">
-    1. 介绍
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" title="1.1 环境准备" class="md-nav__link">
-    1.1 环境准备
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" title="1.2 开始" class="md-nav__link">
-    1.2 开始
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-limit" title="2. Limit 用法" class="md-nav__link">
-    2. Limit 用法
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1838,11 +1777,133 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../mysql.grant/" title="20. SQL GRANT" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        20. SQL GRANT
+      </label>
+    
+    <a href="./" title="20. SQL GRANT" class="md-nav__link md-nav__link--active">
       20. SQL GRANT
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 介绍" class="md-nav__link">
+    1. 介绍
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" title="1.1 授权" class="md-nav__link">
+    1.1 授权
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 案例" class="md-nav__link">
+    2. 案例
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-select" title="2.1 授权select权限" class="md-nav__link">
+    2.1 授权select权限
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" title="2.2 查看授予的权限" class="md-nav__link">
+    2.2 查看授予的权限
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" title="2.3 用户登录验证" class="md-nav__link">
+    2.3 用户登录验证
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" title="3. 其他授权" class="md-nav__link">
+    3. 其他授权
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" title="3.1 授权所有库" class="md-nav__link">
+    3.1 授权所有库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" title="3.2 授权所有某库所有表" class="md-nav__link">
+    3.2 授权所有某库所有表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" title="3.3 授权所有某库某表" class="md-nav__link">
+    3.3 授权所有某库某表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" title="3.4 主从账号" class="md-nav__link">
+    3.4 主从账号
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -3659,15 +3720,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11" title="1.1 环境准备" class="md-nav__link">
-    1.1 环境准备
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" title="1.2 开始" class="md-nav__link">
-    1.2 开始
+  <a href="#11" title="1.1 授权" class="md-nav__link">
+    1.1 授权
   </a>
   
 </li>
@@ -3678,9 +3732,77 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-limit" title="2. Limit 用法" class="md-nav__link">
-    2. Limit 用法
+  <a href="#2" title="2. 案例" class="md-nav__link">
+    2. 案例
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-select" title="2.1 授权select权限" class="md-nav__link">
+    2.1 授权select权限
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" title="2.2 查看授予的权限" class="md-nav__link">
+    2.2 查看授予的权限
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" title="2.3 用户登录验证" class="md-nav__link">
+    2.3 用户登录验证
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" title="3. 其他授权" class="md-nav__link">
+    3. 其他授权
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" title="3.1 授权所有库" class="md-nav__link">
+    3.1 授权所有库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" title="3.2 授权所有某库所有表" class="md-nav__link">
+    3.2 授权所有某库所有表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" title="3.3 授权所有某库某表" class="md-nav__link">
+    3.3 授权所有某库某表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" title="3.4 主从账号" class="md-nav__link">
+    3.4 主从账号
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3700,75 +3822,167 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/caimengzhi/books/edit/master/docs/mysql/mysql.limit.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/caimengzhi/books/edit/master/docs/mysql/mysql.grant.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <p><center><h1> MySQL LIMIT </h1></center></p>
+                <p><center><h1> MySQL GRANT </h1></center></p>
 <h2 id="1">1. 介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<h3 id="11">1.1 环境准备<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
-<p><div class="codehilite"><pre><span></span>truncate leco;
-
-insert into leco(id,name,sex,age) values(1,&quot;张三&quot;,&quot;female&quot;,18);
-insert into leco(id,name,sex,age) values(2,&quot;李四&quot;,&quot;male&quot;,20);
-insert into leco(id,name,sex,age) values(3,&quot;王五&quot;,&quot;male&quot;,30);
-insert into leco(id,name,sex,age) values(4,&quot;赵六&quot;,&quot;female&quot;,40);
+<p>&#160; &#160; &#160; &#160;授予MySQL帐户的权限决定了帐户可以执行的操作。MySQL权限在它们适用的上下文和不同操作级别上有所不同：</p>
+<ul>
+<li>
+<p>管理权限使用户能够管理MySQL服务器的操作。这些权限是全局的，因为它们不是特定于特定数据库的。</p>
+</li>
+<li>
+<p>数据库权限适用于数据库及其中的所有对象。可以为特定数据库或全局授予这些权限，以便它们适用于所有数据库。</p>
+</li>
+<li>
+<p>可以为数据库中的特定对象，数据库中给定类型的所有对象（例如，数据库中的所有表）或全局的所有对象授予数据库对象（如表，索引，视图和存储例程）的权限。所有数据库中给定类型的对象</p>
+</li>
+</ul>
+<hr />
+<p>&#160; &#160; &#160; &#160;用户权限管理主要有以下作用</p>
+<ul>
+<li>可以限制用户访问哪些库、哪些表 </li>
+<li>可以限制用户对哪些表执行SELECT、CREATE、DELETE、DELETE、ALTER等操作 </li>
+<li>可以限制用户登录的IP或域名 </li>
+<li>可以限制用户自己的权限是否可以授权给别的用户</li>
+</ul>
+<h3 id="11">1.1 授权<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160; MySQL 赋予用户权限命令的简单格式可概括为：</p>
+<div class="codehilite"><pre><span></span>grant 权限 on 数据库对象 to 用户 密码 其他
+例子
+mysql&gt; grant all privileges on *.* to &#39;caimengzhi&#39;@&#39;%&#39; identified by &#39;caimengzhi123456&#39; with grant option;
 </pre></div>
-操作过程
-<div class="codehilite"><pre><span></span>mysql&gt; truncate leco;
-values(8,&quot;张三4&quot;,&quot;female&quot;,18);Query OK, 0 rows affected (0.04 sec)
 
-mysql&gt;
-mysql&gt; insert into leco(id,name,sex,age) values(1,&quot;张三&quot;,&quot;female&quot;,18);
-Query OK, 1 row affected (0.01 sec)
+<div class="admonition tip">
+<p class="admonition-title">参数解释</p>
+<div class="codehilite"><pre><span></span><span class="mf">1.</span> <span class="nb">all</span> <span class="n">privileges</span><span class="err">：表示将所有权限授予给用户。也可指定具体的权限，如：</span><span class="n">SELECT</span><span class="err">、</span><span class="n">CREATE</span><span class="err">、</span><span class="n">DROP等</span><span class="err">。</span>
 
-mysql&gt; insert into leco(id,name,sex,age) values(2,&quot;李四&quot;,&quot;male&quot;,20);
-Query OK, 1 row affected (0.01 sec)
+<span class="mf">2.</span> <span class="n">on</span><span class="err">：表示这些权限对哪些数据库和表生效，格式：数据库名</span><span class="o">.</span><span class="err">表名，这里写“</span><span class="o">*</span><span class="err">”表示所有数据库，所有表。如果我要指定将权限应用到</span><span class="n">test库的user表中</span><span class="err">，可以这么写：</span><span class="n">test</span><span class="o">.</span><span class="n">user</span>
 
-mysql&gt; insert into leco(id,name,sex,age) values(3,&quot;王五&quot;,&quot;male&quot;,30);
-Query OK, 1 row affected (0.02 sec)
+<span class="mf">3.</span> <span class="n">to</span><span class="err">：将权限授予哪个用户。格式：”用户名”@”登录</span><span class="n">IP或域名</span><span class="err">”。</span><span class="o">%</span><span class="err">表示没有限制，在任何主机都可以登录。比如：</span><span class="s1">&#39;caimengzhi&#39;</span><span class="err">@</span><span class="s1">&#39;192.168.0.%&#39;</span><span class="err">，表示</span><span class="n">caimengzhi这个用户只能在192</span><span class="o">.</span><span class="mf">168.0</span> <span class="err">该</span><span class="n">IP段登录</span>
 
-mysql&gt; insert into leco(id,name,sex,age) values(4,&quot;赵六&quot;,&quot;female&quot;,40);
-Query OK, 1 row affected (0.01 sec)
+<span class="mf">4.</span> <span class="n">identified</span> <span class="n">by</span><span class="err">：指定用户的登录密码</span>
 
-mysql&gt; select * from leco;
-+------+--------+--------+------+
-| id   | name   | sex    | age  |
-+------+--------+--------+------+
-|    1 | 张三   | female |   18 |
-|    2 | 李四   | male   |   20 |
-|    3 | 王五   | male   |   30 |
-|    4 | 赵六   | female |   40 |
-+------+--------+--------+------+
-4 rows in set (0.00 sec)
-</pre></div></p>
-<h3 id="12">1.2 开始<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
-<p>&#160; &#160; &#160; &#160;LIMIT 子句用于规定要返回的记录的数目。</p>
-<p>&#160; &#160; &#160; &#160;MySQL 和 Oracle 中的 SQL SELECT TOP 是等价的
-<div class="codehilite"><pre><span></span>SELECT column_name(s)
-FROM table_name
-LIMIT number
-</pre></div></p>
-<h2 id="2-limit">2. Limit 用法<a class="headerlink" href="#2-limit" title="Permanent link">&para;</a></h2>
-<p>&#160; &#160; &#160; &#160; 以下我们将在 SQL LIMIT 命令中使用 从MySQL数据表 leco 中读取数据。</p>
-<div class="codehilite"><pre><span></span>mysql&gt; select * from leco;
-+------+--------+--------+------+
-| id   | name   | sex    | age  |
-+------+--------+--------+------+
-|    1 | 张三   | female |   18 |
-|    2 | 李四   | male   |   20 |
-|    3 | 王五   | male   |   30 |
-|    4 | 赵六   | female |   40 |
-+------+--------+--------+------+
-4 rows in set (0.00 sec)
+<span class="mf">5.</span> <span class="k">with</span> <span class="n">grant</span> <span class="n">option</span><span class="err">：表示允许用户将自己的权限授权给其它用户，一般用不到，最好有</span><span class="n">BDA统一管理</span><span class="err">。</span>
 
-mysql&gt; select * from leco limit 2;
-+------+--------+--------+------+
-| id   | name   | sex    | age  |
-+------+--------+--------+------+
-|    1 | 张三   | female |   18 |
-|    2 | 李四   | male   |   20 |
-+------+--------+--------+------+
+<span class="mf">6.</span> <span class="err">可以使用</span><span class="n">GRANT给用户添加权限</span><span class="err">，权限会自动叠加，不会覆盖之前授予的权限，比如你先给用户添加一个</span><span class="n">SELECT权限</span><span class="err">，后来又给用户添加了一个</span><span class="n">INSERT权限</span><span class="err">，那么该用户就同时拥有了</span><span class="n">SELECT和INSERT权限</span><span class="err">。</span>
+</pre></div>
+
+</div>
+<p><a href="http://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html">传送门 - 用户详情的权限列表请参考MySQL官网说明</a> </p>
+<h2 id="2">2. 案例<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21-select">2.1 授权select权限<a class="headerlink" href="#21-select" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>mysql&gt; grant select on db1.* to &#39;cmz&#39;@&#39;%&#39; identified by &#39;cmz&#39;;
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+</pre></div>
+
+<h3 id="22">2.2 查看授予的权限<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>mysql&gt; show grants for &#39;cmz&#39;@&#39;%&#39;;
++--------------------------------------+
+| Grants for cmz@%                     |
++--------------------------------------+
+| GRANT USAGE ON *.* TO &#39;cmz&#39;@&#39;%&#39;      |
+| GRANT SELECT ON `db1`.* TO &#39;cmz&#39;@&#39;%&#39; |
++--------------------------------------+
 2 rows in set (0.00 sec)
+</pre></div>
+
+<h3 id="23">2.3 用户登录验证<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p><div class="codehilite"><pre><span></span>root@leco:/home/leco# mysql -ucmz -pcmz
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 56
+Server version: 5.7.25-0ubuntu0.16.04.2-log (Ubuntu)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
+
+mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| db1                |
++--------------------+
+2 rows in set (0.00 sec)
+
+mysql&gt; use db1;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql&gt; show tables;
++---------------+
+| Tables_in_db1 |
++---------------+
+| t1            |
++---------------+
+1 row in set (0.01 sec)
+
+mysql&gt; select * from t1;
++------+--------+--------+------+
+| id   | name   | sex    | age  |
++------+--------+--------+------+
+|    1 | 小明   | male   |   18 |
+|    2 | 小红   | female |   20 |
+|    3 | 小强   | male   |   30 |
+|    4 | 张三   | female |   28 |
++------+--------+--------+------+
+4 rows in set (0.00 sec)
+
+mysql&gt; drop table t1;
+ERROR 1142 (42000): DROP command denied to user &#39;cmz&#39;@&#39;localhost&#39; for table &#39;t1&#39;
+mysql&gt; truncate t1;
+ERROR 1142 (42000): DROP command denied to user &#39;cmz&#39;@&#39;localhost&#39; for table &#39;t1
+</pre></div>
+从上面只能看到，除了select和show的其他基本权限都么有了。</p>
+<p>继续添加权限</p>
+<p><div class="codehilite"><pre><span></span>mysql&gt; grant create on db1.* to &#39;cmz&#39;@&#39;%&#39;;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql&gt; show grants for &#39;cmz&#39;@&#39;%&#39;;
++----------------------------------------------+
+| Grants for cmz@%                             |
++----------------------------------------------+
+| GRANT USAGE ON *.* TO &#39;cmz&#39;@&#39;%&#39;              |
+| GRANT SELECT, CREATE ON `db1`.* TO &#39;cmz&#39;@&#39;%&#39; |
++----------------------------------------------+
+2 rows in set (0.00 sec)
+</pre></div>
+从上面看到权限是累加的。类似以下</p>
+<p><div class="codehilite"><pre><span></span>grant select on db1.* to &#39;cmz&#39;@&#39;%&#39;;
+grant insert on db1.* to &#39;cmz&#39;@&#39;%&#39;;
+grant update on db1.* to &#39;cmz&#39;@&#39;%&#39;;
+grant delete on db1.* to &#39;cmz&#39;@&#39;%&#39;;
+</pre></div>
+等价于
+<div class="codehilite"><pre><span></span>grant select,insert,update,delete on db1.* to &#39;cmz&#39;@&#39;%&#39;;
+</pre></div></p>
+<h2 id="3">3. 其他授权<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 授权所有库<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>grant all privileges on *.* to &#39;cmz&#39;@&#39;%&#39; identified by &#39;cmz&#39;;
+</pre></div>
+
+<blockquote>
+<p>privileges 可以省略</p>
+</blockquote>
+<p>cmz账号，管理数据库里面所有库和表。</p>
+<h3 id="32">3.2 授权所有某库所有表<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p><div class="codehilite"><pre><span></span>grant all privileges on db.* to &#39;cmz&#39;@&#39;%&#39; identified by &#39;cmz&#39;;
+</pre></div>
+cmz账号，管理db库下面所有表。</p>
+<h3 id="33">3.3 授权所有某库某表<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<p><div class="codehilite"><pre><span></span>grant all privileges on db.table1 to &#39;cmz&#39;@&#39;%&#39; identified by &#39;cmz&#39;;
+</pre></div>
+cmz账号，管理db库下的table1表。</p>
+<h3 id="34">3.4 主从账号<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>mysql&gt; grant replication slave on *.* to &#39;repl&#39;@&#39;%&#39; identified by &#39;repl&#39;;
 </pre></div>
                 
                   
@@ -3790,7 +4004,7 @@ mysql&gt; select * from leco limit 2;
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../mysql.distinct/" title="11. SQL DISTINCT" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../mysql.alias/" title="19. SQL ALIAS" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -3799,19 +4013,19 @@ mysql&gt; select * from leco limit 2;
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                11. SQL DISTINCT
+                19. SQL ALIAS
               </span>
             </div>
           </a>
         
         
-          <a href="../mysql.and_or/" title="13. SQL AND_OR" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../mysql.pk/" title="1. SQL PK" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                13. SQL AND_OR
+                1. SQL PK
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
