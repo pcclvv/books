@@ -2046,15 +2046,20 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-ddl" title="1.1 DDL" class="md-nav__link">
-    1.1 DDL
+  <a href="#111-ddl" title="1.1.1 DDL" class="md-nav__link">
+    1.1.1 DDL
   </a>
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
-  <a href="#12-dml" title="1.2 DML" class="md-nav__link">
-    1.2 DML
+  <a href="#112-dml" title="1.1.2 DML" class="md-nav__link">
+    1.1.2 DML
   </a>
   
 </li>
@@ -2081,21 +2086,16 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#15-binlog_1" title="1.5 开始binlog" class="md-nav__link">
-    1.5 开始binlog
+  <a href="#16-binlog" title="1.6 开始binlog" class="md-nav__link">
+    1.6 开始binlog
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#16" title="1.6 查看开启" class="md-nav__link">
-    1.6 查看开启
+  <a href="#17" title="1.7 查看开启" class="md-nav__link">
+    1.7 查看开启
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2223,8 +2223,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#531-0" title="5.3.1 恢复之前0点那备份。" class="md-nav__link">
-    5.3.1 恢复之前0点那备份。
+  <a href="#531-0" title="5.3.1 恢复之前0点备份。" class="md-nav__link">
+    5.3.1 恢复之前0点备份。
   </a>
   
 </li>
@@ -3845,15 +3845,20 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-ddl" title="1.1 DDL" class="md-nav__link">
-    1.1 DDL
+  <a href="#111-ddl" title="1.1.1 DDL" class="md-nav__link">
+    1.1.1 DDL
   </a>
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
-  <a href="#12-dml" title="1.2 DML" class="md-nav__link">
-    1.2 DML
+  <a href="#112-dml" title="1.1.2 DML" class="md-nav__link">
+    1.1.2 DML
   </a>
   
 </li>
@@ -3880,21 +3885,16 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#15-binlog_1" title="1.5 开始binlog" class="md-nav__link">
-    1.5 开始binlog
+  <a href="#16-binlog" title="1.6 开始binlog" class="md-nav__link">
+    1.6 开始binlog
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#16" title="1.6 查看开启" class="md-nav__link">
-    1.6 查看开启
+  <a href="#17" title="1.7 查看开启" class="md-nav__link">
+    1.7 查看开启
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -4022,8 +4022,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#531-0" title="5.3.1 恢复之前0点那备份。" class="md-nav__link">
-    5.3.1 恢复之前0点那备份。
+  <a href="#531-0" title="5.3.1 恢复之前0点备份。" class="md-nav__link">
+    5.3.1 恢复之前0点备份。
   </a>
   
 </li>
@@ -4076,28 +4076,28 @@
 <p>&#160; &#160; &#160; &#160; 众所周知，binlog日志对于mysql数据库来说是十分重要的。在数据丢失的紧急情况下，我们往往会想到用binlog日志功能进行数据恢复（定时全备份+binlog日志恢复增量数据部分），为你一路保驾护航！</p>
 <h3 id="11-binlog">1.1 了解binlog<a class="headerlink" href="#11-binlog" title="Permanent link">&para;</a></h3>
 <p>&#160; &#160; &#160; &#160;MySQL的二进制日志binlog可以说是MySQL最重要的日志，它记录了所有的DDL和DML语句（除了数据查询语句select），以事件形式记录，还包含语句所执行的消耗的时间，MySQL的二进制日志是事务安全型的。 </p>
-<h4 id="11-ddl">1.1 DDL<a class="headerlink" href="#11-ddl" title="Permanent link">&para;</a></h4>
+<h4 id="111-ddl">1.1.1 DDL<a class="headerlink" href="#111-ddl" title="Permanent link">&para;</a></h4>
 <p>&#160; &#160; &#160; &#160; Data Definition Language,主要的命令有CREATE、ALTER、DROP等，DDL主要是用在定义或改变表（TABLE）的结构，数据类型，表之间的链接和约束等初始化工作上，他们大多在建立表时使用。</p>
-<h4 id="12-dml">1.2 DML<a class="headerlink" href="#12-dml" title="Permanent link">&para;</a></h4>
+<h3 id="112-dml">1.1.2 DML<a class="headerlink" href="#112-dml" title="Permanent link">&para;</a></h3>
 <p>&#160; &#160; &#160; &#160; Data Manipulation Language 数据操纵语言,主要的命令是SELECT、UPDATE、INSERT、DELETE，就象它的名字一样，这4条命令是用来对数据库里的数据进行操作的语言</p>
-<h4 id="13-binlog">1.3 binlog常用选项<a class="headerlink" href="#13-binlog" title="Permanent link">&para;</a></h4>
+<h3 id="13-binlog">1.3 binlog常用选项<a class="headerlink" href="#13-binlog" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>--start-datetime： 从二进制日志中读取指定等于时间戳或者晚于本地服务器的时间
 --stop-datetime：  从二进制日志中读取指定小于时间戳或者等于本地服务器的时间 取值和上述一样
 --start-position： 从二进制日志中读取指定position 事件位置作为开始。
 --stop-position：  从二进制日志中读取指定position 事件位置作为事件截至
 </pre></div>
 
-<h4 id="14">1.4 使用场景<a class="headerlink" href="#14" title="Permanent link">&para;</a></h4>
+<h3 id="14">1.4 使用场景<a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
 <ul>
 <li>MySQL主从复制：MySQL Replication在Master端开启binlog，Master把它的二进制日志传递给slaves来达到master-slave数据一致的目的</li>
 <li>数据恢复了，通过使用mysqlbinlog工具来使恢复数据。</li>
 </ul>
-<h4 id="15-binlog">1.5 binlog包括文件<a class="headerlink" href="#15-binlog" title="Permanent link">&para;</a></h4>
+<h3 id="15-binlog">1.5 binlog包括文件<a class="headerlink" href="#15-binlog" title="Permanent link">&para;</a></h3>
 <ul>
 <li>二进制日志索引文件（文件名后缀为.index）用于记录所有的二进制文件</li>
 <li>二进制日志文件（文件名后缀为.00000*）记录数据库所有的DDL和DML(除了数据查询语句select)语句事件</li>
 </ul>
-<h4 id="15-binlog_1">1.5 开始binlog<a class="headerlink" href="#15-binlog_1" title="Permanent link">&para;</a></h4>
+<h3 id="16-binlog">1.6 开始binlog<a class="headerlink" href="#16-binlog" title="Permanent link">&para;</a></h3>
 <p>&#160; &#160; &#160; &#160;我的是ubuntu系统，其他系统配置文件可能有所不同
 <div class="codehilite"><pre><span></span>root@leco:~# grep -i log_bin /etc/mysql/mysql.conf.d/mysqld.cnf
 log_bin         = /var/log/mysql/mysql-bin.log
@@ -4110,7 +4110,7 @@ log_bin         = /var/log/mysql/mysql-bin.log
 </pre></div>
 
 </div>
-<h4 id="16">1.6 查看开启<a class="headerlink" href="#16" title="Permanent link">&para;</a></h4>
+<h3 id="17">1.7 查看开启<a class="headerlink" href="#17" title="Permanent link">&para;</a></h3>
 <p><div class="codehilite"><pre><span></span>root@leco:~# mysql -uroot -proot -e &#39; show variables like &quot;log_bin&quot;;&#39;
 mysql: [Warning] Using a password on the command line interface can be insecure.
 +---------------+-------+
@@ -5002,7 +5002,7 @@ No query specified
 </pre></div>
 &#160; &#160; &#160; &#160;通过分析，造成数据库破坏的pos点区间是介于 1661--1786 之间（这是按照日志区间的pos节点算的），因为在上面的binlog日志看出在28 row看到执行了drop指令，只要恢复到1661之前就可。</p>
 <h3 id="53">5.3 开始恢复<a class="headerlink" href="#53" title="Permanent link">&para;</a></h3>
-<h4 id="531-0">5.3.1 恢复之前0点那备份。<a class="headerlink" href="#531-0" title="Permanent link">&para;</a></h4>
+<h4 id="531-0">5.3.1 恢复之前0点备份。<a class="headerlink" href="#531-0" title="Permanent link">&para;</a></h4>
 <p>快速命令</p>
 <p><div class="codehilite"><pre><span></span>cd /mysqldataback/
 gzip -d summer_2019-03-01.sql.gz
@@ -5198,7 +5198,7 @@ root@leco:/mysqldataback# mysqlbinlog mysql-bin.000013 &gt;mysql-bin.000013.sql
 root@leco:/mysqldataback# ls
 mysql-bin.000013  mysql-bin.000013.sql  summer_2019-03-01.sql
 root@leco:/mysqldataback# vim mysql-bin.000013.sql
-root@leco:/mysqldataback# # DROP TABLE `cmz` /* generated by server */
+root@leco:/mysqldataback# # DROP TABLE `cmz` /* generated by server */  删除这个语句
 root@leco:/mysqldataback# mysql -uroot -proot &lt;mysql-bin.000013.sql
 mysql: [Warning] Using a password on the command line interface can be insecure.
 ERROR 1790 (HY000) at line 122: @@SESSION.GTID_NEXT cannot be changed by a client that owns a GTID. The client owns ANONYMOUS. Ownership is released on COMMIT or ROLLBACK.
