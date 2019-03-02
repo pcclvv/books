@@ -3583,9 +3583,8 @@
                   <a href="https://github.com/caimengzhi/books/edit/master/docs/python/lib/nosql/redis/redis.pipeline.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>2. redis pipeline</h1>
-                
-                <h2 id="1-python-redis-pipeline">1. Python Redis pipeline介绍<a class="headerlink" href="#1-python-redis-pipeline" title="Permanent link">&para;</a></h2>
+                <p><center><h1> redis pipeline </h1></center></p>
+<h2 id="1-python-redis-pipeline">1. Python Redis pipeline介绍<a class="headerlink" href="#1-python-redis-pipeline" title="Permanent link">&para;</a></h2>
 <p>&#160; &#160; &#160; &#160; Redis是建立在TCP协议基础上的CS架构，客户端client对redis server采取请求响应的方式交互。</p>
 <p>&#160; &#160; &#160; &#160; 一般来说客户端从提交请求到得到服务器相应，需要传送两个tcp报文。</p>
 <p>&#160; &#160; &#160; &#160; Redis的pipeline(管道)功能在命令行中没有，但redis是支持pipeline的，而且在各个语言版的client中都有相应的实现。 由于网络开销延迟，就算redis server端有很强的处理能力，也会由于收到的client消息少，而造成吞吐量小。当client 使用pipelining 发送命令时，redis server必须将部分请求放到队列中（使用内存），执行完毕后一次性发送结果；如果发送的命令很多的话，建议对返回的结果加标签，当然这也会增加使用的内存；</p>
