@@ -1,4 +1,4 @@
-
+<center><h1> uuid 模块 </h1></center>
 ## 1. 介绍
 &#160; &#160; &#160; &#160;uuid是128位的全局唯一标识符（univeral unique identifier），通常用32位的一个字符串的形式来表现。有时也称guid(global unique identifier)。python中自带了uuid模块来进行uuid的生成和管理工作。
 

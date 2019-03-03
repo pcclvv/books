@@ -1,3 +1,4 @@
+<center><h1> redis pipeline </h1></center>
 ## 1. Python Redis pipeline介绍
 &#160; &#160; &#160; &#160; Redis是建立在TCP协议基础上的CS架构，客户端client对redis server采取请求响应的方式交互。
 

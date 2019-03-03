@@ -6,7 +6,7 @@ title: source code
 description: source code by caimengzhi
 path: ../../../../code/python/lib/nosql/memcached
 source: append.py
-
+<center><h1> memcached 模块 </h1></center>
 ## 1. 介绍
 这个模块是一个Python操作memcached的一个API接口。
 

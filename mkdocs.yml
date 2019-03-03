@@ -79,7 +79,11 @@ extra_javascript:
 
 nav:
     - Python:
-          - 库学习:
+        - 工具:
+            - 虚拟环境:
+                - 1. virtualenv: python/tools/virtualenv.index.md
+                - 2. virtualenvwrapper: python/tools/virtualenvwrapper.index.md
+        - 库学习:
             - 1. SQLAlchemy库:  
                 - 1. 创建表: python/lib/SQLAlchemy/1.创建表.md
                 - 2. 基本操作: python/lib/SQLAlchemy/2.基本操作.md
@@ -103,13 +107,10 @@ nav:
                 - 2. yagmail: python/lib/email/smtp/lib_yagmail.md
             - 7. wordcloud库:
                 - 1. wordcloud: python/lib/wordcloud/1.wordcloud.md
-            - 8. yield库:    
-                - 1. yield: python/lib/yield/1.yield.md
+            - 8. yield库:   python/lib/yield/1.yield.md 
             - 9. Nosql:
-                - 1. mongo:    
-                    - 1. mongo: python/lib/nosql/mongo/mongo.index.md
-                - 2. memcached:
-                    - 1. memcached: python/lib/nosql/memcached/memcached.index.md
+                - 1. mongo: python/lib/nosql/mongo/mongo.index.md
+                - 2. memcached: python/lib/nosql/memcached/memcached.index.md
                 - 3. redis:
                     - 1. redis: python/lib/nosql/redis/redis.index.md
                     - 2. redis pipeline: python/lib/nosql/redis/redis.pipeline.md
@@ -121,12 +122,14 @@ nav:
                     - 1. 介绍: python/lib/numPy/1.index.md
                 - 2. pandas: 
                     - 1. 介绍: python/lib/pandas/1.index.md   
-            - 11. uuid:
-                - 1. uuid: python/lib/uuid/uuid.index.md
-            - 12. LRU:
-                - 1. LRU: python/lib/LRU/LRU.index.md
-            - 13. getpass: 
-                - 1. getpass: python/lib/getpass/getpass.index.md
+            - 11. uuid: python/lib/uuid/uuid.index.md
+            - 12. LRU: python/lib/LRU/LRU.index.md
+            - 13. getpass: python/lib/getpass/getpass.index.md
+            - 14. os: python/lib/os/os.index.md
+            - 15. sys: python/lib/sys/sys.index.md
+    - Flask:
+        - 1. 简介: python/flask/flask.index.md
+    
     - Linux:
           - 小工具: 
             - 1. sersync: linux/server/sersync/sersync.md
@@ -175,16 +178,24 @@ nav:
             - 17. SQL IN: mysql/mysql.in.md
             - 18. SQL BETWEEN: mysql/mysql.between.md
             - 19. SQL ALIAS: mysql/mysql.alias.md
+            - 20. SQL GRANT: mysql/mysql.grant.md
         - 2. MySQL 进阶:
             - 1. SQL PK: mysql/mysql.pk.md
             - 2. SQL INCREMENT: mysql/mysql.increment.md
         - 3. MySQL 容灾:
             - 1. mysqldump 参数: mysql/mysql.mysqldump.md
             - 2. mysqldump 脚本: mysql/mysql.mysqldump_case.md
-            - 2. xtrabackup: linux/server/xtrabackup/xtrabackup.index.md
+            - 3. xtrabackup: linux/server/xtrabackup/xtrabackup.index.md
+            - 4. binlog 恢复数据: mysql/mysql.restore_data.md
         - 4. MySQL 复制:
             - 1. 主从: mysql/mysql.master-slave.md
             - 2. 主主: mysql/mysql.master-master.md
+        - 5. MySQL OTHER:
+            - 1. 配置文件: mysql/mysql.mysqlcnf.md
+            - 2. 自增/偏移量: mysql/mysql.increment_offset.md
+            - 3. 表删除: mysql/mysql.delete_truncate_drop.md
+            - 4. binlog 介绍: mysql/mysql.binlog.md
+            
             
     - 前端:
           - Vue: frontend/vue/index.md

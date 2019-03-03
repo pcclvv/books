@@ -1,3 +1,4 @@
+<center><h1> redis sentinel </h1></center>
 
 ```
 root@leco:~/code/redis# cat sentinel.py
