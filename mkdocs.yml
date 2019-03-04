@@ -129,6 +129,7 @@ nav:
             - 15. sys: python/lib/sys/sys.index.md
     - Flask:
         - 1. 简介: python/flask/flask.index.md
+        - 2. 路由: python/flask/flask.view.md
     
     - Linux:
           - 小工具: 
@@ -199,6 +200,7 @@ nav:
             
     - 前端:
           - Vue: frontend/vue/index.md
+          - CSS: frontend/css/css.index.md
     - 服务:
           - 1. git: 
             - 1. git: tools/git/1.git.md
