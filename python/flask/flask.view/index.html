@@ -3829,19 +3829,19 @@ if __name__ == &#39;__main__&#39;:
 <ul>
 <li>
 <p>测试 name</p>
-<p>&#160; &#160; &#160; &#160; 当问我们 127.0.0.1:7000/cmz，flask匹配的是@app.route('/<name>')，此时候浏览器会显示 hello cmz，也就是后面的位置是string都是显示。</p>
+<p>&#160; &#160; &#160; &#160; 当问我们 127.0.0.1:7000/cmz，flask匹配的是==@app.route('/<name>')==，此时候浏览器会显示 hello cmz，也就是后面的位置是string都是显示。</p>
 </li>
 <li>
 <p>测试age</p>
-<p>&#160; &#160; &#160; &#160; 当问我们 127.0.0.1:7000/30，flask匹配的是@app.route('/<int:age>')，此时候浏览器会显示 my age 30，也就是后面的位置是整数数字都是显示</p>
+<p>&#160; &#160; &#160; &#160; 当问我们 127.0.0.1:7000/30，flask匹配的是==@app.route('/<int:age>')==，此时候浏览器会显示 my age 30，也就是后面的位置是整数数字都是显示</p>
 </li>
 <li>
 <p>测试salary</p>
-<p>&#160; &#160; &#160; &#160; 当问我们 127.0.0.1:7000/88.88，flask匹配的是@app.route('/<float:salary>')，此时候浏览器会显示 my salary is 88.88，也就是后面的位置是浮点数字都是显示</p>
+<p>&#160; &#160; &#160; &#160; 当问我们 127.0.0.1:7000/88.88，flask匹配的==是@app.route('/<float:salary>')==，此时候浏览器会显示 my salary is 88.88，也就是后面的位置是浮点数字都是显示</p>
 </li>
 <li>
 <p>测试url</p>
-<p>&#160; &#160; &#160; &#160; 当问我们 127.0.0.1:7000/<a href="http://www.jd.com">http://www.jd.com</a>，flask匹配的是@app.route('/<path:url>')，此时候浏览器会显示my url <a href="http://www.jd.com">http://www.jd.com</a>，也就是后面的位置是url地址</p>
+<p>&#160; &#160; &#160; &#160; 当问我们 127.0.0.1:7000/<a href="http://www.jd.com">http://www.jd.com</a>，flask匹配的是==@app.route('/<path:url>')==，此时候浏览器会显示my url <a href="http://www.jd.com">http://www.jd.com</a>，也就是后面的位置是url地址</p>
 </li>
 </ul>
                 
