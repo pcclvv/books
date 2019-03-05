@@ -40,7 +40,7 @@
     
     
       
-        <title>1. MySQL练习 - 笔记</title>
+        <title>8. 存储引擎 - 笔记</title>
       
     
     
@@ -132,7 +132,7 @@
                 笔记
               </span>
               <span class="md-header-nav__topic">
-                1. MySQL练习
+                8. 存储引擎
               </span>
             
           
@@ -2017,52 +2017,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        1. MySQL练习
-      </label>
-    
-    <a href="./" title="1. MySQL练习" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../mysql.practice1/" title="1. MySQL练习" class="md-nav__link">
       1. MySQL练习
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" title="1. 环境准备" class="md-nav__link">
-    1. 环境准备
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" title="2. 练习" class="md-nav__link">
-    2. 练习
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -2142,11 +2101,80 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../mysql.storage_engine/" title="8. 存储引擎" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        8. 存储引擎
+      </label>
+    
+    <a href="./" title="8. 存储引擎" class="md-nav__link md-nav__link--active">
       8. 存储引擎
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 介绍" class="md-nav__link">
+    1. 介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-mysql" title="2. mysql支持的存储引擎" class="md-nav__link">
+    2. mysql支持的存储引擎
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-unique" title="3. unique" class="md-nav__link">
+    3. unique
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-primary-key" title="4. primary key" class="md-nav__link">
+    4. primary key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-auto_increment" title="5. auto_increment" class="md-nav__link">
+    5. auto_increment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" title="6. 案例" class="md-nav__link">
+    6. 案例
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -3727,15 +3755,43 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" title="1. 环境准备" class="md-nav__link">
-    1. 环境准备
+  <a href="#1" title="1. 介绍" class="md-nav__link">
+    1. 介绍
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" title="2. 练习" class="md-nav__link">
-    2. 练习
+  <a href="#2-mysql" title="2. mysql支持的存储引擎" class="md-nav__link">
+    2. mysql支持的存储引擎
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-unique" title="3. unique" class="md-nav__link">
+    3. unique
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-primary-key" title="4. primary key" class="md-nav__link">
+    4. primary key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-auto_increment" title="5. auto_increment" class="md-nav__link">
+    5. auto_increment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" title="6. 案例" class="md-nav__link">
+    6. 案例
   </a>
   
 </li>
@@ -3756,1241 +3812,1001 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/caimengzhi/books/edit/master/docs/mysql/mysql.practice1.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/caimengzhi/books/edit/master/docs/mysql/mysql.storage_engine.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <p><center><h1>MySQL 练习</h1></center></p>
-<p><img alt="MySQL 练习" src="../../pictures/mysql/p1.png" /></p>
-<h2 id="1">1. 环境准备<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>/*
-Navicat MySQL Data Transfer
+                <p><center><h1> MySQL 存储引擎 </h1></center></p>
+<h2 id="1">1. 介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>&#160; &#160; &#160; &#160; 什么是存储引擎</p>
+<ul>
+<li>mysql中建立的库===&gt;文件夹</li>
+<li>库中建立的表===&gt;文件</li>
+<li>存储引擎就是表的类型</li>
+</ul>
+<p>&#160; &#160; &#160; &#160; 现实生活中我们用来存储数据的文件有不同的类型，每种文件类型对应各自不同的处理机制：比如处理文本用txt类型，处理表格用excel，处理图片用png等</p>
+<p>&#160; &#160; &#160; &#160; 数据库中的表也应该有不同的类型，表的类型不同，会对应mysql不同的存取机制，表类型又称为存储引擎。</p>
+<p>&#160; &#160; &#160; &#160; 存储引擎说白了就是如何存储数据、如何为存储的数据建立索引和如何更新、查询数据等技术的实现方
+法。因为在关系数据库中数据的存储是以表的形式存储的，所以存储引擎也可以称为表类型（即存储和
+操作此表的类型）</p>
+<p>&#160; &#160; &#160; &#160; 在Oracle 和SQL Server等数据库中只有一种存储引擎，所有数据存储管理机制都是一样的。而MySql
+数据库提供了多种存储引擎。用户可以根据不同的需求为数据表选择不同的存储引擎，用户也可以根据
+自己的需要编写自己的存储引擎</p>
+<h2 id="2-mysql">2. mysql支持的存储引擎<a class="headerlink" href="#2-mysql" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>mysql&gt; show engines\G;
+*************************** 1. row ***************************
+      Engine: MyISAM
+     Support: YES
+     Comment: MyISAM storage engine
+Transactions: NO
+          XA: NO
+  Savepoints: NO
+*************************** 2. row ***************************
+      Engine: MRG_MYISAM
+     Support: YES
+     Comment: Collection of identical MyISAM tables
+Transactions: NO
+          XA: NO
+  Savepoints: NO
+*************************** 3. row ***************************
+      Engine: CSV
+     Support: YES
+     Comment: CSV storage engine
+Transactions: NO
+          XA: NO
+  Savepoints: NO
+*************************** 4. row ***************************
+      Engine: BLACKHOLE
+     Support: YES
+     Comment: /dev/null storage engine (anything you write to it disappears)
+Transactions: NO
+          XA: NO
+  Savepoints: NO
+*************************** 5. row ***************************
+      Engine: PERFORMANCE_SCHEMA
+     Support: YES
+     Comment: Performance Schema
+Transactions: NO
+          XA: NO
+  Savepoints: NO
+*************************** 6. row ***************************
+      Engine: InnoDB
+     Support: DEFAULT
+     Comment: Supports transactions, row-level locking, and foreign keys
+Transactions: YES
+          XA: YES
+  Savepoints: YES
+*************************** 7. row ***************************
+      Engine: ARCHIVE
+     Support: YES
+     Comment: Archive storage engine
+Transactions: NO
+          XA: NO
+  Savepoints: NO
+*************************** 8. row ***************************
+      Engine: MEMORY
+     Support: YES
+     Comment: Hash based, stored in memory, useful for temporary tables
+Transactions: NO
+          XA: NO
+  Savepoints: NO
+*************************** 9. row ***************************
+      Engine: FEDERATED
+     Support: NO
+     Comment: Federated MySQL storage engine
+Transactions: NULL
+          XA: NULL
+  Savepoints: NULL
+rows in set (0.00 sec)
 
-Source Server         : localhost
-Source Server Version : 50621
-Source Host           : localhost:3306
-Source Database       : cmz
-
-Target Server Type    : MYSQL
-Target Server Version : 50621
-File Encoding         : 65001
-
-Date: 2018-03-17 21:20:45
-*/
-
-SET FOREIGN_KEY_CHECKS=0;
-
--- ----------------------------
--- Table structure for `class`
--- ----------------------------
-DROP TABLE IF EXISTS `class`;
-CREATE TABLE `class` (
-  `cid` int(11) NOT NULL AUTO_INCREMENT,
-  `caption` char(10) NOT NULL,
-  `grade_id` int(11) NOT NULL,
-  PRIMARY KEY (`cid`),
-  KEY `grade_id` (`grade_id`),
-  CONSTRAINT `class_ibfk_1` FOREIGN KEY (`grade_id`) REFERENCES `class_grade` (`gid`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of class
--- ----------------------------
-INSERT INTO `class` VALUES (&#39;1&#39;, &#39;一年一班&#39;, &#39;1&#39;);
-INSERT INTO `class` VALUES (&#39;2&#39;, &#39;一年二班&#39;, &#39;1&#39;);
-INSERT INTO `class` VALUES (&#39;3&#39;, &#39;一年三班&#39;, &#39;1&#39;);
-INSERT INTO `class` VALUES (&#39;4&#39;, &#39;一年四班&#39;, &#39;1&#39;);
-INSERT INTO `class` VALUES (&#39;5&#39;, &#39;一年五班&#39;, &#39;1&#39;);
-INSERT INTO `class` VALUES (&#39;6&#39;, &#39;二年一班&#39;, &#39;2&#39;);
-INSERT INTO `class` VALUES (&#39;7&#39;, &#39;二年二班&#39;, &#39;2&#39;);
-INSERT INTO `class` VALUES (&#39;8&#39;, &#39;二年三班&#39;, &#39;2&#39;);
-INSERT INTO `class` VALUES (&#39;9&#39;, &#39;二年四班&#39;, &#39;2&#39;);
-INSERT INTO `class` VALUES (&#39;10&#39;, &#39;三年一班&#39;, &#39;3&#39;);
-INSERT INTO `class` VALUES (&#39;11&#39;, &#39;三年二班&#39;, &#39;3&#39;);
-
--- ----------------------------
--- Table structure for `class_grade`
--- ----------------------------
-DROP TABLE IF EXISTS `class_grade`;
-CREATE TABLE `class_grade` (
-  `gid` int(11) NOT NULL AUTO_INCREMENT,
-  `gname` char(10) NOT NULL,
-  PRIMARY KEY (`gid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of class_grade
--- ----------------------------
-INSERT INTO `class_grade` VALUES (&#39;1&#39;, &#39;一年级&#39;);
-INSERT INTO `class_grade` VALUES (&#39;2&#39;, &#39;二年级&#39;);
-INSERT INTO `class_grade` VALUES (&#39;3&#39;, &#39;三年级&#39;);
-
--- ----------------------------
--- Table structure for `course`
--- ----------------------------
-DROP TABLE IF EXISTS `course`;
-CREATE TABLE `course` (
-  `cid` int(11) NOT NULL AUTO_INCREMENT,
-  `cname` char(10) NOT NULL,
-  `teacher_id` int(11) NOT NULL,
-  PRIMARY KEY (`cid`),
-  KEY `teacher_id` (`teacher_id`),
-  CONSTRAINT `course_ibfk_1` FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`tid`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of course
--- ----------------------------
-INSERT INTO `course` VALUES (&#39;1&#39;, &#39;生物&#39;, &#39;1&#39;);
-INSERT INTO `course` VALUES (&#39;2&#39;, &#39;体育&#39;, &#39;1&#39;);
-INSERT INTO `course` VALUES (&#39;3&#39;, &#39;物理&#39;, &#39;2&#39;);
-INSERT INTO `course` VALUES (&#39;4&#39;, &#39;数学&#39;, &#39;1&#39;);
-INSERT INTO `course` VALUES (&#39;5&#39;, &#39;美术&#39;, &#39;3&#39;);
-
--- ----------------------------
--- Table structure for `score`
--- ----------------------------
-DROP TABLE IF EXISTS `score`;
-CREATE TABLE `score` (
-  `sid` int(11) NOT NULL AUTO_INCREMENT,
-  `student_id` int(11) NOT NULL,
-  `course_id` int(11) NOT NULL,
-  `score` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`sid`),
-  UNIQUE KEY `sid` (`sid`),
-  KEY `student_id` (`student_id`),
-  KEY `course_id` (`course_id`),
-  CONSTRAINT `score_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`sid`),
-  CONSTRAINT `score_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `course` (`cid`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of score
--- ----------------------------
-INSERT INTO `score` VALUES (&#39;5&#39;, &#39;1&#39;, &#39;3&#39;, &#39;80&#39;);
-INSERT INTO `score` VALUES (&#39;8&#39;, &#39;4&#39;, &#39;3&#39;, &#39;70&#39;);
-INSERT INTO `score` VALUES (&#39;9&#39;, &#39;5&#39;, &#39;3&#39;, &#39;50&#39;);
-
--- ----------------------------
--- Table structure for `student`
--- ----------------------------
-DROP TABLE IF EXISTS `student`;
-CREATE TABLE `student` (
-  `sid` int(11) NOT NULL AUTO_INCREMENT,
-  `sname` char(10) NOT NULL,
-  `gender` enum(&#39;男&#39;,&#39;女&#39;) DEFAULT NULL,
-  `class_id` int(11) NOT NULL,
-  PRIMARY KEY (`sid`),
-  KEY `class_id` (`class_id`),
-  CONSTRAINT `student_ibfk_1` FOREIGN KEY (`class_id`) REFERENCES `class` (`cid`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of student
--- ----------------------------
-INSERT INTO `student` VALUES (&#39;1&#39;, &#39;乔丹&#39;, &#39;女&#39;, &#39;1&#39;);
-INSERT INTO `student` VALUES (&#39;2&#39;, &#39;艾森&#39;, &#39;女&#39;, &#39;2&#39;);
-INSERT INTO `student` VALUES (&#39;3&#39;, &#39;科比&#39;, &#39;男&#39;, &#39;3&#39;);
-INSERT INTO `student` VALUES (&#39;4&#39;, &#39;黄家&#39;, &#39;女&#39;, &#39;1&#39;);
-INSERT INTO `student` VALUES (&#39;5&#39;, &#39;胡启&#39;, &#39;男&#39;, &#39;1&#39;);
-INSERT INTO `student` VALUES (&#39;6&#39;, &#39;吴宇&#39;, &#39;男&#39;, &#39;2&#39;);
-INSERT INTO `student` VALUES (&#39;7&#39;, &#39;唐明&#39;, &#39;女&#39;, &#39;3&#39;);
-INSERT INTO `student` VALUES (&#39;8&#39;, &#39;叶葱&#39;, &#39;男&#39;, &#39;2&#39;);
-INSERT INTO `student` VALUES (&#39;9&#39;, &#39;张淳&#39;, &#39;女&#39;, &#39;2&#39;);
-INSERT INTO `student` VALUES (&#39;10&#39;, &#39;映月&#39;, &#39;男&#39;, &#39;1&#39;);
-INSERT INTO `student` VALUES (&#39;11&#39;, &#39;胡启&#39;, &#39;男&#39;, &#39;1&#39;);
-INSERT INTO `student` VALUES (&#39;12&#39;, &#39;天宇&#39;, &#39;女&#39;, &#39;2&#39;);
-INSERT INTO `student` VALUES (&#39;13&#39;, &#39;孙兰&#39;, &#39;男&#39;, &#39;3&#39;);
-INSERT INTO `student` VALUES (&#39;14&#39;, &#39;张笑&#39;, &#39;男&#39;, &#39;3&#39;);
-INSERT INTO `student` VALUES (&#39;15&#39;, &#39;张兰&#39;, &#39;女&#39;, &#39;1&#39;);
-INSERT INTO `student` VALUES (&#39;16&#39;, &#39;张兰&#39;, &#39;女&#39;, &#39;2&#39;);
-INSERT INTO `student` VALUES (&#39;17&#39;, &#39;张兰&#39;, &#39;女&#39;, &#39;3&#39;);
-
--- ----------------------------
--- Table structure for `teacher`
--- ----------------------------
-DROP TABLE IF EXISTS `teacher`;
-CREATE TABLE `teacher` (
-  `tid` int(11) NOT NULL AUTO_INCREMENT,
-  `tname` char(10) NOT NULL,
-  PRIMARY KEY (`tid`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of teacher
--- ----------------------------
-INSERT INTO `teacher` VALUES (&#39;1&#39;, &#39;张三&#39;);
-INSERT INTO `teacher` VALUES (&#39;2&#39;, &#39;李四&#39;);
-INSERT INTO `teacher` VALUES (&#39;3&#39;, &#39;王五&#39;);
-INSERT INTO `teacher` VALUES (&#39;4&#39;, &#39;李坤&#39;);
-
--- ----------------------------
--- Table structure for `teacher2cls`
--- ----------------------------
-DROP TABLE IF EXISTS `teacher2cls`;
-CREATE TABLE `teacher2cls` (
-  `tcid` int(11) NOT NULL AUTO_INCREMENT,
-  `tid` int(11) NOT NULL,
-  `cid` int(11) NOT NULL,
-  PRIMARY KEY (`tcid`),
-  UNIQUE KEY `tcid` (`tcid`),
-  KEY `tid` (`tid`),
-  KEY `cid` (`cid`),
-  CONSTRAINT `teacher2cls_ibfk_1` FOREIGN KEY (`tid`) REFERENCES `teacher` (`tid`),
-  CONSTRAINT `teacher2cls_ibfk_2` FOREIGN KEY (`cid`) REFERENCES `course` (`cid`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of teacher2cls
--- ----------------------------
-INSERT INTO `teacher2cls` VALUES (&#39;1&#39;, &#39;1&#39;, &#39;1&#39;);
-INSERT INTO `teacher2cls` VALUES (&#39;2&#39;, &#39;1&#39;, &#39;2&#39;);
-INSERT INTO `teacher2cls` VALUES (&#39;3&#39;, &#39;2&#39;, &#39;1&#39;);
-INSERT INTO `teacher2cls` VALUES (&#39;4&#39;, &#39;3&#39;, &#39;2&#39;);
-
--- ----------------------------
--- Procedure structure for `p1`
--- ----------------------------
-DROP PROCEDURE IF EXISTS `p1`;
-DELIMITER ;;
-CREATE DEFINER=`cmz`@`localhost` PROCEDURE `p1`()
-BEGIN
-    select * from score;
-END
-;;
-DELIMITER ;
-
--- ----------------------------
--- Procedure structure for `p2`
--- ----------------------------
-DROP PROCEDURE IF EXISTS `p2`;
-DELIMITER ;;
-CREATE DEFINER=`cmz`@`localhost` PROCEDURE `p2`(in n1 int,in n2 int,out res int)
-BEGIN
-    select * from score where course_id=n1 and score &gt;n2 ;
-    set res = 1;
-END
-;;
-DELIMITER ;
+ERROR: 
+No query specified
 </pre></div>
 
-<h2 id="2">2. 练习<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>#1.------------------------- create database ------------------------- 
-#1. create database and change this database
-  create database cmz charset utf8;
-  use cmz;
+<div class="codehilite"><pre><span></span>mysql&gt; show engines;
++--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
+| Engine             | Support | Comment                                                        | Transactions | XA   | Savepoints |
++--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
+| MyISAM             | YES     | MyISAM storage engine                                          | NO           | NO   | NO         |
+| MRG_MYISAM         | YES     | Collection of identical MyISAM tables                          | NO           | NO   | NO         |
+| CSV                | YES     | CSV storage engine                                             | NO           | NO   | NO         |
+| BLACKHOLE          | YES     | /dev/null storage engine (anything you write to it disappears) | NO           | NO   | NO         |
+| PERFORMANCE_SCHEMA | YES     | Performance Schema                                             | NO           | NO   | NO         |
+| InnoDB             | DEFAULT | Supports transactions, row-level locking, and foreign keys     | YES          | YES  | YES        |
+| ARCHIVE            | YES     | Archive storage engine                                         | NO           | NO   | NO         |
+| MEMORY             | YES     | Hash based, stored in memory, useful for temporary tables      | NO           | NO   | NO         |
+| FEDERATED          | NO      | Federated MySQL storage engine                                 | NULL         | NULL | NULL       |
++--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
+rows in set (0.00 sec)
 
-#2.------------------------- create table ------------------------- 
-#2. create table 
-  #1. teacher table
-  create table teacher(
-    tid int not null primary key auto_increment,
-    tname char(10) not null
-  )charset utf8 engine=innodb;
+mysql&gt; show tables;
++---------------+
+| Tables_in_db1 |
++---------------+
+| t1            |
++---------------+
+row in set (0.00 sec)
 
-  #2. class_grade table
-  create table class_grade(
-    gid int not null primary key auto_increment,
-    gname char(10) not null
-  )charset utf8 engine=innodb;
+# 创建指定引擎的表
+mysql&gt; create table t2(id int) engine=innodb;
+Query OK, 0 rows affected (0.03 sec)
 
-  #3. course table
-  create table course(
-    cid int not null primary key auto_increment,
-    cname char(10) not null,
-    teacher_id int not null,
-    foreign key(teacher_id) references teacher(tid)
-  )charset utf8 engine=innodb;
+# 查看创建的过程
+mysql&gt; show create table t2\G;
+*************************** 1. row ***************************
+       Table: t2
+Create Table: CREATE TABLE `t2` (
+  `id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+row in set (0.00 sec)
 
-  #4. class table
-  create table class(
-    cid int not null primary key auto_increment,
-    caption char(10) not null,
-    grade_id int not null,
-    foreign key(grade_id) references class_grade(gid)
-  )charset utf8 engine=innodb;
+ERROR: 
+No query specified
 
-  #5. student table
-  create table student(
-    sid int not null primary key auto_increment,
-    sname char(10) not null,
-    gender enum(&#39;男&#39;,&#39;女&#39;),
-    class_id int not null,
-    foreign key(class_id) references class(cid)
-  )charset utf8 engine=innodb;
+# 其他类型的引擎方式
+mysql&gt; create table t3(id int) engine=memory;  # 存在内存中，只有表结构，没有数据
+Query OK, 0 rows affected (0.00 sec)
 
-  #6. score table
-  create table score(
-    sid int not null unique auto_increment,
-    student_id int not null,
-    course_id int not null,
-    score int unsigned not null,
-    foreign key(student_id) references student(sid),
-    foreign key(course_id) references course(cid),
-    primary key(sid)
-  )charset utf8 engine=innodb;
+mysql&gt; create table t4(id int) engine=blackhole; # 存入的数据就没啦
+Query OK, 0 rows affected (0.00 sec)
 
-  #7. teacher2cls table
-  create table teacher2cls(
-    tcid int not null unique auto_increment,
-    tid int not null,
-    cid int not null,
-    foreign key(tid) references teacher(tid),
-    foreign key(cid) references course(cid),
-    primary key(tcid)
-  )charset utf8 engine=innodb;
+mysql&gt; create table t5(id int) engine=myisam;
+Query OK, 0 rows affected (0.00 sec)
 
-#3. ------------------------- insert into table -------------------------  
-# insert every table data
-  #1. teacher table
-  insert into teacher(tname) values
-  (&quot;张三&quot;),
-  (&quot;李四&quot;),
-  (&quot;王五&quot;);
+mysql&gt; insert into t3 values(1);
+Query OK, 1 row affected (0.00 sec)
 
-  #2. class_grade table data
-  insert into class_grade(gname) values
-  (&quot;一年级&quot;),
-  (&quot;二年级&quot;),
-  (&quot;三年级&quot;);
+mysql&gt; insert into t4 values(1);
+Query OK, 1 row affected (0.00 sec)
 
-  #3. course table data
-  insert into course(cname,teacher_id) values
-  (&quot;生物&quot;,1),
-  (&quot;体育&quot;,1),
-  (&quot;数学&quot;,1),
-  (&quot;物理&quot;,2);
+mysql&gt; insert into t5 values(1);
+Query OK, 1 row affected (0.00 sec)
 
-  #4. class table data
-  insert into class(caption,grade_id) values
-  (&quot;一年一班&quot;,1),
-  (&quot;一年二班&quot;,1),
-  (&quot;一年三班&quot;,1),
-  (&quot;一年四班&quot;,1),
-  (&quot;一年五班&quot;,1),
-  (&quot;二年一班&quot;,2),
-  (&quot;二年二班&quot;,2),
-  (&quot;二年三班&quot;,2),
-  (&quot;二年四班&quot;,2),
-  (&quot;三年一班&quot;,3),
-  (&quot;三年二班&quot;,3);
+mysql&gt; select * from t3;  # 存于内存，重启mysql就啦
++------+
+| id   |
++------+
+|    1 |
++------+
+row in set (0.00 sec)
 
-  #5. student table data
-  insert into student(sname,gender,class_id) values
-  (&quot;乔丹&quot;,&quot;女&quot;,1),
-  (&quot;艾森&quot;,&quot;女&quot;,2),
-  (&quot;科比&quot;,&quot;男&quot;,3),
-  (&quot;黄家&quot;,&quot;女&quot;,1),
-  (&quot;胡启&quot;,&quot;男&quot;,1),
-  (&quot;吴宇&quot;,&quot;男&quot;,2),
-  (&quot;唐明&quot;,&quot;女&quot;,3),
-  (&quot;叶葱&quot;,&quot;男&quot;,2),
-  (&quot;张淳&quot;,&quot;女&quot;,2),
-  (&quot;映月&quot;,&quot;男&quot;,1),
-  (&quot;胡启&quot;,&quot;男&quot;,1),
-  (&quot;天宇&quot;,&quot;女&quot;,2),
-  (&quot;孙兰&quot;,&quot;男&quot;,3);
-
-  #6. score table data
-  insert into score(student_id,course_id,score) values
-  (1,1,60),
-  (1,2,59),
-  (2,2,59);
-
-  #7. teacher2cls table data
-  insert into teacher2cls(tid,cid) values
-  (1,1),
-  (1,2),
-  (2,1),
-  (3,2);
-
-
-
-
-# sql for operation mysql
-#1. 创建测试数据 
-#2. 查询学生总人数
-select COUNT(sid) from student;
-运行过程
-mysql&gt; select COUNT(sid) from student;
-+------------+
-| COUNT(sid) |
-+------------+
-|         17 |
-+------------+
-1 row in set (0.00 sec)
-#3. 查询“生物”课程和“物理”课程都及格的学生id和姓名
-select s1.sid,s1.sname from student s1 
-   where s1.sid in (
-    select distinct(s.student_id) from score s left join course c on c.cid=s.course_id 
-      where s.score &gt;= 60 and (c.cname=&#39;生物&#39; or c.cname=&#39;物理&#39;));
-运行过程
-mysql&gt; select s1.sid,s1.sname from student s1
-    -&gt;    where s1.sid in (
-    -&gt;     select distinct(s.student_id) from score s left join course c on c.cid=s.course_id
-    -&gt;    where s.score &gt;= 60 and (c.cname=&#39;生物&#39; or c.cname=&#39;物理&#39;));
-+-----+-------+
-| sid | sname |
-+-----+-------+
-|   1 | 乔丹  |
-|   4 | 黄家  |
-+-----+-------+
-2 rows in set (0.00 sec)      
-#4. 查询每个年级的班级数，取出班级数最多的前三个年级
-select grade_id from class_grade LEFT JOIN class on class_grade.gid = class.grade_id 
-  GROUP BY grade_id ORDER BY count(grade_id) asc LIMIT 3;
-运行过程
-mysql&gt; select grade_id from class_grade LEFT JOIN class on class_grade.gid = class.grade_id
-    -&gt;   GROUP BY grade_id ORDER BY count(grade_id) asc LIMIT 3;
-+----------+
-| grade_id |
-+----------+
-|        3 |
-|        2 |
-|        1 |
-+----------+
-3 rows in set (0.00 sec)
-#5. 查询 平均成绩最高和最低的学生的id和姓名以及平均成绩
-SELECT student.sid,student.sname,avg(score) from student RIGHT JOIN score on student.sid = score.student_id 
-  GROUP BY score  ORDER BY avg(score) desc LIMIT 1;
-
-SELECT student.sid,student.sname,avg(score) from student RIGHT JOIN score on student.sid = score.student_id 
-  GROUP BY score  ORDER BY avg(score) asc LIMIT 1;
-运行过程
-mysql&gt; SELECT student.sid,student.sname,avg(score) from student RIGHT JOIN score on student.sid = sc
-ore.student_id
-    -&gt;   GROUP BY score  ORDER BY avg(score) desc LIMIT 1;
-+------+-------+------------+
-| sid  | sname | avg(score) |
-+------+-------+------------+
-|    1 | 乔丹  |    80.0000 |
-+------+-------+------------+
-1 row in set (0.00 sec)
-
-mysql&gt;
-mysql&gt; SELECT student.sid,student.sname,avg(score) from student RIGHT JOIN score on student.sid = sc
-ore.student_id
-    -&gt;   GROUP BY score  ORDER BY avg(score) asc LIMIT 1;
-+------+-------+------------+
-| sid  | sname | avg(score) |
-+------+-------+------------+
-|    5 | 胡启  |    50.0000 |
-+------+-------+------------+
-1 row in set (0.00 sec)
-#6. 查询每个年级的学生人数
-select count(*) from class group by grade_id;
-运行过程
-mysql&gt; select count(*) from class group by grade_id;
-+----------+
-| count(*) |
-+----------+
-|        5 |
-|        4 |
-|        2 |
-+----------+
-3 rows in set (0.00 sec)
-#7. 查询每个学生的学号，姓名，选课数，平均成绩
-SELECT s.sid,s.sname,count(course_id),avg(score) from student s RIGHT JOIN score sc on s.sid = sc.sid 
- GROUP BY student_id;
-运行过程
-mysql&gt; SELECT s.sid,s.sname,count(course_id),avg(score) from student s RIGHT JOIN score sc on s.sid= sc.sid
-    -&gt;  GROUP BY student_id;
-+------+-------+------------------+------------+
-| sid  | sname | count(course_id) | avg(score) |
-+------+-------+------------------+------------+
-|    5 | 胡启  |                1 |    80.0000 |
-|    8 | 叶葱  |                1 |    70.0000 |
-|    9 | 张淳  |                1 |    50.0000 |
-+------+-------+------------------+------------+
-3 rows in set (0.00 sec)
-
-
-#8. 查询学生编号为2的学生的姓名，该学生的成绩最高的课程名，成绩最低的课程名以及分数
-SELECT course.cname,score.score from score LEFT JOIN course on score.course_id = course.cid
-  where score.student_id = 2 ORDER BY score.score desc LIMIT 1;
-SELECT course.cname,score.score from score LEFT JOIN course on score.course_id = course.cid
-  where score.student_id = 2 ORDER BY score.score asc LIMIT 1;
-运行过程
-mysql&gt; SELECT course.cname,score.score from score LEFT JOIN course on score.course_id = course.cid
-    -&gt;   where score.student_id = 2 ORDER BY score.score desc LIMIT 1;
+mysql&gt; select * from t4;  # 数据没有啦，黑洞
 Empty set (0.00 sec)
 
-mysql&gt; SELECT course.cname,score.score from score LEFT JOIN course on score.course_id = course.cid
-    -&gt;   where score.student_id = 2 ORDER BY score.score asc LIMIT 1;
+mysql&gt; select * from t5;
++------+
+| id   |
++------+
+|    1 |
++------+
+row in set (0.00 sec)
+
+# 重启mysql 查看t3的数据
+Usage: /etc/init.d/mysql start|stop|restart|reload|force-reload|status
+leco@leco:/etc/mysql/mysql.conf.d$ /etc/init.d/mysql restart
+[ ok ] Restarting mysql (via systemctl): mysql.service.
+leco@leco:/etc/mysql/mysql.conf.d$ mysql -uroot -pleco
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.7.21-0ubuntu0.16.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
+
+mysql&gt; use db1;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql&gt; show tables;
++---------------+
+| Tables_in_db1 |
++---------------+
+| t1            |
+| t2            |
+| t3            |
+| t4            |
+| t5            |
++---------------+
+rows in set (0.00 sec)
+
+mysql&gt; desc t3;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| id    | int(11) | YES  |     | NULL    |       |
++-------+---------+------+-----+---------+-------+
+row in set (0.00 sec)
+
+mysql&gt; select * from t3;  # 发现数据么有啦
 Empty set (0.00 sec)
+</pre></div>
 
-
-#9. 查询姓“李”的老师的个数和所带班级数
-select (select tea.tid from teacher tea where tea.tname like &#39;张%&#39;) as 姓李的人数 ,
-   count(tea2.tid) as 课程 from teacher2cls tea2 
-   where tea2.tid in (select tea.tid from teacher tea where tea.tname like &#39;张%&#39; )  group by tea2.tid;
-运行过程
-mysql&gt; select (select tea.tid from teacher tea where tea.tname like &#39;张%&#39;) as 姓李的人数 ,
-    -&gt;    count(tea2.tid) as 课程 from teacher2cls tea2
-    -&gt;    where tea2.tid in (select tea.tid from teacher tea where tea.tname like &#39;张%&#39; )  group by
-tea2.tid;
-+------------+------+
-| 姓李的人数 | 课程 |
-+------------+------+
-|          1 |    2 |
-+------------+------+
-1 row in set (0.00 sec)
-
-#10.查询班级数小于5的年级id和年级名
-select gid,gname from class_grade 
-  where gid in
-    (select grade_id from class  GROUP BY grade_id HAVING count(class.grade_id)&lt;5);
-运行过程
-mysql&gt; select gid,gname from class_grade
-    -&gt;   where gid in
-    -&gt;     (select grade_id from class  GROUP BY grade_id HAVING count(class.grade_id)&lt;5);
-+-----+--------+
-| gid | gname  |
-+-----+--------+
-|   2 | 二年级 |
-|   3 | 三年级 |
-+-----+--------+
-2 rows in set (0.00 sec)    
-#11.查询班级信息，包括班级id,班级名称，年级，年级级别（12为低年级，34为中年级，56为高年级）
-示例如下：
------------------------------------------------
-|  班级id  |  班级名称  |  年级  |  年级级别  |
------------------------------------------------
-|     1    |   一年一班 |  一年级 |  低       |
------------------------------------------------
-年级判断没做。暂时不会。
-SELECT
-    cid &quot;班级id&quot;,
-    caption &quot;班级名称&quot;,
-    gname &quot;年级&quot;
-FROM
-    class
-LEFT JOIN class_grade ON class.grade_id = class_grade.gid;
-运行过程
-mysql&gt; SELECT
-    -&gt;  cid &quot;班级id&quot;,
-    -&gt;  caption &quot;班级名称&quot;,
-    -&gt;  gname &quot;年级&quot;
-    -&gt; FROM
-    -&gt;  class
-    -&gt; LEFT JOIN class_grade ON class.grade_id = class_grade.gid;
-+--------+----------+--------+
-| 班级id | 班级名称 | 年级   |
-+--------+----------+--------+
-|      1 | 一年一班 | 一年级 |
-|      2 | 一年二班 | 一年级 |
-|      3 | 一年三班 | 一年级 |
-|      4 | 一年四班 | 一年级 |
-|      5 | 一年五班 | 一年级 |
-|      6 | 二年一班 | 二年级 |
-|      7 | 二年二班 | 二年级 |
-|      8 | 二年三班 | 二年级 |
-|      9 | 二年四班 | 二年级 |
-|     10 | 三年一班 | 三年级 |
-|     11 | 三年二班 | 三年级 |
-+--------+----------+--------+
-11 rows in set (0.00 sec)
-
-#12.查询学过张三老师1门课以上的同学的学号，姓名
-SELECT
-    sc.student_id,
-    su.sname,
-    COUNT(sc.course_id) AS class_sum
-FROM
-    score sc
-LEFT JOIN student su ON sc.student_id = su.sid
-WHERE
-    sc.course_id IN (
-        SELECT
-            co.cid AS cid
-        FROM
-            teacher tc
-        LEFT JOIN course co ON tc.tid = co.teacher_id
-        WHERE
-            tc.tname = &quot;张三&quot;
-    )
-GROUP BY
-    sc.student_id
-HAVING
-    class_sum &gt; 1;
-运行过程
-mysql&gt; SELECT
-    -&gt;  sc.student_id,
-    -&gt;  su.sname,
-    -&gt;  COUNT(sc.course_id) AS class_sum
-    -&gt; FROM
-    -&gt;  score sc
-    -&gt; LEFT JOIN student su ON sc.student_id = su.sid
-    -&gt; WHERE
-    -&gt;  sc.course_id IN (
-    -&gt;          SELECT
-    -&gt;                  co.cid AS cid
-    -&gt;          FROM
-    -&gt;                  teacher tc
-    -&gt;          LEFT JOIN course co ON tc.tid = co.teacher_id
-    -&gt;          WHERE
-    -&gt;                  tc.tname = &quot;张三&quot;
-    -&gt;  )
-    -&gt; GROUP BY
-    -&gt;  sc.student_id
-    -&gt; HAVING
-    -&gt;  class_sum &gt; 1;
-+------------+-------+-----------+
-| student_id | sname | class_sum |
-+------------+-------+-----------+
-|         10 | 映月  |         2 |
-+------------+-------+-----------+
-1 row in set (0.00 sec)
-#13.查询教授课程超过2门的老师的id和姓名
-select * from teacher where tid in( 
-  select tid from teacher2cls GROUP BY tid HAVING count(cid)&gt;=2);
-运行过程
-mysql&gt; select * from teacher where tid in(
-    -&gt;   select tid from teacher2cls GROUP BY tid HAVING count(cid)&gt;=2);
-+-----+-------+
-| tid | tname |
-+-----+-------+
-|   1 | 张三  |
-+-----+-------+
-1 row in set (0.00 sec)
-#14.查询学过编号“1“课程和编号”2“课程的同学的学号，姓名
-SELECT
-    sid,
-    sname
-FROM
-    student
-WHERE
-    sid IN (
-        SELECT
-            a.sid
-        FROM
-            (
-                SELECT
-                    st.*, sr.cname
-                FROM
-                    student st
-                LEFT JOIN score sc ON st.sid = sc.student_id
-                LEFT JOIN course sr ON sr.cid = sc.course_id
-                WHERE
-                    sr.cid = 1
-            ) AS a
-        LEFT JOIN (
-            SELECT
-                st.*, sr.cid
-            FROM
-                student st
-            LEFT JOIN score sc ON st.sid = sc.student_id
-            LEFT JOIN course sr ON sr.cid = sc.course_id
-            WHERE
-                sr.cid = 4
-        ) AS b ON a.sid = b.sid
-        WHERE
-            b.cid = 4
-    );
-运行过程
-mysql&gt; SELECT
-    -&gt;  sid,
-    -&gt;  sname
-    -&gt; FROM
-    -&gt;  student
-    -&gt; WHERE
-    -&gt;  sid IN (
-    -&gt;          SELECT
-    -&gt;                  a.sid
-    -&gt;          FROM
-    -&gt;                  (
-    -&gt;                          SELECT
-    -&gt;                                  st.*, sr.cname
-    -&gt;                          FROM
-    -&gt;                                  student st
-    -&gt;                          LEFT JOIN score sc ON st.sid = sc.student_id
-    -&gt;                          LEFT JOIN course sr ON sr.cid = sc.course_id
-    -&gt;                          WHERE
-    -&gt;                                  sr.cid = 1
-    -&gt;                  ) AS a
-    -&gt;          LEFT JOIN (
-    -&gt;                  SELECT
-    -&gt;                          st.*, sr.cid
-    -&gt;                  FROM
-    -&gt;                          student st
-    -&gt;                  LEFT JOIN score sc ON st.sid = sc.student_id
-    -&gt;                  LEFT JOIN course sr ON sr.cid = sc.course_id
-    -&gt;                  WHERE
-    -&gt;                          sr.cid = 4
-    -&gt;          ) AS b ON a.sid = b.sid
-    -&gt;          WHERE
-    -&gt;                  b.cid = 4
-    -&gt;  );
-+-----+-------+
-| sid | sname |
-+-----+-------+
-|  10 | 映月  |
-+-----+-------+
-1 row in set (0.01 sec)
-
-#15.查询没有带过高年级的老师的id和姓名
-
-
-#16.查询学过张三老师所教的所有课的同学学号，姓名
-select sid,sname from student where sid in ( 
-    select student_id from score where course_id in (
-        select cid from course LEFT JOIN teacher on course.teacher_id = teacher.tid where 
-            teacher.tname = &quot;张三&quot;));
-运行过程
-mysql&gt; select sid,sname from student where sid in (
-    -&gt;  select student_id from score where course_id in (
-    -&gt;          select cid from course LEFT JOIN teacher on course.teacher_id = teacher.tid where
-    -&gt;                  teacher.tname = &quot;张三&quot;));
-Empty set (0.00 sec)
-
-
-#17.查询带过超过2个班级的老师的id和姓名
-SELECT DISTINCT
-    tc.tid,
-    tc.tname
-FROM
-    teacher tc
-LEFT JOIN course co ON tc.tid = co.teacher_id
-LEFT JOIN teacher2cls t2c ON t2c.cid = co.cid
-GROUP BY
-    t2c.cid
-HAVING
-    COUNT(tc.tid) &gt; 2;
-运行过程mysql&gt; SELECT DISTINCT
-    -&gt;  tc.tid,
-    -&gt;  tc.tname
-    -&gt; FROM
-    -&gt;  teacher tc
-    -&gt; LEFT JOIN course co ON tc.tid = co.teacher_id
-    -&gt; LEFT JOIN teacher2cls t2c ON t2c.cid = co.cid
-    -&gt; GROUP BY
-    -&gt;  t2c.cid
-    -&gt; HAVING
-    -&gt;  COUNT(tc.tid) &gt; 2;
-+-----+-------+
-| tid | tname |
-+-----+-------+
-|   1 | 张三  |
-+-----+-------+
-1 row in set (0.04 sec)
-
-
-#18.查询 课程编号“2”的成绩比课程编号“1“课程低的所有同学的学号，姓名
-select sid,sname from student where sid in (
-select a.sid
-  from (select * from score s where s.course_id = 1) a,  
-       (select * from score s where s.course_id = 2) b  
- where a.student_id = b.student_id  
-   and a.score &gt; b.score);    
-运行过程
-mysql&gt; select sid,sname from student where sid in (
-    -&gt; select a.sid
-    -&gt;   from (select * from score s where s.course_id = 1) a,
-    -&gt;        (select * from score s where s.course_id = 2) b
-    -&gt;  where a.student_id = b.student_id
-    -&gt;    and a.score &gt; b.score);
-Empty set (0.00 sec)   
-
-#19.查询所带班级数最多的老师的id和姓名
-SELECT
-    tc.tname,
-    tc.tid
-FROM
-    teacher tc
-LEFT JOIN teacher2cls t2c ON tc.tid = t2c.tid
-GROUP BY
-    t2c.tid
-ORDER BY
-    COUNT(cid) DESC
-LIMIT 1;
-运行过程
-mysql&gt; SELECT
-    -&gt;  tc.tname,
-    -&gt;  tc.tid
-    -&gt; FROM
-    -&gt;  teacher tc
-    -&gt; LEFT JOIN teacher2cls t2c ON tc.tid = t2c.tid
-    -&gt; GROUP BY
-    -&gt;  t2c.tid
-    -&gt; ORDER BY
-    -&gt;  COUNT(cid) DESC
-    -&gt; LIMIT 1;
-+-------+-----+
-| tname | tid |
-+-------+-----+
-| 张三  |   1 |
-+-------+-----+
-1 row in set (0.00 sec)
-
-#20.查询所有课程成绩小于60分的同学的学号，姓名
-select student.sid,student.sname from student LEFT JOIN score 
-  on 
-student.sid = score.student_id 
-  where score.score&lt;60;
-运行过程
-mysql&gt; select student.sid,student.sname from student LEFT JOIN score
-    -&gt;   on
-    -&gt; student.sid = score.student_id
-    -&gt;   where score.score&lt;60;
-+-----+-------+
-| sid | sname |
-+-----+-------+
-|   5 | 胡启  |
-+-----+-------+
-1 row in set (0.00 sec)
-
-
-#21.查询没有学全所有课程的同学的学号，姓名
-Select sid,sname From student st
-  where (Select Count(*) From score sc Where st.sid=sc.student_id)&lt;
-   (Select Count(*) From course);
-运行过程
-mysql&gt; Select sid,sname From student st
-    -&gt;   where (Select Count(*) From score sc Where st.sid=sc.student_id)&lt;
-    -&gt;    (Select Count(*) From course);
-+-----+-------+
-| sid | sname |
-+-----+-------+
-|   1 | 乔丹  |
-|   2 | 艾森  |
-|   3 | 科比  |
-|   4 | 黄家  |
-|   5 | 胡启  |
-|   6 | 吴宇  |
-|   7 | 唐明  |
-|   8 | 叶葱  |
-|   9 | 张淳  |
-|  10 | 映月  |
-|  11 | 胡启  |
-|  12 | 天宇  |
-|  13 | 孙兰  |
-|  14 | 张笑  |
-|  15 | 张兰  |
-|  16 | 张兰  |
-|  17 | 张兰  |
-+-----+-------+
-17 rows in set (0.00 sec)
-
-#22.查询至少一门课与学号为“1“的同学所学相同的同学的学号和姓名
-Select DistInct st.sid,st.sname From student st
-  Inner Join score sc ON st.sid=sc.student_id
-   Where sc.course_id IN (Select course_id From score Where student_id=&#39;1&#39;);
-运行过程
-mysql&gt; Select DistInct st.sid,st.sname From student st
-    -&gt;   Inner Join score sc ON st.sid=sc.student_id
-    -&gt;    Where sc.course_id IN (Select course_id From score Where student_id=&#39;1&#39;);
-+-----+-------+
-| sid | sname |
-+-----+-------+
-|   1 | 乔丹  |
-|   4 | 黄家  |
-|   5 | 胡启  |
-+-----+-------+
-3 rows in set (0.00 sec)
-#23.查询至少学过学号为“1”同学所选课程中任意一门课的其他同学学号和姓名
-Select DistInct st.sid,st.sname From student st
-  Inner Join score sc ON st.sid=sc.student_id
-   Where st.sid &lt;&gt;1 and 
-       sc.course_id IN 
-          (Select course_id From score Where student_id=&#39;1&#39;);
-运行过程
-mysql&gt; Select DistInct st.sid,st.sname From student st
-    -&gt;   Inner Join score sc ON st.sid=sc.student_id
-    -&gt;    Where st.sid &lt;&gt;1 and
-    -&gt;        sc.course_id IN
-    -&gt;        (Select course_id From score Where student_id=&#39;1&#39;);
-+-----+-------+
-| sid | sname |
-+-----+-------+
-|   4 | 黄家  |
-|   5 | 胡启  |
-+-----+-------+
-2 rows in set (0.00 sec)
-#24.查询和&quot;2&quot;号同学学习的课程完全相同的其他同学的学号和姓名
-
-
-#25.删除学习张三老师课的score表记录
-DELETE from score where course_id in
-  (select cid from course LEFT JOIN teacher 
-    on course.teacher_id = teacher.tid 
-      where teacher.tname = &#39;张三&#39;);
-运行过程
-mysql&gt; DELETE from score where course_id in
-    -&gt;   (select cid from course LEFT JOIN teacher
-    -&gt;     on course.teacher_id = teacher.tid
-    -&gt;    where teacher.tname = &#39;张三&#39;);
-Query OK, 7 rows affected (0.01 sec)
-
-#26.向score表中插入一些记录，这些记录要求符合以下条件
-1. 没有上过编号“2”课程同学学号
-2. 插入“2”号课程的平均成绩
-
-
-#27.按平均成绩从低到高显示所有学生的“语文”，“数学”，‘英语’三门的的课程成绩，按照如下形式显示
-学生ID,语文,数学,英语,有效课程数,有效平均分
-select concat(&quot;学生ID:  &quot;,st.sid,&quot; &quot;, &quot;课程ID:  &quot;,sc.course_id,&quot; &quot;,&quot;平均成绩:  &quot;,avg(sc.score)) from student as st RIGHT JOIN score as sc on st.sid = sc.student_id 
-  GROUP BY student_id;
-运行过程
-mysql&gt; select concat(&quot;学生ID:  &quot;,st.sid,&quot; &quot;, &quot;课程ID:  &quot;,sc.course_id,&quot; &quot;,&quot;平均成绩:  &quot;,avg(sc.score
-)) from student as st RIGHT JOIN score as sc on st.sid = sc.student_id
-    -&gt;   GROUP BY student_id;
-+------------------------------------------------------------------------------------------+
-| concat(&quot;学生ID:  &quot;,st.sid,&quot; &quot;, &quot;课程ID:  &quot;,sc.course_id,&quot; &quot;,&quot;平均成绩:  &quot;,avg(sc.score)) |
-+------------------------------------------------------------------------------------------+
-| 学生ID:  1 课程ID:  3 平均成绩:  80.0000                                                 |
-| 学生ID:  4 课程ID:  3 平均成绩:  70.0000                                                 |
-| 学生ID:  5 课程ID:  3 平均成绩:  50.0000                                                 |
-+------------------------------------------------------------------------------------------+
-3 rows in set (0.00 sec)
-
-#28.查询各科成绩最高和最低的分，如下显示:课程ID,最高分,最低分
-select  CONCAT(&quot;课程ID&quot;,course_id,&quot;,&quot;,&quot;最高分 &quot;,score,&quot;,&quot;,&quot;最低分&quot;) 
-   from score GROUP BY course_id 
-      ORDER BY score desc 
-        LIMIT 1;
-运行过程
-mysql&gt; select  CONCAT(&quot;课程ID&quot;,course_id,&quot;,&quot;,&quot;最高分 &quot;,score,&quot;,&quot;,&quot;最低分&quot;)
-    -&gt;    from score GROUP BY course_id
-    -&gt;       ORDER BY score desc
-    -&gt;      LIMIT 1;
-+-------------------------------------------------------------+
-| CONCAT(&quot;课程ID&quot;,course_id,&quot;,&quot;,&quot;最高分 &quot;,score,&quot;,&quot;,&quot;最低分&quot;) |
-+-------------------------------------------------------------+
-| 课程ID4,最高分 100,最低分                                   |
-+-------------------------------------------------------------+
-1 row in set (0.00 sec)
-
-#29.按各科平均成绩从低到高和及格率的百分数从高到低排序  # 及格率-------暂时不会
-select * from score GROUP BY course_id ORDER BY avg(score) desc;
-运行过程
-mysql&gt; select * from score GROUP BY course_id ORDER BY avg(score) desc;
-+-----+------------+-----------+-------+
-| sid | student_id | course_id | score |
-+-----+------------+-----------+-------+
-|   6 |          1 |         4 |   100 |
-|   1 |          1 |         1 |    60 |
-|   2 |          1 |         2 |    59 |
-|   5 |          1 |         3 |    80 |
-+-----+------------+-----------+-------+
-4 rows in set (0.00 sec)
-#30.课程平均分从高到低显示（显示任课老师）
-select tname,cname,score from teacher RIGHT JOIN (
-select cname,score,teacher_id from score LEFT JOIN course on score.course_id = course.cid
- GROUP BY course_id ORDER BY avg(score) desc ) as tmp  on tmp.teacher_id = teacher.tid; 
-运行过程
-mysql&gt; select tname,cname,score from teacher RIGHT JOIN (
-    -&gt; select cname,score,teacher_id from score LEFT JOIN course on score.course_id = course.cid
-    -&gt;  GROUP BY course_id ORDER BY avg(score) desc ) as tmp  on tmp.teacher_id = teacher.tid;
-+-------+-------+-------+
-| tname | cname | score |
-+-------+-------+-------+
-| 张三  | 数学  |   100 |
-| 张三  | 生物  |    60 |
-| 张三  | 体育  |    59 |
-| 李四  | 物理  |    80 |
-+-------+-------+-------+
-4 rows in set (0.00 sec)
-#31.查询各科成绩前三名的记录（不考虑成绩并列情况）
-SELECT  * from student RIGHT  JOIN score on student.sid = score.student_id
- GROUP BY course_id  ORDER BY score desc LIMIT 3;
-运行过程
-mysql&gt; SELECT  * from student RIGHT  JOIN score on student.sid = score.student_id
-    -&gt;  GROUP BY course_id  ORDER BY score desc LIMIT 3;
-+------+-------+--------+----------+-----+------------+-----------+-------+
-| sid  | sname | gender | class_id | sid | student_id | course_id | score |
-+------+-------+--------+----------+-----+------------+-----------+-------+
-|    1 | 乔丹  | 女     |        1 |   6 |          1 |         4 |   100 |
-|    1 | 乔丹  | 女     |        1 |   5 |          1 |         3 |    80 |
-|    1 | 乔丹  | 女     |        1 |   1 |          1 |         1 |    60 |
-+------+-------+--------+----------+-----+------------+-----------+-------+
-3 rows in set (0.00 sec)
-#32.查询每门课程被选修的学生数
-select cname &quot;课程&quot;,count(student_id) &quot;选修学生总数&quot; from score LEFT JOIN
-   course on score.course_id = course.cid GROUP BY course_id;
-运行过程
-mysql&gt; select cname &quot;课程&quot;,count(student_id) &quot;选修学生总数&quot; from score LEFT JOIN
-    -&gt;    course on score.course_id = course.cid GROUP BY course_id;
-+------+--------------+
-| 课程 | 选修学生总数 |
-+------+--------------+
-| 生物 |            3 |
-| 体育 |            3 |
-| 物理 |            3 |
-| 数学 |            1 |
-+------+--------------+
-4 rows in set (0.00 sec)
-#33.查询选修了2门以上的课程的全部学生的学号和姓名
-select sid,sname from student where sid in (
-  select sid from score group by course_id HAVING count(course_id) &gt; 2
-);
-运行过程
-mysql&gt; SELECT gender &quot;性别&quot;, count(sid) &quot;总人数&quot; FROM student GROUP BY gender ORDER BY count(sid) DESC;
-+------+--------+
-| 性别 | 总人数 |
-+------+--------+
-| 女   |      9 |
-| 男   |      8 |
-+------+--------+
-2 rows in set (0.00 sec)
-#34.查询男生，女生的人数，按照倒序排列
-SELECT gender &quot;性别&quot;, count(sid) &quot;总人数&quot; FROM student GROUP BY gender ORDER BY count(sid) DESC;
-
-#35.查询姓张的学生名单
-select * from student where sname regexp &quot;^张&quot;;
-运行过程
-mysql&gt; select * from student where sname regexp &quot;^张&quot;;
-+-----+-------+--------+----------+
-| sid | sname | gender | class_id |
-+-----+-------+--------+----------+
-|   9 | 张淳  | 女     |        2 |
-|  14 | 张笑  | 男     |        3 |
-|  15 | 张兰  | 女     |        1 |
-|  16 | 张兰  | 女     |        2 |
-|  17 | 张兰  | 女     |        3 |
-+-----+-------+--------+----------+
-5 rows in set (0.00 sec)
-#36.查询同名同姓学生名单，并统计同名人数
-select  sname &quot;姓名&quot;,count(sid) &quot;总人数&quot; from student group by sname HAVING count(sid)&gt;1 ;
-运行过程
-mysql&gt; select  sname &quot;姓名&quot;,count(sid) &quot;总人数&quot; from student group by sname HAVING count(sid)&gt;1 ;
-+------+--------+
-| 姓名 | 总人数 |
-+------+--------+
-| 张兰 |      3 |
-| 胡启 |      2 |
-+------+--------+
-2 rows in set (0.00 sec)
-
-#37.查询每门课程的平均成绩，结果按照平均成绩升序排列，平均成绩相同，按照课程号降序排列
-select course_id,avg(score) from score GROUP BY course_id ORDER BY score asc;  # 1
-
-#38.查询课程名称为数学，且分数低于60分的学生名和分数
-select sname,score from student 
-  INNER JOIN score 
-on 
-  score.sid = student.sid  
-where score.score &lt; 60;
-运行过程
-mysql&gt; select sname,score from student
-    -&gt;   INNER JOIN score
-    -&gt; on
-    -&gt;   score.sid = student.sid
-    -&gt; where score.score &lt; 60;
-+-------+-------+
-| sname | score |
-+-------+-------+
-| 艾森  |    59 |
-| 科比  |    59 |
-| 张淳  |    50 |
-+-------+-------+
-3 rows in set (0.00 sec)
-
-#39.查询课程编号为3且课程成绩在60分以上的学号和姓名
-select sid,sname from student where sid in 
-(select student_id from score where score.course_id = 2 and score.score &gt; 60);
-运行过程
-mysql&gt; select sid,sname from student where sid in
-    -&gt; (select student_id from score where score.course_id = 2 and score.score &gt; 60);
-+-----+-------+
-| sid | sname |
-+-----+-------+
-|   3 | 科比  |
-|   2 | 艾森  |
-+-----+-------+
-2 rows in set (0.00 sec)
-
-#40.求选修了课程的学生人数
-select count(student_id) from score;
-运行过程
-mysql&gt;  select count(student_id) from score;
-+-------------------+
-| count(student_id) |
-+-------------------+
-|                10 |
-+-------------------+
-1 row in set (0.00 sec)
-
-#41.查询选修王五老师所授课程的学生中，成绩最高和最低的学生姓名及成绩
-select sname,score from score RIGHT JOIN student on score.student_id = student.sid  where course_id in (
-select cid from course as c LEFT JOIN teacher as t on c.teacher_id = t.tid where t.tname = &quot;李四&quot;) 
- GROUP BY score desc LIMIT 1;
-
-select sname,score from score RIGHT JOIN student on score.student_id = student.sid  where course_id in (
-select cid from course as c LEFT JOIN teacher as t on c.teacher_id = t.tid where t.tname = &quot;李四&quot;) 
- GROUP BY score asc LIMIT 1;
-运行过程
-mysql&gt; select sname,score from score RIGHT JOIN student on score.student_id = student.sid  where cou
-rse_id in (
-    -&gt; select cid from course as c LEFT JOIN teacher as t on c.teacher_id = t.tid where t.tname = &quot;李四&quot;)
-    -&gt;  GROUP BY score desc LIMIT 1;
-+-------+-------+
-| sname | score |
-+-------+-------+
-| 乔丹  |    80 |
-+-------+-------+
-1 row in set (0.00 sec)
-
-mysql&gt; select sname,score from score RIGHT JOIN student on score.student_id = student.sid  where cou
-rse_id in (
-    -&gt; select cid from course as c LEFT JOIN teacher as t on c.teacher_id = t.tid where t.tname = &quot;李四&quot;)
-    -&gt;  GROUP BY score asc LIMIT 1;
-+-------+-------+
-| sname | score |
-+-------+-------+
-| 胡启  |    50 |
-+-------+-------+
-1 row in set (0.00 sec)
-
-#42.查询各个课程及相对应的选修人数
-select cname,count(sid) from course LEFT JOIN score on course.cid = score.course_id
-  GROUP BY course_id;
-运行过程
-mysql&gt; select cname,count(sid) from course LEFT JOIN score on course.cid = score.course_id
-    -&gt;   GROUP BY course_id;
-+-------+------------+
-| cname | count(sid) |
-+-------+------------+
-| 美术  |          0 |
-| 生物  |          3 |
-| 体育  |          3 |
-| 物理  |          3 |
-| 数学  |          1 |
-+-------+------------+
-5 rows in set (0.00 sec)
-
-#43.查询不同课程但成绩相同的学生的学号，课程号，学生成绩
-select sid,sname  from student where sid in (
-  select  a.student_id from score a
-     LEFT join score b on a.course_id &lt;&gt; b.course_id
-        where a.score = b.score
-    );
-运行过程
-mysql&gt; select sid,sname  from student where sid in (
-    -&gt;   select  a.student_id from score a
-    -&gt;   LEFT join score b on a.course_id &lt;&gt; b.course_id
-    -&gt;          where a.score = b.score
-    -&gt;  );
-+-----+-------+
-| sid | sname |
-+-----+-------+
-|   2 | 艾森  |
-|   1 | 乔丹  |
-|   3 | 科比  |
-+-----+-------+
-3 rows in set (0.00 sec)
-
-#44.查询每门课程成绩最好的前两名学id和姓名
-
-
-#45.检索至少选择两门课程的学生学号
-select sid &quot;学生序号&quot;  from score
-    group by course_id having  count(*)&gt;=2;
-运行过程
-mysql&gt; select sid &quot;学生序号&quot;  from score
-    -&gt;     group by course_id having  count(*)&gt;=2;
-+----------+
-| 学生序号 |
-+----------+
-|        1 |
-|        2 |
-|        5 |
-+----------+
-3 rows in set (0.00 sec)
-#46.查询没有学生选修的课程的课程号和报名表
-select cid, cname from course
-  Where  cid not in (select course_id from score);
-运行过程
-mysql&gt; select cid, cname from course
-    -&gt;   where
-    -&gt;  cid not in (select course_id from score);
-+-----+-------+
-| cid | cname |
-+-----+-------+
-|   5 | 美术  |
-+-----+-------+
-1 row in set (0.00 sec)
-#47.查询没带过任何班级的老师id和姓名
-select * from teacher where tid not in 
-  (select tid from teacher2cls);
-运行过程
-mysql&gt; select * from teacher where tid not in
-    -&gt;   (select tid from teacher2cls);
-+-----+-------+
-| tid | tname |
-+-----+-------+
-|   4 | 李坤  |
-+-----+-------+
-1 row in set (0.00 sec)
-
-#48.查询两门以上的课程超过80分的学生id和平均成绩
-select student_id &quot;学生id&quot;,avg(score) &quot;平均成绩&quot; from score where score&gt;60
-    group by course_id having  count(*)&gt;=2;
-运行过程
-mysql&gt; select student_id &quot;学生id&quot;,avg(score) &quot;平均成绩&quot; from score where score&gt;60
-    -&gt;     group by course_id having  count(*)&gt;=2;
-+--------+----------+
-| 学生id | 平均成绩 |
-+--------+----------+
-|      3 |  80.0000 |
-|      1 |  75.0000 |
-+--------+----------+
-2 rows in set (0.00 sec)
-
-
-#49.检索“3”课程分数小于60分，按分数降序排列的同学学号
-select sid from student where sid in (
-    select student_id from score where score&lt;80 and course_id=2 ORDER BY score desc);
-运行过程
-mysql&gt; select sid from student where sid in (
-    -&gt;  select student_id from score where score&lt;80 and course_id=2 ORDER BY score desc
-    -&gt; );
-+-----+
-| sid |
-+-----+
-|   1 |
-+-----+
-1 row in set (0.00 sec)
-#50.删除编号为“2”的同学的“1”课程的成绩
-DELETE from score where course_id = 1 and student_id = 2;
-
-
-#51.查询同时选修了物理课程和生物课的学的id和姓名
-select sid,sname from student where sid in(
-    select a.sid from (
-        select st.*,sr.cname from student AS st 
-        left join score AS sc on st.sid = sc.student_id 
-        left join course AS sr on sc.course_id = sr.cid 
-        where sr.cname = &#39;生物&#39;
-    ) AS a
-    left join (
-        select st.sid,sr.cname from student AS st 
-        left join score AS sc on st.sid = sc.student_id 
-        left join course AS sr on sc.course_id = sr.cid 
-        where sr.cname = &#39;数学&#39;
-    ) AS b on a.sid = b.sid where b.cname = &#39;数学&#39;
+<p>&#160; &#160; &#160; &#160;默认值，创建列时可以指定默认值，当插入数据时如果未主动设置，则自动添加默认值</p>
+<div class="codehilite"><pre><span></span>create table t15(
+ id int(11) unsigned zerofill
 );
 
-运行过程
-
-mysql&gt; select sid,sname from student where sid in(
-    -&gt;  select a.sid from (
-    -&gt;          select st.*,sr.cname from student AS st
-    -&gt;          left join score AS sc on st.sid = sc.student_id
-    -&gt;          left join course AS sr on sc.course_id = sr.cid
-    -&gt;          where sr.cname = &#39;生物&#39;
-    -&gt;  ) AS a
-    -&gt;  left join (
-    -&gt;          select st.sid,sr.cname from student AS st
-    -&gt;          left join score AS sc on st.sid = sc.student_id
-    -&gt;          left join course AS sr on sc.course_id = sr.cid
-    -&gt;          where sr.cname = &#39;数学&#39;
-    -&gt;  ) AS b on a.sid = b.sid where b.cname = &#39;数学&#39;
+mysql&gt; create table t15(
+    -&gt;  id int(11) unsigned zerofill
     -&gt; );
-+-----+-------+
-| sid | sname |
-+-----+-------+
-|  10 | 映月  |
-+-----+-------+
-1 row in set (0.00 sec)
+Query OK, 0 rows affected (0.38 sec)
+
+mysql&gt; desc t15;
++-------+---------------------------+------+-----+---------+-------+
+| Field | Type                      | Null | Key | Default | Extra |
++-------+---------------------------+------+-----+---------+-------+
+| id    | int(11) unsigned zerofill | YES  |     | NULL    |       |
++-------+---------------------------+------+-----+---------+-------+
+row in set (0.01 sec)
+int约束是整形，11表示宽度，unsigned 表示无符号，zerofill表示不够用0填充。
+
+create table t16(
+ id int(11),
+ name char(6),
+ sex enum(&#39;male&#39;,&#39;female&#39;) not null default &#39;male&#39;
+);
+mysql&gt; create table t16(
+    -&gt;  id int(11),
+    -&gt;  name char(6),
+    -&gt;  sex enum(&#39;male&#39;,&#39;female&#39;) not null default &#39;male&#39;
+    -&gt; );
+Query OK, 0 rows affected (0.42 sec)
+
+mysql&gt; desc t16;
++-------+-----------------------+------+-----+---------+-------+
+| Field | Type                  | Null | Key | Default | Extra |
++-------+-----------------------+------+-----+---------+-------+
+| id    | int(11)               | YES  |     | NULL    |       |
+| name  | char(6)               | YES  |     | NULL    |       |
+| sex   | enum(&#39;male&#39;,&#39;female&#39;) | NO   |     | male    |       |
++-------+-----------------------+------+-----+---------+-------+
+rows in set (0.00 sec)
+# enum表示枚举，not null 表示不为空，default &#39;male&#39; 表示sex不传入的话默认值是male
+
+例子
+mysql&gt; insert into t16(id,name) values(1,&#39;cmz&#39;); # sex没有传入，默认为male
+Query OK, 1 row affected (0.36 sec)
+
+mysql&gt; desc t16;
++-------+-----------------------+------+-----+---------+-------+
+| Field | Type                  | Null | Key | Default | Extra |
++-------+-----------------------+------+-----+---------+-------+
+| id    | int(11)               | YES  |     | NULL    |       |
+| name  | char(6)               | YES  |     | NULL    |       |
+| sex   | enum(&#39;male&#39;,&#39;female&#39;) | NO   |     | male    |       |
++-------+-----------------------+------+-----+---------+-------+
+rows in set (0.00 sec)
+
+mysql&gt; select * from t16;
++------+------+------+
+| id   | name | sex  |
++------+------+------+
+|    1 | cmz  | male |
++------+------+------+
+row in set (0.00 sec)
+</pre></div>
+
+<div class="codehilite"><pre><span></span>==================not null====================
+mysql&gt; create table t1(id int); #id字段默认可以插入空
+mysql&gt; desc t1;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| id    | int(11) | YES  |     | NULL    |       |
++-------+---------+------+-----+---------+-------+
+mysql&gt; insert into t1 values(); #可以插入空
+
+
+mysql&gt; create table t2(id int not null); #设置字段id不为空
+mysql&gt; desc t2;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| id    | int(11) | NO   |     | NULL    |       |
++-------+---------+------+-----+---------+-------+
+mysql&gt; insert into t2 values(); #不能插入空
+ERROR 1364 (HY000): Field &#39;id&#39; doesn&#39;t have a default value
+
+
+
+==================default====================
+#设置id字段有默认值后，则无论id字段是null还是not null，都可以插入空，插入空默认填入default指定的默认值
+mysql&gt; create table t3(id int default 1);
+mysql&gt; alter table t3 modify id int not null default 1;
+
+
+
+==================综合练习====================
+mysql&gt; create table student(
+    -&gt; name varchar(20) not null,
+    -&gt; age int(3) unsigned not null default 18,
+    -&gt; sex enum(&#39;male&#39;,&#39;female&#39;) default &#39;male&#39;,
+    -&gt; hobby set(&#39;play&#39;,&#39;study&#39;,&#39;read&#39;,&#39;music&#39;) default &#39;play,music&#39;
+    -&gt; );
+mysql&gt; desc student;
++-------+------------------------------------+------+-----+------------+-------+
+| Field | Type                               | Null | Key | Default    | Extra |
++-------+------------------------------------+------+-----+------------+-------+
+| name  | varchar(20)                        | NO   |     | NULL       |       |
+| age   | int(3) unsigned                    | NO   |     | 18         |       |
+| sex   | enum(&#39;male&#39;,&#39;female&#39;)              | YES  |     | male       |       |
+| hobby | set(&#39;play&#39;,&#39;study&#39;,&#39;read&#39;,&#39;music&#39;) | YES  |     | play,music |       |
++-------+------------------------------------+------+-----+------------+-------+
+mysql&gt; insert into student(name) values(&#39;cmz&#39;);
+mysql&gt; select * from student;
++------+-----+------+------------+
+| name | age | sex  | hobby      |
++------+-----+------+------------+
+| cmz |  18 | male | play,music |
++------+-----+------+------------+
+</pre></div>
+
+<h2 id="3-unique">3. unique<a class="headerlink" href="#3-unique" title="Permanent link">&para;</a></h2>
+<p>&#160; &#160; &#160; &#160;创建唯一索引的目的不是为了提高访问速度，而只是为了避免数据出现重复。唯一索引可以有多个但索引列的值必须唯一，索引列的值允许有空值。如果能确定某个数据列将只包含彼此各不相同的值，在为这个数据列创建索引的时候就应该使用关键字UNIQUE。</p>
+<div class="codehilite"><pre><span></span>#-------------------------------------------unique key
+# 单列唯一
+    # 方式1
+    create table department(
+      id int,
+      name char(10) unique
+    );
+    # 方式2
+    create table department(
+      id int,
+      name char(10),
+      unique(name)
+    );
+    insert into department values(1,&#39;IT&#39;),(2,&#39;sales&#39;);
+    insert into department values(3,&#39;IT&#39;); # 会报错
+
+    mysql&gt; create table department(
+        -&gt;   id int,
+        -&gt;   name char(10) unique
+        -&gt; );
+    Query OK, 0 rows affected (0.04 sec)
+    mysql&gt; insert into department values(1,&#39;IT&#39;),(2,&#39;sales&#39;);
+    Query OK, 2 rows affected (0.04 sec)
+    Records: 2  Duplicates: 0  Warnings: 0
+    mysql&gt; desc department;
+    +-------+----------+------+-----+---------+-------+
+    | Field | Type     | Null | Key | Default | Extra |
+    +-------+----------+------+-----+---------+-------+
+    | id    | int(11)  | YES  |     | NULL    |       |
+    | name  | char(10) | YES  | UNI | NULL    |       |
+    +-------+----------+------+-----+---------+-------+
+rows in set (0.00 sec)
+    mysql&gt; select * from department;
+    +------+-------+
+    | id   | name  |
+    +------+-------+
+    |    1 | IT    |
+    |    2 | sales |
+    +------+-------+
+rows in set (0.00 sec)
+    mysql&gt; insert into department values(3,&#39;IT&#39;);
+    ERROR 1062 (23000): Duplicate entry &#39;IT&#39; for key &#39;name&#39;
+    其他要是确定唯一性，就添加unique即可。
+
+# 联合唯一
+
+create table services(
+ id int,
+ ip char(15),
+ port int,
+ unique(id),
+ unique(ip,port)
+);
+insert into services values
+(1,&#39;192.168.1.100&#39;,80),
+(2,&#39;192.168.1.100&#39;,8080),
+(3,&#39;192.168.1.110&#39;,80);
+insert into services values (1,&#39;192.168.1.100&#39;,80); #会报错
+
+mysql&gt; create table services(
+    -&gt;  id int,
+    -&gt;  ip char(15),
+    -&gt;  port int,
+    -&gt;  unique(id),
+    -&gt;  unique(ip,port)
+    -&gt; );
+Query OK, 0 rows affected (0.41 sec)
+
+mysql&gt; desc services;
++-------+----------+------+-----+---------+-------+
+| Field | Type     | Null | Key | Default | Extra |
++-------+----------+------+-----+---------+-------+
+| id    | int(11)  | YES  | UNI | NULL    |       |
+| ip    | char(15) | YES  | MUL | NULL    |       |
+| port  | int(11)  | YES  |     | NULL    |       |
++-------+----------+------+-----+---------+-------+
+rows in set (0.01 sec)
+mysql&gt; insert into services values
+    -&gt; (1,&#39;192.168.1.100&#39;,80),
+    -&gt; (2,&#39;192.168.1.100&#39;,8080),
+    -&gt; (3,&#39;192.168.1.110&#39;,80);
+Query OK, 3 rows affected (0.37 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql&gt; select * from services;
++------+---------------+------+
+| id   | ip            | port |
++------+---------------+------+
+|    1 | 192.168.1.100 |   80 |
+|    2 | 192.168.1.100 | 8080 |
+|    3 | 192.168.1.110 |   80 |
++------+---------------+------+
+rows in set (0.00 sec)
+mysql&gt; insert into services values (1,&#39;192.168.1.100&#39;,80); #会报错
+ERROR 1062 (23000): Duplicate entry &#39;1&#39; for key &#39;id&#39;
+</pre></div>
+
+<h2 id="4-primary-key">4. primary key<a class="headerlink" href="#4-primary-key" title="Permanent link">&para;</a></h2>
+<p>&#160; &#160; &#160; &#160;primary key字段的值不为空且唯一，一个表中可以：</p>
+<div class="codehilite"><pre><span></span>1. 单列做主键
+2. 多列做主键（复合主键）
+3. 一个表内只能有一个主键primary key
+</pre></div>
+
+<div class="codehilite"><pre><span></span># primary key
+约束 not null unique
+存储引擎(innodb)，对于innodb存储引擎来说，一个表内必须有一个主键。
+
+# 单列主键
+create table t17(
+ id int primary key,
+ name char(16)
+);
+insert into t17 values
+(1,&#39;cmz&#39;),
+(2,&#39;leco&#39;),
+(3,&#39;nanjing&#39;);
+insert into t17 values (1,&#39;nanjing&#39;); # 重复了
+
+mysql&gt; create table t17(
+    -&gt;  id int primary key,
+    -&gt;  name char(16)
+    -&gt; );
+Query OK, 0 rows affected (0.48 sec)
+
+mysql&gt; desc t17;
++-------+----------+------+-----+---------+-------+
+| Field | Type     | Null | Key | Default | Extra |
++-------+----------+------+-----+---------+-------+
+| id    | int(11)  | NO   | PRI | NULL    |       |
+| name  | char(16) | YES  |     | NULL    |       |
++-------+----------+------+-----+---------+-------+
+rows in set (0.01 sec)
+mysql&gt; insert into t17 values (1,&#39;nanjing&#39;);
+ERROR 1062 (23000): Duplicate entry &#39;1&#39; for key &#39;PRIMARY&#39;
+
+# mysql建表的时候要是没有指定主键，mysql会搜整个表找一个不为空，且唯一的作为主键
+要是找不到，就会默认使用隐藏主键。
+create table t18(
+ id int not null unique,
+ name char(16)
+);
+mysql&gt; create table t18(
+    -&gt;  id int not null unique,
+    -&gt;  name char(16)
+    -&gt; );
+Query OK, 0 rows affected (0.40 sec)
+
+mysql&gt; desc t18;
++-------+----------+------+-----+---------+-------+
+| Field | Type     | Null | Key | Default | Extra |
++-------+----------+------+-----+---------+-------+
+| id    | int(11)  | NO   | PRI | NULL    |       |  # 可以看出作为了主键
+| name  | char(16) | YES  |     | NULL    |       |
++-------+----------+------+-----+---------+-------+
+rows in set (0.00 sec)
+通常一个表中有一个id字段作为主键。
+
+# 符合主键
+多个字段联合在一起作为主键
+create table t19(
+ip char(15),
+port int,
+primary key(ip,port)
+);
+
+create table loocha(
+ip varchar(15),
+port char(5),
+service_name varchar(10) not null,
+primary key(ip,port)
+);
+
+mysql&gt; create table t19(
+    -&gt; ip char(15),
+    -&gt; port int,
+    -&gt; primary key(ip,port)
+    -&gt; );
+Query OK, 0 rows affected (0.39 sec)
+
+mysql&gt; desc t19;
++-------+----------+------+-----+---------+-------+
+| Field | Type     | Null | Key | Default | Extra |
++-------+----------+------+-----+---------+-------+
+| ip    | char(15) | NO   | PRI | NULL    |       |
+| port  | int(11)  | NO   | PRI | NULL    |       |
++-------+----------+------+-----+---------+-------+
+rows in set (0.00 sec)
+
+
+mysql&gt; create table loocha(
+    -&gt; ip varchar(15),
+    -&gt; port char(5),
+    -&gt; service_name varchar(10) not null,
+    -&gt; primary key(ip,port)
+    -&gt; );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql&gt; desc loocha
+    -&gt; ;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| ip           | varchar(15) | NO   | PRI | NULL    |       |
+| port         | char(5)     | NO   | PRI | NULL    |       |
+| service_name | varchar(10) | NO   |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+rows in set (0.01 sec)
+
+insert into t19 values (&#39;192.168.1.110&#39;,80);
+insert into t19 values (&#39;192.168.1.110&#39;,80); # 报错
+mysql&gt; insert into t19 values (&#39;192.168.1.110&#39;,80);
+Query OK, 1 row affected (0.01 sec)
+
+mysql&gt; insert into t19 values (&#39;192.168.1.110&#39;,80);
+ERROR 1062 (23000): Duplicate entry &#39;192.168.1.110-80&#39; for key &#39;PRIMARY&#39;
+mysql&gt; select * from t19;
++---------------+------+
+| ip            | port |
++---------------+------+
+| 192.168.1.110 |   80 |
++---------------+------+
+row in set (0.00 sec)
+</pre></div>
+
+<div class="codehilite"><pre><span></span>============单列做主键===============
+#方法一：not null+unique
+create table department1(
+id int not null unique, #主键
+name varchar(20) not null unique,
+comment varchar(100)
+);
+
+mysql&gt; desc department1;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int(11)      | NO   | PRI | NULL    |       |
+| name    | varchar(20)  | NO   | UNI | NULL    |       |
+| comment | varchar(100) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+rows in set (0.01 sec)
+
+#方法二：在某一个字段后用primary key
+create table department2(
+id int primary key, #主键
+name varchar(20),
+comment varchar(100)
+);
+
+mysql&gt; desc department2;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int(11)      | NO   | PRI | NULL    |       |
+| name    | varchar(20)  | YES  |     | NULL    |       |
+| comment | varchar(100) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+rows in set (0.00 sec)
+
+#方法三：在所有字段后单独定义primary key
+create table department3(
+id int,
+name varchar(20),
+comment varchar(100),
+constraint pk_name primary key(id); #创建主键并为其命名pk_name
+
+mysql&gt; desc department3;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int(11)      | NO   | PRI | NULL    |       |
+| name    | varchar(20)  | YES  |     | NULL    |       |
+| comment | varchar(100) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+rows in set (0.01 sec)
+
+单列主键
+==================多列做主键================
+create table service(
+ip varchar(15),
+port char(5),
+service_name varchar(10) not null,
+primary key(ip,port)
+);
+
+
+mysql&gt; desc service;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| ip           | varchar(15) | NO   | PRI | NULL    |       |
+| port         | char(5)     | NO   | PRI | NULL    |       |
+| service_name | varchar(10) | NO   |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+rows in set (0.00 sec)
+
+mysql&gt; insert into service values
+    -&gt; (&#39;172.16.45.10&#39;,&#39;3306&#39;,&#39;mysqld&#39;),
+    -&gt; (&#39;172.16.45.11&#39;,&#39;3306&#39;,&#39;mariadb&#39;)
+    -&gt; ;
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql&gt; insert into service values (&#39;172.16.45.10&#39;,&#39;3306&#39;,&#39;nginx&#39;);
+ERROR 1062 (23000): Duplicate entry &#39;172.16.45.10-3306&#39; for key &#39;PRIMARY&#39;
+</pre></div>
+
+<h2 id="5-auto_increment">5. auto_increment<a class="headerlink" href="#5-auto_increment" title="Permanent link">&para;</a></h2>
+<p>&#160; &#160; &#160; &#160;数据库应用中，我们经常需要用到自动递增的唯一编号来标识记录。在MySQL中，可通过数据列的auto_increment属性来自动生成。可在建表时可用“auto_increment=n”选项来指定一个自增的初始值。可用“alter table table_name auto_increment=n”命令来重设自增的起始值，当然在设置的时候Mysql会取数据表中auto_increment列的最大值 + 1与n中的较大者作为新的auto_increment值。</p>
+<p>&#160; &#160; &#160; &#160;Myql的auto_increment属性具有以下特性：</p>
+<ul>
+<li>具有auto_increment属性的数据列应该是一个正数序列，如果把该数据列声明为UNSIGNED，这样序列的编号个数可增加一倍。比如tinyint数据列的最大编号是127，如果加上UNSIGNED，那么最大编号变为255</li>
+<li>auto_increment数据列必须有唯一索引，以避免序号重复；必须具备NOT NULL属性</li>
+</ul>
+<div class="codehilite"><pre><span></span># auto_increment 
+# 约束字段为自动增长，被约束的字段必须同时被key约束
+# primary key or unique key
+#-----------------------------------------------------------
+
+# #不指定id，则自动增长
+create table t20(
+ id int primary key auto_increment,
+ name char(16)
+);
+mysql&gt; create table t20(
+    -&gt;  id int primary key auto_increment,
+    -&gt;  name char(16)
+    -&gt; );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql&gt;  desc t20;
++-------+----------+------+-----+---------+----------------+
+| Field | Type     | Null | Key | Default | Extra          |
++-------+----------+------+-----+---------+----------------+
+| id    | int(11)  | NO   | PRI | NULL    | auto_increment |
+| name  | char(16) | YES  |     | NULL    |                |
++-------+----------+------+-----+---------+----------------+
+rows in set (0.02 sec)
+
+
+
+insert into t20(name) values(&#39;cmz1&#39;),(&#39;leco&#39;),(&#39;loocha&#39;);
+mysql&gt; insert into t20(name) values(&#39;cmz1&#39;),(&#39;leco&#39;),(&#39;loocha&#39;);
+Query OK, 3 rows affected (0.36 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql&gt; select * from t20;
++----+--------+
+| id | name   |
++----+--------+
+|  1 | cmz1   |
+|  2 | leco   |
+|  3 | loocha |
++----+--------+
+rows in set (0.00 sec)
+
+insert into t20(id,name) values(7,&#39;keke&#39;); 
+# 可以手动插入primary key只要保证主键唯一即可，以后在插入就在该基础上自增加
+mysql&gt; insert into t20(id,name) values(7,&#39;cmz1&#39;);
+Query OK, 1 row affected (0.00 sec)
+
+mysql&gt; select * from t20;
++----+--------+
+| id | name   |
++----+--------+
+|  1 | cmz1   |
+|  2 | leco   |
+|  3 | loocha |
+|  7 | cmz1   |
++----+--------+
+rows in set (0.01 sec)
+自增长步长默认为1
+
+show variables like &#39;auto_inc%&#39;;
+mysql&gt; show variables like &#39;auto_inc%&#39;;
++--------------------------+-------+
+| Variable_name            | Value |
++--------------------------+-------+
+| auto_increment_increment | 1     | # 步长       默认为1
+| auto_increment_offset    | 1     | # 起始偏移量 默认为1
++--------------------------+-------+
+rows in set (0.08 sec)
+
+# 设置步长 
+# session 有效
+set session auto_increment_increment=5;
+# 全局
+set global auto_increment_increment=5;
+
+# 设置起始偏移量
+set global auto_increment_offset=3;
+强调起始偏移量&lt;=步长
+
+#例子设置不步长和起始偏移量
+mysql&gt; set global auto_increment_offset=3;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt; set global auto_increment_increment=5;
+Query OK, 0 rows affected (0.00 sec)
+重新登录。
+mysql&gt; show variables like &#39;auto_inc%&#39;;
++--------------------------+-------+
+| Variable_name            | Value |
++--------------------------+-------+
+| auto_increment_increment | 5     |
+| auto_increment_offset    | 3     |
++--------------------------+-------+
+rows in set (0.01 sec)
+
+create table t21(
+ id int primary key  auto_increment,
+ name char(16)
+);
+
+mysql&gt;  create table t21(
+    -&gt;  id int primary key  auto_increment,
+    -&gt;  name char(16)
+    -&gt; );
+Query OK, 0 rows affected (0.40 sec)
+插入数据
+insert into t21(name) values
+(&#39;cmz&#39;),(&#39;leco&#39;),(&#39;loocha&#39;);
+mysql&gt; insert into t21(name) values
+    -&gt; (&#39;cmz&#39;),(&#39;leco&#39;),(&#39;loocha&#39;);
+Query OK, 3 rows affected (0.02 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql&gt; select * from t21;
++----+--------+
+| id | name   |
++----+--------+
+|  3 | cmz    |
+|  8 | leco   |
+| 13 | loocha |
++----+--------+
+rows in set (0.00 sec)
+
+# 清空表
+delete from t20;
+mysql&gt; delete from t20;
+Query OK, 4 rows affected (0.01 sec)
+
+mysql&gt; select * from t20;
+Empty set (0.00 sec)
+
+mysql&gt; show create table t20;
++-------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table | Create Table                                                                                                                                                              |
++-------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| t20   | CREATE TABLE `t20` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` char(16) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 |
++-------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+row in set (0.00 sec)
+# 虽然清空了表，但是主键没删除
+mysql&gt; insert into t20(name) values(&#39;cccc&#39;);
+Query OK, 1 row affected (0.01 sec)
+
+mysql&gt; select * from t20;
++----+------+
+| id | name |
++----+------+
+|  8 | cccc |
++----+------+
+row in set (0.00 sec)
+
+#truncate 清空表，主键也删除
+mysql&gt; truncate  t20;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql&gt; show create table t20;
++-------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table | Create Table                                                                                                                                             |
++-------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| t20   | CREATE TABLE `t20` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` char(16) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 |
++-------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+row in set (0.00 sec)
+mysql&gt; insert into t20(name) values(&#39;cccc&#39;);
+Query OK, 1 row affected (0.01 sec)
+
+mysql&gt; select * from t20;
++----+------+
+| id | name |
++----+------+
+|  1 | cccc |
++----+------+
+row in set (0.00 sec)
+</pre></div>
+
+<h2 id="6">6. 案例<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>&#160; &#160; &#160; &#160;员工信息表有三个字段：工号 姓名 部门,公司有3个部门，但是有1个亿的员工，那意味着部门这个字段需要重复存储，部门名字越长，越浪费</p>
+<p>解决方法：</p>
+<ul>
+<li>我们完全可以定义一个部门表</li>
+<li>然后让员工信息表关联该表，如何关联，即foreign key</li>
+</ul>
+<p><img alt="MySQL 主从" src="../../pictures/mysql/p2.png" /></p>
+<p>变为两个表，emp和dep表，同时ｅｍｐ的表中dep_id　关联到ｄｅｐ表中的的ｉｄ字段。</p>
+<p><img alt="MySQL 主从" src="../../pictures/mysql/p3.png" /></p>
+<div class="codehilite"><pre><span></span>#1. 先建被关联的表，且保证被关联的字段唯一
+#2. 然后在建立关联的表
+create table dep(
+ id int primary key,
+ name char(10),
+ comment char(50)
+); 
+
+create table emp(
+ id int primary key,
+ name char(10),
+ sex enum(&#39;male&#39;,&#39;female&#39;),
+ dep_id int,
+ foreign key(dep_id) references dep(id)
+ on delete cascade
+ on update cascade
+);
+注意：
+　foreign key(dep_id) references dep(id)
+　on delete cascade
+　on update cascade
+　是一句话，也就是
+　foreign key(dep_id) references dep(id)　on delete cascade　on update cascade
+　其中dep表操作。修改或者删除，ｅｍｐ表就会跟着变动，详见下面测试。
+#3. 插入数据
+# 先插入被关联表的数据
+insert into dep values
+(1,&quot;IT&quot;,&quot;技术部门&quot;),
+(2,&quot;销售&quot;,&quot;销售部门&quot;),
+(3,&quot;财务&quot;,&quot;财务部门&quot;);
+
+insert into emp values(1,&#39;cmz&#39;,&#39;male&#39;,1);
+insert into emp values(2,&#39;keke&#39;,&#39;male&#39;,2);
+insert into emp values(3,&#39;leco&#39;,&#39;female&#39;,3);
+    # 操作过程
+    mysql&gt; create table dep(
+        -&gt;  id int primary key,
+        -&gt;  name char(10),
+        -&gt;  comment char(50)
+        -&gt; ); 
+    Query OK, 0 rows affected (0.02 sec)
+    mysql&gt; create table emp(
+        -&gt;  id int primary key,
+        -&gt;  name char(10),
+        -&gt;  sex enum(&#39;male&#39;,&#39;female&#39;),
+        -&gt;  dep_id int,
+        -&gt;  foreign key(dep_id) references dep(id)
+        -&gt;  on delete cascade
+        -&gt;  on update cascade
+        -&gt; );
+    Query OK, 0 rows affected (0.04 sec)
+
+
+    mysql&gt; desc emp;
+    +--------+-----------------------+------+-----+---------+-------+
+    | Field  | Type                  | Null | Key | Default | Extra |
+    +--------+-----------------------+------+-----+---------+-------+
+    | id     | int(11)               | NO   | PRI | NULL    |       |
+    | name   | char(10)              | YES  |     | NULL    |       |
+    | sex    | enum(&#39;male&#39;,&#39;female&#39;) | YES  |     | NULL    |       |
+    | dep_id | int(11)               | YES  | MUL | NULL    |       |
+    +--------+-----------------------+------+-----+---------+-------+
+rows in set (0.00 sec)
+
+    mysql&gt; desc dep;
+    +---------+----------+------+-----+---------+-------+
+    | Field   | Type     | Null | Key | Default | Extra |
+    +---------+----------+------+-----+---------+-------+
+    | id      | int(11)  | NO   | PRI | NULL    |       |
+    | name    | char(10) | YES  |     | NULL    |       |
+    | comment | char(50) | YES  |     | NULL    |       |
+    +---------+----------+------+-----+---------+-------+
+rows in set (0.01 sec)
+    插入数据
+    mysql&gt; insert into dep values
+        -&gt; (1,&quot;IT&quot;,&quot;技术部门&quot;),
+        -&gt; (2,&quot;销售&quot;,&quot;销售部门&quot;),
+        -&gt; (3,&quot;财务&quot;,&quot;财务部门&quot;);
+    Query OK, 3 rows affected (0.00 sec)
+    Records: 3  Duplicates: 0  Warnings: 0
+
+    mysql&gt; select * from dep;
+    +----+--------+--------------+
+    | id | name   | comment      |
+    +----+--------+--------------+
+    |  1 | IT     | 技术部门     |
+    |  2 | 销售   | 销售部门     |
+    |  3 | 财务   | 财务部门     |
+    +----+--------+--------------+
+rows in set (0.00 sec)
+    mysql&gt; insert into emp values(1,&#39;cmz&#39;,&#39;male&#39;,1);
+    Query OK, 1 row affected (0.01 sec)
+    mysql&gt; insert into emp values(2,&#39;keke&#39;,&#39;male&#39;,2);
+    Query OK, 1 row affected (0.01 sec)
+    mysql&gt; insert into emp values(3,&#39;leco&#39;,&#39;female&#39;,3);
+    Query OK, 1 row affected (0.01 sec)
+    mysql&gt; select * from emp;
+    +----+------+--------+--------+
+    | id | name | sex    | dep_id |
+    +----+------+--------+--------+
+    |  1 | cmz  | male   |      1 |
+    |  2 | keke | male   |      2 |
+    |  3 | leco | female |      3 |
+    +----+------+--------+--------+
+rows in set (0.00 sec)
+
+    刪除
+    刪除了部門，跟他关联的部门人员都会被删除。
+    mysql&gt; delete from dep where id=1;
+    Query OK, 1 row affected (0.01 sec)
+
+    mysql&gt; select * from dep;
+    +----+--------+--------------+
+    | id | name   | comment      |
+    +----+--------+--------------+
+    |  2 | 销售   | 销售部门     |
+    |  3 | 财务   | 财务部门     |
+    +----+--------+--------------+
+rows in set (0.00 sec)
+
+    mysql&gt; select * from emp;
+    +----+------+--------+--------+
+    | id | name | sex    | dep_id |
+    +----+------+--------+--------+
+    |  2 | keke | male   |      2 |
+    |  3 | leco | female |      3 |
+    +----+------+--------+--------+
+rows in set (0.00 sec)
+
+    #更新
+    #更新了部門，跟他关联的部门人员都会被更新。
+    mysql&gt; update dep set id=10 where id=2;
+    Query OK, 1 row affected (0.01 sec)
+    Rows matched: 1  Changed: 1  Warnings: 0
+
+    mysql&gt; select * from dep;
+    +----+--------+--------------+
+    | id | name   | comment      |
+    +----+--------+--------------+
+    |  3 | 财务   | 财务部门     |
+    | 10 | 销售   | 销售部门     |
+    +----+--------+--------------+
+rows in set (0.00 sec)
+
+    mysql&gt; select * from emp;
+    +----+------+--------+--------+
+    | id | name | sex    | dep_id |
+    +----+------+--------+--------+
+    |  2 | keke | male   |     10 |
+    |  3 | leco | female |      3 |
+    +----+------+--------+--------+
+rows in set (0.00 sec)
 </pre></div>
                 
                   
@@ -5012,7 +4828,7 @@ mysql&gt; select sid,sname from student where sid in(
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../mysql.master-master/" title="2. 主主" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../mysql.copy_table/" title="7. 表复制" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -5021,19 +4837,19 @@ mysql&gt; select sid,sname from student where sid in(
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                2. 主主
+                7. 表复制
               </span>
             </div>
           </a>
         
         
-          <a href="../mysql.mysqlcnf/" title="2. 配置文件" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../frontend/vue/" title="Vue" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                2. 配置文件
+                Vue
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
