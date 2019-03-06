@@ -4138,6 +4138,30 @@
                 
                 
                 <p><center><h1> MySQL 用户 </h1></center></p>
+<p>快速命令
+<div class="codehilite"><pre><span></span>CREATE USER &#39;username&#39;@&#39;host&#39; IDENTIFIED BY &#39;password&#39;;
+    CREATE USER &#39;cmz&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;123456&#39;;       # 创建用户，只能在mysql的服务器端菜能登录，密码是123456
+    CREATE USER &#39;cmz&#39;@&#39;192.168.5.122&#39; IDENTIFIED BY &#39;123456&#39;;   # 创建用户，限制来访的IP地址必须是192.168.2.122，密码是123456
+    CREATE USER &#39;cmz&#39;@&#39;%&#39; IDENTIFIED BY &#39;123456&#39;;               # 创建用户，不限制来访IP，密码是123456
+    CREATE USER &#39;cmz&#39;@&#39;%&#39; IDENTIFIED BY &#39;&#39;;                     # 创建用户，不限制来访IP，不无密码
+    CREATE USER &#39;cmz&#39;@&#39;%&#39;;                                      # 创建用户，不限制来访IP，不无密码 和上面相等
+
+GRANT privileges ON databasename.tablename TO &#39;username&#39;@&#39;host&#39;
+    GRANT SELECT, INSERT ON cmz.leco TO &#39;cmz&#39;@&#39;%&#39;;  # 授权cmz 用户，拥有cmz库的leco表有select，insert 权限
+    GRANT ALL ON *.* TO &#39;cmz&#39;@&#39;%&#39;;                  # 授权cmz 用户，拥有所有权限
+    GRANT ALL ON cmz.* TO &#39;cmz&#39;@&#39;%&#39;;                # 授权cmz 用户，拥有所cmz库的下所有表的所有权限
+
+SET PASSWORD FOR &#39;username&#39;@&#39;host&#39; = PASSWORD(&#39;newpassword&#39;);
+    SET PASSWORD FOR &#39;cmz&#39;@&#39;%&#39; = PASSWORD(&#39;cmz&#39;);
+SET PASSWORD = PASSWORD(&quot;newpassword&quot;);
+    SET PASSWORD = PASSWORD(&quot;cmz123456&quot;);
+
+REVOKE privilege ON databasename.tablename FROM &#39;username&#39;@&#39;host&#39;;
+    REVOKE SELECT ON *.* FROM &#39;cmz&#39;@&#39;%&#39;;
+
+DROP USER &#39;username&#39;@&#39;host&#39;;
+    drop user &#39;cmz&#39;;
+</pre></div></p>
 <h2 id="1">1. 创建用户<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <h3 id="11">1.1 语法<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>CREATE USER &#39;username&#39;@&#39;host&#39; IDENTIFIED BY &#39;password&#39;;
