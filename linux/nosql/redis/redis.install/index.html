@@ -3937,7 +3937,8 @@
                 
                 <p><center><h1> Redis 介绍 </h1></center></p>
 <h2 id="1">1. 介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>&#160; &#160; &#160; &#160;下载安装
+<p>&#160; &#160; &#160; &#160;下载安装,在官网找到最新最稳定的下载地址</p>
+<p><a href="https://redis.io/download">redis安装参考指南</a>
 <div class="codehilite"><pre><span></span>root@manage01:/usr/local/src#  wget http://download.redis.io/releases/redis-5.0.3.tar.gz
 --2019-03-11 11:11:06--  http://download.redis.io/releases/redis-5.0.3.tar.gz
 Resolving download.redis.io (download.redis.io)... 109.74.203.151
@@ -3967,9 +3968,8 @@ root@manage01:/usr/local/redis# echo $?
 root@manage01:/usr/local/redis# mkdir bin conf data log
 root@manage01:/usr/local/redis# ls
 bin  conf  data  log
-</pre></div>
-<a href="https://redis.io/download">redis安装</a></p>
-<p>&#160; &#160; &#160; &#160;make完后 redis-2.8.17目录下会出现编译后的redis服务程序redis-server,还有用于测试的客户端程序redis-cli,两个程序位于安装目录 src 目录下：下面启动redis服务.</p>
+</pre></div></p>
+<p>&#160; &#160; &#160; &#160;make完后 redis-5.0.3目录下会出现编译后的redis服务程序redis-server,还有用于测试的客户端程序redis-cli,两个程序位于安装目录 src 目录下：下面启动redis服务.</p>
 <h2 id="2">2. 配置<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>root@manage01:/usr/local/redis-s/src# cp -aR redis-check-aof redis-check-rdb redis-cli redis-sentinel redis-server redis-trib.rb redis-benchmark /usr/local/redis/bin/
 root@manage01:/usr/local/redis-s/src# cp ../redis.conf /usr/local/redis/conf/
