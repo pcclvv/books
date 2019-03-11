@@ -1616,6 +1616,26 @@
     3. 测试
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" title="3.1 启动带密码" class="md-nav__link">
+    3.1 启动带密码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" title="3.2 终端认证" class="md-nav__link">
+    3.2 终端认证
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -3884,6 +3904,26 @@
     3. 测试
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" title="3.1 启动带密码" class="md-nav__link">
+    3.1 启动带密码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" title="3.2 终端认证" class="md-nav__link">
+    3.2 终端认证
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -3932,6 +3972,7 @@ requirepass cmz
 </pre></div>
 重启redis。</p>
 <h2 id="3">3. 测试<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 启动带密码<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>root@manage01:/home/loocha# source /etc/profile
 root@manage01:/home/loocha# redis-cli
 127.0.0.1:6379&gt; keys *
@@ -3946,6 +3987,14 @@ Warning: Using a password with &#39;-a&#39; or &#39;-u&#39; option on the comman
 127.0.0.1:6379&gt;  config get requirepass
 1) &quot;requirepass&quot;
 2) &quot;cmz&quot;
+</pre></div>
+
+<h3 id="32">3.2 终端认证<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>root@manage01:/home/loocha# redis-cli
+127.0.0.1:6379&gt; AUTH cmz
+OK
+127.0.0.1:6379&gt; keys *
+1) &quot;k1&quot;
 </pre></div>
 
 <div class="admonition note">
