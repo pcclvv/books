@@ -171,6 +171,8 @@ nav:
             - 5. redis 发布订阅: linux/nosql/redis/redis.publish.md
             - 6. redis 事务: linux/nosql/redis/redis.arrairs.md
             - 7. redis 备份与恢复: linux/nosql/redis/redis.save.md
+        - 3. memcached:
+            - 1. memcached: linux/nosql/memcached/memcached.index.md
     - mysql:
         - 1. MySQL 基础:
             - 1. MySQL 介绍: mysql/mysql.index.md
