@@ -4274,6 +4274,63 @@
 <p>&#160; &#160; &#160; &#160; 本质上，它是一个简洁的key-value存储系统。一般的使用目的是，通过缓存数据库查询结果，减少数据库访问次数，以提高动态Web应用的速度、提高可扩展性。</p>
 <p><img alt="memcached" src="../../../../pictures/linux/nosql/memcached/p1.png" /></p>
 <p>Memcached 官网：<a href="http://memcached.org/">http://memcached.org/</a>。</p>
+<ul>
+<li>1.Memcached 是什么。作用是什么？</li>
+</ul>
+<p>&#160; &#160; &#160; &#160;Memcached 是开源的，高性能的内存缓存系统或者内存缓存软件。从名字上看mem是内存，chache就是缓存的意思，Memcached通过在事先规划好的内存空间中临时缓存数据库中的各类数据，以达到减少业务对数据库的直接高并发访问，从而达到提升数据的访问性能，加速网站动态应用服务器的能力。</p>
+<ul>
+<li>2.Memcached 服务在企业集权架构中应用场景？</li>
+</ul>
+<div class="codehilite"><pre><span></span>1） 作为数据的前端缓存应用。
+   A. 完整缓存（易） 静态缓存
+例如： 商品分类，已经商品信息，可事先放到内存里，然后再对外提供数据访问，这个称之为预热，用户让问的时候可以只读取memcached缓存，不在读取数据库。
+   B. 热点缓存（难）
+需要前端web程序的配合，只缓存热点的数据，即缓存经常被访问的数据。
+先预热数据库里的基础数据，然后在动态更新，先读取缓存，如果缓存里面没有对应的数据，程序再去读取数据库，程序然后把读取到数据放入缓存存储。
+特殊说明：
+1.如果碰到电商秒杀等高并发的业务，一定要先预热，或者其他思想实现，例如，秒杀只是获取资格，(JS,node,js),而不是瞬间秒杀到商品。
+2.如果数据更新，同时触发缓存更新，防止个用户过期数据。
+   C.对于持久化缓存存储系统，例如；redis，可以替代一部分数据的存储，一些简单数据业务，投票，统计，好友关注，商品分类等，nosql = not only sql
+
+2）作为集权的session会话共享存储
+  大规模网站sesson会话保持思路及实践配置
+</pre></div>
+
+<ul>
+<li>3.Memcached 服务在不同企业 业务应用场景中的工作流程？</li>
+</ul>
+<div class="codehilite"><pre><span></span>1. 当web程序需要访问后端数据库获取数据时，会优先访问memcached内存缓存，如果缓存中有数据就直接获取返回前端服务及用户，如果没有数据(没有命中)，在由程序请求后端的数据库服务器，获取到对应的数据后，除了返回给前端服务及用户数据外，还会把数据放到memcached内存中进行缓存，等待下次请求访问，memcached内存始终是数据库的挡箭牌，从而大大减轻数据库的访问压力，提高整个网站架构的响应速度，提升用户体验。
+
+2. 当程序更新，修改或者删除数据库中已有的数据时，会同时发送请求通知memcached已经缓存过的同一个ID的旧数据失效，从而保证memcache中的数据和数据库中的数据一致，如果是在高并发的场合，除了memcached过期的缓存失效外，还会通过相关机制，使得在用户访问新数据前，通过程序预先把更新的过的数据推送到memcached中缓存起来，这样减少数据库的压力，提高命中率。
+
+3. 数据库插件可以再写入更新数据库后，自动抛给MC缓存起来，自身不cache。
+</pre></div>
+
+<ul>
+<li>4.Memcached 服务分布式集群如何实现？</li>
+</ul>
+<div class="codehilite"><pre><span></span>特殊说明；memcached集群和web服务集群是不一样的。所有memcached数据的总和  才是数据库的数据。 
+A. 程序段实现
+   程序加载所有memcached的ip列表，通过key做hash（一致性哈希，目的是保证一个节点宕机后数据更新最低），每天memcached都是部分数据
+B. 负载均衡器
+   通过对key做hash（一致性hash）
+一致性hash的算法的目的是不但保证每个对象只读求一个对应的服务器，而且当节点宕机后缓存服务器的更新重新分配比例降到最低。
+http://blog.csdn.net/cutesource/article/details/5848253
+</pre></div>
+
+<ul>
+<li>5.Memcached 服务特点及工作原理是什么？</li>
+</ul>
+<div class="codehilite"><pre><span></span> A. 全部数据存在内存中，无持久性存储设置，重启服务数据就丢失
+ B. 节点之间相互独立
+ C. 异步I/O 模型，基于libevent模型的事件通知机制
+ D. 数据是以Key/value键值对形式存在的
+ E. C/S模式架构，c语言编写，总代码2000多行
+ F. 当内存缓存的数据容量达到启动时候预设定的内存值时候，就自动使用LRU算法清除过期的缓存数据
+ G. 可以对村塾的数据设置过期时间，这样过期后的数据自动被清除，服务本身不会被监控过期，而是在访问的时候查看key的时间戳判断是否过期。
+ H. Memcache内存分配机器是对特定的内存进行分块，再把多个块分为一组。
+</pre></div>
+
 <h2 id="2">2. 安装测试<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <h3 id="21">2.1 安装<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
 <p><div class="codehilite"><pre><span></span>wget http://www.memcached.org/files/memcached-1.5.12.tar.gz
@@ -4318,9 +4375,6 @@ Connected to localhost.
 Escape character is '^]'.
 如果出现以上内容就代表启动成功！
 <div class="codehilite"><pre><span></span>参数说明
-
-参数|描述
----|---
 -d  |是启动一个守护进程
 -m  |是分配给Memcache使用的内存数量，单位是MB
 -u  |是运行Memcache的用户
@@ -4334,40 +4388,343 @@ Escape character is '^]'.
 </pre></div>
 
 <h2 id="3">3. 命令<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<h3 id="31-set">3.1 set<a class="headerlink" href="#31-set" title="Permanent link">&para;</a></h3>
-<p>&#160; &#160; &#160; &#160;Memcached set 命令用于将 value(数据值) 存储在指定的 key(键) 中。</p>
-<p>&#160; &#160; &#160; &#160;如果set的key已经存在，该命令可以更新该key所对应的原来的数据，也就是实现更新的作用。语法</p>
-<div class="codehilite"><pre><span></span>set key flags exptime bytes [noreply] 
-value 
+<p>语法</p>
+<div class="codehilite"><pre><span></span>command_name     key     flags       exptime     bytes  value  \r\n
 </pre></div>
 
 <div class="admonition note">
 <p class="admonition-title">参数解释</p>
-<div class="codehilite"><pre><span></span><span class="n">key</span><span class="err">：键值</span> <span class="n">key</span><span class="o">-</span><span class="n">value</span> <span class="err">结构中的</span> <span class="n">key</span><span class="err">，用于查找缓存值。</span>
-<span class="n">flags</span><span class="err">：可以包括键值对的整型参数，客户机使用它存储关于键值对的额外信息</span> <span class="err">。</span>
-<span class="n">exptime</span><span class="err">：在缓存中保存键值对的时间长度（以秒为单位，</span><span class="mi">0</span> <span class="err">表示永远）</span>
-<span class="nb">bytes</span><span class="err">：在缓存中存储的字节数</span>
-<span class="n">noreply</span><span class="err">（可选）：</span> <span class="err">该参数告知服务器不需要返回数据</span>
-<span class="n">value</span><span class="err">：存储的值（始终位于第二行）（可直接理解为</span><span class="n">key</span><span class="o">-</span><span class="n">value结构中的value</span><span class="err">）</span>
+<div class="codehilite"><pre><span></span><span class="n">command_name</span> <span class="err">是</span><span class="nb">set</span> <span class="n">add</span> <span class="n">replace</span> <span class="n">get</span> <span class="n">delete</span>
+<span class="n">key</span>          <span class="n">key</span> <span class="err">用于查找缓存值</span>
+<span class="n">flags</span>        <span class="err">可以包括键值对的整型参数，客户机使用它存储关于键值对的额外信息</span>
+<span class="n">expiration</span> <span class="n">time</span>     <span class="err">在缓存中保存键值对的时间长度（以秒为单位，</span><span class="mi">0</span> <span class="err">表示永远）</span>
+<span class="nb">bytes</span>     <span class="err">在缓存中存储的字节点</span>
+<span class="n">value</span>     <span class="err">存储的值（始终位于第二行）</span>
+
+<span class="nb">set</span> <span class="err">存储次数据</span>
+<span class="n">add</span> <span class="err">存储次数据，只在服务器未保存此键值的数据时</span>
 </pre></div>
 
 </div>
-<p>实例</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>command</td>
+<td>set无论如何都进行存储，add只有数据不存在时进行添加</td>
+</tr>
+<tr>
+<td>key</td>
+<td>存储的key的名字，长度最多为250个字符，不包含空格和控制字符</td>
+</tr>
+<tr>
+<td>flags</td>
+<td>是一个16位的无符号的整数(以十进制的方式表示)。该标志将和需要存储的数据一起存储,并在客户端get数据时返回</td>
+</tr>
+<tr>
+<td>exptime</td>
+<td>过期时间，单位为秒，0为永远，表示用不过期，&lt;30天60*60*24*30为秒数，&gt;30天为unixtime时间戳</td>
+</tr>
+<tr>
+<td>bytes</td>
+<td>byte字节数，不包含\r\n，根据长度截取存/取的字符串，可以是0，即存空串</td>
+</tr>
+<tr>
+<td>version</td>
+<td>版本号，可选的，可不写，这个字断主要是给cas命令用</td>
+</tr>
+<tr>
+<td>datablock</td>
+<td>储存的内容value，以\r\n结尾，当然可以包含\r或\n</td>
+</tr>
+<tr>
+<td>status</td>
+<td>STORED/NOT_STORED/EXISTS/NOT_FOUND/ERROR/CLIENT_ERROR/SERVER_ERROR服务端返回的状态标志</td>
+</tr>
+</tbody>
+</table>
+<h3 id="31-set">3.1 set<a class="headerlink" href="#31-set" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;Memcached set 命令用于将 value(数据值) 存储在指定的 key(键) 中。</p>
+<p>&#160; &#160; &#160; &#160;set 命令用于向缓存添加新的键值对。如果键已经存在，则之前的值将被替换。</p>
+<p><div class="codehilite"><pre><span></span>存储cmz(key)这个键，值是caimengzhi（10个字符），否他添加不成功
+root@leco:/home/leco# printf &quot;set cmz 0 0 10\r\ncaimengzhi\r\n &quot;|nc 127.0.0.1 11211
+STORED
+root@leco:/home/leco# printf &quot;get cmz\r\n&quot;|nc 127.0.0.1 11211
+VALUE cmz 0 10
+caimengzhi
+END
+
+以下是存储的字符不对的错误情况
+root@leco:/home/leco# printf &quot;set cmz1 0 0 10\r\nccc\r\n &quot;|nc 127.0.0.1 11211
+root@leco:/home/leco# printf &quot;get cmz1\r\n&quot;|nc 127.0.0.1 11211
+END
+</pre></div>
+如果使用 set 命令正确设定了键值对，服务器将使用单词 STORED 进行响应。本示例向缓存中添加了一个键值对，cmz，其值为caimengzhi。并将过期时间设置为 0，这将向 memcached 通知您希望将此值存储在缓存中直到删除它为止。</p>
 <h3 id="32-add">3.2 add<a class="headerlink" href="#32-add" title="Permanent link">&para;</a></h3>
-<p>&#160; &#160; &#160; &#160;</p>
+<p>&#160; &#160; &#160; &#160;仅当缓存中不存在键时，add 命令才会向缓存中添加一个键值对。如果缓存中已经存在键，则之前的值将仍然保持相同，并且您将获得响应 NOT_STORED。</p>
+<div class="codehilite"><pre><span></span>root@leco:/home/leco# printf &quot;add cmz 0 0 10\r\ncaimengzhi\r\n &quot;|nc 127.0.0.1 11211  # 因为之前设置了，所以不在存储
+NOT_STORED
+root@leco:/home/leco# printf &quot;add cmz1 0 0 10\r\ncaimengzhi\r\n &quot;|nc 127.0.0.1 11211
+STORED
+</pre></div>
+
 <h3 id="33-replace">3.3 replace<a class="headerlink" href="#33-replace" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;仅当键已经存在时，replace 命令才会替换缓存中的键。如果缓存中不存在键，那么您将从 memcached 服务器接受到一条 NOT_STORED 响应。</p>
+<div class="codehilite"><pre><span></span>oot@leco:/home/leco# printf &quot;replace cmz1 0 0 10\r\nxaimengzhi\r\n &quot;|nc 127.0.0.1 11211
+STORED
+root@leco:/home/leco# printf &quot;get cmz1\r\n &quot;|nc 127.0.0.1 11211
+VALUE cmz1 0 10
+xaimengzhi
+END
+</pre></div>
+
 <h3 id="34-append">3.4 append<a class="headerlink" href="#34-append" title="Permanent link">&para;</a></h3>
+<p>命令用于向已存在 key(键) 的 value(数据值) 后面追加数据。</p>
+<ul>
+<li>首先我们在 Memcached 中存储一个键 nosql，其值为 memcached。</li>
+<li>然后，我们使用 get 命令检索该值。</li>
+<li>然后，我们使用 append 命令在键为 nosql 的值后面追加 "redis"。</li>
+<li>最后，我们再使用 get 命令检索该值。</li>
+</ul>
+<div class="codehilite"><pre><span></span>root@leco:/home/leco# printf &quot;set nosql 0 0 9\r\nmemcached\r\n &quot;|nc 127.0.0.1 11211
+STORED
+root@leco:/home/leco# printf &quot;get nosql\r\n &quot;|nc 127.0.0.1 11211
+VALUE nosql 0 9
+memcached
+END
+root@leco:/home/leco# printf &quot;append nosql 0 0 5\r\nredis\r\n &quot;|nc 127.0.0.1 11211
+STORED
+root@leco:/home/leco# printf &quot;get nosql\r\n &quot;|nc 127.0.0.1 11211
+VALUE nosql 0 14
+memcachedredis
+END
+</pre></div>
+
 <h3 id="35-prepend">3.5 prepend<a class="headerlink" href="#35-prepend" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;命令用于向已存在 key(键) 的 value(数据值) 前面追加数据 。</p>
+<div class="codehilite"><pre><span></span>root@leco:/home/leco# printf &quot;set nosql2 0 0 9\r\nmemcached\r\n &quot;|nc 127.0.0.1 11211
+STORED
+root@leco:/home/leco# printf &quot;get nosql2\r\n &quot;|nc 127.0.0.1 11211
+VALUE nosql2 0 9
+memcached
+END
+root@leco:/home/leco# printf &quot;prepend nosql2 0 0 6\r\nredis_\r\n &quot;|nc 127.0.0.1 11211
+STORED
+root@leco:/home/leco# printf &quot;get nosql2\r\n &quot;|nc 127.0.0.1 11211
+VALUE nosql2 0 15
+redis_memcached
+END
+</pre></div>
+
 <h3 id="36-cas">3.6 CAS<a class="headerlink" href="#36-cas" title="Permanent link">&para;</a></h3>
 <h3 id="37-get">3.7 get<a class="headerlink" href="#37-get" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;获取存储在 key(键) 中的 value(数据值) ，如果 key 不存在，则返回空。</p>
+<div class="codehilite"><pre><span></span>root@leco:/home/leco# printf &quot;get nosql2\r\n &quot;|nc 127.0.0.1 11211
+VALUE nosql2 0 15
+redis_memcached
+END
+</pre></div>
+
 <h3 id="38-gets">3.8 gets<a class="headerlink" href="#38-gets" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;获取带有 CAS 令牌存 的 value(数据值) ，如果 key 不存在，则返回空</p>
+<div class="codehilite"><pre><span></span>root@leco:/home/leco# printf &quot;gets nosql\r\n &quot;|nc 127.0.0.1 11211
+VALUE nosql 0 20 7
+_name_memcachedredis
+END
+</pre></div>
+
 <h3 id="39-delete">3.9 delete<a class="headerlink" href="#39-delete" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;命令用于删除已存在的 key(键)。</p>
+<p><div class="codehilite"><pre><span></span>root@leco:/home/leco# printf &quot;delete nosql1\r\n &quot;|nc 127.0.0.1 11211
+DELETED
+root@leco:/home/leco# printf &quot;gets nosql1\r\n &quot;|nc 127.0.0.1 11211
+END
+
+root@leco:/home/leco# printf &quot;delete nosql1\r\n &quot;|nc 127.0.0.1 11211
+NOT_FOUND
+删除不存在的key，就输出NOT_FOUND
+</pre></div>
+- DELETED：删除成功。
+- ERROR：语法错误或删除失败。
+- NOT_FOUND：key 不存在</p>
 <h3 id="310-incrdecr">3.10 incr/decr<a class="headerlink" href="#310-incrdecr" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;incr 与 decr 命令用于对已存在的 key(键) 的数字值进行自增或自减操作。incr 与 decr 命令操作的数据必须是十进制的32位无符号整数。如果 key 不存在返回 <code>NOT_FOUND</code>，如果键的值不为数字，则返回 <code>CLIENT_ERROR</code>，其他错误返回 ERROR。</p>
+<div class="codehilite"><pre><span></span>root@leco:/home/leco# printf &quot;set num 0 0 2\r\n20\r\n &quot;|nc 127.0.0.1 11211
+STORED
+root@leco:/home/leco# printf &quot;get num\r\n &quot;|nc 127.0.0.1 11211
+VALUE num 0 2
+20
+END
+root@leco:/home/leco# printf &quot;incr num 5\r\n &quot;|nc 127.0.0.1 11211
+25
+root@leco:/home/leco# printf &quot;get num\r\n &quot;|nc 127.0.0.1 11211
+VALUE num 0 2
+25
+END
+
+
+root@leco:/home/leco# printf &quot;set num2 0 0 2\r\n20\r\n &quot;|nc 127.0.0.1 11211
+STORED
+root@leco:/home/leco# printf &quot;get num2\r\n &quot;|nc 127.0.0.1 11211
+VALUE num2 0 2
+20
+END
+root@leco:/home/leco# printf &quot;decr num2 5\r\n &quot;|nc 127.0.0.1 11211
+15
+root@leco:/home/leco# printf &quot;get num2\r\n &quot;|nc 127.0.0.1 11211
+VALUE num2 0 2
+15
+END
+</pre></div>
+
 <h3 id="311-stas">3.11 stas<a class="headerlink" href="#311-stas" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;命令用于返回统计信息例如 PID(进程号)、版本号、连接数等。</p>
+<details class="note"><summary>名词解释</summary><div class="codehilite"><pre><span></span><span class="n">pid</span><span class="err">：</span>    <span class="n">memcache服务器进程ID</span>
+<span class="n">uptime</span><span class="err">：服务器已运行秒数</span>
+<span class="n">time</span><span class="err">：服务器当前</span><span class="n">Unix时间戳</span>
+<span class="n">version</span><span class="err">：</span><span class="n">memcache版本</span>
+<span class="n">pointer_size</span><span class="err">：操作系统指针大小</span>
+<span class="n">rusage_user</span><span class="err">：进程累计用户时间</span>
+<span class="n">rusage_system</span><span class="err">：进程累计系统时间</span>
+<span class="n">curr_connections</span><span class="err">：当前连接数量</span>
+<span class="n">total_connections</span><span class="err">：</span><span class="n">Memcached运行以来连接总数</span>
+<span class="n">connection_structures</span><span class="err">：</span><span class="n">Memcached分配的连接结构数量</span>
+<span class="n">cmd_get</span><span class="err">：</span><span class="n">get命令请求次数</span>
+<span class="n">cmd_set</span><span class="err">：</span><span class="n">set命令请求次数</span>
+<span class="n">cmd_flush</span><span class="err">：</span><span class="n">flush命令请求次数</span>
+<span class="n">get_hits</span><span class="err">：</span><span class="n">get命令命中次数</span>
+<span class="n">get_misses</span><span class="err">：</span><span class="n">get命令未命中次数</span>
+<span class="n">delete_misses</span><span class="err">：</span><span class="n">delete命令未命中次数</span>
+<span class="n">delete_hits</span><span class="err">：</span><span class="n">delete命令命中次数</span>
+<span class="n">incr_misses</span><span class="err">：</span><span class="n">incr命令未命中次数</span>
+<span class="n">incr_hits</span><span class="err">：</span><span class="n">incr命令命中次数</span>
+<span class="n">decr_misses</span><span class="err">：</span><span class="n">decr命令未命中次数</span>
+<span class="n">decr_hits</span><span class="err">：</span><span class="n">decr命令命中次数</span>
+<span class="n">cas_misses</span><span class="err">：</span><span class="n">cas命令未命中次数</span>
+<span class="n">cas_hits</span><span class="err">：</span><span class="n">cas命令命中次数</span>
+<span class="n">cas_badval</span><span class="err">：使用擦拭次数</span>
+<span class="n">auth_cmds</span><span class="err">：认证命令处理的次数</span>
+<span class="n">auth_errors</span><span class="err">：认证失败数目</span>
+<span class="n">bytes_read</span><span class="err">：读取总字节数</span>
+<span class="n">bytes_written</span><span class="err">：发送总字节数</span>
+<span class="n">limit_maxbytes</span><span class="err">：分配的内存总大小（字节）</span>
+<span class="n">accepting_conns</span><span class="err">：服务器是否达到过最大连接（</span><span class="mi">0</span><span class="o">/</span><span class="mi">1</span><span class="err">）</span>
+<span class="n">listen_disabled_num</span><span class="err">：失效的监听数</span>
+<span class="n">threads</span><span class="err">：当前线程数</span>
+<span class="n">conn_yields</span><span class="err">：连接操作主动放弃数目</span>
+<span class="nb">bytes</span><span class="err">：当前存储占用的字节数</span>
+<span class="n">curr_items</span><span class="err">：当前存储的数据总数</span>
+<span class="n">total_items</span><span class="err">：启动以来存储的数据总数</span>
+<span class="n">evictions</span><span class="err">：</span><span class="n">LRU释放的对象数目</span>
+<span class="n">reclaimed</span><span class="err">：已过期的数据条目来存储新数据的数目</span>
+</pre></div>
+
+</details>
 <h3 id="312-stas-items">3.12 stas items<a class="headerlink" href="#312-stas-items" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;命令用于显示各个 slab 中 item 的数目和存储时长(最后一次访问距离现在的秒数)。</p>
+<div class="codehilite"><pre><span></span>root@leco:/home/leco# printf &quot;stats items\r\n &quot;|nc 127.0.0.1 11211
+STAT items:1:number 6
+STAT items:1:number_hot 0
+STAT items:1:number_warm 2
+STAT items:1:number_cold 4
+STAT items:1:age_hot 0
+STAT items:1:age_warm 463
+STAT items:1:age 41411
+STAT items:1:evicted 0
+STAT items:1:evicted_nonzero 0
+STAT items:1:evicted_time 0
+STAT items:1:outofmemory 0
+STAT items:1:tailrepairs 0
+STAT items:1:reclaimed 0
+STAT items:1:expired_unfetched 0
+STAT items:1:evicted_unfetched 0
+STAT items:1:evicted_active 0
+STAT items:1:crawler_reclaimed 0
+STAT items:1:crawler_items_checked 33
+STAT items:1:lrutail_reflocked 0
+STAT items:1:moves_to_cold 11
+STAT items:1:moves_to_warm 5
+STAT items:1:moves_within_lru 4
+STAT items:1:direct_reclaims 0
+STAT items:1:hits_to_hot 5
+STAT items:1:hits_to_warm 5
+STAT items:1:hits_to_cold 10
+STAT items:1:hits_to_temp 0
+END
+</pre></div>
+
 <h3 id="313-stats-sizes">3.13 stats sizes<a class="headerlink" href="#313-stats-sizes" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;用于显示各个slab的信息，包括chunk的大小、数目、使用情况等。</p>
+<div class="codehilite"><pre><span></span>root@leco:/home/leco# printf &quot;stats slabs\r\n &quot;|nc 127.0.0.1 11211
+STAT 1:chunk_size 96
+STAT 1:chunks_per_page 10922
+STAT 1:total_pages 1
+STAT 1:total_chunks 10922
+STAT 1:used_chunks 6
+STAT 1:free_chunks 10916
+STAT 1:free_chunks_end 0
+STAT 1:mem_requested 438
+STAT 1:get_hits 20
+STAT 1:cmd_set 17
+STAT 1:delete_hits 1
+STAT 1:incr_hits 1
+STAT 1:decr_hits 0
+STAT 1:cas_hits 0
+STAT 1:cas_badval 0
+STAT 1:touch_hits 0
+STAT active_slabs 1
+STAT total_malloced 1048576
+END
+</pre></div>
+
 <h3 id="314-stats-slabs">3.14 stats slabs<a class="headerlink" href="#314-stats-slabs" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;命令用于显示所有item的大小和个数。该信息返回两列，第一列是 item 的大小，第二列是 item 的个数。</p>
+<div class="codehilite"><pre><span></span>root@leco:/home/leco# printf &quot;stats sizes\r\n &quot;|nc 127.0.0.1 11211
+STAT sizes_status disabled
+END
+</pre></div>
+
 <h3 id="314-flush_all">3.14 flush_all<a class="headerlink" href="#314-flush_all" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;命令用于清理缓存中的所有 key=&gt;value(键=&gt;值) 对。该命令提供了一个可选参数 time，用于在制定的时间后执行清理缓存操作。</p>
+<div class="codehilite"><pre><span></span>root@leco:/home/leco# printf &quot;stats items\r\n &quot;|nc 127.0.0.1 11211
+STAT items:1:number 6
+STAT items:1:number_hot 0
+STAT items:1:number_warm 2
+STAT items:1:number_cold 4
+STAT items:1:age_hot 0
+STAT items:1:age_warm 620
+STAT items:1:age 41568
+STAT items:1:evicted 0
+STAT items:1:evicted_nonzero 0
+STAT items:1:evicted_time 0
+STAT items:1:outofmemory 0
+STAT items:1:tailrepairs 0
+STAT items:1:reclaimed 0
+STAT items:1:expired_unfetched 0
+STAT items:1:evicted_unfetched 0
+STAT items:1:evicted_active 0
+STAT items:1:crawler_reclaimed 0
+STAT items:1:crawler_items_checked 33
+STAT items:1:lrutail_reflocked 0
+STAT items:1:moves_to_cold 11
+STAT items:1:moves_to_warm 5
+STAT items:1:moves_within_lru 4
+STAT items:1:direct_reclaims 0
+STAT items:1:hits_to_hot 5
+STAT items:1:hits_to_warm 5
+STAT items:1:hits_to_cold 10
+STAT items:1:hits_to_temp 0
+END
+root@leco:/home/leco# printf &quot;flush_all\r\n &quot;|nc 127.0.0.1 11211
+OK
+root@leco:/home/leco# printf &quot;stats items\r\n &quot;|nc 127.0.0.1 11211
+END
+</pre></div>
                 
                   
                 
