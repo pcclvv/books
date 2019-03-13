@@ -135,6 +135,7 @@ nav:
         - 5. 模板: python/flask/flask.jinja2.md
     
     - Linux:
+        - url: url/url.index.md
         - 小工具: 
             - 1. sersync: linux/server/sersync/sersync.md
             - 2. elinks: tools/elinks/elinks.index.md
@@ -150,6 +151,14 @@ nav:
             - 1. Tomcat: linux/server/certificate/tomcat.index.md
         - shell脚本:
             - 1. 系统巡检: linux/shell/linux.system_check.md
+    - Nginx:
+        - 1. nginx 部署: linux/nginx/nginx.index.md
+        - 2. nginx 配置文件: linux/nginx/nginx.conf.md
+        - 3. nginx 虚拟主机: linux/nginx/nginx.virtual_hosts.md
+        - 4. nginx 日志: linux/nginx/nginx.log.md
+        - 5. nginx 防盗链: linux/nginx/nginx.nti_theft_chain.md
+        - 6. nginx 常见配置: linux/nginx/nginx.other.md
+        - 7. nginx 优化: linux/nginx/nginx.optimization.md
     - Nosql:
         - 1. MonogoDB:
             - 1. MonogoDB 介绍: linux/nosql/mongo/mongo.index.md
