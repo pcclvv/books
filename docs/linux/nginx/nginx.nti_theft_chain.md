@@ -22,19 +22,20 @@ server {
         }
     }
 }
-
 ```
+
+
 !!! note "解释"
-```python
-第一行： location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$
-    其中“gif|jpg|jpeg|png|bmp|swf”设置防盗链文件类型，自行修改，每个后缀用“|”符号分开！
+    ```python
+    第一行： location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$
+        其中“gif|jpg|jpeg|png|bmp|swf”设置防盗链文件类型，自行修改，每个后缀用“|”符号分开！
 
-第三行：valid_referers  *.caimengzhi.org www.caimengzhi.org m.caimengzhi.com *.baidu.com *.google.com;
-    就是白名单，允许文件链出的域名白名单，自行修改成您的域名！*.caimengzhi.com这个指的是子域名，域名与域名之间使用空格隔开！
+    第三行：valid_referers  *.caimengzhi.org www.caimengzhi.org m.caimengzhi.com *.baidu.com *.google.com;
+        就是白名单，允许文件链出的域名白名单，自行修改成您的域名！*.caimengzhi.com这个指的是子域名，域名与域名之间使用空格隔开！
 
-第五行：rewrite ^/ http://www.caimengzhi.com/static/images/404.jpg;
-    这个图片是盗链返回的图片，也就是替换盗链网站所有盗链的图片。这个图片要放在没有设置防盗链的网站上，因为防盗链的作用，这个图片如果也放在防盗链网站上就会被当作防盗链显示不出来了，盗链者的网站所盗链图片会显示X符号。
-```
+    第五行：rewrite ^/ http://www.caimengzhi.com/static/images/404.jpg;
+        这个图片是盗链返回的图片，也就是替换盗链网站所有盗链的图片。这个图片要放在没有设置防盗链的网站上，因为防盗链的作用，这个图片如果也放在防盗链网站上就会被当作防盗链显示不出来了，盗链者的网站所盗链图片会显示X符号。
+    ```
 这样您在浏览器直接输入图片地址就不会再显示图片出来了，也不可能会再右键另存什么的。
 
 第五行：rewrite ^/ http://www.it300.com/static/images/404.jpg;这个是给图片防盗链设置的防盗链返回图片，如果我们是文件需要防盗链下载，把第五行：

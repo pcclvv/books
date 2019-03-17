@@ -161,7 +161,8 @@ nav:
         - 7. nginx 优化: linux/nginx/nginx.optimization.md
         - 8. nginx hash: linux/nginx/nginx.hash.md
         - 9. nginx location: linux/nginx/nginx.location.md
-        - 10. nginx 负载均衡: linux/nginx/nginx.slb.md
+        - 10. nginx rewrite: linux/nginx/nginx.rewrite.md
+        - 11. nginx 负载均衡: linux/nginx/nginx.slb.md
     - Nosql:
         - 1. MonogoDB:
             - 1. MonogoDB 介绍: linux/nosql/mongo/mongo.index.md
