@@ -4276,6 +4276,20 @@ Nginx就会安装支持Rewrite的模块，但是，也必须要PCRE软件的支�
 
 </details>
 <h3 id="22-2">2.2 例子2<a class="headerlink" href="#22-2" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span> server {
+    listen       80;
+    server_name  www.abc.org;
+    location / {
+              root html/www;
+              index index.html;
+    }
+    location ^~ /images/ {
+         rewrite ^/(.*) https://www.caimengzhi.cn/$1 permanent;
+    }
+    access_log  logs/www_access.log main;
+}
+</pre></div>
+
 <details class="note"><summary>解释</summary><div class="codehilite"><pre><span></span><span class="err">用户访问</span><span class="n">www</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">org访问网站正常显示</span><span class="err">，访问</span><span class="n">www</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">test</span><span class="o">.</span><span class="n">html的时候也正常显示</span><span class="err">。</span>
 <span class="err">只有当用户访问</span><span class="n">www</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">test</span><span class="o">.</span><span class="n">jpg</span> <span class="err">的时候，只要带有</span><span class="n">images这个路径就跳转</span><span class="err">，这里跳转到</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">caimengzhi</span><span class="o">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">test</span><span class="o">.</span><span class="n">jpg</span> <span class="err">。</span> 
 </pre></div>
