@@ -1535,8 +1535,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../nginx.slb/" title="9. nginx 负载均衡" class="md-nav__link">
-      9. nginx 负载均衡
+    <a href="../nginx.slb/" title="10. nginx 负载均衡" class="md-nav__link">
+      10. nginx 负载均衡
     </a>
   </li>
 
@@ -4133,10 +4133,27 @@
 <h2 id="1">1. 介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>&#160; &#160; &#160; &#160;一般，我们做好防盗链之后其他网站盗链的本站图片就会全部失效无法显示，但是您如果通过浏览器直接输入图片地址，仍然会显示图片，仍然可以右键图片另存为下载文件！依然可以下载？这样就不是彻底的防盗了！那么，nginx应该怎么样彻底地实现真正意义上的防盗链呢？</p>
 <h2 id="2">2. 配置<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>[root@master extra]# cat www.conf
+server {
+    listen       80;
+    server_name  www.caimengzhi.org;
+    root         html/www;
+    index        index.html index.htmi index.php;
+    access_log   logs/www_access.log;
+    location ~* \.(gif|jpg|png|jpeg)$ {
+        expires     30d;
+        valid_referers  *.caimengzhi.org www.caimengzhi.org m.caimengzhi.com *.baidu.com *.google.com;
+        if ($invalid_referer) {
+        rewrite ^/ http://ww4.sinaimg.cn/bmiddle/051bbed1gw1egjc4xl7srj20cm08aaa6.jpg;
+        #return 404;
+        }
+    }
+}
+</pre></div>
+
 <div class="admonition note">
 <p class="admonition-title">解释</p>
-</div>
-<p><div class="codehilite"><pre><span></span><span class="err">第一行：</span> <span class="n">location</span> <span class="o">~</span> <span class="o">.*</span>\<span class="o">.</span><span class="p">(</span><span class="n">gif</span><span class="o">|</span><span class="n">jpg</span><span class="o">|</span><span class="n">jpeg</span><span class="o">|</span><span class="n">png</span><span class="o">|</span><span class="n">bmp</span><span class="o">|</span><span class="n">swf</span><span class="p">)</span><span class="err">$</span>
+<div class="codehilite"><pre><span></span><span class="err">第一行：</span> <span class="n">location</span> <span class="o">~</span> <span class="o">.*</span>\<span class="o">.</span><span class="p">(</span><span class="n">gif</span><span class="o">|</span><span class="n">jpg</span><span class="o">|</span><span class="n">jpeg</span><span class="o">|</span><span class="n">png</span><span class="o">|</span><span class="n">bmp</span><span class="o">|</span><span class="n">swf</span><span class="p">)</span><span class="err">$</span>
     <span class="err">其中“</span><span class="n">gif</span><span class="o">|</span><span class="n">jpg</span><span class="o">|</span><span class="n">jpeg</span><span class="o">|</span><span class="n">png</span><span class="o">|</span><span class="n">bmp</span><span class="o">|</span><span class="n">swf</span><span class="err">”设置防盗链文件类型，自行修改，每个后缀用“</span><span class="o">|</span><span class="err">”符号分开！</span>
 
 <span class="err">第三行：</span><span class="n">valid_referers</span>  <span class="o">*.</span><span class="n">caimengzhi</span><span class="o">.</span><span class="n">org</span> <span class="n">www</span><span class="o">.</span><span class="n">caimengzhi</span><span class="o">.</span><span class="n">org</span> <span class="n">m</span><span class="o">.</span><span class="n">caimengzhi</span><span class="o">.</span><span class="n">com</span> <span class="o">*.</span><span class="n">baidu</span><span class="o">.</span><span class="n">com</span> <span class="o">*.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span><span class="p">;</span>
@@ -4145,7 +4162,9 @@
 <span class="err">第五行：</span><span class="n">rewrite</span> <span class="o">^/</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">caimengzhi</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">static</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="mf">404.j</span><span class="n">pg</span><span class="p">;</span>
     <span class="err">这个图片是盗链返回的图片，也就是替换盗链网站所有盗链的图片。这个图片要放在没有设置防盗链的网站上，因为防盗链的作用，这个图片如果也放在防盗链网站上就会被当作防盗链显示不出来了，盗链者的网站所盗链图片会显示</span><span class="n">X符号</span><span class="err">。</span>
 </pre></div>
-这样您在浏览器直接输入图片地址就不会再显示图片出来了，也不可能会再右键另存什么的。</p>
+
+</div>
+<p>这样您在浏览器直接输入图片地址就不会再显示图片出来了，也不可能会再右键另存什么的。</p>
 <p>第五行：rewrite ^/ <a href="http://www.it300.com/static/images/404.jpg;这个是给图片防盗链设置的防盗链返回图片">http://www.it300.com/static/images/404.jpg;这个是给图片防盗链设置的防盗链返回图片</a>，如果我们是文件需要防盗链下载，把第五行：
 <div class="codehilite"><pre><span></span>rewrite ^/ http://www.caimengzhi.com/static/images/404.jpg;
 </pre></div></p>
