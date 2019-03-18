@@ -127,6 +127,9 @@ nav:
             - 13. getpass: python/lib/getpass/getpass.index.md
             - 14. os: python/lib/os/os.index.md
             - 15. sys: python/lib/sys/sys.index.md
+            - 16. psutil: python/lib/psutil/psutil.index.md
+        - 其他:
+            - 1. 列表: python/note/note.extend_append.md
     - Flask:
         - 1. 简介: python/flask/flask.index.md
         - 2. 配置: python/flask/flask.config.md
