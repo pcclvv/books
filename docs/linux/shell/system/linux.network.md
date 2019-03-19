@@ -4,7 +4,7 @@
 ```
 #/usr/bin/env bash
 # Name: get_network_info.sh
-# Author: Purple_Grape
+# Author: caimengzhi
 # This is a script to gather network information of your Linux system.
 # Test under Ubuntu 10.04 only.
 #----------------------------
