@@ -1,6 +1,7 @@
-<center><h1></h1></center>
+<center><h1>网卡信息</h1></center>
+
 ## 1. 服务的信息
-采集服务的,MAC,DNS和外网IP
+采集服务器的MAC,DNS和外网IP
 ```
 #/usr/bin/env bash
 # Name: get_network_info.sh
