@@ -245,6 +245,7 @@ nav:
             - 7. 表复制: mysql/mysql.copy_table.md
             - 8. 存储引擎: mysql/mysql.storage_engine.md
             - 9. 用户: mysql/mysql.user.md            
+            - 10. 事务: mysql/mysql.affairs.md            
     - 前端:
           - Vue: frontend/vue/index.md
           - CSS: frontend/css/css.index.md
