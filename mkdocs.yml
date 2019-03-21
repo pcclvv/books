@@ -193,7 +193,8 @@ nav:
             - 4. redis 键值对: linux/nosql/redis/redis.k_v.md
             - 5. redis 发布订阅: linux/nosql/redis/redis.publish.md
             - 6. redis 事务: linux/nosql/redis/redis.arrairs.md
-            - 7. redis 备份与恢复: linux/nosql/redis/redis.save.md
+            - 7. redis 持久化存储: linux/nosql/redis/redis.store.md
+            - 8. redis 备份与恢复: linux/nosql/redis/redis.save.md
         - 3. memcached:
             - 1. memcached: linux/nosql/memcached/memcached.index.md
     - mysql:
