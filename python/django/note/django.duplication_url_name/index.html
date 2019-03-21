@@ -40,7 +40,7 @@
     
     
       
-        <title>Django.duplication url name - 笔记</title>
+        <title>2. 重名url - 笔记</title>
       
     
     
@@ -132,7 +132,7 @@
                 笔记
               </span>
               <span class="md-header-nav__topic">
-                Django.duplication url name
+                2. 重名url
               </span>
             
           
@@ -1159,10 +1159,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Django
@@ -1178,10 +1180,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" checked>
     
     <label class="md-nav__link" for="nav-3-1">
       知识点
@@ -1202,6 +1206,161 @@
     <a href="../django.url_name/" title="1. name" class="md-nav__link">
       1. name
     </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        2. 重名url
+      </label>
+    
+    <a href="./" title="2. 重名url" class="md-nav__link md-nav__link--active">
+      2. 重名url
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 介绍" class="md-nav__link">
+    1. 介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-settingspy" title="1.1 设置settings.py" class="md-nav__link">
+    1.1 设置settings.py
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" title="1.2 配置和引用" class="md-nav__link">
+    1.2 配置和引用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 实例" class="md-nav__link">
+    2. 实例
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-app_dirs" title="2.1 修改APP_DIRS" class="md-nav__link">
+    2.1 修改APP_DIRS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-app01" title="2.2 app01" class="md-nav__link">
+    2.2 app01
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-urls" title="2.2.1 urls" class="md-nav__link">
+    2.2.1 urls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-views" title="2.2.2 views" class="md-nav__link">
+    2.2.2 views
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-html" title="2.2.3 html" class="md-nav__link">
+    2.2.3 html
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-app02" title="2.3 app02" class="md-nav__link">
+    2.3 app02
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-url" title="2.3.1 url" class="md-nav__link">
+    2.3.1 url
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-views" title="2.3.2 views" class="md-nav__link">
+    2.3.2 views
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233-html" title="2.3.3 html" class="md-nav__link">
+    2.3.3 html
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" title="2.4 测试" class="md-nav__link">
+    2.4 测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -4518,6 +4677,41 @@ urlpatterns = [
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../django.url_name/" title="1. name" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                1. name
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../../../url/url.index/" title="url" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                url
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
