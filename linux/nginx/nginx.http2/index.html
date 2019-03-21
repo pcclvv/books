@@ -40,7 +40,7 @@
     
     
       
-        <title>Nginx.http2 - 笔记</title>
+        <title>11. nginx http2 - 笔记</title>
       
     
     
@@ -132,7 +132,7 @@
                 笔记
               </span>
               <span class="md-header-nav__topic">
-                Nginx.http2
+                11. nginx http2
               </span>
             
           
@@ -1462,15 +1462,27 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../shell/system/linux.network/" title="1. 系统巡检" class="md-nav__link">
+      1. 系统巡检
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-5-2" type="checkbox" id="nav-4-5-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-5-3" type="checkbox" id="nav-4-5-3">
     
-    <label class="md-nav__link" for="nav-4-5-2">
+    <label class="md-nav__link" for="nav-4-5-3">
       2. mysql
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-4-5-2">
+      <label class="md-nav__title" for="nav-4-5-3">
         2. mysql
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1507,10 +1519,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
       Nginx
@@ -1651,6 +1665,107 @@
     <a href="../nginx.slb/" title="11. nginx 负载均衡" class="md-nav__link">
       11. nginx 负载均衡
     </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        11. nginx http2
+      </label>
+    
+    <a href="./" title="11. nginx http2" class="md-nav__link md-nav__link--active">
+      11. nginx http2
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 介绍" class="md-nav__link">
+    1. 介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-nginx" title="2. 编译安装nginx" class="md-nav__link">
+    2. 编译安装nginx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" title="3. 生成证书" class="md-nav__link">
+    3. 生成证书
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-nginx" title="4. 修改nginx配置" class="md-nav__link">
+    4. 修改nginx配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-curlhttp2" title="4. curl支持http2" class="md-nav__link">
+    4. curl支持http2
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-curl" title="4.1 编译安装curl" class="md-nav__link">
+    4.1 编译安装curl
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-curl" title="4.2 升级curl版本" class="md-nav__link">
+    4.2 升级curl版本
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" title="5. 验证" class="md-nav__link">
+    5. 验证
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -4516,6 +4631,41 @@ root@leco:/usr/local/nginx/html# /usr/local/bin/curl --http2 -k -s   https://192
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../nginx.slb/" title="11. nginx 负载均衡" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                11. nginx 负载均衡
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../nosql/mongo/mongo.index/" title="1. MonogoDB 介绍" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                1. MonogoDB 介绍
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
