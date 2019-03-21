@@ -136,7 +136,10 @@ nav:
         - 3. 路由: python/flask/flask.view.md
         - 4. 请求方法: python/flask/flask.methods.md
         - 5. 模板: python/flask/flask.jinja2.md
-    
+    - Django:
+        - 知识点:
+            - 1. name: python/django/note/django.url_name.md
+            - 2. 重名url: python/django/note/django.duplication_url_name.md
     - Linux:
         - url: url/url.index.md
         - 小工具: 
@@ -153,10 +156,9 @@ nav:
         - 证书:
             - 1. Tomcat: linux/server/certificate/tomcat.index.md
         - shell脚本:
-            - 1. 系统:
-                - 1. 系统巡检: linux/shell/system/linux.system_check.md
-                - 2. 系统网卡: linux/shell/system/linux.network.md
-            - 2. mysql:
+            - 1. 系统巡检: linux/shell/system/linux.system_check.md
+            - 2. 网卡信息: linux/shell/system/linux.network.md
+            - 3. mysql:
                 - 1. 安装: linux/shell/mysql/install/mysql.install.md
     - Nginx:
         - 1. nginx 部署: linux/nginx/nginx.index.md
@@ -170,7 +172,7 @@ nav:
         - 9. nginx location: linux/nginx/nginx.location.md
         - 10. nginx rewrite: linux/nginx/nginx.rewrite.md
         - 11. nginx 负载均衡: linux/nginx/nginx.slb.md
-        - 12. nginx http2: linux/nginx/nginx.http2.md
+        - 11. nginx http2: linux/nginx/nginx.http2.md
     - Nosql:
         - 1. MonogoDB:
             - 1. MonogoDB 介绍: linux/nosql/mongo/mongo.index.md
