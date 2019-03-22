@@ -40,7 +40,7 @@
     
     
       
-        <title>2. redis-sentinel - 笔记</title>
+        <title>10. redis-sentinel - 笔记</title>
       
     
     
@@ -132,7 +132,7 @@
                 笔记
               </span>
               <span class="md-header-nav__topic">
-                2. redis-sentinel
+                10. redis-sentinel
               </span>
             
           
@@ -1699,10 +1699,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
     
     <label class="md-nav__link" for="nav-6">
       Nosql
@@ -1874,10 +1876,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2" checked>
     
     <label class="md-nav__link" for="nav-6-2">
       2. redis
@@ -2001,11 +2005,397 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="./" title="10. redis-sentinel" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        10. redis-sentinel
+      </label>
+    
+    <a href="./" title="10. redis-sentinel" class="md-nav__link md-nav__link--active">
       10. redis-sentinel
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 介绍" class="md-nav__link">
+    1. 介绍
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" title="1.1 优势" class="md-nav__link">
+    1.1 优势
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" title="1.2 比较" class="md-nav__link">
+    1.2 比较
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-redis-sentinel" title="2. redis sentinel 介绍" class="md-nav__link">
+    2. redis sentinel 介绍
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-sentinel" title="2.1 Sentinel是什么" class="md-nav__link">
+    2.1 Sentinel是什么
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-sentinel" title="2.2 开多少个Sentinel合适" class="md-nav__link">
+    2.2 开多少个Sentinel合适
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-sentinelmaster" title="2.3 Sentinel判断master下线的两种标准" class="md-nav__link">
+    2.3 Sentinel判断master下线的两种标准
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" title="3. 准备" class="md-nav__link">
+    3. 准备
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" title="3.1 条件" class="md-nav__link">
+    3.1 条件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" title="3.2 配置" class="md-nav__link">
+    3.2 配置
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-ip" title="3.2.1 ip地址" class="md-nav__link">
+    3.2.1 ip地址
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" title="3.2.2 下线阀值" class="md-nav__link">
+    3.2.2 下线阀值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323-slave" title="3.2.3 slave个数" class="md-nav__link">
+    3.2.3 slave个数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323" title="3.2.3 恢复时长" class="md-nav__link">
+    3.2.3 恢复时长
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-redis-sentinel" title="4. redis sentinel" class="md-nav__link">
+    4. redis sentinel
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" title="4.1 环境准备" class="md-nav__link">
+    4.1 环境准备
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" title="4.2 操作流程" class="md-nav__link">
+    4.2 操作流程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" title="4.3 拓扑演变" class="md-nav__link">
+    4.3 拓扑演变
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431" title="4.3.1 开始模式" class="md-nav__link">
+    4.3.1 开始模式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#432-master" title="4.3.2 master宕机" class="md-nav__link">
+    4.3.2 master宕机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#433-master" title="4.3.3 master修复后" class="md-nav__link">
+    4.3.3 master修复后
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" title="4.4 启动镜像" class="md-nav__link">
+    4.4 启动镜像
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#452-tcl" title="4.5.2 安装tcl 包" class="md-nav__link">
+    4.5.2 安装tcl 包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#453-redis" title="4.5.3 安装redis" class="md-nav__link">
+    4.5.3 安装redis
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46" title="4.6 配置主从" class="md-nav__link">
+    4.6 配置主从
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#461" title="4.6.1 主从配置" class="md-nav__link">
+    4.6.1 主从配置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47" title="4.7 启动" class="md-nav__link">
+    4.7 启动
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#471" title="4.7.1 启动" class="md-nav__link">
+    4.7.1 启动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#472" title="4.7.2 停止" class="md-nav__link">
+    4.7.2 停止
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48" title="4.8 测试主从" class="md-nav__link">
+    4.8 测试主从
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#481" title="4.8.1 主上设置一个键值对" class="md-nav__link">
+    4.8.1 主上设置一个键值对
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#482-redis-slave1" title="4.8.2 Redis slave1查看" class="md-nav__link">
+    4.8.2 Redis slave1查看
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#482-redis-slave2" title="4.8.2 Redis slave2查看" class="md-nav__link">
+    4.8.2 Redis slave2查看
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48-sentinel" title="4.8 配置sentinel" class="md-nav__link">
+    4.8 配置sentinel
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#481-sentinel" title="4.8.1 配置sentinel" class="md-nav__link">
+    4.8.1 配置sentinel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#482-sentinel" title="4.8.2 启动 sentinel" class="md-nav__link">
+    4.8.2 启动 sentinel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#483" title="4.8.3 查看" class="md-nav__link">
+    4.8.3 查看
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49" title="4.9 故障模拟" class="md-nav__link">
+    4.9 故障模拟
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#491-master" title="4.9.1 master宕机" class="md-nav__link">
+    4.9.1 master宕机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#492-redis" title="4.9.2 查看redis主从情况" class="md-nav__link">
+    4.9.2 查看redis主从情况
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#493-sentinel" title="4.9.3 查看sentinel情况" class="md-nav__link">
+    4.9.3 查看sentinel情况
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -2767,12 +3157,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       服务
@@ -2932,468 +3320,6 @@
     <a href="../../../../tools/gitlab/3.set_root_pwd/" title="3. 找回root密码" class="md-nav__link">
       3. 找回root密码
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-4" type="checkbox" id="nav-9-4" checked>
-    
-    <label class="md-nav__link" for="nav-9-4">
-      4. nosql
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-9-4">
-        4. nosql
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-4-1" type="checkbox" id="nav-9-4-1" checked>
-    
-    <label class="md-nav__link" for="nav-9-4-1">
-      1. redis
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-9-4-1">
-        1. redis
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../redis-master-slave/" title="1. redis-主从" class="md-nav__link">
-      1. redis-主从
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        2. redis-sentinel
-      </label>
-    
-    <a href="./" title="2. redis-sentinel" class="md-nav__link md-nav__link--active">
-      2. redis-sentinel
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" title="1. 介绍" class="md-nav__link">
-    1. 介绍
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" title="1.1 优势" class="md-nav__link">
-    1.1 优势
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" title="1.2 比较" class="md-nav__link">
-    1.2 比较
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-redis-sentinel" title="2. redis sentinel 介绍" class="md-nav__link">
-    2. redis sentinel 介绍
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21-sentinel" title="2.1 Sentinel是什么" class="md-nav__link">
-    2.1 Sentinel是什么
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22-sentinel" title="2.2 开多少个Sentinel合适" class="md-nav__link">
-    2.2 开多少个Sentinel合适
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23-sentinelmaster" title="2.3 Sentinel判断master下线的两种标准" class="md-nav__link">
-    2.3 Sentinel判断master下线的两种标准
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" title="3. 准备" class="md-nav__link">
-    3. 准备
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31" title="3.1 条件" class="md-nav__link">
-    3.1 条件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32" title="3.2 配置" class="md-nav__link">
-    3.2 配置
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#321-ip" title="3.2.1 ip地址" class="md-nav__link">
-    3.2.1 ip地址
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#322" title="3.2.2 下线阀值" class="md-nav__link">
-    3.2.2 下线阀值
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#323-slave" title="3.2.3 slave个数" class="md-nav__link">
-    3.2.3 slave个数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#323" title="3.2.3 恢复时长" class="md-nav__link">
-    3.2.3 恢复时长
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-redis-sentinel" title="4. redis sentinel" class="md-nav__link">
-    4. redis sentinel
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41" title="4.1 环境准备" class="md-nav__link">
-    4.1 环境准备
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42" title="4.2 操作流程" class="md-nav__link">
-    4.2 操作流程
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43" title="4.3 拓扑演变" class="md-nav__link">
-    4.3 拓扑演变
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#431" title="4.3.1 开始模式" class="md-nav__link">
-    4.3.1 开始模式
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#432-master" title="4.3.2 master宕机" class="md-nav__link">
-    4.3.2 master宕机
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#433-master" title="4.3.3 master修复后" class="md-nav__link">
-    4.3.3 master修复后
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#44" title="4.4 启动镜像" class="md-nav__link">
-    4.4 启动镜像
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#452-tcl" title="4.5.2 安装tcl 包" class="md-nav__link">
-    4.5.2 安装tcl 包
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#453-redis" title="4.5.3 安装redis" class="md-nav__link">
-    4.5.3 安装redis
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#46" title="4.6 配置主从" class="md-nav__link">
-    4.6 配置主从
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#461" title="4.6.1 主从配置" class="md-nav__link">
-    4.6.1 主从配置
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#47" title="4.7 启动" class="md-nav__link">
-    4.7 启动
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#471" title="4.7.1 启动" class="md-nav__link">
-    4.7.1 启动
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#472" title="4.7.2 停止" class="md-nav__link">
-    4.7.2 停止
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#48" title="4.8 测试主从" class="md-nav__link">
-    4.8 测试主从
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#481" title="4.8.1 主上设置一个键值对" class="md-nav__link">
-    4.8.1 主上设置一个键值对
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#482-redis-slave1" title="4.8.2 Redis slave1查看" class="md-nav__link">
-    4.8.2 Redis slave1查看
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#482-redis-slave2" title="4.8.2 Redis slave2查看" class="md-nav__link">
-    4.8.2 Redis slave2查看
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#48-sentinel" title="4.8 配置sentinel" class="md-nav__link">
-    4.8 配置sentinel
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#481-sentinel" title="4.8.1 配置sentinel" class="md-nav__link">
-    4.8.1 配置sentinel
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#482-sentinel" title="4.8.2 启动 sentinel" class="md-nav__link">
-    4.8.2 启动 sentinel
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#483" title="4.8.3 查看" class="md-nav__link">
-    4.8.3 查看
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#49" title="4.9 故障模拟" class="md-nav__link">
-    4.9 故障模拟
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#491-master" title="4.9.1 master宕机" class="md-nav__link">
-    4.9.1 master宕机
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#492-redis" title="4.9.2 查看redis主从情况" class="md-nav__link">
-    4.9.2 查看redis主从情况
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#493-sentinel" title="4.9.3 查看sentinel情况" class="md-nav__link">
-    4.9.3 查看sentinel情况
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
         
@@ -5522,7 +5448,7 @@ root@56c0344c59a0:~# redis-cli info
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../redis-master-slave/" title="1. redis-主从" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../redis-master-slave/" title="9. redis-主从" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -5531,19 +5457,19 @@ root@56c0344c59a0:~# redis-cli info
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                1. redis-主从
+                9. redis-主从
               </span>
             </div>
           </a>
         
         
-          <a href="../../../../course/" title="教程" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../../nosql/memcached/memcached.index/" title="1. memcached" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                教程
+                1. memcached
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

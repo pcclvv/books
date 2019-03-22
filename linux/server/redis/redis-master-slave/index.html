@@ -40,7 +40,7 @@
     
     
       
-        <title>1. redis-主从 - 笔记</title>
+        <title>9. redis-主从 - 笔记</title>
       
     
     
@@ -132,7 +132,7 @@
                 笔记
               </span>
               <span class="md-header-nav__topic">
-                1. redis-主从
+                9. redis-主从
               </span>
             
           
@@ -1699,10 +1699,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
     
     <label class="md-nav__link" for="nav-6">
       Nosql
@@ -1874,10 +1876,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2" checked>
     
     <label class="md-nav__link" for="nav-6-2">
       2. redis
@@ -1989,11 +1993,121 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="./" title="9. redis-主从" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        9. redis-主从
+      </label>
+    
+    <a href="./" title="9. redis-主从" class="md-nav__link md-nav__link--active">
       9. redis-主从
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 介绍" class="md-nav__link">
+    1. 介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 部署" class="md-nav__link">
+    2. 部署
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-redis" title="2.1 Redis 主从" class="md-nav__link">
+    2.1 Redis 主从
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" title="2.2 配置" class="md-nav__link">
+    2.2 配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-master" title="2.3 master配置" class="md-nav__link">
+    2.3 master配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-slave" title="2.4 slave配置" class="md-nav__link">
+    2.4 slave配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" title="2.5 启动" class="md-nav__link">
+    2.5 启动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" title="2.6 检查主从" class="md-nav__link">
+    2.6 检查主从
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-slave" title="2.7 查看slave" class="md-nav__link">
+    2.7 查看slave
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28" title="2.8 手动切换身份" class="md-nav__link">
+    2.8 手动切换身份
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29" title="2.9 健康检查" class="md-nav__link">
+    2.9 健康检查
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -2767,12 +2881,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       服务
@@ -2932,192 +3044,6 @@
     <a href="../../../../tools/gitlab/3.set_root_pwd/" title="3. 找回root密码" class="md-nav__link">
       3. 找回root密码
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-4" type="checkbox" id="nav-9-4" checked>
-    
-    <label class="md-nav__link" for="nav-9-4">
-      4. nosql
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-9-4">
-        4. nosql
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-4-1" type="checkbox" id="nav-9-4-1" checked>
-    
-    <label class="md-nav__link" for="nav-9-4-1">
-      1. redis
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-9-4-1">
-        1. redis
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        1. redis-主从
-      </label>
-    
-    <a href="./" title="1. redis-主从" class="md-nav__link md-nav__link--active">
-      1. redis-主从
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" title="1. 介绍" class="md-nav__link">
-    1. 介绍
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" title="2. 部署" class="md-nav__link">
-    2. 部署
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21-redis" title="2.1 Redis 主从" class="md-nav__link">
-    2.1 Redis 主从
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22" title="2.2 配置" class="md-nav__link">
-    2.2 配置
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23-master" title="2.3 master配置" class="md-nav__link">
-    2.3 master配置
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24-slave" title="2.4 slave配置" class="md-nav__link">
-    2.4 slave配置
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#25" title="2.5 启动" class="md-nav__link">
-    2.5 启动
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#26" title="2.6 检查主从" class="md-nav__link">
-    2.6 检查主从
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#27-slave" title="2.7 查看slave" class="md-nav__link">
-    2.7 查看slave
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#28" title="2.8 手动切换身份" class="md-nav__link">
-    2.8 手动切换身份
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#29" title="2.9 健康检查" class="md-nav__link">
-    2.9 健康检查
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../redis-sentinel/" title="2. redis-sentinel" class="md-nav__link">
-      2. redis-sentinel
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
         
@@ -4968,7 +4894,7 @@ PONG
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../../../tools/gitlab/3.set_root_pwd/" title="3. 找回root密码" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../../nosql/redis/redis.save/" title="8. redis 备份与恢复" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -4977,19 +4903,19 @@ PONG
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                3. 找回root密码
+                8. redis 备份与恢复
               </span>
             </div>
           </a>
         
         
-          <a href="../redis-sentinel/" title="2. redis-sentinel" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../redis-sentinel/" title="10. redis-sentinel" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                2. redis-sentinel
+                10. redis-sentinel
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
