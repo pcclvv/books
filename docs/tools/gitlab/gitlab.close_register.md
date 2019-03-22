@@ -1,3 +1,4 @@
+<center><h1>Gitlab 关闭注册用户接口</h1></center>
 用户root登录后
 ![图片1](../../pictures/tools/gitlab/close/1.png)
 

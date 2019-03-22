@@ -172,7 +172,7 @@ nav:
         - 9. nginx location: linux/nginx/nginx.location.md
         - 10. nginx rewrite: linux/nginx/nginx.rewrite.md
         - 11. nginx 负载均衡: linux/nginx/nginx.slb.md
-        - 11. nginx http2: linux/nginx/nginx.http2.md
+        - 12. nginx http2: linux/nginx/nginx.http2.md
     - Nosql:
         - 1. MonogoDB:
             - 1. MonogoDB 介绍: linux/nosql/mongo/mongo.index.md
@@ -195,6 +195,9 @@ nav:
             - 6. redis 事务: linux/nosql/redis/redis.arrairs.md
             - 7. redis 持久化存储: linux/nosql/redis/redis.store.md
             - 8. redis 备份与恢复: linux/nosql/redis/redis.save.md
+            - 9. redis 主从: linux/nosql/redis/redis-master-slave.md
+            - 10. redis 哨兵: linux/nosql/redis/redis-sentinel.md
+            - 11. redis 缓存策略: linux/nosql/redis/redis.cache_policy.md
         - 3. memcached:
             - 1. memcached: linux/nosql/memcached/memcached.index.md
     - mysql:
@@ -254,17 +257,13 @@ nav:
             - 1. git: tools/git/git.index.md
             - 2. git 回滚: tools/git/git.rollback.md
             - 3. git 分支: tools/git/git.branch.md
-            - 4. git 分支管理: tools/git/git.standard.md
             - 4. git 标签: tools/git/git.label.md
+            - 5. git 分支管理: tools/git/git.standard.md
           - 2. github: tools/github/github.index.md
           - 3. gitlab:
-            - 1. gitlab: tools/gitlab/1.gitlab.md
-            - 2. 关闭注册: tools/gitlab/2.gitlab_close_register.md
-            - 3. 找回root密码: tools/gitlab/3.set_root_pwd.md
-          - 4. nosql:
-            - 1. redis:
-                - 1. redis-主从: linux/server/redis/redis-master-slave.md
-                - 2. redis-sentinel: linux/server/redis/redis-sentinel.md
+            - 1. gitlab: tools/gitlab/gitlab.index.md
+            - 2. 关闭注册: tools/gitlab/gitlab.close_register.md
+            - 3. 找回root密码: tools/gitlab/gitlab.set_root_pwd.md
     - 教程:
           - 教程: course/index.md
           

@@ -1,4 +1,4 @@
-
+<center><h1>Gitlab 重置root登录密码</h1></center>
 时间长突然忘记了root账号的密码，以下是找回密码过程
 ## 找回步骤
 
