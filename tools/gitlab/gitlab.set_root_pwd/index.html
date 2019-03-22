@@ -40,7 +40,7 @@
     
     
       
-        <title>2. 关闭注册 - 笔记</title>
+        <title>3. 找回root密码 - 笔记</title>
       
     
     
@@ -106,6 +106,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -128,7 +132,7 @@
                 笔记
               </span>
               <span class="md-header-nav__topic">
-                2. 关闭注册
+                3. 找回root密码
               </span>
             
           
@@ -2903,8 +2907,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../1.gitlab/" title="1. gitlab" class="md-nav__link">
+    <a href="../gitlab.index/" title="1. gitlab" class="md-nav__link">
       1. gitlab
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gitlab.close_register/" title="2. 关闭注册" class="md-nav__link">
+      2. 关闭注册
     </a>
   </li>
 
@@ -2921,22 +2937,37 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
-    <a href="./" title="2. 关闭注册" class="md-nav__link md-nav__link--active">
-      2. 关闭注册
-    </a>
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        3. 找回root密码
+      </label>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../3.set_root_pwd/" title="3. 找回root密码" class="md-nav__link">
+    <a href="./" title="3. 找回root密码" class="md-nav__link md-nav__link--active">
       3. 找回root密码
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="找回步骤" class="md-nav__link">
+    找回步骤
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -4217,23 +4248,66 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="找回步骤" class="md-nav__link">
+    找回步骤
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/caimengzhi/books/edit/master/docs/tools/gitlab/2.gitlab_close_register.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/caimengzhi/books/edit/master/docs/tools/gitlab/gitlab.set_root_pwd.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>2. 关闭注册</h1>
-                
-                <p>用户root登录后
-<img alt="图片1" src="../../../pictures/tools/gitlab/close/1.png" /></p>
-<p>点击最下面的save，然后退出重新登录
-<img alt="图片2" src="../../../pictures/tools/gitlab/close/2.png" />
-<img alt="图片3" src="../../../pictures/tools/gitlab/close/3.png" />
-<img alt="图片4" src="../../../pictures/tools/gitlab/close/4.png" />
-<img alt="图片5" src="../../../pictures/tools/gitlab/close/5.png" /></p>
+                <p><center><h1>Gitlab 重置root登录密码</h1></center>
+时间长突然忘记了root账号的密码，以下是找回密码过程</p>
+<h2 id="_1">找回步骤<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><div class="codehilite"><pre><span></span>[root@leco gitlab]# su - git
+-sh-4.1$ gitlab-rails console production
+-------------------------------------------------------------------------------------
+ GitLab:       11.7.5 (c5b5b18)
+ GitLab Shell: 8.4.4
+ postgresql:   9.6.11
+-------------------------------------------------------------------------------------
+Loading production environment (Rails 5.0.7.1)
+irb(main):001:0&gt; user = User.where(id: 1).first       # 确定是否是root用户
+=&gt; #&lt;User id:1 @root&gt;
+irb(main):002:0&gt; user.password = &#39;caimengzhi!\#@809&#39;  # 设置登录账号root的密码
+=&gt; &quot;caimengzhi!\#@809&quot;
+irb(main):003:0&gt; user.save!
+Enqueued ActionMailer::DeliveryJob (Job ID: 26a68d46-d3f4-46a1-92c8-79057ec4a13f) to Sidekiq(mailers) with arguments: &quot;DeviseMailer&quot;, &quot;password_change&quot;, &quot;deliver_now&quot;, #&lt;GlobalID:0x00007f225e449bc0 @uri=#&lt;URI::GID gid://gitlab/User/1&gt;&gt;
+=&gt; true
+irb(main):004:0&gt; exit
+</pre></div>
+再次登录 使用</p>
+<p>账号:  root</p>
+<p>密码: caimengzhi!#@809</p>
                 
                   
                 
@@ -4254,7 +4328,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../1.gitlab/" title="1. gitlab" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../gitlab.close_register/" title="2. 关闭注册" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -4263,19 +4337,19 @@
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                1. gitlab
+                2. 关闭注册
               </span>
             </div>
           </a>
         
         
-          <a href="../3.set_root_pwd/" title="3. 找回root密码" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../../course/" title="教程" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                3. 找回root密码
+                教程
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
