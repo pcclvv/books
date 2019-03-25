@@ -143,16 +143,19 @@ nav:
     - Linux:
         - url: url/url.index.md
         - 小工具: 
-            - 1. sersync: linux/server/sersync/sersync.md
-            - 2. elinks: tools/elinks/elinks.index.md
-            - 3. Linux终端录屏和回放: tools/script_scriptreplay/1.index.md
-            - 4. xshell迁移数据: tools/xshell/xshell.index.md
-            - 5. xshell无声配置: tools/xshell/xshell.silent.md
+            - 1. elinks: tools/elinks/elinks.index.md
+            - 2. Linux终端录屏和回放: tools/script_scriptreplay/1.index.md
+            - 3. xshell:
+                - 1. xshell迁移数据: tools/xshell/xshell.index.md
+                - 2. xshell无声配置: tools/xshell/xshell.silent.md
+            - 4. 下载:
+                - 1. axel: linux/tools/axel.index.md
 
         - 服务:
             - 1. Harbor: linux/server/harbor/harbor.index.md
             - 2. PPPOE: linux/server/pppoe/pppoe.index.md
             - 3. django项目部署: linux/server/deploy_django/deploy_django.index.md
+            - 4. sersync: linux/server/sersync/sersync.md
         - 证书:
             - 1. Tomcat: linux/server/certificate/tomcat.index.md
         - shell脚本:
