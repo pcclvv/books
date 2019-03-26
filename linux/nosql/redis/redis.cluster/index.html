@@ -40,7 +40,7 @@
     
     
       
-        <title>1. Harbor - 笔记</title>
+        <title>11. redis cluster - 笔记</title>
       
     
     
@@ -106,7 +106,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#1-harbor" tabindex="1" class="md-skip">
+      <a href="#1-cluster" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -132,7 +132,7 @@
                 笔记
               </span>
               <span class="md-header-nav__topic">
-                1. Harbor
+                11. redis cluster
               </span>
             
           
@@ -1231,12 +1231,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       Linux
@@ -1396,12 +1394,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
     
     <label class="md-nav__link" for="nav-4-3">
       服务
@@ -1417,454 +1413,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        1. Harbor
-      </label>
-    
-    <a href="./" title="1. Harbor" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../../server/harbor/harbor.index/" title="1. Harbor" class="md-nav__link">
       1. Harbor
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-harbor" title="1. Harbor简介" class="md-nav__link">
-    1. Harbor简介
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11-harbor" title="1.1 Harbor架构" class="md-nav__link">
-    1.1 Harbor架构
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-docker-registery" title="1.2 Docker Registery" class="md-nav__link">
-    1.2 Docker Registery
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" title="2. 系统部署基础" class="md-nav__link">
-    2. 系统部署基础
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-docker" title="3. Docker自带仓库" class="md-nav__link">
-    3. Docker自带仓库
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31" title="3.1 安装官方自带仓库" class="md-nav__link">
-    3.1 安装官方自带仓库
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#311" title="3.1.1 安装" class="md-nav__link">
-    3.1.1 安装
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#312" title="3.1.2 查看安装信息" class="md-nav__link">
-    3.1.2 查看安装信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#313" title="3.1.3 启动仓库" class="md-nav__link">
-    3.1.3 启动仓库
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#314" title="3.1.4 开机自启动" class="md-nav__link">
-    3.1.4 开机自启动
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#315" title="3.1.5 查看服务" class="md-nav__link">
-    3.1.5 查看服务
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-docker" title="3.2 Docker客户端操作" class="md-nav__link">
-    3.2 Docker客户端操作
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#321-tag" title="3.2.1 打tag" class="md-nav__link">
-    3.2.1 打tag
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#322-tag" title="3.2.2 查看tag信息" class="md-nav__link">
-    3.2.2 查看tag信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#323-push" title="3.2.3 push" class="md-nav__link">
-    3.2.3 push
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#324" title="3.2.4 仓库查看" class="md-nav__link">
-    3.2.4 仓库查看
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#325-pull" title="3.2.5 pull" class="md-nav__link">
-    3.2.5 pull
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-harbor" title="4. Harbor" class="md-nav__link">
-    4. Harbor
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41" title="4.1 参考文档" class="md-nav__link">
-    4.1 参考文档
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42" title="4.2 下载安装" class="md-nav__link">
-    4.2 下载安装
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#421" title="4.2.1 关闭仓库" class="md-nav__link">
-    4.2.1 关闭仓库
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#422" title="4.2.2 修改配置文件" class="md-nav__link">
-    4.2.2 修改配置文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#423" title="4.2.3 开始安装" class="md-nav__link">
-    4.2.3 开始安装
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#424" title="4.2.4 安装编排工具" class="md-nav__link">
-    4.2.4 安装编排工具
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-web" title="4.3 Web操作" class="md-nav__link">
-    4.3 Web操作
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#431" title="4.3.1 简单介绍" class="md-nav__link">
-    4.3.1 简单介绍
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#432" title="4.3.2 新建用户" class="md-nav__link">
-    4.3.2 新建用户
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#433" title="4.3.3 新建私有仓库" class="md-nav__link">
-    4.3.3 新建私有仓库
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#434" title="4.3.4 普通用户登录" class="md-nav__link">
-    4.3.4 普通用户登录
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#435" title="4.3.5 普通用户新建项目" class="md-nav__link">
-    4.3.5 普通用户新建项目
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#44" title="4.4 客户端操作推送" class="md-nav__link">
-    4.4 客户端操作推送
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#441-pull" title="4.4.1 pull镜像" class="md-nav__link">
-    4.4.1 pull镜像
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#442-tag" title="4.4.2 客户端打tag" class="md-nav__link">
-    4.4.2 客户端打tag
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#443" title="4.4.3 登录" class="md-nav__link">
-    4.4.3 登录
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#444" title="4.4.4 推送镜像" class="md-nav__link">
-    4.4.4 推送镜像
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#445" title="4.4.5  查看推送情况" class="md-nav__link">
-    4.4.5  查看推送情况
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#45" title="4.5 客户端操作拉" class="md-nav__link">
-    4.5 客户端操作拉
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#451" title="4.5.1 修改配置文件" class="md-nav__link">
-    4.5.1 修改配置文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#452-docker" title="4.5.2 重启docker" class="md-nav__link">
-    4.5.2 重启docker
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#453" title="4.5.3 登录" class="md-nav__link">
-    4.5.3 登录
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#454" title="4.5.4 地址" class="md-nav__link">
-    4.5.4 地址
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#455" title="4.5.5 查看本地镜像" class="md-nav__link">
-    4.5.5 查看本地镜像
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#46-harbor" title="4.6 Harbor 服务操作" class="md-nav__link">
-    4.6 Harbor 服务操作
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#461" title="4.6.1 暂停" class="md-nav__link">
-    4.6.1 暂停
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#462" title="4.6.2 停止" class="md-nav__link">
-    4.6.2 停止
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#463" title="4.6.3 启动" class="md-nav__link">
-    4.6.3 启动
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#47-harbor" title="4.7 Harbor 邮件" class="md-nav__link">
-    4.7 Harbor 邮件
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#471" title="4.7.1 邮件配置" class="md-nav__link">
-    4.7.1 邮件配置
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#472" title="4.7.2 忘记登录密码" class="md-nav__link">
-    4.7.2 忘记登录密码
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#48-qa" title="4.8 QA" class="md-nav__link">
-    4.8 QA
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1874,7 +1427,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../pppoe/pppoe.index/" title="2. PPPOE" class="md-nav__link">
+    <a href="../../../server/pppoe/pppoe.index/" title="2. PPPOE" class="md-nav__link">
       2. PPPOE
     </a>
   </li>
@@ -1886,7 +1439,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../deploy_django/deploy_django.index/" title="3. django项目部署" class="md-nav__link">
+    <a href="../../../server/deploy_django/deploy_django.index/" title="3. django项目部署" class="md-nav__link">
       3. django项目部署
     </a>
   </li>
@@ -1898,7 +1451,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../sersync/sersync/" title="4. sersync" class="md-nav__link">
+    <a href="../../../server/sersync/sersync/" title="4. sersync" class="md-nav__link">
       4. sersync
     </a>
   </li>
@@ -1934,7 +1487,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../certificate/tomcat.index/" title="1. Tomcat" class="md-nav__link">
+    <a href="../../../server/certificate/tomcat.index/" title="1. Tomcat" class="md-nav__link">
       1. Tomcat
     </a>
   </li>
@@ -2206,10 +1759,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
     
     <label class="md-nav__link" for="nav-6">
       Nosql
@@ -2246,7 +1801,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/mongo/mongo.index/" title="1. MonogoDB 介绍" class="md-nav__link">
+    <a href="../../mongo/mongo.index/" title="1. MonogoDB 介绍" class="md-nav__link">
       1. MonogoDB 介绍
     </a>
   </li>
@@ -2258,7 +1813,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/mongo/mongo.databases/" title="2. MonogoDB 数据库" class="md-nav__link">
+    <a href="../../mongo/mongo.databases/" title="2. MonogoDB 数据库" class="md-nav__link">
       2. MonogoDB 数据库
     </a>
   </li>
@@ -2270,7 +1825,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/mongo/mongo.collection/" title="3. MonogoDB 集合" class="md-nav__link">
+    <a href="../../mongo/mongo.collection/" title="3. MonogoDB 集合" class="md-nav__link">
       3. MonogoDB 集合
     </a>
   </li>
@@ -2282,7 +1837,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/mongo/mongo.doc/" title="4. MonogoDB 文档" class="md-nav__link">
+    <a href="../../mongo/mongo.doc/" title="4. MonogoDB 文档" class="md-nav__link">
       4. MonogoDB 文档
     </a>
   </li>
@@ -2294,7 +1849,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/mongo/mongo.conditional_query/" title="5. MonogoDB 条件查询" class="md-nav__link">
+    <a href="../../mongo/mongo.conditional_query/" title="5. MonogoDB 条件查询" class="md-nav__link">
       5. MonogoDB 条件查询
     </a>
   </li>
@@ -2306,7 +1861,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/mongo/mongo.fuzzy_enquiry/" title="6. MonogoDB 模糊查询" class="md-nav__link">
+    <a href="../../mongo/mongo.fuzzy_enquiry/" title="6. MonogoDB 模糊查询" class="md-nav__link">
       6. MonogoDB 模糊查询
     </a>
   </li>
@@ -2318,7 +1873,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/mongo/mongo.type/" title="7. MonogoDB $type" class="md-nav__link">
+    <a href="../../mongo/mongo.type/" title="7. MonogoDB $type" class="md-nav__link">
       7. MonogoDB $type
     </a>
   </li>
@@ -2330,7 +1885,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/mongo/mongo.limit_skip/" title="8. MonogoDB LS" class="md-nav__link">
+    <a href="../../mongo/mongo.limit_skip/" title="8. MonogoDB LS" class="md-nav__link">
       8. MonogoDB LS
     </a>
   </li>
@@ -2342,7 +1897,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/mongo/mongo.sort/" title="9. MonogoDB 排序" class="md-nav__link">
+    <a href="../../mongo/mongo.sort/" title="9. MonogoDB 排序" class="md-nav__link">
       9. MonogoDB 排序
     </a>
   </li>
@@ -2354,7 +1909,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/mongo/mongo.backup_recovery/" title="10. MonogoDB 备份与恢复" class="md-nav__link">
+    <a href="../../mongo/mongo.backup_recovery/" title="10. MonogoDB 备份与恢复" class="md-nav__link">
       10. MonogoDB 备份与恢复
     </a>
   </li>
@@ -2366,7 +1921,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/mongo/mongo.monitor/" title="11. MonogoDB 监控" class="md-nav__link">
+    <a href="../../mongo/mongo.monitor/" title="11. MonogoDB 监控" class="md-nav__link">
       11. MonogoDB 监控
     </a>
   </li>
@@ -2381,10 +1936,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2" checked>
     
     <label class="md-nav__link" for="nav-6-2">
       2. redis
@@ -2402,7 +1959,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/redis/redis.index/" title="1. redis 介绍" class="md-nav__link">
+    <a href="../redis.index/" title="1. redis 介绍" class="md-nav__link">
       1. redis 介绍
     </a>
   </li>
@@ -2414,7 +1971,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/redis/redis.install/" title="2. redis 安装" class="md-nav__link">
+    <a href="../redis.install/" title="2. redis 安装" class="md-nav__link">
       2. redis 安装
     </a>
   </li>
@@ -2426,7 +1983,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/redis/redis.auth/" title="3. redis 认证" class="md-nav__link">
+    <a href="../redis.auth/" title="3. redis 认证" class="md-nav__link">
       3. redis 认证
     </a>
   </li>
@@ -2438,7 +1995,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/redis/redis.k_v/" title="4. redis 键值对" class="md-nav__link">
+    <a href="../redis.k_v/" title="4. redis 键值对" class="md-nav__link">
       4. redis 键值对
     </a>
   </li>
@@ -2450,7 +2007,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/redis/redis.publish/" title="5. redis 发布订阅" class="md-nav__link">
+    <a href="../redis.publish/" title="5. redis 发布订阅" class="md-nav__link">
       5. redis 发布订阅
     </a>
   </li>
@@ -2462,7 +2019,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/redis/redis.arrairs/" title="6. redis 事务" class="md-nav__link">
+    <a href="../redis.arrairs/" title="6. redis 事务" class="md-nav__link">
       6. redis 事务
     </a>
   </li>
@@ -2474,7 +2031,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/redis/redis.store/" title="7. redis 持久化存储" class="md-nav__link">
+    <a href="../redis.store/" title="7. redis 持久化存储" class="md-nav__link">
       7. redis 持久化存储
     </a>
   </li>
@@ -2486,7 +2043,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/redis/redis.save/" title="8. redis 备份与恢复" class="md-nav__link">
+    <a href="../redis.save/" title="8. redis 备份与恢复" class="md-nav__link">
       8. redis 备份与恢复
     </a>
   </li>
@@ -2498,7 +2055,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/redis/redis-master-slave/" title="9. redis 主从" class="md-nav__link">
+    <a href="../redis-master-slave/" title="9. redis 主从" class="md-nav__link">
       9. redis 主从
     </a>
   </li>
@@ -2510,7 +2067,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/redis/redis-sentinel/" title="10. redis 哨兵" class="md-nav__link">
+    <a href="../redis-sentinel/" title="10. redis 哨兵" class="md-nav__link">
       10. redis 哨兵
     </a>
   </li>
@@ -2520,11 +2077,201 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../../nosql/redis/redis.cluster/" title="11. redis cluster" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        11. redis cluster
+      </label>
+    
+    <a href="./" title="11. redis cluster" class="md-nav__link md-nav__link--active">
       11. redis cluster
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-cluster" title="1. cluster" class="md-nav__link">
+    1. cluster
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" title="1.1 介绍" class="md-nav__link">
+    1.1 介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" title="1.2 其结构特点：" class="md-nav__link">
+    1.2 其结构特点：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_1" title="1.2 节点分配" class="md-nav__link">
+    1.2 节点分配
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-redis-cluster" title="1.3 Redis Cluster主从模式" class="md-nav__link">
+    1.3 Redis Cluster主从模式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 部署" class="md-nav__link">
+    2. 部署
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" title="2.1 介绍" class="md-nav__link">
+    2.1 介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" title="2.2 配置" class="md-nav__link">
+    2.2 配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" title="2.3 创建集群" class="md-nav__link">
+    2.3 创建集群
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" title="3. 测试" class="md-nav__link">
+    3. 测试
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" title="3.1 测试存取值" class="md-nav__link">
+    3.1 测试存取值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" title="3.2 查看集群信息" class="md-nav__link">
+    3.2 查看集群信息
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" title="4. 集群测试" class="md-nav__link">
+    4. 集群测试
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-7002" title="4.1 宕机7002 节点" class="md-nav__link">
+    4.1 宕机7002 节点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-7002" title="4.2 恢复7002节点" class="md-nav__link">
+    4.2 恢复7002节点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" title="5. 集群添加主节点" class="md-nav__link">
+    5. 集群添加主节点
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" title="5.1  新增节点" class="md-nav__link">
+    5.1  新增节点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" title="5.3 查看新节点情况" class="md-nav__link">
+    5.3 查看新节点情况
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" title="6. 集群添加从节点" class="md-nav__link">
+    6. 集群添加从节点
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -2534,7 +2281,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/redis/redis.cache_policy/" title="12. redis 缓存策略" class="md-nav__link">
+    <a href="../redis.cache_policy/" title="12. redis 缓存策略" class="md-nav__link">
       12. redis 缓存策略
     </a>
   </li>
@@ -2570,7 +2317,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../nosql/memcached/memcached.index/" title="1. memcached" class="md-nav__link">
+    <a href="../../memcached/memcached.index/" title="1. memcached" class="md-nav__link">
       1. memcached
     </a>
   </li>
@@ -3026,7 +2773,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../xtrabackup/xtrabackup.index/" title="3. xtrabackup" class="md-nav__link">
+    <a href="../../../server/xtrabackup/xtrabackup.index/" title="3. xtrabackup" class="md-nav__link">
       3. xtrabackup
     </a>
   </li>
@@ -4753,23 +4500,37 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-harbor" title="1. Harbor简介" class="md-nav__link">
-    1. Harbor简介
+  <a href="#1-cluster" title="1. cluster" class="md-nav__link">
+    1. cluster
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-harbor" title="1.1 Harbor架构" class="md-nav__link">
-    1.1 Harbor架构
+  <a href="#11" title="1.1 介绍" class="md-nav__link">
+    1.1 介绍
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#12-docker-registery" title="1.2 Docker Registery" class="md-nav__link">
-    1.2 Docker Registery
+  <a href="#12" title="1.2 其结构特点：" class="md-nav__link">
+    1.2 其结构特点：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_1" title="1.2 节点分配" class="md-nav__link">
+    1.2 节点分配
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-redis-cluster" title="1.3 Redis Cluster主从模式" class="md-nav__link">
+    1.3 Redis Cluster主从模式
   </a>
   
 </li>
@@ -4780,113 +4541,31 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" title="2. 系统部署基础" class="md-nav__link">
-    2. 系统部署基础
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-docker" title="3. Docker自带仓库" class="md-nav__link">
-    3. Docker自带仓库
+  <a href="#2" title="2. 部署" class="md-nav__link">
+    2. 部署
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31" title="3.1 安装官方自带仓库" class="md-nav__link">
-    3.1 安装官方自带仓库
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#311" title="3.1.1 安装" class="md-nav__link">
-    3.1.1 安装
+  <a href="#21" title="2.1 介绍" class="md-nav__link">
+    2.1 介绍
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#312" title="3.1.2 查看安装信息" class="md-nav__link">
-    3.1.2 查看安装信息
+  <a href="#22" title="2.2 配置" class="md-nav__link">
+    2.2 配置
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#313" title="3.1.3 启动仓库" class="md-nav__link">
-    3.1.3 启动仓库
+  <a href="#23" title="2.3 创建集群" class="md-nav__link">
+    2.3 创建集群
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#314" title="3.1.4 开机自启动" class="md-nav__link">
-    3.1.4 开机自启动
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#315" title="3.1.5 查看服务" class="md-nav__link">
-    3.1.5 查看服务
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-docker" title="3.2 Docker客户端操作" class="md-nav__link">
-    3.2 Docker客户端操作
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#321-tag" title="3.2.1 打tag" class="md-nav__link">
-    3.2.1 打tag
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#322-tag" title="3.2.2 查看tag信息" class="md-nav__link">
-    3.2.2 查看tag信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#323-push" title="3.2.3 push" class="md-nav__link">
-    3.2.3 push
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#324" title="3.2.4 仓库查看" class="md-nav__link">
-    3.2.4 仓库查看
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#325-pull" title="3.2.5 pull" class="md-nav__link">
-    3.2.5 pull
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -4896,52 +4575,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-harbor" title="4. Harbor" class="md-nav__link">
-    4. Harbor
+  <a href="#3" title="3. 测试" class="md-nav__link">
+    3. 测试
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41" title="4.1 参考文档" class="md-nav__link">
-    4.1 参考文档
+  <a href="#31" title="3.1 测试存取值" class="md-nav__link">
+    3.1 测试存取值
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#42" title="4.2 下载安装" class="md-nav__link">
-    4.2 下载安装
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#421" title="4.2.1 关闭仓库" class="md-nav__link">
-    4.2.1 关闭仓库
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#422" title="4.2.2 修改配置文件" class="md-nav__link">
-    4.2.2 修改配置文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#423" title="4.2.3 开始安装" class="md-nav__link">
-    4.2.3 开始安装
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#424" title="4.2.4 安装编排工具" class="md-nav__link">
-    4.2.4 安装编排工具
+  <a href="#32" title="3.2 查看集群信息" class="md-nav__link">
+    3.2 查看集群信息
   </a>
   
 </li>
@@ -4950,46 +4600,25 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#43-web" title="4.3 Web操作" class="md-nav__link">
-    4.3 Web操作
+      
+        <li class="md-nav__item">
+  <a href="#4" title="4. 集群测试" class="md-nav__link">
+    4. 集群测试
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#431" title="4.3.1 简单介绍" class="md-nav__link">
-    4.3.1 简单介绍
+  <a href="#41-7002" title="4.1 宕机7002 节点" class="md-nav__link">
+    4.1 宕机7002 节点
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#432" title="4.3.2 新建用户" class="md-nav__link">
-    4.3.2 新建用户
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#433" title="4.3.3 新建私有仓库" class="md-nav__link">
-    4.3.3 新建私有仓库
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#434" title="4.3.4 普通用户登录" class="md-nav__link">
-    4.3.4 普通用户登录
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#435" title="4.3.5 普通用户新建项目" class="md-nav__link">
-    4.3.5 普通用户新建项目
+  <a href="#42-7002" title="4.2 恢复7002节点" class="md-nav__link">
+    4.2 恢复7002节点
   </a>
   
 </li>
@@ -4998,46 +4627,25 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#44" title="4.4 客户端操作推送" class="md-nav__link">
-    4.4 客户端操作推送
+      
+        <li class="md-nav__item">
+  <a href="#5" title="5. 集群添加主节点" class="md-nav__link">
+    5. 集群添加主节点
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#441-pull" title="4.4.1 pull镜像" class="md-nav__link">
-    4.4.1 pull镜像
+  <a href="#51" title="5.1  新增节点" class="md-nav__link">
+    5.1  新增节点
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#442-tag" title="4.4.2 客户端打tag" class="md-nav__link">
-    4.4.2 客户端打tag
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#443" title="4.4.3 登录" class="md-nav__link">
-    4.4.3 登录
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#444" title="4.4.4 推送镜像" class="md-nav__link">
-    4.4.4 推送镜像
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#445" title="4.4.5  查看推送情况" class="md-nav__link">
-    4.4.5  查看推送情况
+  <a href="#53" title="5.3 查看新节点情况" class="md-nav__link">
+    5.3 查看新节点情况
   </a>
   
 </li>
@@ -5046,125 +4654,11 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#45" title="4.5 客户端操作拉" class="md-nav__link">
-    4.5 客户端操作拉
+      
+        <li class="md-nav__item">
+  <a href="#6" title="6. 集群添加从节点" class="md-nav__link">
+    6. 集群添加从节点
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#451" title="4.5.1 修改配置文件" class="md-nav__link">
-    4.5.1 修改配置文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#452-docker" title="4.5.2 重启docker" class="md-nav__link">
-    4.5.2 重启docker
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#453" title="4.5.3 登录" class="md-nav__link">
-    4.5.3 登录
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#454" title="4.5.4 地址" class="md-nav__link">
-    4.5.4 地址
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#455" title="4.5.5 查看本地镜像" class="md-nav__link">
-    4.5.5 查看本地镜像
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#46-harbor" title="4.6 Harbor 服务操作" class="md-nav__link">
-    4.6 Harbor 服务操作
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#461" title="4.6.1 暂停" class="md-nav__link">
-    4.6.1 暂停
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#462" title="4.6.2 停止" class="md-nav__link">
-    4.6.2 停止
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#463" title="4.6.3 启动" class="md-nav__link">
-    4.6.3 启动
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#47-harbor" title="4.7 Harbor 邮件" class="md-nav__link">
-    4.7 Harbor 邮件
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#471" title="4.7.1 邮件配置" class="md-nav__link">
-    4.7.1 邮件配置
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#472" title="4.7.2 忘记登录密码" class="md-nav__link">
-    4.7.2 忘记登录密码
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#48-qa" title="4.8 QA" class="md-nav__link">
-    4.8 QA
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -5184,641 +4678,871 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/caimengzhi/books/edit/master/docs/linux/server/harbor/harbor.index.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/caimengzhi/books/edit/master/docs/linux/nosql/redis/redis.cluster.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <p><center><h1Harbori> Docker企业级私有仓库</h1></center></p>
-<h2 id="1-harbor">1. Harbor简介<a class="headerlink" href="#1-harbor" title="Permanent link">&para;</a></h2>
-<p>&#160; &#160; &#160; &#160;Harbor是一个用于存储和分发Docker镜像的企业级Registry服务器。
-镜像的存储harbor使用的是官方的docker registry(v2命名是distribution)服务去完成。harbor在docker distribution的基础上增加了一些安全、访问控制、管理的功能以满足企业对于镜像仓库的需求。harbor以docker-compose的规范形式组织各个组件，并通过docker-compose工具进行启停。
-docker的registry是用本地存储或者s3都是可以的，harbor的功能是在此之上提供用户权限管理、镜像复制等功能，提高使用的registry的效率。Harbor的镜像拷贝功能是通过docker registry的API去拷贝，这种做法屏蔽了繁琐的底层文件操作、不仅可以利用现有docker registry功能不必重复造轮子，而且可以解决冲突和一致性的问题。</p>
-<h3 id="11-harbor">1.1 Harbor架构<a class="headerlink" href="#11-harbor" title="Permanent link">&para;</a></h3>
-<p><img alt="Harbor架构图" src="../../../../pictures/linux/harbor/pic1.png" /></p>
-<p>主要组件包括:</p>
+                  <h1>11. redis cluster</h1>
+                
+                <p><center></h1>redis cluster</h1></center></p>
+<h2 id="1-cluster">1. cluster<a class="headerlink" href="#1-cluster" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 介绍<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;Redis集群搭建的方式有多种，例如使用zookeeper等，但从redis 3.0之后版本支持redis-cluster集群，Redis-Cluster采用无中心结构，每个节点保存数据和整个集群状态,每个节点都和其他所有节点连接。其redis-cluster架构图如下：</p>
+<h3 id="12">1.2 其结构特点：<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Proxy：对应启动组件nginx。它是一个nginx反向代理，代理Notary client（镜像认证）、Docker client（镜像上传下载等）和浏览器的访问请求（Core Service）给后端的各服务；</li>
-<li>UI（Core Service）：对应启动组件harbor-ui。底层数据存储使用mysql数据库，主要提供了四个子功能：</li>
-<li>UI：一个web管理页面ui；</li>
-<li>API：Harbor暴露的API服务；</li>
-<li>Auth：用户认证服务，decode后的token中的用户信息在这里进行认证；auth后端可以接db、ldap、uaa三种认证实现；</li>
-<li>Token服务（上图中未体现）：负责根据用户在每个project中的role来为每一个docker push/pull命令issuing一个token，如果从docker client发送给registry的请求没有带token，registry会重定向请求到token服务创建token。</li>
-<li>Registry：对应启动组件registry。负责存储镜像文件，和处理镜像的pull/push命令。Harbor对镜像进行强制的访问控制，Registry会将客户端的每个pull、push请求转发到token服务来获取有效的token。</li>
-<li>Admin Service：对应启动组件harbor-adminserver。是系统的配置管理中心附带检查存储用量，ui和jobserver启动时候需要加载adminserver的配置；</li>
-<li>Job Sevice：对应启动组件harbor-jobservice。负责镜像复制工作的，他和registry通信，从一个registry pull镜像然后push到另一个registry，并记录job_log；</li>
-<li>Log Collector：对应启动组件harbor-log。日志汇总组件，通过docker的log-driver把日志汇总到一起；</li>
-<li>Volnerability Scanning：对应启动组件clair。负责镜像扫描</li>
-<li>Notary：对应启动组件notary。负责镜像认证</li>
-<li>DB：对应启动组件harbor-db，负责存储project、 user、 role、replication、image_scan、access等的metadata数据。</li>
+<li>1、所有的redis节点彼此互联(PING-PONG机制),内部使用二进制协议优化传输速度和带宽。</li>
+<li>2、节点的fail是通过集群中超过半数的节点检测失效时才生效。</li>
+<li>3、客户端与redis节点直连,不需要中间proxy层.客户端不需要连接集群所有节点,连接集群中任何一个可用节点即可。</li>
+<li>4、redis-cluster把所有的物理节点映射到[0-16383]slot上（不一定是平均分配）,cluster 负责维护node&lt;-&gt;slot&lt;-&gt;value。</li>
+<li>5、Redis集群预分好16384个桶，当需要在 Redis 集群中放置一个 key-value 时，根据 CRC16(key) mod 16384的值，决定将一个key放到哪个桶中。</li>
 </ul>
-<h3 id="12-docker-registery">1.2 Docker Registery<a class="headerlink" href="#12-docker-registery" title="Permanent link">&para;</a></h3>
+<h3 id="12_1">1.2 节点分配<a class="headerlink" href="#12_1" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;现在我们是三个主节点分别是：A, B, C 三个节点，它们可以是一台机器上的三个端口，也可以是三台不同的服务器。那么，采用哈希槽 (hash slot)的方式来分配16384个slot 的话，它们三个节点分别承担的slot 区间是：</p>
 <ul>
-<li>1.Registry用于保存docker镜像，包括镜像的层次结构和元数据</li>
-<li>2.用户可自建Registry，也可以使用官方的Docker Hub</li>
+<li>节点A覆盖0－5460</li>
+<li>节点B覆盖5461－10922</li>
+<li>节点C覆盖10923－16383</li>
 </ul>
-<p>Docker Registery 分类</p>
+<p>获取数据：</p>
+<p>&#160; &#160; &#160; &#160;如果存入一个值，按照redis cluster哈希槽的算法： CRC16('key')%16384 = 6782。 那么就会把这个key 的存储分配到 B 上了。同样，当我连接(A,B,C)任何一个节点想获取'key'这个key时，也会这样的算法，然后内部跳转到B节点上获取数据 </p>
+<p>新增一个主节点：</p>
+<p>&#160; &#160; &#160; &#160;新增一个节点D，redis cluster的这种做法是从各个节点的前面各拿取一部分slot到D上，我会在接下来的实践中实验。大致就会变成这样：</p>
 <ul>
-<li>1.Sponsor Registry 第三方Registry，供客户和Docker社区使用</li>
-<li>2.Mirror Registry 第三方Registry，只让客户使用</li>
-<li>3.Vendor Registry 由发布Docker镜像的供应商提供的Registry</li>
-<li>4.Private Registry 通过设有防火墙和额外的安全层的私有实体提供的Registry</li>
+<li>节点A覆盖1365-5460</li>
+<li>节点B覆盖6827-10922</li>
+<li>节点C覆盖12288-16383</li>
+<li>节点D覆盖0-1364,5461-6826,10923-12287</li>
 </ul>
-<h2 id="2">2. 系统部署基础<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>同样删除一个节点也是类似，移动完成后就可以删除这个节点了。</p>
+<h3 id="13-redis-cluster">1.3 Redis Cluster主从模式<a class="headerlink" href="#13-redis-cluster" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;redis cluster 为了保证数据的高可用性，加入了主从模式，一个主节点对应一个或多个从节点，主节点提供数据存取，从节点则是从主节点拉取数据备份，当这个主节点挂掉后，就会有这个从节点选取一个来充当主节点，从而保证集群不会挂掉。</p>
+<p>&#160; &#160; &#160; &#160;上面那个例子里, 集群有ABC三个主节点, 如果这3个节点都没有加入从节点，如果B挂掉了，我们就无法访问整个集群了。A和C的slot也无法访问。
+&#160; &#160; &#160; &#160; 所以我们在集群建立的时候，一定要为每个主节点都添加了从节点, 比如像这样, 集群包含主节点A、B、C, 以及从节点A1、B1、C1, 那么即使B挂掉系统也可以继续正确工作。B1节点替代了B节点，所以Redis集群将会选择B1节点作为新的主节点，集群将会继续正确地提供服务。 当B重新开启后，它就会变成B1的从节点。</p>
+<p>不过需要注意，如果节点B和B1同时挂了，Redis集群就无法继续正确地提供服务了。</p>
+<h2 id="2">2. 部署<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 介绍<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>集群中至少应该有奇数个节点，所以至少有三个节点，每个节点至少有一个备份节点，所以下面使用6节点（主节点、备份节点由redis-cluster集群确定）。</p>
+<p>期中安装好一个redis。其他5个复制，修改参数即可。</p>
+<h3 id="22">2.2 配置<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p><div class="codehilite"><pre><span></span>root@manage01:/usr/local/cmz# tree .
+.
+├── redis01
+│   ├── bin
+│   │   ├── redis-benchmark
+│   │   ├── redis-check-aof
+│   │   ├── redis-check-rdb
+│   │   ├── redis-cli
+│   │   ├── redis-sentinel
+│   │   ├── redis-server
+│   │   └── redis-trib.rb
+│   ├── conf
+│   │   ├── redis.conf
+│   │   └── redis.conf.ori
+│   ├── data
+│   │   ├── appendonly.aof
+│   │   ├── dump.rdb
+│   │   └── nodes.conf
+│   ├── log
+│   │   └── redis.log
+│   └── nodes.conf
+├── redis02
+│   ├── bin
+│   │   ├── redis-benchmark
+│   │   ├── redis-check-aof
+│   │   ├── redis-check-rdb
+│   │   ├── redis-cli
+│   │   ├── redis-sentinel
+│   │   ├── redis-server
+│   │   └── redis-trib.rb
+│   ├── conf
+│   │   ├── redis.conf
+│   │   └── redis.conf.ori
+│   ├── data
+│   │   ├── appendonly.aof
+│   │   ├── dump.rdb
+│   │   └── nodes.conf
+│   ├── log
+│   │   └── redis.log
+│   └── nodes.conf
+├── redis03
+│   ├── bin
+│   │   ├── redis-benchmark
+│   │   ├── redis-check-aof
+│   │   ├── redis-check-rdb
+│   │   ├── redis-cli
+│   │   ├── redis-sentinel
+│   │   ├── redis-server
+│   │   └── redis-trib.rb
+│   ├── conf
+│   │   ├── redis.conf
+│   │   └── redis.conf.ori
+│   ├── data
+│   │   ├── appendonly.aof
+│   │   ├── dump.rdb
+│   │   └── nodes.conf
+│   ├── log
+│   │   └── redis.log
+│   └── nodes.conf
+├── redis04
+│   ├── bin
+│   │   ├── redis-benchmark
+│   │   ├── redis-check-aof
+│   │   ├── redis-check-rdb
+│   │   ├── redis-cli
+│   │   ├── redis-sentinel
+│   │   ├── redis-server
+│   │   └── redis-trib.rb
+│   ├── conf
+│   │   ├── redis.conf
+│   │   └── redis.conf.ori
+│   ├── data
+│   │   ├── appendonly.aof
+│   │   ├── dump.rdb
+│   │   └── nodes.conf
+│   ├── log
+│   │   └── redis.log
+│   └── nodes.conf
+├── redis05
+│   ├── bin
+│   │   ├── redis-benchmark
+│   │   ├── redis-check-aof
+│   │   ├── redis-check-rdb
+│   │   ├── redis-cli
+│   │   ├── redis-sentinel
+│   │   ├── redis-server
+│   │   └── redis-trib.rb
+│   ├── conf
+│   │   ├── redis.conf
+│   │   └── redis.conf.ori
+│   ├── data
+│   │   ├── appendonly.aof
+│   │   ├── dump.rdb
+│   │   └── nodes.conf
+│   ├── log
+│   │   └── redis.log
+│   └── nodes.conf
+└── redis06
+    ├── bin
+    │   ├── redis-benchmark
+    │   ├── redis-check-aof
+    │   ├── redis-check-rdb
+    │   ├── redis-cli
+    │   ├── redis-sentinel
+    │   ├── redis-server
+    │   └── redis-trib.rb
+    ├── conf
+    │   ├── redis.conf
+    │   └── redis.conf.ori
+    ├── data
+    │   ├── appendonly.aof
+    │   ├── dump.rdb
+    │   └── nodes.conf
+    ├── log
+    │   └── redis.log
+    └── nodes.conf
+
+30 directories, 84 files
+
+root@manage01:/usr/local/cmz# tree ./ -L 2
+./
+├── redis01
+│   ├── bin
+│   ├── conf
+│   ├── data
+│   ├── log
+│   └── nodes.conf
+├── redis02
+│   ├── bin
+│   ├── conf
+│   ├── data
+│   ├── log
+│   └── nodes.conf
+├── redis03
+│   ├── bin
+│   ├── conf
+│   ├── data
+│   ├── log
+│   └── nodes.conf
+├── redis04
+│   ├── bin
+│   ├── conf
+│   ├── data
+│   ├── log
+│   └── nodes.conf
+├── redis05
+│   ├── bin
+│   ├── conf
+│   ├── data
+│   ├── log
+│   └── nodes.conf
+└── redis06
+    ├── bin
+    ├── conf
+    ├── data
+    ├── log
+    └── nodes.conf
+</pre></div>
+配置文件</p>
+<p><div class="codehilite"><pre><span></span>root@manage01:/usr/local/cmz# cat redis01/conf/redis.conf
+daemonize yes
+pidfile &quot;/usr/local/cmz/redis01/log/redis.pid&quot;
+port 7001
+timeout 300
+cluster-enabled yes
+cluster-config-file /usr/local/cmz/redis01/nodes.conf
+cluster-node-timeout 15000
+loglevel debug
+logfile &quot;/usr/local/cmz/redis01/log/redis.log&quot;
+databases 16
+save 900 1
+save 300 10
+save 60 10000
+rdbcompression yes
+dbfilename &quot;dump.rdb&quot;
+dir &quot;/usr/local/cmz/redis01/data&quot;
+appendonly yes
+appendfsync always
+bind 0.0.0.0
+root@manage01:/usr/local/cmz# cat redis02/conf/redis.conf
+daemonize yes
+pidfile &quot;/usr/local/cmz/redis02/log/redis.pid&quot;
+port 7002
+timeout 300
+cluster-enabled yes
+cluster-config-file &#39;/usr/local/cmz/redis02/nodes.conf&#39;
+cluster-node-timeout 15000
+loglevel debug
+logfile &quot;/usr/local/cmz/redis02/log/redis.log&quot;
+databases 16
+save 900 1
+save 300 10
+save 60 10000
+rdbcompression yes
+dbfilename &quot;dump.rdb&quot;
+dir &quot;/usr/local/cmz/redis02/data&quot;
+appendonly yes
+appendfsync always
+bind 0.0.0.0
+root@manage01:/usr/local/cmz# cat redis03/conf/redis.conf
+daemonize yes
+pidfile &quot;/usr/local/cmz/redis03/log/redis.pid&quot;
+port 7003
+timeout 300
+cluster-enabled yes
+cluster-config-file &#39;/usr/local/cmz/redis03/nodes.conf&#39;
+cluster-node-timeout 15000
+loglevel debug
+logfile &quot;/usr/local/cmz/redis03/log/redis.log&quot;
+databases 16
+save 900 1
+save 300 10
+save 60 10000
+rdbcompression yes
+dbfilename &quot;dump.rdb&quot;
+dir &quot;/usr/local/cmz/redis03/data&quot;
+appendonly yes
+appendfsync always
+bind 0.0.0.0
+root@manage01:/usr/local/cmz# cat redis04/conf/redis.conf
+daemonize yes
+pidfile &quot;/usr/local/cmz/redis04/log/redis.pid&quot;
+port 7004
+timeout 300
+cluster-enabled yes
+cluster-config-file &#39;/usr/local/cmz/redis04/nodes.conf&#39;
+cluster-node-timeout 15000
+loglevel debug
+logfile &quot;/usr/local/cmz/redis04/log/redis.log&quot;
+databases 16
+save 900 1
+save 300 10
+save 60 10000
+rdbcompression yes
+dbfilename &quot;dump.rdb&quot;
+dir &quot;/usr/local/cmz/redis04/data&quot;
+appendonly yes
+appendfsync always
+bind 0.0.0.0
+root@manage01:/usr/local/cmz# cat redis05/conf/redis.conf
+daemonize yes
+pidfile &quot;/usr/local/cmz/redis05/log/redis.pid&quot;
+port 7005
+timeout 300
+cluster-enabled yes
+cluster-config-file &#39;/usr/local/cmz/redis05/nodes.conf&#39;
+cluster-node-timeout 15000
+loglevel debug
+logfile &quot;/usr/local/cmz/redis05/log/redis.log&quot;
+databases 16
+save 900 1
+save 300 10
+save 60 10000
+rdbcompression yes
+dbfilename &quot;dump.rdb&quot;
+dir &quot;/usr/local/cmz/redis05/data&quot;
+appendonly yes
+appendfsync always
+bind 0.0.0.0
+root@manage01:/usr/local/cmz# cat redis06/conf/redis.conf
+daemonize yes
+pidfile &quot;/usr/local/cmz/redis06/log/redis.pid&quot;
+port 7006
+timeout 300
+cluster-enabled yes
+cluster-config-file &#39;/usr/local/cmz/redis06/nodes.conf&#39;
+cluster-node-timeout 15000
+loglevel debug
+logfile &quot;/usr/local/cmz/redis06/log/redis.log&quot;
+databases 16
+save 900 1
+save 300 10
+save 60 10000
+rdbcompression yes
+dbfilename &quot;dump.rdb&quot;
+dir &quot;/usr/local/cmz/redis06/data&quot;
+appendonly yes
+appendfsync always
+bind 0.0.0.0
+</pre></div>
+启动测试</p>
+<p><div class="codehilite"><pre><span></span>root@manage01:/usr/local/cmz# pkill redis
+root@manage01:/usr/local/cmz# ps axf|grep redis
+ 9716 pts/18   S+     0:00                          \_ grep --color=auto redis
+root@manage01:/usr/local/cmz# cat allstart.sh
+#!/bin/bash
+./redis01/bin/redis-server redis01/conf/redis.conf
+./redis02/bin/redis-server redis02/conf/redis.conf
+./redis03/bin/redis-server redis03/conf/redis.conf
+./redis04/bin/redis-server redis04/conf/redis.conf
+./redis05/bin/redis-server redis05/conf/redis.conf
+./redis06/bin/redis-server redis06/conf/redis.conf
+root@manage01:/usr/local/cmz# sh allstart.sh
+root@manage01:/usr/local/cmz# ps axu|grep redis
+root      9724  0.0  0.2  56448  4440 ?        Ssl  11:20   0:00 ./redis01/bin/redis-server 0.0.0.0:7001 [cluster]
+root      9729  0.0  0.2  56448  4376 ?        Ssl  11:20   0:00 ./redis02/bin/redis-server 0.0.0.0:7002 [cluster]
+root      9734  0.0  0.2  56448  4428 ?        Ssl  11:20   0:00 ./redis03/bin/redis-server 0.0.0.0:7003 [cluster]
+root      9739  0.0  0.2  56448  4448 ?        Ssl  11:20   0:00 ./redis04/bin/redis-server 0.0.0.0:7004 [cluster]
+root      9744  0.0  0.2  56448  4420 ?        Ssl  11:20   0:00 ./redis05/bin/redis-server 0.0.0.0:7005 [cluster]
+root      9749  0.0  0.2  56448  4428 ?        Ssl  11:20   0:00 ./redis06/bin/redis-server 0.0.0.0:7006 [cluster]
+root      9755  0.0  0.0  14228   944 pts/18   S+   11:21   0:00 grep --color=auto redis
+</pre></div>
+可以看到redis的6个节点已经启动成功</p>
+<h3 id="23">2.3 创建集群<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p>先安装ruby</p>
+<div class="codehilite"><pre><span></span>root@manage01:/usr/local/cmz# apt-get install ruby
+</pre></div>
+
+<p>使用redis-trib.rb创建集群，先拷贝创建集群的命令过来</p>
+<p><div class="codehilite"><pre><span></span>root@manage01:/usr/local/cmz# cp /usr/local/redis-5.0.3/src/redis-trib.rb .  # 从源码包中拷贝
+root@manage01:/usr/local/cmz# l
+allstart.sh  redis01/  redis02/  redis03/  redis04/  redis05/  redis06/  redis-trib.rb*
+</pre></div>
+使用create命令 --replicas 1 参数表示为每个主节点创建一个从节点，其他参数是实例的地址集合。</p>
+<p><div class="codehilite"><pre><span></span>root@manage01:/usr/local/cmz# ./redis-trib.rb create --replicas 1 127.0.0.1:7001 127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 127.0.0.1:7006
+WARNING: redis-trib.rb is not longer available!
+You should use redis-cli instead.
+
+All commands and features belonging to redis-trib.rb have been moved
+to redis-cli.
+In order to use them you should call redis-cli with the --cluster
+option followed by the subcommand name, arguments and options.
+
+Use the following syntax:
+redis-cli --cluster SUBCOMMAND [ARGUMENTS] [OPTIONS]
+
+Example:
+redis-cli --cluster create 127.0.0.1:7001 127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 127.0.0.1:7006 --cluster-replicas 1
+
+To get help about all subcommands, type:
+redis-cli --cluster help
+
+root@manage01:/usr/local/cmz# redis-cli --cluster create 127.0.0.1:7001 127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 127.0.0.1:7006 --cluster-replicas 1
+The program &#39;redis-cli&#39; is currently not installed. You can install it by typing:
+apt install redis-tools
+root@manage01:/usr/local/cmz# ./redis-cli --cluster create 127.0.0.1:7001 127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 127.0.0.1:7006 --cluster-replicas 1
+&gt;&gt;&gt; Performing hash slots allocation on 6 nodes...
+Master[0] -&gt; Slots 0 - 5460
+Master[1] -&gt; Slots 5461 - 10922
+Master[2] -&gt; Slots 10923 - 16383
+Adding replica 127.0.0.1:7004 to 127.0.0.1:7001
+Adding replica 127.0.0.1:7005 to 127.0.0.1:7002
+Adding replica 127.0.0.1:7006 to 127.0.0.1:7003
+&gt;&gt;&gt; Trying to optimize slaves allocation for anti-affinity
+[WARNING] Some slaves are in the same host as their master
+M: 48d02dac3a0b52d58fc1351392bb656e4a3c9f66 127.0.0.1:7001
+   slots:[0-5460] (5461 slots) master
+M: 35ab300b706b5614d9484b07dd019ac363fe05eb 127.0.0.1:7002
+   slots:[5461-10922] (5462 slots) master
+M: cc2ba863bdbed282a02d240ec074c99919d6ce10 127.0.0.1:7003
+   slots:[10923-16383] (5461 slots) master
+S: e9c3cfa422cb7c666c9b739598b5c3871ee8c1e3 127.0.0.1:7004
+   replicates 48d02dac3a0b52d58fc1351392bb656e4a3c9f66
+S: a62e648a1a13d95f993fd06819d001aa97e7916b 127.0.0.1:7005
+   replicates 35ab300b706b5614d9484b07dd019ac363fe05eb
+S: 39ab11b086c444a8fe04c5e917c98bc69c3add50 127.0.0.1:7006
+   replicates cc2ba863bdbed282a02d240ec074c99919d6ce10
+Can I set the above configuration? (type &#39;yes&#39; to accept): yes
+&gt;&gt;&gt; Nodes configuration updated
+&gt;&gt;&gt; Assign a different config epoch to each node
+&gt;&gt;&gt; Sending CLUSTER MEET messages to join the cluster
+Waiting for the cluster to join
+....
+&gt;&gt;&gt; Performing Cluster Check (using node 127.0.0.1:7001)
+M: 48d02dac3a0b52d58fc1351392bb656e4a3c9f66 127.0.0.1:7001
+   slots:[0-5460] (5461 slots) master
+   1 additional replica(s)
+S: 39ab11b086c444a8fe04c5e917c98bc69c3add50 127.0.0.1:7006
+   slots: (0 slots) slave
+   replicates cc2ba863bdbed282a02d240ec074c99919d6ce10
+M: 35ab300b706b5614d9484b07dd019ac363fe05eb 127.0.0.1:7002
+   slots:[5461-10922] (5462 slots) master
+   1 additional replica(s)
+S: e9c3cfa422cb7c666c9b739598b5c3871ee8c1e3 127.0.0.1:7004
+   slots: (0 slots) slave
+   replicates 48d02dac3a0b52d58fc1351392bb656e4a3c9f66
+S: a62e648a1a13d95f993fd06819d001aa97e7916b 127.0.0.1:7005
+   slots: (0 slots) slave
+   replicates 35ab300b706b5614d9484b07dd019ac363fe05eb
+M: cc2ba863bdbed282a02d240ec074c99919d6ce10 127.0.0.1:7003
+   slots:[10923-16383] (5461 slots) master
+   1 additional replica(s)
+[OK] All nodes agree about slots configuration.
+&gt;&gt;&gt; Check for open slots...
+&gt;&gt;&gt; Check slots coverage...
+[OK] All 16384 slots covered.
+</pre></div>
+ 上面显示创建成功，有3个主节点，3个从节点，每个节点都是成功连接状态。</p>
 <blockquote>
-<p>服务器的ip规划</p>
+<p>之前版本是redis-trib.rb 新版本改了  You should use redis-cli instead.</p>
 </blockquote>
-<table>
-<thead>
-<tr>
-<th>机器</th>
-<th>IP</th>
-<th>系统</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Docker Registry</td>
-<td>192.168.183.134</td>
-<td>Centos 7（随便你什么系统）</td>
-</tr>
-<tr>
-<td>Docker Client</td>
-<td>192.168.183.133</td>
-<td>Centos 7（随便你什么系统）推送镜像</td>
-</tr>
-<tr>
-<td>Docker Client</td>
-<td>192.168.183.135</td>
-<td>Centos 7（随便你什么系统）拉取镜像</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>名词解释</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>No</th>
-<th>名词</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Docker Registry</td>
-<td>Docker私有仓库（本地）</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Docker Client</td>
-<td>上传和下载的docker客户端</td>
-</tr>
-</tbody>
-</table>
-<h2 id="3-docker">3. Docker自带仓库<a class="headerlink" href="#3-docker" title="Permanent link">&para;</a></h2>
-<h3 id="31">3.1 安装官方自带仓库<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
-<h4 id="311">3.1.1 安装<a class="headerlink" href="#311" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>[root@leco ~]# yum install docker-registry  
-[root@leco ~]# yum info docker-registry
-Loaded plugins: fastestmirror
-Loading mirror speeds from cached hostfile
-* base: mirrors.aliyun.com
-* epel: mirrors.aliyun.com
-* extras: mirrors.aliyun.com
-* updates: mirrors.aliyun.com
-Available Packages
-Name : docker-registry
-Arch : x86_64
-Version : 0.9.1
-Release : 7.el7
-Size : 123 k
-Repo : extras/7/x86_64
-Summary : Registry server for Docker
-URL : https://github.com/docker/docker-registry
-License : ASL 2.0
-Description : Registry server for Docker (hosting/delivering of repositories and images).
+<p>3个主节点[M]以及分配的哈希卡槽如下：</p>
+<p><div class="codehilite"><pre><span></span>M: 48d02dac3a0b52d58fc1351392bb656e4a3c9f66 127.0.0.1:7001
+   slots:[0-5460] (5461 slots) master
+
+M: 35ab300b706b5614d9484b07dd019ac363fe05eb 127.0.0.1:7002
+   slots:[5461-10922] (5462 slots) master   
+
+M: cc2ba863bdbed282a02d240ec074c99919d6ce10 127.0.0.1:7003
+   slots:[10923-16383] (5461 slots) master
+</pre></div>
+3个从节点[S]以及附属的主节点如下：</p>
+<div class="codehilite"><pre><span></span>S: 39ab11b086c444a8fe04c5e917c98bc69c3add50 127.0.0.1:7006
+   slots: (0 slots) slave
+
+S: e9c3cfa422cb7c666c9b739598b5c3871ee8c1e3 127.0.0.1:7004
+   slots: (0 slots) slave
+
+S: a62e648a1a13d95f993fd06819d001aa97e7916b 127.0.0.1:7005
+   slots: (0 slots) slave
 </pre></div>
 
-<h4 id="312">3.1.2 查看安装信息<a class="headerlink" href="#312" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>[root@leco ~]# rpm -ql docker-distribution
-/etc/docker-distribution/registry/config.yml
-/usr/bin/registry
-/usr/lib/systemd/system/docker-distribution.service
-/usr/share/doc/docker-distribution-2.6.2
-/usr/share/doc/docker-distribution-2.6.2/AUTHORS
-/usr/share/doc/docker-distribution-2.6.2/CONTRIBUTING.md
-/usr/share/doc/docker-distribution-2.6.2/LICENSE
-/usr/share/doc/docker-distribution-2.6.2/MAINTAINERS
-/usr/share/doc/docker-distribution-2.6.2/README.md
-/var/lib/registry
-[root@leco registry]# pwd
-/etc/docker-distribution/registry
-[root@leco registry]# cat config.yml
-version: 0.1
-log:
-fields:
-service: registry
-storage:
-cache:
-layerinfo: inmemory
-filesystem:
-rootdirectory: /var/lib/registry   # 仓库的存储路径，可以根据实际情况修改（找大点的空间配置）
-http:                              # 仓库协议
-addr: :5000                        # 仓库端口
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<div class="codehilite"><pre><span></span><span class="err">以上集群安装成功了，如果安装未成功报如下错误</span>
+  <span class="o">&gt;&gt;&gt;</span> <span class="n">Creating</span> <span class="n">cluster</span>
+       <span class="p">[</span><span class="n">ERR</span><span class="p">]</span> <span class="n">Sorry</span><span class="p">,</span> <span class="n">can</span><span class="s1">&#39;t connect to node  ...</span>
+<span class="err">那必须安装</span><span class="n">ruby了</span>
 </pre></div>
 
-<h4 id="313">3.1.3 启动仓库<a class="headerlink" href="#313" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>[root@leco registry]# systemctl start docker-distribution.service
+</div>
+<h2 id="3">3. 测试<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 测试存取值<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p><div class="codehilite"><pre><span></span>root@manage01:/usr/local/cmz# ./redis-cli -c -p 7001
+127.0.0.1:7001&gt; set name caimengzhi
+-&gt; Redirected to slot [5798] located at 127.0.0.1:7002
+OK
+127.0.0.1:7002&gt; get name
+&quot;caimengzhi&quot;
+127.0.0.1:7002&gt;
+</pre></div>
+根据redis-cluster的key值分配，name应该分配到节点7002[5461-10922]上，上面显示redis cluster自动从7001跳转到了7002节点。我们可以测试一下7006从节点获取name值</p>
+<p><div class="codehilite"><pre><span></span>root@manage01:/usr/local/cmz# ./redis-cli -c -p 7006
+127.0.0.1:7006&gt; get name
+-&gt; Redirected to slot [5798] located at 127.0.0.1:7002
+&quot;caimengzhi&quot;
+127.0.0.1:7002&gt;
+root@manage01:/usr/local/cmz# ./redis-cli -c -p 7005
+127.0.0.1:7005&gt; get name
+-&gt; Redirected to slot [5798] located at 127.0.0.1:7002
+&quot;caimengzhi&quot;
+127.0.0.1:7002&gt;
+root@manage01:/usr/local/cmz# ./redis-cli -c -p 7004
+127.0.0.1:7004&gt; get name
+-&gt; Redirected to slot [5798] located at 127.0.0.1:7002
+&quot;caimengzhi&quot;
+127.0.0.1:7002&gt;
+root@manage01:/usr/local/cmz# ./redis-cli -c -p 7003
+127.0.0.1:7003&gt; get name
+-&gt; Redirected to slot [5798] located at 127.0.0.1:7002
+&quot;caimengzhi&quot;
+127.0.0.1:7002&gt;
+root@manage01:/usr/local/cmz# ./redis-cli -c -p 7002
+127.0.0.1:700
+</pre></div>
+7006位7003的从节点，从上面也是自动跳转至7002获取值，这也是redis cluster的特点，它是去中心化，每个节点都是对等的，连接哪个节点都可以获取和设置数据。</p>
+<h3 id="32">3.2 查看集群信息<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>root@manage01:/usr/local/cmz# ./redis-cli --cluster check 127.0.0.1:7002
+127.0.0.1:7002 (35ab300b...) -&gt; 1 keys | 5462 slots | 1 slaves.
+127.0.0.1:7003 (cc2ba863...) -&gt; 0 keys | 5461 slots | 1 slaves.
+127.0.0.1:7001 (48d02dac...) -&gt; 0 keys | 5461 slots | 1 slaves.
+[OK] 1 keys in 3 masters.
+0.00 keys per slot on average.
+&gt;&gt;&gt; Performing Cluster Check (using node 127.0.0.1:7002)
+M: 35ab300b706b5614d9484b07dd019ac363fe05eb 127.0.0.1:7002
+   slots:[5461-10922] (5462 slots) master
+   1 additional replica(s)
+S: 39ab11b086c444a8fe04c5e917c98bc69c3add50 127.0.0.1:7006
+   slots: (0 slots) slave
+   replicates cc2ba863bdbed282a02d240ec074c99919d6ce10
+M: cc2ba863bdbed282a02d240ec074c99919d6ce10 127.0.0.1:7003
+   slots:[10923-16383] (5461 slots) master
+   1 additional replica(s)
+S: a62e648a1a13d95f993fd06819d001aa97e7916b 127.0.0.1:7005
+   slots: (0 slots) slave
+   replicates 35ab300b706b5614d9484b07dd019ac363fe05eb
+S: e9c3cfa422cb7c666c9b739598b5c3871ee8c1e3 127.0.0.1:7004
+   slots: (0 slots) slave
+   replicates 48d02dac3a0b52d58fc1351392bb656e4a3c9f66
+M: 48d02dac3a0b52d58fc1351392bb656e4a3c9f66 127.0.0.1:7001
+   slots:[0-5460] (5461 slots) master
+   1 additional replica(s)
+[OK] All nodes agree about slots configuration.
+&gt;&gt;&gt; Check for open slots...
+&gt;&gt;&gt; Check slots coverage...
+[OK] All 16384 slots covered.
 </pre></div>
 
-<h4 id="314">3.1.4 开机自启动<a class="headerlink" href="#314" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>[root@leco registry]# systemctl enable docker-distribution.service
-Created symlink from /etc/systemd/system/multi-user.target.wants/docker-distribution.service to /usr/lib/systemd/system/docker-distribution.service.
+<h2 id="4">4. 集群测试<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41-7002">4.1 宕机7002 节点<a class="headerlink" href="#41-7002" title="Permanent link">&para;</a></h3>
+<p>现在模拟将7002节点挂掉，按照redis-cluster原理会选举会将 7002的从节点7005选举为主节点。</p>
+<p><div class="codehilite"><pre><span></span>root@manage01:/usr/local/cmz# ps axf|grep redis
+10355 pts/18   S+     0:00                          \_ grep --color=auto redis
+ 9724 ?        Ssl    0:01 ./redis01/bin/redis-server 0.0.0.0:7001 [cluster]
+ 9729 ?        Ssl    0:01 ./redis02/bin/redis-server 0.0.0.0:7002 [cluster]
+ 9734 ?        Ssl    0:01 ./redis03/bin/redis-server 0.0.0.0:7003 [cluster]
+ 9739 ?        Ssl    0:01 ./redis04/bin/redis-server 0.0.0.0:7004 [cluster]
+ 9744 ?        Ssl    0:01 ./redis05/bin/redis-server 0.0.0.0:7005 [cluster]
+ 9749 ?        Ssl    0:01 ./redis06/bin/redis-server 0.0.0.0:7006 [cluster]
+You have new mail in /var/mail/root
+root@manage01:/usr/local/cmz# kill 9729
+root@manage01:/usr/local/cmz# ps axf|grep redis
+10358 pts/18   S+     0:00                          \_ grep --color=auto redis
+ 9724 ?        Ssl    0:01 ./redis01/bin/redis-server 0.0.0.0:7001 [cluster]
+ 9734 ?        Ssl    0:01 ./redis03/bin/redis-server 0.0.0.0:7003 [cluster]
+ 9739 ?        Ssl    0:01 ./redis04/bin/redis-server 0.0.0.0:7004 [cluster]
+ 9744 ?        Ssl    0:01 ./redis05/bin/redis-server 0.0.0.0:7005 [cluster]
+ 9749 ?        Ssl    0:01 ./redis06/bin/redis-server 0.0.0.0:7006 [cluster]
+
+root@manage01:/usr/local/cmz# ./redis-cli --cluster check 127.0.0.1:7002
+Could not connect to Redis at 127.0.0.1:7002: Connection refused
+root@manage01:/usr/local/cmz# ./redis-cli --cluster check 127.0.0.1:7005
+Could not connect to Redis at 127.0.0.1:7002: Connection refused
+127.0.0.1:7005 (a62e648a...) -&gt; 1 keys | 5462 slots | 0 slaves.
+127.0.0.1:7001 (48d02dac...) -&gt; 0 keys | 5461 slots | 1 slaves.
+127.0.0.1:7003 (cc2ba863...) -&gt; 0 keys | 5461 slots | 1 slaves.
+[OK] 1 keys in 3 masters.
+0.00 keys per slot on average.
+&gt;&gt;&gt; Performing Cluster Check (using node 127.0.0.1:7005)
+M: a62e648a1a13d95f993fd06819d001aa97e7916b 127.0.0.1:7005
+   slots:[5461-10922] (5462 slots) master
+M: 48d02dac3a0b52d58fc1351392bb656e4a3c9f66 127.0.0.1:7001
+   slots:[0-5460] (5461 slots) master
+   1 additional replica(s)
+M: cc2ba863bdbed282a02d240ec074c99919d6ce10 127.0.0.1:7003
+   slots:[10923-16383] (5461 slots) master
+   1 additional replica(s)
+S: e9c3cfa422cb7c666c9b739598b5c3871ee8c1e3 127.0.0.1:7004
+   slots: (0 slots) slave
+   replicates 48d02dac3a0b52d58fc1351392bb656e4a3c9f66
+S: 39ab11b086c444a8fe04c5e917c98bc69c3add50 127.0.0.1:7006
+   slots: (0 slots) slave
+   replicates cc2ba863bdbed282a02d240ec074c99919d6ce10
+[OK] All nodes agree about slots configuration.
+&gt;&gt;&gt; Check for open slots...
+&gt;&gt;&gt; Check slots coverage...
+[OK] All 16384 slots covered.
+</pre></div>
+可以看到集群连接不了7002节点，而7005有原来的S转换为M节点，代替了原来的7002节点。我们可以获取name值：</p>
+<div class="codehilite"><pre><span></span>root@manage01:/usr/local/cmz# ./redis-cli -c -p 7005
+127.0.0.1:7005&gt; get name
+&quot;caimengzhi&quot;
 </pre></div>
 
-<h4 id="315">3.1.5 查看服务<a class="headerlink" href="#315" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>[root@leco registry]# ss -tnl
-State Recv-Q Send-Q Local Address:Port Peer Address:Port
-LISTEN 0 100 127.0.0.1:25 *:*
-LISTEN 0 128 *:22 *:*
-LISTEN 0 100 ::1:25 :::*
-LISTEN 0 128 :::5000 :::*
-LISTEN 0 128 :::22 :::*
+<h3 id="42-7002">4.2 恢复7002节点<a class="headerlink" href="#42-7002" title="Permanent link">&para;</a></h3>
+<p>现在我们将7002节点恢复，看是否会自动加入集群中以及充当的M还是S节点。</p>
+<p><div class="codehilite"><pre><span></span>root@manage01:/usr/local/cmz# ./redis02/bin/redis-server redis02/conf/redis.conf
+root@manage01:/usr/local/cmz# !ps
+ps axf|grep redis
+10405 pts/18   S+     0:00                          \_ grep --color=auto redis
+ 9724 ?        Ssl    0:02 ./redis01/bin/redis-server 0.0.0.0:7001 [cluster]
+ 9734 ?        Ssl    0:02 ./redis03/bin/redis-server 0.0.0.0:7003 [cluster]
+ 9739 ?        Ssl    0:02 ./redis04/bin/redis-server 0.0.0.0:7004 [cluster]
+ 9744 ?        Ssl    0:02 ./redis05/bin/redis-server 0.0.0.0:7005 [cluster]
+ 9749 ?        Ssl    0:02 ./redis06/bin/redis-server 0.0.0.0:7006 [cluster]
+10398 ?        Ssl    0:00 ./redis02/bin/redis-server 0.0.0.0:7002 [cluster]
+root@manage01:/usr/local/cmz# ./redis-cli --cluster check 127.0.0.1:7002
+127.0.0.1:7005 (a62e648a...) -&gt; 1 keys | 5462 slots | 1 slaves.
+127.0.0.1:7001 (48d02dac...) -&gt; 0 keys | 5461 slots | 1 slaves.
+127.0.0.1:7003 (cc2ba863...) -&gt; 0 keys | 5461 slots | 1 slaves.
+[OK] 1 keys in 3 masters.
+0.00 keys per slot on average.
+&gt;&gt;&gt; Performing Cluster Check (using node 127.0.0.1:7002)
+S: 35ab300b706b5614d9484b07dd019ac363fe05eb 127.0.0.1:7002
+   slots: (0 slots) slave
+   replicates a62e648a1a13d95f993fd06819d001aa97e7916b
+M: a62e648a1a13d95f993fd06819d001aa97e7916b 127.0.0.1:7005
+   slots:[5461-10922] (5462 slots) master
+   1 additional replica(s)
+S: e9c3cfa422cb7c666c9b739598b5c3871ee8c1e3 127.0.0.1:7004
+   slots: (0 slots) slave
+   replicates 48d02dac3a0b52d58fc1351392bb656e4a3c9f66
+S: 39ab11b086c444a8fe04c5e917c98bc69c3add50 127.0.0.1:7006
+   slots: (0 slots) slave
+   replicates cc2ba863bdbed282a02d240ec074c99919d6ce10
+M: 48d02dac3a0b52d58fc1351392bb656e4a3c9f66 127.0.0.1:7001
+   slots:[0-5460] (5461 slots) master
+   1 additional replica(s)
+M: cc2ba863bdbed282a02d240ec074c99919d6ce10 127.0.0.1:7003
+   slots:[10923-16383] (5461 slots) master
+   1 additional replica(s)
+[OK] All nodes agree about slots configuration.
+&gt;&gt;&gt; Check for open slots...
+&gt;&gt;&gt; Check slots coverage...
+[OK] All 16384 slots covered.
+</pre></div>
+可以看到7002节点变成了a5db243087d8bd423b9285fa8513eddee9bb59a6 7005的从节点。</p>
+<h2 id="5">5. 集群添加主节点<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>节点新增包括新增主节点、从节点两种情况。以下分别做一下测试：</p>
+<h3 id="51">5.1  新增节点<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<p>新增一个节点7007作为主节点修改配置文件</p>
+<p><div class="codehilite"><pre><span></span>root@manage01:/usr/local/cmz# cat redis07/conf/redis.conf
+daemonize yes
+pidfile &quot;/usr/local/cmz/redis07/log/redis.pid&quot;
+port 7007
+timeout 300
+cluster-enabled yes
+cluster-config-file /usr/local/cmz/redis07/nodes.conf
+cluster-node-timeout 15000
+loglevel debug
+logfile &quot;/usr/local/cmz/redis07/log/redis.log&quot;
+databases 16
+save 900 1
+save 300 10
+save 60 10000
+rdbcompression yes
+dbfilename &quot;dump.rdb&quot;
+dir &quot;/usr/local/cmz/redis07/data&quot;
+appendonly yes
+appendfsync always
+bind 0.0.0.0
+root@manage01:/usr/local/cmz# ./redis07/bin/redis-server redis07/conf/redis.conf
+root@manage01:/usr/local/cmz# ps axf|grep redis
+10582 pts/18   S+     0:00                          \_ grep --color=auto redis
+ 9724 ?        Ssl    0:02 ./redis01/bin/redis-server 0.0.0.0:7001 [cluster]
+ 9734 ?        Ssl    0:02 ./redis03/bin/redis-server 0.0.0.0:7003 [cluster]
+ 9739 ?        Ssl    0:02 ./redis04/bin/redis-server 0.0.0.0:7004 [cluster]
+ 9744 ?        Ssl    0:02 ./redis05/bin/redis-server 0.0.0.0:7005 [cluster]
+ 9749 ?        Ssl    0:02 ./redis06/bin/redis-server 0.0.0.0:7006 [cluster]
+10398 ?        Ssl    0:00 ./redis02/bin/redis-server 0.0.0.0:7002 [cluster]
+10575 ?        Ssl    0:00 ./redis07/bin/redis-server 0.0.0.0:7007 [cluster]
+</pre></div>
+将7007节点添加到集群中</p>
+<p><div class="codehilite"><pre><span></span>root@manage01:/usr/local/cmz# ./redis07/bin/redis-server redis07/conf/redis.conf
+root@manage01:/usr/local/cmz# ./redis-cli --cluster add-node 127.0.0.1:7007 127.0.0.1:7002
+&gt;&gt;&gt; Adding node 127.0.0.1:7007 to cluster 127.0.0.1:7002
+&gt;&gt;&gt; Performing Cluster Check (using node 127.0.0.1:7002)
+S: 35ab300b706b5614d9484b07dd019ac363fe05eb 127.0.0.1:7002
+   slots: (0 slots) slave
+   replicates a62e648a1a13d95f993fd06819d001aa97e7916b
+M: a62e648a1a13d95f993fd06819d001aa97e7916b 127.0.0.1:7005
+   slots:[5461-10922] (5462 slots) master
+   1 additional replica(s)
+S: e9c3cfa422cb7c666c9b739598b5c3871ee8c1e3 127.0.0.1:7004
+   slots: (0 slots) slave
+   replicates 48d02dac3a0b52d58fc1351392bb656e4a3c9f66
+S: 39ab11b086c444a8fe04c5e917c98bc69c3add50 127.0.0.1:7006
+   slots: (0 slots) slave
+   replicates cc2ba863bdbed282a02d240ec074c99919d6ce10
+M: 48d02dac3a0b52d58fc1351392bb656e4a3c9f66 127.0.0.1:7001
+   slots:[0-5460] (5461 slots) master
+   1 additional replica(s)
+M: cc2ba863bdbed282a02d240ec074c99919d6ce10 127.0.0.1:7003
+   slots:[10923-16383] (5461 slots) master
+   1 additional replica(s)
+[OK] All nodes agree about slots configuration.
+&gt;&gt;&gt; Check for open slots...
+&gt;&gt;&gt; Check slots coverage...
+[OK] All 16384 slots covered.
+&gt;&gt;&gt; Send CLUSTER MEET to node 127.0.0.1:7007 to make it join the cluster.
+[OK] New node added correctly.
+</pre></div>
+ add-node是加入集群节点，127.0.0.1:7007为要加入的节点，127.0.0.1:7002 表示加入的集群的一个节点，用来辨识是哪个集群，理论上那个集群的节点都可以。</p>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<div class="codehilite"><pre><span></span><span class="err">要删除之前拷贝文件中的</span><span class="n">nodes</span><span class="o">.</span><span class="n">conf</span><span class="err">，否则会报错</span>
+<span class="p">[</span><span class="n">ERR</span><span class="p">]</span> <span class="n">Node</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">7007</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">empty</span><span class="o">.</span> <span class="n">Either</span> <span class="n">the</span> <span class="n">node</span> <span class="n">already</span> <span class="n">knows</span> <span class="n">other</span> <span class="n">nodes</span> <span class="p">(</span><span class="n">check</span> <span class="k">with</span> <span class="n">CLUSTER</span> <span class="n">NODES</span><span class="p">)</span> <span class="ow">or</span> <span class="n">contains</span> <span class="n">some</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">database</span> <span class="mi">0</span>
 </pre></div>
 
-<h3 id="32-docker">3.2 Docker客户端操作<a class="headerlink" href="#32-docker" title="Permanent link">&para;</a></h3>
-<p>&#160; &#160; &#160; &#160;找一个新的docker客户端测试推拉</p>
-<h4 id="321-tag">3.2.1 打tag<a class="headerlink" href="#321-tag" title="Permanent link">&para;</a></h4>
-<p>&#160; &#160; &#160; &#160;现在客户端标签docker私有仓库地址。不打标签默认推送到docker github上</p>
-<div class="codehilite"><pre><span></span>[root@localhost img4]# docker tag myweb:v0.3-11 192.168.183.134:5000/myweb:v0.3-11
+</div>
+<p>可以看到7007加入这个Cluster，并成为一个新的节点。可以check以下7007节点状态</p>
+<h3 id="53">5.3 查看新节点情况<a class="headerlink" href="#53" title="Permanent link">&para;</a></h3>
+<p><div class="codehilite"><pre><span></span>root@manage01:/usr/local/cmz# ./redis-cli --cluster check 127.0.0.1:7007
+127.0.0.1:7007 (c3b7f31a...) -&gt; 0 keys | 0 slots | 0 slaves.
+127.0.0.1:7005 (a62e648a...) -&gt; 1 keys | 5462 slots | 1 slaves.
+127.0.0.1:7001 (48d02dac...) -&gt; 0 keys | 5461 slots | 1 slaves.
+127.0.0.1:7003 (cc2ba863...) -&gt; 0 keys | 5461 slots | 1 slaves.
+[OK] 1 keys in 4 masters.
+0.00 keys per slot on average.
+&gt;&gt;&gt; Performing Cluster Check (using node 127.0.0.1:7007)
+M: c3b7f31a4ed3754c816f316afc6934572cfcb767 127.0.0.1:7007
+   slots: (0 slots) master
+S: e9c3cfa422cb7c666c9b739598b5c3871ee8c1e3 127.0.0.1:7004
+   slots: (0 slots) slave
+   replicates 48d02dac3a0b52d58fc1351392bb656e4a3c9f66
+S: 39ab11b086c444a8fe04c5e917c98bc69c3add50 127.0.0.1:7006
+   slots: (0 slots) slave
+   replicates cc2ba863bdbed282a02d240ec074c99919d6ce10
+M: a62e648a1a13d95f993fd06819d001aa97e7916b 127.0.0.1:7005
+   slots:[5461-10922] (5462 slots) master
+   1 additional replica(s)
+M: 48d02dac3a0b52d58fc1351392bb656e4a3c9f66 127.0.0.1:7001
+   slots:[0-5460] (5461 slots) master
+   1 additional replica(s)
+M: cc2ba863bdbed282a02d240ec074c99919d6ce10 127.0.0.1:7003
+   slots:[10923-16383] (5461 slots) master
+   1 additional replica(s)
+S: 35ab300b706b5614d9484b07dd019ac363fe05eb 127.0.0.1:7002
+   slots: (0 slots) slave
+   replicates a62e648a1a13d95f993fd06819d001aa97e7916b
+[OK] All nodes agree about slots configuration.
+&gt;&gt;&gt; Check for open slots...
+&gt;&gt;&gt; Check slots coverage...
+[OK] All 16384 slots covered.
+</pre></div>
+上面信息可以看到有4个M节点，3个S节点，7007成为了M主节点，它没有附属的从节点，而且Cluster并未给7007分配哈希卡槽（0 slots）。</p>
+<p>查看链接情况</p>
+<div class="codehilite"><pre><span></span>root@manage01:/usr/local/cmz# ./redis-cli -c -p 7007
+127.0.0.1:7007&gt; CLUSTER NODES
+e9c3cfa422cb7c666c9b739598b5c3871ee8c1e3 127.0.0.1:7004@17004 slave 48d02dac3a0b52d58fc1351392bb656e4a3c9f66 0 1553572416000 1 connected
+39ab11b086c444a8fe04c5e917c98bc69c3add50 127.0.0.1:7006@17006 slave cc2ba863bdbed282a02d240ec074c99919d6ce10 0 1553572415652 3 connected
+a62e648a1a13d95f993fd06819d001aa97e7916b 127.0.0.1:7005@17005 master - 0 1553572417657 7 connected 5461-10922
+48d02dac3a0b52d58fc1351392bb656e4a3c9f66 127.0.0.1:7001@17001 master - 0 1553572413647 1 connected 0-5460
+c3b7f31a4ed3754c816f316afc6934572cfcb767 127.0.0.1:7007@17007 myself,master - 0 1553572415000 0 connected
+cc2ba863bdbed282a02d240ec074c99919d6ce10 127.0.0.1:7003@17003 master - 0 1553572416000 3 connected 10923-16383
+35ab300b706b5614d9484b07dd019ac363fe05eb 127.0.0.1:7002@17002 slave a62e648a1a13d95f993fd06819d001aa97e7916b 0 1553572416655 7 connected
+127.0.0.1:7007&gt;
 </pre></div>
 
-<h4 id="322-tag">3.2.2 查看tag信息<a class="headerlink" href="#322-tag" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>[root@localhost img4]# docker images |grep 5000
-192.168.183.134:5000/myweb v0.3-11 44ef73a3a19b 39 minutes ago 18MB
-[root@localhost img4]# docker push 192.168.183.134:5000/myweb:v0.3-11
-The push refers to repository [192.168.183.134:5000/myweb]
-Get https://192.168.183.134:5000/v2/: http: server gave HTTP response to HTTPS client
-此时要在客户端改变配置，变成http协议（docker 仓库默认是https协议，我们使用http协议）
-[root@localhost img4]# cat !$
-cat /etc/docker/daemon.json
-{
-&quot;registry-mirrors&quot;: [&quot;http://3e930982.m.daocloud.io&quot;],
-&quot;insecure-registries&quot;:[&quot;192.168.183.134:5000&quot;]
-}
-其中insecure-registries后面是docker仓库的地址和端口。
-[root@localhost img4]# systemctl restart docker
+<p>redis-cluster在新增节点时并未分配卡槽，需要我们手动对集群进行重新分片迁移数据，需要重新分片命令 reshard</p>
+<p><div class="codehilite"><pre><span></span> redis-trib.rb reshard 127.0.0.1:7005
 </pre></div>
-
-<h4 id="323-push">3.2.3 push<a class="headerlink" href="#323-push" title="Permanent link">&para;</a></h4>
-<p>&#160; &#160; &#160; &#160;修改协议后重启docker然后在push镜像到私有仓库里面</p>
-<div class="codehilite"><pre><span></span>[root@localhost img4]# docker push 192.168.183.134:5000/myweb:v0.3-11
-The push refers to repository [192.168.183.134:5000/myweb]
-347a19806329: Pushed
-20555723c54b: Pushed
-a79fe6dff072: Pushed
-87deea508850: Pushed
-90c4db1d5ef5: Pushed
-cd7100a72410: Pushed
-v0.3-11: digest: sha256:be593f8f6e45181416242b37183b3c5429745e3623424a1a9b672afab898714e size: 1568
+  这个命令是用来迁移slot节点的，后面的127.0.0.1:7005是表示是哪个集群，端口填［7000-7007］都可以，执行结果如下：</p>
+<p><div class="codehilite"><pre><span></span>root@manage01:/usr/local/cmz# ./redis-cli --cluster reshard 127.0.0.1:7005
+[OK] All nodes agree about slots configuration.  
+&gt;&gt;&gt; Check for open slots...  
+&gt;&gt;&gt; Check slots coverage...  
+[OK] All 16384 slots covered.  
+How many slots do you want to move (from 1 to 16384)?   
 </pre></div>
-
-<h4 id="324">3.2.4 仓库查看<a class="headerlink" href="#324" title="Permanent link">&para;</a></h4>
-<p>&#160; &#160; &#160; &#160;docker私有仓库端查看</p>
-<div class="codehilite"><pre><span></span>[root@leco registry]# ls /var/lib/registry/docker/registry/v2/repositories/myweb/_layers/sha256/
-44ef73a3a19b95ae6f7e0c4bf92f0fcc876dce929340455c591430203b4bc151
-4b15fa862ac67691a8bc682937be38197ebebe580f01b1bcc0ee823fc43709aa
-5e38f0c1e3e667d4fd01ac85ebcd4337579471d841a925d4be81bde53a482614
-7d4e05a01906143afc15671a53151ea9755dac230db376a8b8364b21ca774dbc
-8aeac9a3205fce5e21ab65ccce330fe389a9aaf47e4b682970b1772ae25a1d73
-b430473be128c1302a75e8381dfbaa45182fec81db4f75b749e4896d7816c2ea
-ff3a5c916c92643ff77519ffa742d3ec61b7f591b6b7504599d95a4a41134e28
-可见从docker客户端push上的镜像已经推送过来，经过hash了。
+它提示我们需要迁移多少slot到7007上，我们平分16384个哈希槽给4个节点：16384/4 = 4096，我们需要移动4096个槽点到7007上。</p>
+<p><div class="codehilite"><pre><span></span>[OK] All 16384 slots covered.  
+How many slots do you want to move (from 1 to 16384)? 4096  
+What is the receiving node ID?   
 </pre></div>
-
-<h4 id="325-pull">3.2.5 pull<a class="headerlink" href="#325-pull" title="Permanent link">&para;</a></h4>
-<p>&#160; &#160; &#160; &#160;在其他机器上测试（pull镜像）</p>
-<div class="codehilite"><pre><span></span>[root@leco registry]# cat /etc/docker/daemon.json
-{
-&quot;registry-mirrors&quot;: [&quot;http://3e930982.m.daocloud.io&quot;],
-&quot;bip&quot;: &quot;10.0.0.1/16&quot;,
-&quot;insecure-registries&quot;:[&quot;192.168.183.134:5000&quot;]
-}
-[root@leco registry]# systemctl restart docker
-[root@leco registry]# docker pull 192.168.183.134:5000/myweb:v0.3-11
-v0.3-11: Pulling from myweb
-ff3a5c916c92: Pull complete
-b430473be128: Pull complete
-7d4e05a01906: Pull complete
-8aeac9a3205f: Pull complete
-5e38f0c1e3e6: Pull complete
-4b15fa862ac6: Pull complete
-Digest: sha256:be593f8f6e45181416242b37183b3c5429745e3623424a1a9b672afab898714e
-Status: Downloaded newer image for 192.168.183.134:5000/myweb:v0.3-11
-[root@leco registry]# docker images
-REPOSITORY TAG IMAGE ID CREATED SIZE
-192.168.183.134:5000/myweb v0.3-11 44ef73a3a19b About an hour ago 18MB
+ 需要输入7007的节点id，c3b7f31a4ed3754c816f316afc6934572cfcb767 </p>
+<p><div class="codehilite"><pre><span></span>Please enter all the source node IDs.  
+  Type &#39;all&#39; to use all the nodes as source nodes for the hash slots.  
+  Type &#39;done&#39; once you entered all the source nodes IDs.  
+Source node #1: 
 </pre></div>
-
-<h2 id="4-harbor">4. Harbor<a class="headerlink" href="#4-harbor" title="Permanent link">&para;</a></h2>
-<h3 id="41">4.1 参考文档<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="https://github.com/goharbor/harbor">官方文档</a></li>
-<li><a href="https://github.com/goharbor/harbor/blob/master/docs/installation_guide.md">安装步骤</a></li>
-</ul>
-<h3 id="42">4.2 下载安装<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
-<p><img alt="版本" src="../../../../pictures/linux/harbor/pic2.png" /></p>
-<p><img alt="下载地址选择" src="../../../../pictures/linux/harbor/pic3.png" /></p>
-<p>下载安装后上传到服务器上，解压配置安装。</p>
-<h4 id="421">4.2.1 关闭仓库<a class="headerlink" href="#421" title="Permanent link">&para;</a></h4>
-<p>&#160; &#160; &#160; &#160;关闭之前自带（github自己的）的镜像仓库</p>
-<div class="codehilite"><pre><span></span>[root@leco ~]# netstat -lnp|grep 5000
-tcp6 0 0 :::5000 :::* LISTEN 17540/registry
-[root@leco ~]# systemctl stop docker-distribution
-[root@leco ~]# netstat -lnp|grep 500
-[root@leco opt]# ls
-harbor-offline-installer-v1.5.3.tgz myimages.gz
-[root@leco opt]# tar xf harbor-offline-installer-v1.5.3.tgz -C /usr/local/
-[root@leco opt]# cd /usr/local/harbor/
-[root@leco harbor]# pwd
-/usr/local/harbor
-[root@leco harbor]# ll
-total 895716
-drwxr-xr-x 4 root root        37 Sep 20 17:37 common
--rw-r--r-- 1 root root      1185 Sep 12 14:19 docker-compose.clair.yml
--rw-r--r-- 1 root root      1725 Sep 12 14:19 docker-compose.notary.yml
--rw-r--r-- 1 root root      3596 Sep 12 14:19 docker-compose.yml
-drwxr-xr-x 3 root root       156 Sep 12 14:19 ha
--rw-r--r-- 1 root root      6955 Sep 20 17:32 harbor.cfg
--rw-r--r-- 1 root root      6956 Sep 20 17:31 harbor.cfg.ori
--rw-r--r-- 1 root root 915878468 Sep 12 14:21 harbor.v1.5.3.tar.gz
--rwxr-xr-x 1 root root      5773 Sep 12 14:19 install.sh
--rw-r--r-- 1 root root     10764 Sep 12 14:19 LICENSE
--rw-r--r-- 1 root root       482 Sep 12 14:19 NOTICE
--rw-r--r-- 1 root root   1247461 Sep 12 14:19 open_source_license
--rwxr-xr-x 1 root root     27840 Sep 12 14:19 prepare
-[root@leco harbor]# cp harbor.cfg harbor.cfg.ori
+redis-cli 会向你询问重新分片的源节点（source node），即，要从特点的哪个节点中取出 4096 个哈希槽，还是从全部节点提取4096个哈希槽， 并将这些槽移动到7007节点上面。</p>
+<p>如果我们不打算从特定的节点上取出指定数量的哈希槽，那么可以向redis-trib输入 all，这样的话， 集群中的所有主节点都会成为源节点，redis-trib从各个源节点中各取出一部分哈希槽，凑够4096个，然后移动到7007节点上：</p>
+<p><div class="codehilite"><pre><span></span>Source node #1:all  
 </pre></div>
-
-<h4 id="422">4.2.2 修改配置文件<a class="headerlink" href="#422" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>[root@leco harbor]# diff harbor.cfg harbor.cfg.ori
-7c7
-&lt; hostname = 192.168.183.134
----
-&gt; hostname = reg.mydomain.com
-修改hostname，hostname是对外访问的的地址，可以域名可以ip地址，我们这使用ip（也就是docker的私有仓库地址）
+ 确认之后，redis-trib就开始执行分片操作，将哈希槽一个一个从源主节点移动到7007目标主节点。重新分片结束后我们可以check以下节点的分配情况。</p>
+<p><div class="codehilite"><pre><span></span>&gt;&gt;&gt; Performing Cluster Check (using node 127.0.0.1:7001)
+M: 48d02dac3a0b52d58fc1351392bb656e4a3c9f66 127.0.0.1:7001
+   slots:[1365-5460] (4096 slots) master
+   1 additional replica(s)
+S: 39ab11b086c444a8fe04c5e917c98bc69c3add50 127.0.0.1:7006
+   slots: (0 slots) slave
+   replicates cc2ba863bdbed282a02d240ec074c99919d6ce10
+S: 35ab300b706b5614d9484b07dd019ac363fe05eb 127.0.0.1:7002
+   slots: (0 slots) slave
+   replicates a62e648a1a13d95f993fd06819d001aa97e7916b
+M: c3b7f31a4ed3754c816f316afc6934572cfcb767 127.0.0.1:7007
+   slots:[0-1364],[5461-6826],[10923-12287] (4096 slots) master
+S: e9c3cfa422cb7c666c9b739598b5c3871ee8c1e3 127.0.0.1:7004
+   slots: (0 slots) slave
+   replicates 48d02dac3a0b52d58fc1351392bb656e4a3c9f66
+M: a62e648a1a13d95f993fd06819d001aa97e7916b 127.0.0.1:7005
+   slots:[6827-10922] (4096 slots) master
+   1 additional replica(s)
+M: cc2ba863bdbed282a02d240ec074c99919d6ce10 127.0.0.1:7003
+   slots:[12288-16383] (4096 slots) master
+   1 additional replica(s)
+[OK] All nodes agree about slots configuration.
+&gt;&gt;&gt; Check for open slots...
+&gt;&gt;&gt; Check slots coverage...
+[OK] All 16384 slots covered.
 </pre></div>
-
-<h4 id="423">4.2.3 开始安装<a class="headerlink" href="#423" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>[root@leco harbor]# sh install.sh
-
-[Step 0]: checking installation environment ...
-
-Note: docker version: 18.06.1
-✖ Need to install docker-compose(1.7.1+) by yourself first and run this script again.
+ slots:0-1364,5461-6826,10923-12287 (4096 slots) master,可以看到7007节点分片的哈希槽片不是连续的，间隔的移动。</p>
+<p><div class="codehilite"><pre><span></span>root@manage01:/usr/local/cmz# ./redis-cli -c -p 7007
+127.0.0.1:7007&gt; set age 30
+OK
+127.0.0.1:7007&gt; get age
+&quot;30&quot;
+127.0.0.1:7007&gt;
+root@manage01:/usr/local/cmz# ./redis-cli -c -p 7007
+127.0.0.1:7007&gt; get age
+&quot;30&quot;
+127.0.0.1:7007&gt;
+root@manage01:/usr/local/cmz# ./redis-cli -c -p 7001
+127.0.0.1:7001&gt; get age
+-&gt; Redirected to slot [741] located at 127.0.0.1:7007
+&quot;30&quot;
 </pre></div>
-
-<h4 id="424">4.2.4 安装编排工具<a class="headerlink" href="#424" title="Permanent link">&para;</a></h4>
-<p>&#160; &#160; &#160; &#160;先要安装docker-compose 因为harbor使用通过docker-compose编排工具去安装</p>
-<p><div class="codehilite"><pre><span></span>[root@leco harbor]# yum install -y docker-compose
-[root@leco harbor]# sh install.sh
-
-[Step 0]: checking installation environment ...
-
-Note: docker version: 18.06.1
-
-Note: docker-compose version: 1.18.0
-
-[Step 1]: loading Harbor images ...
-dba693fc2701: Loading layer [==================================================&gt;] 133.4MB/133.4MB
-5773887c4c41: Loading layer [==================================================&gt;] 30.09MB/30.09MB
-6fc2abbcae42: Loading layer [==================================================&gt;] 15.37MB/15.37MB
-d85f176a11ec: Loading layer [==================================================&gt;] 15.37MB/15.37MB
-Loaded image: vmware/harbor-adminserver:v1.5.3
-462b14c85230: Loading layer [==================================================&gt;] 410.1MB/410.1MB
-c2e0c8cb2903: Loading layer [==================================================&gt;] 9.216kB/9.216kB
-11bdb24cded2: Loading layer [==================================================&gt;] 9.216kB/9.216kB
-5d8f974b49ef: Loading layer [==================================================&gt;] 7.68kB/7.68kB
-ee04f13f4147: Loading layer [==================================================&gt;] 1.536kB/1.536kB
-799db4dfe41a: Loading layer [==================================================&gt;] 11.78kB/11.78kB
-f7d813585bdd: Loading layer [==================================================&gt;] 2.56kB/2.56kB
-6300bbdbd7ab: Loading layer [==================================================&gt;] 3.072kB/3.072kB
-Loaded image: vmware/harbor-db:v1.5.3
-1d7516778a05: Loading layer [==================================================&gt;] 30.09MB/30.09MB
-f7ec8d1b47d0: Loading layer [==================================================&gt;] 20.91MB/20.91MB
-22b0ad749c21: Loading layer [==================================================&gt;] 20.91MB/20.91MB
-Loaded image: vmware/harbor-jobservice:v1.5.3
-2d449d67c05a: Loading layer [==================================================&gt;] 89.58MB/89.58MB
-0bfd4e706575: Loading layer [==================================================&gt;] 3.072kB/3.072kB
-6100e173c230: Loading layer [==================================================&gt;] 59.9kB/59.9kB
-86fe093d1358: Loading layer [==================================================&gt;] 61.95kB/61.95kB
-Loaded image: vmware/redis-photon:v1.5.3
-Loaded image: photon:1.0
-3bf3086a6569: Loading layer [==================================================&gt;] 30.09MB/30.09MB
-641d0f77d675: Loading layer [==================================================&gt;] 10.95MB/10.95MB
-89efbaabea87: Loading layer [==================================================&gt;] 17.3MB/17.3MB
-1276e51f4dc2: Loading layer [==================================================&gt;] 15.87kB/15.87kB
-49e187d04e78: Loading layer [==================================================&gt;] 3.072kB/3.072kB
-e62fbfea411d: Loading layer [==================================================&gt;] 28.24MB/28.24MB
-Loaded image: vmware/notary-signer-photon:v0.5.1-v1.5.3
-Loaded image: vmware/mariadb-photon:v1.5.3
-201f6ade61d8: Loading layer [==================================================&gt;] 102.5MB/102.5MB
-81221fbb5879: Loading layer [==================================================&gt;] 6.656kB/6.656kB
-2268e3c9e521: Loading layer [==================================================&gt;] 2.048kB/2.048kB
-9fca06f4b193: Loading layer [==================================================&gt;] 7.68kB/7.68kB
-Loaded image: vmware/postgresql-photon:v1.5.3
-11d6e8a232c9: Loading layer [==================================================&gt;] 30.09MB/30.09MB
-42650b04d53d: Loading layer [==================================================&gt;] 24.41MB/24.41MB
-a1cd8af19e29: Loading layer [==================================================&gt;] 7.168kB/7.168kB
-4b1cda90ba19: Loading layer [==================================================&gt;] 10.56MB/10.56MB
-1351f0f3006a: Loading layer [==================================================&gt;] 24.4MB/24.4MB
-Loaded image: vmware/harbor-ui:v1.5.3
-e335f4c3af7d: Loading layer [==================================================&gt;] 79.93MB/79.93MB
-2aea487bc2c4: Loading layer [==================================================&gt;] 3.584kB/3.584kB
-d2efec3de68b: Loading layer [==================================================&gt;] 3.072kB/3.072kB
-d0d71a5ce1dd: Loading layer [==================================================&gt;] 4.096kB/4.096kB
-19930367abf0: Loading layer [==================================================&gt;] 3.584kB/3.584kB
-03e5b7640db5: Loading layer [==================================================&gt;] 9.728kB/9.728kB
-Loaded image: vmware/harbor-log:v1.5.3
-5aebe8cc938c: Loading layer [==================================================&gt;] 11.97MB/11.97MB
-Loaded image: vmware/nginx-photon:v1.5.3
-ede6a57cbd7e: Loading layer [==================================================&gt;] 30.09MB/30.09MB
-4d6dd4fc1d87: Loading layer [==================================================&gt;] 2.56kB/2.56kB
-c86a69f49f60: Loading layer [==================================================&gt;] 2.56kB/2.56kB
-0cf6e04c5927: Loading layer [==================================================&gt;] 2.048kB/2.048kB
-6fbff4fe9739: Loading layer [==================================================&gt;] 22.8MB/22.8MB
-6f527a618092: Loading layer [==================================================&gt;] 22.8MB/22.8MB
-Loaded image: vmware/registry-photon:v2.6.2-v1.5.3
-e29a8834501b: Loading layer [==================================================&gt;] 12.16MB/12.16MB
-aaf67f1da2c7: Loading layer [==================================================&gt;] 17.3MB/17.3MB
-8d5718232133: Loading layer [==================================================&gt;] 15.87kB/15.87kB
-fc89aca1dd12: Loading layer [==================================================&gt;] 3.072kB/3.072kB
-076eb5a76f6d: Loading layer [==================================================&gt;] 29.46MB/29.46MB
-Loaded image: vmware/notary-server-photon:v0.5.1-v1.5.3
-454c81edbd3b: Loading layer [==================================================&gt;] 135.2MB/135.2MB
-e99db1275091: Loading layer [==================================================&gt;] 395.4MB/395.4MB
-051e4ee23882: Loading layer [==================================================&gt;] 9.216kB/9.216kB
-6cca4437b6f6: Loading layer [==================================================&gt;] 9.216kB/9.216kB
-1d48fc08c8bc: Loading layer [==================================================&gt;] 7.68kB/7.68kB
-0419724fd942: Loading layer [==================================================&gt;] 1.536kB/1.536kB
-543c0c1ee18d: Loading layer [==================================================&gt;] 655.2MB/655.2MB
-4190aa7e89b8: Loading layer [==================================================&gt;] 103.9kB/103.9kB
-Loaded image: vmware/harbor-migrator:v1.5.0
-45878c64fc3c: Loading layer [==================================================&gt;] 165.3MB/165.3MB
-fc3d407ce98f: Loading layer [==================================================&gt;] 10.93MB/10.93MB
-d7a0785bb902: Loading layer [==================================================&gt;] 2.048kB/2.048kB
-a17e0f23bc84: Loading layer [==================================================&gt;] 48.13kB/48.13kB
-57c7181f2336: Loading layer [==================================================&gt;] 10.97MB/10.97MB
-Loaded image: vmware/clair-photon:v2.0.5-v1.5.3
-
-
-[Step 2]: preparing environment ...
-Generated and saved secret to file: /data/secretkey
-Generated configuration file: ./common/config/nginx/nginx.conf
-Generated configuration file: ./common/config/adminserver/env
-Generated configuration file: ./common/config/ui/env
-Generated configuration file: ./common/config/registry/config.yml
-Generated configuration file: ./common/config/db/env
-Generated configuration file: ./common/config/jobservice/env
-Generated configuration file: ./common/config/jobservice/config.yml
-Generated configuration file: ./common/config/log/logrotate.conf
-Generated configuration file: ./common/config/jobservice/config.yml
-Generated configuration file: ./common/config/ui/app.conf
-Generated certificate, key file: ./common/config/ui/private_key.pem, cert file: ./common/config/registry/root.crt
-The configuration files are ready, please use docker-compose to start the service.
-Creating harbor-log ... done
-
-[Step 3]: checking existing instance of Harbor ...
-
-Creating registry ... done
-Creating harbor-ui ... done
-Creating network &quot;harbor_harbor&quot; with the default driver
-Creating nginx ... done
-Creating harbor-db ...
-Creating registry ...
-Creating harbor-adminserver ...
-Creating redis ...
-Creating harbor-ui ...
-Creating harbor-jobservice ...
-Creating nginx ...
-
-✔ ----Harbor has been installed and started successfully.----
-
-Now you should be able to visit the admin portal at http://192.168.183.134.
-For more details, please visit https://github.com/vmware/harbor .
+可以看到将7001的age[741]移动到7007节点上，主节点7007添加成功。</p>
+<h2 id="6">6. 集群添加从节点<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>新增一个节点7008节点，使用add-node --slave命令。</p>
+<p><div class="codehilite"><pre><span></span>root@manage01:/usr/local/cmz# cp -aR redis01 redis08
+root@manage01:/usr/local/cmz# rm redis08/data/nodes.conf
+root@manage01:/usr/local/cmz# vim redis08/conf/redis.conf
+root@manage01:/usr/local/cmz# cat !$
+cat redis08/conf/redis.conf
+daemonize yes
+pidfile &quot;/usr/local/cmz/redis08/log/redis.pid&quot;
+port 7008
+timeout 300
+cluster-enabled yes
+cluster-config-file /usr/local/cmz/redis08/nodes.conf
+cluster-node-timeout 15000
+loglevel debug
+logfile &quot;/usr/local/cmz/redis08/log/redis.log&quot;
+databases 16
+save 900 1
+save 300 10
+save 60 10000
+rdbcompression yes
+dbfilename &quot;dump.rdb&quot;
+dir &quot;/usr/local/cmz/redis08/data&quot;
+appendonly yes
+appendfsync always
+bind 0.0.0.0
 </pre></div>
-&#160; &#160; &#160; &#160;可以看到以上已经安装完了。我们通过web访问harbor，可以看到以上已经安装完了。
-安装完毕后查看docker</p>
-<p><img alt="docker镜像" src="../../../../pictures/linux/harbor/pic4.png" /></p>
-<p>&#160; &#160; &#160; &#160;Harbor其实也是加载docker镜像</p>
-<h3 id="43-web">4.3 Web操作<a class="headerlink" href="#43-web" title="Permanent link">&para;</a></h3>
-<h4 id="431">4.3.1 简单介绍<a class="headerlink" href="#431" title="Permanent link">&para;</a></h4>
-<p><img alt="首页" src="../../../../pictures/linux/harbor/pic5.png" /></p>
-<p>&#160; &#160; &#160; &#160;默认账号和密码在配置文件中，</p>
-<ul>
-<li>账号是: <mark>admin</mark> </li>
-<li>密码是: <mark>Harbor12345</mark></li>
-</ul>
-<p><img alt="首页" src="../../../../pictures/linux/harbor/pic6.png" /></p>
-<h4 id="432">4.3.2 新建用户<a class="headerlink" href="#432" title="Permanent link">&para;</a></h4>
-<p><img alt="系统管理界面" src="../../../../pictures/linux/harbor/pic7.png" /></p>
-<p><img alt="创建用户" src="../../../../pictures/linux/harbor/pic8.png" /></p>
-<p>&#160; &#160; &#160; &#160;因为harbor是多人的私有仓库，所以建立普通用户，对应建立私有的仓库，然后docker客户端通过使用这个新建的账号和密码登录harbor然后推送到自己的仓库中。
-<img alt="成功创建用户" src="../../../../pictures/linux/harbor/pic9.png" /></p>
-<h4 id="433">4.3.3 新建私有仓库<a class="headerlink" href="#433" title="Permanent link">&para;</a></h4>
-<p><img alt="新建仓库步骤1" src="../../../../pictures/linux/harbor/pic10.png" /></p>
-<p><img alt="新建仓库步骤2" src="../../../../pictures/linux/harbor/pic11.png" /></p>
-<p><img alt="新建仓库步骤3" src="../../../../pictures/linux/harbor/pic12.png" /></p>
-<h4 id="434">4.3.4 普通用户登录<a class="headerlink" href="#434" title="Permanent link">&para;</a></h4>
-<p><img alt="新建仓库步骤3" src="../../../../pictures/linux/harbor/pic13.png" /></p>
-<h4 id="435">4.3.5 普通用户新建项目<a class="headerlink" href="#435" title="Permanent link">&para;</a></h4>
-<p><img alt="新建仓库步骤3" src="../../../../pictures/linux/harbor/pic14.png" /></p>
-<h3 id="44">4.4 客户端操作推送<a class="headerlink" href="#44" title="Permanent link">&para;</a></h3>
-<h4 id="441-pull">4.4.1 pull镜像<a class="headerlink" href="#441-pull" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>[root@localhost img4]# ifconfig ens33
-ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt; mtu 1500
-inet 192.168.183.133 netmask 255.255.255.0 broadcast 192.168.183.255
-ether 00:0c:29:9e:1f:67 txqueuelen 1000 (Ethernet)
-RX packets 66573 bytes 17079495 (16.2 MiB)
-RX errors 0 dropped 0 overruns 0 frame 0
-TX packets 36722 bytes 16771887 (15.9 MiB)
-TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0
-[root@localhost img4]# cat /etc/docker/daemon.json
-{
-&quot;registry-mirrors&quot;: [&quot;http://3e930982.m.daocloud.io&quot;],
-&quot;insecure-registries&quot;:[&quot;192.168.183.134&quot;]
-}
-[root@localhost img4]# systemctl restart docker
+启动redis 7008实例</p>
+<div class="codehilite"><pre><span></span>root@manage01:/usr/local/cmz# ./redis08/bin/redis-server redis08/conf/redis.conf
+root@manage01:/usr/local/cmz# !ps
+ps axf|grep redis
+11291 pts/18   S+     0:00                          \_ grep --color=auto redis
+ 9724 ?        Ssl    0:07 ./redis01/bin/redis-server 0.0.0.0:7001 [cluster]
+ 9734 ?        Ssl    0:07 ./redis03/bin/redis-server 0.0.0.0:7003 [cluster]
+ 9739 ?        Ssl    0:06 ./redis04/bin/redis-server 0.0.0.0:7004 [cluster]
+ 9744 ?        Ssl    0:07 ./redis05/bin/redis-server 0.0.0.0:7005 [cluster]
+ 9749 ?        Ssl    0:06 ./redis06/bin/redis-server 0.0.0.0:7006 [cluster]
+10398 ?        Ssl    0:03 ./redis02/bin/redis-server 0.0.0.0:7002 [cluster]
+10695 ?        Ssl    0:05 ./redis07/bin/redis-server 0.0.0.0:7007 [cluster]
+11286 ?        Ssl    0:00 ./redis08/bin/redis-server 0.0.0.0:7008 [cluster]
 </pre></div>
-
-<h4 id="442-tag">4.4.2 客户端打tag<a class="headerlink" href="#442-tag" title="Permanent link">&para;</a></h4>
-<p>打tag的目的主要是推送的镜像到私有仓库而不是推送到dockerhub上（默认都是推送到dockerhub上）</p>
-<p><img alt="推拉地址" src="../../../../pictures/linux/harbor/pic15.png" /></p>
-<p><img alt="linux客户端" src="../../../../pictures/linux/harbor/pic16.png" /></p>
-<div class="codehilite"><pre><span></span>[root@localhost img4]# docker tag myweb:v0.3-4 192.168.183.134/myweb/myweb:v0.3-4
-[root@localhost img4]# docker tag myweb:v0.3-5 192.168.183.134/myweb/myweb:v0.3-5
-[root@localhost img4]# docker tag myweb:v0.3-6 192.168.183.134/myweb/myweb:v0.3-6
-[root@localhost img4]# docker tag myweb:v0.3-7 192.168.183.134/myweb/myweb:v0.3-7
-</pre></div>
-
-<p><img alt="linux客户端2" src="../../../../pictures/linux/harbor/pic17.png" /></p>
-<h4 id="443">4.4.3 登录<a class="headerlink" href="#443" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>[root@localhost img4]# docker login 192.168.183.134
-Username: caimengzhi #账号是web登录的账号和密码
-Password:
-WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
-Configure a credential helper to remove this warning. See
-https://docs.docker.com/engine/reference/commandline/login/#credentials-store
-Login Succeeded
-</pre></div>
-
-<h4 id="444">4.4.4 推送镜像<a class="headerlink" href="#444" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>[root@localhost img4]# docker push 192.168.183.134/myweb/myweb
-&lt;若是推送不指定镜像tag，会推送所有192.168.183.134/myweb/myweb的镜像&gt;
-The push refers to repository [192.168.183.134/myweb/myweb]
-a8dcd6aa3279: Pushed
-9a07ffbe3d7d: Pushed
-955e7d7f7300: Pushed
-95bb4e754f2d: Pushed
-ebf12965380b: Pushed
-v0.3-4: digest: sha256:bff4611d26ab5ea7df2a2038f5c806060343e8dcb72f4e7d9c8186f9f29ab1d2 size: 1360
-02d539f1584f: Pushed
-9a07ffbe3d7d: Layer already exists
-955e7d7f7300: Layer already exists
-95bb4e754f2d: Layer already exists
-ebf12965380b: Layer already exists
-v0.3-5: digest: sha256:d989d072b34649c6c3db1b90cc8e9da01fc0851db7154087f8c20d9276c6b19e size: 1360
-cf1c42bcc62e: Pushed
-31d53a6ec2f6: Pushed
-9a07ffbe3d7d: Layer already exists
-955e7d7f7300: Layer already exists
-95bb4e754f2d: Layer already exists
-ebf12965380b: Layer already exists
-v0.3-6: digest: sha256:f001406ad67619ca5a20595f5392099f4c89aabc03a577a9e2b21951daa6625b size: 1567
-cf1c42bcc62e: Layer already exists
-31d53a6ec2f6: Layer already exists
-9a07ffbe3d7d: Layer already exists
-955e7d7f7300: Layer already exists
-95bb4e754f2d: Layer already exists
-ebf12965380b: Layer already exists
-v0.3-7: digest: sha256:f001406ad67619ca5a20595f5392099f4c89aabc03a577a9e2b21951daa6625b size: 1567
-</pre></div>
-
-<h4 id="445">4.4.5  查看推送情况<a class="headerlink" href="#445" title="Permanent link">&para;</a></h4>
-<p>推送完毕后在docker私有仓库上web查看之前推送的情况。</p>
-<p><img alt="镜像" src="../../../../pictures/linux/harbor/pic18.png" /></p>
-<h3 id="45">4.5 客户端操作拉<a class="headerlink" href="#45" title="Permanent link">&para;</a></h3>
-<p>新找一个别的机器去拉去操作</p>
-<h4 id="451">4.5.1 修改配置文件<a class="headerlink" href="#451" title="Permanent link">&para;</a></h4>
-<p>修改配置文件（http）</p>
-<div class="codehilite"><pre><span></span>[root@leco ~]# cat /etc/docker/daemon.json
-{
-&quot;registry-mirrors&quot;: [&quot;http://3e930982.m.daocloud.io&quot;],
-&quot;insecure-registries&quot;:[&quot;192.168.183.134&quot;]
-}
-</pre></div>
-
-<h4 id="452-docker">4.5.2 重启docker<a class="headerlink" href="#452-docker" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>[root@leco ~]# systemctl restart docker
-[root@leco ~]# ifconfig ens33
-ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt; mtu 1500
-inet 192.168.183.135 netmask 255.255.255.0 broadcast 192.168.183.255
-ether 00:0c:29:5e:f3:38 txqueuelen 1000 (Ethernet)
-RX packets 32850 bytes 2734678 (2.6 MiB)
-RX errors 0 dropped 0 overruns 0 frame 0
-TX packets 3833 bytes 375551 (366.7 KiB)
-TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0
-</pre></div>
-
-<h4 id="453">4.5.3 登录<a class="headerlink" href="#453" title="Permanent link">&para;</a></h4>
-<p><div class="codehilite"><pre><span></span>[root@leco ~]# docker login 192.168.183.134
-Username: caimengzhi
-Password:
-WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
-Configure a credential helper to remove this warning. See
-https://docs.docker.com/engine/reference/commandline/login/#credentials-store
-
-Login Succeeded
-</pre></div>
-<img alt="镜像" src="../../../../pictures/linux/harbor/pic19.png" /></p>
-<h4 id="454">4.5.4 地址<a class="headerlink" href="#454" title="Permanent link">&para;</a></h4>
-<p>登录web界面找到pull的地址</p>
-<div class="codehilite"><pre><span></span>[root@leco ~]# docker pull 192.168.183.134/myweb/myweb:v0.3-7
-v0.3-7: Pulling from myweb/myweb
-c67f3896b22c: Pull complete
-428de5b8d58a: Pull complete
-7efd417f3e28: Pull complete
-61a56b170416: Pull complete
-e7206a413d4c: Pull complete
-54a1363d75f0: Pull complete
-Digest: sha256:f001406ad67619ca5a20595f5392099f4c89aabc03a577a9e2b21951daa6625b
-Status: Downloaded newer image for 192.168.183.134/myweb/myweb:v0.3-7
-</pre></div>
-
-<h4 id="455">4.5.5 查看本地镜像<a class="headerlink" href="#455" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>[root@leco ~]# docker images
-REPOSITORY TAG IMAGE ID CREATED SIZE
-192.168.183.134/myweb/myweb v0.3-7 5799f549739a 3 hours ago 17.4MB
-</pre></div>
-
-<h3 id="46-harbor">4.6 Harbor 服务操作<a class="headerlink" href="#46-harbor" title="Permanent link">&para;</a></h3>
-<h4 id="461">4.6.1 暂停<a class="headerlink" href="#461" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>[root@leco ~]# docker-compose pause
-</pre></div>
-
-<h4 id="462">4.6.2 停止<a class="headerlink" href="#462" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>[root@leco ~]# docker-compose stop
-</pre></div>
-
-<h4 id="463">4.6.3 启动<a class="headerlink" href="#463" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>[root@leco ~]# docker-compose start
-</pre></div>
-
-<div class="codehilite"><pre><span></span>[root@leco harbor]# pwd
-/usr/local/harbor
-[root@leco harbor]# ll
-total 895716
-drwxr-xr-x 4 root root        37 Sep 20 17:37 common
--rw-r--r-- 1 root root      1185 Sep 12 14:19 docker-compose.clair.yml
--rw-r--r-- 1 root root      1725 Sep 12 14:19 docker-compose.notary.yml
--rw-r--r-- 1 root root      3596 Sep 12 14:19 docker-compose.yml
-drwxr-xr-x 3 root root       156 Sep 12 14:19 ha
--rw-r--r-- 1 root root      6955 Sep 20 17:32 harbor.cfg
--rw-r--r-- 1 root root      6956 Sep 20 17:31 harbor.cfg.ori
--rw-r--r-- 1 root root 915878468 Sep 12 14:21 harbor.v1.5.3.tar.gz
--rwxr-xr-x 1 root root      5773 Sep 12 14:19 install.sh
--rw-r--r-- 1 root root     10764 Sep 12 14:19 LICENSE
--rw-r--r-- 1 root root       482 Sep 12 14:19 NOTICE
--rw-r--r-- 1 root root   1247461 Sep 12 14:19 open_source_license
--rwxr-xr-x 1 root root     27840 Sep 12 14:19 prepare
-以上操作都要在这个目录下，执行的时候会自动加载docker-compose.yml文件
-</pre></div>
-
-<h3 id="47-harbor">4.7 Harbor 邮件<a class="headerlink" href="#47-harbor" title="Permanent link">&para;</a></h3>
-<h4 id="471">4.7.1 邮件配置<a class="headerlink" href="#471" title="Permanent link">&para;</a></h4>
-<p><img alt="邮件" src="../../../../pictures/linux/harbor/pic20.png" /></p>
-<p>我使用的163的邮箱请按照上述参数找到自己的配置信息，其他邮箱请百度自行配置。</p>
-<p><img alt="邮件测试" src="../../../../pictures/linux/harbor/pic21.png" />
-配置完后。检验</p>
-<h4 id="472">4.7.2 忘记登录密码<a class="headerlink" href="#472" title="Permanent link">&para;</a></h4>
-<p><img alt="找回密码" src="../../../../pictures/linux/harbor/pic22.png" /></p>
-<p><img alt="找回密码" src="../../../../pictures/linux/harbor/pic23.png" /></p>
-<p><img alt="找回密码" src="../../../../pictures/linux/harbor/pic24.png" /></p>
-<p><img alt="找回密码" src="../../../../pictures/linux/harbor/pic25.png" /></p>
-<p><img alt="找回密码" src="../../../../pictures/linux/harbor/pic26.png" /></p>
-<p><img alt="找回密码" src="../../../../pictures/linux/harbor/pic27.png" /></p>
-<p><img alt="找回密码" src="../../../../pictures/linux/harbor/pic28.png" />
-然后重新登录</p>
-<h3 id="48-qa">4.8 QA<a class="headerlink" href="#48-qa" title="Permanent link">&para;</a></h3>
-<p>Q：Master-Slave的镜像架构中,如果Slave Registy中的镜像被删除了，会不会再次自动从Master Reg里面自动同步？</p>
-<p>A：如果停止后再重新启动复制策略，可以同步被删除的镜像。</p>
-<p>Q：对于多个投产地，多个仓库，哪种方式的高可用方案好么？第一种，共享存储存储可能会出现单点故障么？</p>
-<p>A：共享存储只适合同一数据中心，多个产地延时太大，不适合共享存储。</p>
-<p>Q：Registry之间同步是如何实现的？</p>
-<p>A：Registry API。</p>
-<p>Q：在存储这块考虑过提供插件方式可以调用外部模块，比如以插件方式支持s3这种对象存储？</p>
-<p>A：Harbor支持其他存储方式，参见Harbor文档。</p>
                 
                   
                 
@@ -5839,7 +5563,7 @@ drwxr-xr-x 3 root root       156 Sep 12 14:19 ha
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../../tools/axel.index/" title="1. axel" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../redis-sentinel/" title="10. redis 哨兵" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -5848,19 +5572,19 @@ drwxr-xr-x 3 root root       156 Sep 12 14:19 ha
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                1. axel
+                10. redis 哨兵
               </span>
             </div>
           </a>
         
         
-          <a href="../../pppoe/pppoe.index/" title="2. PPPOE" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../redis.cache_policy/" title="12. redis 缓存策略" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                2. PPPOE
+                12. redis 缓存策略
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
