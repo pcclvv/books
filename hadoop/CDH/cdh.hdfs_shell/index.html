@@ -40,7 +40,7 @@
     
     
       
-        <title>Cdh.hdfs shell - 笔记</title>
+        <title>2. HDFS shell - 笔记</title>
       
     
     
@@ -132,7 +132,7 @@
                 笔记
               </span>
               <span class="md-header-nav__topic">
-                Cdh.hdfs shell
+                2. HDFS shell
               </span>
             
           
@@ -1231,10 +1231,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       Hadoop
@@ -1310,10 +1312,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" checked>
     
     <label class="md-nav__link" for="nav-4-2">
       HDFS
@@ -1334,6 +1338,240 @@
     <a href="../cdh.hdfs_info/" title="1. HDFS 介绍" class="md-nav__link">
       1. HDFS 介绍
     </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        2. HDFS shell
+      </label>
+    
+    <a href="./" title="2. HDFS shell" class="md-nav__link md-nav__link--active">
+      2. HDFS shell
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 介绍" class="md-nav__link">
+    1. 介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 基本指令" class="md-nav__link">
+    2. 基本指令
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-ls" title="2.1 ls" class="md-nav__link">
+    2.1 ls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-lsr" title="2.2 lsr" class="md-nav__link">
+    2.2 lsr
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-du" title="2.3 du" class="md-nav__link">
+    2.3 du
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-dus" title="2.4 dus" class="md-nav__link">
+    2.4 dus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-count" title="2.5 count" class="md-nav__link">
+    2.5 count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-mv" title="2.6 mv" class="md-nav__link">
+    2.6 mv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-cp" title="2.7 cp" class="md-nav__link">
+    2.7 cp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-rm" title="2.8 rm" class="md-nav__link">
+    2.8 rm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-rmr" title="2.9 rmr" class="md-nav__link">
+    2.9 rmr
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#210-put" title="2.10 put" class="md-nav__link">
+    2.10 put
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#211-copyfromlocal" title="2.11 copyFromLocal" class="md-nav__link">
+    2.11 copyFromLocal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-movefromlocal" title="2.12 moveFromLocal" class="md-nav__link">
+    2.12 moveFromLocal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213-getmerge" title="2.13 getmerge" class="md-nav__link">
+    2.13 getmerge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#214-cat" title="2.14 cat" class="md-nav__link">
+    2.14 cat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#215-text" title="2.15 text" class="md-nav__link">
+    2.15 text
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#216-mkdir" title="2.16 mkdir" class="md-nav__link">
+    2.16 mkdir
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#217-setrep" title="2.17 setrep" class="md-nav__link">
+    2.17 setrep
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#218-touch" title="2.18 touch" class="md-nav__link">
+    2.18 touch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#219-stat" title="2.19 stat" class="md-nav__link">
+    2.19 stat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#220-tail" title="2.20 tail" class="md-nav__link">
+    2.20 tail
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#221-chmod" title="2.21 chmod" class="md-nav__link">
+    2.21 chmod
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-chown" title="2.22 chown" class="md-nav__link">
+    2.22 chown
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-chgrp" title="2.23 chgrp" class="md-nav__link">
+    2.23 chgrp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#224-appendtofile" title="2.24 appendToFile" class="md-nav__link">
+    2.24 appendToFile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#225-help" title="2.25 help" class="md-nav__link">
+    2.25 help
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -5210,6 +5448,41 @@ test for caimengzhi
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../cdh.hdfs_info/" title="1. HDFS 介绍" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                1. HDFS 介绍
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../../url/url.index/" title="url" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                url
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
