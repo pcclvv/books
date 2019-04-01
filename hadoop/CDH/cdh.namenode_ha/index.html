@@ -1329,43 +1329,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" title="2. 配置" class="md-nav__link">
-    2. 配置
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-ha" title="3. 查看ha" class="md-nav__link">
-    3. 查看ha
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" title="4. 测试" class="md-nav__link">
-    4. 测试
+  <a href="#2-ha" title="2. 配置HA" class="md-nav__link">
+    2. 配置HA
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41" title="4.1 自动切换" class="md-nav__link">
-    4.1 自动切换
+  <a href="#21" title="2.1 配置步骤" class="md-nav__link">
+    2.1 配置步骤
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#42" title="4.2 手动切换" class="md-nav__link">
-    4.2 手动切换
+  <a href="#22-ha" title="2.2 查看ha" class="md-nav__link">
+    2.2 查看ha
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" title="2.3 测试" class="md-nav__link">
+    2.3 测试
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" title="2.3.1 自动切换" class="md-nav__link">
+    2.3.1 自动切换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232" title="2.3.2 手动切换" class="md-nav__link">
+    2.3.2 手动切换
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ha" title="3. 禁用HA" class="md-nav__link">
+    3. 禁用HA
+  </a>
   
 </li>
       
@@ -4476,43 +4496,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" title="2. 配置" class="md-nav__link">
-    2. 配置
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-ha" title="3. 查看ha" class="md-nav__link">
-    3. 查看ha
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" title="4. 测试" class="md-nav__link">
-    4. 测试
+  <a href="#2-ha" title="2. 配置HA" class="md-nav__link">
+    2. 配置HA
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41" title="4.1 自动切换" class="md-nav__link">
-    4.1 自动切换
+  <a href="#21" title="2.1 配置步骤" class="md-nav__link">
+    2.1 配置步骤
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#42" title="4.2 手动切换" class="md-nav__link">
-    4.2 手动切换
+  <a href="#22-ha" title="2.2 查看ha" class="md-nav__link">
+    2.2 查看ha
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" title="2.3 测试" class="md-nav__link">
+    2.3 测试
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" title="2.3.1 自动切换" class="md-nav__link">
+    2.3.1 自动切换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232" title="2.3.2 手动切换" class="md-nav__link">
+    2.3.2 手动切换
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ha" title="3. 禁用HA" class="md-nav__link">
+    3. 禁用HA
+  </a>
   
 </li>
       
@@ -4561,7 +4601,8 @@ Found 1 items
 192.168.186.137  slave2
 </pre></div>
 hdfs上创建了一个cmz文件夹，里面上传了hosts文件。</p>
-<h2 id="2">2. 配置<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h2 id="2-ha">2. 配置HA<a class="headerlink" href="#2-ha" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 配置步骤<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
 <p><img alt="图" src="../../../pictures/hadoop/CDH/namenode_ha/1.png" /></p>
 <p><img alt="图" src="../../../pictures/hadoop/CDH/namenode_ha/2.png" /></p>
 <p><img alt="图" src="../../../pictures/hadoop/CDH/namenode_ha/3.png" /></p>
@@ -4574,13 +4615,13 @@ hdfs上创建了一个cmz文件夹，里面上传了hosts文件。</p>
 <blockquote>
 <p>namenode ha，hdfs的数据还在。</p>
 </blockquote>
-<h2 id="3-ha">3. 查看ha<a class="headerlink" href="#3-ha" title="Permanent link">&para;</a></h2>
+<h3 id="22-ha">2.2 查看ha<a class="headerlink" href="#22-ha" title="Permanent link">&para;</a></h3>
 <p><img alt="图" src="../../../pictures/hadoop/CDH/namenode_ha/8.png" /></p>
 <p>可以看出hdfs的namenode配置成功了。接下来我们测试namenode的ha。</p>
-<h2 id="4">4. 测试<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="23">2.3 测试<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
 <p>在测试之前。我们下修改hdfs的配置文件，保证在系统之内hdfs可以通过非hdfs用户去操作hdfs。</p>
 <p><img alt="图" src="../../../pictures/hadoop/CDH/namenode_ha/9.png" /></p>
-<h3 id="41">4.1 自动切换<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<h4 id="231">2.3.1 自动切换<a class="headerlink" href="#231" title="Permanent link">&para;</a></h4>
 <p>停止master。挂起master对应的虚拟机之前。</p>
 <p><div class="codehilite"><pre><span></span>[hdfs@master ~]$ hdfs dfs -ls /cmz
 Found 1 items
@@ -4644,7 +4685,7 @@ Found 1 items
 192.168.186.137  slave2
 </pre></div>
 从以上可以看出恢复了之前有问题的主namenode之后。cdh发现系统中已经有一个主的namenode[之前的备namenode]后，将原本主的namenode降低身份，化身为备namenode了。</p>
-<h3 id="42">4.2 手动切换<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<h4 id="232">2.3.2 手动切换<a class="headerlink" href="#232" title="Permanent link">&para;</a></h4>
 <p>模拟了namenode的ha之后，我们也可以手动切换namenode。</p>
 <p><img alt="图" src="../../../pictures/hadoop/CDH/namenode_ha/11.png" /></p>
 <p><img alt="图" src="../../../pictures/hadoop/CDH/namenode_ha/12.png" /></p>
@@ -4653,6 +4694,29 @@ Found 1 items
 <p>查看切换后的情况</p>
 <p><img alt="图" src="../../../pictures/hadoop/CDH/namenode_ha/15.png" /></p>
 <p>可见手动切换OK。</p>
+<h2 id="3-ha">3. 禁用HA<a class="headerlink" href="#3-ha" title="Permanent link">&para;</a></h2>
+<p>若是有个namenode实在有问题。我们也可以手动卸载namenode ha，以下是记录步骤</p>
+<p><img alt="图" src="../../../pictures/hadoop/CDH/namenode_ha/16.png" />
+<img alt="图" src="../../../pictures/hadoop/CDH/namenode_ha/17.png" />
+<img alt="图" src="../../../pictures/hadoop/CDH/namenode_ha/18.png" />
+<img alt="图" src="../../../pictures/hadoop/CDH/namenode_ha/19.png" />
+<img alt="图" src="../../../pictures/hadoop/CDH/namenode_ha/20.png" />
+<img alt="图" src="../../../pictures/hadoop/CDH/namenode_ha/21.png" />
+可以看出，namenode去除了ha了。测试如下</p>
+<p><div class="codehilite"><pre><span></span>[root@master ~]# hdfs dfs -ls /cmz
+Found 1 items
+-rw-r--r--   3 hdfs supergroup        231 2019-04-01 15:09 /cmz/hosts
+
+[root@slave1 lib]# hdfs dfs -ls /cmz
+Found 1 items
+-rw-r--r--   3 hdfs supergroup        231 2019-04-01 15:09 /cmz/hosts
+
+[root@slave2 src]# hdfs dfs -ls /cmz
+
+Found 1 items
+-rw-r--r--   3 hdfs supergroup        231 2019-04-01 15:09 /cmz/hosts
+</pre></div>
+截止到目前为止，NameNode的HA，启用和禁用，测试OK。</p>
                 
                   
                 
