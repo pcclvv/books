@@ -4810,6 +4810,7 @@
 <th>系统</th>
 <th>身份</th>
 <th>主机名</th>
+<th>内存分配</th>
 </tr>
 </thead>
 <tbody>
@@ -4818,21 +4819,27 @@
 <td>centos7.5</td>
 <td>master agent1</td>
 <td>master</td>
+<td>5GB</td>
 </tr>
 <tr>
 <td>192.168.186.129</td>
 <td>centos7.5</td>
 <td>cdh agent</td>
 <td>slave1</td>
+<td>1GB</td>
 </tr>
 <tr>
 <td>192.168.186.137</td>
 <td>centos7.5</td>
 <td>cdh agent</td>
 <td>slave2</td>
+<td>1GB</td>
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>master 一定要尽可能分配大一点。否则内存会坑死你，agent可以分配1GB。反正安装CDH尽量大内存机器</p>
+</blockquote>
 <div class="codehilite"><pre><span></span>[root@slave1 ~]# lsb_release -a
 LSB Version:    :core-4.1-amd64:core-4.1-noarch:cxx-4.1-amd64:cxx-4.1-noarch:desktop-4.1-amd64:desktop-4.1-noarch:languages-4.1-amd64:languages-4.1-noarch:printing-4.1-amd64:printing-4.1-noarch
 Distributor ID: CentOS
@@ -4858,17 +4865,15 @@ Codename:   Core
 <p><a href="http://archive.cloudera.com/cm5/cm/5/">cdh-clouder-manager的离线包</a> 
 <a href="http://archive.cloudera.com/cdh5/">cdh的离线包</a></p>
 <div class="admonition note">
-<p class="admonition-title">注意</p>
-</div>
+<p class="admonition-title">包解释</p>
 <div class="codehilite"><pre><span></span><span class="err">通过</span><span class="n">clouder</span><span class="o">-</span><span class="n">manager安装hadoop集群需要下载几个包</span><span class="err">。我以我下载的包为例讲解</span><span class="p">:</span>
-
-<span class="mf">1.</span> <span class="err">包</span>
-  <span class="n">CDH</span><span class="o">-</span><span class="mf">5.13</span><span class="o">.</span><span class="mi">1</span><span class="o">-</span><span class="mf">1.</span><span class="n">cdh5</span><span class="o">.</span><span class="mf">13.1</span><span class="o">.</span><span class="n">p0</span><span class="o">.</span><span class="mi">2</span><span class="o">-</span><span class="n">el7</span><span class="o">.</span><span class="n">parcel</span>           <span class="c1"># 安装hadoop的包，根据自己的系统下载,el7是centos7,el6是centos6，</span>
-  <span class="n">CDH</span><span class="o">-</span><span class="mf">5.13</span><span class="o">.</span><span class="mi">1</span><span class="o">-</span><span class="mf">1.</span><span class="n">cdh5</span><span class="o">.</span><span class="mf">13.1</span><span class="o">.</span><span class="n">p0</span><span class="o">.</span><span class="mi">2</span><span class="o">-</span><span class="n">el7</span><span class="o">.</span><span class="n">parcel</span><span class="o">.</span><span class="n">sha</span>       <span class="c1"># 包hash值</span>
-  <span class="n">cloudera</span><span class="o">-</span><span class="n">manager</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">cm5</span><span class="o">.</span><span class="mf">13.1</span><span class="n">_x86_64</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>  <span class="c1"># clouder-manager安装包 ，根据自己的系统下载，例如 cloudera-manager-trusty-cm5.2.0_amd64.tar.gz是针对ubuntu的[lsb_release -a查看]</span>
-  <span class="n">manifest</span><span class="o">.</span><span class="n">json</span>                                    <span class="c1"># 配置文件。主要是针对，cdh版本对于的安装那些包等参数</span>
+<span class="n">CDH</span><span class="o">-</span><span class="mf">5.13</span><span class="o">.</span><span class="mi">1</span><span class="o">-</span><span class="mf">1.</span><span class="n">cdh5</span><span class="o">.</span><span class="mf">13.1</span><span class="o">.</span><span class="n">p0</span><span class="o">.</span><span class="mi">2</span><span class="o">-</span><span class="n">el7</span><span class="o">.</span><span class="n">parcel</span>           <span class="c1"># 安装hadoop的包，根据自己的系统下载,el7是centos7,el6是centos6，</span>
+<span class="n">CDH</span><span class="o">-</span><span class="mf">5.13</span><span class="o">.</span><span class="mi">1</span><span class="o">-</span><span class="mf">1.</span><span class="n">cdh5</span><span class="o">.</span><span class="mf">13.1</span><span class="o">.</span><span class="n">p0</span><span class="o">.</span><span class="mi">2</span><span class="o">-</span><span class="n">el7</span><span class="o">.</span><span class="n">parcel</span><span class="o">.</span><span class="n">sha</span>       <span class="c1"># 包hash值</span>
+<span class="n">cloudera</span><span class="o">-</span><span class="n">manager</span><span class="o">-</span><span class="n">centos7</span><span class="o">-</span><span class="n">cm5</span><span class="o">.</span><span class="mf">13.1</span><span class="n">_x86_64</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>  <span class="c1"># clouder-manager安装包 ，根据自己的系统下载，例如 cloudera-manager-trusty-cm5.2.0_amd64.tar.gz是针对ubuntu的[lsb_release -a查看]</span>
+<span class="n">manifest</span><span class="o">.</span><span class="n">json</span>                                    <span class="c1"># 配置文件。主要是针对，cdh版本对于的安装那些包等参数</span>
 </pre></div>
 
+</div>
 <h3 id="11">1.1 非图像界面启动<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
 <p>&#160; &#160; &#160; &#160; 减少性能消耗。我以非图形界面方式启动</p>
 <p><div class="codehilite"><pre><span></span>systemctl set-default multi-user.target
@@ -4882,7 +4887,7 @@ UseDNS no
 root@ubuntu:/home/cmz# /etc/init.d/ssh restart
 [ ok ] Restarting ssh (via systemctl): ssh.service.
 </pre></div></p>
-<p>设置市区
+<p>设置时区，cdh会检查各个服务器之间的时间是否通过。时间不一致会出现问题。
 <div class="codehilite"><pre><span></span>root@ubuntu:/usr/local/src/cdh# apt install ntpdate
 root@ubuntu:/usr/local/src/cdh# crontab -e
 no crontab for root - using an empty one
@@ -5061,11 +5066,11 @@ Last login: Mon Apr  1 11:42:48 2019 from 192.168.186.1
 <h3 id="16-jdk">1.6 JDK<a class="headerlink" href="#16-jdk" title="Permanent link">&para;</a></h3>
 <p>hadoop依赖JAVA，我们安装jdk环境。
 快速命令
-<div class="codehilite"><pre><span></span>wget http://180.96.7.219:8080/software/cmz/JDK/JDK8_112.zip
+<div class="codehilite"><pre><span></span>wget http://192.168.1.31:8080/software/cmz/JDK/JDK8_112.zip
 </pre></div>
 详细过程
-<div class="codehilite"><pre><span></span>root@master:/usr/local/src# wget http://180.96.7.219:8080/software/cmz/JDK/JDK8_112.zip
---2019-03-26 23:17:33--  http://180.96.7.219:8080/software/cmz/JDK/JDK8_112.zip
+<div class="codehilite"><pre><span></span>root@master:/usr/local/src# wget http://192.168.1.31:8080/software/cmz/JDK/JDK8_112.zip
+--2019-03-26 23:17:33--  http://192.168.1.31:8080/software/cmz/JDK/JDK8_112.zip
 Connecting to 180.96.7.219:8080... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 182583345 (174M) [application/zip]
@@ -5119,7 +5124,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.112-b15, mixed mode)
 以上表示jdk环境准备完毕。</p>
 <p><mark>每个机器都做这一步</mark></p>
 <h3 id="17-mysql">1.7 mysql<a class="headerlink" href="#17-mysql" title="Permanent link">&para;</a></h3>
-<p>只在master上操作。</p>
+<p>安装mysql只在master上操作，而安装mysql jdbc每个机器上都要安装</p>
 <h3 id="171-mysql-server">1.7.1 安装mysql-server<a class="headerlink" href="#171-mysql-server" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>[root@master ~]# apt-get install -y mysql-server
 Reading package lists... Done
@@ -5258,7 +5263,7 @@ cloudera  cm-5.13.1
 </pre></div>
 
 <blockquote>
-<p>--home 指向你cloudera-scm-server的路径,所有服务器都要配置，其他省略。</p>
+<p>--home 指向你cloudera-scm-server的路径,所有服务器都要配置，其他机器都要安装省略。</p>
 </blockquote>
 <h4 id="183">1.8.3 创建存储目录<a class="headerlink" href="#183" title="Permanent link">&para;</a></h4>
 <p>创建cloudera manager server的本地存储目录</p>
@@ -5318,9 +5323,12 @@ total 1950296
 -rw-r--r-- 1 cloudera-scm cloudera-scm      73766 Feb 23  2018 manifest.json
 </pre></div>
 
-<p>!!! note "注意
-    <div class="codehilite"><pre><span></span><span class="err">一定要把下载的包</span><span class="n">CDH</span><span class="o">-</span><span class="mf">5.13</span><span class="o">.</span><span class="mi">1</span><span class="o">-</span><span class="mf">1.</span><span class="n">cdh5</span><span class="o">.</span><span class="mf">13.1</span><span class="o">.</span><span class="n">p0</span><span class="o">.</span><span class="mi">2</span><span class="o">-</span><span class="n">el7</span><span class="o">.</span><span class="n">parcel</span><span class="o">.</span><span class="n">sha1</span><span class="err">，后面的</span><span class="mi">1</span><span class="err">去掉，因为后面离线的安装的时候，依赖这个包，到时候后面要是有</span><span class="mi">1</span><span class="err">，会自动联网下载</span>
-</pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<div class="codehilite"><pre><span></span><span class="err">一定要把下载的包</span><span class="n">CDH</span><span class="o">-</span><span class="mf">5.13</span><span class="o">.</span><span class="mi">1</span><span class="o">-</span><span class="mf">1.</span><span class="n">cdh5</span><span class="o">.</span><span class="mf">13.1</span><span class="o">.</span><span class="n">p0</span><span class="o">.</span><span class="mi">2</span><span class="o">-</span><span class="n">el7</span><span class="o">.</span><span class="n">parcel</span><span class="o">.</span><span class="n">sha1</span><span class="err">，后面的</span><span class="mi">1</span><span class="err">去掉，因为后面离线的安装的时候，依赖这个包，到时候后面要是有</span><span class="mi">1</span><span class="err">，会自动联网下载</span>
+</pre></div>
+
+</div>
 <h4 id="187-parcel">1.8.7 从节点创建Parcel目录<a class="headerlink" href="#187-parcel" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span>[root@slave1 ~]# mkdir -p /opt/cloudera/parcels
 [root@slave2 ~]# mkdir -p /opt/cloudera/parcels
@@ -5350,10 +5358,21 @@ All done, your SCM database is configured correctly!
 </pre></div>
 
 <h4 id="1810">1.8.10 检查<a class="headerlink" href="#1810" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>[root@master ~]# netstat -lnp|grep 7180
+<p><div class="codehilite"><pre><span></span>[root@master ~]# netstat -lnp|grep 7180
 tcp        0      0 0.0.0.0:7180            0.0.0.0:*               LISTEN      1750/java
 </pre></div>
+查看master端的7180端口是否存在[不存在就说明有问题]。</p>
+<div class="admonition danger">
+<p class="admonition-title">非常注意，我碰见的问题</p>
+<div class="codehilite"><pre><span></span><span class="err">上周我本地测试</span><span class="n">cdh的时候</span><span class="err">，搞一周，差点崩溃，各种奇葩问题，比如</span>
+<span class="mf">1.</span> <span class="err">运行运行内存不够，蹦了</span>
+<span class="mf">2.</span> <span class="err">虚拟机硬盘不够，蹦了</span>
+<span class="mf">3.</span> <span class="n">IP地址冲突</span><span class="err">，断网</span>
+<span class="mf">4.</span> <span class="err">虚拟机的</span><span class="n">cdh启动慢</span><span class="err">，导致我以为不正常，这奇葩问题导致我都开始怀疑我自己</span>
+<span class="mf">5.</span> <span class="n">cdh版本和系统不一致</span><span class="err">，</span>
+</pre></div>
 
+</div>
 <h3 id="19">1.9 安装<a class="headerlink" href="#19" title="Permanent link">&para;</a></h3>
 <p><img alt="图" src="../../../pictures/hadoop/CDH/1.png" /></p>
 <p><img alt="图" src="../../../pictures/hadoop/CDH/2.png" /></p>
@@ -5362,13 +5381,13 @@ tcp        0      0 0.0.0.0:7180            0.0.0.0:*               LISTEN      
 <p><img alt="图" src="../../../pictures/hadoop/CDH/4.png" />
 点击右侧当前管理的主机按钮。选择所有机器。</p>
 <p><img alt="图" src="../../../pictures/hadoop/CDH/5.png" /></p>
-<p>&#160; &#160; &#160; &#160;若是发现，已选择的正在下载，说明之前你的选项没有选择你之前下载的包，此时你取消不行了。只能在系统下kill到进程，然后重新来一遍。因为这系统会在后台下载包，这包都1.8GB左右，猴年马月才能下载完。</p>
+<p>&#160; &#160; &#160; &#160;若是发现，已选择的正在下载，说明之前你的选项没有选择你之前下载的包，此时即使你在页面取消，也是不行的。只能在系统下kill到进程，然后重新来一遍。因为这系统会在后台下载包，这包都1.8GB左右，猴年马月才能下载完。</p>
 <p><img alt="图" src="../../../pictures/hadoop/CDH/6.png" /></p>
 <p><img alt="图" src="../../../pictures/hadoop/CDH/7.png" /></p>
 <p><img alt="图" src="../../../pictures/hadoop/CDH/8.png" /></p>
 <p><img alt="图" src="../../../pictures/hadoop/CDH/9.png" /></p>
 <p><img alt="图" src="../../../pictures/hadoop/CDH/10.png" />
-等待安装，错误的时候会有提示。以下有个提示。[因为我之前系统上安装过，我虽然删除了集群。重新安装的时候，之前文件夹还是存在的，所以报错，删除即可，在线上的话谨慎操作。]</p>
+等待安装，错误的时候会有提示。以下有个提示。[因为我之前系统上安装过，我虽然删除了集群。重新安装的时候，之前文件夹还是存在的，所以报错，删除即可，若是线上机器谨慎操作。]</p>
 <p><img alt="图" src="../../../pictures/hadoop/CDH/11.png" /></p>
 <div class="codehilite"><pre><span></span>[root@master overlay2]# cd /dfs/nn
 [root@master nn]# ll
@@ -5406,6 +5425,7 @@ dn  jn  nn  snn
 <p><img alt="图" src="../../../pictures/hadoop/CDH/13.png" /></p>
 <p><img alt="图" src="../../../pictures/hadoop/CDH/14.png" />
 到此cdh安装的hdaoop集群完毕。</p>
+<p><img alt="图" src="../../../pictures/hadoop/CDH/heart.png" /></p>
                 
                   
                 
