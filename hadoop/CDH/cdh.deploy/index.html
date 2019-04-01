@@ -4794,7 +4794,7 @@
 <li>Cloudera Manager Agent：部署在每个需要监控与管理的设备上。负责采集运行数据与执行下发的管理命令</li>
 <li>DataBase：关系型数据库是Cloudera Manager执行管理操作时，存储整体集群情况数据。</li>
 </ul>
-<p><img alt="图" src="../../../pictures/hadoop/CDH/架构图.png" /></p>
+<p><img alt="图" src="../../../pictures/hadoop/CDH/cdh_deploy/架构图.png" /></p>
 <div class="codehilite"><pre><span></span>左侧: client 是链接到右侧的server
 中间: 也就是clouder-manager server
     1. 安装的包可以从在线安装，或者离线安装[一般都是这方式安装]。包一定要放在/opt/cloudera/parcel-repo/，这个是默认的位置[没有就创建]
@@ -5374,21 +5374,21 @@ tcp        0      0 0.0.0.0:7180            0.0.0.0:*               LISTEN      
 
 </div>
 <h3 id="19">1.9 安装<a class="headerlink" href="#19" title="Permanent link">&para;</a></h3>
-<p><img alt="图" src="../../../pictures/hadoop/CDH/1.png" /></p>
-<p><img alt="图" src="../../../pictures/hadoop/CDH/2.png" /></p>
+<p><img alt="图" src="../../../pictures/hadoop/CDH/cdh_deploy/1.png" /></p>
+<p><img alt="图" src="../../../pictures/hadoop/CDH/cdh_deploy/2.png" /></p>
 <p>选择最左边的免费版本。</p>
-<p><img alt="图" src="../../../pictures/hadoop/CDH/3.png" /></p>
-<p><img alt="图" src="../../../pictures/hadoop/CDH/4.png" />
+<p><img alt="图" src="../../../pictures/hadoop/CDH/cdh_deploy/3.png" /></p>
+<p><img alt="图" src="../../../pictures/hadoop/CDH/cdh_deploy/4.png" />
 点击右侧当前管理的主机按钮。选择所有机器。</p>
-<p><img alt="图" src="../../../pictures/hadoop/CDH/5.png" /></p>
+<p><img alt="图" src="../../../pictures/hadoop/CDH/cdh_deploy/5.png" /></p>
 <p>&#160; &#160; &#160; &#160;若是发现，已选择的正在下载，说明之前你的选项没有选择你之前下载的包，此时即使你在页面取消，也是不行的。只能在系统下kill到进程，然后重新来一遍。因为这系统会在后台下载包，这包都1.8GB左右，猴年马月才能下载完。</p>
-<p><img alt="图" src="../../../pictures/hadoop/CDH/6.png" /></p>
-<p><img alt="图" src="../../../pictures/hadoop/CDH/7.png" /></p>
-<p><img alt="图" src="../../../pictures/hadoop/CDH/8.png" /></p>
-<p><img alt="图" src="../../../pictures/hadoop/CDH/9.png" /></p>
-<p><img alt="图" src="../../../pictures/hadoop/CDH/10.png" />
+<p><img alt="图" src="../../../pictures/hadoop/CDH/cdh_deploy/6.png" /></p>
+<p><img alt="图" src="../../../pictures/hadoop/CDH/cdh_deploy/7.png" /></p>
+<p><img alt="图" src="../../../pictures/hadoop/CDH/cdh_deploy/8.png" /></p>
+<p><img alt="图" src="../../../pictures/hadoop/CDH/cdh_deploy/9.png" /></p>
+<p><img alt="图" src="../../../pictures/hadoop/CDH/cdh_deploy/10.png" />
 等待安装，错误的时候会有提示。以下有个提示。[因为我之前系统上安装过，我虽然删除了集群。重新安装的时候，之前文件夹还是存在的，所以报错，删除即可，若是线上机器谨慎操作。]</p>
-<p><img alt="图" src="../../../pictures/hadoop/CDH/11.png" /></p>
+<p><img alt="图" src="../../../pictures/hadoop/CDH/cdh_deploy/11.png" /></p>
 <div class="codehilite"><pre><span></span>[root@master overlay2]# cd /dfs/nn
 [root@master nn]# ll
 total 12
@@ -5421,11 +5421,11 @@ dn  jn  nn  snn
 </pre></div>
 
 <p>删除文件夹后，点击本页面上的resume，重新开始。</p>
-<p><img alt="图" src="../../../pictures/hadoop/CDH/12.png" /></p>
-<p><img alt="图" src="../../../pictures/hadoop/CDH/13.png" /></p>
-<p><img alt="图" src="../../../pictures/hadoop/CDH/14.png" />
+<p><img alt="图" src="../../../pictures/hadoop/CDH/cdh_deploy/12.png" /></p>
+<p><img alt="图" src="../../../pictures/hadoop/CDH/cdh_deploy/13.png" /></p>
+<p><img alt="图" src="../../../pictures/hadoop/CDH/cdh_deploy/14.png" />
 到此cdh安装的hdaoop集群完毕。</p>
-<p><img alt="图" src="../../../pictures/hadoop/CDH/heart.png" /></p>
+<p><img alt="图" src="../../../pictures/hadoop/CDH/cdh_deploy/heart.png" /></p>
                 
                   
                 
