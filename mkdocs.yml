@@ -140,6 +140,11 @@ nav:
         - 知识点:
             - 1. name: python/django/note/django.url_name.md
             - 2. 重名url: python/django/note/django.duplication_url_name.md
+    - Hadoop:
+        - CDH:
+            - 1. CDH 介绍: hadoop/CDH/cdh.index.md
+            - 2. CDH 部署: hadoop/CDH/cdh.deploy.md
+            - 3. NameNode HA: hadoop/CDH/cdh.namenode_ha.md
     - Linux:
         - url: url/url.index.md
         - 小工具: 
@@ -198,9 +203,10 @@ nav:
             - 6. redis 事务: linux/nosql/redis/redis.arrairs.md
             - 7. redis 持久化存储: linux/nosql/redis/redis.store.md
             - 8. redis 备份与恢复: linux/nosql/redis/redis.save.md
-            - 9. redis 主从: linux/nosql/redis/redis-master-slave.md
-            - 10. redis 哨兵: linux/nosql/redis/redis-sentinel.md
-            - 11. redis 缓存策略: linux/nosql/redis/redis.cache_policy.md
+            - 9. redis 主从: linux/nosql/redis/redis.master-slave.md
+            - 10. redis 哨兵: linux/nosql/redis/redis.sentinel.md
+            - 11. redis cluster: linux/nosql/redis/redis.cluster.md  
+            - 12. redis 缓存策略: linux/nosql/redis/redis.cache_policy.md
         - 3. memcached:
             - 1. memcached: linux/nosql/memcached/memcached.index.md
     - mysql:
