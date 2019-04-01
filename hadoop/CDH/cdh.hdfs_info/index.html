@@ -5089,7 +5089,7 @@
                   <a href="https://github.com/caimengzhi/books/edit/master/docs/hadoop/CDH/cdh.hdfs_info.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <p><center><h1>HDFS</h1></center></p>
+                <p><center><h1>HDFS 基本知识</h1></center></p>
 <h2 id="1">1. 介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>&#160; &#160; &#160; &#160;在现代的企业环境中，单机容量往往无法存储大量数据，需要跨机器存储。统一管理分布在集群上的文件系统称为分布式文件系统。而一旦在系统中，引入网络，就不可避免地引入了所有网络编程的复杂性，例如挑战之一是如果保证在节点不可用的时候数据不丢失。</p>
 <p>&#160; &#160; &#160; &#160;传统的网络文件系统（NFS）虽然也称为分布式文件系统，但是其存在一些限制。由于NFS中，文件是存储在单机上，因此无法提供可靠性保证，当很多客户端同时访问NFS Server时，很容易造成服务器压力，造成性能瓶颈。另外如果要对NFS中的文件进行操作，需要首先同步到本地，这些修改在同步到服务端之前，其他客户端是不可见的。某种程度上，NFS不是一种典型的分布式系统，虽然它的文件的确放在远端（单一）的服务器上面。</p>
@@ -5276,6 +5276,7 @@ HA涉及到的主要实现逻辑有</p>
 <li>基于Qurom Journal Manager(QJM)解决方案</li>
 </ul>
 <h4 id="921-nfs">9.2.1 基于NFS方案<a class="headerlink" href="#921-nfs" title="Permanent link">&para;</a></h4>
+<p><img alt="图" src="../../../pictures/hadoop/CDH/hdfs/8.png" /></p>
 <p>&#160; &#160; &#160; &#160;Active NN与Standby NN通过NFS实现共享数据，但如果Active NN与NFS之间或Standby NN与NFS之间，其中一处有网络故障的话，那就会造成数据同步问题。</p>
 <h4 id="922-qjm">9.2.2 基于QJM方案<a class="headerlink" href="#922-qjm" title="Permanent link">&para;</a></h4>
 <p>&#160; &#160; &#160; &#160;Active NN、Standby NN有主备之分，NN Active是主的，NN Standby备用的</p>
@@ -5285,7 +5286,7 @@ HA涉及到的主要实现逻辑有</p>
 <p>&#160; &#160; &#160; &#160;为了实现Active NN高热备，增加了FailoverController和ZK，FailoverController通过Heartbeat的方式与ZK通信，通过ZK来选举，一旦Active NN挂掉，就选取另一个FailoverController作为active状态，然后FailoverController通过rpc，让standby NN转变为Active NN</p>
 <p>&#160; &#160; &#160; &#160;FailoverController一方面监控NN的状态信息，一方面还向ZK定时发送心跳，使自己被选举。当自己被选为主（Active）的时候，就会通过rpc使相应NN转变Active状态</p>
 <p>结合HDFS2的新特性，在实际生成环境中部署图</p>
-<p><img alt="图" src="../../../pictures/hadoop/CDH/hdfs/8.png" /></p>
+<p><img alt="图" src="../../../pictures/hadoop/CDH/hdfs/9.png" /></p>
 <p>这里有12个DN,有4个NN，NN-1与NN-2是主备关系，它们管理/share目录；NN-3与NN-4是主备关系，它们管理/user目录</p>
                 
                   
