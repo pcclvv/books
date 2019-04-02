@@ -148,6 +148,9 @@ nav:
         - HDFS:
             - 1. HDFS 介绍: hadoop/CDH/cdh.hdfs_info.md
             - 2. HDFS shell: hadoop/CDH/cdh.hdfs_shell.md
+        - Hive:
+            - 1. Hive 介绍: hadoop/CDH/cdh.hive.md
+            
     - Linux:
         - url: url/url.index.md
         - raid: 
