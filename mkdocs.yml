@@ -145,6 +145,9 @@ nav:
             - 1. CDH 介绍: hadoop/CDH/cdh.index.md
             - 2. CDH 部署: hadoop/CDH/cdh.deploy.md
             - 3. NameNode HA: hadoop/CDH/cdh.namenode_ha.md
+        - HDFS:
+            - 1. HDFS 介绍: hadoop/CDH/cdh.hdfs_info.md
+            - 2. HDFS shell: hadoop/CDH/cdh.hdfs_shell.md
     - Linux:
         - url: url/url.index.md
         - 小工具: 
