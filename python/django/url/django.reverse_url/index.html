@@ -1257,8 +1257,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" title="2. 实战" class="md-nav__link">
-    2. 实战
+  <a href="#2-url" title="2. 反向解析url" class="md-nav__link">
+    2. 反向解析url
   </a>
   
     <nav class="md-nav">
@@ -1285,28 +1285,29 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#24" title="2.4 测试" class="md-nav__link">
+    2.4 测试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#241-url" title="2.4.1 改变url" class="md-nav__link">
+    2.4.1 改变url
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" title="3. 测试" class="md-nav__link">
-    3. 测试
+  <a href="#3-python" title="3. 反向解析 python" class="md-nav__link">
+    3. 反向解析 python
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-url" title="3.1 改变url" class="md-nav__link">
-    3.1 改变url
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -4633,8 +4634,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" title="2. 实战" class="md-nav__link">
-    2. 实战
+  <a href="#2-url" title="2. 反向解析url" class="md-nav__link">
+    2. 反向解析url
   </a>
   
     <nav class="md-nav">
@@ -4661,28 +4662,29 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#24" title="2.4 测试" class="md-nav__link">
+    2.4 测试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#241-url" title="2.4.1 改变url" class="md-nav__link">
+    2.4.1 改变url
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" title="3. 测试" class="md-nav__link">
-    3. 测试
+  <a href="#3-python" title="3. 反向解析 python" class="md-nav__link">
+    3. 反向解析 python
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-url" title="3.1 改变url" class="md-nav__link">
-    3.1 改变url
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -4709,17 +4711,21 @@
 <h2 id="1">1. 介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>Django中提供了一个关于URL的映射的解决方案，你可以做两个方向的使用:</p>
 <ul>
-<li>1.有客户端的浏览器发起一个url请求，Django根据URL解析，把url中的参数捕获，调用相应的试图，
-获取相应的数据，然后返回给客户端显示</li>
-<li>2.通过一个视图的名字，再加上一些参数和值，逆向获取相应的URL</li>
+<li>
+<p>1.有客户端的浏览器发起一个url请求，Django根据URL解析，把url中的参数捕获，调用相应的试图，
+获取相应的数据，然后返回给客户端显示</p>
+</li>
+<li>
+<p>2.通过一个视图的名字，再加上一些参数和值，逆向获取相应的URL</p>
+</li>
 </ul>
-<p>第一个就是平常的请求有URLconf来解析的过程，第二个叫做，url的逆向解析，url逆向匹配，url的逆向查阅，等</p>
+<p>第一个就是平常的请求有URLconf来解析的过程，第二个叫做，url的逆向解析，url逆向匹配，url的逆向查阅等</p>
 <p>Django提供了不同的层级的url逆向处理工具：</p>
 <ul>
 <li>1.在模板templates中，使用url标记，如：{% url %}</li>
 <li>2.在Python代码中，使用django.core.urlresolvers.reverse()方法</li>
 </ul>
-<h2 id="2">2. 实战<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h2 id="2-url">2. 反向解析url<a class="headerlink" href="#2-url" title="Permanent link">&para;</a></h2>
 <h3 id="21-url">2.1 url<a class="headerlink" href="#21-url" title="Permanent link">&para;</a></h3>
 <p><div class="codehilite"><pre><span></span>urlpatterns = [
     path(&#39;admin/&#39;, admin.site.urls),
@@ -4762,9 +4768,9 @@
 &lt;/html&gt;
 </pre></div>
 <img alt="image" src="../../../../pictures/django/url/p3.png" /></p>
-<h2 id="3">3. 测试<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="24">2.4 测试<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
 <p><img alt="image" src="../../../../pictures/django/url/p4.png" /></p>
-<h3 id="31-url">3.1 改变url<a class="headerlink" href="#31-url" title="Permanent link">&para;</a></h3>
+<h3 id="241-url">2.4.1 改变url<a class="headerlink" href="#241-url" title="Permanent link">&para;</a></h3>
 <p>接下来，我改变将之前的"login"改为"login.html"
 <div class="codehilite"><pre><span></span>path(&quot;login.html&quot;,views.login,name=&quot;Log&quot;)
 </pre></div></p>
@@ -4775,6 +4781,20 @@
 path(&quot;login.html&quot;,views.login,name=&quot;Log&quot;)
 这种就是反向解析
 </pre></div>
+
+<h2 id="3-python">3. 反向解析 python<a class="headerlink" href="#3-python" title="Permanent link">&para;</a></h2>
+<p>反向解析除了在html的模板中使用，还可以在python中使用</p>
+<p><img alt="image" src="../../../../pictures/django/url/p7.png" />
+<img alt="image" src="../../../../pictures/django/url/p8.png" />
+<img alt="image" src="../../../../pictures/django/url/p9.png" /></p>
+<p>测试访问</p>
+<p><img alt="image" src="../../../../pictures/django/url/p10.png" /></p>
+<p>带有正则的必须要传入参数</p>
+<p><img alt="image" src="../../../../pictures/django/url/p11.png" /></p>
+<p><img alt="image" src="../../../../pictures/django/url/p12.png" /></p>
+<blockquote>
+<p>reverse的第一个参数是urls.py的url中的name。比如上面的s_c_2003 y_a</p>
+</blockquote>
                 
                   
                 
