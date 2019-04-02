@@ -138,8 +138,14 @@ nav:
         - 5. 模板: python/flask/flask.jinja2.md
     - Django:
         - 知识点:
+            - 1. 表单空:  python/django/note/django.blank.md
+        - 组件:
             - 1. name: python/django/note/django.url_name.md
             - 2. 重名url: python/django/note/django.duplication_url_name.md
+            - 3. url 反向解析: python/django/url/django.reverse_url.md
+            - 4. 分页器: python/django/url/django.paginator.md
+            - 5. 表单: python/django/form/django.form.md
+            - 6. 中间件: python/django/middleware/django.middleware.md
     - Hadoop:
         - CDH:
             - 1. CDH 介绍: hadoop/CDH/cdh.index.md
