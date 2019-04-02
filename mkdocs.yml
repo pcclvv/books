@@ -150,6 +150,9 @@ nav:
             - 2. HDFS shell: hadoop/CDH/cdh.hdfs_shell.md
     - Linux:
         - url: url/url.index.md
+        - raid: 
+            - 1. raid 介绍: linux/raid/raid.index.md
+            - 2. raid 实战: linux/raid/raid.card.md
         - 小工具: 
             - 1. elinks: tools/elinks/elinks.index.md
             - 2. Linux终端录屏和回放: tools/script_scriptreplay/1.index.md
