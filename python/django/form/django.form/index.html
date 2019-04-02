@@ -40,7 +40,7 @@
     
     
       
-        <title>4. 表单 - 笔记</title>
+        <title>5. 表单 - 笔记</title>
       
     
     
@@ -132,7 +132,7 @@
                 笔记
               </span>
               <span class="md-header-nav__topic">
-                4. 表单
+                5. 表单
               </span>
             
           
@@ -1258,11 +1258,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        4. 表单
+        5. 表单
       </label>
     
-    <a href="./" title="4. 表单" class="md-nav__link md-nav__link--active">
-      4. 表单
+    <a href="./" title="5. 表单" class="md-nav__link md-nav__link--active">
+      5. 表单
     </a>
     
       
@@ -5360,12 +5360,13 @@ return render(request,&quot;register.html&quot;,locals())
 如果校验成功，返回原来的clean_data字段，校验失败抛出异常ValidationError</p>
 <div class="admonition note">
 <p class="admonition-title">注意</p>
-</div>
 <div class="codehilite"><pre><span></span><span class="mf">1.</span> <span class="err">在模板中，单个字段校验失败的错误信息我们可以使用</span><span class="p">{{</span><span class="n">form</span><span class="o">.</span><span class="err">字段</span><span class="o">.</span><span class="n">errors</span><span class="p">}}</span>
 <span class="err">而全局钩子抛出的异常会被存入全局错误中，我们需要在</span><span class="n">python使用clean_errors</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;__all__&quot;</span><span class="p">)</span><span class="err">获取全局错误信息，在模板中使用</span><span class="p">{{</span> <span class="n">clean_errors</span><span class="o">.</span><span class="mi">0</span> <span class="p">}}</span><span class="err">获取错误信息</span>
 
 <span class="mf">2.</span> <span class="err">我们在校验时，还要判断</span><span class="k">if</span> <span class="n">pwd</span> <span class="ow">and</span> <span class="n">re_pwd</span><span class="p">:,</span><span class="err">代表如果单个字段校验失败，就不执行全局钩子。这样如果密码或者是确认密码格式不对，密码和确认密码也不相同时，只报一个密码或者是确认密码格式错误。</span>
 </pre></div>
+
+</div>
                 
                   
                 
