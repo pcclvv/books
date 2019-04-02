@@ -4763,12 +4763,12 @@ Book.objects.bulk_create(Booklist)
 <p>获取第n页数据</p>
 <p><div class="codehilite"><pre><span></span>current_page = paginator.page(1)获取第一页的列表
 </pre></div>
-方法  |作用
+方法|作用
 ---|---
-current_page.object_list|   获取第n页对象列表
-current_page.has_next()|    是否有下一页
-current_page.next_page_number()|    下一页的页码
-current_page.has_previous()|    是否有上一页
+current_page.object_list| 获取第n页对象列表
+current_page.has_next()|  是否有下一页
+current_page.next_page_number()| 下一页的页码
+current_page.has_previous()|  是否有上一页
 current_page.previous_page_number()|上一页的页码</p>
 <blockquote>
 <p>注意： 如果在paginator.page(1)输入的页码数小于1或者大于最大页数，会报EmptyPage错误。
