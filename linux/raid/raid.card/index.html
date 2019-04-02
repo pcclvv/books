@@ -4605,11 +4605,11 @@
                   <a href="https://github.com/caimengzhi/books/edit/master/docs/linux/raid/raid.card.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <p><center><h1>Raid知识点</h1></center></p>
+                <p><center><h1>Raid实战</h1></center></p>
 <h2 id="1">1. 阵列卡<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p><img alt="raid0" src="../../../pictures/linux/raid/raid阵列卡.png" /></p>
-<p>&#160; &#160; &#160; &#160;简单的说，RAID是一种把多块独立的物理硬盘按不同方式组合起来形成一个逻辑硬盘，从而提供比单个硬盘有着更高的性能和提供数据冗余的技术。
-&#160; &#160; &#160; &#160;RAID卡一般分为硬RAID卡和软RAID卡两种，通过用硬件来实现RAID功能的就是硬RAID，独立的RAID卡，主板集成的RAID芯片都是硬RAID。通过软件并使用CPU的RAID卡是指使用CPU来完成RAID的常用计算，软件RAID占用CPU资源较高，绝大部分服务器设备是硬件RAID。</p>
+<p>&#160; &#160; &#160; &#160;简单的说，RAID是一种把多块独立的物理硬盘按不同方式组合起来形成一个逻辑硬盘，从而提供比单个硬盘有着更高的性能和提供数据冗余的技术。</p>
+<p>&#160; &#160; &#160; &#160;RAID卡一般分为硬RAID卡和软RAID卡两种，通过用硬件来实现RAID功能的就是硬RAID，独立的RAID卡，主板集成的RAID芯片都是硬RAID。通过软件并使用CPU的RAID卡是指使用CPU来完成RAID的常用计算，软件RAID占用CPU资源较高，绝大部分服务器设备是硬件RAID。</p>
 <h2 id="2">2. 阵列卡接口<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <p>&#160; &#160; &#160; &#160;接口是指支持的接口，目前主要有四种：IDE接口、SCSI接口、SATA接口和SAS接口。</p>
 <p>IDE接口（已被淘汰）</p>
@@ -4703,11 +4703,11 @@ p23   OK             u2   1.82 TB   SATA  23  -            WDC WD2003FYYS-02W0
 
 <div class="admonition note">
 <p class="admonition-title">解释</p>
-</div>
 <div class="codehilite"><pre><span></span><span class="mf">1.</span> <span class="err">我们能从上面的命令结果可以看到系统有多少个硬盘，</span><span class="n">raid的模式</span><span class="err">，磁盘相关信息</span>
 <span class="mf">2.</span> <span class="err">可以通过该命令编写对应的脚本</span>
 </pre></div>
 
+</div>
 <h2 id="4">4. 脚本<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>#!/bin/bash
 # ==============================================================================
