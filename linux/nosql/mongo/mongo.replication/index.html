@@ -2401,6 +2401,88 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#43" title="4.3 查看复制的情况" class="md-nav__link">
+    4.3 查看复制的情况
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" title="4.4 查看副本集配置" class="md-nav__link">
+    4.4 查看副本集配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" title="4.5 注意" class="md-nav__link">
+    4.5 注意
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" title="5. 应用" class="md-nav__link">
+    5. 应用
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" title="5.1 手动切换" class="md-nav__link">
+    5.1 手动切换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" title="5.2 添加备份节点" class="md-nav__link">
+    5.2 添加备份节点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" title="5.3 添加延时节点" class="md-nav__link">
+    5.3 添加延时节点
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#531" title="5.3.1 操作" class="md-nav__link">
+    5.3.1 操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#532" title="5.3.2 测试" class="md-nav__link">
+    5.3.2 测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" title="5.4 读写分离" class="md-nav__link">
+    5.4 读写分离
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4941,6 +5023,88 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#43" title="4.3 查看复制的情况" class="md-nav__link">
+    4.3 查看复制的情况
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" title="4.4 查看副本集配置" class="md-nav__link">
+    4.4 查看副本集配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" title="4.5 注意" class="md-nav__link">
+    4.5 注意
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" title="5. 应用" class="md-nav__link">
+    5. 应用
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" title="5.1 手动切换" class="md-nav__link">
+    5.1 手动切换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" title="5.2 添加备份节点" class="md-nav__link">
+    5.2 添加备份节点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" title="5.3 添加延时节点" class="md-nav__link">
+    5.3 添加延时节点
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#531" title="5.3.1 操作" class="md-nav__link">
+    5.3.1 操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#532" title="5.3.2 测试" class="md-nav__link">
+    5.3.2 测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" title="5.4 读写分离" class="md-nav__link">
+    5.4 读写分离
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5453,6 +5617,17 @@ repset:PRIMARY&gt;
 bye
 </pre></div>
 
+<div class="admonition note">
+<p class="admonition-title">解释</p>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="err">副本集的名称</span>
+<span class="s2">&quot;members&quot;</span><span class="p">:</span> <span class="err">副本集的服务器列表</span>
+<span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="err">服务器的唯一</span><span class="n">ID</span>
+<span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="err">服务器主机</span>
+<span class="s2">&quot;priority&quot;</span><span class="p">:</span> <span class="err">是优先级，默认为</span><span class="mi">1</span><span class="err">，优先级</span><span class="mi">0</span><span class="err">为被动节点，不能成为活跃节点。优先级不位</span><span class="mi">0</span><span class="err">则按照有大到小选出活跃节点。</span>
+<span class="s2">&quot;arbiterOnly&quot;</span><span class="p">:</span> <span class="err">仲裁节点，只参与投票，不接收数据，也不能成为活跃节点。</span>
+</pre></div>
+
+</div>
 <h4 id="333">3.3.3 其他命令<a class="headerlink" href="#333" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span>repset:PRIMARY&gt; rs.
 rs.add(                        rs.conf(                       rs.help(                       rs.prototype                   rs.syncFrom(
@@ -5499,35 +5674,47 @@ repset:SECONDARY&gt;
 可以看出node2是primary，也就是主。其他两个node1，node3是secondary也就是从。接下来测试。</p>
 <h4 id="343">3.4.3 副本测试<a class="headerlink" href="#343" title="Permanent link">&para;</a></h4>
 <p>主添加数据，不选择库，默认添加到test库中。</p>
-<div class="codehilite"><pre><span></span>repset:PRIMARY&gt; db.col2.insert({&quot;name&quot;:&quot;caimengzhi&quot;})
-WriteResult({ &quot;nInserted&quot; : 1 })
-repset:PRIMARY&gt; show dbs;
+<div class="codehilite"><pre><span></span>repset:PRIMARY&gt; show dbs;
 admin   0.000GB
 config  0.000GB
 local   0.000GB
 test    0.000GB
 repset:PRIMARY&gt; use test;
 switched to db test
-repset:PRIMARY&gt;
+repset:PRIMARY&gt; for(var i=0;i&lt;10000;i++){db.test.insert({&quot;name&quot;:&quot;caimengzhi&quot;+i,&quot;age&quot;:123})}
+WriteResult({ &quot;nInserted&quot; : 1 })
 repset:PRIMARY&gt; show tables;
 col2
-repset:PRIMARY&gt; db.col2.find()
-{ &quot;_id&quot; : ObjectId(&quot;5ca41e317b1bb7f26e3fb62b&quot;), &quot;name&quot; : &quot;caimengzhi&quot; }
+test
+repset:PRIMARY&gt; db.test.count()
+10000
 </pre></div>
 
 <p>从查看
-<div class="codehilite"><pre><span></span>repset:SECONDARY&gt; rs.slaveOk()  
-repset:SECONDARY&gt; show dbs;
-admin   0.000GB
-config  0.000GB
-local   0.000GB
-test    0.000GB
-repset:SECONDARY&gt; use test;
+<div class="codehilite"><pre><span></span>repset:SECONDARY&gt; use test;
 switched to db test
-repset:SECONDARY&gt; show tables;
-col2
-repset:SECONDARY&gt; db.col2.find()
-{ &quot;_id&quot; : ObjectId(&quot;5ca41e317b1bb7f26e3fb62b&quot;), &quot;name&quot; : &quot;caimengzhi&quot; }
+repset:SECONDARY&gt;  db.test.count()
+2019-04-03T13:19:39.080+0800 E QUERY    [js] Error: count failed: {
+    &quot;operationTime&quot; : Timestamp(1554268771, 1),
+    &quot;ok&quot; : 0,
+    &quot;errmsg&quot; : &quot;not master and slaveOk=false&quot;,
+    &quot;code&quot; : 13435,
+    &quot;codeName&quot; : &quot;NotMasterNoSlaveOk&quot;,
+    &quot;$clusterTime&quot; : {
+        &quot;clusterTime&quot; : Timestamp(1554268771, 1),
+        &quot;signature&quot; : {
+            &quot;hash&quot; : BinData(0,&quot;AAAAAAAAAAAAAAAAAAAAAAAAAAA=&quot;),
+            &quot;keyId&quot; : NumberLong(0)
+        }
+    }
+} :
+_getErrorWithCode@src/mongo/shell/utils.js:25:13
+DBQuery.prototype.count@src/mongo/shell/query.js:383:11
+DBCollection.prototype.count@src/mongo/shell/collection.js:1431:12
+@(shell):1:1
+repset:SECONDARY&gt; rs.slaveOk()
+repset:SECONDARY&gt; db.test.count()
+10000
 </pre></div></p>
 <details class="danger"><summary>注意</summary><div class="codehilite"><pre><span></span><span class="err">默认从，不能读和写的</span><span class="p">[</span><span class="n">rs</span><span class="o">.</span><span class="n">slaveOk</span><span class="p">()</span>  <span class="err">从才可以读</span><span class="p">]</span><span class="err">，否则报错如下</span><span class="p">:</span>
 <span class="n">repset</span><span class="p">:</span><span class="n">SECONDARY</span><span class="o">&gt;</span> <span class="n">show</span> <span class="n">dbs</span><span class="p">;</span>
@@ -5860,6 +6047,1066 @@ repset:PRIMARY&gt; rs.status()
     }
 }
 </pre></div></p>
+<h3 id="43">4.3 查看复制的情况<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>repset:PRIMARY&gt;  db.printSlaveReplicationInfo()
+source: node3:27017
+    syncedTo: Wed Apr 03 2019 13:10:21 GMT+0800 (CST)
+    0 secs (0 hrs) behind the primary
+source: node2:27017
+    syncedTo: Wed Apr 03 2019 13:10:21 GMT+0800 (CST)
+    0 secs (0 hrs) behind the primary
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">解释</p>
+<div class="codehilite"><pre><span></span><span class="n">source</span><span class="err">：从库的</span><span class="n">ip和端口</span><span class="err">。</span>
+<span class="n">syncedTo</span><span class="err">：目前的同步情况，以及最后一次同步的时间。</span>
+<span class="err">从上面可以看出，在数据库内容不变的情况下他是不同步的，数据库变动就会马上同步</span>
+</pre></div>
+
+</div>
+<h3 id="44">4.4 查看副本集配置<a class="headerlink" href="#44" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>repset:PRIMARY&gt; rs.conf()
+{
+    &quot;_id&quot; : &quot;repset&quot;,
+    &quot;version&quot; : 5,
+    &quot;protocolVersion&quot; : NumberLong(1),
+    &quot;writeConcernMajorityJournalDefault&quot; : true,
+    &quot;members&quot; : [
+        {
+            &quot;_id&quot; : 1,
+            &quot;host&quot; : &quot;node1:27017&quot;,
+            &quot;arbiterOnly&quot; : false,
+            &quot;buildIndexes&quot; : true,
+            &quot;hidden&quot; : false,
+            &quot;priority&quot; : 1,
+            &quot;tags&quot; : {
+
+            },
+            &quot;slaveDelay&quot; : NumberLong(0),
+            &quot;votes&quot; : 1
+        },
+        {
+            &quot;_id&quot; : 2,
+            &quot;host&quot; : &quot;node3:27017&quot;,
+            &quot;arbiterOnly&quot; : false,
+            &quot;buildIndexes&quot; : true,
+            &quot;hidden&quot; : false,
+            &quot;priority&quot; : 1,
+            &quot;tags&quot; : {
+
+            },
+            &quot;slaveDelay&quot; : NumberLong(0),
+            &quot;votes&quot; : 1
+        },
+        {
+            &quot;_id&quot; : 3,
+            &quot;host&quot; : &quot;node2:27017&quot;,
+            &quot;arbiterOnly&quot; : false,
+            &quot;buildIndexes&quot; : true,
+            &quot;hidden&quot; : false,
+            &quot;priority&quot; : 1,
+            &quot;tags&quot; : {
+
+            },
+            &quot;slaveDelay&quot; : NumberLong(0),
+            &quot;votes&quot; : 1
+        }
+    ],
+    &quot;settings&quot; : {
+        &quot;chainingAllowed&quot; : true,
+        &quot;heartbeatIntervalMillis&quot; : 2000,
+        &quot;heartbeatTimeoutSecs&quot; : 10,
+        &quot;electionTimeoutMillis&quot; : 10000,
+        &quot;catchUpTimeoutMillis&quot; : -1,
+        &quot;catchUpTakeoverDelayMillis&quot; : 30000,
+        &quot;getLastErrorModes&quot; : {
+
+        },
+        &quot;getLastErrorDefaults&quot; : {
+            &quot;w&quot; : 1,
+            &quot;wtimeout&quot; : 0
+        },
+        &quot;replicaSetId&quot; : ObjectId(&quot;5ca419993f98997dbf343825&quot;)
+    }
+}
+</pre></div>
+
+<h3 id="45">4.5 注意<a class="headerlink" href="#45" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>所有的Secondary都宕机、或则副本集中只剩下一个节点，则该节点只能为Secondary节点，也就意味着整个集群智能进行读操作而不能进行写操作，当其他的恢复时，之前的primary节点仍然是primary节点。
+当某个节点宕机后重新启动该节点会有一段的时间（时间长短视集群的数据量和宕机时间而定）导致整个集群中所有节点都成为secondary而无法进行写操作（如果应用程序没有设置相应的ReadReference也可能不能进行读取操作）。
+官方推荐的最小的副本集也应该具备一个primary节点和两个secondary节点。两个节点的副本集不具备真正的故障转移能力。
+</pre></div>
+
+<h2 id="5">5. 应用<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 手动切换<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<p>手动切换Primary节点到自己给定的节点，上面已经提到过了优先集priority，因为默认的都是1，所以只需要把给定的服务器的priority加到最大即可。</p>
+<details class="note"><summary>查看priority</summary><div class="codehilite"><pre><span></span><span class="n">repset</span><span class="p">:</span><span class="n">SECONDARY</span><span class="o">&gt;</span> <span class="n">rs</span><span class="o">.</span><span class="n">conf</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="s2">&quot;repset&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;version&quot;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;protocolVersion&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+    <span class="s2">&quot;writeConcernMajorityJournalDefault&quot;</span> <span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;members&quot;</span> <span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;host&quot;</span> <span class="p">:</span> <span class="s2">&quot;node1:27017&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;arbiterOnly&quot;</span> <span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;buildIndexes&quot;</span> <span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;hidden&quot;</span> <span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;priority&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;tags&quot;</span> <span class="p">:</span> <span class="p">{</span>
+
+            <span class="p">},</span>
+            <span class="s2">&quot;slaveDelay&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+            <span class="s2">&quot;votes&quot;</span> <span class="p">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;host&quot;</span> <span class="p">:</span> <span class="s2">&quot;node3:27017&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;arbiterOnly&quot;</span> <span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;buildIndexes&quot;</span> <span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;hidden&quot;</span> <span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;priority&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;tags&quot;</span> <span class="p">:</span> <span class="p">{</span>
+
+            <span class="p">},</span>
+            <span class="s2">&quot;slaveDelay&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+            <span class="s2">&quot;votes&quot;</span> <span class="p">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="s2">&quot;host&quot;</span> <span class="p">:</span> <span class="s2">&quot;node2:27017&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;arbiterOnly&quot;</span> <span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;buildIndexes&quot;</span> <span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;hidden&quot;</span> <span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;priority&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;tags&quot;</span> <span class="p">:</span> <span class="p">{</span>
+
+            <span class="p">},</span>
+            <span class="s2">&quot;slaveDelay&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+            <span class="s2">&quot;votes&quot;</span> <span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;settings&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;chainingAllowed&quot;</span> <span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;heartbeatIntervalMillis&quot;</span> <span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
+        <span class="s2">&quot;heartbeatTimeoutSecs&quot;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">&quot;electionTimeoutMillis&quot;</span> <span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
+        <span class="s2">&quot;catchUpTimeoutMillis&quot;</span> <span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;catchUpTakeoverDelayMillis&quot;</span> <span class="p">:</span> <span class="mi">30000</span><span class="p">,</span>
+        <span class="s2">&quot;getLastErrorModes&quot;</span> <span class="p">:</span> <span class="p">{</span>
+
+        <span class="p">},</span>
+        <span class="s2">&quot;getLastErrorDefaults&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;w&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;wtimeout&quot;</span> <span class="p">:</span> <span class="mi">0</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;replicaSetId&quot;</span> <span class="p">:</span> <span class="n">ObjectId</span><span class="p">(</span><span class="s2">&quot;5ca419993f98997dbf343825&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+</details>
+<p>先查看谁是primary</p>
+<details class="note"><summary>查看谁是primary</summary><div class="codehilite"><pre><span></span><span class="n">repset</span><span class="p">:</span><span class="n">SECONDARY</span><span class="o">&gt;</span> <span class="n">rs</span><span class="o">.</span><span class="n">isMaster</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="s2">&quot;hosts&quot;</span> <span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;node1:27017&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;node3:27017&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;node2:27017&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;setName&quot;</span> <span class="p">:</span> <span class="s2">&quot;repset&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;setVersion&quot;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;ismaster&quot;</span> <span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;secondary&quot;</span> <span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;primary&quot;</span> <span class="p">:</span> <span class="s2">&quot;node1:27017&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;me&quot;</span> <span class="p">:</span> <span class="s2">&quot;node2:27017&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lastWrite&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;opTime&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;ts&quot;</span> <span class="p">:</span> <span class="n">Timestamp</span><span class="p">(</span><span class="mi">1554269251</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s2">&quot;t&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;lastWriteDate&quot;</span> <span class="p">:</span> <span class="n">ISODate</span><span class="p">(</span><span class="s2">&quot;2019-04-03T05:27:31Z&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;majorityOpTime&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;ts&quot;</span> <span class="p">:</span> <span class="n">Timestamp</span><span class="p">(</span><span class="mi">1554269251</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s2">&quot;t&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;majorityWriteDate&quot;</span> <span class="p">:</span> <span class="n">ISODate</span><span class="p">(</span><span class="s2">&quot;2019-04-03T05:27:31Z&quot;</span><span class="p">)</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;maxBsonObjectSize&quot;</span> <span class="p">:</span> <span class="mi">16777216</span><span class="p">,</span>
+    <span class="s2">&quot;maxMessageSizeBytes&quot;</span> <span class="p">:</span> <span class="mi">48000000</span><span class="p">,</span>
+    <span class="s2">&quot;maxWriteBatchSize&quot;</span> <span class="p">:</span> <span class="mi">100000</span><span class="p">,</span>
+    <span class="s2">&quot;localTime&quot;</span> <span class="p">:</span> <span class="n">ISODate</span><span class="p">(</span><span class="s2">&quot;2019-04-03T05:27:34.165Z&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;logicalSessionTimeoutMinutes&quot;</span> <span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="s2">&quot;minWireVersion&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;maxWireVersion&quot;</span> <span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+    <span class="s2">&quot;readOnly&quot;</span> <span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;ok&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;operationTime&quot;</span> <span class="p">:</span> <span class="n">Timestamp</span><span class="p">(</span><span class="mi">1554269251</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="s2">&quot;$clusterTime&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;clusterTime&quot;</span> <span class="p">:</span> <span class="n">Timestamp</span><span class="p">(</span><span class="mi">1554269251</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="s2">&quot;signature&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;hash&quot;</span> <span class="p">:</span> <span class="n">BinData</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;AAAAAAAAAAAAAAAAAAAAAAAAAAA=&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;keyId&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="err">可以看出</span><span class="n">node1此时为primary身份</span><span class="err">。</span>
+</pre></div>
+
+</details>
+<p>此时我们让手动让node2位primary</p>
+<details class="note"><summary>怎么分辨node2的是哪个</summary><div class="codehilite"><pre><span></span><span class="mf">1.</span> <span class="n">cfg</span><span class="o">.</span><span class="n">members</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">priority</span><span class="o">=</span><span class="mi">2</span> <span class="err">是修改</span><span class="n">node2的优先级是2</span><span class="p">[</span><span class="err">默认大家都是</span><span class="mi">1</span><span class="p">]</span><span class="err">，这样</span><span class="n">node2是</span><span class="o">&gt;</span><span class="mi">1</span><span class="err">的话，优先级就高，这样就重新选举后</span><span class="n">node2会是parimary</span>
+<span class="mf">2.</span> <span class="err">怎么看出</span><span class="n">node2是2呢</span><span class="err">?</span>
+    <span class="n">rs</span><span class="o">.</span><span class="n">status</span><span class="p">()</span> <span class="err">查看结果的时候期中</span><span class="s2">&quot;members&quot;</span> <span class="err">后面是数组，</span><span class="n">node2在第三位所以是2</span><span class="p">[</span><span class="err">下标是</span><span class="mi">0</span><span class="err">开始计算</span><span class="p">]</span>
+</pre></div>
+
+</details>
+<p>操作过程</p>
+<p><div class="codehilite"><pre><span></span>repset:PRIMARY&gt; cfg=rs.conf()
+{
+    &quot;_id&quot; : &quot;repset&quot;,
+    &quot;version&quot; : 5,
+    &quot;protocolVersion&quot; : NumberLong(1),
+    &quot;writeConcernMajorityJournalDefault&quot; : true,
+    &quot;members&quot; : [
+        {
+            &quot;_id&quot; : 1,
+            &quot;host&quot; : &quot;node1:27017&quot;,
+            &quot;arbiterOnly&quot; : false,
+            &quot;buildIndexes&quot; : true,
+            &quot;hidden&quot; : false,
+            &quot;priority&quot; : 1,
+            &quot;tags&quot; : {
+
+            },
+            &quot;slaveDelay&quot; : NumberLong(0),
+            &quot;votes&quot; : 1
+        },
+        {
+            &quot;_id&quot; : 2,
+            &quot;host&quot; : &quot;node3:27017&quot;,
+            &quot;arbiterOnly&quot; : false,
+            &quot;buildIndexes&quot; : true,
+            &quot;hidden&quot; : false,
+            &quot;priority&quot; : 1,
+            &quot;tags&quot; : {
+
+            },
+            &quot;slaveDelay&quot; : NumberLong(0),
+            &quot;votes&quot; : 1
+        },
+        {
+            &quot;_id&quot; : 3,
+            &quot;host&quot; : &quot;node2:27017&quot;,
+            &quot;arbiterOnly&quot; : false,
+            &quot;buildIndexes&quot; : true,
+            &quot;hidden&quot; : false,
+            &quot;priority&quot; : 1,
+            &quot;tags&quot; : {
+
+            },
+            &quot;slaveDelay&quot; : NumberLong(0),
+            &quot;votes&quot; : 1
+        }
+    ],
+    &quot;settings&quot; : {
+        &quot;chainingAllowed&quot; : true,
+        &quot;heartbeatIntervalMillis&quot; : 2000,
+        &quot;heartbeatTimeoutSecs&quot; : 10,
+        &quot;electionTimeoutMillis&quot; : 10000,
+        &quot;catchUpTimeoutMillis&quot; : -1,
+        &quot;catchUpTakeoverDelayMillis&quot; : 30000,
+        &quot;getLastErrorModes&quot; : {
+
+        },
+        &quot;getLastErrorDefaults&quot; : {
+            &quot;w&quot; : 1,
+            &quot;wtimeout&quot; : 0
+        },
+        &quot;replicaSetId&quot; : ObjectId(&quot;5ca419993f98997dbf343825&quot;)
+    }
+}
+
+repset:PRIMARY&gt; cfg.members[2].priority=2
+2
+
+repset:PRIMARY&gt; rs.reconfig(cfg)
+{
+    &quot;ok&quot; : 1,
+    &quot;operationTime&quot; : Timestamp(1554270041, 1),
+    &quot;$clusterTime&quot; : {
+        &quot;clusterTime&quot; : Timestamp(1554270041, 1),
+        &quot;signature&quot; : {
+            &quot;hash&quot; : BinData(0,&quot;AAAAAAAAAAAAAAAAAAAAAAAAAAA=&quot;),
+            &quot;keyId&quot; : NumberLong(0)
+        }
+    }
+}
+
+repset:SECONDARY&gt; rs.isMaster()
+{
+    &quot;hosts&quot; : [
+        &quot;node1:27017&quot;,
+        &quot;node3:27017&quot;,
+        &quot;node2:27017&quot;
+    ],
+    &quot;setName&quot; : &quot;repset&quot;,
+    &quot;setVersion&quot; : 6,
+    &quot;ismaster&quot; : false,
+    &quot;secondary&quot; : true,
+    &quot;primary&quot; : &quot;node2:27017&quot;,
+    &quot;me&quot; : &quot;node1:27017&quot;,
+    &quot;lastWrite&quot; : {
+        &quot;opTime&quot; : {
+            &quot;ts&quot; : Timestamp(1554270083, 1),
+            &quot;t&quot; : NumberLong(3)
+        },
+        &quot;lastWriteDate&quot; : ISODate(&quot;2019-04-03T05:41:23Z&quot;),
+        &quot;majorityOpTime&quot; : {
+            &quot;ts&quot; : Timestamp(1554270083, 1),
+            &quot;t&quot; : NumberLong(3)
+        },
+        &quot;majorityWriteDate&quot; : ISODate(&quot;2019-04-03T05:41:23Z&quot;)
+    },
+    &quot;maxBsonObjectSize&quot; : 16777216,
+    &quot;maxMessageSizeBytes&quot; : 48000000,
+    &quot;maxWriteBatchSize&quot; : 100000,
+    &quot;localTime&quot; : ISODate(&quot;2019-04-03T05:41:31.133Z&quot;),
+    &quot;logicalSessionTimeoutMinutes&quot; : 30,
+    &quot;minWireVersion&quot; : 0,
+    &quot;maxWireVersion&quot; : 7,
+    &quot;readOnly&quot; : false,
+    &quot;ok&quot; : 1,
+    &quot;operationTime&quot; : Timestamp(1554270083, 1),
+    &quot;$clusterTime&quot; : {
+        &quot;clusterTime&quot; : Timestamp(1554270083, 1),
+        &quot;signature&quot; : {
+            &quot;hash&quot; : BinData(0,&quot;AAAAAAAAAAAAAAAAAAAAAAAAAAA=&quot;),
+            &quot;keyId&quot; : NumberLong(0)
+        }
+    }
+}
+</pre></div>
+给定的node2服务器就成为了primary节点。</p>
+<h3 id="52">5.2 添加备份节点<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
+<p>hidden（成员用于支持专用功能）：这样设置后此机器在读写中都不可见，并且不会被选举为Primary，但是可以投票，一般用于备份数据。把node3节点删除，重启。再添加让其为hidden节点：</p>
+<details class="note"><summary>删除node3</summary><div class="codehilite"><pre><span></span>repset:PRIMARY&gt; rs.status()
+{
+    &quot;set&quot; : &quot;repset&quot;,
+    &quot;date&quot; : ISODate(&quot;2019-04-03T05:49:19.032Z&quot;),
+    &quot;myState&quot; : 1,
+    &quot;term&quot; : NumberLong(3),
+    &quot;syncingTo&quot; : &quot;&quot;,
+    &quot;syncSourceHost&quot; : &quot;&quot;,
+    &quot;syncSourceId&quot; : -1,
+    &quot;heartbeatIntervalMillis&quot; : NumberLong(2000),
+    &quot;optimes&quot; : {
+        &quot;lastCommittedOpTime&quot; : {
+            &quot;ts&quot; : Timestamp(1554270553, 1),
+            &quot;t&quot; : NumberLong(3)
+        },
+        &quot;readConcernMajorityOpTime&quot; : {
+            &quot;ts&quot; : Timestamp(1554270553, 1),
+            &quot;t&quot; : NumberLong(3)
+        },
+        &quot;appliedOpTime&quot; : {
+            &quot;ts&quot; : Timestamp(1554270553, 1),
+            &quot;t&quot; : NumberLong(3)
+        },
+        &quot;durableOpTime&quot; : {
+            &quot;ts&quot; : Timestamp(1554270553, 1),
+            &quot;t&quot; : NumberLong(3)
+        }
+    },
+    &quot;lastStableCheckpointTimestamp&quot; : Timestamp(1554270513, 1),
+    &quot;members&quot; : [
+        {
+            &quot;_id&quot; : 1,
+            &quot;name&quot; : &quot;node1:27017&quot;,
+            &quot;health&quot; : 1,
+            &quot;state&quot; : 2,
+            &quot;stateStr&quot; : &quot;SECONDARY&quot;,
+            &quot;uptime&quot; : 7799,
+            &quot;optime&quot; : {
+                &quot;ts&quot; : Timestamp(1554270553, 1),
+                &quot;t&quot; : NumberLong(3)
+            },
+            &quot;optimeDurable&quot; : {
+                &quot;ts&quot; : Timestamp(1554270553, 1),
+                &quot;t&quot; : NumberLong(3)
+            },
+            &quot;optimeDate&quot; : ISODate(&quot;2019-04-03T05:49:13Z&quot;),
+            &quot;optimeDurableDate&quot; : ISODate(&quot;2019-04-03T05:49:13Z&quot;),
+            &quot;lastHeartbeat&quot; : ISODate(&quot;2019-04-03T05:49:17.784Z&quot;),
+            &quot;lastHeartbeatRecv&quot; : ISODate(&quot;2019-04-03T05:49:18.505Z&quot;),
+            &quot;pingMs&quot; : NumberLong(0),
+            &quot;lastHeartbeatMessage&quot; : &quot;&quot;,
+            &quot;syncingTo&quot; : &quot;node2:27017&quot;,
+            &quot;syncSourceHost&quot; : &quot;node2:27017&quot;,
+            &quot;syncSourceId&quot; : 3,
+            &quot;infoMessage&quot; : &quot;&quot;,
+            &quot;configVersion&quot; : 6
+        },
+        {
+            &quot;_id&quot; : 2,
+            &quot;name&quot; : &quot;node3:27017&quot;,
+            &quot;health&quot; : 1,
+            &quot;state&quot; : 2,
+            &quot;stateStr&quot; : &quot;SECONDARY&quot;,
+            &quot;uptime&quot; : 7799,
+            &quot;optime&quot; : {
+                &quot;ts&quot; : Timestamp(1554270553, 1),
+                &quot;t&quot; : NumberLong(3)
+            },
+            &quot;optimeDurable&quot; : {
+                &quot;ts&quot; : Timestamp(1554270553, 1),
+                &quot;t&quot; : NumberLong(3)
+            },
+            &quot;optimeDate&quot; : ISODate(&quot;2019-04-03T05:49:13Z&quot;),
+            &quot;optimeDurableDate&quot; : ISODate(&quot;2019-04-03T05:49:13Z&quot;),
+            &quot;lastHeartbeat&quot; : ISODate(&quot;2019-04-03T05:49:17.780Z&quot;),
+            &quot;lastHeartbeatRecv&quot; : ISODate(&quot;2019-04-03T05:49:18.574Z&quot;),
+            &quot;pingMs&quot; : NumberLong(1),
+            &quot;lastHeartbeatMessage&quot; : &quot;&quot;,
+            &quot;syncingTo&quot; : &quot;node2:27017&quot;,
+            &quot;syncSourceHost&quot; : &quot;node2:27017&quot;,
+            &quot;syncSourceId&quot; : 3,
+            &quot;infoMessage&quot; : &quot;&quot;,
+            &quot;configVersion&quot; : 6
+        },
+        {
+            &quot;_id&quot; : 3,
+            &quot;name&quot; : &quot;node2:27017&quot;,
+            &quot;health&quot; : 1,
+            &quot;state&quot; : 1,
+            &quot;stateStr&quot; : &quot;PRIMARY&quot;,
+            &quot;uptime&quot; : 8506,
+            &quot;optime&quot; : {
+                &quot;ts&quot; : Timestamp(1554270553, 1),
+                &quot;t&quot; : NumberLong(3)
+            },
+            &quot;optimeDate&quot; : ISODate(&quot;2019-04-03T05:49:13Z&quot;),
+            &quot;syncingTo&quot; : &quot;&quot;,
+            &quot;syncSourceHost&quot; : &quot;&quot;,
+            &quot;syncSourceId&quot; : -1,
+            &quot;infoMessage&quot; : &quot;&quot;,
+            &quot;electionTime&quot; : Timestamp(1554270051, 1),
+            &quot;electionDate&quot; : ISODate(&quot;2019-04-03T05:40:51Z&quot;),
+            &quot;configVersion&quot; : 6,
+            &quot;self&quot; : true,
+            &quot;lastHeartbeatMessage&quot; : &quot;&quot;
+        }
+    ],
+    &quot;ok&quot; : 1,
+    &quot;operationTime&quot; : Timestamp(1554270553, 1),
+    &quot;$clusterTime&quot; : {
+        &quot;clusterTime&quot; : Timestamp(1554270553, 1),
+        &quot;signature&quot; : {
+            &quot;hash&quot; : BinData(0,&quot;AAAAAAAAAAAAAAAAAAAAAAAAAAA=&quot;),
+            &quot;keyId&quot; : NumberLong(0)
+        }
+    }
+}
+repset:PRIMARY&gt; rs.remove(&#39;node3:27017&#39;)
+{
+    &quot;ok&quot; : 1,
+    &quot;operationTime&quot; : Timestamp(1554270578, 1),
+    &quot;$clusterTime&quot; : {
+        &quot;clusterTime&quot; : Timestamp(1554270578, 1),
+        &quot;signature&quot; : {
+            &quot;hash&quot; : BinData(0,&quot;AAAAAAAAAAAAAAAAAAAAAAAAAAA=&quot;),
+            &quot;keyId&quot; : NumberLong(0)
+        }
+    }
+}
+repset:PRIMARY&gt; rs.status()
+{
+    &quot;set&quot; : &quot;repset&quot;,
+    &quot;date&quot; : ISODate(&quot;2019-04-03T05:49:40.382Z&quot;),
+    &quot;myState&quot; : 1,
+    &quot;term&quot; : NumberLong(3),
+    &quot;syncingTo&quot; : &quot;&quot;,
+    &quot;syncSourceHost&quot; : &quot;&quot;,
+    &quot;syncSourceId&quot; : -1,
+    &quot;heartbeatIntervalMillis&quot; : NumberLong(2000),
+    &quot;optimes&quot; : {
+        &quot;lastCommittedOpTime&quot; : {
+            &quot;ts&quot; : Timestamp(1554270578, 1),
+            &quot;t&quot; : NumberLong(3)
+        },
+        &quot;readConcernMajorityOpTime&quot; : {
+            &quot;ts&quot; : Timestamp(1554270578, 1),
+            &quot;t&quot; : NumberLong(3)
+        },
+        &quot;appliedOpTime&quot; : {
+            &quot;ts&quot; : Timestamp(1554270578, 1),
+            &quot;t&quot; : NumberLong(3)
+        },
+        &quot;durableOpTime&quot; : {
+            &quot;ts&quot; : Timestamp(1554270578, 1),
+            &quot;t&quot; : NumberLong(3)
+        }
+    },
+    &quot;lastStableCheckpointTimestamp&quot; : Timestamp(1554270573, 1),
+    &quot;members&quot; : [
+        {
+            &quot;_id&quot; : 1,
+            &quot;name&quot; : &quot;node1:27017&quot;,
+            &quot;health&quot; : 1,
+            &quot;state&quot; : 2,
+            &quot;stateStr&quot; : &quot;SECONDARY&quot;,
+            &quot;uptime&quot; : 7820,
+            &quot;optime&quot; : {
+                &quot;ts&quot; : Timestamp(1554270573, 1),
+                &quot;t&quot; : NumberLong(3)
+            },
+            &quot;optimeDurable&quot; : {
+                &quot;ts&quot; : Timestamp(1554270573, 1),
+                &quot;t&quot; : NumberLong(3)
+            },
+            &quot;optimeDate&quot; : ISODate(&quot;2019-04-03T05:49:33Z&quot;),
+            &quot;optimeDurableDate&quot; : ISODate(&quot;2019-04-03T05:49:33Z&quot;),
+            &quot;lastHeartbeat&quot; : ISODate(&quot;2019-04-03T05:49:38.560Z&quot;),
+            &quot;lastHeartbeatRecv&quot; : ISODate(&quot;2019-04-03T05:49:38.565Z&quot;),
+            &quot;pingMs&quot; : NumberLong(0),
+            &quot;lastHeartbeatMessage&quot; : &quot;&quot;,
+            &quot;syncingTo&quot; : &quot;node2:27017&quot;,
+            &quot;syncSourceHost&quot; : &quot;node2:27017&quot;,
+            &quot;syncSourceId&quot; : 3,
+            &quot;infoMessage&quot; : &quot;&quot;,
+            &quot;configVersion&quot; : 6
+        },
+        {
+            &quot;_id&quot; : 3,
+            &quot;name&quot; : &quot;node2:27017&quot;,
+            &quot;health&quot; : 1,
+            &quot;state&quot; : 1,
+            &quot;stateStr&quot; : &quot;PRIMARY&quot;,
+            &quot;uptime&quot; : 8527,
+            &quot;optime&quot; : {
+                &quot;ts&quot; : Timestamp(1554270578, 1),
+                &quot;t&quot; : NumberLong(3)
+            },
+            &quot;optimeDate&quot; : ISODate(&quot;2019-04-03T05:49:38Z&quot;),
+            &quot;syncingTo&quot; : &quot;&quot;,
+            &quot;syncSourceHost&quot; : &quot;&quot;,
+            &quot;syncSourceId&quot; : -1,
+            &quot;infoMessage&quot; : &quot;&quot;,
+            &quot;electionTime&quot; : Timestamp(1554270051, 1),
+            &quot;electionDate&quot; : ISODate(&quot;2019-04-03T05:40:51Z&quot;),
+            &quot;configVersion&quot; : 7,
+            &quot;self&quot; : true,
+            &quot;lastHeartbeatMessage&quot; : &quot;&quot;
+        }
+    ],
+    &quot;ok&quot; : 1,
+    &quot;operationTime&quot; : Timestamp(1554270578, 1),
+    &quot;$clusterTime&quot; : {
+        &quot;clusterTime&quot; : Timestamp(1554270578, 1),
+        &quot;signature&quot; : {
+            &quot;hash&quot; : BinData(0,&quot;AAAAAAAAAAAAAAAAAAAAAAAAAAA=&quot;),
+            &quot;keyId&quot; : NumberLong(0)
+        }
+    }
+}
+</pre></div>
+
+</details>
+<p>添加备用节点[hidden隐藏]</p>
+<p><div class="codehilite"><pre><span></span>repset:PRIMARY&gt; rs.add({&quot;host&quot;:&quot;node3:27017&quot;,&quot;priority&quot;:0,&quot;hidden&quot;:true})
+{
+    &quot;ok&quot; : 1,
+    &quot;operationTime&quot; : Timestamp(1554270639, 1),
+    &quot;$clusterTime&quot; : {
+        &quot;clusterTime&quot; : Timestamp(1554270639, 1),
+        &quot;signature&quot; : {
+            &quot;hash&quot; : BinData(0,&quot;AAAAAAAAAAAAAAAAAAAAAAAAAAA=&quot;),
+            &quot;keyId&quot; : NumberLong(0)
+        }
+    }
+}
+</pre></div>
+查看状态</p>
+<p><div class="codehilite"><pre><span></span>repset:PRIMARY&gt; rs.conf()
+{
+    &quot;_id&quot; : &quot;repset&quot;,
+    &quot;version&quot; : 8,
+    &quot;protocolVersion&quot; : NumberLong(1),
+    &quot;writeConcernMajorityJournalDefault&quot; : true,
+    &quot;members&quot; : [
+        {
+            &quot;_id&quot; : 1,
+            &quot;host&quot; : &quot;node1:27017&quot;,
+            &quot;arbiterOnly&quot; : false,
+            &quot;buildIndexes&quot; : true,
+            &quot;hidden&quot; : false,
+            &quot;priority&quot; : 1,
+            &quot;tags&quot; : {
+
+            },
+            &quot;slaveDelay&quot; : NumberLong(0),
+            &quot;votes&quot; : 1
+        },
+        {
+            &quot;_id&quot; : 3,
+            &quot;host&quot; : &quot;node2:27017&quot;,
+            &quot;arbiterOnly&quot; : false,
+            &quot;buildIndexes&quot; : true,
+            &quot;hidden&quot; : false,
+            &quot;priority&quot; : 2,
+            &quot;tags&quot; : {
+
+            },
+            &quot;slaveDelay&quot; : NumberLong(0),
+            &quot;votes&quot; : 1
+        },
+        {
+            &quot;_id&quot; : 4,
+            &quot;host&quot; : &quot;node3:27017&quot;,
+            &quot;arbiterOnly&quot; : false,
+            &quot;buildIndexes&quot; : true,
+            &quot;hidden&quot; : true,
+            &quot;priority&quot; : 0,
+            &quot;tags&quot; : {
+
+            },
+            &quot;slaveDelay&quot; : NumberLong(0),
+            &quot;votes&quot; : 1
+        }
+    ],
+    &quot;settings&quot; : {
+        &quot;chainingAllowed&quot; : true,
+        &quot;heartbeatIntervalMillis&quot; : 2000,
+        &quot;heartbeatTimeoutSecs&quot; : 10,
+        &quot;electionTimeoutMillis&quot; : 10000,
+        &quot;catchUpTimeoutMillis&quot; : -1,
+        &quot;catchUpTakeoverDelayMillis&quot; : 30000,
+        &quot;getLastErrorModes&quot; : {
+
+        },
+        &quot;getLastErrorDefaults&quot; : {
+            &quot;w&quot; : 1,
+            &quot;wtimeout&quot; : 0
+        },
+        &quot;replicaSetId&quot; : ObjectId(&quot;5ca419993f98997dbf343825&quot;)
+    }
+}
+</pre></div>
+测试其能否参与投票：关闭当前的Primary，查看是否自动转移Primary</p>
+<div class="codehilite"><pre><span></span>repset:PRIMARY&gt; use admin
+switched to db admin
+repset:PRIMARY&gt; db.shutdownServer()
+server should be down...
+2019-04-03T13:57:22.020+0800 I NETWORK  [js] trying reconnect to 127.0.0.1:27017 failed
+2019-04-03T13:57:22.601+0800 I NETWORK  [js] reconnect 127.0.0.1:27017 failed failed
+2019-04-03T13:57:22.604+0800 I NETWORK  [js] trying reconnect to 127.0.0.1:27017 failed
+2019-04-03T13:57:22.604+0800 I NETWORK  [js] reconnect 127.0.0.1:27017 failed failed
+</pre></div>
+
+<p>链接另一个服务器[随便哪个secondary节点]看看</p>
+<details class="note"><summary>查看node1</summary><div class="codehilite"><pre><span></span><span class="n">repset</span><span class="p">:</span><span class="n">SECONDARY</span><span class="o">&gt;</span> <span class="n">rs</span><span class="o">.</span><span class="n">status</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="s2">&quot;set&quot;</span> <span class="p">:</span> <span class="s2">&quot;repset&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;date&quot;</span> <span class="p">:</span> <span class="n">ISODate</span><span class="p">(</span><span class="s2">&quot;2019-04-03T05:57:43.329Z&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;myState&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;term&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+    <span class="s2">&quot;syncingTo&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;syncSourceHost&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;syncSourceId&quot;</span> <span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;heartbeatIntervalMillis&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">2000</span><span class="p">),</span>
+    <span class="s2">&quot;optimes&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;lastCommittedOpTime&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;ts&quot;</span> <span class="p">:</span> <span class="n">Timestamp</span><span class="p">(</span><span class="mi">1554271063</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s2">&quot;t&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;readConcernMajorityOpTime&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;ts&quot;</span> <span class="p">:</span> <span class="n">Timestamp</span><span class="p">(</span><span class="mi">1554271063</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s2">&quot;t&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;appliedOpTime&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;ts&quot;</span> <span class="p">:</span> <span class="n">Timestamp</span><span class="p">(</span><span class="mi">1554271063</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s2">&quot;t&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;durableOpTime&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;ts&quot;</span> <span class="p">:</span> <span class="n">Timestamp</span><span class="p">(</span><span class="mi">1554271063</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s2">&quot;t&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;lastStableCheckpointTimestamp&quot;</span> <span class="p">:</span> <span class="n">Timestamp</span><span class="p">(</span><span class="mi">1554271023</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="s2">&quot;members&quot;</span> <span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;node1:27017&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;health&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;state&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;stateStr&quot;</span> <span class="p">:</span> <span class="s2">&quot;PRIMARY&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;uptime&quot;</span> <span class="p">:</span> <span class="mi">12784</span><span class="p">,</span>
+            <span class="s2">&quot;optime&quot;</span> <span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;ts&quot;</span> <span class="p">:</span> <span class="n">Timestamp</span><span class="p">(</span><span class="mi">1554271063</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                <span class="s2">&quot;t&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;optimeDate&quot;</span> <span class="p">:</span> <span class="n">ISODate</span><span class="p">(</span><span class="s2">&quot;2019-04-03T05:57:43Z&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;syncingTo&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;syncSourceHost&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;syncSourceId&quot;</span> <span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;infoMessage&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;electionTime&quot;</span> <span class="p">:</span> <span class="n">Timestamp</span><span class="p">(</span><span class="mi">1554271042</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s2">&quot;electionDate&quot;</span> <span class="p">:</span> <span class="n">ISODate</span><span class="p">(</span><span class="s2">&quot;2019-04-03T05:57:22Z&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;configVersion&quot;</span> <span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+            <span class="s2">&quot;self&quot;</span> <span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;lastHeartbeatMessage&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;node2:27017&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;health&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;state&quot;</span> <span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+            <span class="s2">&quot;stateStr&quot;</span> <span class="p">:</span> <span class="s2">&quot;(not reachable/healthy)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;uptime&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;optime&quot;</span> <span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;ts&quot;</span> <span class="p">:</span> <span class="n">Timestamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="s2">&quot;t&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;optimeDurable&quot;</span> <span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;ts&quot;</span> <span class="p">:</span> <span class="n">Timestamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="s2">&quot;t&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;optimeDate&quot;</span> <span class="p">:</span> <span class="n">ISODate</span><span class="p">(</span><span class="s2">&quot;1970-01-01T00:00:00Z&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;optimeDurableDate&quot;</span> <span class="p">:</span> <span class="n">ISODate</span><span class="p">(</span><span class="s2">&quot;1970-01-01T00:00:00Z&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;lastHeartbeat&quot;</span> <span class="p">:</span> <span class="n">ISODate</span><span class="p">(</span><span class="s2">&quot;2019-04-03T05:57:42.073Z&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;lastHeartbeatRecv&quot;</span> <span class="p">:</span> <span class="n">ISODate</span><span class="p">(</span><span class="s2">&quot;2019-04-03T05:57:21.280Z&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;pingMs&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+            <span class="s2">&quot;lastHeartbeatMessage&quot;</span> <span class="p">:</span> <span class="s2">&quot;Error connecting to node2:27017 (192.168.178.129:27017) :: caused by :: Connection refused&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;syncingTo&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;syncSourceHost&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;syncSourceId&quot;</span> <span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;infoMessage&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;configVersion&quot;</span> <span class="p">:</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;node3:27017&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;health&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;state&quot;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;stateStr&quot;</span> <span class="p">:</span> <span class="s2">&quot;SECONDARY&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;uptime&quot;</span> <span class="p">:</span> <span class="mi">423</span><span class="p">,</span>
+            <span class="s2">&quot;optime&quot;</span> <span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;ts&quot;</span> <span class="p">:</span> <span class="n">Timestamp</span><span class="p">(</span><span class="mi">1554271053</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                <span class="s2">&quot;t&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;optimeDurable&quot;</span> <span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;ts&quot;</span> <span class="p">:</span> <span class="n">Timestamp</span><span class="p">(</span><span class="mi">1554271053</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                <span class="s2">&quot;t&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;optimeDate&quot;</span> <span class="p">:</span> <span class="n">ISODate</span><span class="p">(</span><span class="s2">&quot;2019-04-03T05:57:33Z&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;optimeDurableDate&quot;</span> <span class="p">:</span> <span class="n">ISODate</span><span class="p">(</span><span class="s2">&quot;2019-04-03T05:57:33Z&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;lastHeartbeat&quot;</span> <span class="p">:</span> <span class="n">ISODate</span><span class="p">(</span><span class="s2">&quot;2019-04-03T05:57:42.033Z&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;lastHeartbeatRecv&quot;</span> <span class="p">:</span> <span class="n">ISODate</span><span class="p">(</span><span class="s2">&quot;2019-04-03T05:57:42.614Z&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;pingMs&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+            <span class="s2">&quot;lastHeartbeatMessage&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;syncingTo&quot;</span> <span class="p">:</span> <span class="s2">&quot;node1:27017&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;syncSourceHost&quot;</span> <span class="p">:</span> <span class="s2">&quot;node1:27017&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;syncSourceId&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;infoMessage&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;configVersion&quot;</span> <span class="p">:</span> <span class="mi">8</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;ok&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;operationTime&quot;</span> <span class="p">:</span> <span class="n">Timestamp</span><span class="p">(</span><span class="mi">1554271063</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="s2">&quot;$clusterTime&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;clusterTime&quot;</span> <span class="p">:</span> <span class="n">Timestamp</span><span class="p">(</span><span class="mi">1554271063</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="s2">&quot;signature&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;hash&quot;</span> <span class="p">:</span> <span class="n">BinData</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;AAAAAAAAAAAAAAAAAAAAAAAAAAA=&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;keyId&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+</details>
+<p>上面说明Primary已经转移，说明hidden具有投票的权利，继续查看是否有数据复制的功能。</p>
+<p>在看下是否复制</p>
+<p><div class="codehilite"><pre><span></span>repset:PRIMARY&gt; db.test.count()
+10000
+repset:PRIMARY&gt; use test
+switched to db test
+repset:PRIMARY&gt; for(var i=0;i&lt;90;i++){db.test.insert({&quot;name&quot;:&quot;keke&quot;+i,&quot;age&quot;:123})}
+WriteResult({ &quot;nInserted&quot; : 1 })
+repset:PRIMARY&gt;  db.test.count()
+10090
+
+查看
+repset:SECONDARY&gt; use test;
+switched to db test
+repset:SECONDARY&gt; db.test.count()
+10090
+</pre></div>
+上面说明hidden具有数据复制的功能。</p>
+<h3 id="53">5.3 添加延时节点<a class="headerlink" href="#53" title="Permanent link">&para;</a></h3>
+<h4 id="531">5.3.1 操作<a class="headerlink" href="#531" title="Permanent link">&para;</a></h4>
+<p>Delayed（成员用于支持专用功能）：可以指定一个时间延迟从primary节点同步数据。主要用于处理误删除数据马上同步到从节点导致的不一致问题。</p>
+<p>我们把node3，也就是上面的隐藏节点删除，然后再以延时节点添加进来。</p>
+<details class="note"><summary>删除node3</summary><div class="codehilite"><pre><span></span><span class="n">repset</span><span class="p">:</span><span class="n">PRIMARY</span><span class="o">&gt;</span> <span class="n">rs</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;node3:27017&#39;</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="s2">&quot;ok&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;operationTime&quot;</span> <span class="p">:</span> <span class="n">Timestamp</span><span class="p">(</span><span class="mi">1554271650</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="s2">&quot;$clusterTime&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;clusterTime&quot;</span> <span class="p">:</span> <span class="n">Timestamp</span><span class="p">(</span><span class="mi">1554271650</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="s2">&quot;signature&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;hash&quot;</span> <span class="p">:</span> <span class="n">BinData</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;AAAAAAAAAAAAAAAAAAAAAAAAAAA=&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;keyId&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">repset</span><span class="p">:</span><span class="n">PRIMARY</span><span class="o">&gt;</span> <span class="n">rs</span><span class="o">.</span><span class="n">conf</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="s2">&quot;repset&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;version&quot;</span> <span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+    <span class="s2">&quot;protocolVersion&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+    <span class="s2">&quot;writeConcernMajorityJournalDefault&quot;</span> <span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;members&quot;</span> <span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;host&quot;</span> <span class="p">:</span> <span class="s2">&quot;node1:27017&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;arbiterOnly&quot;</span> <span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;buildIndexes&quot;</span> <span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;hidden&quot;</span> <span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;priority&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;tags&quot;</span> <span class="p">:</span> <span class="p">{</span>
+
+            <span class="p">},</span>
+            <span class="s2">&quot;slaveDelay&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+            <span class="s2">&quot;votes&quot;</span> <span class="p">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="s2">&quot;host&quot;</span> <span class="p">:</span> <span class="s2">&quot;node2:27017&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;arbiterOnly&quot;</span> <span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;buildIndexes&quot;</span> <span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;hidden&quot;</span> <span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;priority&quot;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;tags&quot;</span> <span class="p">:</span> <span class="p">{</span>
+
+            <span class="p">},</span>
+            <span class="s2">&quot;slaveDelay&quot;</span> <span class="p">:</span> <span class="n">NumberLong</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+            <span class="s2">&quot;votes&quot;</span> <span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;settings&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;chainingAllowed&quot;</span> <span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;heartbeatIntervalMillis&quot;</span> <span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
+        <span class="s2">&quot;heartbeatTimeoutSecs&quot;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">&quot;electionTimeoutMillis&quot;</span> <span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
+        <span class="s2">&quot;catchUpTimeoutMillis&quot;</span> <span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;catchUpTakeoverDelayMillis&quot;</span> <span class="p">:</span> <span class="mi">30000</span><span class="p">,</span>
+        <span class="s2">&quot;getLastErrorModes&quot;</span> <span class="p">:</span> <span class="p">{</span>
+
+        <span class="p">},</span>
+        <span class="s2">&quot;getLastErrorDefaults&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;w&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;wtimeout&quot;</span> <span class="p">:</span> <span class="mi">0</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;replicaSetId&quot;</span> <span class="p">:</span> <span class="n">ObjectId</span><span class="p">(</span><span class="s2">&quot;5ca419993f98997dbf343825&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+</details>
+<p>添加node3以延时节点方式添加到集群</p>
+<p><div class="codehilite"><pre><span></span>rs.add({&quot;host&quot;:&quot;node3:27017&quot;,&quot;priority&quot;:0,&quot;hidden&quot;:false,&quot;slaveDelay&quot;:120})
+</pre></div>
+期中priority必须为0,否则会报错。报错如下</p>
+<blockquote>
+<p>"errmsg" : "priority must be 0 when slaveDelay is used"</p>
+</blockquote>
+<details class="note"><summary>添加延时node3节点</summary><div class="codehilite"><pre><span></span>repset:PRIMARY&gt; rs.add({&quot;host&quot;:&quot;node3:27017&quot;,&quot;priority&quot;:0,&quot;hidden&quot;:false,&quot;slaveDelay&quot;:120})
+{
+    &quot;ok&quot; : 1,
+    &quot;operationTime&quot; : Timestamp(1554271789, 1),
+    &quot;$clusterTime&quot; : {
+        &quot;clusterTime&quot; : Timestamp(1554271789, 1),
+        &quot;signature&quot; : {
+            &quot;hash&quot; : BinData(0,&quot;AAAAAAAAAAAAAAAAAAAAAAAAAAA=&quot;),
+            &quot;keyId&quot; : NumberLong(0)
+        }
+    }
+}
+repset:PRIMARY&gt; rs.conf()
+{
+    &quot;_id&quot; : &quot;repset&quot;,
+    &quot;version&quot; : 10,
+    &quot;protocolVersion&quot; : NumberLong(1),
+    &quot;writeConcernMajorityJournalDefault&quot; : true,
+    &quot;members&quot; : [
+        {
+            &quot;_id&quot; : 1,
+            &quot;host&quot; : &quot;node1:27017&quot;,
+            &quot;arbiterOnly&quot; : false,
+            &quot;buildIndexes&quot; : true,
+            &quot;hidden&quot; : false,
+            &quot;priority&quot; : 1,
+            &quot;tags&quot; : {
+
+            },
+            &quot;slaveDelay&quot; : NumberLong(0),
+            &quot;votes&quot; : 1
+        },
+        {
+            &quot;_id&quot; : 3,
+            &quot;host&quot; : &quot;node2:27017&quot;,
+            &quot;arbiterOnly&quot; : false,
+            &quot;buildIndexes&quot; : true,
+            &quot;hidden&quot; : false,
+            &quot;priority&quot; : 2,
+            &quot;tags&quot; : {
+
+            },
+            &quot;slaveDelay&quot; : NumberLong(0),
+            &quot;votes&quot; : 1
+        },
+        {
+            &quot;_id&quot; : 4,
+            &quot;host&quot; : &quot;node3:27017&quot;,
+            &quot;arbiterOnly&quot; : false,
+            &quot;buildIndexes&quot; : true,
+            &quot;hidden&quot; : false,
+            &quot;priority&quot; : 0,
+            &quot;tags&quot; : {
+
+            },
+            &quot;slaveDelay&quot; : NumberLong(120),
+            &quot;votes&quot; : 1
+        }
+    ],
+    &quot;settings&quot; : {
+        &quot;chainingAllowed&quot; : true,
+        &quot;heartbeatIntervalMillis&quot; : 2000,
+        &quot;heartbeatTimeoutSecs&quot; : 10,
+        &quot;electionTimeoutMillis&quot; : 10000,
+        &quot;catchUpTimeoutMillis&quot; : -1,
+        &quot;catchUpTakeoverDelayMillis&quot; : 30000,
+        &quot;getLastErrorModes&quot; : {
+
+        },
+        &quot;getLastErrorDefaults&quot; : {
+            &quot;w&quot; : 1,
+            &quot;wtimeout&quot; : 0
+        },
+        &quot;replicaSetId&quot; : ObjectId(&quot;5ca419993f98997dbf343825&quot;)
+    }
+}
+</pre></div>
+
+</details>
+<h4 id="532">5.3.2 测试<a class="headerlink" href="#532" title="Permanent link">&para;</a></h4>
+<p>首先在primary上添加数据，然后去延时节点上查看。</p>
+<p>primary上查看
+<div class="codehilite"><pre><span></span>repset:PRIMARY&gt; db.test.count()
+11000
+</pre></div>
+此时立马查看secondary上信息</p>
+<p><div class="codehilite"><pre><span></span>repset:SECONDARY&gt; db.test.count()
+11000
+</pre></div>
+从上可见，secondary是primary一样数据，此时开始向primary怼数据。</p>
+<p><div class="codehilite"><pre><span></span>repset:PRIMARY&gt; for(var i=0;i&lt;1000;i++){db.test.insert({&quot;name&quot;:&quot;cmz&quot;+i,&quot;age&quot;:10})}
+WriteResult({ &quot;nInserted&quot; : 1 })
+repset:PRIMARY&gt; db.test.count()
+12000
+</pre></div>
+时查看没有延时节点secondary数据
+<div class="codehilite"><pre><span></span>repset:SECONDARY&gt; db.test.count()
+12000
+</pre></div>
+说明数据立马同步过来了。</p>
+<p>紧接着此时立马查看延时节点的secondary数据。</p>
+<p><div class="codehilite"><pre><span></span>repset:SECONDARY&gt; db.test.count()
+11000
+</pre></div>
+没有立马同步。在等等吧，我上面配置了120秒数据才同步。时间到了再次查看延时节点。</p>
+<p><div class="codehilite"><pre><span></span>repset:SECONDARY&gt; db.test.count()
+12000
+</pre></div>
+&#160; &#160; &#160; &#160;nice，时间到了，数据过来了。上面说明delayed能够成功的把同步操作延迟120秒执行。除了上面的成员之外，</p>
+<ul>
+<li>Secondary-Only:不能成为primary节点，只能作为secondary副本节点，防止一些性能不高的节点成为主节点。</li>
+<li>Non-Voting：没有选举权的secondary节点，纯粹的备份数据节点。</li>
+</ul>
+<p>具体成员信息如下：</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>成为primary</th>
+<th>对客户端可见</th>
+<th>参与投票</th>
+<th>延迟同步</th>
+<th>复制数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>∕</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Secondary-Only</td>
+<td>/</td>
+<td>√</td>
+<td>√</td>
+<td>∕</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Hidden</td>
+<td>/</td>
+<td>/</td>
+<td>√</td>
+<td>∕</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Delayed</td>
+<td>/</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Arbiters</td>
+<td>/</td>
+<td>/</td>
+<td>√</td>
+<td>∕</td>
+<td>/</td>
+</tr>
+<tr>
+<td>Non-Voting</td>
+<td>√</td>
+<td>√</td>
+<td>/</td>
+<td>∕</td>
+<td>√</td>
+</tr>
+</tbody>
+</table>
+<h3 id="54">5.4 读写分离<a class="headerlink" href="#54" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;MongoDB副本集对读写分离的支持是通过Read Preferences特性进行支持的，这个特性非常复杂和灵活。</p>
+<p>&#160; &#160; &#160; &#160;应用程序驱动通过read reference来设定如何对副本集进行读取操作，默认的,客户端驱动所有的读操作都是直接访问primary节点的，从而保证了数据的严格一致性。</p>
+<p>支持五种的read preference模式 <img alt="官网传送门" src="https://docs.mongodb.com/manual/applications/replication/#replica-set-read-preference" /></p>
+<div class="codehilite"><pre><span></span>primary ： 主节点，默认模式，读操作只在主节点，如果主节点不可用，报错或者抛出异常。
+primaryPreferred ： 首选主节点，大多情况下读操作在主节点，如果主节点不可用，如故障转移，读操作在从节点。
+secondary ：从节点，读操作只在从节点， 如果从节点不可用，报错或者抛出异常。
+secondaryPreferred ： 首选从节点，大多情况下读操作在从节点，特殊情况（如单主节点架构）读操作在主节点。
+nearest ： 最邻近节点，读操作在最邻近的成员，可能是主节点或者从节点，关于最邻近的成员请参考
+</pre></div>
                 
                   
                 
