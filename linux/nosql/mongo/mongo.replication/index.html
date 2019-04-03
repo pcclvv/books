@@ -7100,7 +7100,7 @@ repset:PRIMARY&gt; db.test.count()
 <h3 id="54">5.4 读写分离<a class="headerlink" href="#54" title="Permanent link">&para;</a></h3>
 <p>&#160; &#160; &#160; &#160;MongoDB副本集对读写分离的支持是通过Read Preferences特性进行支持的，这个特性非常复杂和灵活。</p>
 <p>&#160; &#160; &#160; &#160;应用程序驱动通过read reference来设定如何对副本集进行读取操作，默认的,客户端驱动所有的读操作都是直接访问primary节点的，从而保证了数据的严格一致性。</p>
-<p>支持五种的read preference模式 <img alt="官网传送门" src="https://docs.mongodb.com/manual/applications/replication/#replica-set-read-preference" /></p>
+<p>支持五种的read preference模式 <a href="https://docs.mongodb.com/manual/applications/replication/#replica-set-read-preference">官网传送门</a></p>
 <div class="codehilite"><pre><span></span>primary ： 主节点，默认模式，读操作只在主节点，如果主节点不可用，报错或者抛出异常。
 primaryPreferred ： 首选主节点，大多情况下读操作在主节点，如果主节点不可用，如故障转移，读操作在从节点。
 secondary ：从节点，读操作只在从节点， 如果从节点不可用，报错或者抛出异常。
