@@ -209,6 +209,7 @@ nav:
             - 9. MonogoDB 排序: linux/nosql/mongo/mongo.sort.md
             - 10. MonogoDB 备份与恢复: linux/nosql/mongo/mongo.backup_recovery.md
             - 11. MonogoDB 监控: linux/nosql/mongo/mongo.monitor.md 
+            - 12. MonogoDB 副本集: linux/nosql/mongo/mongo.replication.md 
         - 2. redis:
             - 1. redis 介绍: linux/nosql/redis/redis.index.md
             - 2. redis 安装: linux/nosql/redis/redis.install.md
