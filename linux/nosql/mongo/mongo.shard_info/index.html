@@ -4961,7 +4961,7 @@
 <p>这时候,各个shard上的chunk数量会不平衡，mongos中的一个组件balancer就会执行自动平衡,把chunk从chunk数量最多的shard节点挪动到数量最少的节点</p>
 <p><img alt="image" src="../../../../pictures/linux/nosql/mongo/p9.png" /></p>
 <p>chunkSize 对分裂及迁移的影响</p>
-<p>M&#160; &#160; &#160; &#160;ongoDB 默认的 chunkSize 为64MB，如无特殊需求，建议保持默认值；chunkSize 会直接影响到 chunk 分裂、迁移的行为。</p>
+<p>&#160; &#160; &#160; &#160;MongoDB 默认的 chunkSize 为64MB，如无特殊需求，建议保持默认值；chunkSize 会直接影响到 chunk 分裂、迁移的行为。</p>
 <p>&#160; &#160; &#160; &#160;chunkSize 越小，chunk 分裂及迁移越多，数据分布越均衡；反之，chunkSize 越大，chunk 分裂及迁移会更少，但可能导致数据分布不均。</p>
 <p>&#160; &#160; &#160; &#160;chunkSize 太小，容易出现 jumbo chunk（即shardKey 的某个取值出现频率很高，这些文档只能放到一个 chunk 里，无法再分裂）而无法迁移；chunkSize 越大，则可能出现 chunk 内文档数太多（chunk 内文档数不能超过 250000 ）而无法迁移。</p>
 <p>&#160; &#160; &#160; &#160;chunk 自动分裂只会在数据写入时触发，所以如果将 chunkSize 改小，系统需要一定的时间来将 chunk 分裂到指定的大小。</p>
@@ -4970,16 +4970,17 @@
 <p>&#160; &#160; &#160; &#160;MongoDB中数据的分片是、以集合为基本单位的，集合中的数据通过片键（Shard key）被分成多部分。其实片键就是在集合中选一个键，用该键的值作为数据拆分的依据。所以一个好的片键对分片至关重要。片键必须是一个索引，通过sh.shardCollection加会自动创建索引（前提是此集合不存在的情况下）。一个自增的片键对写入和数据均匀分布就不是很好，因为自增的片键总会在一个分片上写入，后续达到某个阀值可能会写到别的分片。但是按照片键查询会非常高效。</p>
 <p>&#160; &#160; &#160; &#160;随机片键对数据的均匀分布效果很好。注意尽量避免在多个分片上进行查询。在所有分片上查询，mongos会对结果进行归并排序。</p>
 <p>&#160; &#160; &#160; &#160;对集合进行分片时，你需要选择一个片键，片键是每条记录都必须包含的，且建立了索引的单个字段或复合字段，MongoDB按照片键将数据划分到不同的数据块中，并将数据块均衡地分布到所有分片中。</p>
-<p>&#160; &#160; &#160; &#160;为了按照片键划分数据块，MongoDB使用基于范围的分片方式或者 基于哈希的分片方式。
-　　
-!!! note "注意
-    <div class="codehilite"><pre><span></span><span class="mf">1.</span> <span class="err">分片键是不可变。</span>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<div class="codehilite"><pre><span></span><span class="mf">1.</span> <span class="err">分片键是不可变。</span>
 <span class="mf">2.</span> <span class="err">分片键必须有索引。</span>
 <span class="mf">3.</span> <span class="err">分片键大小限制</span><span class="mi">512</span><span class="nb">bytes</span><span class="err">。</span>
 <span class="mf">4.</span> <span class="err">分片键用于路由查询。</span>
 <span class="mf">5.</span> <span class="n">MongoDB不接受已进行collection级分片的collection上插入无分片</span>
 <span class="mf">6.</span> <span class="err">键的文档（也不支持空值插入）</span>
-</pre></div></p>
+</pre></div>
+
+</div>
 <h2 id="16">1.6 数据分割<a class="headerlink" href="#16" title="Permanent link">&para;</a></h2>
 <p>&#160; &#160; &#160; &#160;从前文知道，MongoDB在collection这个级别进行数据的切块，称之为sharding。块的最小粒度是chunk，其大小（chunkSize）默认为64M。</p>
 <p>&#160; &#160; &#160; &#160;当一个集合的数据量超过chunkSize的时候，就会被拆分成两个chunk，这个过程称为splitting。那么按照什么原则将一个chunk上的数据拆分成两个chunk，这就是Sharding key的作用，Sharding key是被索引的字段，通过sharding key，就可以把数据均分到两个chunk，每一个document在哪一个chunk上，这就是元数据信息。元数据信息存放在config server上，方便router使用。</p>
