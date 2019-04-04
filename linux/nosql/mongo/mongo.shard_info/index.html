@@ -2396,6 +2396,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../mongo.shard_replicat/" title="14. MonogoDB 分片集实战" class="md-nav__link">
+      14. MonogoDB 分片集实战
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -4920,9 +4932,9 @@
 <p><img alt="image" src="../../../../pictures/linux/nosql/mongo/p6.png" /></p>
 <h2 id="11">1.1 角色划分<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
 <h3 id="111-shards">1.1.1 数据分片[shards]<a class="headerlink" href="#111-shards" title="Permanent link">&para;</a></h3>
-<p>&#160; &#160; &#160; &#160;存储数据，可以是单个的mongod，也可以是replica set。在生产环境中，为了提高高可用性，都会使用replica set。存储在mongod上的数据以chunk为基本单位，默认的大小为64M，后面会介绍shard上数据的分裂（split）与迁移（migration）</p>
+<p>&#160; &#160; &#160; &#160;存储数据，可以是单个的mongod，也可以是replica set。在生产环境中，为了提高高可用性，都会使用replica set。存储在mongod上的数据以chunk为基本单位，默认的大小为64M，后面会介绍shard上数据的分裂（split）与迁移（migration）,一台机器的一个数据表 Collection1 存储了 1T 数据，压力太大了！在分给4个机器后，每个机器都是256G，则分摊了集中在一台机器的压力。也许有人问一台机器硬盘加大一点不就可以了，为什么要分给四台机器呢？不要光想到存储空间，实际运行的数据库还有硬盘的读写、网络的IO、CPU和内存的瓶颈。在mongodb集群只要设置好了分片规则，通过mongos操作数据库就能自动把对应的数据操作请求转发到对应的分片机器上。在生产环境中分片的片键可要好好设置，这个影响到了怎么把数据均匀分到多个分片机器上，不要出现其中一台机器分了1T，其他机器没有分到的情况，这样还不如不分片！</p>
 <h3 id="112-configserver">1.1.2 配置服务器[configserver]<a class="headerlink" href="#112-configserver" title="Permanent link">&para;</a></h3>
-<p>&#160; &#160; &#160; &#160;存储集群的元数据（metadata），即数据的哪一部分放在哪一个shard上，router将会利用这些元数据将请求分发到对应的shards上，shards上chunk的迁移也是config server来控制的。</p>
+<p>&#160; &#160; &#160; &#160;顾名思义为配置服务器，存储所有数据库元信息（路由、分片）的配置。mongos本身没有物理存储分片服务器和数据路由信息，只是缓存在内存里，配置服务器则实际存储这些数据。mongos第一次启动或者关掉重启就会从 config server 加载配置信息，以后如果配置服务器信息变化会通知到所有的 mongos 更新自己的状态，这样 mongos 就能继续准确路由。在生产环境通常有多个 config server 配置服务器，因为它存储了分片路由的元数据，这个可不能丢失！就算挂掉其中一台，只要还有存货， mongodb集群就不会挂掉。存储集群的元数据（metadata），即数据的哪一部分放在哪一个shard上，router将会利用这些元数据将请求分发到对应的shards上，shards上chunk的迁移也是config server来控制的。</p>
 <h3 id="113-routermongos">1.1.3 查询路由router[mongos]<a class="headerlink" href="#113-routermongos" title="Permanent link">&para;</a></h3>
 <p>&#160; &#160; &#160; &#160;mongos实例，在一个集群中直接为应用程序提供服务，利用config server上的元数据来制定最佳的查询计划。数据路由,和客户端打交道的模块,mongos自身没有任何数据,也不知道该如何处理数据,这些都需要config-server来告诉他。</p>
 <h2 id="12">1.2 路由<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
@@ -5023,13 +5035,13 @@
           </a>
         
         
-          <a href="../../redis/redis.index/" title="1. redis 介绍" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../mongo.shard_replicat/" title="14. MonogoDB 分片集实战" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                1. redis 介绍
+                14. MonogoDB 分片集实战
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
