@@ -4809,9 +4809,9 @@
 <h2 id="1">1. 介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>&#160; &#160; &#160; &#160; 缓存雪崩通俗简单的理解就是：由于原有缓存失效（或者数据未加载到缓存中），新缓存未到期间（缓存正常从Redis中获取，如下图）所有原本应该访问缓存的请求都去查询数据库了，而对数据库CPU和内存造成巨大压力，严重的会造成数据库宕机，造成系统的崩溃。</p>
 <p>正常访问:</p>
-<p><div align="center"> <img alt="image" src="../../../../pictures/linux/nosql/redis/p5.png" /></div></p>
+<p><div align="center"> <img alt="正常访问" src="../../../../pictures/linux/nosql/redis/p5.png" /></div></p>
 <p>缓存失效访问:</p>
-<p><img alt="image" src="../../../../pictures/linux/nosql/redis/p6.png" /></p>
+<p><div align="center"> <img alt="缓存失效" src="../../../../pictures/linux/nosql/redis/p6.png" /></div></p>
 <h2 id="2">2. 分析<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <p>缓存失效时的雪崩效应对底层系统的冲击非常可怕！那有什么办法来解决这个问题呢？基本解决思路如下：</p>
 <p>&#160; &#160; &#160; &#160;第一，大多数系统设计者考虑用加锁或者队列的方式保证来保证不会有大量的线程对数据库一次性进行读写，避免缓存失效时对数据库造成太大的压力，虽然能够在一定的程度上缓解了数据库的压力但是与此同时又降低了系统的吞吐量。</p>
