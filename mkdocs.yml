@@ -223,11 +223,13 @@ nav:
             - 6. redis 事务: linux/nosql/redis/redis.arrairs.md
             - 7. redis 持久化存储: linux/nosql/redis/redis.store.md
             - 8. redis 备份与恢复: linux/nosql/redis/redis.save.md
-            - 9. redis 主从: linux/nosql/redis/redis.master-slave.md
-            - 10. redis 哨兵: linux/nosql/redis/redis.sentinel.md
-            - 11. redis cluster: linux/nosql/redis/redis.cluster.md  
-            - 12. redis 缓存策略: linux/nosql/redis/redis.cache_policy.md
-            - 13. redis 击穿: linux/nosql/redis/redis.breakdown.md
+            - 9. redis 集群: linux/nosql/redis/redis.sentinel_cluster.md
+            - 10. redis 主从: linux/nosql/redis/redis.master-slave.md
+            - 11. redis 哨兵: linux/nosql/redis/redis.sentinel.md
+            - 12. redis cluster: linux/nosql/redis/redis.cluster.md  
+            - 13. redis 缓存策略: linux/nosql/redis/redis.cache_policy.md
+            - 14. redis 击穿: linux/nosql/redis/redis.breakdown.md
+            - 15. redis 雪崩: linux/nosql/redis/redis.avalanche.md
         - 3. memcached:
             - 1. memcached: linux/nosql/memcached/memcached.index.md
     - mysql:
