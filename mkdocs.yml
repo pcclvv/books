@@ -156,7 +156,8 @@ nav:
             - 2. HDFS shell: hadoop/CDH/cdh.hdfs_shell.md
         - Hive:
             - 1. Hive 介绍: hadoop/CDH/cdh.hive.md
-            
+    - DStorage:
+        - 对比: linux/distributed_storage/distributed_storage.info.md
     - Linux:
         - url: url/url.index.md
         - raid: 
@@ -210,6 +211,8 @@ nav:
             - 10. MonogoDB 备份与恢复: linux/nosql/mongo/mongo.backup_recovery.md
             - 11. MonogoDB 监控: linux/nosql/mongo/mongo.monitor.md 
             - 12. MonogoDB 副本集: linux/nosql/mongo/mongo.replication.md 
+            - 13. MonogoDB 分片集: linux/nosql/mongo/mongo.shard_info.md 
+            - 14. MonogoDB 分片集实战: linux/nosql/mongo/mongo.shard_replicat.md
         - 2. redis:
             - 1. redis 介绍: linux/nosql/redis/redis.index.md
             - 2. redis 安装: linux/nosql/redis/redis.install.md
