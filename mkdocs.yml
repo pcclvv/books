@@ -154,6 +154,7 @@ nav:
         - HDFS:
             - 1. HDFS 介绍: hadoop/CDH/cdh.hdfs_info.md
             - 2. HDFS shell: hadoop/CDH/cdh.hdfs_shell.md
+            - 3. secondary_namenode: hadoop/CDH/cdh.secondary_namenode.md
         - Hive:
             - 1. Hive 介绍: hadoop/CDH/cdh.hive.md
     - DStorage:
@@ -226,6 +227,7 @@ nav:
             - 10. redis 哨兵: linux/nosql/redis/redis.sentinel.md
             - 11. redis cluster: linux/nosql/redis/redis.cluster.md  
             - 12. redis 缓存策略: linux/nosql/redis/redis.cache_policy.md
+            - 13. redis 击穿: linux/nosql/redis/redis.breakdown.md
         - 3. memcached:
             - 1. memcached: linux/nosql/memcached/memcached.index.md
     - mysql:
