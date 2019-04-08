@@ -4809,7 +4809,8 @@
 <h2 id="1">1. 介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>&#160; &#160; &#160; &#160; 缓存雪崩通俗简单的理解就是：由于原有缓存失效（或者数据未加载到缓存中），新缓存未到期间（缓存正常从Redis中获取，如下图）所有原本应该访问缓存的请求都去查询数据库了，而对数据库CPU和内存造成巨大压力，严重的会造成数据库宕机，造成系统的崩溃。</p>
 <p>正常访问:</p>
-<p><img alt="image" src="../../../../pictures/linux/nosql/redis/p5.png" /></p>
+<div align="center"> ![image](../../../pictures/linux/nosql/redis/p5.png)</div>
+
 <p>缓存失效访问:</p>
 <p><img alt="image" src="../../../../pictures/linux/nosql/redis/p6.png" /></p>
 <h2 id="2">2. 分析<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
