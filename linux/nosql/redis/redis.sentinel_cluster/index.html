@@ -4858,11 +4858,9 @@
 <li>能够进行自动切换。当一个master节点不可用时，能够选举出master的多个slave(如果有超过一个slave的话)中的一个来作为新的master,其它的slave节点会将它所追随的master的地址改为被提升为master的slave的新地址。</li>
 </ul>
 <p>Redis 主从模式如下图：</p>
-<div align="center">![image](../../../pictures/linux/nosql/redis/m-s.png)</div>
-
+<p><div align="center"><img alt="image" src="../../../../pictures/linux/nosql/redis/m-s.png" /></div></p>
 <p>从上图片中可以看到，一个master 节点可以挂多个slave  ，Redis Sentinel 管理Redis 节点结构如下：</p>
-<div align="center">![image](../../../pictures/linux/nosql/redis/sentinel.png)</div>
-
+<p><div align="center"><img alt="image" src="../../../../pictures/linux/nosql/redis/sentinel.png" /></div></p>
 <p>&#160; &#160; &#160; &#160;从上图中可以得出Sentinel其实就是Client和Redis之间的桥梁，所有的客户端都通过Sentinel程序获取Redis的Master服务。首先Sentinel是集群部署的，Client可以链接任何一个Sentinel服务所获的结果都是一致的。其次，所有的Sentinel服务都会对Redis的主从服务进行监控，当监控到Master服务无响应的时候，Sentinel内部进行仲裁，从所有的 Slave选举出一个做为新的Master。并且把其他的slave作为新的Master的Slave。最后通知所有的客户端新的Master服务地址。如果旧的Master服务地址重新启动，这个时候，它将被设置为Slave服务。</p>
 <p>&#160; &#160; &#160; &#160;Sentinel 可以管理master-slave节点，看似Redis的稳定性得到一个比较好的保障。但是如果Sentinel是单节点的话，如果Sentinel宕机了，那master-slave这种模式就不能发挥其作用了。幸好Sentinel也支持集群模式，Sentinel的集群模式主要有以下几个好处：</p>
 <ul>
@@ -4876,10 +4874,9 @@
 <h3 id="22-redis-cluster">2.2 Redis Cluster<a class="headerlink" href="#22-redis-cluster" title="Permanent link">&para;</a></h3>
 <p>&#160; &#160; &#160; &#160;使用Redis Sentinel 模式架构的缓存体系，在使用的过程中，随着业务的增加不可避免的要对Redis进行扩容，熟知的扩容方式有两种，一种是垂直扩容，一种是水平扩容。垂直扩容表示通过加内存方式来增加整个缓存体系的容量比如将缓存大小由2G调整到4G,这种扩容不需要应用程序支持；水平扩容表示表示通过增加节点的方式来增加整个缓存体系的容量比如本来有1个节点变成2个节点，这种扩容方式需要应用程序支持。垂直扩容看似最便捷的扩容，但是受到机器的限制，一个机器的内存是有限的，所以垂直扩容到一定阶段不可避免的要进行水平扩容，如果预留出很多节点感觉又是对资源的一种浪费因为对业务的发展趋势很快预测。Redis Sentinel 水平扩容一直都是程序猿心中的痛点，因为水平扩容牵涉到数据的迁移。迁移过程一方面要保证自己的业务是可用的，一方面要保证尽量不丢失数据所以数据能不迁移就尽量不迁移。针对这个问题，Redis Cluster就应运而生了，下面简单介绍一下RedisCluster。</p>
 <p>&#160; &#160; &#160; &#160;Redis Cluster是Redis的分布式解决方案，在Redis 3.0版本正式推出的，有效解决了Redis分布式方面的需求。当遇到单机内存、并发、流量等瓶颈时，可以采用Cluster架构达到负载均衡的目的。分布式集群首要解决把整个数据集按照分区规则映射到多个节点的问题，即把数据集划分到多个节点上，每个节点负责整个数据的一个子集。Redis Cluster采用哈希分区规则中的虚拟槽分区。虚拟槽分区巧妙地使用了哈希空间，使用分散度良好的哈希函数把所有的数据映射到一个固定范围内的整数集合，整数定义为槽（slot）。Redis Cluster槽的范围是0 ～ 16383。槽是集群内数据管理和迁移的基本单位。采用大范围的槽的主要目的是为了方便数据的拆分和集群的扩展，每个节点负责一定数量的槽。Redis Cluster采用虚拟槽分区，所有的键根据哈希函数映射到0 ～ 16383，计算公式：slot = CRC16(key)&amp;16383。每一个实节点负责维护一部分槽以及槽所映射的键值数据。下图展现一个五个节点构成的集群，每个节点平均大约负责3276个槽，以及通过计算公式映射到对应节点的对应槽的过程。</p>
-<div align="center">![image](../../../pictures/linux/nosql/redis/p7.png)</div>
-
+<p><div align="center"><img alt="image" src="../../../../pictures/linux/nosql/redis/p7.png" /></div></p>
 <p>Redis Cluster节点相互之前的关系如下图所示：</p>
-<div align="center">![image](../../../pictures/linux/nosql/redis/p8.png)</div>
+<p><div align="center"><img alt="image" src="../../../../pictures/linux/nosql/redis/p8.png" /></div></p>
                 
                   
                 
