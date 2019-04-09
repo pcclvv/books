@@ -1,5 +1,6 @@
 <center><h1>Git 安装</h1></center>
-#### 在线安装
+
+## 1. 在线安装
 - ubuntu 在线安装
     - apt-get install git -y
 - centos 在线安装
@@ -34,7 +35,11 @@ Package git-1.7.1-9.el6_9.x86_64 already installed and latest version
 Nothing to do
 ```
 
-##### 初始化本地
+## 2. git 流程
+
+![image](../../pictures/tools/git/git.png)
+
+## 3. 初始化本地
 ```
 root@k8s4:~/git_test# git init
 Initialized empty Git repository in /root/git_test/.git/
@@ -45,7 +50,7 @@ drwx------ 9 root root 4096 Jan 15 11:25 ../
 drwxr-xr-x 7 root root 4096 Jan 15 11:25 .git/
 ```
 
-##### 2.基本配置
+## 4.基本配置
 ```
 root@k8s4:/home/leco# git config
 usage: git config [<options>]
@@ -85,7 +90,7 @@ Other
     --includes            respect include directives on lookup
 ```
 
-##### 3.人员信息配置
+## 5.人员信息配置
 ```
 
 root@k8s4:/home/leco# git config --global user.name leco
@@ -115,7 +120,7 @@ drwx------ 9 root root 4096 Jan 15 11:25 ../
 drwxr-xr-x 7 root root 4096 Jan 15 11:25 .git/   # git 仓库
 ```
 
-##### 流程图
+## 6. 流程图
 ```
 graph TD
 A[远程仓库]-->B[本地仓库]
@@ -134,7 +139,7 @@ D-->C
 
 Git 命令就是用于将文件改动切换到不同空间来记录
 
-##### 状态
+## 7. 状态
 ```
 root@k8s4:~/git_test# git status
 On branch master  # 在master分支上
@@ -144,7 +149,7 @@ Initial commit
 nothing to commit (create/copy files and use "git add" to track)
 # 仓库没有任务
 ```
-##### 新建后查看
+## 8. 新建后查看
 ```
 root@k8s4:~/git_test# git add .
 root@k8s4:~/git_test# git status
@@ -163,7 +168,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 root@k8s4:~/git_test#
 ```
 
-##### 提交文件后
+## 9. 提交文件后
 ```
 root@k8s4:~/git_test# git add .
 root@k8s4:~/git_test# git status
@@ -184,7 +189,7 @@ Changes to be committed:
 - git add filename 或者git add .(提交所有) 到缓存区
 - git rm --cached <file> 是将之前提交的文件（也就是提交到缓存的文件）删除，返回到本地
 
-##### 删除缓存c的文件
+## 10. 删除缓存c的文件
 
 ```
 root@k8s4:~/git_test# git rm --cached c
@@ -235,7 +240,7 @@ Changes to be committed:
 	new file:   a
 ```
 
-##### 提交
+## 11. 提交
 ```
 root@k8s4:~/git_test# git commit -m 'commit a'
 [master (root-commit) e73cff4] commit a
@@ -249,7 +254,7 @@ nothing to commit, working directory clean
 - git commit -m "后面是注释"，这样就将工作区文件提交到本地仓库
 - commit之前一定要add也就是先将本地文件add到缓存区，然后commit后会提交到本地仓库
 
-##### 改名 
+## 12. 改名 
 - 方法1
     - 现将本地文件a 改为a.txt
     - 删除缓存区a文件
@@ -321,7 +326,7 @@ On branch master
 nothing to commit, working directory clean
 ```
 
-##### 对比查看，修改了什么
+## 13. 对比查看，修改了什么
 1. git diff file 
     - 对比文件在本地和缓存区的差异
 2. git diff --cached file

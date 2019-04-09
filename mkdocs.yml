@@ -186,44 +186,44 @@ nav:
             - 3. mysql:
                 - 1. 安装: linux/shell/mysql/install/mysql.install.md
     - Nginx:
-        - 1. nginx 部署: linux/nginx/nginx.index.md
-        - 2. nginx 配置文件: linux/nginx/nginx.conf.md
-        - 3. nginx 虚拟主机: linux/nginx/nginx.virtual_hosts.md
-        - 4. nginx 日志: linux/nginx/nginx.log.md
-        - 5. nginx 防盗链: linux/nginx/nginx.nti_theft_chain.md
-        - 6. nginx 常见配置: linux/nginx/nginx.other.md
-        - 7. nginx 优化: linux/nginx/nginx.optimization.md
-        - 8. nginx hash: linux/nginx/nginx.hash.md
-        - 9. nginx location: linux/nginx/nginx.location.md
+        - 01. nginx 部署: linux/nginx/nginx.index.md
+        - 02. nginx 配置文件: linux/nginx/nginx.conf.md
+        - 03. nginx 虚拟主机: linux/nginx/nginx.virtual_hosts.md
+        - 04. nginx 日志: linux/nginx/nginx.log.md
+        - 05. nginx 防盗链: linux/nginx/nginx.nti_theft_chain.md
+        - 06. nginx 常见配置: linux/nginx/nginx.other.md
+        - 07. nginx 优化: linux/nginx/nginx.optimization.md
+        - 08. nginx hash: linux/nginx/nginx.hash.md
+        - 09. nginx location: linux/nginx/nginx.location.md
         - 10. nginx rewrite: linux/nginx/nginx.rewrite.md
         - 11. nginx 负载均衡: linux/nginx/nginx.slb.md
         - 12. nginx http2: linux/nginx/nginx.http2.md
     - Nosql:
         - 1. MonogoDB:
-            - 1. MonogoDB 介绍: linux/nosql/mongo/mongo.index.md
-            - 2. MonogoDB 数据库: linux/nosql/mongo/mongo.databases.md
-            - 3. MonogoDB 集合: linux/nosql/mongo/mongo.collection.md
-            - 4. MonogoDB 文档: linux/nosql/mongo/mongo.doc.md
-            - 5. MonogoDB 条件查询: linux/nosql/mongo/mongo.conditional_query.md
-            - 6. MonogoDB 模糊查询: linux/nosql/mongo/mongo.fuzzy_enquiry.md
-            - 7. MonogoDB $type: linux/nosql/mongo/mongo.type.md
-            - 8. MonogoDB LS: linux/nosql/mongo/mongo.limit_skip.md
-            - 9. MonogoDB 排序: linux/nosql/mongo/mongo.sort.md
+            - 01. MonogoDB 介绍: linux/nosql/mongo/mongo.index.md
+            - 02. MonogoDB 数据库: linux/nosql/mongo/mongo.databases.md
+            - 03. MonogoDB 集合: linux/nosql/mongo/mongo.collection.md
+            - 04. MonogoDB 文档: linux/nosql/mongo/mongo.doc.md
+            - 05. MonogoDB 条件查询: linux/nosql/mongo/mongo.conditional_query.md
+            - 06. MonogoDB 模糊查询: linux/nosql/mongo/mongo.fuzzy_enquiry.md
+            - 07. MonogoDB $type: linux/nosql/mongo/mongo.type.md
+            - 08. MonogoDB LS: linux/nosql/mongo/mongo.limit_skip.md
+            - 09. MonogoDB 排序: linux/nosql/mongo/mongo.sort.md
             - 10. MonogoDB 备份与恢复: linux/nosql/mongo/mongo.backup_recovery.md
             - 11. MonogoDB 监控: linux/nosql/mongo/mongo.monitor.md 
             - 12. MonogoDB 副本集: linux/nosql/mongo/mongo.replication.md 
             - 13. MonogoDB 分片集: linux/nosql/mongo/mongo.shard_info.md 
             - 14. MonogoDB 分片集实战: linux/nosql/mongo/mongo.shard_replicat.md
         - 2. redis:
-            - 1. redis 介绍: linux/nosql/redis/redis.index.md
-            - 2. redis 安装: linux/nosql/redis/redis.install.md
-            - 3. redis 认证: linux/nosql/redis/redis.auth.md
-            - 4. redis 键值对: linux/nosql/redis/redis.k_v.md
-            - 5. redis 发布订阅: linux/nosql/redis/redis.publish.md
-            - 6. redis 事务: linux/nosql/redis/redis.arrairs.md
-            - 7. redis 持久化存储: linux/nosql/redis/redis.store.md
-            - 8. redis 备份与恢复: linux/nosql/redis/redis.save.md
-            - 9. redis 集群: linux/nosql/redis/redis.sentinel_cluster.md
+            - 01. redis 介绍: linux/nosql/redis/redis.index.md
+            - 02. redis 安装: linux/nosql/redis/redis.install.md
+            - 03. redis 认证: linux/nosql/redis/redis.auth.md
+            - 04. redis 键值对: linux/nosql/redis/redis.k_v.md
+            - 05. redis 发布订阅: linux/nosql/redis/redis.publish.md
+            - 06. redis 事务: linux/nosql/redis/redis.arrairs.md
+            - 07. redis 持久化存储: linux/nosql/redis/redis.store.md
+            - 08. redis 备份与恢复: linux/nosql/redis/redis.save.md
+            - 09. redis 集群: linux/nosql/redis/redis.sentinel_cluster.md
             - 10. redis 主从: linux/nosql/redis/redis.master-slave.md
             - 11. redis 哨兵: linux/nosql/redis/redis.sentinel.md
             - 12. redis cluster: linux/nosql/redis/redis.cluster.md  
@@ -234,15 +234,15 @@ nav:
             - 1. memcached: linux/nosql/memcached/memcached.index.md
     - mysql:
         - 1. MySQL 基础:
-            - 1. MySQL 介绍: mysql/mysql.index.md
-            - 2. MySQL 初识: mysql/mysql.info.md
-            - 3. MySQL 链接: mysql/mysql.conn.md
-            - 4. MySQL 库: mysql/mysql.database.md
-            - 5. MySQL 表: mysql/mysql.table.md
-            - 6. SQL SELECT: mysql/mysql.select.md
-            - 7. SQL WHERE: mysql/mysql.where.md
-            - 8. SQL UPDATE: mysql/mysql.update.md
-            - 9. SQL DELETE: mysql/mysql.delete.md
+            - 01. MySQL 介绍: mysql/mysql.index.md
+            - 02. MySQL 初识: mysql/mysql.info.md
+            - 03. MySQL 链接: mysql/mysql.conn.md
+            - 04. MySQL 库: mysql/mysql.database.md
+            - 05. MySQL 表: mysql/mysql.table.md
+            - 06. SQL SELECT: mysql/mysql.select.md
+            - 07. SQL WHERE: mysql/mysql.where.md
+            - 08. SQL UPDATE: mysql/mysql.update.md
+            - 09. SQL DELETE: mysql/mysql.delete.md
             - 10. SQL LIKE: mysql/mysql.like.md
             - 11. SQL DISTINCT: mysql/mysql.distinct.md
             - 12. SQL LIMIT: mysql/mysql.limit.md
@@ -271,15 +271,15 @@ nav:
             - 1. 主从: mysql/mysql.master-slave.md
             - 2. 主主: mysql/mysql.master-master.md
         - 5. MySQL OTHER:
-            - 1. MySQL练习: mysql/mysql.practice1.md
-            - 2. 配置文件: mysql/mysql.mysqlcnf.md
-            - 3. 自增/偏移量: mysql/mysql.increment_offset.md
-            - 4. 表删除: mysql/mysql.delete_truncate_drop.md
-            - 5. binlog 介绍: mysql/mysql.binlog.md
-            - 6. 完整性约束: mysql/mysql.integrity_constraint.md
-            - 7. 表复制: mysql/mysql.copy_table.md
-            - 8. 存储引擎: mysql/mysql.storage_engine.md
-            - 9. 用户: mysql/mysql.user.md            
+            - 01. MySQL练习: mysql/mysql.practice1.md
+            - 02. 配置文件: mysql/mysql.mysqlcnf.md
+            - 03. 自增/偏移量: mysql/mysql.increment_offset.md
+            - 04. 表删除: mysql/mysql.delete_truncate_drop.md
+            - 05. binlog 介绍: mysql/mysql.binlog.md
+            - 06. 完整性约束: mysql/mysql.integrity_constraint.md
+            - 07. 表复制: mysql/mysql.copy_table.md
+            - 08. 存储引擎: mysql/mysql.storage_engine.md
+            - 09. 用户: mysql/mysql.user.md            
             - 10. 事务: mysql/mysql.affairs.md            
     - 前端:
           - Vue: frontend/vue/index.md

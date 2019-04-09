@@ -11,7 +11,7 @@
 
 ## 2.对比
 ### 2.1 Redis Sentinel
-&#160; &#160; &#160; &#160;Redis-Sentinel(哨兵模式)是Redis官方推荐的高可用性(HA)解决方案，当用Redis做Master-slave的高可用方案时，假如master宕机了，Redis本身(包括它的很多客户端)都没有实现自动进行主备切换，而Redis-sentinel本身也是一个独立运行的进程，它能监控多个master-slave集群，发现master宕机后能进行自懂切换。它的主要功能有以下几点：
+&#160; &#160; &#160; &#160;Redis-Sentinel(哨兵模式)是Redis官方推荐的高可用性(HA)解决方案，当用Redis做Master-slave的高可用方案时，假如master宕机了，Redis本身(包括它的很多客户端)都没有实现自动进行主备切换，而Redis-sentinel本身也是一个独立运行的进程，它能监控多个master-slave集群，发现master宕机后能进行自行切换。它的主要功能有以下几点：
 
 - 不时地监控redis是否按照预期良好地运行;
 - 如果发现某个redis节点运行出现状况，能够通知另外一个进程(例如它的客户端);
