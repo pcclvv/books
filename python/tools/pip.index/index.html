@@ -397,23 +397,50 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" title="3. 配置" class="md-nav__link">
-    3. 配置
+  <a href="#3" title="3. 清华源配置" class="md-nav__link">
+    3. 清华源配置
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31" title="3.1 临时使用" class="md-nav__link">
-    3.1 临时使用
+  <a href="#31" title="3.1 临时配置" class="md-nav__link">
+    3.1 临时配置
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#32" title="3.2 永久使用" class="md-nav__link">
-    3.2 永久使用
+  <a href="#32" title="3.2 永久配置" class="md-nav__link">
+    3.2 永久配置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" title="4. 豆瓣源配置" class="md-nav__link">
+    4. 豆瓣源配置
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" title="4.1 临时配置" class="md-nav__link">
+    4.1 临时配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" title="4.2 永久配置" class="md-nav__link">
+    4.2 永久配置
   </a>
   
 </li>
@@ -4862,23 +4889,50 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" title="3. 配置" class="md-nav__link">
-    3. 配置
+  <a href="#3" title="3. 清华源配置" class="md-nav__link">
+    3. 清华源配置
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31" title="3.1 临时使用" class="md-nav__link">
-    3.1 临时使用
+  <a href="#31" title="3.1 临时配置" class="md-nav__link">
+    3.1 临时配置
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#32" title="3.2 永久使用" class="md-nav__link">
-    3.2 永久使用
+  <a href="#32" title="3.2 永久配置" class="md-nav__link">
+    3.2 永久配置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" title="4. 豆瓣源配置" class="md-nav__link">
+    4. 豆瓣源配置
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" title="4.1 临时配置" class="md-nav__link">
+    4.1 临时配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" title="4.2 永久配置" class="md-nav__link">
+    4.2 永久配置
   </a>
   
 </li>
@@ -4911,22 +4965,49 @@
 <h2 id="1">1. 介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>由于天朝的原因，我们使用pip 安装的时候。联网有时候会比较慢或者直接forbidden。我们此时就需要配置使用国内的源。pip源类似yum源、或者apt-get源</p>
 <h2 id="2">2. 优点<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<p>首推国内清华源。pypi 镜像每 5 分钟同步一次。</p>
-<h2 id="3">3. 配置<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<h3 id="31">3.1 临时使用<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>国内清华源,豆瓣源。都是很不错的源</p>
+<h2 id="3">3. 清华源配置<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 临时配置<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
 </pre></div>
 
 <blockquote>
 <p>注意，simple 不能少, 是 https 而不是 http</p>
 </blockquote>
-<h3 id="32">3.2 永久使用<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<h3 id="32">3.2 永久配置<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
 <p>升级 pip 到最新的版本 (&gt;=10.0.0) 后进行配置：</p>
 <p><div class="codehilite"><pre><span></span>pip install pip -U
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 </pre></div>
 如果您到 pip 默认源的网络连接较差，临时使用本镜像站来升级 pip：
 <div class="codehilite"><pre><span></span>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U
+</pre></div></p>
+<h2 id="4">4. 豆瓣源配置<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 临时配置<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>sudo pip install -i http://pypi.douban.com/simple/ --trusted-host=pypi.douban.com/simple ipython
+</pre></div>
+
+<h3 id="42">4.2 永久配置<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<p>linux
+<div class="codehilite"><pre><span></span>$HOME/.config/pip/pip.conf
+或者
+$HOME/.pip/pip.conf
+</pre></div>
+mac
+<div class="codehilite"><pre><span></span>$HOME/Library/Application Support/pip/pip.conf
+或者
+$HOME/.pip/pip.conf
+</pre></div>
+windows
+<div class="codehilite"><pre><span></span>%APPDATA%\pip\pip.ini
+或者
+%HOME%\pip\pip.ini
+</pre></div></p>
+<p>pip.conf或者pip.ini内容
+<div class="codehilite"><pre><span></span>[global]
+timeout = 60
+index-url = http://pypi.douban.com/simple
+trusted-host = pypi.douban.com
 </pre></div></p>
                 
                   
