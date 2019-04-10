@@ -286,11 +286,12 @@ nav:
           - CSS: frontend/css/css.index.md
     - 服务:
           - 1. git: 
-            - 1. git: tools/git/git.index.md
+            - 1. git 介绍: tools/git/git.index.md
             - 2. git 回滚: tools/git/git.rollback.md
             - 3. git 分支: tools/git/git.branch.md
             - 4. git 标签: tools/git/git.label.md
             - 5. git 分支管理: tools/git/git.standard.md
+            - 6. git GUI: tools/git/git.gui.md
           - 2. github: tools/github/github.index.md
           - 3. gitlab:
             - 1. gitlab: tools/gitlab/gitlab.index.md
