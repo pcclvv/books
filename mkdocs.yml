@@ -83,6 +83,8 @@ nav:
             - 虚拟环境:
                 - 1. virtualenv: python/tools/virtualenv.index.md
                 - 2. virtualenvwrapper: python/tools/virtualenvwrapper.index.md
+            - pip 源:
+                - 1. 清华源: python/tools/pip.index.md
         - 库学习:
             - 1. SQLAlchemy库:  
                 - 1. 创建表: python/lib/SQLAlchemy/1.创建表.md
@@ -172,7 +174,11 @@ nav:
                 - 2. xshell无声配置: tools/xshell/xshell.silent.md
             - 4. 下载:
                 - 1. axel: linux/tools/axel.index.md
-
+            - 5. NodePad:
+                - 1. NppFTP: tools/nodepad/nodepad.nppftp.md
+            - 6. 自动化工具:
+                - 1. sshpass: tools/sshpass/sshpass.index.md
+                - 2. pssh: tools/pssh/pssh.index.md
         - 服务:
             - 1. Harbor: linux/server/harbor/harbor.index.md
             - 2. PPPOE: linux/server/pppoe/pppoe.index.md
