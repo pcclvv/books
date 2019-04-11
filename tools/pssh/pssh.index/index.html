@@ -1968,13 +1968,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#psshpscppnuke" title="建议分发文件，执行命令，批量杀死进程，使用pssh,pscp，pnuke,速度很快的" class="md-nav__link">
-    建议分发文件，执行命令，批量杀死进程，使用pssh,pscp，pnuke,速度很快的
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -5098,13 +5091,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#psshpscppnuke" title="建议分发文件，执行命令，批量杀死进程，使用pssh,pscp，pnuke,速度很快的" class="md-nav__link">
-    建议分发文件，执行命令，批量杀死进程，使用pssh,pscp，pnuke,速度很快的
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -5153,44 +5139,42 @@ python setup.py install
 
 <h2 id="3">3. 基本参数<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <p>&#160; &#160; pssh参数</p>
-<details class="note"><summary>常见参数</summary></details>
-<p>​   ```python
-    root@master:~/pssh-2.3.1# pssh --help
-    Usage: pssh [OPTIONS] command [...]</p>
-<div class="codehilite"><pre><span></span>Options:
-  --version             show program&#39;s version number and exit
-  --help                show this help message and exit
-  -h HOST_FILE, --hosts=HOST_FILE
-                        hosts file (each line &quot;[user@]host[:port]&quot;)
-  -H HOST_STRING, --host=HOST_STRING
-                        additional host entries (&quot;[user@]host[:port]&quot;)
-  -l USER, --user=USER  username (OPTIONAL)
-  -p PAR, --par=PAR     max number of parallel threads (OPTIONAL)
-  -o OUTDIR, --outdir=OUTDIR
-                        output directory for stdout files (OPTIONAL)
-  -e ERRDIR, --errdir=ERRDIR
-                        output directory for stderr files (OPTIONAL)
-  -t TIMEOUT, --timeout=TIMEOUT
-                        timeout (secs) (0 = no timeout) per host (OPTIONAL)
-  -O OPTION, --option=OPTION
-                        SSH option (OPTIONAL)
-  -v, --verbose         turn on warning and diagnostic messages (OPTIONAL)
-  -A, --askpass         Ask for a password (OPTIONAL)
-  -x ARGS, --extra-args=ARGS
-                        Extra command-line arguments, with processing for
-                        spaces, quotes, and backslashes
-  -X ARG, --extra-arg=ARG
-                        Extra command-line argument
-  -i, --inline          inline aggregated output and error for each server
-  --inline-stdout       inline standard output for each server
-  -I, --send-input      read from standard input and send as input to ssh
-  -P, --print           print output as we get it
+<details class="note"><summary>常见参数</summary><div class="codehilite"><pre><span></span><span class="n">root</span><span class="nd">@master</span><span class="p">:</span><span class="o">~/</span><span class="n">pssh</span><span class="o">-</span><span class="mf">2.3</span><span class="o">.</span><span class="mi">1</span><span class="c1"># pssh --help</span>
+<span class="n">Usage</span><span class="p">:</span> <span class="n">pssh</span> <span class="p">[</span><span class="n">OPTIONS</span><span class="p">]</span> <span class="n">command</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span>
 
-Example: pssh -h hosts.txt -l irb2 -o /tmp/foo uptime
+<span class="n">Options</span><span class="p">:</span>
+  <span class="o">--</span><span class="n">version</span>             <span class="n">show</span> <span class="n">program</span><span class="s1">&#39;s version number and exit</span>
+  <span class="o">--</span><span class="n">help</span>                <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="nb">exit</span>
+  <span class="o">-</span><span class="n">h</span> <span class="n">HOST_FILE</span><span class="p">,</span> <span class="o">--</span><span class="n">hosts</span><span class="o">=</span><span class="n">HOST_FILE</span>
+                        <span class="n">hosts</span> <span class="nb">file</span> <span class="p">(</span><span class="n">each</span> <span class="n">line</span> <span class="s2">&quot;[user@]host[:port]&quot;</span><span class="p">)</span>
+  <span class="o">-</span><span class="n">H</span> <span class="n">HOST_STRING</span><span class="p">,</span> <span class="o">--</span><span class="n">host</span><span class="o">=</span><span class="n">HOST_STRING</span>
+                        <span class="n">additional</span> <span class="n">host</span> <span class="n">entries</span> <span class="p">(</span><span class="s2">&quot;[user@]host[:port]&quot;</span><span class="p">)</span>
+  <span class="o">-</span><span class="n">l</span> <span class="n">USER</span><span class="p">,</span> <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="n">USER</span>  <span class="n">username</span> <span class="p">(</span><span class="n">OPTIONAL</span><span class="p">)</span>
+  <span class="o">-</span><span class="n">p</span> <span class="n">PAR</span><span class="p">,</span> <span class="o">--</span><span class="n">par</span><span class="o">=</span><span class="n">PAR</span>     <span class="nb">max</span> <span class="n">number</span> <span class="n">of</span> <span class="n">parallel</span> <span class="n">threads</span> <span class="p">(</span><span class="n">OPTIONAL</span><span class="p">)</span>
+  <span class="o">-</span><span class="n">o</span> <span class="n">OUTDIR</span><span class="p">,</span> <span class="o">--</span><span class="n">outdir</span><span class="o">=</span><span class="n">OUTDIR</span>
+                        <span class="n">output</span> <span class="n">directory</span> <span class="k">for</span> <span class="n">stdout</span> <span class="n">files</span> <span class="p">(</span><span class="n">OPTIONAL</span><span class="p">)</span>
+  <span class="o">-</span><span class="n">e</span> <span class="n">ERRDIR</span><span class="p">,</span> <span class="o">--</span><span class="n">errdir</span><span class="o">=</span><span class="n">ERRDIR</span>
+                        <span class="n">output</span> <span class="n">directory</span> <span class="k">for</span> <span class="n">stderr</span> <span class="n">files</span> <span class="p">(</span><span class="n">OPTIONAL</span><span class="p">)</span>
+  <span class="o">-</span><span class="n">t</span> <span class="n">TIMEOUT</span><span class="p">,</span> <span class="o">--</span><span class="n">timeout</span><span class="o">=</span><span class="n">TIMEOUT</span>
+                        <span class="n">timeout</span> <span class="p">(</span><span class="n">secs</span><span class="p">)</span> <span class="p">(</span><span class="mi">0</span> <span class="o">=</span> <span class="n">no</span> <span class="n">timeout</span><span class="p">)</span> <span class="n">per</span> <span class="n">host</span> <span class="p">(</span><span class="n">OPTIONAL</span><span class="p">)</span>
+  <span class="o">-</span><span class="n">O</span> <span class="n">OPTION</span><span class="p">,</span> <span class="o">--</span><span class="n">option</span><span class="o">=</span><span class="n">OPTION</span>
+                        <span class="n">SSH</span> <span class="n">option</span> <span class="p">(</span><span class="n">OPTIONAL</span><span class="p">)</span>
+  <span class="o">-</span><span class="n">v</span><span class="p">,</span> <span class="o">--</span><span class="n">verbose</span>         <span class="n">turn</span> <span class="n">on</span> <span class="n">warning</span> <span class="ow">and</span> <span class="n">diagnostic</span> <span class="n">messages</span> <span class="p">(</span><span class="n">OPTIONAL</span><span class="p">)</span>
+  <span class="o">-</span><span class="n">A</span><span class="p">,</span> <span class="o">--</span><span class="n">askpass</span>         <span class="n">Ask</span> <span class="k">for</span> <span class="n">a</span> <span class="n">password</span> <span class="p">(</span><span class="n">OPTIONAL</span><span class="p">)</span>
+  <span class="o">-</span><span class="n">x</span> <span class="n">ARGS</span><span class="p">,</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="n">args</span><span class="o">=</span><span class="n">ARGS</span>
+                        <span class="n">Extra</span> <span class="n">command</span><span class="o">-</span><span class="n">line</span> <span class="n">arguments</span><span class="p">,</span> <span class="k">with</span> <span class="n">processing</span> <span class="k">for</span>
+                        <span class="n">spaces</span><span class="p">,</span> <span class="n">quotes</span><span class="p">,</span> <span class="ow">and</span> <span class="n">backslashes</span>
+  <span class="o">-</span><span class="n">X</span> <span class="n">ARG</span><span class="p">,</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="n">arg</span><span class="o">=</span><span class="n">ARG</span>
+                        <span class="n">Extra</span> <span class="n">command</span><span class="o">-</span><span class="n">line</span> <span class="n">argument</span>
+  <span class="o">-</span><span class="n">i</span><span class="p">,</span> <span class="o">--</span><span class="n">inline</span>          <span class="n">inline</span> <span class="n">aggregated</span> <span class="n">output</span> <span class="ow">and</span> <span class="n">error</span> <span class="k">for</span> <span class="n">each</span> <span class="n">server</span>
+  <span class="o">--</span><span class="n">inline</span><span class="o">-</span><span class="n">stdout</span>       <span class="n">inline</span> <span class="n">standard</span> <span class="n">output</span> <span class="k">for</span> <span class="n">each</span> <span class="n">server</span>
+  <span class="o">-</span><span class="n">I</span><span class="p">,</span> <span class="o">--</span><span class="n">send</span><span class="o">-</span><span class="nb">input</span>      <span class="n">read</span> <span class="kn">from</span> <span class="nn">standard</span> <span class="nn">input</span> <span class="nn">and</span> <span class="nn">send</span> <span class="nn">as</span> <span class="nn">input</span> <span class="nn">to</span> <span class="nn">ssh</span>
+  <span class="o">-</span><span class="n">P</span><span class="p">,</span> <span class="o">--</span><span class="k">print</span>           <span class="k">print</span> <span class="n">output</span> <span class="k">as</span> <span class="n">we</span> <span class="n">get</span> <span class="n">it</span>
+
+<span class="n">Example</span><span class="p">:</span> <span class="n">pssh</span> <span class="o">-</span><span class="n">h</span> <span class="n">hosts</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">l</span> <span class="n">irb2</span> <span class="o">-</span><span class="n">o</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">foo</span> <span class="n">uptime</span>
 </pre></div>
 
-
-<p>​   ```</p>
+</details>
 <p>中文解释</p>
 <div class="codehilite"><pre><span></span>--version：查看版本
 --help：查看帮助，即此信息
@@ -5225,6 +5209,9 @@ node2
 node3
 </pre></div>
 
+<blockquote>
+<p>也可以直接写ip地址</p>
+</blockquote>
 <h3 id="41">4.1 查看时间<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
 <p>获取每台服务器的时间</p>
 <div class="codehilite"><pre><span></span>root@master:/opt# pssh -h ip.txt -i date
@@ -5368,7 +5355,7 @@ root       7427  0.0  0.0  21264   932 ?        S    21:37   0:00 grep mongo
 
 <p>上边的意思是在远程主机上批量关闭mongo服务。能通过killall关闭的服务，都可以通过pnuke来批量完成</p>
 <blockquote>
-<h3 id="psshpscppnuke">建议分发文件，执行命令，批量杀死进程，使用pssh,pscp，pnuke,速度很快的<a class="headerlink" href="#psshpscppnuke" title="Permanent link">&para;</a></h3>
+<p>建议分发文件，执行命令，批量杀死进程，使用pssh,pscp，pnuke,速度很快的</p>
 </blockquote>
                 
                   
