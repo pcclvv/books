@@ -87,8 +87,8 @@ nav:
                 - 1. 清华源: python/tools/pip.index.md
         - 错误:
             - ubuntu:
-                - 1. 安装: linux/qa/ubuntu/error.index.md
-        - 库学习:
+                - 1. 安装: linux/qa/ubuntu/error.index.md 
+        - 库学习: 
             - 1. SQLAlchemy库:  
                 - 1. 创建表: python/lib/SQLAlchemy/1.创建表.md
                 - 2. 基本操作: python/lib/SQLAlchemy/2.基本操作.md
@@ -290,26 +290,27 @@ nav:
             - 08. 存储引擎: mysql/mysql.storage_engine.md
             - 09. 用户: mysql/mysql.user.md            
             - 10. 事务: mysql/mysql.affairs.md            
-    - 前端:
-          - Vue: frontend/vue/index.md
-          - CSS: frontend/css/css.index.md
-    - 服务:
-          - 1. git: 
+    - frontend:
+        - Vue: frontend/vue/index.md
+        - CSS: frontend/css/css.index.md
+    - server:
+        - 1. git: 
             - 1. git 介绍: tools/git/git.index.md
             - 2. git 回滚: tools/git/git.rollback.md
             - 3. git 分支: tools/git/git.branch.md
             - 4. git 标签: tools/git/git.label.md
             - 5. git 分支管理: tools/git/git.standard.md
             - 6. git GUI: tools/git/git.gui.md
-          - 2. github: tools/github/github.index.md
-          - 3. gitlab:
+        - 2. github: tools/github/github.index.md
+        - 3. gitlab:
             - 1. gitlab: tools/gitlab/gitlab.index.md
             - 2. 关闭注册: tools/gitlab/gitlab.close_register.md
             - 3. 找回root密码: tools/gitlab/gitlab.set_root_pwd.md
-    - 教程:
-          - 教程: course/index.md
-          
-    - 测试:
+    - course:
+        - 1. 教程: course/index.md
+    - url: 
+        - 1. 参考网站: url/url.index.md
+    - test:
       - 服务:
           - mkdocs 服务:
               - 一. 介绍: index.md
