@@ -5571,12 +5571,67 @@
 <p>&#160; &#160; &#160; &#160;内存有叫DIMM， DIMM全称Dual-Inline-Memory-Modules，中文名叫双列直插式存储模块，是指奔腾CPU推出后出现的新型内存条，它提供了64位的数据通道。</p>
 <p>&#160; &#160; &#160; &#160; 内存又分几代内存，目前主流是DDR4,DDR=Double Data Rate双倍速率,DDR SDRAM=双倍速率同步动态随机存储器，
 人们习惯称为DDR，其中，SDRAM 是Synchronous Dynamic Random Access Memory的缩写，即同步动态随机存取存储器。而DDR SDRAM是Double Data Rate SDRAM的缩写，是双倍速率同步动态随机存储器的意思。DDR内存是在SDRAM内存基础上发展而来的，仍然沿用SDRAM生产体系，因此对于内存厂商而言，只需对制造普通SDRAM的设备稍加改进，即可实现DDR内存的生产，可有效的降低成本。</p>
-<p>DDR SDRAM Standard  | Bus clock(MHz)|Internal rate(MHz) Prefetch (min burst)|Transfer Rate (MT/s)   |Voltage    |DIMM pins| SO-DIMM pins|   MicroDIMM 
----|---|---|---|---|---|---|---|---
-DDR     |100–200    |100–200    |2n |200–400    |2.5 2.6|   184 |200    |172
-DDR2    |200–533    |100–266    |4n |400–1066   |1.8    |240    |200    |214
-DDR3    |400–1066   |100–266    |8n |800–2400   |1.5    |240    |204    |214
-DDR4    |800–1200   |200–300    |8n |1600–5067  |1.2    |288    |260    |214</p>
+<table>
+<thead>
+<tr>
+<th>DDR SDRAM Standard</th>
+<th>Bus clock(MHz)</th>
+<th>Internal rate(MHz)</th>
+<th>Prefetch (min burst)</th>
+<th>Transfer Rate (MT/s)</th>
+<th>Voltage</th>
+<th>DIMM pins</th>
+<th>SO-DIMM pins</th>
+<th>MicroDIMM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DDR</td>
+<td>100–200</td>
+<td>100–200</td>
+<td>2n</td>
+<td>200–400</td>
+<td>2.5 2.6</td>
+<td>184</td>
+<td>200</td>
+<td>172</td>
+</tr>
+<tr>
+<td>DDR2</td>
+<td>200–533</td>
+<td>100–266</td>
+<td>4n</td>
+<td>400–1066</td>
+<td>1.8</td>
+<td>240</td>
+<td>200</td>
+<td>214</td>
+</tr>
+<tr>
+<td>DDR3</td>
+<td>400–1066</td>
+<td>100–266</td>
+<td>8n</td>
+<td>800–2400</td>
+<td>1.5</td>
+<td>240</td>
+<td>204</td>
+<td>214</td>
+</tr>
+<tr>
+<td>DDR4</td>
+<td>800–1200</td>
+<td>200–300</td>
+<td>8n</td>
+<td>1600–5067</td>
+<td>1.2</td>
+<td>288</td>
+<td>260</td>
+<td>214</td>
+</tr>
+</tbody>
+</table>
 <h2 id="6-raid">6. RAID 卡<a class="headerlink" href="#6-raid" title="Permanent link">&para;</a></h2>
 <p>看我另一篇详细帖子，<a href="https://caimengzhi.github.io/books/linux/raid/raid.index">点我</a></p>
 <h2 id="7">7. 外设<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
@@ -5635,6 +5690,7 @@ DDR4    |800–1200   |200–300    |8n |1600–5067  |1.2    |288    |260    |2
 </tr>
 </tbody>
 </table>
+<hr />
 <p>规格|总线宽度|工作时脉|传输速率
 ---|---|---|---|---
 PCI-E x1|8 位|2.5 GHz|512 MiB/s
