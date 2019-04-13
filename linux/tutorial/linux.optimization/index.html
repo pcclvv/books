@@ -40,7 +40,7 @@
     
     
       
-        <title>01. nginx 部署 - 笔记</title>
+        <title>5. 优化 - 笔记</title>
       
     
     
@@ -132,7 +132,7 @@
                 笔记
               </span>
               <span class="md-header-nav__topic">
-                01. nginx 部署
+                5. 优化
               </span>
             
           
@@ -1627,10 +1627,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
     
     <label class="md-nav__link" for="nav-6">
       Linux
@@ -2114,10 +2116,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-7" type="checkbox" id="nav-6-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-7" type="checkbox" id="nav-6-7" checked>
     
     <label class="md-nav__link" for="nav-6-7">
       教程
@@ -2135,7 +2139,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorial/brief_book.index/" title="1. 简书" class="md-nav__link">
+    <a href="../brief_book.index/" title="1. 简书" class="md-nav__link">
       1. 简书
     </a>
   </li>
@@ -2147,7 +2151,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorial/pc.ardware/" title="2. 硬件" class="md-nav__link">
+    <a href="../pc.ardware/" title="2. 硬件" class="md-nav__link">
       2. 硬件
     </a>
   </li>
@@ -2159,7 +2163,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorial/linux.history/" title="3. 历史" class="md-nav__link">
+    <a href="../linux.history/" title="3. 历史" class="md-nav__link">
       3. 历史
     </a>
   </li>
@@ -2171,7 +2175,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorial/linux.vmware/" title="4. 系统安装" class="md-nav__link">
+    <a href="../linux.vmware/" title="4. 系统安装" class="md-nav__link">
       4. 系统安装
     </a>
   </li>
@@ -2183,54 +2187,11 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorial/linux.conn/" title="5. 链接" class="md-nav__link">
+    <a href="../linux.conn/" title="5. 链接" class="md-nav__link">
       5. 链接
     </a>
   </li>
 
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../tutorial/linux.optimization/" title="5. 优化" class="md-nav__link">
-      5. 优化
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
-    
-    <label class="md-nav__link" for="nav-7">
-      Nginx
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        Nginx
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
         
           
           
@@ -2245,11 +2206,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        01. nginx 部署
+        5. 优化
       </label>
     
-    <a href="./" title="01. nginx 部署" class="md-nav__link md-nav__link--active">
-      01. nginx 部署
+    <a href="./" title="5. 优化" class="md-nav__link md-nav__link--active">
+      5. 优化
     </a>
     
       
@@ -2265,129 +2226,118 @@
     1. 介绍
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11-nginx" title="1.1 Nginx功能" class="md-nav__link">
-    1.1 Nginx功能
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-nginx" title="1.2 Nginx优点" class="md-nav__link">
-    1.2 Nginx优点
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13" title="1.3 使用场景" class="md-nav__link">
-    1.3 使用场景
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14" title="1.4 对比" class="md-nav__link">
-    1.4 对比
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#141-apache" title="1.4.1 Apache" class="md-nav__link">
-    1.4.1 Apache
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#142-nginx" title="1.4.2 nginx" class="md-nav__link">
-    1.4.2 nginx
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#143-lighttpd" title="1.4.3 Lighttpd" class="md-nav__link">
-    1.4.3 Lighttpd
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#15-web" title="1.5 web服务建议" class="md-nav__link">
-    1.5 web服务建议
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#16-nginx" title="1.6 nginx虚拟主机" class="md-nav__link">
-    1.6 nginx虚拟主机
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-nginx" title="2. nginx部署" class="md-nav__link">
-    2. nginx部署
+  <a href="#2" title="2. 优化" class="md-nav__link">
+    2. 优化
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21-pcre" title="2.1 安装pcre" class="md-nav__link">
-    2.1 安装pcre
+  <a href="#21-selinux" title="2.1  禁用SELINUX" class="md-nav__link">
+    2.1  禁用SELINUX
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#22-nginx" title="2.2 下载安装nginx" class="md-nav__link">
-    2.2 下载安装nginx
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#221" title="2.2.1 在线安装" class="md-nav__link">
-    2.2.1 在线安装
+  <a href="#22" title="2.2 关闭防火墙" class="md-nav__link">
+    2.2 关闭防火墙
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#222" title="2.2.2 离线安装" class="md-nav__link">
-    2.2.2 离线安装
+  <a href="#23" title="2.3 时间矫正" class="md-nav__link">
+    2.3 时间矫正
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#223" title="2.2.3 启动并检查" class="md-nav__link">
-    2.2.3 启动并检查
+  <a href="#24-limit" title="2.4 limit" class="md-nav__link">
+    2.4 limit
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#25" title="2.5 网卡自启动" class="md-nav__link">
+    2.5 网卡自启动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-ssh" title="2.6 ssh" class="md-nav__link">
+    2.6 ssh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" title="2.7 命令补全" class="md-nav__link">
+    2.7 命令补全
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28" title="2.8 修改字符集" class="md-nav__link">
+    2.8 修改字符集
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-yum" title="2.9 更换yum源" class="md-nav__link">
+    2.9 更换yum源
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#210" title="2.10 安装基本软件" class="md-nav__link">
+    2.10 安装基本软件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#211" title="2.11 非图形" class="md-nav__link">
+    2.11 非图形
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-yum" title="2.12 yum 扩展源" class="md-nav__link">
+    2.12 yum 扩展源
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213-dns" title="2.13 添加公网DNS" class="md-nav__link">
+    2.13 添加公网DNS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#214" title="2.14 内核优化" class="md-nav__link">
+    2.14 内核优化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#215" title="2.15 优化服务" class="md-nav__link">
+    2.15 优化服务
+  </a>
   
 </li>
         
@@ -2407,13 +2357,54 @@
   </li>
 
         
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Nginx
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Nginx
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
           
           
           
 
 
   <li class="md-nav__item">
-    <a href="../nginx.conf/" title="02. nginx 配置文件" class="md-nav__link">
+    <a href="../../nginx/nginx.index/" title="01. nginx 部署" class="md-nav__link">
+      01. nginx 部署
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../nginx/nginx.conf/" title="02. nginx 配置文件" class="md-nav__link">
       02. nginx 配置文件
     </a>
   </li>
@@ -2425,7 +2416,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../nginx.virtual_hosts/" title="03. nginx 虚拟主机" class="md-nav__link">
+    <a href="../../nginx/nginx.virtual_hosts/" title="03. nginx 虚拟主机" class="md-nav__link">
       03. nginx 虚拟主机
     </a>
   </li>
@@ -2437,7 +2428,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../nginx.log/" title="04. nginx 日志" class="md-nav__link">
+    <a href="../../nginx/nginx.log/" title="04. nginx 日志" class="md-nav__link">
       04. nginx 日志
     </a>
   </li>
@@ -2449,7 +2440,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../nginx.nti_theft_chain/" title="05. nginx 防盗链" class="md-nav__link">
+    <a href="../../nginx/nginx.nti_theft_chain/" title="05. nginx 防盗链" class="md-nav__link">
       05. nginx 防盗链
     </a>
   </li>
@@ -2461,7 +2452,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../nginx.other/" title="06. nginx 常见配置" class="md-nav__link">
+    <a href="../../nginx/nginx.other/" title="06. nginx 常见配置" class="md-nav__link">
       06. nginx 常见配置
     </a>
   </li>
@@ -2473,7 +2464,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../nginx.optimization/" title="07. nginx 优化" class="md-nav__link">
+    <a href="../../nginx/nginx.optimization/" title="07. nginx 优化" class="md-nav__link">
       07. nginx 优化
     </a>
   </li>
@@ -2485,7 +2476,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../nginx.hash/" title="08. nginx hash" class="md-nav__link">
+    <a href="../../nginx/nginx.hash/" title="08. nginx hash" class="md-nav__link">
       08. nginx hash
     </a>
   </li>
@@ -2497,7 +2488,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../nginx.location/" title="09. nginx location" class="md-nav__link">
+    <a href="../../nginx/nginx.location/" title="09. nginx location" class="md-nav__link">
       09. nginx location
     </a>
   </li>
@@ -2509,7 +2500,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../nginx.rewrite/" title="10. nginx rewrite" class="md-nav__link">
+    <a href="../../nginx/nginx.rewrite/" title="10. nginx rewrite" class="md-nav__link">
       10. nginx rewrite
     </a>
   </li>
@@ -2521,7 +2512,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../nginx.slb/" title="11. nginx 负载均衡" class="md-nav__link">
+    <a href="../../nginx/nginx.slb/" title="11. nginx 负载均衡" class="md-nav__link">
       11. nginx 负载均衡
     </a>
   </li>
@@ -2533,7 +2524,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../nginx.http2/" title="12. nginx http2" class="md-nav__link">
+    <a href="../../nginx/nginx.http2/" title="12. nginx http2" class="md-nav__link">
       12. nginx http2
     </a>
   </li>
@@ -5231,129 +5222,118 @@
     1. 介绍
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11-nginx" title="1.1 Nginx功能" class="md-nav__link">
-    1.1 Nginx功能
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-nginx" title="1.2 Nginx优点" class="md-nav__link">
-    1.2 Nginx优点
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13" title="1.3 使用场景" class="md-nav__link">
-    1.3 使用场景
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14" title="1.4 对比" class="md-nav__link">
-    1.4 对比
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#141-apache" title="1.4.1 Apache" class="md-nav__link">
-    1.4.1 Apache
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#142-nginx" title="1.4.2 nginx" class="md-nav__link">
-    1.4.2 nginx
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#143-lighttpd" title="1.4.3 Lighttpd" class="md-nav__link">
-    1.4.3 Lighttpd
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#15-web" title="1.5 web服务建议" class="md-nav__link">
-    1.5 web服务建议
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#16-nginx" title="1.6 nginx虚拟主机" class="md-nav__link">
-    1.6 nginx虚拟主机
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-nginx" title="2. nginx部署" class="md-nav__link">
-    2. nginx部署
+  <a href="#2" title="2. 优化" class="md-nav__link">
+    2. 优化
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21-pcre" title="2.1 安装pcre" class="md-nav__link">
-    2.1 安装pcre
+  <a href="#21-selinux" title="2.1  禁用SELINUX" class="md-nav__link">
+    2.1  禁用SELINUX
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#22-nginx" title="2.2 下载安装nginx" class="md-nav__link">
-    2.2 下载安装nginx
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#221" title="2.2.1 在线安装" class="md-nav__link">
-    2.2.1 在线安装
+  <a href="#22" title="2.2 关闭防火墙" class="md-nav__link">
+    2.2 关闭防火墙
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#222" title="2.2.2 离线安装" class="md-nav__link">
-    2.2.2 离线安装
+  <a href="#23" title="2.3 时间矫正" class="md-nav__link">
+    2.3 时间矫正
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#223" title="2.2.3 启动并检查" class="md-nav__link">
-    2.2.3 启动并检查
+  <a href="#24-limit" title="2.4 limit" class="md-nav__link">
+    2.4 limit
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#25" title="2.5 网卡自启动" class="md-nav__link">
+    2.5 网卡自启动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-ssh" title="2.6 ssh" class="md-nav__link">
+    2.6 ssh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" title="2.7 命令补全" class="md-nav__link">
+    2.7 命令补全
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28" title="2.8 修改字符集" class="md-nav__link">
+    2.8 修改字符集
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-yum" title="2.9 更换yum源" class="md-nav__link">
+    2.9 更换yum源
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#210" title="2.10 安装基本软件" class="md-nav__link">
+    2.10 安装基本软件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#211" title="2.11 非图形" class="md-nav__link">
+    2.11 非图形
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-yum" title="2.12 yum 扩展源" class="md-nav__link">
+    2.12 yum 扩展源
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213-dns" title="2.13 添加公网DNS" class="md-nav__link">
+    2.13 添加公网DNS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#214" title="2.14 内核优化" class="md-nav__link">
+    2.14 内核优化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#215" title="2.15 优化服务" class="md-nav__link">
+    2.15 优化服务
+  </a>
   
 </li>
         
@@ -5378,180 +5358,212 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/caimengzhi/books/edit/master/docs/linux/nginx/nginx.index.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/caimengzhi/books/edit/master/docs/linux/tutorial/linux.optimization.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <p><center><h1>Nginx</h1></center></p>
+                <p><center><h1>Centos7 优化</h1></center></p>
 <h2 id="1">1. 介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>&#160; &#160; &#160; &#160;Nginx(Engine x),俄罗斯人开发阿德，开源的WWW服务软件。一共才780K，而apache大概7M左右。</p>
-<p>&#160; &#160; &#160; &#160;Nginx本身是一款静态（html，css，js，jpg等）www软件
-静态小文件高并发量，同时占用的资源很少，3W并发量 10个线程150w。</p>
-<p>&#160; &#160; &#160; &#160;Nginx使用平台：unix linux,windows都可以。</p>
-<ul>
-<li>使用排名 <a href="http://w3techs.com/technologies/overview/web_server/all">http://w3techs.com/technologies/overview/web_server/all</a>  </li>
-<li>使用趋势 <a href="http://news.netcraft.com/">http://news.netcraft.com/</a> </li>
-</ul>
-<p>国内网站使用nginx更多一些</p>
-<h3 id="11-nginx">1.1 Nginx功能<a class="headerlink" href="#11-nginx" title="Permanent link">&para;</a></h3>
-<ul>
-<li>www web 服务 http协议 端口80</li>
-<li>负载均衡（反向代理proxy）</li>
-<li>Web   cache（web缓存）</li>
-</ul>
-<h3 id="12-nginx">1.2 Nginx优点<a class="headerlink" href="#12-nginx" title="Permanent link">&para;</a></h3>
-<ul>
-<li>高并发（静态小文件），静态1-2W</li>
-<li>占用资源少，2W并发 开10个线程服务，内存消耗几百M。</li>
-<li>功能种类比较多（web，cache，proxy），但是每一个功能都不是很强。</li>
-<li>支持epoll模型。使得nginx可以支持高并发。</li>
-<li>ginx配合动态服务和apache有区别。</li>
-<li>利用nginx可以对ip限速，可以限制连接数（有这样的模块，apache也有只是第三方的）。</li>
-<li>配置更简单，更灵活。</li>
-</ul>
-<h3 id="13">1.3 使用场景<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
-<ul>
-<li>静态服务器（图片，视频服务）html，js，css，flv等，国内使用的静态服务器就两个，一个是nginx一个是lightttpd。</li>
-<li>静态的访问高。并发1-3W。</li>
-<li>动态服务。Nginx+fastcgi的方式运行php，jsp。并发500-1500. 相对于apache+php,lighttp+fcgi php</li>
-<li>反向代理，负载均衡。日PV2000W以下，都可以直接使用nginx代理.haproxy,F5,a10</li>
-<li>缓存服务.Squid,varnish</li>
-</ul>
-<h3 id="14">1.4 对比<a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
-<h4 id="141-apache">1.4.1 Apache<a class="headerlink" href="#141-apache" title="Permanent link">&para;</a></h4>
-<ul>
-<li>2.2版本非常强大稳定，据官方说2.4本版本性能超强</li>
-<li>Preforx模式取消了进程创建开销，性能很高</li>
-<li>处理动态业务数据时，因关联到后端的引擎和数据库，瓶颈不在Apache本身</li>
-<li>高并发时候消耗的系统资源相对多一些</li>
-<li>基于传统的select的模型</li>
-<li>扩展库，DSO方法，apxs。</li>
-<li>功能多更稳定，更安全，插件也多</li>
-</ul>
-<h4 id="142-nginx">1.4.2 nginx<a class="headerlink" href="#142-nginx" title="Permanent link">&para;</a></h4>
-<ul>
-<li>基于异步IO模型(epoll.kqueue)，性能强，支持上万并发量</li>
-<li>对小文件支持很好，性能很高（限小文件）</li>
-<li>代码优美，扩展库必须编译主进程程序</li>
-<li>消耗系统资源相对比较低</li>
-</ul>
-<h4 id="143-lighttpd">1.4.3 Lighttpd<a class="headerlink" href="#143-lighttpd" title="Permanent link">&para;</a></h4>
-<ul>
-<li>基于异步IO模型，性能和nginx相近</li>
-<li>扩展库是SO模式，比nginx更灵活</li>
-<li>全球使用率比较低，安全性能没有上面两个好</li>
-<li>通过插件（mod_secdowload）可实现文件URL地址加密。</li>
-</ul>
-<h3 id="15-web">1.5 web服务建议<a class="headerlink" href="#15-web" title="Permanent link">&para;</a></h3>
-<ul>
-<li>静态业务：高并发，采用nginx后者lighttpd根据自己的掌握程度或公司要求</li>
-<li>动态业务：采用nignx或者apache</li>
-<li>既有静态业务也有动态业务：nginx或者apache，不要多选，要单选。</li>
-<li>动态业务可以由前端的代理（haproxy）,根据页面元素类型，向后转发相应的服务器进行处理
-  若是并发不是很大，又对apache很熟，采用apache也是可以的，apache2.4版本也很强大，并发连接数也有所增加，</li>
-<li>提示：nginx做web（apache，lighttpd），反向代理（haproxy，lvs nat）以及缓存服务（squid）</li>
-</ul>
-<h3 id="16-nginx">1.6 nginx虚拟主机<a class="headerlink" href="#16-nginx" title="Permanent link">&para;</a></h3>
-<ul>
-<li>基于域名，通过域名来区分虚拟主机。 ==&gt;应用：外部网站</li>
-<li>基于端口，通过端口来区分虚拟主机。  ==&gt;应用：公司内部网站。</li>
-<li>基于IP（不完善），基本不用。</li>
-</ul>
-<h2 id="2-nginx">2. nginx部署<a class="headerlink" href="#2-nginx" title="Permanent link">&para;</a></h2>
-<h3 id="21-pcre">2.1 安装pcre<a class="headerlink" href="#21-pcre" title="Permanent link">&para;</a></h3>
-<p>&#160; &#160; &#160; &#160;PCRE 作用是让 Nginx 支持 Rewrite 功能。</p>
-<p>首先要检查机器是否已经安装pcre</p>
-<p><div class="codehilite"><pre><span></span>root@leco:~# pcre-config  --version
-8.38
+<p>&#160; &#160; &#160; &#160;为了更好的使用linux。基本的优化我们还是需要做的。</p>
+<h2 id="2">2. 优化<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21-selinux">2.1  禁用SELINUX<a class="headerlink" href="#21-selinux" title="Permanent link">&para;</a></h3>
+<p><div class="codehilite"><pre><span></span>sed -i &#39;s@SELINUX=enforcing@SELINUX=disabled@g&#39; /etc/selinux/config 
+setenforce 0
 </pre></div>
-若是没有安装就安装一下步骤安装，缺少什么依赖就安装依赖。
-<div class="codehilite"><pre><span></span>cd /usr/local/src/
-wget http://downloads.sourceforge.net/project/pcre/pcre/8.35/pcre-8.35.tar.gz
-tar zxvf pcre-8.35.tar.gz
-cd pcre-8.35
-./configure &amp;&amp; make &amp;&amp; make install
-pcre-config --version
-yum -y install pcre-devel openssl openssl-devel
+详细操作如下:</p>
+<div class="codehilite"><pre><span></span>[root@localhost ~]# sed -i &#39;s@SELINUX=enforcing@SELINUX=disabled@g&#39; /etc/selinux
+/config [root@localhost ~]# setenforce 0
+[root@localhost ~]# grep -wi ^selinux /etc/selinux/config
+SELINUX=disabled
+</pre></div>
+
+<h3 id="22">2.2 关闭防火墙<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p><div class="codehilite"><pre><span></span>systemctl disable firewalld  # 开机不自启防火墙
+systemctl stop firewalld     # 关闭防火墙
+</pre></div>
+详细操作如下：</p>
+<div class="codehilite"><pre><span></span>[root@localhost ~]# systemctl disable firewalld
+[root@localhost ~]# systemctl stop firewalld
+[root@localhost ~]# systemctl status firewalld
+● firewalld.service - firewalld - dynamic firewall daemon
+   Loaded: loaded (/usr/lib/systemd/system/firewalld.service; disabled; vendor p
+reset: enabled)   Active: inactive (dead)
+     Docs: man:firewalld(1)
+
+Apr 13 09:59:26 localhost.localdomain systemd[1]: Starting firewalld - dynami...
+Apr 13 09:59:26 localhost.localdomain systemd[1]: Started firewalld - dynamic...
+Apr 13 04:45:19 localhost.localdomain systemd[1]: Stopping firewalld - dynami...
+Apr 13 04:45:20 localhost.localdomain systemd[1]: Stopped firewalld - dynamic...
+Hint: Some lines were ellipsized, use -l to show in full.
+</pre></div>
+
+<h3 id="23">2.3 时间矫正<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p><div class="codehilite"><pre><span></span>yum install -y ntp
+crontab -e
+// 加入一行
+*/5 * * * * /usr/sbin/ntpdate ntp.api.bz
+
+# echo &quot;*/5 * * * *  /usr/sbin/ntpdate cn.pool.ntp.org &gt; /dev/null 2&gt;&amp;1&quot; &gt;&gt; /var/spool/cron/root
+</pre></div>
+详细操作</p>
+<div class="codehilite"><pre><span></span>[root@localhost ~]# crontab -l
+*/5 * * * * /usr/sbin/ntpdate ntp.api.bz
+[root@localhost ~]# date
+Sat Apr 13 04:48:52 EDT 2019
+[root@localhost ~]# /usr/sbin/ntpdate ntp.api.bz
+13 Apr 05:06:38 ntpdate[38604]: step time server 114.118.7.163 offset 1056.43580
+1 sec[root@localhost ~]# date
+Sat Apr 13 05:06:54 EDT 2019
+</pre></div>
+
+<h3 id="24-limit">2.4 limit<a class="headerlink" href="#24-limit" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;要调整一下 Linux 的最大文件打开数，否则运行 Squid 诅服务的机器在高负载时执行性能将会很差；另外，在 Linux 下部署应用时，有时候会遇上 “Too many open files” 这样的问题，这个值也会影响服务器的最大并发数。其实 Linux 是有文件句柄限制的。但默认值下是很高，一般是1024，生产服务器很容易就会达到这个值，所以需要改动此值。</p>
+<div class="codehilite"><pre><span></span>cat&gt;&gt;/etc/security/limits.conf&lt;&lt;EOF
+* soft nofile 65535
+* hard nofile 65535
+EOF
+echo &quot;ulimit -SHn 65535&quot;&gt;&gt;/etc/rc.local
+ulimit -SHn 65535
+</pre></div>
+
+<p>详细操作：
+<div class="codehilite"><pre><span></span>[root@localhost ~]# cat&gt;&gt;/etc/security/limits.conf&lt;&lt;EOF
+&gt; * soft nofile 65535
+&gt; * hard nofile 65535
+&gt; EOF
+[root@localhost ~]# echo &quot;ulimit -SHn 65535&quot;&gt;&gt;/etc/rc.local
+[root@localhost ~]# ulimit -SHn 65535
+[root@localhost ~]# ulimit -n
+65535
 </pre></div></p>
-<h3 id="22-nginx">2.2 下载安装nginx<a class="headerlink" href="#22-nginx" title="Permanent link">&para;</a></h3>
-<p>以下我以centos7基础环境。</p>
-<h4 id="221">2.2.1 在线安装<a class="headerlink" href="#221" title="Permanent link">&para;</a></h4>
-<p><div class="codehilite"><pre><span></span>centos 
-yum install nginx
-
-ubuntu
-apt-get install nginx
-</pre></div>
-由于在线安装nginx，可能不是最新的[依赖于系统的nginx镜像远版本]。</p>
-<h4 id="222">2.2.2 离线安装<a class="headerlink" href="#222" title="Permanent link">&para;</a></h4>
-<p>现在目前最新最稳定的版本的1.14.2</p>
-<div class="codehilite"><pre><span></span>useradd nginx -s /sbin/nologin -M
-wget http://nginx.org/download/nginx-1.14.2.tar.gz
-unzip nginx-1.14.2.zip
-cd nginx-1.14.2
-./configure \
---user=nginx \
---group=nginx \
---prefix=/app/nginx-1.14.2 \
---with-http_stub_status_module \
---with-http_ssl_module
-make &amp;&amp; make install
-ln -s /app/nginx1.6.2/  /app/nginx 
+<h3 id="25">2.5 网卡自启动<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>sed -i &#39;s@ONBOOT=no@ONBOOT=yes@g&#39; /etc/sysconfig/network-scripts/ifcfg-ens33
 </pre></div>
 
-<p>操作过程
-<div class="codehilite"><pre><span></span>[root@master ~]# cd /usr/local/src/
-[root@master src]# wget http://nginx.org/download/nginx-1.14.2.tar.gz
-[root@master src]# useradd nginx -s /sbin/nologin -M
-[root@master src]# ls
-nginx-1.14.2.zip
-[root@master src]# tar xf nginx-1.14.2.tar.gz
-[root@master src]# cd nginx-1.14.2
-[root@master nginx-1.14.2]# ./configure \
---user=nginx \
---group=nginx \
---prefix=/app/nginx-1.14.2 \
---with-http_stub_status_module \
---with-http_ssl_module
-[root@master nginx-1.14.2]# ln -sf /app/nginx-1.14.2/ /app/nginx
-[root@master nginx-1.14.2]# ls /app/
-nginx  nginx-1.14.2
+<p>详细操作如下：
+<div class="codehilite"><pre><span></span>[root@localhost ~]# sed -i &#39;s@ONBOOT=no@ONBOOT=yes@g&#39; /etc/sysconfig/network-scripts/ifcfg-ens33 
+[root@localhost ~]# grep -i &#39;ONBOOT&#39;  /etc/sysconfig/network-scripts/ifcfg-ens33 
+ONBOOT=yes
 </pre></div></p>
-<h4 id="223">2.2.3 启动并检查<a class="headerlink" href="#223" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>[root@master nginx-1.14.2]# /app/nginx/sbin/nginx -t
-nginx: the configuration file /app/nginx-1.14.2/conf/nginx.conf syntax is ok
-nginx: configuration file /app/nginx-1.14.2/conf/nginx.conf test is successful
-[root@master nginx-1.14.2]# /app/nginx/sbin/nginx
-[root@master nginx-1.14.2]# ps axf|grep -v grep |grep nginx
- 25298 ?        Ss     0:00 nginx: master process /app/nginx/sbin/nginx
- 25299 ?        S      0:00  \_ nginx: worker process
-[root@master nginx-1.14.2]# netstat -lnp|grep -w 80
-tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      25298/nginx: master
-
-[root@master nginx-1.14.2]# curl 127.0.0.1 -I
-HTTP/1.1 200 OK
-Server: nginx/1.14.2
-Date: Wed, 13 Mar 2019 05:30:09 GMT
-Content-Type: text/html
-Content-Length: 612
-Last-Modified: Wed, 13 Mar 2019 05:27:38 GMT
-Connection: keep-alive
-ETag: &quot;5c8894ca-264&quot;
-Accept-Ranges: bytes
+<h3 id="26-ssh">2.6 ssh<a class="headerlink" href="#26-ssh" title="Permanent link">&para;</a></h3>
+<p><div class="codehilite"><pre><span></span># 禁止ssh反向解析
+sed -i &#39;s@UseDNS yes@UseDNS no@&#39; /etc/ssh/sshd_config /etc/ssh/sshd_config
+# # 禁止空密码登录
+sed -i &#39;s@PermitEmptyPasswords no@PermitEmptyPasswords no@&#39; /etc/ssh/sshd_config
+</pre></div>
+详细操作</p>
+<div class="codehilite"><pre><span></span>[root@localhost ~]# sed -i &#39;s@UseDNS yes@UseDNS no@&#39; /etc/ssh/sshd_config /etc/ssh/sshd_config
+[root@localhost ~]# sed -i &#39;s@PermitEmptyPasswords no@PermitEmptyPasswords no@&#39; /etc/ssh/sshd_config
 </pre></div>
 
-<div class="admonition note">
-<p class="admonition-title">注意</p>
-<div class="codehilite"><pre><span></span><span class="err">检查</span><span class="n">nginx配置文件</span><span class="p">:</span> <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nginx</span> <span class="o">-</span><span class="n">t</span>
-<span class="err">启动</span><span class="n">nginx</span><span class="p">:</span>         <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nginx</span>
-<span class="err">重新加载配置文件</span><span class="p">:</span>  <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nginx</span> <span class="o">-</span><span class="n">s</span> <span class="nb">reload</span>
-
-<span class="n">nginx不通的排错</span>
-<span class="mi">1</span><span class="err">、</span><span class="n">ping</span> <span class="n">ip</span>  <span class="err">物理通不通</span>
-<span class="mi">2</span><span class="err">、</span><span class="n">telnet</span> <span class="n">ip</span> <span class="err">浏览器到</span><span class="n">web服务器通不通</span>
-<span class="mi">3</span><span class="err">、服务器本地</span> <span class="n">curl</span>  <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span> <span class="n">web服务开没开</span> 
+<h3 id="27">2.7 命令补全<a class="headerlink" href="#27" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>yum install -y bash-completion 
 </pre></div>
 
-</div>
+<h3 id="28">2.8 修改字符集<a class="headerlink" href="#28" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>[root@localhost ~]# echo $LANG
+zh_CN.UTF-8
+[root@localhost ~]# vi /etc/locale.conf
+LANG=&quot;en_US.UTF-8&quot;
+[root@localhost ~]# source  /etc/locale.conf
+</pre></div>
+
+<h3 id="29-yum">2.9 更换yum源<a class="headerlink" href="#29-yum" title="Permanent link">&para;</a></h3>
+<p>使用国内的更新源，下载会比国外要好[默认是使用的国外yum源]。
+<div class="codehilite"><pre><span></span>mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+cd  /etc/yum.repos.d/
+wget  http://mirrors.163.com/.help/CentOS7-Base-163.repo
+yum clean all
+yum makecache
+</pre></div>
+详细操作如下:</p>
+<div class="codehilite"><pre><span></span>[root@localhost yum.repos.d]# cd  /etc/yum.repos.d/
+[root@localhost yum.repos.d]# wget  http://mirrors.163.com/.help/CentOS7-Base-16
+3.repo--2019-04-13 05:18:56--  http://mirrors.163.com/.help/CentOS7-Base-163.repo
+Resolving mirrors.163.com (mirrors.163.com)... 59.111.0.251
+Connecting to mirrors.163.com (mirrors.163.com)|59.111.0.251|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1572 (1.5K) [application/octet-stream]
+Saving to: ‘CentOS7-Base-163.repo’
+
+100%[======================================&gt;] 1,572       --.-K/s   in 0s      
+
+2019-04-13 05:18:56 (259 MB/s) - ‘CentOS7-Base-163.repo’ saved [1572/1572]
+
+[root@localhost yum.repos.d]# yum clean all
+Loaded plugins: fastestmirror
+Cleaning repos: base extras updates
+Cleaning up list of fastest mirrors
+[root@localhost yum.repos.d]# yum makecache
+Loaded plugins: fastestmirror
+Determining fastest mirrors
+base                                                     | 3.6 kB     00:00     
+......省略
+</pre></div>
+
+<h3 id="210">2.10 安装基本软件<a class="headerlink" href="#210" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>yum install gcc cmake bzip2-devel curl-devel db4-devel libjpeg-devel libpng-devel freetype-devel libXpm-devel gmp-devel libc-client-devel openldap-devel unixODBC-devel postgresql-devel sqlite-devel aspell-devel net-snmp-devel libxslt-devel libxml2-devel pcre-devel mysql-devel pspell-devel libmemcached libmemcached-devel zlib-devel  vim wget   lrzsz  tree
+</pre></div>
+
+<h3 id="211">2.11 非图形<a class="headerlink" href="#211" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>systemctl get-default                         # 查看当前的运行模式
+systemctl set-default graphical.target        # 设置图形模式为默认模式
+sudo systemctl set-default multi-user.target  # 设置非图形模式为默认模式
+</pre></div>
+
+<div class="codehilite"><pre><span></span>[root@localhost yum.repos.d]# systemctl get-default 
+multi-user.target
+</pre></div>
+
+<h3 id="212-yum">2.12 yum 扩展源<a class="headerlink" href="#212-yum" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;这是因为像centos这类衍生出来的发行版，他们的源有时候内容更新的比较滞后，或者说有时候一些扩展的源根本就没有。所以在使用yum来search python-pip的时候，会说没有找到该软件包。 
+因此为了能够安装这些包，需要先安装扩展源EPEL。EPEL(<a href="http://fedoraproject.org/wiki/EPEL">http://fedoraproject.org/wiki/EPEL</a>) 是由 Fedora 社区打造，为 RHEL 及衍生发行版如 CentOS、Scientific Linux 等提供高质量软件包的项目。 
+首先安装epel扩展源：
+<div class="codehilite"><pre><span></span>yum -y install epel-release
+</pre></div></p>
+<h3 id="213-dns">2.13 添加公网DNS<a class="headerlink" href="#213-dns" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>cat &gt;&gt; /etc/resolv.conf &lt;&lt; EOF
+nameserver 114.114.114.114
+EOF
+</pre></div>
+
+<h3 id="214">2.14 内核优化<a class="headerlink" href="#214" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>cat &gt;&gt; /etc/sysctl.conf &lt;&lt; EOF
+vm.overcommit_memory = 1
+net.ipv4.ip_local_port_range = 1024 65536
+net.ipv4.tcp_fin_timeout = 1
+net.ipv4.tcp_keepalive_time = 1200
+net.ipv4.tcp_mem = 94500000 915000000 927000000
+net.ipv4.tcp_tw_reuse = 1
+net.ipv4.tcp_tw_recycle = 1
+net.ipv4.tcp_timestamps = 0
+net.ipv4.tcp_synack_retries = 1
+net.ipv4.tcp_syn_retries = 1
+net.ipv4.tcp_abort_on_overflow = 0
+net.core.rmem_max = 16777216
+net.core.wmem_max = 16777216
+net.core.netdev_max_backlog = 262144
+net.core.somaxconn = 262144
+net.ipv4.tcp_max_orphans = 3276800
+net.ipv4.tcp_max_syn_backlog = 262144
+net.core.wmem_default = 8388608
+net.core.rmem_default = 8388608
+net.ipv4.netfilter.ip_conntrack_max = 2097152
+net.nf_conntrack_max = 655360
+net.netfilter.nf_conntrack_tcp_timeout_established = 1200
+EOF
+/sbin/sysctl -p
+</pre></div>
+
+<h3 id="215">2.15 优化服务<a class="headerlink" href="#215" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>SERVICES=&quot;acpid atd auditd avahi-daemon avahi-dnsconfd bluetooth conman cpuspeed cups dnsmasq dund firstboot hidd httpd ibmasm ip6tables irda kdump lm_sensors mcstrans messagebus microcode_ctl netconsole netfs netplugd nfs nfslock nscd oddjobd pand pcscd portmap psacct rdisc restorecond rpcgssd rpcidmapd rpcsvcgssd saslauthd sendmail setroubleshoot smb vncserver winbind wpa_supplicant ypbind&quot;
+for service in $SERVICES
+do
+#关闭所选服务随系统启动
+systemctl disable $SERVICES
+#停止所选的服务
+systemctl stop $SERVICES
+done
+</pre></div>
                 
                   
                 
@@ -5572,7 +5584,7 @@ Accept-Ranges: bytes
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../tutorial/linux.optimization/" title="5. 优化" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../linux.conn/" title="5. 链接" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -5581,19 +5593,19 @@ Accept-Ranges: bytes
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                5. 优化
+                5. 链接
               </span>
             </div>
           </a>
         
         
-          <a href="../nginx.conf/" title="02. nginx 配置文件" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../nginx/nginx.index/" title="01. nginx 部署" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                02. nginx 配置文件
+                01. nginx 部署
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
