@@ -5468,8 +5468,7 @@ halt 关闭系统，等同于shutdown –h now 和 poweroff
 <p>，不管是重启系统还是关闭系统，首先要运行 sync 命令，把内存中的数据写到磁盘中。</p>
 <p>关机的命令有 shutdown –h now halt poweroff 和 init 0 , 重启系统的命令有 shutdown –r now reboot init 6。</p>
 </blockquote>
-<details class="note"><summary>关机</summary></details>
-<div class="codehilite"><pre><span></span><span class="n">shutdown</span> <span class="err">会给系统计划一个时间关机。它可以被用于停止、关机、重启机器。</span><span class="n">shutdown</span> <span class="err">会给系统计划一个时间关机。它可以被用于停止、关机、重启机器。</span>
+<details class="note"><summary>关机</summary><div class="codehilite"><pre><span></span><span class="n">shutdown</span> <span class="err">会给系统计划一个时间关机。它可以被用于停止、关机、重启机器。</span><span class="n">shutdown</span> <span class="err">会给系统计划一个时间关机。它可以被用于停止、关机、重启机器。</span>
 <span class="n">shutdown</span> <span class="o">-</span><span class="n">p</span> <span class="n">now</span>  <span class="c1">### 关闭机器</span>
 <span class="n">shutdown</span> <span class="o">-</span><span class="n">H</span> <span class="n">now</span>  <span class="c1">### 停止机器      </span>
 <span class="n">shutdown</span> <span class="o">-</span><span class="n">r09</span><span class="p">:</span><span class="mi">35</span> <span class="c1">### 在 09:35am 重启机器</span>
@@ -5493,6 +5492,8 @@ halt 关闭系统，等同于shutdown –h now 和 poweroff
 <span class="n">reboot</span> <span class="o">-</span><span class="n">p</span>        <span class="c1">### 关闭机器</span>
 </pre></div>
 
+</details>
+<p><img alt="image" src="../../../pictures/linux/tutorial/brief_book/sequence_start.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">详细流程</p>
 <div class="codehilite"><pre><span></span><span class="err">启动第一步－－加载</span><span class="n">BIOS</span>
