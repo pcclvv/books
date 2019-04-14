@@ -194,6 +194,18 @@ nav:
             - 2. 网卡信息: linux/shell/system/linux.network.md
             - 3. mysql:
                 - 1. 安装: linux/shell/mysql/install/mysql.install.md
+        - 教程:
+            - 基础:
+                - 1. 简书: linux/tutorial/brief_book.index.md
+                - 2. 硬件: linux/tutorial/pc.ardware.md 
+                - 3. 历史: linux/tutorial/linux.history.md
+                - 4. 系统安装: linux/tutorial/linux.vmware.md
+                - 5. 链接: linux/tutorial/linux.conn.md 
+                - 6. 优化: linux/tutorial/linux.optimization.md
+                - 7. 目录: linux/tutorial/linux.path.md 
+                - 8. 启动顺序: linux/tutorial/linux.sequence_start.md 
+            - 命令:
+                - 1. ls: linux/tutorial/command/basic/linux.ls.md 
     - Nginx:
         - 01. nginx 部署: linux/nginx/nginx.index.md
         - 02. nginx 配置文件: linux/nginx/nginx.conf.md
