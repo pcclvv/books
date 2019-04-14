@@ -206,6 +206,10 @@ nav:
                 - 8. 启动顺序: linux/tutorial/linux.sequence_start.md 
             - 命令:
                 - 1. ls: linux/tutorial/command/basic/linux.ls.md 
+    - Kubernetes:
+        - docker:
+            - 1. docker 安装: linux/k8s/docker/docker.index.md
+            - 2. docker 命令: linux/k8s/docker/docker.command.md 
     - Nginx:
         - 01. nginx 部署: linux/nginx/nginx.index.md
         - 02. nginx 配置文件: linux/nginx/nginx.conf.md
