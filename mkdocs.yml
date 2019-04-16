@@ -215,6 +215,7 @@ nav:
             - 5. docker 网络: linux/k8s/docker/docker.container_network.md 
             - 6. dockerfile: linux/k8s/docker/docker.lnmp.md 
             - 7. docker Harbor: linux/k8s/docker/docker.harbor.md 
+            - 8. docker ci_cd: linux/k8s/docker/docker.ci_cd.md 
     - Nginx:
         - 01. nginx 部署: linux/nginx/nginx.index.md
         - 02. nginx 配置文件: linux/nginx/nginx.conf.md
