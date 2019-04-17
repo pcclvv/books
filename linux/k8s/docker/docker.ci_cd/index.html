@@ -2609,6 +2609,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      K8S
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        K8S
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../k8s/k8s.index/" title="1. K8S 简介" class="md-nav__link">
+      1. K8S 简介
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -5666,14 +5702,24 @@
 <tbody>
 <tr>
 <td>192.168.186.139</td>
-<td>Harbor docker</td>
+<td>Harbor仓库， docker仓库</td>
 </tr>
 <tr>
 <td>192.168.186.140</td>
-<td>GIT docker</td>
+<td>git客户端， docker软件</td>
 </tr>
 </tbody>
 </table>
+<p>我们主要完成以下效果。</p>
+<ul>
+<li>140机器从139上拉取源代码。</li>
+<li>在140机器本地打包生成war包</li>
+<li>在140基于139harbor基本镜像生成新的镜像</li>
+<li>在140上推送新的镜像到139harbor上</li>
+<li>在140上拉取139对于的那镜像</li>
+<li>在140机上启动那个镜像，从而生成新的容器</li>
+</ul>
+<p><center><img alt="jenkins" src="../../../../pictures/linux/k8s/jenkins/demo.png" /></center></p>
 <p>140 安装docker
 <div class="codehilite"><pre><span></span>sudo yum install -y yum-utils \
 device-mapper-persistent-data lvm2
@@ -6236,13 +6282,13 @@ CONTAINER ID        IMAGE                                             COMMAND   
           </a>
         
         
-          <a href="../../../nginx/nginx.index/" title="01. nginx 部署" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../k8s/k8s.index/" title="1. K8S 简介" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                01. nginx 部署
+                1. K8S 简介
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
