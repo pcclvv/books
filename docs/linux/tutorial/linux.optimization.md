@@ -10,6 +10,7 @@ systemctl disable firewalld  # 开机不自启防火墙
 systemctl stop firewalld     # 关闭防火墙
 
 yum install -y ntp
+cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 echo "*/5 * * * *  /usr/sbin/ntpdate cn.pool.ntp.org > /dev/null 2>&1" >> /var/spool/cron/root
 
 cat>>/etc/security/limits.conf<<EOF
@@ -104,6 +105,7 @@ Hint: Some lines were ellipsized, use -l to show in full.
 
 ```
 yum install -y ntp
+cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 crontab -e
 // 加入一行
 */5 * * * * /usr/sbin/ntpdate ntp.api.bz

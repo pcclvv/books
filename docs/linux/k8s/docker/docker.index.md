@@ -122,6 +122,7 @@ docker从下到上理解:
   device-mapper-persistent-data \
   lvm2
 ```
+
 ??? note "详细操作"
     ```python
     [root@localhost ~]# sudo yum install -y yum-utils \

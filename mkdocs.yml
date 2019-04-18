@@ -218,6 +218,10 @@ nav:
             - 8. docker ci_cd: linux/k8s/docker/docker.ci_cd.md 
         - K8S:
             - 1. K8S 简介: linux/k8s/k8s/k8s.index.md
+            - 2. K8S etcd: linux/k8s/k8s/k8s.etcd_info.md
+            - 3. K8S flannel: linux/k8s/k8s/k8s.flannel_info.md
+            - 4. K8S master: linux/k8s/k8s/k8s.master.md
+            - 4. K8S node: linux/k8s/k8s/k8s.node.md
     - Nginx:
         - 01. nginx 部署: linux/nginx/nginx.index.md
         - 02. nginx 配置文件: linux/nginx/nginx.conf.md
