@@ -6210,15 +6210,14 @@ cluster is healthy
 <ul>
 <li>etcd启动不起来</li>
 </ul>
-<details class="note"><summary>错误1</summary></details>
-<div class="codehilite"><pre><span></span>因为etcd之间https通讯是基于证书的。我证书中的IP地址有错误。
+<details class="note"><summary>错误1</summary><div class="codehilite"><pre><span></span>因为etcd之间https通讯是基于证书的。我证书中的IP地址有错误。
 </pre></div>
 
+</details>
 <ul>
 <li>etcd启动后不加入集群</li>
 </ul>
-<details class="note"><summary>错误2</summary></details>
-<div class="codehilite"><pre><span></span>现象: 
+<details class="note"><summary>错误2</summary><div class="codehilite"><pre><span></span>现象: 
 Apr 18 10:34:45 k8s-master01 etcd: request cluster ID mismatch (got cf138cda9790f1d0 want 8732ef518b18f052)
 
 解决方法：
@@ -6231,6 +6230,7 @@ ETCD_DATA_DIR=&quot;/var/lib/etcd/default.etcd&quot;
 由于删除的是数据存储目录，不是新建etcd集群，或者有重要数据的不可直接删除。
 </pre></div>
 
+</details>
 <blockquote>
 <p>可以通过 journalctl -xefu etcd来详细排查问题</p>
 </blockquote>
