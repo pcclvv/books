@@ -2643,6 +2643,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s.pod/" title="7. K8S pod" class="md-nav__link">
+      7. K8S pod
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -6115,6 +6127,51 @@ NAME              STATUS   ROLES    AGE     VERSION   INTERNAL-IP       EXTERNAL
 192.168.186.141   Ready    &lt;none&gt;   3d18h   v1.13.4   192.168.186.141   &lt;none&gt;        CentOS Linux 7 (Core)   3.10.0-957.el7.x86_64        docker://18.9.5
 192.168.186.142   Ready    &lt;none&gt;   3d17h   v1.13.4   192.168.186.142   &lt;none&gt;        CentOS Linux 7 (Core)   3.10.0-957.10.1.el7.x86_64   docker://18.9.5
 </pre></div></p>
+<blockquote>
+<p>可以看出，我们从其他非机器的机器通过证书和命令链接到机器中[其实就是通过加载证书，链接apiserver，我没有其他闲置机器。我使用了node1节点，你找其他机器都可以，但是保证你的apiserver的证书中允许该ip]</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>在k8s-cert.sh中指定了api server允许链接的ip
+
+cat &gt; server-csr.json &lt;&lt;EOF
+{
+    &quot;CN&quot;: &quot;kubernetes&quot;,
+    &quot;hosts&quot;: [
+      &quot;10.0.0.1&quot;,
+      &quot;127.0.0.1&quot;,
+      &quot;192.168.186.139&quot;,
+      &quot;192.168.186.140&quot;,
+      &quot;192.168.186.141&quot;,
+      &quot;192.168.186.142&quot;,
+      &quot;192.168.186.143&quot;,
+      &quot;192.168.186.144&quot;,
+      &quot;192.168.186.145&quot;,
+      &quot;kubernetes&quot;,
+      &quot;kubernetes.default&quot;,
+      &quot;kubernetes.default.svc&quot;,
+      &quot;kubernetes.default.svc.cluster&quot;,
+      &quot;kubernetes.default.svc.cluster.local&quot;
+    ],
+    &quot;key&quot;: {
+        &quot;algo&quot;: &quot;rsa&quot;,
+        &quot;size&quot;: 2048
+    },
+    &quot;names&quot;: [
+        {
+            &quot;C&quot;: &quot;CN&quot;,
+            &quot;L&quot;: &quot;BeiJing&quot;,
+            &quot;ST&quot;: &quot;BeiJing&quot;,
+            &quot;O&quot;: &quot;k8s&quot;,
+            &quot;OU&quot;: &quot;System&quot;
+        }
+    ]
+}
+EOF
+
+cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes server-csr.json | cfssljson -bare server
+
+具体参考安装master时候，给apiserver 制作的证书
+</pre></div>
+
 <details class="note"><summary>常见问题</summary><div class="codehilite"><pre><span></span>我在做master+nginx slb的时候把证书和启动文件拷贝到node1上 启动的时候加载了证书，显示显示如下: 
 [root@k8s-node01 ~]# kubectl --kubeconfig=./config get node   # 其实就是去链接apiserver[apiserver中ip限制].
 Unable to connect to the server: x509: certificate is valid for 10.0.0.1, 127.0.0.1, 192.168.186.139, 192.168.186.140, 192.168.186
@@ -6162,13 +6219,13 @@ Unable to connect to the server: x509: certificate is valid for 10.0.0.1, 127.0.
           </a>
         
         
-          <a href="../../../nginx/nginx.index/" title="01. nginx 部署" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../k8s.pod/" title="7. K8S pod" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                01. nginx 部署
+                7. K8S pod
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
