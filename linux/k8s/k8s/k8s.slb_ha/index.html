@@ -2605,6 +2605,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#3slb" title="3.配置slb" class="md-nav__link">
+    3.配置slb
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-node" title="3.1 配置node" class="md-nav__link">
+    3.1 配置node
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" title="3.2 生成证书" class="md-nav__link">
+    3.2 生成证书
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -5524,6 +5551,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#3slb" title="3.配置slb" class="md-nav__link">
+    3.配置slb
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-node" title="3.1 配置node" class="md-nav__link">
+    3.1 配置node
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" title="3.2 生成证书" class="md-nav__link">
+    3.2 生成证书
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -5545,7 +5599,6 @@
                 
                 <p><center><h1>Kubernets HA SLB</h1></center></p>
 <h2 id="1">1. 准备环境<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>&#160; &#160; &#160; &#160;</p>
 <table>
 <thead>
 <tr>
@@ -5733,7 +5786,7 @@ vrrp_instance VI_1 {
         auth_pass 1111 
     }  
     virtual_ipaddress { 
-        192.168.186.100/24 # vip地址
+        192.168.186.145/24 # vip地址
     } 
     track_script {
         check_nginx        # 监控脚本
@@ -5772,7 +5825,7 @@ vrrp_instance VI_1 {
         auth_pass 1111 
     }  
     virtual_ipaddress { 
-        192.168.186.100/24 # vip地址
+        192.168.186.145/24 # vip地址
     } 
     track_script {
         check_nginx        # 监控脚本
@@ -5812,7 +5865,7 @@ fi
     link/ether 00:0c:29:c6:79:90 brd ff:ff:ff:ff:ff:ff
     inet 192.168.186.143/24 brd 192.168.186.255 scope global noprefixroute ens33
        valid_lft forever preferred_lft forever
-    inet 192.168.186.100/24 scope global secondary ens33
+    inet 192.168.186.145/24 scope global secondary ens33
        valid_lft forever preferred_lft forever
     inet6 fe80::9d58:5651:daa8:880a/64 scope link noprefixroute 
        valid_lft forever preferred_lft forever
@@ -5872,28 +5925,208 @@ Hint: Some lines were ellipsized, use -l to show in full.
  48865 ?        S      0:00  \_ nginx: worker process
  48866 ?        S      0:00  \_ nginx: worker process
  48867 ?        S      0:00  \_ nginx: worker process
-[root@k8s-lb01 nginx]# ip a|grep 100
+[root@k8s-lb01 nginx]# ip a|grep 145
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
 2: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    inet 192.168.186.100/24 scope global secondary ens33
+    inet 192.168.186.145/24 scope global secondary ens33
+
+----------------------------------------------------------------------------------    
+开始ping 这个vip
+C:\Users\cmz&gt;ping -t 192.168.186.145
+
+正在 Ping 192.168.186.145 具有 32 字节的数据:
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间=1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间=1ms TTL=64
+请求超时。                                            &lt;-- 这个地方是我pkill nginx时候vip漂移到backup了
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间=1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间=1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间=1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间=2ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间=2ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间=1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+请求超时。                                            &lt;-- 这个地方是我启动了keepalived和nginx，vip又漂移到master上了
+来自 192.168.186.145 的回复: 字节=32 时间=1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间=2ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+来自 192.168.186.145 的回复: 字节=32 时间&lt;1ms TTL=64
+
+192.168.186.145 的 Ping 统计信息:
+    数据包: 已发送 = 45，已接收 = 43，丢失 = 2 (4% 丢失)，
+往返行程的估计时间(以毫秒为单位):
+    最短 = 0ms，最长 = 2ms，平均 = 0ms
+Control-C
+^C
+---------------------------------------------------------
+
 [root@k8s-lb01 nginx]# pkill nginx
 
 过一会
 [root@k8s-lb01 nginx]# ps axf|egrep  &#39;nginx|keepalived&#39;
  50268 pts/0    S+     0:00  |           \_ grep -E --color=auto nginx|keepalived
-[root@k8s-lb01 nginx]# ip a|grep 100
+[root@k8s-lb01 nginx]# ip a|grep 145
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
 2: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
 说明keepalived调用那个检查脚本干掉了自己。此时vip漂移到从keepalived了，去检查一下
-[root@k8s-lb02 nginx]# ip a|grep 100
+[root@k8s-lb02 nginx]# ip a|grep 145
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
 2: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    inet 192.168.186.100/24 scope global secondary ens33
+    inet 192.168.186.145/24 scope global secondary ens33
 可以看出vip漂移到从keepalived了。
 </pre></div></p>
 <blockquote>
 <p>到目前为止 k8s的前端HA和SLB做准备已经实现，下面开始部署另一个k8s-master，部署完在测试</p>
 </blockquote>
+<h2 id="3slb">3.配置slb<a class="headerlink" href="#3slb" title="Permanent link">&para;</a></h2>
+<h3 id="31-node">3.1 配置node<a class="headerlink" href="#31-node" title="Permanent link">&para;</a></h3>
+<p>&#160; &#160; &#160; &#160;我们此时将node节点指向到slb上，不在是指向master上了。此时就是将node节点的指向ip由原来的指向master ip改为slb的vip即可。</p>
+<div class="codehilite"><pre><span></span>——————&gt; node1
+[root@k8s-node01 ~]# cd /opt/kubernetes/cfg/
+[root@k8s-node01 cfg]# ls
+bootstrap.kubeconfig  flanneld  kubelet  kubelet.config  kubelet.kubeconfig  kube-proxy  kube-proxy.kubeconfig
+[root@k8s-node01 cfg]# grep -irn 139 *
+bootstrap.kubeconfig:5:    server: https://192.168.186.139:6443
+flanneld:2:FLANNEL_OPTIONS=&quot;--etcd-endpoints=https://192.168.186.139:2379,https://192.168.186.141:2379,https://192.168.186.142:237
+9 -etcd-cafile=/opt/etcd/ssl/ca.pem -etcd-certfile=/opt/etcd/ssl/server.pem -etcd-keyfile=/opt/etcd/ssl/server-key.pem&quot;kubelet.kubeconfig:5:    server: https://192.168.186.139:6443
+kube-proxy.kubeconfig:5:    server: https://192.168.186.139:6443
+
+期中要修改的 bootstrap.kubeconfig 第五行，kubelet.kubeconfig第五行，kube-proxy.kubeconfig第五行。修改后如下：
+[root@k8s-node01 cfg]# grep -irn 145 *
+bootstrap.kubeconfig:5:    server: https://192.168.186.145:6443
+kubelet.kubeconfig:5:    server: https://192.168.186.145:6443
+kube-proxy.kubeconfig:5:    server: https://192.168.186.145:6443
+
+重启服务
+[root@k8s-node01 cfg]# systemctl restart kubelet
+[root@k8s-node01 cfg]# systemctl restart kube-proxy
+
+
+——————&gt; node2
+[root@k8s-node02 ~]# cd /opt/kubernetes/cfg/
+[root@k8s-node02 cfg]# ll
+total 32
+-rw------- 1 root root 2169 Apr 18 17:49 bootstrap.kubeconfig
+-rw-r--r-- 1 root root  241 Apr 18 17:49 flanneld
+-rw-r--r-- 1 root root  413 Apr 18 17:55 kubelet
+-rw-r--r-- 1 root root  269 Apr 18 17:56 kubelet.config
+-rw------- 1 root root 2298 Apr 18 18:07 kubelet.kubeconfig
+-rw-r--r-- 1 root root  191 Apr 18 18:01 kube-proxy
+-rw------- 1 root root 6271 Apr 18 17:49 kube-proxy.kubeconfig
+[root@k8s-node02 cfg]# grep -irn 139 *
+bootstrap.kubeconfig:5:    server: https://192.168.186.139:6443
+flanneld:2:FLANNEL_OPTIONS=&quot;--etcd-endpoints=https://192.168.186.139:2379,https://192.168.186.141:2379,https://192.168.186.142:237
+9 -etcd-cafile=/opt/etcd/ssl/ca.pem -etcd-certfile=/opt/etcd/ssl/server.pem -etcd-keyfile=/opt/etcd/ssl/server-key.pem&quot;kubelet.kubeconfig:5:    server: https://192.168.186.139:6443
+kube-proxy.kubeconfig:5:    server: https://192.168.186.139:6443
+[root@k8s-node02 cfg]# vim bootstrap.kubeconfig +5
+[root@k8s-node02 cfg]# vim kubelet.kubeconfig +5
+[root@k8s-node02 cfg]# vim kube-proxy.kubeconfig +5
+[root@k8s-node02 cfg]# grep -irn 100 *
+bootstrap.kubeconfig:5:    server: https://192.168.186.145:6443
+kubelet.kubeconfig:5:    server: https://192.168.186.145:6443
+kube-proxy.kubeconfig:5:    server: https://192.168.186.145:6443
+[root@k8s-node02 cfg]# systemctl restart kubelet
+[root@k8s-node02 cfg]# systemctl restart kube-proxy
+</pre></div>
+
+<h3 id="32">3.2 生成证书<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p>在master01上操作</p>
+<details class="note"><summary>kubectl.sh </summary><div class="codehilite"><pre><span></span>[root@k8s-master01 k8s-cert]# cat kubectl.sh 
+kubectl config set-cluster kubernetes \
+--server=https://192.168.186.145:6443 \
+--embed-certs=true \
+--certificate-authority=ca.pem \
+--kubeconfig=config
+kubectl config set-credentials cluster-admin \
+--certificate-authority=ca.pem \
+--embed-certs=true \
+--client-key=admin-key.pem \
+--client-certificate=admin.pem \
+--kubeconfig=config
+kubectl config set-context default --cluster=kubernetes --user=cluster-admin --kubeconfig=config
+kubectl config use-context default --kubeconfig=config
+</pre></div>
+
+</details>
+<p><div class="codehilite"><pre><span></span>[root@k8s-master01 k8s-cert]# pwd
+/root/k8s/k8s-cert
+[root@k8s-master01 k8s-cert]# bash kubectl.sh 
+Cluster &quot;kubernetes&quot; set.
+User &quot;cluster-admin&quot; set.
+Context &quot;default&quot; created.
+Switched to context &quot;default&quot;.
+[root@k8s-master01 k8s-cert]# ls config 
+config
+[root@k8s-master01 k8s-cert]# ls
+admin.csr       bootstrap.kubeconfig  ca-key.pem   kubeconfig.sh        kube-proxy-key.pem     server-csr.json
+admin-csr.json  ca-config.json        ca.pem       kubectl.sh           kube-proxy.kubeconfig  server-key.pem
+admin-key.pem   ca.csr                config       kube-proxy.csr       kube-proxy.pem         server.pem
+admin.pem       ca-csr.json           k8s-cert.sh  kube-proxy-csr.json  server.csr
+
+
+[root@k8s-master01 k8s-cert]# scp  /usr/bin/kubectl root@192.168.186.141:/usr/bin/
+root@192.168.186.141&#39;s password: 
+kubectl                                                                                         100%   37MB  68.2MB/s   00:00    
+[root@k8s-master01 k8s-cert]# scp  config root@192.168.186.141:/root
+root@192.168.186.141&#39;s password: 
+config                                                                                          100% 6273     3.7MB/s   00:00  
+</pre></div>
+在node1上操作。
+<div class="codehilite"><pre><span></span>[root@k8s-node01 ~]# pwd
+/root
+[root@k8s-node01 ~]# ls
+anaconda-ks.cfg  config  flannel.sh  flannel-v0.10.0-linux-amd64.tar.gz  kubelet.sh  node.zip  proxy.sh  README.md
+[root@k8s-node01 ~]# kubectl --kubeconfig=./config  get nodes
+NAME              STATUS   ROLES    AGE     VERSION
+192.168.186.141   Ready    &lt;none&gt;   3d18h   v1.13.4
+192.168.186.142   Ready    &lt;none&gt;   3d17h   v1.13.4
+[root@k8s-node01 ~]# 
+[root@k8s-node01 ~]# kubectl --kubeconfig=./config  get nodes -o wide
+NAME              STATUS   ROLES    AGE     VERSION   INTERNAL-IP       EXTERNAL-IP   OS-IMAGE                KERNEL-VERSION               CONTAINER-RUNTIME
+192.168.186.141   Ready    &lt;none&gt;   3d18h   v1.13.4   192.168.186.141   &lt;none&gt;        CentOS Linux 7 (Core)   3.10.0-957.el7.x86_64        docker://18.9.5
+192.168.186.142   Ready    &lt;none&gt;   3d17h   v1.13.4   192.168.186.142   &lt;none&gt;        CentOS Linux 7 (Core)   3.10.0-957.10.1.el7.x86_64   docker://18.9.5
+</pre></div></p>
+<details class="note"><summary>常见问题</summary><div class="codehilite"><pre><span></span>我在做master+nginx slb的时候把证书和启动文件拷贝到node1上 启动的时候加载了证书，显示显示如下: 
+[root@k8s-node01 ~]# kubectl --kubeconfig=./config get node   # 其实就是去链接apiserver[apiserver中ip限制].
+Unable to connect to the server: x509: certificate is valid for 10.0.0.1, 127.0.0.1, 192.168.186.139, 192.168.186.140, 192.168.186
+.141, 192.168.186.142, 192.168.186.143, 192.168.186.144, 192.168.186.145, not 192.168.186.100
+
+后面发现我的vip 192.168.186.100不在apiserver 信任里面。解决办法:
+1. 修改我制作apiserver的时候预留的ip
+2. 重新制作spiserver证书，分发到其他机器上。
+我选择了第一种
+</pre></div>
+
+</details>
                 
                   
                 
