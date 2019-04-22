@@ -296,7 +296,6 @@ tcp        0      0 127.0.0.1:8080          0.0.0.0:*               LISTEN      
 
 
 ### 2.2 kube-controller-manager
-&#160; &#160; &#160; &#160;
 
 ??? note "controller-manager.sh"
     ```
@@ -356,7 +355,6 @@ elect=true --address=127.0.0.1 --service-cluster-ip-range=10.0.0.0/24 --cluster-
 
 
 ### 2.3 kube-scheduler
-&#160; &#160; &#160; &#160;
 
 ??? note "scheduler.sh"
     ```

@@ -257,7 +257,7 @@ cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=www 
 3. 修改主机名
 ```
 
-??? note "master etcd配置文件和启动文件"
+??? note "master机器上etcd配置文件和启动文件"
     ```
     [root@k8s-master01 cfg]# pwd
     /opt/etcd/cfg
@@ -293,7 +293,7 @@ cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=www 
     WantedBy=multi-user.target
     ```
 
-??? note "node01 etcd配置文件和启动文件"
+??? note "node01机器上etcd配置文件和启动文件"
     ```
     [root@k8s-node01 cfg]# cat /opt/etcd/cfg/etcd 
     #[Member]
@@ -327,7 +327,7 @@ cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=www 
     WantedBy=multi-user.target
     ```
 
-??? note "node02 etcd配置文件和启动文件"
+??? note "node02机器上etcd配置文件和启动文件"
     ```
     [root@k8s-node02 cfg]# cat /opt/etcd/cfg/etcd 
     #[Member]
@@ -434,6 +434,7 @@ etcd.service                                                                    
 root@192.168.186.142's password: 
 etcd.service                                                                                    100%  923   818.2KB/s   00:00  
 ```
+> 拷贝配置文件和启动文件到其他机器，同时在其他机器上修改配置，具体配置完的配置文件详见5.1准备章节的那三个配置文件
 
 #### 5.2.3 启动所有机器etcd
 

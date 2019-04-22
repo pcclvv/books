@@ -222,6 +222,10 @@ nav:
             - 3. K8S flannel: linux/k8s/k8s/k8s.flannel_info.md
             - 4. K8S master: linux/k8s/k8s/k8s.master.md
             - 4. K8S node: linux/k8s/k8s/k8s.node.md
+            - 5. K8S 新增master: linux/k8s/k8s/k8s.add_master.md
+            - 6. K8S slb_ha: linux/k8s/k8s/k8s.slb_ha.md
+            - 7. K8S pod: linux/k8s/k8s/k8s.pod.md
+            
     - Nginx:
         - 01. nginx 部署: linux/nginx/nginx.index.md
         - 02. nginx 配置文件: linux/nginx/nginx.conf.md

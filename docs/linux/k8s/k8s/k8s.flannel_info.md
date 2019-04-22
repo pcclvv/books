@@ -58,8 +58,12 @@ https://github.com/coreos/flannel/releases
 ### 3.2 写入分配的子网段到etcd
 
 ```
-/opt/etcd/bin/etcdctl --ca-file=/opt/etcd/ssl/ca.pem --cert-file=/opt/etcd/ssl/server.pem --key-file=/opt
-/etcd/ssl/server-key.pem --endpoints="https://192.168.186.139:2379,https://192.168.186.141:2379,https://192.168.186.142:2379" set /coreos.com/network/config '{ "Network": "172.17.0.0/16", "Backend": {"Type": "vxlan"}}'
+/opt/etcd/bin/etcdctl \
+--ca-file=/opt/etcd/ssl/ca.pem \
+--cert-file=/opt/etcd/ssl/server.pem \
+--key-file=/opt/etcd/ssl/server-key.pem \
+--endpoints="https://192.168.186.139:2379,https://192.168.186.141:2379,https://192.168.186.142:2379" \
+set /coreos.com/network/config '{ "Network": "172.17.0.0/16", "Backend": {"Type": "vxlan"}}'
 ```
 
 ??? note "操作"
@@ -69,8 +73,12 @@ https://github.com/coreos/flannel/releases
     /etcd/ssl/server-key.pem --endpoints="https://192.168.186.139:2379,https://192.168.186.141:2379,https://192.168.186.142:2379" set /coreos.com/network/config '{ "Network": "172.17.0.0/16", "Backend": {"Type": "vxlan"}}'{ "Network": "172.17.0.0/16", "Backend": {"Type": "vxlan"}}
     
     查看
-    [root@k8s-master01 ssl]# /opt/etcd/bin/etcdctl --ca-file=/opt/etcd/ssl/ca.pem --cert-file=/opt/etcd/ssl/server.pem --key-file=/opt
-    /etcd/ssl/server-key.pem --endpoints="https://192.168.186.139:2379,https://192.168.186.141:2379,https://192.168.186.142:2379" get /coreos.com/network/config { "Network": "172.17.0.0/16", "Backend": {"Type": "vxlan"}}
+    [root@k8s-master01 ~]# /opt/etcd/bin/etcdctl \
+    > --ca-file=/opt/etcd/ssl/ca.pem \
+    > --cert-file=/opt/etcd/ssl/server.pem \
+    > --key-file=/opt/etcd/ssl/server-key.pem \
+    > --endpoints="https://192.168.186.139:2379,https://192.168.186.141:2379,https://192.168.186.142:2379" get /coreos.com/network/config 
+    { "Network": "172.17.0.0/16", "Backend": {"Type": "vxlan"}}
     ```
 
 
