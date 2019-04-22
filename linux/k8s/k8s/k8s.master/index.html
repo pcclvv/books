@@ -2592,6 +2592,30 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s.add_master/" title="5. K8S 新增master" class="md-nav__link">
+      5. K8S 新增master
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s.slb_ha/" title="6. K8S slb_ha" class="md-nav__link">
+      6. K8S slb_ha
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -5831,7 +5855,6 @@ tcp        0      0 127.0.0.1:8080          0.0.0.0:*               LISTEN      
 <p>token.csv是kubelet加入集群时候颁发证书使用</p>
 </blockquote>
 <h3 id="22-kube-controller-manager">2.2 kube-controller-manager<a class="headerlink" href="#22-kube-controller-manager" title="Permanent link">&para;</a></h3>
-<p>&#160; &#160; &#160; &#160;</p>
 <details class="note"><summary>controller-manager.sh</summary><div class="codehilite"><pre><span></span>[root@k8s-master01 k8s]# cat controller-manager.sh 
 #!/bin/bash
 MASTER_ADDRESS=$1
@@ -5885,7 +5908,6 @@ elect=true --address=127.0.0.1 --service-cluster-ip-range=10.0.0.0/24 --cluster-
 </pre></div>
 
 <h3 id="23-kube-scheduler">2.3 kube-scheduler<a class="headerlink" href="#23-kube-scheduler" title="Permanent link">&para;</a></h3>
-<p>&#160; &#160; &#160; &#160;</p>
 <details class="note"><summary>scheduler.sh</summary><div class="codehilite"><pre><span></span>[root@k8s-master01 k8s]# cat scheduler.sh 
 #!/bin/bash
 

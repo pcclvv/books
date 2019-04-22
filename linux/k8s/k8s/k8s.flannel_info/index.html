@@ -2626,6 +2626,30 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s.add_master/" title="5. K8S 新增master" class="md-nav__link">
+      5. K8S 新增master
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s.slb_ha/" title="6. K8S slb_ha" class="md-nav__link">
+      6. K8S slb_ha
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -5664,8 +5688,12 @@
 </pre></div>
 
 <h3 id="32-etcd">3.2 写入分配的子网段到etcd<a class="headerlink" href="#32-etcd" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>/opt/etcd/bin/etcdctl --ca-file=/opt/etcd/ssl/ca.pem --cert-file=/opt/etcd/ssl/server.pem --key-file=/opt
-/etcd/ssl/server-key.pem --endpoints=&quot;https://192.168.186.139:2379,https://192.168.186.141:2379,https://192.168.186.142:2379&quot; set /coreos.com/network/config &#39;{ &quot;Network&quot;: &quot;172.17.0.0/16&quot;, &quot;Backend&quot;: {&quot;Type&quot;: &quot;vxlan&quot;}}&#39;
+<div class="codehilite"><pre><span></span>/opt/etcd/bin/etcdctl \
+--ca-file=/opt/etcd/ssl/ca.pem \
+--cert-file=/opt/etcd/ssl/server.pem \
+--key-file=/opt/etcd/ssl/server-key.pem \
+--endpoints=&quot;https://192.168.186.139:2379,https://192.168.186.141:2379,https://192.168.186.142:2379&quot; \
+set /coreos.com/network/config &#39;{ &quot;Network&quot;: &quot;172.17.0.0/16&quot;, &quot;Backend&quot;: {&quot;Type&quot;: &quot;vxlan&quot;}}&#39;
 </pre></div>
 
 <details class="note"><summary>操作</summary><div class="codehilite"><pre><span></span>设置
@@ -5673,8 +5701,12 @@
 /etcd/ssl/server-key.pem --endpoints=&quot;https://192.168.186.139:2379,https://192.168.186.141:2379,https://192.168.186.142:2379&quot; set /coreos.com/network/config &#39;{ &quot;Network&quot;: &quot;172.17.0.0/16&quot;, &quot;Backend&quot;: {&quot;Type&quot;: &quot;vxlan&quot;}}&#39;{ &quot;Network&quot;: &quot;172.17.0.0/16&quot;, &quot;Backend&quot;: {&quot;Type&quot;: &quot;vxlan&quot;}}
 
 查看
-[root@k8s-master01 ssl]# /opt/etcd/bin/etcdctl --ca-file=/opt/etcd/ssl/ca.pem --cert-file=/opt/etcd/ssl/server.pem --key-file=/opt
-/etcd/ssl/server-key.pem --endpoints=&quot;https://192.168.186.139:2379,https://192.168.186.141:2379,https://192.168.186.142:2379&quot; get /coreos.com/network/config { &quot;Network&quot;: &quot;172.17.0.0/16&quot;, &quot;Backend&quot;: {&quot;Type&quot;: &quot;vxlan&quot;}}
+[root@k8s-master01 ~]# /opt/etcd/bin/etcdctl \
+&gt; --ca-file=/opt/etcd/ssl/ca.pem \
+&gt; --cert-file=/opt/etcd/ssl/server.pem \
+&gt; --key-file=/opt/etcd/ssl/server-key.pem \
+&gt; --endpoints=&quot;https://192.168.186.139:2379,https://192.168.186.141:2379,https://192.168.186.142:2379&quot; get /coreos.com/network/config 
+{ &quot;Network&quot;: &quot;172.17.0.0/16&quot;, &quot;Backend&quot;: {&quot;Type&quot;: &quot;vxlan&quot;}}
 </pre></div>
 
 </details>

@@ -2687,6 +2687,30 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s.add_master/" title="5. K8S 新增master" class="md-nav__link">
+      5. K8S 新增master
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s.slb_ha/" title="6. K8S slb_ha" class="md-nav__link">
+      6. K8S slb_ha
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -5998,7 +6022,7 @@ total 44
 3. 修改主机名
 </pre></div>
 
-<details class="note"><summary>master etcd配置文件和启动文件</summary><div class="codehilite"><pre><span></span>[root@k8s-master01 cfg]# pwd
+<details class="note"><summary>master机器上etcd配置文件和启动文件</summary><div class="codehilite"><pre><span></span>[root@k8s-master01 cfg]# pwd
 /opt/etcd/cfg
 [root@k8s-master01 cfg]# cat etcd 
 #[Member]
@@ -6033,7 +6057,7 @@ WantedBy=multi-user.target
 </pre></div>
 
 </details>
-<details class="note"><summary>node01 etcd配置文件和启动文件</summary><div class="codehilite"><pre><span></span>[root@k8s-node01 cfg]# cat /opt/etcd/cfg/etcd 
+<details class="note"><summary>node01机器上etcd配置文件和启动文件</summary><div class="codehilite"><pre><span></span>[root@k8s-node01 cfg]# cat /opt/etcd/cfg/etcd 
 #[Member]
 ETCD_NAME=&quot;etcd02&quot;
 ETCD_DATA_DIR=&quot;/var/lib/etcd/default.etcd&quot;
@@ -6066,7 +6090,7 @@ WantedBy=multi-user.target
 </pre></div>
 
 </details>
-<details class="note"><summary>node02 etcd配置文件和启动文件</summary><div class="codehilite"><pre><span></span>[root@k8s-node02 cfg]# cat /opt/etcd/cfg/etcd 
+<details class="note"><summary>node02机器上etcd配置文件和启动文件</summary><div class="codehilite"><pre><span></span>[root@k8s-node02 cfg]# cat /opt/etcd/cfg/etcd 
 #[Member]
 ETCD_NAME=&quot;etcd03&quot;
 ETCD_DATA_DIR=&quot;/var/lib/etcd/default.etcd&quot;
@@ -6169,6 +6193,9 @@ root@192.168.186.142&#39;s password:
 etcd.service                                                                                    100%  923   818.2KB/s   00:00  
 </pre></div>
 
+<blockquote>
+<p>拷贝配置文件和启动文件到其他机器，同时在其他机器上修改配置，具体配置完的配置文件详见5.1准备章节的那三个配置文件</p>
+</blockquote>
 <h4 id="523-etcd">5.2.3 启动所有机器etcd<a class="headerlink" href="#523-etcd" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span>[root@k8s-master01 ssl]# systemctl start etcd
 [root@k8s-node01 ssl]# systemctl start etcd
