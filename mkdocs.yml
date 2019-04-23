@@ -217,14 +217,17 @@ nav:
             - 7. docker Harbor: linux/k8s/docker/docker.harbor.md 
             - 8. docker ci_cd: linux/k8s/docker/docker.ci_cd.md 
         - K8S:
-            - 1. K8S 简介: linux/k8s/k8s/k8s.index.md
-            - 2. K8S etcd: linux/k8s/k8s/k8s.etcd_info.md
-            - 3. K8S flannel: linux/k8s/k8s/k8s.flannel_info.md
-            - 4. K8S master: linux/k8s/k8s/k8s.master.md
-            - 4. K8S node: linux/k8s/k8s/k8s.node.md
-            - 5. K8S 新增master: linux/k8s/k8s/k8s.add_master.md
-            - 6. K8S slb_ha: linux/k8s/k8s/k8s.slb_ha.md
-            - 7. K8S pod: linux/k8s/k8s/k8s.pod.md
+            - 01. K8S 简介: linux/k8s/k8s/k8s.index.md
+            - 02. K8S 规划: linux/k8s/k8s/k8s.machine.md
+            - 03. K8S etcd: linux/k8s/k8s/k8s.etcd_info.md
+            - 04. K8S flannel: linux/k8s/k8s/k8s.flannel_info.md
+            - 05. K8S master: linux/k8s/k8s/k8s.master.md
+            - 06. K8S node: linux/k8s/k8s/k8s.node.md
+            - 07. K8S 新增master: linux/k8s/k8s/k8s.add_master.md
+            - 08. K8S slb_ha: linux/k8s/k8s/k8s.slb_ha.md
+            - 09. K8S pod: linux/k8s/k8s/k8s.pod.md
+            - 10. K8S 控制器: linux/k8s/k8s/k8s.controller.md
+            - 11. K8S coredns: linux/k8s/k8s/k8s.coredns.md
             
     - Nginx:
         - 01. nginx 部署: linux/nginx/nginx.index.md

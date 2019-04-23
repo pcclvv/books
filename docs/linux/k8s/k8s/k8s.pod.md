@@ -1149,3 +1149,418 @@ nginx-deployment-5997b94b5c-zc7pp   1/1     Running            0          9m14s
 bin  boot  dev	etc  home  lib	lib64  media  mnt  opt	proc  root  run  sbin  srv  sys  tmp  usr  var
 # 
 ```
+
+## 11. 综合实战
+### 11.1 hello word
+!!! note "hello-world-pod.yaml"
+    ```
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: hello-world
+    spec:      #配置pod的具体规格
+      restartPolicy: OnFailure              
+      containers:
+      - name: hello
+        image: "ubuntu:14.04"
+        command: ["/bin/echo","Hello","world"]
+    ```
+??? note "字段解释"
+    ```
+    apiVersion:    声明K8s的API版本
+    kind:          声明API对象的类型，这里是Pod
+    metadata:      设置Pod的元数据
+      name: hello-world 指定Pod的名称Pod名称必须在Namespace内唯一
+    spec:               配置Pod的具体规格
+      restartPolicy:    重启策略
+      containers:       容器规格，数组形式，每一项定义一个容器
+      - name:           指定容器的名称，在Pod的定义中唯一
+        image:          设置容器镜像
+        command:        设置容器的启动命令
+    ```
+### 11.2 创建
+
+```
+[root@k8s-master01 yml]# ls
+hello-world-pod.yaml
+
+# 创建
+[root@k8s-master01 yml]# kubectl create -f hello-world-pod.yaml
+pod/hello-world created
+```
+
+### 11.3 查询 pod信息
+
+### 11.3.1 简单信息
+```
+[root@k8s-master01 yml]# kubectl get pod hello-world
+NAME          READY   STATUS      RESTARTS   AGE
+hello-world   0/1     Completed   0          72s
+```
+
+!!! note "解释"
+    ```
+    NAME:     Pod的名称
+    READY:    Pod的准备状况，准备就绪/Pod包含的容器总数目
+    STATUS:   Pod的状态
+    RESTARTS：Pod的重启次数
+    AGE：     Pod的运行时间
+    ```
+
+### 11.3.2 详细信息
+
+```
+kubectl describe pods hello-world
+```
+
+??? note "详细信息" 
+    ```
+    [root@k8s-master01 yml]# kubectl describe pods hello-world
+    Name:               hello-world
+    Namespace:          default
+    Priority:           0
+    PriorityClassName:  <none>
+    Node:               192.168.186.142/192.168.186.142
+    Start Time:         Tue, 23 Apr 2019 13:48:04 +0800
+    Labels:             <none>
+    Annotations:        <none>
+    Status:             Succeeded
+    IP:                 172.17.8.7
+    Containers:
+      hello:
+        Container ID:  docker://889dcd8639d0adf57a9558e60525022206e21238377dfabcb9d4ee1cecab6fe6
+        Image:         ubuntu:14.04
+        Image ID:      docker-pullable://ubuntu@sha256:6612de24437f6f01d6a2988ed9a36b3603df06e8d2c0493678f3ee696bc4bb2d
+        Port:          <none>
+        Host Port:     <none>
+        Command:
+          /bin/echo
+          Hello
+          world
+        State:          Terminated
+          Reason:       Completed
+          Exit Code:    0
+          Started:      Tue, 23 Apr 2019 13:48:05 +0800
+          Finished:     Tue, 23 Apr 2019 13:48:05 +0800
+        Ready:          False
+        Restart Count:  0
+        Environment:    <none>
+        Mounts:
+          /var/run/secrets/kubernetes.io/serviceaccount from default-token-r5m2l (ro)
+    Conditions:
+      Type              Status
+      Initialized       True 
+      Ready             False 
+      ContainersReady   False 
+      PodScheduled      True 
+    Volumes:
+      default-token-r5m2l:
+        Type:        Secret (a volume populated by a Secret)
+        SecretName:  default-token-r5m2l
+        Optional:    false
+    QoS Class:       BestEffort
+    Node-Selectors:  <none>
+    Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                     node.kubernetes.io/unreachable:NoExecute for 300s
+    Events:
+      Type    Reason     Age   From                      Message
+      ----    ------     ----  ----                      -------
+      Normal  Scheduled  3m4s  default-scheduler         Successfully assigned default/hello-world to 192.168.186.142
+      Normal  Pulled     3m3s  kubelet, 192.168.186.142  Container image "ubuntu:14.04" already present on machine
+      Normal  Created    3m3s  kubelet, 192.168.186.142  Created container
+      Normal  Started    3m2s  kubelet, 192.168.186.142  Started container
+    ```
+
+- json显示方式显示Pod的完整信息
+
+```
+kubectl get pod hello-world --output json
+```
+
+??? note "json显示方式属性详细信息"
+    ```
+    [root@k8s-master01 yml]# kubectl get pod hello-world --output json
+    {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+            "creationTimestamp": "2019-04-23T05:48:04Z",
+            "name": "hello-world",
+            "namespace": "default",
+            "resourceVersion": "117859",
+            "selfLink": "/api/v1/namespaces/default/pods/hello-world",
+            "uid": "5ca78495-658b-11e9-9365-000c2994bdca"
+        },
+        "spec": {
+            "containers": [
+                {
+                    "command": [
+                        "/bin/echo",
+                        "Hello",
+                        "world"
+                    ],
+                    "image": "ubuntu:14.04",
+                    "imagePullPolicy": "IfNotPresent",
+                    "name": "hello",
+                    "resources": {},
+                    "terminationMessagePath": "/dev/termination-log",
+                    "terminationMessagePolicy": "File",
+                    "volumeMounts": [
+                        {
+                            "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                            "name": "default-token-r5m2l",
+                            "readOnly": true
+                        }
+                    ]
+                }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "enableServiceLinks": true,
+            "nodeName": "192.168.186.142",
+            "priority": 0,
+            "restartPolicy": "OnFailure",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "serviceAccount": "default",
+            "serviceAccountName": "default",
+            "terminationGracePeriodSeconds": 30,
+            "tolerations": [
+                {
+                    "effect": "NoExecute",
+                    "key": "node.kubernetes.io/not-ready",
+                    "operator": "Exists",
+                    "tolerationSeconds": 300
+                },
+                {
+                    "effect": "NoExecute",
+                    "key": "node.kubernetes.io/unreachable",
+                    "operator": "Exists",
+                    "tolerationSeconds": 300
+                }
+            ],
+            "volumes": [
+                {
+                    "name": "default-token-r5m2l",
+                    "secret": {
+                        "defaultMode": 420,
+                        "secretName": "default-token-r5m2l"
+                    }
+                }
+            ]
+        },
+        "status": {
+            "conditions": [
+                {
+                    "lastProbeTime": null,
+                    "lastTransitionTime": "2019-04-23T05:48:04Z",
+                    "reason": "PodCompleted",
+                    "status": "True",
+                    "type": "Initialized"
+                },
+                {
+                    "lastProbeTime": null,
+                    "lastTransitionTime": "2019-04-23T05:48:04Z",
+                    "reason": "PodCompleted",
+                    "status": "False",
+                    "type": "Ready"
+                },
+                {
+                    "lastProbeTime": null,
+                    "lastTransitionTime": "2019-04-23T05:48:04Z",
+                    "reason": "PodCompleted",
+                    "status": "False",
+                    "type": "ContainersReady"
+                },
+                {
+                    "lastProbeTime": null,
+                    "lastTransitionTime": "2019-04-23T05:48:03Z",
+                    "status": "True",
+                    "type": "PodScheduled"
+                }
+            ],
+            "containerStatuses": [
+                {
+                    "containerID": "docker://889dcd8639d0adf57a9558e60525022206e21238377dfabcb9d4ee1cecab6fe6",
+                    "image": "ubuntu:14.04",
+                    "imageID": "docker-pullable://ubuntu@sha256:6612de24437f6f01d6a2988ed9a36b3603df06e8d2c0493678f3ee696bc4bb2d",
+                    "lastState": {},
+                    "name": "hello",
+                    "ready": false,
+                    "restartCount": 0,
+                    "state": {
+                        "terminated": {
+                            "containerID": "docker://889dcd8639d0adf57a9558e60525022206e21238377dfabcb9d4ee1cecab6fe6",
+                            "exitCode": 0,
+                            "finishedAt": "2019-04-23T05:48:05Z",
+                            "reason": "Completed",
+                            "startedAt": "2019-04-23T05:48:05Z"
+                        }
+                    }
+                }
+            ],
+            "hostIP": "192.168.186.142",
+            "phase": "Succeeded",
+            "podIP": "172.17.8.7",
+            "qosClass": "BestEffort",
+            "startTime": "2019-04-23T05:48:04Z"
+        }
+    }
+    ```
+
+- yaml显示方式显示Pod的完整信息
+
+```
+kubectl get pod hello-world --output yaml
+```
+
+??? note "yaml显示方式属性详细信息"
+    ```
+    [root@k8s-master01 yml]# kubectl get pod hello-world --output yaml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      creationTimestamp: "2019-04-23T05:48:04Z"
+      name: hello-world
+      namespace: default
+      resourceVersion: "117859"
+      selfLink: /api/v1/namespaces/default/pods/hello-world
+      uid: 5ca78495-658b-11e9-9365-000c2994bdca
+    spec:
+      containers:
+      - command:
+        - /bin/echo
+        - Hello
+        - world
+        image: ubuntu:14.04
+        imagePullPolicy: IfNotPresent
+        name: hello
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: default-token-r5m2l
+          readOnly: true
+      dnsPolicy: ClusterFirst
+      enableServiceLinks: true
+      nodeName: 192.168.186.142
+      priority: 0
+      restartPolicy: OnFailure
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: default
+      serviceAccountName: default
+      terminationGracePeriodSeconds: 30
+      tolerations:
+      - effect: NoExecute
+        key: node.kubernetes.io/not-ready
+        operator: Exists
+        tolerationSeconds: 300
+      - effect: NoExecute
+        key: node.kubernetes.io/unreachable
+        operator: Exists
+        tolerationSeconds: 300
+      volumes:
+      - name: default-token-r5m2l
+        secret:
+          defaultMode: 420
+          secretName: default-token-r5m2l
+    status:
+      conditions:
+      - lastProbeTime: null
+        lastTransitionTime: "2019-04-23T05:48:04Z"
+        reason: PodCompleted
+        status: "True"
+        type: Initialized
+      - lastProbeTime: null
+        lastTransitionTime: "2019-04-23T05:48:04Z"
+        reason: PodCompleted
+        status: "False"
+        type: Ready
+      - lastProbeTime: null
+        lastTransitionTime: "2019-04-23T05:48:04Z"
+        reason: PodCompleted
+        status: "False"
+        type: ContainersReady
+      - lastProbeTime: null
+        lastTransitionTime: "2019-04-23T05:48:03Z"
+        status: "True"
+        type: PodScheduled
+      containerStatuses:
+      - containerID: docker://889dcd8639d0adf57a9558e60525022206e21238377dfabcb9d4ee1cecab6fe6
+        image: ubuntu:14.04
+        imageID: docker-pullable://ubuntu@sha256:6612de24437f6f01d6a2988ed9a36b3603df06e8d2c0493678f3ee696bc4bb2d
+        lastState: {}
+        name: hello
+        ready: false
+        restartCount: 0
+        state:
+          terminated:
+            containerID: docker://889dcd8639d0adf57a9558e60525022206e21238377dfabcb9d4ee1cecab6fe6
+            exitCode: 0
+            finishedAt: "2019-04-23T05:48:05Z"
+            reason: Completed
+            startedAt: "2019-04-23T05:48:05Z"
+      hostIP: 192.168.186.142
+      phase: Succeeded
+      podIP: 172.17.8.7
+      qosClass: BestEffort
+      startTime: "2019-04-23T05:48:04Z"
+    ```
+    
+### 11.4 更新 pod
+
+```
+kubectl replace -f hello-world-pod.yaml
+```
+
+### 11.5 重建 pod
+```
+[root@k8s-master01 yml]# kubectl replace --force -f hello-world-pod.yaml
+pod "hello-world" deleted
+pod/hello-world replaced
+```
+
+### 11.6 查看日志
+
+```
+[root@k8s-master01 yml]# kubectl logs -f hello-world
+Hello world
+```
+> -f 类似tail参数一样。
+
+### 11.7 删除pod
+
+```
+[root@k8s-master01 yml]# kubectl delete -f hello-world-pod.yaml 
+pod "hello-world" deleted
+[root@k8s-master01 yml]# kubectl get pods hello-world 
+Error from server (NotFound): pods "hello-world" not found
+```
+> kubectl delete ([-f FILENAME] | TYPE [(NAME | -l label | --all)]) [options]
+
+!!! note "其他删除示例"
+    ```
+    Examples:
+      # Delete a pod using the type and name specified in pod.json.
+      kubectl delete -f ./pod.json
+      
+      # Delete a pod based on the type and name in the JSON passed into stdin.
+      cat pod.json | kubectl delete -f -
+      
+      # Delete pods and services with same names "baz" and "foo"
+      kubectl delete pod,service baz foo
+      
+      # Delete pods and services with label name=myLabel.
+      kubectl delete pods,services -l name=myLabel
+      
+      # Delete a pod with minimal delay
+      kubectl delete pod foo --now
+      
+      # Force delete a pod on a dead node
+      kubectl delete pod foo --grace-period=0 --force
+      
+      # Delete all pods
+      kubectl delete pods --all
+    ```
+

@@ -176,6 +176,34 @@ set /coreos.com/network/config '{ "Network": "172.17.0.0/16", "Backend": {"Type"
     [Install]
     WantedBy=multi-user.target
     ```
+??? note "配置Docker启动指定子网段"
+    ```
+    [root@k8s-node01 ~]# cat /usr/lib/systemd/system/docker.service
+    
+    [Unit]
+    Description=Docker Application Container Engine
+    Documentation=https://docs.docker.com
+    After=network-online.target firewalld.service
+    Wants=network-online.target
+    
+    [Service]
+    Type=notify
+    EnvironmentFile=/run/flannel/subnet.env
+    ExecStart=/usr/bin/dockerd $DOCKER_NETWORK_OPTIONS
+    ExecReload=/bin/kill -s HUP $MAINPID
+    LimitNOFILE=infinity
+    LimitNPROC=infinity
+    LimitCORE=infinity
+    TimeoutStartSec=0
+    Delegate=yes
+    KillMode=process
+    Restart=on-failure
+    StartLimitBurst=3
+    StartLimitInterval=60s
+    
+    [Install]
+    WantedBy=multi-user.target
+    ```
 
 部署node1节点flannel
 ```
