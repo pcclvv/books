@@ -5894,6 +5894,38 @@ spec:
 </pre></div>
 
 </details>
+<div class="admonition note">
+<p class="admonition-title">coredns.yaml修改注意</p>
+</div>
+<div class="codehilite"><pre><span></span>1. coredns.yaml是github官网下载地址 https://github.com/kubernetes/kubernetes/blob/master/cluster/addons/dns/coredns/coredns.yaml.base
+
+2. dns 地址
+    [root@k8s-node01 cfg]# cat /opt/kubernetes/cfg/kubelet.config 
+
+    kind: KubeletConfiguration
+    apiVersion: kubelet.config.k8s.io/v1beta1
+    address: 192.168.186.141
+    port: 10250
+    readOnlyPort: 10255
+    cgroupDriver: cgroupfs
+    clusterDNS:
+    - 10.0.0.2     # &lt; - pod中会优先使用这个cluster ip地址解析访问的域名，后面会有例子
+    clusterDomain: cluster.local.
+    failSwapOn: false
+    authentication:
+      anonymous:
+        enabled: true
+
+3. 需要修改三个地址:
+    1.  67行，kubernetes __PILLAR__DNS__DOMAIN__ in-addr.arpa ip6.arpa 改为 kubernetes cluster.local in-addr.arpa ip6.arpa   
+        cluster.local 是cat /opt/kubernetes/cfg/kubelet.config 中的clusterDomain去掉后面最后一个点
+    2. 118行，image: k8s.gcr.io/coredns:1.3.1 改为image: coredns/coredns:1.3.1，因为那地址我们访问不了
+    3. 188行， clusterIP: __PILLAR__DNS__SERVER__ 改为clusterIP: 10.0.0.2   # &lt;--- 之前配置好的
+        [root@k8s-node01 cfg]# cat /opt/kubernetes/cfg/kubelet.config |grep -A1 clusterDNS
+        clusterDNS:
+        - 10.0.0.2 
+</pre></div>
+
 <div class="codehilite"><pre><span></span>[root@k8s-master01 demo]# kubectl apply -f coredns.yaml 
 serviceaccount/coredns created
 clusterrole.rbac.authorization.k8s.io/system:coredns created
