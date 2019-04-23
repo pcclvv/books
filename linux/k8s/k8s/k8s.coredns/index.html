@@ -5896,7 +5896,6 @@ spec:
 </details>
 <div class="admonition note">
 <p class="admonition-title">coredns.yaml修改注意</p>
-</div>
 <div class="codehilite"><pre><span></span>1. coredns.yaml是github官网下载地址 https://github.com/kubernetes/kubernetes/blob/master/cluster/addons/dns/coredns/coredns.yaml.base
 
 2. dns 地址
@@ -5926,6 +5925,7 @@ spec:
         - 10.0.0.2 
 </pre></div>
 
+</div>
 <div class="codehilite"><pre><span></span>[root@k8s-master01 demo]# kubectl apply -f coredns.yaml 
 serviceaccount/coredns created
 clusterrole.rbac.authorization.k8s.io/system:coredns created
