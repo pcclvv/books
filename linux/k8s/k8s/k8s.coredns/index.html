@@ -5679,9 +5679,11 @@ nginx-service   NodePort    10.0.0.228   &lt;none&gt;        80:41583/TCP   24h
 <li>规则遍历匹配和更新，呈线性时延</li>
 <li>可扩展性</li>
 </ul>
-<p>IPVS：
-- 工作在内核态，有更好的性能
-- 调度算法丰富：rr，wrr，lc，wlc，ip hash...</p>
+<p>IPVS：</p>
+<ul>
+<li>工作在内核态，有更好的性能</li>
+<li>调度算法丰富：rr，wrr，lc，wlc，ip hash...</li>
+</ul>
 <blockquote>
 <p>推荐ipvs</p>
 </blockquote>
