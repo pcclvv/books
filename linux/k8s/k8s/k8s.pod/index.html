@@ -40,7 +40,7 @@
     
     
       
-        <title>7. K8S pod - 笔记</title>
+        <title>09. K8S pod - 笔记</title>
       
     
     
@@ -132,7 +132,7 @@
                 笔记
               </span>
               <span class="md-header-nav__topic">
-                7. K8S pod
+                09. K8S pod
               </span>
             
           
@@ -2463,8 +2463,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../k8s.index/" title="1. K8S 简介" class="md-nav__link">
-      1. K8S 简介
+    <a href="../k8s.index/" title="01. K8S 简介" class="md-nav__link">
+      01. K8S 简介
     </a>
   </li>
 
@@ -2475,8 +2475,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../k8s.etcd_info/" title="2. K8S etcd" class="md-nav__link">
-      2. K8S etcd
+    <a href="../k8s.machine/" title="02. K8S 规划" class="md-nav__link">
+      02. K8S 规划
     </a>
   </li>
 
@@ -2487,8 +2487,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../k8s.flannel_info/" title="3. K8S flannel" class="md-nav__link">
-      3. K8S flannel
+    <a href="../k8s.etcd_info/" title="03. K8S etcd" class="md-nav__link">
+      03. K8S etcd
     </a>
   </li>
 
@@ -2499,8 +2499,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../k8s.master/" title="4. K8S master" class="md-nav__link">
-      4. K8S master
+    <a href="../k8s.flannel_info/" title="04. K8S flannel" class="md-nav__link">
+      04. K8S flannel
     </a>
   </li>
 
@@ -2511,8 +2511,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../k8s.node/" title="4. K8S node" class="md-nav__link">
-      4. K8S node
+    <a href="../k8s.master/" title="05. K8S master" class="md-nav__link">
+      05. K8S master
     </a>
   </li>
 
@@ -2523,8 +2523,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../k8s.add_master/" title="5. K8S 新增master" class="md-nav__link">
-      5. K8S 新增master
+    <a href="../k8s.node/" title="06. K8S node" class="md-nav__link">
+      06. K8S node
     </a>
   </li>
 
@@ -2535,8 +2535,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../k8s.slb_ha/" title="6. K8S slb_ha" class="md-nav__link">
-      6. K8S slb_ha
+    <a href="../k8s.add_master/" title="07. K8S 新增master" class="md-nav__link">
+      07. K8S 新增master
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s.slb_ha/" title="08. K8S slb_ha" class="md-nav__link">
+      08. K8S slb_ha
     </a>
   </li>
 
@@ -2554,11 +2566,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        7. K8S pod
+        09. K8S pod
       </label>
     
-    <a href="./" title="7. K8S pod" class="md-nav__link md-nav__link--active">
-      7. K8S pod
+    <a href="./" title="09. K8S pod" class="md-nav__link md-nav__link--active">
+      09. K8S pod
     </a>
     
       
@@ -2704,6 +2716,68 @@
     10. 故障排查
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#112" title="11.2 创建" class="md-nav__link">
+    11.2 创建
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-pod" title="11.3 查询 pod信息" class="md-nav__link">
+    11.3 查询 pod信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1131" title="11.3.1 简单信息" class="md-nav__link">
+    11.3.1 简单信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1132" title="11.3.2 详细信息" class="md-nav__link">
+    11.3.2 详细信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-pod" title="11.4 更新 pod" class="md-nav__link">
+    11.4 更新 pod
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#115-pod" title="11.5 重建 pod" class="md-nav__link">
+    11.5 重建 pod
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#116" title="11.6 查看日志" class="md-nav__link">
+    11.6 查看日志
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#117-pod" title="11.7 删除pod" class="md-nav__link">
+    11.7 删除pod
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -2714,6 +2788,30 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s.controller/" title="10. K8S 控制器" class="md-nav__link">
+      10. K8S 控制器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s.coredns/" title="11. K8S coredns" class="md-nav__link">
+      11. K8S coredns
+    </a>
   </li>
 
         
@@ -5712,6 +5810,68 @@
     10. 故障排查
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#112" title="11.2 创建" class="md-nav__link">
+    11.2 创建
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-pod" title="11.3 查询 pod信息" class="md-nav__link">
+    11.3 查询 pod信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1131" title="11.3.1 简单信息" class="md-nav__link">
+    11.3.1 简单信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1132" title="11.3.2 详细信息" class="md-nav__link">
+    11.3.2 详细信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-pod" title="11.4 更新 pod" class="md-nav__link">
+    11.4 更新 pod
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#115-pod" title="11.5 重建 pod" class="md-nav__link">
+    11.5 重建 pod
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#116" title="11.6 查看日志" class="md-nav__link">
+    11.6 查看日志
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#117-pod" title="11.7 删除pod" class="md-nav__link">
+    11.7 删除pod
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -7002,6 +7162,411 @@ nginx-deployment-5997b94b5c-zc7pp   1/1     Running            0          9m14s
 bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
 # 
 </pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">hello-world-pod.yaml</p>
+<div class="codehilite"><pre><span></span>apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-world
+spec:      #配置pod的具体规格
+  restartPolicy: OnFailure              
+  containers:
+  - name: hello
+    image: &quot;ubuntu:14.04&quot;
+    command: [&quot;/bin/echo&quot;,&quot;Hello&quot;,&quot;world&quot;]
+</pre></div>
+
+</div>
+<details class="note"><summary>字段解释</summary><div class="codehilite"><pre><span></span>apiVersion:    声明K8s的API版本
+kind:          声明API对象的类型，这里是Pod
+metadata:      设置Pod的元数据
+  name: hello-world 指定Pod的名称Pod名称必须在Namespace内唯一
+spec:               配置Pod的具体规格
+  restartPolicy:    重启策略
+  containers:       容器规格，数组形式，每一项定义一个容器
+  - name:           指定容器的名称，在Pod的定义中唯一
+    image:          设置容器镜像
+    command:        设置容器的启动命令
+</pre></div>
+
+</details>
+<h3 id="112">11.2 创建<a class="headerlink" href="#112" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>[root@k8s-master01 yml]# ls
+hello-world-pod.yaml
+
+# 创建
+[root@k8s-master01 yml]# kubectl create -f hello-world-pod.yaml
+pod/hello-world created
+</pre></div>
+
+<h3 id="113-pod">11.3 查询 pod信息<a class="headerlink" href="#113-pod" title="Permanent link">&para;</a></h3>
+<h3 id="1131">11.3.1 简单信息<a class="headerlink" href="#1131" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>[root@k8s-master01 yml]# kubectl get pod hello-world
+NAME          READY   STATUS      RESTARTS   AGE
+hello-world   0/1     Completed   0          72s
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">解释</p>
+<div class="codehilite"><pre><span></span>NAME:     Pod的名称
+READY:    Pod的准备状况，准备就绪/Pod包含的容器总数目
+STATUS:   Pod的状态
+RESTARTS：Pod的重启次数
+AGE：     Pod的运行时间
+</pre></div>
+
+</div>
+<h3 id="1132">11.3.2 详细信息<a class="headerlink" href="#1132" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>kubectl describe pods hello-world
+</pre></div>
+
+<details class="note"><summary>详细信息</summary><div class="codehilite"><pre><span></span>[root@k8s-master01 yml]# kubectl describe pods hello-world
+Name:               hello-world
+Namespace:          default
+Priority:           0
+PriorityClassName:  &lt;none&gt;
+Node:               192.168.186.142/192.168.186.142
+Start Time:         Tue, 23 Apr 2019 13:48:04 +0800
+Labels:             &lt;none&gt;
+Annotations:        &lt;none&gt;
+Status:             Succeeded
+IP:                 172.17.8.7
+Containers:
+  hello:
+    Container ID:  docker://889dcd8639d0adf57a9558e60525022206e21238377dfabcb9d4ee1cecab6fe6
+    Image:         ubuntu:14.04
+    Image ID:      docker-pullable://ubuntu@sha256:6612de24437f6f01d6a2988ed9a36b3603df06e8d2c0493678f3ee696bc4bb2d
+    Port:          &lt;none&gt;
+    Host Port:     &lt;none&gt;
+    Command:
+      /bin/echo
+      Hello
+      world
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Tue, 23 Apr 2019 13:48:05 +0800
+      Finished:     Tue, 23 Apr 2019 13:48:05 +0800
+    Ready:          False
+    Restart Count:  0
+    Environment:    &lt;none&gt;
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-r5m2l (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  default-token-r5m2l:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-r5m2l
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  &lt;none&gt;
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason     Age   From                      Message
+  ----    ------     ----  ----                      -------
+  Normal  Scheduled  3m4s  default-scheduler         Successfully assigned default/hello-world to 192.168.186.142
+  Normal  Pulled     3m3s  kubelet, 192.168.186.142  Container image &quot;ubuntu:14.04&quot; already present on machine
+  Normal  Created    3m3s  kubelet, 192.168.186.142  Created container
+  Normal  Started    3m2s  kubelet, 192.168.186.142  Started container
+</pre></div>
+
+</details>
+<ul>
+<li>json显示方式显示Pod的完整信息</li>
+</ul>
+<div class="codehilite"><pre><span></span>kubectl get pod hello-world --output json
+</pre></div>
+
+<details class="note"><summary>json显示方式属性详细信息</summary><div class="codehilite"><pre><span></span>[root@k8s-master01 yml]# kubectl get pod hello-world --output json
+{
+    &quot;apiVersion&quot;: &quot;v1&quot;,
+    &quot;kind&quot;: &quot;Pod&quot;,
+    &quot;metadata&quot;: {
+        &quot;creationTimestamp&quot;: &quot;2019-04-23T05:48:04Z&quot;,
+        &quot;name&quot;: &quot;hello-world&quot;,
+        &quot;namespace&quot;: &quot;default&quot;,
+        &quot;resourceVersion&quot;: &quot;117859&quot;,
+        &quot;selfLink&quot;: &quot;/api/v1/namespaces/default/pods/hello-world&quot;,
+        &quot;uid&quot;: &quot;5ca78495-658b-11e9-9365-000c2994bdca&quot;
+    },
+    &quot;spec&quot;: {
+        &quot;containers&quot;: [
+            {
+                &quot;command&quot;: [
+                    &quot;/bin/echo&quot;,
+                    &quot;Hello&quot;,
+                    &quot;world&quot;
+                ],
+                &quot;image&quot;: &quot;ubuntu:14.04&quot;,
+                &quot;imagePullPolicy&quot;: &quot;IfNotPresent&quot;,
+                &quot;name&quot;: &quot;hello&quot;,
+                &quot;resources&quot;: {},
+                &quot;terminationMessagePath&quot;: &quot;/dev/termination-log&quot;,
+                &quot;terminationMessagePolicy&quot;: &quot;File&quot;,
+                &quot;volumeMounts&quot;: [
+                    {
+                        &quot;mountPath&quot;: &quot;/var/run/secrets/kubernetes.io/serviceaccount&quot;,
+                        &quot;name&quot;: &quot;default-token-r5m2l&quot;,
+                        &quot;readOnly&quot;: true
+                    }
+                ]
+            }
+        ],
+        &quot;dnsPolicy&quot;: &quot;ClusterFirst&quot;,
+        &quot;enableServiceLinks&quot;: true,
+        &quot;nodeName&quot;: &quot;192.168.186.142&quot;,
+        &quot;priority&quot;: 0,
+        &quot;restartPolicy&quot;: &quot;OnFailure&quot;,
+        &quot;schedulerName&quot;: &quot;default-scheduler&quot;,
+        &quot;securityContext&quot;: {},
+        &quot;serviceAccount&quot;: &quot;default&quot;,
+        &quot;serviceAccountName&quot;: &quot;default&quot;,
+        &quot;terminationGracePeriodSeconds&quot;: 30,
+        &quot;tolerations&quot;: [
+            {
+                &quot;effect&quot;: &quot;NoExecute&quot;,
+                &quot;key&quot;: &quot;node.kubernetes.io/not-ready&quot;,
+                &quot;operator&quot;: &quot;Exists&quot;,
+                &quot;tolerationSeconds&quot;: 300
+            },
+            {
+                &quot;effect&quot;: &quot;NoExecute&quot;,
+                &quot;key&quot;: &quot;node.kubernetes.io/unreachable&quot;,
+                &quot;operator&quot;: &quot;Exists&quot;,
+                &quot;tolerationSeconds&quot;: 300
+            }
+        ],
+        &quot;volumes&quot;: [
+            {
+                &quot;name&quot;: &quot;default-token-r5m2l&quot;,
+                &quot;secret&quot;: {
+                    &quot;defaultMode&quot;: 420,
+                    &quot;secretName&quot;: &quot;default-token-r5m2l&quot;
+                }
+            }
+        ]
+    },
+    &quot;status&quot;: {
+        &quot;conditions&quot;: [
+            {
+                &quot;lastProbeTime&quot;: null,
+                &quot;lastTransitionTime&quot;: &quot;2019-04-23T05:48:04Z&quot;,
+                &quot;reason&quot;: &quot;PodCompleted&quot;,
+                &quot;status&quot;: &quot;True&quot;,
+                &quot;type&quot;: &quot;Initialized&quot;
+            },
+            {
+                &quot;lastProbeTime&quot;: null,
+                &quot;lastTransitionTime&quot;: &quot;2019-04-23T05:48:04Z&quot;,
+                &quot;reason&quot;: &quot;PodCompleted&quot;,
+                &quot;status&quot;: &quot;False&quot;,
+                &quot;type&quot;: &quot;Ready&quot;
+            },
+            {
+                &quot;lastProbeTime&quot;: null,
+                &quot;lastTransitionTime&quot;: &quot;2019-04-23T05:48:04Z&quot;,
+                &quot;reason&quot;: &quot;PodCompleted&quot;,
+                &quot;status&quot;: &quot;False&quot;,
+                &quot;type&quot;: &quot;ContainersReady&quot;
+            },
+            {
+                &quot;lastProbeTime&quot;: null,
+                &quot;lastTransitionTime&quot;: &quot;2019-04-23T05:48:03Z&quot;,
+                &quot;status&quot;: &quot;True&quot;,
+                &quot;type&quot;: &quot;PodScheduled&quot;
+            }
+        ],
+        &quot;containerStatuses&quot;: [
+            {
+                &quot;containerID&quot;: &quot;docker://889dcd8639d0adf57a9558e60525022206e21238377dfabcb9d4ee1cecab6fe6&quot;,
+                &quot;image&quot;: &quot;ubuntu:14.04&quot;,
+                &quot;imageID&quot;: &quot;docker-pullable://ubuntu@sha256:6612de24437f6f01d6a2988ed9a36b3603df06e8d2c0493678f3ee696bc4bb2d&quot;,
+                &quot;lastState&quot;: {},
+                &quot;name&quot;: &quot;hello&quot;,
+                &quot;ready&quot;: false,
+                &quot;restartCount&quot;: 0,
+                &quot;state&quot;: {
+                    &quot;terminated&quot;: {
+                        &quot;containerID&quot;: &quot;docker://889dcd8639d0adf57a9558e60525022206e21238377dfabcb9d4ee1cecab6fe6&quot;,
+                        &quot;exitCode&quot;: 0,
+                        &quot;finishedAt&quot;: &quot;2019-04-23T05:48:05Z&quot;,
+                        &quot;reason&quot;: &quot;Completed&quot;,
+                        &quot;startedAt&quot;: &quot;2019-04-23T05:48:05Z&quot;
+                    }
+                }
+            }
+        ],
+        &quot;hostIP&quot;: &quot;192.168.186.142&quot;,
+        &quot;phase&quot;: &quot;Succeeded&quot;,
+        &quot;podIP&quot;: &quot;172.17.8.7&quot;,
+        &quot;qosClass&quot;: &quot;BestEffort&quot;,
+        &quot;startTime&quot;: &quot;2019-04-23T05:48:04Z&quot;
+    }
+}
+</pre></div>
+
+</details>
+<ul>
+<li>yaml显示方式显示Pod的完整信息</li>
+</ul>
+<div class="codehilite"><pre><span></span>kubectl get pod hello-world --output yaml
+</pre></div>
+
+<details class="note"><summary>yaml显示方式属性详细信息</summary><div class="codehilite"><pre><span></span>[root@k8s-master01 yml]# kubectl get pod hello-world --output yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: &quot;2019-04-23T05:48:04Z&quot;
+  name: hello-world
+  namespace: default
+  resourceVersion: &quot;117859&quot;
+  selfLink: /api/v1/namespaces/default/pods/hello-world
+  uid: 5ca78495-658b-11e9-9365-000c2994bdca
+spec:
+  containers:
+  - command:
+    - /bin/echo
+    - Hello
+    - world
+    image: ubuntu:14.04
+    imagePullPolicy: IfNotPresent
+    name: hello
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-r5m2l
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: 192.168.186.142
+  priority: 0
+  restartPolicy: OnFailure
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: default-token-r5m2l
+    secret:
+      defaultMode: 420
+      secretName: default-token-r5m2l
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: &quot;2019-04-23T05:48:04Z&quot;
+    reason: PodCompleted
+    status: &quot;True&quot;
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: &quot;2019-04-23T05:48:04Z&quot;
+    reason: PodCompleted
+    status: &quot;False&quot;
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: &quot;2019-04-23T05:48:04Z&quot;
+    reason: PodCompleted
+    status: &quot;False&quot;
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: &quot;2019-04-23T05:48:03Z&quot;
+    status: &quot;True&quot;
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://889dcd8639d0adf57a9558e60525022206e21238377dfabcb9d4ee1cecab6fe6
+    image: ubuntu:14.04
+    imageID: docker-pullable://ubuntu@sha256:6612de24437f6f01d6a2988ed9a36b3603df06e8d2c0493678f3ee696bc4bb2d
+    lastState: {}
+    name: hello
+    ready: false
+    restartCount: 0
+    state:
+      terminated:
+        containerID: docker://889dcd8639d0adf57a9558e60525022206e21238377dfabcb9d4ee1cecab6fe6
+        exitCode: 0
+        finishedAt: &quot;2019-04-23T05:48:05Z&quot;
+        reason: Completed
+        startedAt: &quot;2019-04-23T05:48:05Z&quot;
+  hostIP: 192.168.186.142
+  phase: Succeeded
+  podIP: 172.17.8.7
+  qosClass: BestEffort
+  startTime: &quot;2019-04-23T05:48:04Z&quot;
+</pre></div>
+
+</details>
+<h3 id="114-pod">11.4 更新 pod<a class="headerlink" href="#114-pod" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>kubectl replace -f hello-world-pod.yaml
+</pre></div>
+
+<h3 id="115-pod">11.5 重建 pod<a class="headerlink" href="#115-pod" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>[root@k8s-master01 yml]# kubectl replace --force -f hello-world-pod.yaml
+pod &quot;hello-world&quot; deleted
+pod/hello-world replaced
+</pre></div>
+
+<h3 id="116">11.6 查看日志<a class="headerlink" href="#116" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>[root@k8s-master01 yml]# kubectl logs -f hello-world
+Hello world
+</pre></div>
+
+<blockquote>
+<p>-f 类似tail参数一样。</p>
+</blockquote>
+<h3 id="117-pod">11.7 删除pod<a class="headerlink" href="#117-pod" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>[root@k8s-master01 yml]# kubectl delete -f hello-world-pod.yaml 
+pod &quot;hello-world&quot; deleted
+[root@k8s-master01 yml]# kubectl get pods hello-world 
+Error from server (NotFound): pods &quot;hello-world&quot; not found
+</pre></div>
+
+<blockquote>
+<p>kubectl delete ([-f FILENAME] | TYPE [(NAME | -l label | --all)]) [options]</p>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">其他删除示例</p>
+<div class="codehilite"><pre><span></span>Examples:
+  # Delete a pod using the type and name specified in pod.json.
+  kubectl delete -f ./pod.json
+
+  # Delete a pod based on the type and name in the JSON passed into stdin.
+  cat pod.json | kubectl delete -f -
+
+  # Delete pods and services with same names &quot;baz&quot; and &quot;foo&quot;
+  kubectl delete pod,service baz foo
+
+  # Delete pods and services with label name=myLabel.
+  kubectl delete pods,services -l name=myLabel
+
+  # Delete a pod with minimal delay
+  kubectl delete pod foo --now
+
+  # Force delete a pod on a dead node
+  kubectl delete pod foo --grace-period=0 --force
+
+  # Delete all pods
+  kubectl delete pods --all
+</pre></div>
+
+</div>
                 
                   
                 
@@ -7022,7 +7587,7 @@ bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  s
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../k8s.slb_ha/" title="6. K8S slb_ha" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../k8s.slb_ha/" title="08. K8S slb_ha" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -7031,19 +7596,19 @@ bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  s
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                6. K8S slb_ha
+                08. K8S slb_ha
               </span>
             </div>
           </a>
         
         
-          <a href="../../../nginx/nginx.index/" title="01. nginx 部署" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../k8s.controller/" title="10. K8S 控制器" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                01. nginx 部署
+                10. K8S 控制器
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

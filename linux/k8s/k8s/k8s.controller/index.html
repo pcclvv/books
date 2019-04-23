@@ -1,0 +1,6375 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="笔记">
+      
+      
+      
+        <meta name="author" content="流浪地球">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.3.0">
+    
+    
+      
+        <title>10. K8S 控制器 - 笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.572ca0f0.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546e7a">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.962652e9.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="pink">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../../.." title="笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                笔记
+              </span>
+              <span class="md-header-nav__topic">
+                10. K8S 控制器
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/caimengzhi/books/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      caimengzhi/books
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../../.." title="笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    笔记
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/caimengzhi/books/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      caimengzhi/books
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Python
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1" type="checkbox" id="nav-1-1">
+    
+    <label class="md-nav__link" for="nav-1-1">
+      工具
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-1">
+        工具
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-1" type="checkbox" id="nav-1-1-1">
+    
+    <label class="md-nav__link" for="nav-1-1-1">
+      虚拟环境
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-1-1">
+        虚拟环境
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/tools/virtualenv.index/" title="1. virtualenv" class="md-nav__link">
+      1. virtualenv
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/tools/virtualenvwrapper.index/" title="2. virtualenvwrapper" class="md-nav__link">
+      2. virtualenvwrapper
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-1-2" type="checkbox" id="nav-1-1-2">
+    
+    <label class="md-nav__link" for="nav-1-1-2">
+      pip 源
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-1-2">
+        pip 源
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/tools/pip.index/" title="1. 清华源" class="md-nav__link">
+      1. 清华源
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-2" type="checkbox" id="nav-1-2">
+    
+    <label class="md-nav__link" for="nav-1-2">
+      错误
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-2">
+        错误
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-2-1" type="checkbox" id="nav-1-2-1">
+    
+    <label class="md-nav__link" for="nav-1-2-1">
+      ubuntu
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-2-1">
+        ubuntu
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../qa/ubuntu/error.index/" title="1. 安装" class="md-nav__link">
+      1. 安装
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3" type="checkbox" id="nav-1-3">
+    
+    <label class="md-nav__link" for="nav-1-3">
+      库学习
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-3">
+        库学习
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3-1" type="checkbox" id="nav-1-3-1">
+    
+    <label class="md-nav__link" for="nav-1-3-1">
+      1. SQLAlchemy库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-3-1">
+        1. SQLAlchemy库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/SQLAlchemy/1.创建表/" title="1. 创建表" class="md-nav__link">
+      1. 创建表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/SQLAlchemy/2.基本操作/" title="2. 基本操作" class="md-nav__link">
+      2. 基本操作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/SQLAlchemy/3.回滚/" title="3. 回滚" class="md-nav__link">
+      3. 回滚
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/SQLAlchemy/4.统计分组/" title="4. 统计分组" class="md-nav__link">
+      4. 统计分组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/SQLAlchemy/5.外键/" title="5. 外键" class="md-nav__link">
+      5. 外键
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/SQLAlchemy/6.关系定义/" title="6. 关系定义" class="md-nav__link">
+      6. 关系定义
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3-2" type="checkbox" id="nav-1-3-2">
+    
+    <label class="md-nav__link" for="nav-1-3-2">
+      2. YAML库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-3-2">
+        2. YAML库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/yaml/1.yaml语法/" title="1. yaml语法" class="md-nav__link">
+      1. yaml语法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/yaml/2.yaml使用/" title="2. yaml使用" class="md-nav__link">
+      2. yaml使用
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3-3" type="checkbox" id="nav-1-3-3">
+    
+    <label class="md-nav__link" for="nav-1-3-3">
+      3. sh库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-3-3">
+        3. sh库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/sh/1.sh/" title="1. sh使用" class="md-nav__link">
+      1. sh使用
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3-4" type="checkbox" id="nav-1-3-4">
+    
+    <label class="md-nav__link" for="nav-1-3-4">
+      4. excel库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-3-4">
+        4. excel库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/execel/1.xlrd_xlwt/" title="1. xlrd_xlwt" class="md-nav__link">
+      1. xlrd_xlwt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/execel/2.openpyxl/" title="2. openpyxl" class="md-nav__link">
+      2. openpyxl
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3-5" type="checkbox" id="nav-1-3-5">
+    
+    <label class="md-nav__link" for="nav-1-3-5">
+      5. 加解密库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-3-5">
+        5. 加解密库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/encryption_decryption/base64/1.base64使用/" title="1. base4" class="md-nav__link">
+      1. base4
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/encryption_decryption/base64/2.案例/" title="2. 加解密execl表" class="md-nav__link">
+      2. 加解密execl表
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3-6" type="checkbox" id="nav-1-3-6">
+    
+    <label class="md-nav__link" for="nav-1-3-6">
+      6. 邮件库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-3-6">
+        6. 邮件库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/email/smtp/lib_smtp/" title="1. smtp" class="md-nav__link">
+      1. smtp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/email/smtp/lib_yagmail/" title="2. yagmail" class="md-nav__link">
+      2. yagmail
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3-7" type="checkbox" id="nav-1-3-7">
+    
+    <label class="md-nav__link" for="nav-1-3-7">
+      7. wordcloud库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-3-7">
+        7. wordcloud库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/wordcloud/1.wordcloud/" title="1. wordcloud" class="md-nav__link">
+      1. wordcloud
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/yield/1.yield/" title="8. yield库" class="md-nav__link">
+      8. yield库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3-9" type="checkbox" id="nav-1-3-9">
+    
+    <label class="md-nav__link" for="nav-1-3-9">
+      9. Nosql
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-3-9">
+        9. Nosql
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/nosql/mongo/mongo.index/" title="1. mongo" class="md-nav__link">
+      1. mongo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/nosql/memcached/memcached.index/" title="2. memcached" class="md-nav__link">
+      2. memcached
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3-9-3" type="checkbox" id="nav-1-3-9-3">
+    
+    <label class="md-nav__link" for="nav-1-3-9-3">
+      3. redis
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-1-3-9-3">
+        3. redis
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/nosql/redis/redis.index/" title="1. redis" class="md-nav__link">
+      1. redis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/nosql/redis/redis.pipeline/" title="2. redis pipeline" class="md-nav__link">
+      2. redis pipeline
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/nosql/redis/redis.transaction/" title="3. redis transaction" class="md-nav__link">
+      3. redis transaction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/nosql/redis/redis.pub_sub/" title="4. redis pub_sub" class="md-nav__link">
+      4. redis pub_sub
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/nosql/redis/redis.sentinel/" title="5. redis sentinel" class="md-nav__link">
+      5. redis sentinel
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3-10" type="checkbox" id="nav-1-3-10">
+    
+    <label class="md-nav__link" for="nav-1-3-10">
+      10. 数据处理库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-1-3-10">
+        10. 数据处理库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3-10-1" type="checkbox" id="nav-1-3-10-1">
+    
+    <label class="md-nav__link" for="nav-1-3-10-1">
+      1. numPy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-1-3-10-1">
+        1. numPy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/numPy/1.index/" title="1. 介绍" class="md-nav__link">
+      1. 介绍
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3-10-2" type="checkbox" id="nav-1-3-10-2">
+    
+    <label class="md-nav__link" for="nav-1-3-10-2">
+      2. pandas
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-1-3-10-2">
+        2. pandas
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/pandas/1.index/" title="1. 介绍" class="md-nav__link">
+      1. 介绍
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/uuid/uuid.index/" title="11. uuid" class="md-nav__link">
+      11. uuid
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/LRU/LRU.index/" title="12. LRU" class="md-nav__link">
+      12. LRU
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/getpass/getpass.index/" title="13. getpass" class="md-nav__link">
+      13. getpass
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/os/os.index/" title="14. os" class="md-nav__link">
+      14. os
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/sys/sys.index/" title="15. sys" class="md-nav__link">
+      15. sys
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/lib/psutil/psutil.index/" title="16. psutil" class="md-nav__link">
+      16. psutil
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-4" type="checkbox" id="nav-1-4">
+    
+    <label class="md-nav__link" for="nav-1-4">
+      其他
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-4">
+        其他
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/note/note.extend_append/" title="1. 列表" class="md-nav__link">
+      1. 列表
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Flask
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Flask
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/flask/flask.index/" title="1. 简介" class="md-nav__link">
+      1. 简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/flask/flask.config/" title="2. 配置" class="md-nav__link">
+      2. 配置
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/flask/flask.view/" title="3. 路由" class="md-nav__link">
+      3. 路由
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/flask/flask.methods/" title="4. 请求方法" class="md-nav__link">
+      4. 请求方法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/flask/flask.jinja2/" title="5. 模板" class="md-nav__link">
+      5. 模板
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Django
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Django
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      知识点
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        知识点
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/django/note/django.blank/" title="1. 表单空" class="md-nav__link">
+      1. 表单空
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      组件
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        组件
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/django/note/django.url_name/" title="1. name" class="md-nav__link">
+      1. name
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/django/note/django.duplication_url_name/" title="2. 重名url" class="md-nav__link">
+      2. 重名url
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/django/url/django.reverse_url/" title="3. url 反向解析" class="md-nav__link">
+      3. url 反向解析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/django/url/django.paginator/" title="4. 分页器" class="md-nav__link">
+      4. 分页器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/django/form/django.form/" title="5. 表单" class="md-nav__link">
+      5. 表单
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../python/django/middleware/django.middleware/" title="6. 中间件" class="md-nav__link">
+      6. 中间件
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Hadoop
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Hadoop
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      CDH
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        CDH
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../hadoop/CDH/cdh.index/" title="1. CDH 介绍" class="md-nav__link">
+      1. CDH 介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../hadoop/CDH/cdh.deploy/" title="2. CDH 部署" class="md-nav__link">
+      2. CDH 部署
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../hadoop/CDH/cdh.namenode_ha/" title="3. NameNode HA" class="md-nav__link">
+      3. NameNode HA
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      HDFS
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        HDFS
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../hadoop/CDH/cdh.hdfs_info/" title="1. HDFS 介绍" class="md-nav__link">
+      1. HDFS 介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../hadoop/CDH/cdh.hdfs_shell/" title="2. HDFS shell" class="md-nav__link">
+      2. HDFS shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../hadoop/CDH/cdh.secondary_namenode/" title="3. secondary_namenode" class="md-nav__link">
+      3. secondary_namenode
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3">
+      Hive
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        Hive
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../hadoop/CDH/cdh.hive/" title="1. Hive 介绍" class="md-nav__link">
+      1. Hive 介绍
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      DStorage
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        DStorage
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../distributed_storage/distributed_storage.info/" title="对比" class="md-nav__link">
+      对比
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Linux
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../url/url.index/" title="url" class="md-nav__link">
+      url
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2">
+    
+    <label class="md-nav__link" for="nav-6-2">
+      raid
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-2">
+        raid
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../raid/raid.index/" title="1. raid 介绍" class="md-nav__link">
+      1. raid 介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../raid/raid.card/" title="2. raid 实战" class="md-nav__link">
+      2. raid 实战
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3">
+    
+    <label class="md-nav__link" for="nav-6-3">
+      小工具
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-3">
+        小工具
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tools/elinks/elinks.index/" title="1. elinks" class="md-nav__link">
+      1. elinks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tools/script_scriptreplay/1.index/" title="2. Linux终端录屏和回放" class="md-nav__link">
+      2. Linux终端录屏和回放
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-3" type="checkbox" id="nav-6-3-3">
+    
+    <label class="md-nav__link" for="nav-6-3-3">
+      3. xshell
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-3-3">
+        3. xshell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tools/xshell/xshell.index/" title="1. xshell迁移数据" class="md-nav__link">
+      1. xshell迁移数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tools/xshell/xshell.silent/" title="2. xshell无声配置" class="md-nav__link">
+      2. xshell无声配置
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-4" type="checkbox" id="nav-6-3-4">
+    
+    <label class="md-nav__link" for="nav-6-3-4">
+      4. 下载
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-3-4">
+        4. 下载
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tools/axel.index/" title="1. axel" class="md-nav__link">
+      1. axel
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-5" type="checkbox" id="nav-6-3-5">
+    
+    <label class="md-nav__link" for="nav-6-3-5">
+      5. NodePad
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-3-5">
+        5. NodePad
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tools/nodepad/nodepad.nppftp/" title="1. NppFTP" class="md-nav__link">
+      1. NppFTP
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-6" type="checkbox" id="nav-6-3-6">
+    
+    <label class="md-nav__link" for="nav-6-3-6">
+      6. 自动化工具
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-3-6">
+        6. 自动化工具
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tools/sshpass/sshpass.index/" title="1. sshpass" class="md-nav__link">
+      1. sshpass
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tools/pssh/pssh.index/" title="2. pssh" class="md-nav__link">
+      2. pssh
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      服务
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        服务
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../server/harbor/harbor.index/" title="1. Harbor" class="md-nav__link">
+      1. Harbor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../server/pppoe/pppoe.index/" title="2. PPPOE" class="md-nav__link">
+      2. PPPOE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../server/deploy_django/deploy_django.index/" title="3. django项目部署" class="md-nav__link">
+      3. django项目部署
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../server/sersync/sersync/" title="4. sersync" class="md-nav__link">
+      4. sersync
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-5" type="checkbox" id="nav-6-5">
+    
+    <label class="md-nav__link" for="nav-6-5">
+      证书
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-5">
+        证书
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../server/certificate/tomcat.index/" title="1. Tomcat" class="md-nav__link">
+      1. Tomcat
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
+    
+    <label class="md-nav__link" for="nav-6-6">
+      shell脚本
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-6">
+        shell脚本
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../shell/system/linux.system_check/" title="1. 系统巡检" class="md-nav__link">
+      1. 系统巡检
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../shell/system/linux.network/" title="2. 网卡信息" class="md-nav__link">
+      2. 网卡信息
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-6-3" type="checkbox" id="nav-6-6-3">
+    
+    <label class="md-nav__link" for="nav-6-6-3">
+      3. mysql
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-6-3">
+        3. mysql
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../shell/mysql/install/mysql.install/" title="1. 安装" class="md-nav__link">
+      1. 安装
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-7" type="checkbox" id="nav-6-7">
+    
+    <label class="md-nav__link" for="nav-6-7">
+      教程
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-7">
+        教程
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-7-1" type="checkbox" id="nav-6-7-1">
+    
+    <label class="md-nav__link" for="nav-6-7-1">
+      基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-7-1">
+        基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tutorial/brief_book.index/" title="1. 简书" class="md-nav__link">
+      1. 简书
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tutorial/pc.ardware/" title="2. 硬件" class="md-nav__link">
+      2. 硬件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tutorial/linux.history/" title="3. 历史" class="md-nav__link">
+      3. 历史
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tutorial/linux.vmware/" title="4. 系统安装" class="md-nav__link">
+      4. 系统安装
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tutorial/linux.conn/" title="5. 链接" class="md-nav__link">
+      5. 链接
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tutorial/linux.optimization/" title="6. 优化" class="md-nav__link">
+      6. 优化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tutorial/linux.path/" title="7. 目录" class="md-nav__link">
+      7. 目录
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tutorial/linux.sequence_start/" title="8. 启动顺序" class="md-nav__link">
+      8. 启动顺序
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-7-2" type="checkbox" id="nav-6-7-2">
+    
+    <label class="md-nav__link" for="nav-6-7-2">
+      命令
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-7-2">
+        命令
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tutorial/command/basic/linux.ls/" title="1. ls" class="md-nav__link">
+      1. ls
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+    
+    <label class="md-nav__link" for="nav-7">
+      Kubernetes
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Kubernetes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+    
+    <label class="md-nav__link" for="nav-7-1">
+      docker
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-1">
+        docker
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/docker.index/" title="1. docker 安装" class="md-nav__link">
+      1. docker 安装
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/docker.command/" title="2. docker 命令" class="md-nav__link">
+      2. docker 命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/docker.container/" title="3. docker 容器" class="md-nav__link">
+      3. docker 容器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/docker.data_volume/" title="4. docker 数据卷" class="md-nav__link">
+      4. docker 数据卷
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/docker.container_network/" title="5. docker 网络" class="md-nav__link">
+      5. docker 网络
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/docker.lnmp/" title="6. dockerfile" class="md-nav__link">
+      6. dockerfile
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/docker.harbor/" title="7. docker Harbor" class="md-nav__link">
+      7. docker Harbor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/docker.ci_cd/" title="8. docker ci_cd" class="md-nav__link">
+      8. docker ci_cd
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2" checked>
+    
+    <label class="md-nav__link" for="nav-7-2">
+      K8S
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        K8S
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s.index/" title="01. K8S 简介" class="md-nav__link">
+      01. K8S 简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s.machine/" title="02. K8S 规划" class="md-nav__link">
+      02. K8S 规划
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s.etcd_info/" title="03. K8S etcd" class="md-nav__link">
+      03. K8S etcd
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s.flannel_info/" title="04. K8S flannel" class="md-nav__link">
+      04. K8S flannel
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s.master/" title="05. K8S master" class="md-nav__link">
+      05. K8S master
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s.node/" title="06. K8S node" class="md-nav__link">
+      06. K8S node
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s.add_master/" title="07. K8S 新增master" class="md-nav__link">
+      07. K8S 新增master
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s.slb_ha/" title="08. K8S slb_ha" class="md-nav__link">
+      08. K8S slb_ha
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s.pod/" title="09. K8S pod" class="md-nav__link">
+      09. K8S pod
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        10. K8S 控制器
+      </label>
+    
+    <a href="./" title="10. K8S 控制器" class="md-nav__link md-nav__link--active">
+      10. K8S 控制器
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 准备环境" class="md-nav__link">
+    1. 准备环境
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-podcontrollers" title="2. pod和controllers关系" class="md-nav__link">
+    2. pod和controllers关系
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-deployment" title="3. Deployment" class="md-nav__link">
+    3. Deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-daemonset" title="4. DaemonSet" class="md-nav__link">
+    4. DaemonSet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-job" title="5. job" class="md-nav__link">
+    5. job
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-cronjob" title="6. cronjob" class="md-nav__link">
+    6. cronjob
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" title="7. 配置管理" class="md-nav__link">
+    7. 配置管理
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-configmap" title="7.1 Configmap" class="md-nav__link">
+    7.1 Configmap
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-secret" title="7.2 Secret" class="md-nav__link">
+    7.2 Secret
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#721-1" title="7.2.1 方式1" class="md-nav__link">
+    7.2.1 方式1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#722-2" title="7.2.2 方式2" class="md-nav__link">
+    7.2.2 方式2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s.coredns/" title="11. K8S coredns" class="md-nav__link">
+      11. K8S coredns
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Nginx
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Nginx
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nginx/nginx.index/" title="01. nginx 部署" class="md-nav__link">
+      01. nginx 部署
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nginx/nginx.conf/" title="02. nginx 配置文件" class="md-nav__link">
+      02. nginx 配置文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nginx/nginx.virtual_hosts/" title="03. nginx 虚拟主机" class="md-nav__link">
+      03. nginx 虚拟主机
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nginx/nginx.log/" title="04. nginx 日志" class="md-nav__link">
+      04. nginx 日志
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nginx/nginx.nti_theft_chain/" title="05. nginx 防盗链" class="md-nav__link">
+      05. nginx 防盗链
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nginx/nginx.other/" title="06. nginx 常见配置" class="md-nav__link">
+      06. nginx 常见配置
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nginx/nginx.optimization/" title="07. nginx 优化" class="md-nav__link">
+      07. nginx 优化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nginx/nginx.hash/" title="08. nginx hash" class="md-nav__link">
+      08. nginx hash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nginx/nginx.location/" title="09. nginx location" class="md-nav__link">
+      09. nginx location
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nginx/nginx.rewrite/" title="10. nginx rewrite" class="md-nav__link">
+      10. nginx rewrite
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nginx/nginx.slb/" title="11. nginx 负载均衡" class="md-nav__link">
+      11. nginx 负载均衡
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nginx/nginx.http2/" title="12. nginx http2" class="md-nav__link">
+      12. nginx http2
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Nosql
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Nosql
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-1" type="checkbox" id="nav-9-1">
+    
+    <label class="md-nav__link" for="nav-9-1">
+      1. MonogoDB
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-1">
+        1. MonogoDB
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/mongo/mongo.index/" title="01. MonogoDB 介绍" class="md-nav__link">
+      01. MonogoDB 介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/mongo/mongo.databases/" title="02. MonogoDB 数据库" class="md-nav__link">
+      02. MonogoDB 数据库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/mongo/mongo.collection/" title="03. MonogoDB 集合" class="md-nav__link">
+      03. MonogoDB 集合
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/mongo/mongo.doc/" title="04. MonogoDB 文档" class="md-nav__link">
+      04. MonogoDB 文档
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/mongo/mongo.conditional_query/" title="05. MonogoDB 条件查询" class="md-nav__link">
+      05. MonogoDB 条件查询
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/mongo/mongo.fuzzy_enquiry/" title="06. MonogoDB 模糊查询" class="md-nav__link">
+      06. MonogoDB 模糊查询
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/mongo/mongo.type/" title="07. MonogoDB $type" class="md-nav__link">
+      07. MonogoDB $type
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/mongo/mongo.limit_skip/" title="08. MonogoDB LS" class="md-nav__link">
+      08. MonogoDB LS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/mongo/mongo.sort/" title="09. MonogoDB 排序" class="md-nav__link">
+      09. MonogoDB 排序
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/mongo/mongo.backup_recovery/" title="10. MonogoDB 备份与恢复" class="md-nav__link">
+      10. MonogoDB 备份与恢复
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/mongo/mongo.monitor/" title="11. MonogoDB 监控" class="md-nav__link">
+      11. MonogoDB 监控
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/mongo/mongo.replication/" title="12. MonogoDB 副本集" class="md-nav__link">
+      12. MonogoDB 副本集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/mongo/mongo.shard_info/" title="13. MonogoDB 分片集" class="md-nav__link">
+      13. MonogoDB 分片集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/mongo/mongo.shard_replicat/" title="14. MonogoDB 分片集实战" class="md-nav__link">
+      14. MonogoDB 分片集实战
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-2" type="checkbox" id="nav-9-2">
+    
+    <label class="md-nav__link" for="nav-9-2">
+      2. redis
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-2">
+        2. redis
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/redis/redis.index/" title="01. redis 介绍" class="md-nav__link">
+      01. redis 介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/redis/redis.install/" title="02. redis 安装" class="md-nav__link">
+      02. redis 安装
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/redis/redis.auth/" title="03. redis 认证" class="md-nav__link">
+      03. redis 认证
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/redis/redis.k_v/" title="04. redis 键值对" class="md-nav__link">
+      04. redis 键值对
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/redis/redis.publish/" title="05. redis 发布订阅" class="md-nav__link">
+      05. redis 发布订阅
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/redis/redis.arrairs/" title="06. redis 事务" class="md-nav__link">
+      06. redis 事务
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/redis/redis.store/" title="07. redis 持久化存储" class="md-nav__link">
+      07. redis 持久化存储
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/redis/redis.save/" title="08. redis 备份与恢复" class="md-nav__link">
+      08. redis 备份与恢复
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/redis/redis.sentinel_cluster/" title="09. redis 集群" class="md-nav__link">
+      09. redis 集群
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/redis/redis.master-slave/" title="10. redis 主从" class="md-nav__link">
+      10. redis 主从
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/redis/redis.sentinel/" title="11. redis 哨兵" class="md-nav__link">
+      11. redis 哨兵
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/redis/redis.cluster/" title="12. redis cluster" class="md-nav__link">
+      12. redis cluster
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/redis/redis.cache_policy/" title="13. redis 缓存策略" class="md-nav__link">
+      13. redis 缓存策略
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/redis/redis.breakdown/" title="14. redis 击穿" class="md-nav__link">
+      14. redis 击穿
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/redis/redis.avalanche/" title="15. redis 雪崩" class="md-nav__link">
+      15. redis 雪崩
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-3" type="checkbox" id="nav-9-3">
+    
+    <label class="md-nav__link" for="nav-9-3">
+      3. memcached
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-3">
+        3. memcached
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nosql/memcached/memcached.index/" title="1. memcached" class="md-nav__link">
+      1. memcached
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      mysql
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        mysql
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-1" type="checkbox" id="nav-10-1">
+    
+    <label class="md-nav__link" for="nav-10-1">
+      1. MySQL 基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-1">
+        1. MySQL 基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.index/" title="01. MySQL 介绍" class="md-nav__link">
+      01. MySQL 介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.info/" title="02. MySQL 初识" class="md-nav__link">
+      02. MySQL 初识
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.conn/" title="03. MySQL 链接" class="md-nav__link">
+      03. MySQL 链接
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.database/" title="04. MySQL 库" class="md-nav__link">
+      04. MySQL 库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.table/" title="05. MySQL 表" class="md-nav__link">
+      05. MySQL 表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.select/" title="06. SQL SELECT" class="md-nav__link">
+      06. SQL SELECT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.where/" title="07. SQL WHERE" class="md-nav__link">
+      07. SQL WHERE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.update/" title="08. SQL UPDATE" class="md-nav__link">
+      08. SQL UPDATE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.delete/" title="09. SQL DELETE" class="md-nav__link">
+      09. SQL DELETE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.like/" title="10. SQL LIKE" class="md-nav__link">
+      10. SQL LIKE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.distinct/" title="11. SQL DISTINCT" class="md-nav__link">
+      11. SQL DISTINCT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.limit/" title="12. SQL LIMIT" class="md-nav__link">
+      12. SQL LIMIT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.and_or/" title="13. SQL AND_OR" class="md-nav__link">
+      13. SQL AND_OR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.orderby/" title="14. SQL ORDER" class="md-nav__link">
+      14. SQL ORDER
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.insert/" title="15. SQL INSERT" class="md-nav__link">
+      15. SQL INSERT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.desc/" title="16. SQL DESC" class="md-nav__link">
+      16. SQL DESC
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.in/" title="17. SQL IN" class="md-nav__link">
+      17. SQL IN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.between/" title="18. SQL BETWEEN" class="md-nav__link">
+      18. SQL BETWEEN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.alias/" title="19. SQL ALIAS" class="md-nav__link">
+      19. SQL ALIAS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.grant/" title="20. SQL GRANT" class="md-nav__link">
+      20. SQL GRANT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.alter/" title="21. SQL ALTER" class="md-nav__link">
+      21. SQL ALTER
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-2" type="checkbox" id="nav-10-2">
+    
+    <label class="md-nav__link" for="nav-10-2">
+      2. MySQL 进阶
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-2">
+        2. MySQL 进阶
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.pk/" title="1. SQL PK" class="md-nav__link">
+      1. SQL PK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.increment/" title="2. SQL INCREMENT" class="md-nav__link">
+      2. SQL INCREMENT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.transaction/" title="3. SQL 事务" class="md-nav__link">
+      3. SQL 事务
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.null/" title="4. NULL" class="md-nav__link">
+      4. NULL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.regexp/" title="5. 正则" class="md-nav__link">
+      5. 正则
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.multi_table_query/" title="6. 多表查询" class="md-nav__link">
+      6. 多表查询
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-3" type="checkbox" id="nav-10-3">
+    
+    <label class="md-nav__link" for="nav-10-3">
+      3. MySQL 容灾
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-3">
+        3. MySQL 容灾
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.mysqldump/" title="1. mysqldump 参数" class="md-nav__link">
+      1. mysqldump 参数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.mysqldump_case/" title="2. mysqldump 脚本" class="md-nav__link">
+      2. mysqldump 脚本
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../server/xtrabackup/xtrabackup.index/" title="3. xtrabackup" class="md-nav__link">
+      3. xtrabackup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.restore_data/" title="4. binlog 恢复数据" class="md-nav__link">
+      4. binlog 恢复数据
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-4" type="checkbox" id="nav-10-4">
+    
+    <label class="md-nav__link" for="nav-10-4">
+      4. MySQL 复制
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-4">
+        4. MySQL 复制
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.master-slave/" title="1. 主从" class="md-nav__link">
+      1. 主从
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.master-master/" title="2. 主主" class="md-nav__link">
+      2. 主主
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-5" type="checkbox" id="nav-10-5">
+    
+    <label class="md-nav__link" for="nav-10-5">
+      5. MySQL OTHER
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-5">
+        5. MySQL OTHER
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.practice1/" title="01. MySQL练习" class="md-nav__link">
+      01. MySQL练习
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.mysqlcnf/" title="02. 配置文件" class="md-nav__link">
+      02. 配置文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.increment_offset/" title="03. 自增/偏移量" class="md-nav__link">
+      03. 自增/偏移量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.delete_truncate_drop/" title="04. 表删除" class="md-nav__link">
+      04. 表删除
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.binlog/" title="05. binlog 介绍" class="md-nav__link">
+      05. binlog 介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.integrity_constraint/" title="06. 完整性约束" class="md-nav__link">
+      06. 完整性约束
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.copy_table/" title="07. 表复制" class="md-nav__link">
+      07. 表复制
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.storage_engine/" title="08. 存储引擎" class="md-nav__link">
+      08. 存储引擎
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.user/" title="09. 用户" class="md-nav__link">
+      09. 用户
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../mysql/mysql.affairs/" title="10. 事务" class="md-nav__link">
+      10. 事务
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+    
+    <label class="md-nav__link" for="nav-11">
+      frontend
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        frontend
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../frontend/vue/" title="Vue" class="md-nav__link">
+      Vue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../frontend/css/css.index/" title="CSS" class="md-nav__link">
+      CSS
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+    
+    <label class="md-nav__link" for="nav-12">
+      server
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        server
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12-1" type="checkbox" id="nav-12-1">
+    
+    <label class="md-nav__link" for="nav-12-1">
+      1. git
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-12-1">
+        1. git
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tools/git/git.index/" title="1. git 介绍" class="md-nav__link">
+      1. git 介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tools/git/git.rollback/" title="2. git 回滚" class="md-nav__link">
+      2. git 回滚
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tools/git/git.branch/" title="3. git 分支" class="md-nav__link">
+      3. git 分支
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tools/git/git.label/" title="4. git 标签" class="md-nav__link">
+      4. git 标签
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tools/git/git.standard/" title="5. git 分支管理" class="md-nav__link">
+      5. git 分支管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tools/git/git.gui/" title="6. git GUI" class="md-nav__link">
+      6. git GUI
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tools/github/github.index/" title="2. github" class="md-nav__link">
+      2. github
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12-3" type="checkbox" id="nav-12-3">
+    
+    <label class="md-nav__link" for="nav-12-3">
+      3. gitlab
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-12-3">
+        3. gitlab
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tools/gitlab/gitlab.index/" title="1. gitlab" class="md-nav__link">
+      1. gitlab
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tools/gitlab/gitlab.close_register/" title="2. 关闭注册" class="md-nav__link">
+      2. 关闭注册
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tools/gitlab/gitlab.set_root_pwd/" title="3. 找回root密码" class="md-nav__link">
+      3. 找回root密码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+    
+    <label class="md-nav__link" for="nav-13">
+      course
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-13">
+        course
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../course/" title="1. 教程" class="md-nav__link">
+      1. 教程
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+    
+    <label class="md-nav__link" for="nav-14">
+      url
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-14">
+        url
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../url/url.index/" title="1. 参考网站" class="md-nav__link">
+      1. 参考网站
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+    
+    <label class="md-nav__link" for="nav-15">
+      test
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-15">
+        test
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15-1" type="checkbox" id="nav-15-1">
+    
+    <label class="md-nav__link" for="nav-15-1">
+      服务
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-15-1">
+        服务
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15-1-1" type="checkbox" id="nav-15-1-1">
+    
+    <label class="md-nav__link" for="nav-15-1-1">
+      mkdocs 服务
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-15-1-1">
+        mkdocs 服务
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="一. 介绍" class="md-nav__link">
+      一. 介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15-1-1-2" type="checkbox" id="nav-15-1-1-2">
+    
+    <label class="md-nav__link" for="nav-15-1-1-2">
+      二. 安装
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-15-1-1-2">
+        二. 安装
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../install/local/" title="1. 本地环境搭建" class="md-nav__link">
+      1. 本地环境搭建
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../install/github-pages/" title="2. 发布至GitHub Pages" class="md-nav__link">
+      2. 发布至GitHub Pages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../install/http-server/" title="3. 发布至自己的HTTP Server" class="md-nav__link">
+      3. 发布至自己的HTTP Server
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15-1-1-3" type="checkbox" id="nav-15-1-1-3">
+    
+    <label class="md-nav__link" for="nav-15-1-1-3">
+      三. 语法
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-15-1-1-3">
+        三. 语法
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/main/" title="1. 语法总览" class="md-nav__link">
+      1. 语法总览
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/headline/" title="2. 标题" class="md-nav__link">
+      2. 标题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/paragraph/" title="3. 段落" class="md-nav__link">
+      3. 段落
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/quote/" title="4. 引用" class="md-nav__link">
+      4. 引用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/table/" title="5. 表格" class="md-nav__link">
+      5. 表格
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15-1-1-3-6" type="checkbox" id="nav-15-1-1-3-6">
+    
+    <label class="md-nav__link" for="nav-15-1-1-3-6">
+      6. 代码
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-15-1-1-3-6">
+        6. 代码
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/code_inline/" title="6.1. 行内" class="md-nav__link">
+      6.1. 行内
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/code_block/" title="6.2. 区块" class="md-nav__link">
+      6.2. 区块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/code_highlight/" title="6.3. 高亮" class="md-nav__link">
+      6.3. 高亮
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15-1-1-3-7" type="checkbox" id="nav-15-1-1-3-7">
+    
+    <label class="md-nav__link" for="nav-15-1-1-3-7">
+      7. 字体样式
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-15-1-1-3-7">
+        7. 字体样式
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/font_stress/" title="7.1. 斜体,粗体,粗斜体" class="md-nav__link">
+      7.1. 斜体,粗体,粗斜体
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/font_updown/" title="7.2. 上标,下标" class="md-nav__link">
+      7.2. 上标,下标
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/font_underline/" title="7.3. 下划线" class="md-nav__link">
+      7.3. 下划线
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/font_line/" title="7.4. 横线" class="md-nav__link">
+      7.4. 横线
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/font_underline_line/" title="7.5. 下划线+横线" class="md-nav__link">
+      7.5. 下划线+横线
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15-1-1-3-8" type="checkbox" id="nav-15-1-1-3-8">
+    
+    <label class="md-nav__link" for="nav-15-1-1-3-8">
+      8. 列表
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-15-1-1-3-8">
+        8. 列表
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/list_noseq/" title="8.1. 无序列表" class="md-nav__link">
+      8.1. 无序列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/list_seq/" title="8.2. 有序列表" class="md-nav__link">
+      8.2. 有序列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/list_task/" title="8.3. 任务列表" class="md-nav__link">
+      8.3. 任务列表
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/cutline/" title="9. 分割线" class="md-nav__link">
+      9. 分割线
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15-1-1-3-10" type="checkbox" id="nav-15-1-1-3-10">
+    
+    <label class="md-nav__link" for="nav-15-1-1-3-10">
+      10. 链接
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-15-1-1-3-10">
+        10. 链接
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/link_normal/" title="10.1. 普通链接" class="md-nav__link">
+      10.1. 普通链接
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/link_auto/" title="10.2. 自动链接" class="md-nav__link">
+      10.2. 自动链接
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/link_anchor/" title="10.3. 锚点提示" class="md-nav__link">
+      10.3. 锚点提示
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15-1-1-3-11" type="checkbox" id="nav-15-1-1-3-11">
+    
+    <label class="md-nav__link" for="nav-15-1-1-3-11">
+      11. 图片
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-15-1-1-3-11">
+        11. 图片
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/image_inline/" title="11.1. 行内式" class="md-nav__link">
+      11.1. 行内式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/image_index/" title="11.2. 参考式" class="md-nav__link">
+      11.2. 参考式
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/escape/" title="12. 转义" class="md-nav__link">
+      12. 转义
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15-1-1-3-13" type="checkbox" id="nav-15-1-1-3-13">
+    
+    <label class="md-nav__link" for="nav-15-1-1-3-13">
+      13. 高亮
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-15-1-1-3-13">
+        13. 高亮
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/highlight_code/" title="13.1. 代码高亮" class="md-nav__link">
+      13.1. 代码高亮
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/highlight_background/" title="13.2. 背景高亮" class="md-nav__link">
+      13.2. 背景高亮
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15-1-1-3-14" type="checkbox" id="nav-15-1-1-3-14">
+    
+    <label class="md-nav__link" for="nav-15-1-1-3-14">
+      14. 注解
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-15-1-1-3-14">
+        14. 注解
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/note_main/" title="14.1. 介绍" class="md-nav__link">
+      14.1. 介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/note_full/" title="14.2. 完整格式" class="md-nav__link">
+      14.2. 完整格式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/note_empty-title/" title="14.3. 空标题" class="md-nav__link">
+      14.3. 空标题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/note_none-title/" title="14.4. 无标题" class="md-nav__link">
+      14.4. 无标题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/note_none-type/" title="14.5. 无类型" class="md-nav__link">
+      14.5. 无类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/note_details/" title="14.6. 折叠" class="md-nav__link">
+      14.6. 折叠
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/note_style/" title="14.7. 11种颜色样式" class="md-nav__link">
+      14.7. 11种颜色样式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/note_nest/" title="14.8. 嵌套" class="md-nav__link">
+      14.8. 嵌套
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/footnote/" title="15. 脚注" class="md-nav__link">
+      15. 脚注
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/meta/" title="16. 元信息" class="md-nav__link">
+      16. 元信息
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15-1-1-3-17" type="checkbox" id="nav-15-1-1-3-17">
+    
+    <label class="md-nav__link" for="nav-15-1-1-3-17">
+      17. 数学公式
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-15-1-1-3-17">
+        17. 数学公式
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/math_main/" title="17.1. 介绍" class="md-nav__link">
+      17.1. 介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/math_js/" title="17.2. 导入js" class="md-nav__link">
+      17.2. 导入js
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/math_usage/" title="17.3. 用法" class="md-nav__link">
+      17.3. 用法
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15-1-1-3-18" type="checkbox" id="nav-15-1-1-3-18">
+    
+    <label class="md-nav__link" for="nav-15-1-1-3-18">
+      18. emoji
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-15-1-1-3-18">
+        18. emoji
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/emoji_main/" title="18.1. 介绍" class="md-nav__link">
+      18.1. 介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/emoji_principle/" title="18.2. 工作原理" class="md-nav__link">
+      18.2. 工作原理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/emoji_usage/" title="18.3. 最佳实践" class="md-nav__link">
+      18.3. 最佳实践
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/symbol/" title="19. 特殊符号" class="md-nav__link">
+      19. 特殊符号
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15-1-1-3-20" type="checkbox" id="nav-15-1-1-3-20">
+    
+    <label class="md-nav__link" for="nav-15-1-1-3-20">
+      20. 嵌套
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-15-1-1-3-20">
+        20. 嵌套
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/nest_main/" title="20.1. 介绍" class="md-nav__link">
+      20.1. 介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/nest_note_note/" title="20.2. 注解-注解" class="md-nav__link">
+      20.2. 注解-注解
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/nest_list_list/" title="20.3. 列表-列表" class="md-nav__link">
+      20.3. 列表-列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/nest_quote_quote/" title="20.4. 引用-引用" class="md-nav__link">
+      20.4. 引用-引用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/nest_note_code/" title="20.5. 注解-代码块" class="md-nav__link">
+      20.5. 注解-代码块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/nest_list_code/" title="20.6. 列表-代码块" class="md-nav__link">
+      20.6. 列表-代码块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/nest_quote_code/" title="20.7. 引用-代码块" class="md-nav__link">
+      20.7. 引用-代码块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/nest_yellow_code/" title="20.8. 黄色区块-代码" class="md-nav__link">
+      20.8. 黄色区块-代码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/nest_green_code/" title="20.9. 绿色区块-代码" class="md-nav__link">
+      20.9. 绿色区块-代码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/nest_red_code/" title="20.10. 红色区块-代码" class="md-nav__link">
+      20.10. 红色区块-代码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/nest_greenred_code/" title="20.11. 绿接红区块-代码" class="md-nav__link">
+      20.11. 绿接红区块-代码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/nest_note_list_quote/" title="20.12. 注解-列表-引用" class="md-nav__link">
+      20.12. 注解-列表-引用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/nest_list_list_quote/" title="20.13. 列表-列表-引用" class="md-nav__link">
+      20.13. 列表-列表-引用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../syntax/nest_quote_quote_code/" title="20.14. 引用-引用-代码" class="md-nav__link">
+      20.14. 引用-引用-代码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../resume/" title="20.15. 简历" class="md-nav__link">
+      20.15. 简历
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15-1-1-4" type="checkbox" id="nav-15-1-1-4">
+    
+    <label class="md-nav__link" for="nav-15-1-1-4">
+      四. 附录
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-15-1-1-4">
+        四. 附录
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../appendix/pygments/" title="1. 支持代码高亮的语言" class="md-nav__link">
+      1. 支持代码高亮的语言
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../appendix/emoji_shortname/" title="2. emojione全名短名映射表" class="md-nav__link">
+      2. emojione全名短名映射表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../appendix/baidu_tongji/" title="3. 添加百度统计" class="md-nav__link">
+      3. 添加百度统计
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../appendix/color/" title="4. 配色" class="md-nav__link">
+      4. 配色
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../appendix/module/" title="5. 模块介绍" class="md-nav__link">
+      5. 模块介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../appendix/level/" title="6. mkdocs层级关系" class="md-nav__link">
+      6. mkdocs层级关系
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../appendix/search/" title="7. 支持中文搜索" class="md-nav__link">
+      7. 支持中文搜索
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../appendix/yml/" title="8. mkdocs.yml范例" class="md-nav__link">
+      8. mkdocs.yml范例
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../recommend/" title="五. 使用建议" class="md-nav__link">
+      五. 使用建议
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../contact/" title="六. 联系方式" class="md-nav__link">
+      六. 联系方式
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 准备环境" class="md-nav__link">
+    1. 准备环境
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-podcontrollers" title="2. pod和controllers关系" class="md-nav__link">
+    2. pod和controllers关系
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-deployment" title="3. Deployment" class="md-nav__link">
+    3. Deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-daemonset" title="4. DaemonSet" class="md-nav__link">
+    4. DaemonSet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-job" title="5. job" class="md-nav__link">
+    5. job
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-cronjob" title="6. cronjob" class="md-nav__link">
+    6. cronjob
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" title="7. 配置管理" class="md-nav__link">
+    7. 配置管理
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-configmap" title="7.1 Configmap" class="md-nav__link">
+    7.1 Configmap
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-secret" title="7.2 Secret" class="md-nav__link">
+    7.2 Secret
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#721-1" title="7.2.1 方式1" class="md-nav__link">
+    7.2.1 方式1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#722-2" title="7.2.2 方式2" class="md-nav__link">
+    7.2.2 方式2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/caimengzhi/books/edit/master/docs/linux/k8s/k8s/k8s.controller.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <p><center><h1>Kubernets 控制器</h1></center></p>
+<h2 id="1">1. 准备环境<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>&#160; &#160; &#160; &#160;
+- Deployment
+- StatefulSet
+- DaemonSet
+- Job
+- CronJob</p>
+<h2 id="2-podcontrollers">2. pod和controllers关系<a class="headerlink" href="#2-podcontrollers" title="Permanent link">&para;</a></h2>
+<p>&#160; &#160; &#160; &#160;controllers：在集群上管理和运行容器的对象通过label-selector相关联Pod通过控制器实现应用的运维，如伸缩，滚动升级等</p>
+<div class="admonition note">
+<p class="admonition-title">关系</p>
+<div class="codehilite"><pre><span></span><span class="n">Pod</span>   <span class="n">Pod</span>  <span class="n">Pod</span>
+  \    <span class="o">|</span>    <span class="o">/</span>    <span class="n">lales</span><span class="p">:</span>
+   \   <span class="o">|</span>   <span class="o">/</span>       <span class="n">app</span><span class="p">:</span> <span class="n">nginx</span>
+    \  <span class="o">|</span>  <span class="o">/</span>      
+     \ <span class="o">|</span> <span class="o">/</span>       <span class="n">selector</span><span class="p">:</span>
+      \<span class="o">|/</span>          <span class="n">app</span><span class="p">:</span><span class="n">nginx</span>
+    <span class="err">工作负载</span>
+    <span class="n">WorkLoad</span>
+
+<span class="err">是通过</span><span class="n">label标签去选择pod</span>
+</pre></div>
+
+</div>
+<h2 id="3-deployment">3. Deployment<a class="headerlink" href="#3-deployment" title="Permanent link">&para;</a></h2>
+<ul>
+<li>部署无状态应用</li>
+<li>管理Pod和ReplicaSet</li>
+<li>具有上线部署、副本设定、滚动升级、回滚等功能</li>
+<li>提供声明式更新，例如只更新一个新的Image</li>
+</ul>
+<p><div class="codehilite"><pre><span></span>无状态: 水平任意扩展，不考虑IP，不考虑Pod位置，不考虑存储
+有状态: 唯一访问地址，数据存储
+</pre></div>
+应用场景: web，微服务</p>
+<h2 id="4-daemonset">4. DaemonSet<a class="headerlink" href="#4-daemonset" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
+</pre></div>
+
+<ul>
+<li>在每一个Node上运行一个Pod</li>
+<li>新加入的Node也同样会自动运行一个Pod</li>
+</ul>
+<p>应用场景：Agent</p>
+<div class="admonition note">
+<p class="admonition-title">agent.yaml</p>
+<div class="codehilite"><pre><span></span>[root@k8s-master01 demo]# cat agent.yaml 
+apiVersion: apps/v1beta2
+kind: DaemonSet
+metadata:
+  name: agent
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: agent
+  template:
+    metadata:
+      labels:
+        app: agent
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.15
+        ports:
+        - containerPort: 80
+</pre></div>
+
+</div>
+<div class="codehilite"><pre><span></span>[root@k8s-master01 demo]# kubectl apply -f agent.yaml 
+daemonset.apps/agent created
+[root@k8s-master01 demo]# kubectl get pods
+NAME                                READY   STATUS             RESTARTS   AGE
+agent-rxgp9                         1/1     Running            0          8s
+agent-twh7c                         1/1     Running            0          8s
+frontend                            1/2     CrashLoopBackOff   58         16h
+liveness-exec                       1/1     Running            66         15h
+nginx-deployment-5997b94b5c-79rrk   1/1     Running            0          15h
+nginx-deployment-5997b94b5c-cs28z   1/1     Running            0          15h
+nginx-deployment-5997b94b5c-zc7pp   1/1     Running            0          15h
+[root@k8s-master01 demo]# kubectl get pods -o wide
+NAME                                READY   STATUS             RESTARTS   AGE   IP            NODE              NOMINATED NODE   READINESS GATES
+agent-rxgp9                         1/1     Running            0          28s   172.17.8.6    192.168.186.142   &lt;none&gt;           &lt;none&gt;
+agent-twh7c                         1/1     Running            0          28s   172.17.66.6   192.168.186.141   &lt;none&gt;           &lt;none&gt;
+frontend                            1/2     CrashLoopBackOff   58         16h   172.17.8.3    192.168.186.142   &lt;none&gt;           &lt;none&gt;
+liveness-exec                       1/1     Running            66         15h   172.17.8.4    192.168.186.142   &lt;none&gt;           &lt;none&gt;
+nginx-deployment-5997b94b5c-79rrk   1/1     Running            0          15h   172.17.66.5   192.168.186.141   &lt;none&gt;           &lt;none&gt;
+nginx-deployment-5997b94b5c-cs28z   1/1     Running            0          15h   172.17.66.2   192.168.186.141   &lt;none&gt;           &lt;none&gt;
+nginx-deployment-5997b94b5c-zc7pp   1/1     Running            0          15h   172.17.66.4   192.168.186.141   &lt;none&gt;           &lt;none&gt;
+</pre></div>
+
+<blockquote>
+<p>我们可以看到，每个机器上都启动了一个agent容器。</p>
+</blockquote>
+<h2 id="5-job">5. job<a class="headerlink" href="#5-job" title="Permanent link">&para;</a></h2>
+<p>Job分为普通任务（Job）和定时任务（CronJob）一次性执行。</p>
+<div class="codehilite"><pre><span></span>https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
+</pre></div>
+
+<p>应用常见: 离线数据处理，视频解码等业务</p>
+<details class="note"><summary>job.yaml</summary><div class="codehilite"><pre><span></span>#[root@k8s-master01 yml]# cat job.yaml 
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pi
+spec:
+  template:
+    spec:
+      containers:
+      - name: pi
+        image: perl
+        command: [&quot;perl&quot;,  &quot;-Mbignum=bpi&quot;, &quot;-wle&quot;, &quot;print bpi(2000)&quot;]
+      restartPolicy: Never
+  backoffLimit: 4
+</pre></div>
+
+</details>
+<blockquote>
+<p>计算圆周率</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>[root@k8s-master01 yml]# kubectl apply -f job.yaml 
+job.batch/pi created
+
+[root@k8s-master01 yml]# kubectl get pods|grep pi
+pi-4bz86                            0/1     ContainerCreating   0          57s
+
+[root@k8s-master01 yml]# kubectl get job
+NAME   COMPLETIONS   DURATION   AGE
+pi     0/1           80s        80s
+
+等待结束
+[root@k8s-master01 yml]# kubectl get pods
+NAME                                READY   STATUS             RESTARTS   AGE
+agent-rxgp9                         1/1     Running            0          3h10m
+agent-twh7c                         1/1     Running            0          3h10m
+frontend                            1/2     CrashLoopBackOff   95         19h
+liveness-exec                       1/1     Running            116        18h
+nginx-deployment-5997b94b5c-79rrk   1/1     Running            0          18h
+nginx-deployment-5997b94b5c-cs28z   1/1     Running            0          18h
+nginx-deployment-5997b94b5c-zc7pp   1/1     Running            0          18h
+pi-4bz86                            0/1     Completed          0          2m57s
+
+查看日志
+[root@k8s-master01 yml]# kubectl logs -f pi-4bz86
+3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067982148086513282306647093844609550582231725359408128481117450284102701938521
+1055596446229489549303819644288109756659334461284756482337867831652712019091456485669234603486104543266482133936072602491412737245870066063155881748815209209628292540917153643678925903600113305305488204665213841469519415116094330572703657595919530921861173819326117931051185480744623799627495673518857527248912279381830119491298336733624406566430860213949463952247371907021798609437027705392171762931767523846748184676694051320005681271452635608277857713427577896091736371787214684409012249534301465495853710507922796892589235420199561121290219608640344181598136297747713099605187072113499999983729780499510597317328160963185950244594553469083026425223082533446850352619311881710100031378387528865875332083814206171776691473035982534904287554687311595628638823537875937519577818577805321712268066130019278766111959092164201989380952572010654858632788659361533818279682303019520353018529689957736225994138912497217752834791315155748572424541506959508295331168617278558890750983817546374649393192550604009277016711390098488240128583616035637076601047101819429555961989467678374494482553797747268471040475346462080466842590694912933136770289891521047521620569660240580381501935112533824300355876402474964732639141992726042699227967823547816360093417216412199245863150302861829745557067498385054945885869269956909272107975093029553211653449872027559602364806654991198818347977535663698074265425278625518184175746728909777727938000816470600161452491921732172147723501414419735685481613611573525521334757418494684385233239073941433345477624168625189835694855620992192221842725502542568876717904946016534668049886272327917860857843838279679766814541009538837863609506800642251252051173929848960841284886269456042419652850222106611863067442786220391949450471237137869609563643719172874677646575739624138908658326459958133904780275898
+</pre></div>
+
+<h2 id="6-cronjob">6. cronjob<a class="headerlink" href="#6-cronjob" title="Permanent link">&para;</a></h2>
+<p>定时任务，像Linux的Crontab一样。定时任务。</p>
+<div class="codehilite"><pre><span></span>https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs
+</pre></div>
+
+<p>应用场景：通知，备份</p>
+<details class="note"><summary>cronjob.yaml</summary><div class="codehilite"><pre><span></span>apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: hello
+spec:
+  schedule: &quot;*/1 * * * *&quot;
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox
+            args:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the Kubernetes cluster
+          restartPolicy: OnFailure
+</pre></div>
+
+</details>
+<div class="codehilite"><pre><span></span>[root@k8s-master01 yml]# kubectl apply -f cronjob.yaml 
+cronjob.batch/hello created
+
+[root@k8s-master01 yml]# kubectl get pod hello-1556002260-pnbjk
+NAME                     READY   STATUS      RESTARTS   AGE
+hello-1556002260-pnbjk   0/1     Completed   0          57s
+[root@k8s-master01 yml]# kubectl logs -f hello-1556002260-pnbjk
+Tue Apr 23 06:51:03 UTC 2019
+Hello from the Kubernetes cluster
+</pre></div>
+
+<p>小结:</p>
+<ul>
+<li>Deployment：无状态部</li>
+<li>DaemonSet：守护进程部署</li>
+<li>Job &amp; CronJob：批处理</li>
+</ul>
+<details class="note"><summary>查看api 版本</summary><div class="codehilite"><pre><span></span>[root@k8s-master01 yml]# kubectl api-versions
+admissionregistration.k8s.io/v1beta1
+apiextensions.k8s.io/v1beta1
+apiregistration.k8s.io/v1
+apiregistration.k8s.io/v1beta1
+apps/v1
+apps/v1beta1
+apps/v1beta2
+authentication.k8s.io/v1
+authentication.k8s.io/v1beta1
+authorization.k8s.io/v1
+authorization.k8s.io/v1beta1
+autoscaling/v1
+autoscaling/v2beta1
+autoscaling/v2beta2
+batch/v1
+batch/v1beta1
+certificates.k8s.io/v1beta1
+coordination.k8s.io/v1beta1
+events.k8s.io/v1beta1
+extensions/v1beta1
+networking.k8s.io/v1
+policy/v1beta1
+rbac.authorization.k8s.io/v1
+rbac.authorization.k8s.io/v1beta1
+scheduling.k8s.io/v1beta1
+storage.k8s.io/v1
+storage.k8s.io/v1beta1
+v1
+</pre></div>
+
+</details>
+<h2 id="7">7. 配置管理<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Secret  配置敏感信息，比如密码</li>
+<li>Configmap 配置文件</li>
+</ul>
+<p>pod 使用secret两种方式</p>
+<ul>
+<li>变量引入</li>
+<li>挂载</li>
+</ul>
+<h3 id="71-configmap">7.1 Configmap<a class="headerlink" href="#71-configmap" title="Permanent link">&para;</a></h3>
+<p>与Secret类似，区别在于ConfigMap保存的是不需要加密配置信息。</p>
+<div class="codehilite"><pre><span></span>https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
+</pre></div>
+
+<p>应用场景：应用配置</p>
+<details class="note"><summary>configmap.yaml</summary><div class="codehilite"><pre><span></span># [root@k8s-master01 yml]# cat configmap.yaml 
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: myconfig
+  namespace: default
+data:
+  special.level: info
+  special.type: hello
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod3
+spec:
+  containers:
+    - name: busybox
+      image: busybox
+      command: [ &quot;/bin/sh&quot;, &quot;-c&quot;, &quot;echo $(LEVEL) $(TYPE)&quot; ]
+      env:
+        - name: LEVEL
+          valueFrom:
+            configMapKeyRef:
+              name: myconfig
+              key: special.level
+        - name: TYPE
+          valueFrom:
+            configMapKeyRef:
+              name: myconfig
+              key: special.type
+  restartPolicy: Never
+
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis-config
+data:
+  redis.properties: |
+    redis.host=127.0.0.1
+    redis.port=6379
+    redis.password=123456
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod4
+spec:
+  containers:
+    - name: busybox
+      image: busybox
+      command: [ &quot;/bin/sh&quot;,&quot;-c&quot;,&quot;cat /etc/config/redis.properties&quot; ]
+      volumeMounts:
+      - name: config-volume
+        mountPath: /etc/config
+  volumes:
+    - name: config-volume
+      configMap:
+        name: redis-config
+  restartPolicy: Never
+</pre></div>
+
+</details>
+<div class="codehilite"><pre><span></span>[root@k8s-master01 yml]# kubectl apply -f configmap.yaml 
+configmap/myconfig created
+pod/mypod3 created
+configmap/redis-config created
+pod/mypod4 created
+
+[root@k8s-master01 yml]# kubectl get pods | egrep &#39;pod3|pod4&#39;
+mypod3                              0/1     Completed          0          35s
+mypod4                              0/1     Completed          0          35s
+
+[root@k8s-master01 yml]# kubectl logs mypod3
+info hello
+[root@k8s-master01 yml]# kubectl logs mypod4
+redis.host=127.0.0.1
+redis.port=6379
+redis.password=123456
+</pre></div>
+
+<p><img alt="c-pod1" src="../../../../pictures/linux/k8s/k8s/c-pod1.png" /></p>
+<h3 id="72-secret">7.2 Secret<a class="headerlink" href="#72-secret" title="Permanent link">&para;</a></h3>
+<p>加密数据并存放Etcd中，让Pod的容器以挂载Volume方式访问。</p>
+<div class="codehilite"><pre><span></span>https://kubernetes.io/docs/concepts/configuration/secret/
+</pre></div>
+
+<p>应用场景：凭据</p>
+<h4 id="721-1">7.2.1 方式1<a class="headerlink" href="#721-1" title="Permanent link">&para;</a></h4>
+<p>创建自己的secret文件，假设有些 pod 需要访问数据库。这些 pod 需要使用的用户名和密码在您本地机器的 ./username.txt 和 ./password.txt 文件里。
+<div class="codehilite"><pre><span></span>[root@k8s-master01 yml]# echo -n &#39;admin&#39; &gt; ./username.txt
+[root@k8s-master01 yml]# echo -n &#39;1f2d1e2e67df&#39; &gt; ./password.txt
+
+[root@k8s-master01 yml]# cat username.txt 
+admin[root@k8s-master01 yml]# cat password.txt 
+</pre></div>
+<code>kubectl create secret</code> 命令将这些文件打包到一个 Secret 中并在 API server 中创建了一个对象。</p>
+<div class="codehilite"><pre><span></span>[root@k8s-master01 yml]# kubectl create secret generic db-user-pass --from-file=./username.txt --from-file=./password.txt
+secret/db-user-pass created
+
+[root@k8s-master01 yml]# kubectl get secret|grep db-user-pass
+db-user-pass          Opaque                                2      32s
+
+[root@k8s-master01 yml]# kubectl get secret
+NAME                  TYPE                                  DATA   AGE
+db-user-pass          Opaque                                2      20s
+default-token-r5m2l   kubernetes.io/service-account-token   3      4d22h
+myregistrykey         kubernetes.io/dockerconfigjson        1      20h
+</pre></div>
+
+<h4 id="722-2">7.2.2 方式2<a class="headerlink" href="#722-2" title="Permanent link">&para;</a></h4>
+<p>通过终端直接创建</p>
+<details class="note"><summary>mysecret.yaml</summary><div class="codehilite"><pre><span></span># [root@k8s-master01 yml]# cat mysecret.yaml 
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+type: Opaque
+data:
+  username: YWRtaW4=
+  password: MWYyZDFlMmU2N2Rm
+</pre></div>
+
+</details>
+<blockquote>
+<p>数据字段是一个映射。它的键必须匹配 DNS_SUBDOMAIN，前导点也是可以的。这些值可以是任意数据，使用 base64 进行编码。</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>[root@k8s-master01 yml]# echo -n &quot;admin&quot; | base64
+YWRtaW4=
+[root@k8s-master01 yml]# echo -n &quot;1f2d1e2e67df&quot; | base64
+MWYyZDFlMmU2N2Rm
+
+[root@k8s-master01 yml]# cat mysecret.yaml 
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+type: Opaque
+data:
+  username: YWRtaW4=
+  password: MWYyZDFlMmU2N2Rm
+[root@k8s-master01 yml]# kubectl apply -f mysecret.yaml 
+secret/mysecret created
+
+[root@k8s-master01 yml]# kubectl get secret
+NAME                  TYPE                                  DATA   AGE
+db-user-pass          Opaque                                2      8m22s
+default-token-r5m2l   kubernetes.io/service-account-token   3      4d23h
+myregistrykey         kubernetes.io/dockerconfigjson        1      20h
+mysecret              Opaque                                2      114s
+
+[root@k8s-master01 yml]# kubectl describe secret mysecret
+Name:         mysecret
+Namespace:    default
+Labels:       &lt;none&gt;
+Annotations:  
+Type:         Opaque
+
+Data
+====
+password:  12 bytes
+username:  5 bytes
+</pre></div>
+
+<blockquote>
+<p>这样账号和密码就保存在k8s中， 接下来我们来使用这账号和密码。 </p>
+</blockquote>
+<details class="note"><summary>解码注意</summary><div class="codehilite"><pre><span></span> secret 数据的序列化 JSON 和 YAML 值使用 base64 编码成字符串。换行符在这些字符串中无效，必须省略。当在 Darwin/OS X 上使用 base64 实用程序时，用户应避免使用 -b 选项来拆分长行。另外，对于 Linux 用户如果 -w 选项不可用的话，应该添加选项 -w 0 到 base64 命令或管道 base64 | tr -d &#39;\n&#39; 。
+</pre></div>
+
+</details>
+<div class="codehilite"><pre><span></span>[root@k8s-master01 yml]# kubectl get secret mysecret -o yaml
+apiVersion: v1
+data:
+  password: MWYyZDFlMmU2N2Rm
+  username: YWRtaW4=
+kind: Secret
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {&quot;apiVersion&quot;:&quot;v1&quot;,&quot;data&quot;:{&quot;password&quot;:&quot;MWYyZDFlMmU2N2Rm&quot;,&quot;username&quot;:&quot;YWRtaW4=&quot;},&quot;kind&quot;:&quot;Secret&quot;,&quot;metadata&quot;:{&quot;annotations&quot;:{},&quot;name&quot;:&quot;mysecret&quot;,&quot;namespace&quot;:&quot;default&quot;},&quot;typ
+e&quot;:&quot;Opaque&quot;}  creationTimestamp: &quot;2019-04-23T07:12:56Z&quot;
+  name: mysecret
+  namespace: default
+  resourceVersion: &quot;125544&quot;
+  selfLink: /api/v1/namespaces/default/secrets/mysecret
+  uid: 37f8370c-6597-11e9-9365-000c2994bdca
+type: Opaque
+[root@k8s-master01 yml]# echo &quot;MWYyZDFlMmU2N2Rm&quot; | base64 --decode
+1f2d1e2e67df
+[root@k8s-master01 yml]# echo &quot;YWRtaW4=&quot; | base64 --decode
+admin
+</pre></div>
+
+<p>方式1：以便利方式 使用secret</p>
+<p>Secret 可以作为数据卷被挂载，或作为环境变量暴露出来以供 pod 中的容器使用。它们也可以被系统的其他部分使用，而不直接暴露在 pod 内。例如，它们可以保存凭据，系统的其他部分应该用它来代表您与外部系统进行交互。
+<div class="codehilite"><pre><span></span>[root@k8s-master01 yml]# kubectl get pods
+NAME                                READY   STATUS             RESTARTS   AGE
+agent-rxgp9                         1/1     Running            0          3h52m
+agent-twh7c                         1/1     Running            0          3h52m
+frontend                            1/2     CrashLoopBackOff   103        20h
+hello-1556004300-f9p4n              0/1     Completed          0          2m47s
+hello-1556004360-2g6xl              0/1     Completed          0          107s
+hello-1556004420-4c2bg              0/1     Completed          0          47s
+liveness-exec                       0/1     CrashLoopBackOff   127        19h
+nginx-deployment-5997b94b5c-79rrk   1/1     Running            0          18h
+nginx-deployment-5997b94b5c-cs28z   1/1     Running            0          18h
+nginx-deployment-5997b94b5c-zc7pp   1/1     Running            0          18h
+pi-4bz86                            0/1     Completed          0          44m
+[root@k8s-master01 yml]# cat secret-var.yaml 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    env:
+      - name: SECRET_USERNAME
+        valueFrom:
+          secretKeyRef:
+            name: mysecret
+            key: username
+      - name: SECRET_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: mysecret
+            key: password
+
+# echo $SECRET_USERNAME
+# echo $SECRET_PASSWORD
+
+[root@k8s-master01 yml]# kubectl apply -f secret-var.yaml 
+pod/mypod created
+[root@k8s-master01 yml]# kubectl get pods
+NAME                                READY   STATUS             RESTARTS   AGE
+agent-rxgp9                         1/1     Running            0          3h52m
+agent-twh7c                         1/1     Running            0          3h52m
+frontend                            1/2     CrashLoopBackOff   103        20h
+hello-1556004300-f9p4n              0/1     Completed          0          2m59s
+hello-1556004360-2g6xl              0/1     Completed          0          119s
+hello-1556004420-4c2bg              0/1     Completed          0          59s
+liveness-exec                       0/1     CrashLoopBackOff   127        19h
+mypod                               1/1     Running            0          4s
+nginx-deployment-5997b94b5c-79rrk   1/1     Running            0          18h
+nginx-deployment-5997b94b5c-cs28z   1/1     Running            0          18h
+nginx-deployment-5997b94b5c-zc7pp   1/1     Running            0          18h
+pi-4bz86                            0/1     Completed          0          45m
+
+进入容器
+[root@k8s-master01 yml]# kubectl exec -it mypod bash
+root@mypod:/# echo echo $SECRET_USERNAME
+echo admin
+root@mypod:/# echo $SECRET_PASSWORD
+1f2d1e2e67df
+</pre></div></p>
+<p>步骤：</p>
+<ul>
+<li>先创建账号和密码[两种方式:1.文件 2.终端base64]</li>
+<li>在yaml中直接引用存在secret的数据，以变量方式引用</li>
+</ul>
+<p>方式2：以挂载方式 使用secret</p>
+<details class="note"><summary>secret-vol.yaml</summary><div class="codehilite"><pre><span></span>#[root@k8s-master01 yml]# cat secret-vol.yaml 
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod2
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - name: foo
+      mountPath: &quot;/etc/foo&quot;
+      readOnly: true
+  volumes:
+  - name: foo
+    secret:
+      secretName: mysecret
+
+# cat /etc/foo/username
+# cat /etc/foo/password
+</pre></div>
+
+</details>
+<div class="codehilite"><pre><span></span>[root@k8s-master01 yml]# kubectl get secret
+NAME                  TYPE                                  DATA   AGE
+db-user-pass          Opaque                                2      33m
+default-token-r5m2l   kubernetes.io/service-account-token   3      4d23h
+myregistrykey         kubernetes.io/dockerconfigjson        1      21h
+mysecret              Opaque                                2      26m
+[root@k8s-master01 yml]# kubectl describe secret mysecret
+Name:         mysecret
+Namespace:    default
+Labels:       &lt;none&gt;
+Annotations:  
+Type:         Opaque
+
+Data
+====
+password:  12 bytes
+username:  5 bytes
+
+[root@k8s-master01 yml]# kubectl apply -f secret-vol.yaml 
+pod/mypod2 created
+
+[root@k8s-master01 yml]# kubectl get pods
+NAME                                READY   STATUS             RESTARTS   AGE
+agent-rxgp9                         1/1     Running            0          4h
+agent-twh7c                         1/1     Running            0          4h
+frontend                            1/2     CrashLoopBackOff   104        20h
+hello-1556004840-xxzkc              0/1     Completed          0          2m12s
+hello-1556004900-pf82c              0/1     Completed          0          72s
+hello-1556004960-j92fl              0/1     Completed          0          12s
+liveness-exec                       0/1     CrashLoopBackOff   129        19h
+mypod                               1/1     Running            0          8m9s
+mypod2                              1/1     Running            0          15s
+nginx-deployment-5997b94b5c-79rrk   1/1     Running            0          19h
+nginx-deployment-5997b94b5c-cs28z   1/1     Running            0          19h
+nginx-deployment-5997b94b5c-zc7pp   1/1     Running            0          19h
+pi-4bz86                            0/1     Completed          0          53m
+[root@k8s-master01 yml]# kubectl exec mypod2 bash
+[root@k8s-master01 yml]# kubectl exec -it mypod2 bash
+root@mypod2:/# ls /etc/foo/
+password  username
+root@mypod2:/# cat /etc/foo/password 
+1f2d1e2e67dfroot@mypod2:/# cat /etc/foo/username 
+adminroot@mypod2:/# 
+</pre></div>
+
+<blockquote>
+<p>可见。之前存在secret名称空间的mysecret，已挂的方式，挂载到容器的 /etc/foo下面了。</p>
+</blockquote>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../k8s.pod/" title="09. K8S pod" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                09. K8S pod
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../k8s.coredns/" title="11. K8S coredns" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                11. K8S coredns
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/caimengzhi" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.a353778b.js"></script>
+      
+        
+        
+          
+          <script src="../../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../../../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="../../../../js/extra.js"></script>
+      
+        <script src="../../../../js/baidu-tongji.js"></script>
+      
+        <script src="../../../../js/webfont.js"></script>
+      
+        <script src="../../../../js/snap.svg-min.js"></script>
+      
+        <script src="../../../../js/underscore-min.js"></script>
+      
+        <script src="../../../../js/sequence-diagram-min.js"></script>
+      
+        <script src="../../../../js/uml-converter.js"></script>
+      
+        <script src="../../../../js/sequence-loader.js"></script>
+      
+    
+  </body>
+</html>
