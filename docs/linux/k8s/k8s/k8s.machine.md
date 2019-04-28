@@ -20,7 +20,7 @@ ip | 角色|安装软件|主机名
 192.168.186.140|master2|kube-apiserver,kube-controller-manager,kube-scheduler|k8s-master02
 192.168.186.141|node1|docker,etcd,kubelet,kube-proxy,flannel|k8s-node01
 192.168.186.142|node2|docker,etcd,kubelet,kube-proxy,flannel|k8s-node02
-192.168.186.143|slb master|keeaplived，nginx|k8s-lb01
+192.168.186.143|slb master|keeaplived，nginx,nfs-server|k8s-lb01
 192.168.186.144|slb backup|keeaplived，nginx|k8s-lb02
 192.168.186.145|keepalived上的VIP||
 

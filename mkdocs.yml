@@ -223,11 +223,14 @@ nav:
             - 04. K8S flannel: linux/k8s/k8s/k8s.flannel_info.md
             - 05. K8S master: linux/k8s/k8s/k8s.master.md
             - 06. K8S node: linux/k8s/k8s/k8s.node.md
-            - 07. K8S 新增master: linux/k8s/k8s/k8s.add_master.md
+            - 07. K8S new master: linux/k8s/k8s/k8s.add_master.md
             - 08. K8S slb_ha: linux/k8s/k8s/k8s.slb_ha.md
             - 09. K8S pod: linux/k8s/k8s/k8s.pod.md
-            - 10. K8S 控制器: linux/k8s/k8s/k8s.controller.md
+            - 10. K8S controllers: linux/k8s/k8s/k8s.controller.md
             - 11. K8S coredns: linux/k8s/k8s/k8s.coredns.md
+            - 12. K8S ingress: linux/k8s/k8s/k8s.ingress.md
+            - 13. K8S rbac: linux/k8s/k8s/k8s.rbac.md
+            - 14. K8S storage: linux/k8s/k8s/k8s.storage.md
             
     - Nginx:
         - 01. nginx 部署: linux/nginx/nginx.index.md

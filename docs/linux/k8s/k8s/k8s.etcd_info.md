@@ -130,7 +130,7 @@ EOF
 cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=www server-csr.json | cfssljson -bare server
 ```
 
->其中192.168.186.139，192.168.186.140，192.168.186.141是etcd三台机器
+>其中192.168.186.139，192.168.186.141，192.168.186.142是etcd三台机器
 
 ??? note "ETCD CA证书"
     ```
