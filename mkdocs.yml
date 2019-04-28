@@ -231,6 +231,8 @@ nav:
             - 12. K8S ingress: linux/k8s/k8s/k8s.ingress.md
             - 13. K8S rbac: linux/k8s/k8s/k8s.rbac.md
             - 14. K8S storage: linux/k8s/k8s/k8s.storage.md
+            - 15. K8S statefulset: linux/k8s/k8s/k8s.statefulset.md
+            - 16. K8S cases: linux/k8s/k8s/k8s.cases.md
             
     - Nginx:
         - 01. nginx 部署: linux/nginx/nginx.index.md
