@@ -10,7 +10,7 @@ systemctl disable firewalld  # 开机不自启防火墙
 systemctl stop firewalld     # 关闭防火墙
 
 yum install -y ntp
-cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+\cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 echo "*/5 * * * *  /usr/sbin/ntpdate cn.pool.ntp.org > /dev/null 2>&1" >> /var/spool/cron/root
 
 cat>>/etc/security/limits.conf<<EOF
@@ -28,9 +28,8 @@ sed -i 's@UseDNS yes@UseDNS no@' /etc/ssh/sshd_config /etc/ssh/sshd_config
 # # 禁止空密码登录
 sed -i 's@PermitEmptyPasswords no@PermitEmptyPasswords no@' /etc/ssh/sshd_config
 
-yum install -y bash-completion 
-yum install gcc cmake bzip2-devel curl-devel db4-devel libjpeg-devel libpng-devel freetype-devel libXpm-devel gmp-devel libc-client-devel openldap-devel unixODBC-devel postgresql-devel sqlite-devel aspell-devel net-snmp-devel libxslt-devel libxml2-devel pcre-devel mysql-devel pspell-devel libmemcached libmemcached-devel zlib-devel  vim wget   lrzsz  tree
-yum -y install epel-release
+yum install -y bash-completion epel-release gcc cmake bzip2-devel curl-devel db4-devel libjpeg-devel libpng-devel freetype-devel libXpm-devel gmp-devel libc-client-devel openldap-devel unixODBC-devel postgresql-devel sqlite-devel aspell-devel net-snmp-devel libxslt-devel libxml2-devel pcre-devel mysql-devel pspell-devel libmemcached libmemcached-devel zlib-devel  vim wget   lrzsz  tree
+
 sudo systemctl set-default multi-user.target  # 设置非图形模式为默认模式
 cat >> /etc/resolv.conf << EOF
 nameserver 114.114.114.114

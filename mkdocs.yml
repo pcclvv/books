@@ -197,7 +197,7 @@ nav:
         - 教程:
             - 基础:
                 - 1. 简书: linux/tutorial/brief_book.index.md
-                - 2. 硬件: linux/tutorial/pc.ardware.md 
+                - 2. 硬件: linux/tutorial/pc.hardware.md 
                 - 3. 历史: linux/tutorial/linux.history.md
                 - 4. 系统安装: linux/tutorial/linux.vmware.md
                 - 5. 链接: linux/tutorial/linux.conn.md 
@@ -206,6 +206,7 @@ nav:
                 - 8. 启动顺序: linux/tutorial/linux.sequence_start.md 
             - 命令:
                 - 1. ls: linux/tutorial/command/basic/linux.ls.md 
+                - 2. 命令: linux/tutorial/command/command.md  
     - Kubernetes:
         - docker:
             - 1. docker 安装: linux/k8s/docker/docker.index.md

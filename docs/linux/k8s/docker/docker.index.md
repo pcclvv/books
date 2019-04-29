@@ -484,7 +484,7 @@ docker info
 #### 2.3.6 简单测试
 ```
 docker run -d -p 88:80 nginx
-dockert ps
+docker ps
 ```
 
 ??? note "详细操作"
