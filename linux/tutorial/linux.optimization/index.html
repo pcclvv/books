@@ -2172,7 +2172,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../pc.ardware/" title="2. 硬件" class="md-nav__link">
+    <a href="../pc.hardware/" title="2. 硬件" class="md-nav__link">
       2. 硬件
     </a>
   </li>
@@ -5828,7 +5828,7 @@ systemctl disable firewalld  # 开机不自启防火墙
 systemctl stop firewalld     # 关闭防火墙
 
 yum install -y ntp
-cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+\cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 echo &quot;*/5 * * * *  /usr/sbin/ntpdate cn.pool.ntp.org &gt; /dev/null 2&gt;&amp;1&quot; &gt;&gt; /var/spool/cron/root
 
 cat&gt;&gt;/etc/security/limits.conf&lt;&lt;EOF
@@ -5846,9 +5846,8 @@ sed -i &#39;s@UseDNS yes@UseDNS no@&#39; /etc/ssh/sshd_config /etc/ssh/sshd_conf
 # # 禁止空密码登录
 sed -i &#39;s@PermitEmptyPasswords no@PermitEmptyPasswords no@&#39; /etc/ssh/sshd_config
 
-yum install -y bash-completion 
-yum install gcc cmake bzip2-devel curl-devel db4-devel libjpeg-devel libpng-devel freetype-devel libXpm-devel gmp-devel libc-client-devel openldap-devel unixODBC-devel postgresql-devel sqlite-devel aspell-devel net-snmp-devel libxslt-devel libxml2-devel pcre-devel mysql-devel pspell-devel libmemcached libmemcached-devel zlib-devel  vim wget   lrzsz  tree
-yum -y install epel-release
+yum install -y bash-completion epel-release gcc cmake bzip2-devel curl-devel db4-devel libjpeg-devel libpng-devel freetype-devel libXpm-devel gmp-devel libc-client-devel openldap-devel unixODBC-devel postgresql-devel sqlite-devel aspell-devel net-snmp-devel libxslt-devel libxml2-devel pcre-devel mysql-devel pspell-devel libmemcached libmemcached-devel zlib-devel  vim wget   lrzsz  tree
+
 sudo systemctl set-default multi-user.target  # 设置非图形模式为默认模式
 cat &gt;&gt; /etc/resolv.conf &lt;&lt; EOF
 nameserver 114.114.114.114
