@@ -205,8 +205,7 @@ nav:
                 - 7. 目录: linux/tutorial/linux.path.md 
                 - 8. 启动顺序: linux/tutorial/linux.sequence_start.md 
             - 命令:
-                - 1. ls: linux/tutorial/command/basic/linux.ls.md 
-                - 2. 命令: linux/tutorial/command/command.md  
+                - 1. 命令集合: linux/tutorial/linux.commands.md
     - Kubernetes:
         - docker:
             - 1. docker 安装: linux/k8s/docker/docker.index.md
