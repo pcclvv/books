@@ -66,6 +66,15 @@ https://github.com/coreos/flannel/releases
 set /coreos.com/network/config '{ "Network": "172.17.0.0/16", "Backend": {"Type": "vxlan"}}'
 ```
 
+```
+/opt/etcd/bin/etcdctl \
+--ca-file=/opt/etcd/ssl/ca.pem \
+--cert-file=/opt/etcd/ssl/server.pem \
+--key-file=/opt/etcd/ssl/server-key.pem \
+--endpoints="https://192.168.186.139:2379,https://192.168.186.141:2379,https://192.168.186.142:2379" \
+get /coreos.com/network/config 
+```
+
 ??? note "操作"
     ```
     设置
@@ -583,4 +592,27 @@ round-trip min/avg/max = 0.439/0.439/0.439 ms
         flannel.1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1450
             inet 172.17.66.0  netmask 255.255.255.255  broadcast 0.0.0.0
     3. flannel是在本地基础网络上再次封装，管理了docker ip和宿主机的IP对应关系，这样就flannel知道转发给哪个node了，这样flannel知道之间彼此关系
+    ```
+
+!!! note "错误"
+    ```
+    1. flannel.1和docker0不在一个网段。
+    检查后发现，我没重新启动docker，因为安装过flanneld组件的时候，会再docker配置文件中添加是flanneld文件
+    root@master01 opt]# cat /usr/lib/systemd/system/docker.service |grep EnvironmentFile
+    EnvironmentFile=/run/flannel/subnet.env
+
+    重启docker后，docker0，和flanneld1.1就在一个网络内呢。
+
+    2. 我在四台机器上安装flanneld，发现有两台机器启动的容器，在同一个网段
+    检查后发现，还是因为flannel.1和docker0不在一个网段导致。使用了默认的docker0网络。重启docker即可。
+
+    3. flanneld组件链接自身的etcd，不是集群的所有IP地址。
+    检查后发现，flanneld的配置文件有问题。复制的时候换行了，类似如下
+    [root@node01 cfg]# cat /opt/kubernetes/cfg/flanneld 
+    FLANNEL_OPTIONS="--etcd-endpoints=https://192.168.5.100:2379,https://192.168.5.101:2379,https:/
+    /192.168.5.102:2379 -etcd-cafile=/opt/etcd/ssl/ca.pem -etcd-certfile=/opt/etcd/ssl/serve
+    r.pem -etcd-keyfile=/opt/etcd/ssl/server-key.pem"
+    # 配置文件换行了，应该修改成如下，重启flanneld，就保证了docker0和flanneld1.1在一个网段内了
+    FLANNEL_OPTIONS="--etcd-endpoints=https://192.168.5.100:2379,https://192.168.5.101:2379,https:/
+    /192.168.5.102:2379 -etcd-cafile=/opt/etcd/ssl/ca.pem -etcd-certfile=/opt/etcd/ssl/server.pem -etcd-keyfile=/opt/etcd/ssl/server-key.pem"
     ```
