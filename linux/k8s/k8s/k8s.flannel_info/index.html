@@ -5804,6 +5804,14 @@
 set /coreos.com/network/config &#39;{ &quot;Network&quot;: &quot;172.17.0.0/16&quot;, &quot;Backend&quot;: {&quot;Type&quot;: &quot;vxlan&quot;}}&#39;
 </pre></div>
 
+<div class="codehilite"><pre><span></span>/opt/etcd/bin/etcdctl \
+--ca-file=/opt/etcd/ssl/ca.pem \
+--cert-file=/opt/etcd/ssl/server.pem \
+--key-file=/opt/etcd/ssl/server-key.pem \
+--endpoints=&quot;https://192.168.186.139:2379,https://192.168.186.141:2379,https://192.168.186.142:2379&quot; \
+get /coreos.com/network/config 
+</pre></div>
+
 <details class="note"><summary>操作</summary><div class="codehilite"><pre><span></span>设置
 [root@k8s-master01 ssl]# /opt/etcd/bin/etcdctl --ca-file=/opt/etcd/ssl/ca.pem --cert-file=/opt/etcd/ssl/server.pem --key-file=/opt
 /etcd/ssl/server-key.pem --endpoints=&quot;https://192.168.186.139:2379,https://192.168.186.141:2379,https://192.168.186.142:2379&quot; set /coreos.com/network/config &#39;{ &quot;Network&quot;: &quot;172.17.0.0/16&quot;, &quot;Backend&quot;: {&quot;Type&quot;: &quot;vxlan&quot;}}&#39;{ &quot;Network&quot;: &quot;172.17.0.0/16&quot;, &quot;Backend&quot;: {&quot;Type&quot;: &quot;vxlan&quot;}}
@@ -6301,6 +6309,30 @@ round-trip min/avg/max = 0.439/0.439/0.439 ms
 </pre></div>
 
 </details>
+<div class="admonition note">
+<p class="admonition-title">错误</p>
+<div class="codehilite"><pre><span></span>1. flannel.1和docker0不在一个网段。
+检查后发现，我没重新启动docker，因为安装过flanneld组件的时候，会再docker配置文件中添加是flanneld文件
+root@master01 opt]# cat /usr/lib/systemd/system/docker.service |grep EnvironmentFile
+EnvironmentFile=/run/flannel/subnet.env
+
+重启docker后，docker0，和flanneld1.1就在一个网络内呢。
+
+2. 我在四台机器上安装flanneld，发现有两台机器启动的容器，在同一个网段
+检查后发现，还是因为flannel.1和docker0不在一个网段导致。使用了默认的docker0网络。重启docker即可。
+
+3. flanneld组件链接自身的etcd，不是集群的所有IP地址。
+检查后发现，flanneld的配置文件有问题。复制的时候换行了，类似如下
+[root@node01 cfg]# cat /opt/kubernetes/cfg/flanneld 
+FLANNEL_OPTIONS=&quot;--etcd-endpoints=https://192.168.5.100:2379,https://192.168.5.101:2379,https:/
+/192.168.5.102:2379 -etcd-cafile=/opt/etcd/ssl/ca.pem -etcd-certfile=/opt/etcd/ssl/serve
+r.pem -etcd-keyfile=/opt/etcd/ssl/server-key.pem&quot;
+# 配置文件换行了，应该修改成如下，重启flanneld，就保证了docker0和flanneld1.1在一个网段内了
+FLANNEL_OPTIONS=&quot;--etcd-endpoints=https://192.168.5.100:2379,https://192.168.5.101:2379,https:/
+/192.168.5.102:2379 -etcd-cafile=/opt/etcd/ssl/ca.pem -etcd-certfile=/opt/etcd/ssl/server.pem -etcd-keyfile=/opt/etcd/ssl/server-key.pem&quot;
+</pre></div>
+
+</div>
                 
                   
                 
