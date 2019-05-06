@@ -5834,27 +5834,26 @@ cat &gt; kube-proxy-csr.json &lt;&lt;EOF
 }
 EOF
 
-cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes kube-proxy-csr.json | cfssljson -bare kube-
-proxy
+cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes kube-proxy-csr.json | cfssljson -bare kube-proxy
 </pre></div>
 
 </details>
-<p>命令
-<div class="codehilite"><pre><span></span>sh k8s-cert.sh 
-ls -l
-cp ca.pem ca-key.pem server.pem server-key.pem /opt/kubernetes/ssl/
+<details class="note"><summary>配置文件/opt/kubernetes/cfg/kube-apiserver解释</summary><div class="codehilite"><pre><span></span>--logtostderr 启用日志
+--v 日志等级
+--etcd-servers etcd集群地址
+--bind-address 监听地址
+--secure-port https安全端口
+--advertise-address 集群通告地址
+--allow-privileged 启用授权
+--service-cluster-ip-range Service虚拟IP地址段
+--enable-admission-plugins 准入控制模块
+--authorization-mode 认证授权，启用RBAC授权和节点自管理
+--enable-bootstrap-token-auth 启用TLS bootstrap功能
+--token-auth-file token文件
+--service-node-port-range Service Node类型默认分配端口范围
+</pre></div>
 
-# 生成token文件
-BOOTSTRAP_TOKEN=0fb61c46f8991b718eb38d27b605b008
-
-cat &gt; token.csv &lt;&lt;EOF
-${BOOTSTRAP_TOKEN},kubelet-bootstrap,10001,&quot;system:kubelet-bootstrap&quot;
-EOF
-mv token.csv /opt/kubernetes/cfg/
-systemctl start kube-apiserver
-systemctl status kube-apiserver
-netstat -lnp|egrep &#39;8080|6443&#39;
-</pre></div></p>
+</details>
 <p>详细操作
 <div class="codehilite"><pre><span></span>[root@k8s-master01 k8s-cert]# sh k8s-cert.sh 
 2019/04/18 15:35:55 [INFO] generating a new CA key and certificate from CSR
@@ -5920,6 +5919,38 @@ total 72
 [root@k8s-master01 k8s-cert]# cat token.csv 
 0fb61c46f8991b718eb38d27b605b008,kubelet-bootstrap,10001,&quot;system:kubelet-bootstrap&quot;
 [root@k8s-master01 k8s-cert]# mv token.csv /opt/kubernetes/cfg/
+
+# 
+[root@k8s-master01 k8s-cert]# cat &gt;/opt/kubernetes/cfg/kube-apiserver&lt;&lt;EOF
+&gt; KUBE_APISERVER_OPTS=&quot;--logtostderr=true \\
+&gt; --v=4 \\
+&gt; --etcd-servers=https://192.168.186.139:2379,https://192.168.186.141:2379,https://192.168.186.142:2379 \\
+&gt; --bind-address=192.168.186.139 \\
+&gt; --secure-port=6443 \\
+&gt; --advertise-address=192.168.186.139 \\
+&gt; --allow-privileged=true \\
+&gt; --service-cluster-ip-range=10.0.0.0/24 \\
+&gt; --enable-admission-plugins=NamespaceLifecycle,LimitRanger,ServiceAccount,ResourceQuota,NodeRestriction \\
+&gt; --authorization-mode=RBAC,Node \\
+&gt; --kubelet-https=true \\
+&gt; --enable-bootstrap-token-auth \\
+&gt; --token-auth-file=/opt/kubernetes/cfg/token.csv \\
+&gt; --service-node-port-range=30000-50000 \\
+&gt; --tls-cert-file=/opt/kubernetes/ssl/server.pem  \\
+&gt; --tls-private-key-file=/opt/kubernetes/ssl/server-key.pem \\
+&gt; --client-ca-file=/opt/kubernetes/ssl/ca.pem \\
+&gt; --service-account-key-file=/opt/kubernetes/ssl/ca-key.pem \\
+&gt; --etcd-cafile=/opt/etcd/ssl/ca.pem \\
+&gt; --etcd-certfile=/opt/etcd/ssl/server.pem \\
+&gt; --etcd-keyfile=/opt/etcd/ssl/server-key.pem&quot;
+&gt; EOF
+
+
+[root@k8s-master01 k8s-cert]# mkdir /opt/kubernetes/{bin,cfg,ssl} -p
+[root@k8s-master01 ~]# cd /root/soft/
+[root@k8s-master01 soft]# tar xf kubernetes-server-linux-amd64.tar.gz
+[root@k8s-master01 soft]# cd kubernetes/server/bin
+[root@k8s-master01 bin]# cp kube-apiserver kube-scheduler kube-controller-manager kubectl /opt/kubernetes/bin
 
 # 启动kube-apiserver
 [root@k8s-master01 k8s-cert]# systemctl start kube-apiserver
@@ -6053,7 +6084,7 @@ systemctl restart kube-scheduler
 <blockquote>
 <p>logtostderr 也可以配置单独日志输出地方</p>
 </blockquote>
-<p><div class="codehilite"><pre><span></span>sh controller-manager.sh 127.0.0.1
+<p><div class="codehilite"><pre><span></span>sh scheduler.sh 127.0.0.1
 </pre></div>
 详细操作</p>
 <div class="codehilite"><pre><span></span>[root@k8s-master01 k8s]# sh scheduler.sh 127.0.0.1
@@ -6079,6 +6110,7 @@ etcd-2               Healthy   {&quot;health&quot;:&quot;true&quot;}
 <blockquote>
 <p>cs 是缩写</p>
 </blockquote>
+<p>如上输出说明，节点master各个组件都正常。</p>
 <details class="note"><summary>cs 是componentstatuses缩写</summary><div class="codehilite"><pre><span></span>[root@k8s-master01 bin]# kubectl get componentstatuses
 NAME                 STATUS    MESSAGE             ERROR
 scheduler            Healthy   ok                  
