@@ -204,6 +204,8 @@ nav:
                 - 6. 优化: linux/tutorial/linux.optimization.md
                 - 7. 目录: linux/tutorial/linux.path.md 
                 - 8. 启动顺序: linux/tutorial/linux.sequence_start.md 
+            - 助攻:
+                - 1. 路由器: linux/tutorial/linux.router.md
             - 命令:
                 - 1. 命令集合: linux/tutorial/linux.commands.md
     - Kubernetes:

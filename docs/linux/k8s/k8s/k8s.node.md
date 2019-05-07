@@ -20,6 +20,8 @@ ip | 操作系统|角色|安装软件|主机名
 
 ### 2.1 原理图
 
+&emsp;Master apiserver启用TLS认证后，Node节点kubelet组件想要加入集群，必须使用CA签发的有效证书才能与apiserver通信，当Node节点很多时，签署证书是一件很繁琐的事情，因此有了TLS Bootstrapping机制，kubelet会以一个低权限用户自动向apiserver申请证书，kubelet的证书由apiserver动态签署。认证大致工作流程如图所示：
+
 <center>![node](../../../pictures/linux/k8s/k8s/node.png)</center>
 
 ### 2.2 创建和分发证书
@@ -106,6 +108,7 @@ kubectl create clusterrolebinding kubelet-bootstrap \
 
 生成kubeconfig证书
 bash kubeconfig.sh 192.168.186.139 /root/k8s/k8s-cert/
+cd /root/soft/kubernetes/server/bin
 scp -r bootstrap.kubeconfig kube-proxy.kubeconfig root@192.168.186.141:/opt/kubernetes/cfg/
 scp -r bootstrap.kubeconfig kube-proxy.kubeconfig root@192.168.186.142:/opt/kubernetes/cfg/
 ```
@@ -283,6 +286,8 @@ scp kubelet kube-proxy root@192.168.186.142:/opt/kubernetes/bin/
 详细操作
 
 ```
+[root@k8s-master01 bin]# pwd
+/root/soft/kubernetes/server/bin
 [root@k8s-master01 bin]# scp kubelet kube-proxy root@192.168.186.141:/opt/kubernetes/bin/
 root@192.168.186.141's password: 
 kubelet                                                                                         100%  108MB  61.1MB/s   00:01    

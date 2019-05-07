@@ -162,8 +162,7 @@ https://github.com/kubernetes/kubernetes/releases
     }
     EOF
     
-    cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes kube-proxy-csr.json | cfssljson -bare kube-
-    proxy
+    cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes kube-proxy-csr.json | cfssljson -bare kube-proxy
     ```
 
 命令
@@ -174,16 +173,80 @@ cp ca.pem ca-key.pem server.pem server-key.pem /opt/kubernetes/ssl/
 
 # 生成token文件
 BOOTSTRAP_TOKEN=0fb61c46f8991b718eb38d27b605b008
-
 cat > token.csv <<EOF
 ${BOOTSTRAP_TOKEN},kubelet-bootstrap,10001,"system:kubelet-bootstrap"
 EOF
 mv token.csv /opt/kubernetes/cfg/
+
+# 配置文件和启动文件
+cat >/opt/kubernetes/cfg/kube-apiserver<<EOF
+KUBE_APISERVER_OPTS="--logtostderr=true \\
+--v=4 \\
+--etcd-servers=https://192.168.186.139:2379,https://192.168.186.141:2379,https://192.168.186.142:2379  \\
+--bind-address=192.168.186.139 \\
+--secure-port=6443 \\
+--advertise-address=192.168.186.139 \\
+--allow-privileged=true \\
+--service-cluster-ip-range=10.0.0.0/24 \\
+--enable-admission-plugins=NamespaceLifecycle,LimitRanger,ServiceAccount,ResourceQuota,NodeRestriction \\
+--authorization-mode=RBAC,Node \\
+--kubelet-https=true \\
+--enable-bootstrap-token-auth \\
+--token-auth-file=/opt/kubernetes/cfg/token.csv \\
+--service-node-port-range=30000-50000 \\
+--tls-cert-file=/opt/kubernetes/ssl/server.pem  \\
+--tls-private-key-file=/opt/kubernetes/ssl/server-key.pem \\
+--client-ca-file=/opt/kubernetes/ssl/ca.pem \\
+--service-account-key-file=/opt/kubernetes/ssl/ca-key.pem \\
+--etcd-cafile=/opt/etcd/ssl/ca.pem \\
+--etcd-certfile=/opt/etcd/ssl/server.pem \\
+--etcd-keyfile=/opt/etcd/ssl/server-key.pem"
+EOF
+
+启动文件
+cat>/usr/lib/systemd/system/kube-apiserver.service<<EOF
+[Unit]
+Description=Kubernetes API Server
+Documentation=https://github.com/kubernetes/kubernetes
+
+[Service]
+EnvironmentFile=-/opt/kubernetes/cfg/kube-apiserver
+ExecStart=/opt/kubernetes/bin/kube-apiserver $KUBE_APISERVER_OPTS
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# 二进制安装master  
+# 下载二进制包：https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.12.md 
+# 下载这个包（kubernetes-server-linux-amd64.tar.gz）就够了，包含了所需的所有组件。
+mkdir /opt/kubernetes/{bin,cfg,ssl} -p
+tar xf kubernetes-server-linux-amd64.tar.gz
+cd kubernetes/server/bin
+cp kube-apiserver kube-scheduler kube-controller-manager kubectl /opt/kubernetes/bin
+
+# 启动
 systemctl start kube-apiserver
 systemctl status kube-apiserver
 netstat -lnp|egrep '8080|6443'
 ```
- 
+??? note "配置文件/opt/kubernetes/cfg/kube-apiserver解释"
+    ```
+    --logtostderr 启用日志
+    --v 日志等级
+    --etcd-servers etcd集群地址
+    --bind-address 监听地址
+    --secure-port https安全端口
+    --advertise-address 集群通告地址
+    --allow-privileged 启用授权
+    --service-cluster-ip-range Service虚拟IP地址段
+    --enable-admission-plugins 准入控制模块
+    --authorization-mode 认证授权，启用RBAC授权和节点自管理
+    --enable-bootstrap-token-auth 启用TLS bootstrap功能
+    --token-auth-file token文件
+    --service-node-port-range Service Node类型默认分配端口范围
+    ```
 
 详细操作
 ```
@@ -251,6 +314,38 @@ total 72
 [root@k8s-master01 k8s-cert]# cat token.csv 
 0fb61c46f8991b718eb38d27b605b008,kubelet-bootstrap,10001,"system:kubelet-bootstrap"
 [root@k8s-master01 k8s-cert]# mv token.csv /opt/kubernetes/cfg/
+
+# 
+[root@k8s-master01 k8s-cert]# cat >/opt/kubernetes/cfg/kube-apiserver<<EOF
+> KUBE_APISERVER_OPTS="--logtostderr=true \\
+> --v=4 \\
+> --etcd-servers=https://192.168.186.139:2379,https://192.168.186.141:2379,https://192.168.186.142:2379 \\
+> --bind-address=192.168.186.139 \\
+> --secure-port=6443 \\
+> --advertise-address=192.168.186.139 \\
+> --allow-privileged=true \\
+> --service-cluster-ip-range=10.0.0.0/24 \\
+> --enable-admission-plugins=NamespaceLifecycle,LimitRanger,ServiceAccount,ResourceQuota,NodeRestriction \\
+> --authorization-mode=RBAC,Node \\
+> --kubelet-https=true \\
+> --enable-bootstrap-token-auth \\
+> --token-auth-file=/opt/kubernetes/cfg/token.csv \\
+> --service-node-port-range=30000-50000 \\
+> --tls-cert-file=/opt/kubernetes/ssl/server.pem  \\
+> --tls-private-key-file=/opt/kubernetes/ssl/server-key.pem \\
+> --client-ca-file=/opt/kubernetes/ssl/ca.pem \\
+> --service-account-key-file=/opt/kubernetes/ssl/ca-key.pem \\
+> --etcd-cafile=/opt/etcd/ssl/ca.pem \\
+> --etcd-certfile=/opt/etcd/ssl/server.pem \\
+> --etcd-keyfile=/opt/etcd/ssl/server-key.pem"
+> EOF
+
+
+[root@k8s-master01 k8s-cert]# mkdir /opt/kubernetes/{bin,cfg,ssl} -p
+[root@k8s-master01 ~]# cd /root/soft/
+[root@k8s-master01 soft]# tar xf kubernetes-server-linux-amd64.tar.gz
+[root@k8s-master01 soft]# cd kubernetes/server/bin
+[root@k8s-master01 bin]# cp kube-apiserver kube-scheduler kube-controller-manager kubectl /opt/kubernetes/bin
 
 # 启动kube-apiserver
 [root@k8s-master01 k8s-cert]# systemctl start kube-apiserver
@@ -394,7 +489,7 @@ elect=true --address=127.0.0.1 --service-cluster-ip-range=10.0.0.0/24 --cluster-
 > logtostderr 也可以配置单独日志输出地方
 
 ```
-sh controller-manager.sh 127.0.0.1
+sh scheduler.sh 127.0.0.1
 ```
 详细操作
 
@@ -422,6 +517,8 @@ etcd-1               Healthy   {"health":"true"}
 etcd-2               Healthy   {"health":"true"}   
 ```
 > cs 是缩写
+
+如上输出说明，节点master各个组件都正常。
 
 ??? note "cs 是componentstatuses缩写"
     ```
