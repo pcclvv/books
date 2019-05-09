@@ -1,7 +1,7 @@
 <center><h1>MFS分布式存储</h1></center>
 > 作者: caimengzhi
 
-> 本文基于 mfs 2.x版本[endlife Dec 31st, 2017]。现在已经3.x[TBA]了，但是原理类似。本文是我很早之前写的word版本，移动到本博客中。3.x部署方式更简单，直接在线安装即可. 
+> 本文基于 mfs 1.x版本[endlife Dec 31st, 2017]。现在已经3.x[TBA]了，但是原理类似。本文是我很早之前写的word版本，移动到本博客中。3.x部署方式更简单，直接在线安装即可. 
 
 > MFS 3.x install https://moosefs.com/download/#current
 

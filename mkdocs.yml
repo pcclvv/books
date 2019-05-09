@@ -166,7 +166,8 @@ nav:
         - 对比: linux/distributed_storage/distributed_storage.info.md
         - MFS:
             - 1. MFS 部署: linux/distributed_storage/mfs/mfs.deploy.md 
-            - 2. MFS 备份: linux/distributed_storage/mfs/mfs.store.md
+            - 2. MFS HA: linux/distributed_storage/mfs/mfs.ha.md
+            - 3. MFS 备份: linux/distributed_storage/mfs/mfs.store.md
     - Linux:
         - url: url/url.index.md
         - raid: 
