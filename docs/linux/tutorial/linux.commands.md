@@ -1,5 +1,5 @@
 <center><h1>Linux命令</h1></center>
-
+> 作者: caimengzhi
 ## 1. Linux命令行简介
 
 ### 1.1 Linux命令行概述
@@ -1284,10 +1284,6 @@ expression 中可使用的选项有二三十个之多，在此只介绍最常用
 
 - -o: 取并集
 
-  ```
-  
-  ```
-
   
 
 ### 2.14 xargs
@@ -2296,41 +2292,1605 @@ dos2unix: converting file c1.log to Unix format ...
 
 ###  5.1 uname
 
+&emsp;Linux uname命令用于显示系统信息。`uname`可显示电脑以及操作系统的相关信息。
+
+```
+uname [-amnrsv][--help][--version]
+```
+
+**参数**：
+
+- 从从hine 　显示电脑类型。
+- -n或-nodename 　显示在网络上的主机名称。
+- -r或--release 　显示操作系统的发行编号。
+- -s或--sysname 　显示操作系统名称。
+- -v 　显示操作系统的版本。
+- --help 　显示帮助。
+- --version 　显示版本信息。
+
+```
+显示系统信息
+[root@master01 ~]# uname -a
+Linux master01 3.10.0-957.10.1.el7.x86_64 #1 SMP Mon Mar 18 15:06:45 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+
+显示计算机类型
+[root@master01 ~]# uname -m
+x86_64
+
+显示计算名
+[root@master01 ~]# uname -n
+master01
+[root@master01 ~]# hostname
+master01
+
+显示操作系统发行编号
+[root@master01 ~]# uname -r
+3.10.0-957.10.1.el7.x86_64
+
+显示操作系统名称
+[root@master01 ~]# uname -s
+Linux
+
+显示系统时间
+[root@master01 ~]# uname -v
+#1 SMP Mon Mar 18 15:06:45 UTC 2019
+[root@master01 ~]# date
+Tue May  7 03:17:36 EDT 2019
+```
+
 ### 5.2 hostname
+
+&emsp;显示和设置系统的主机名
+
+**语法**
+
+```
+hostname [选项]
+```
+
+**参数**：
+
+- -a  如果设置了主机名，则可以使用-a来显示主机别名
+- -i 显示主机IP地址，这个参数需要DNS解析
+- -I 显示主机IP地址，不依赖DNS解析
+- -s 显示短格式主机名
+
+```
+显示主机名
+[root@master01 ~]# hostname # 不接受参数，就表示显示主机名
+master01
+
+设置主机名,临时生效，重启机器后失效
+[root@master01 ~]# hostname caimengzhi
+[root@master01 ~]# bash
+[root@caimengzhi ~]# hostname
+caimengzhi
+永久生效的话，需要在/etc/hostname 中编辑
+[root@master01 ~]# cat /etc/hostname
+master01
+
+显示主机ip地址
+[root@master01 ~]# hostname -i
+192.168.5.100
+[root@master01 ~]# hostname -I # 有多少块网卡[有IP地址]就显示多少个IP地址 
+192.168.5.100 172.17.7.1 172.17.7.0 
+```
 
 ### 5.3 dmesg
 
+&emsp;Linux dmesg命令用于显示开机信息。kernel会将开机信息存储在ring buffer中。您若是开机时来不及查看信息，可利用dmesg来查看。开机信息亦保存在/var/log目录中，名称为dmesg的文件里。
+
+**语法**
+
+```
+dmesg [-cn][-s <缓冲区大小>]
+```
+
+**参数说明**：
+
+- -c 　显示信息后，清除ring buffer中的内容。
+- -s<缓冲区大小> 　预设置为8196，刚好等于ring buffer的大小。
+- -n 　设置记录信息的层级。
+
+```
+[root@master01 ~]# dmesg|less
+[    0.000000] Initializing cgroup subsys cpuset
+[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Initializing cgroup subsys cpuacct
+[    0.000000] Linux version 3.10.0-957.10.1.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) ) #1 SMP Mon Mar 18 15:06:45 UTC 2019
+[    0.000000] Command line: BOOT_IMAGE=/vmlinuz-3.10.0-957.10.1.el7.x86_64 root=/dev/mapper/centos-root ro crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet LANG=en_U
+S.UTF-8[    0.000000] e820: BIOS-provided physical RAM map:
+[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable
+[    0.000000] BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000000e0000-0x00000000000fffff] reserved
+[    0.000000] BIOS-e820: [mem 0x0000000000100000-0x000000009d914fff] usable
+[    0.000000] BIOS-e820: [mem 0x000000009d915000-0x000000009dc09fff] reserved
+[    0.000000] BIOS-e820: [mem 0x000000009dc0a000-0x000000009e822fff] ACPI NVS
+[    0.000000] BIOS-e820: [mem 0x000000009e823000-0x000000009eed4fff] reserved
+[    0.000000] BIOS-e820: [mem 0x000000009eed5000-0x000000009eed5fff] usable
+[    0.000000] BIOS-e820: [mem 0x000000009eed6000-0x000000009f0dbfff] ACPI NVS
+[    0.000000] BIOS-e820: [mem 0x000000009f0dc000-0x000000009f50ffff] usable
+[    0.000000] BIOS-e820: [mem 0x000000009f510000-0x000000009f7f2fff] reserved
+[    0.000000] BIOS-e820: [mem 0x000000009f7f3000-0x000000009f7fffff] usable
+[    0.000000] BIOS-e820: [mem 0x00000000fec00000-0x00000000fec00fff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000fec10000-0x00000000fec10fff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000fed00000-0x00000000fed00fff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000fed40000-0x00000000fed44fff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000fed80000-0x00000000fed8ffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000ff000000-0x00000000ffffffff] reserved
+[    0.000000] BIOS-e820: [mem 0x0000000100001000-0x000000013effffff] usable
+[    0.000000] NX (Execute Disable) protection: active
+[    0.000000] SMBIOS 2.7 present.
+[    0.000000] DMI: Acer Shangqi N6120/AAHD3-VF, BIOS MAP23SB 09/02/2013
+[    0.000000] e820: update [mem 0x00000000-0x00000fff] usable ==> reserved
+[    0.000000] e820: remove [mem 0x000a0000-0x000fffff] usable
+[    0.000000] e820: last_pfn = 0x13f000 max_arch_pfn = 0x400000000
+[    0.000000] MTRR default type: uncachable
+[    0.000000] MTRR fixed ranges enabled:
+[    0.000000]   00000-9FFFF write-back
+[    0.000000]   A0000-BFFFF write-through
+[    0.000000]   C0000-CFFFF write-protect
+以下省略
+```
+
 ### 5.4 stat
 
+&emsp;Linux stat命令用于显示inode内容。stat以文字的格式来显示inode的内容。
+
+**语法**
+
+```
+stat [文件或目录]
+```
+
+```
+[root@master01 etcd]# stat etcd.sh 
+  File: ‘etcd.sh’
+  Size: 1773      	Blocks: 8          IO Block: 4096   regular file
+Device: fd00h/64768d	Inode: 100909135   Links: 1
+Access: (0755/-rwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2019-05-04 22:33:49.742966577 -0400
+Modify: 2019-05-04 22:31:50.597254997 -0400
+Change: 2019-05-04 22:33:38.758177561 -0400
+ Birth: -
+```
+
+
+
 ### 5.5 du
+
+&emsp;Linux du命令用于显示目录或文件的大小。`du`会显示指定的目录或文件所占用的磁盘空间。
+
+**语法**
+
+```
+du [-abcDhHklmsSx][-L <符号连接>][-X <文件>][--block-size][--exclude=<目录或文件>][--max-depth=<目录层数>][--help][--version][目录或文件]
+```
+
+**参数说明**：
+
+- -a或-all 显示目录中个别文件的大小。
+- -b或-bytes 显示目录或文件大小时，以byte为单位。
+- -c或--total 除了显示个别目录或文件的大小外，同时也显示所有目录或文件的总和。
+- -D或--dereference-args 显示指定符号连接的源文件大小。
+- -h或--human-readable 以K，M，G为单位，提高信息的可读性。
+- -H或--si 与-h参数相同，但是K，M，G是以1000为换算单位。
+- -k或--kilobytes 以1024 bytes为单位。
+- -l或--count-links 重复计算硬件连接的文件。
+- -L<符号连接>或--dereference<符号连接> 显示选项中所指定符号连接的源文件大小。
+- -m或--megabytes 以1MB为单位。
+- -s或--summarize 仅显示总计。
+- -S或--separate-dirs 显示个别目录的大小时，并不含其子目录的大小。
+- -x或--one-file-xystem 以一开始处理时的文件系统为准，若遇上其它不同的文件系统目录则略过。
+- -X<文件>或--exclude-from=<文件> 在<文件>指定目录或文件。
+- --exclude=<目录或文件> 略过指定的目录或文件。
+- --max-depth=<目录层数> 超过指定层数的目录后，予以忽略。
+- --help 显示帮助。
+- --version 显示版本信息。
+
+显示目录或者文件所占空间
+
+```
+[root@master01 ~]# cd /opt/
+[root@master01 opt]# du -s  # 显示当前目录总大小
+525876	.
+[root@master01 opt]# du -h  # h参数会自动换算成K，M,G这样容易理解和阅读
+0	./containerd/bin
+0	./containerd/lib
+0	./containerd
+12K	./etcd/ssl
+4.0K	./etcd/cfg
+34M	./etcd/bin
+34M	./etcd
+481M	./kubernetes/bin
+48K	./kubernetes/cfg
+28K	./kubernetes/ssl
+481M	./kubernetes
+514M	.
+[root@master01 opt]# du -sh . # 推荐使用，显示指定目录总大小
+514M	.
+
+
+[root@master01 opt]# du 
+0	./containerd/bin
+0	./containerd/lib
+0	./containerd
+12	./etcd/ssl
+4	./etcd/cfg
+34236	./etcd/bin
+34252	./etcd
+491548	./kubernetes/bin
+48	./kubernetes/cfg
+28	./kubernetes/ssl
+491624	./kubernetes
+525876	.
+```
+
+> 只显示当前目录下面的子目录的目录大小和当前目录的总的大小，最下面的525876为当前目录的总大小
+
+显示指定文件所占空间
+
+```
+[root@master01 opt]# du etcd/cfg/etcd 
+4	etcd/cfg/etcd
+默认是kb
+```
+
+方便阅读的格式显示/opt目录所占空间情况：
+
+```
+[root@master01 opt]# du -h /opt/
+0	/opt/containerd/bin
+0	/opt/containerd/lib
+0	/opt/containerd
+12K	/opt/etcd/ssl
+4.0K	/opt/etcd/cfg
+34M	/opt/etcd/bin
+34M	/opt/etcd
+481M	/opt/kubernetes/bin
+48K	/opt/kubernetes/cfg
+28K	/opt/kubernetes/ssl
+481M	/opt/kubernetes
+514M	/opt/
+```
+
+```
+只显示第一层目录大小
+[root@master01 opt]# du -h --max-depth=1 /usr/local/  
+19M	/usr/local/bin
+0	/usr/local/etc
+0	/usr/local/games
+0	/usr/local/include
+0	/usr/local/lib
+0	/usr/local/lib64
+0	/usr/local/libexec
+0	/usr/local/sbin
+0	/usr/local/share
+8.0K	/usr/local/src
+19M	/usr/local/
+
+只显示第一层和第二层目录大小
+[root@master01 opt]# du -h --max-depth=2 /usr/local/
+19M	/usr/local/bin
+0	/usr/local/etc
+0	/usr/local/games
+0	/usr/local/include
+0	/usr/local/lib
+0	/usr/local/lib64
+0	/usr/local/libexec
+0	/usr/local/sbin
+0	/usr/local/share/applications
+0	/usr/local/share/info
+0	/usr/local/share/man
+0	/usr/local/share
+8.0K	/usr/local/src
+19M	/usr/local/
+
+排除指定目录
+[root@master01 opt]# du -h --max-depth=2 /usr/local/ --exclude=/usr/local/share
+19M	/usr/local/bin
+0	/usr/local/etc
+0	/usr/local/games
+0	/usr/local/include
+0	/usr/local/lib
+0	/usr/local/lib64
+0	/usr/local/libexec
+0	/usr/local/sbin
+8.0K	/usr/local/src
+19M	/usr/local/
+```
+
+> 排除指定目录，要排除的目录，最后不能有/结尾。
+
+错误写法
+
+```
+[root@master01 opt]# du -h --max-depth=2 /usr/local/ --exclude=/usr/local/share/  # 最后/share后面多了一个/
+19M	/usr/local/bin
+0	/usr/local/etc
+0	/usr/local/games
+0	/usr/local/include
+0	/usr/local/lib
+0	/usr/local/lib64
+0	/usr/local/libexec
+0	/usr/local/sbin
+0	/usr/local/share/applications
+0	/usr/local/share/info
+0	/usr/local/share/man
+0	/usr/local/share
+8.0K	/usr/local/src
+19M	/usr/local/
+```
 
 ### 5.6 date
 
 ### 5.7 echo
 
+&emsp;Linux echo命令用于显示输出
+
+**语法**
+
+```
+echo [选项] 输出字符
+```
+
+**参数说明**：
+
+- -n    不自动换行
+- -E    不解析转意字符(默认参数)
+- -e    若字符串中出现以下字符，则需要特别处理，而不是将它当做一般字符处理，也就是需要转意。
+  - \a    发出警告声音
+  - \b    删除前一个字符
+  - \c    最后不加上换行符号
+  - \f    换行单光标依然停留在原来的位置
+  - \n    换行且光标移动至行首
+  - \r     光标移动到行首，但是不换行
+  - \t    插入tab
+  - \v    与\f相反
+  - \\\\    插入\字符
+  - \\'    插入单引号
+  - \\"   插入双引号
+  - \\nnn    插入nnn[八进制]所代表的ASCII字符  
+
+```
+直接输出要输出的文字
+[root@master01 ~]# echo hello caimenzhi! 
+hello caimenzhi!
+
+可以将要输出的单引号括起来
+[root@master01 ~]# echo 'hello caimenzhi!' 
+hello caimenzhi!
+
+！特殊性
+[root@master01 ~]# echo "hello caimenzhi!" 
+bash: !": event not found
+[root@master01 ~]# echo "hello caimenzhi"!
+hello caimenzhi!
+
+重定向到文件[保存到文件]
+> 每次都会情况文件
+>> 追加到文件
+
+[root@master01 ~]# echo 'hello caimengzhi'>info
+[root@master01 ~]# cat info
+hello caimengzhi
+[root@master01 ~]# echo 'hello caimengzhi'>info
+[root@master01 ~]# cat info
+hello caimengzhi
+[root@master01 ~]# echo 'hello caimengzhi'>>info
+[root@master01 ~]# echo 'hello caimengzhi'>>info
+[root@master01 ~]# cat info
+hello caimengzhi
+hello caimengzhi
+hello caimengzhi
+
+输出不换行[-n]
+[root@master01 ~]# echo 'caimengzhi';echo 'caimengzhi'
+caimengzhi
+caimengzhi
+[root@master01 ~]# echo -n 'caimengzhi';echo 'caimengzhi'
+caimengzhicaimengzhi
+```
+
 ### 5.8 watch
+
+&emsp;主要监控命令输出结果，或者程序执行情况.
+
+**语法**
+
+```
+watch [选项] [命令]
+```
+
+**参数说明**：
+
+- -n    命令执行间隔时间，默认2秒
+- -d    高亮显示命令结果的变动之处
+- -t     关闭watch命令在顶部显示的时间间隔，命令以及当前时间的输出
+
+```
+每隔1秒显示网络链接数的变化情况
+[root@master01 ~]# watch  -n 1 -d netstat -ant
+Every 1.0s: netstat -ant                                                                                                                                             Tue May  7 04:09:05 2019
+
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0	  0 127.0.0.1:10248         0.0.0.0:*               LISTEN
+tcp        0	  0 127.0.0.1:10249         0.0.0.0:*               LISTEN
+tcp        0	  0 192.168.5.100:10250     0.0.0.0:*               LISTEN
+tcp        0	  0 192.168.5.100:6443      0.0.0.0:*               LISTEN
+tcp        0	  0 192.168.5.100:2379      0.0.0.0:*               LISTEN
+tcp        0	  0 127.0.0.1:2379          0.0.0.0:*               LISTEN
+tcp        0	  0 127.0.0.1:10252         0.0.0.0:*               LISTEN
+tcp        0	  0 192.168.5.100:2380      0.0.0.0:*               LISTEN
+tcp        0	  0 192.168.5.100:10255     0.0.0.0:*               LISTEN
+tcp        0	  0 127.0.0.1:8080          0.0.0.0:*               LISTEN
+tcp        0	  0 0.0.0.0:22              0.0.0.0:*               LISTEN
+tcp        0	  0 127.0.0.1:25            0.0.0.0:*               LISTEN
+tcp        0	  0 127.0.0.1:33503         0.0.0.0:*               LISTEN
+
+监控文件
+[root@master01 ~]# echo 'line 1'>cmz.txt
+[root@master01 ~]# watch cat cmz.txt 
+Every 2.0s: cat cmz.txt                                                                                                                                              Tue May  7 04:11:04 2019
+
+line 1
+line 2
+line 3
+
+新开一个界面终端往cmz.txt文件中输入数据
+[root@master01 ~]# echo 'line 2'>>cmz.txt
+[root@master01 ~]# echo 'line 3'>>cmz.txt
+上面 watch cat cmz.txt 就会动态显示类似 tail -f cmz.txt | tailf cmz.txt
+
+不显示标题
+[root@master01 ~]# watch -t cat cmz.txt 
+line 1
+line 2
+line 3
+```
 
 ### 5.9 which
 
+&emsp;Linux which命令用于查找文件。which指令会在环境变量$PATH设置的目录里查找符合条件的文件。
+
+**语法**
+
+```
+which [文件...]
+```
+
+**参数**：
+
+- -n<文件名长度> 　指定文件名长度，指定的长度必须大于或等于所有文件中最长的文件名。
+- -p<文件名长度> 　与-n参数相同，但此处的<文件名长度>包括了文件的路径。
+- -w 　指定输出时栏位的宽度。
+- -V 　显示版本信息。
+
+```
+[root@master01 ~]# which sh
+/usr/bin/sh
+```
+
 ### 5.10 whereis
+
+&emsp;Linux whereis命令用于查找文件。该指令会在特定目录中查找符合条件的文件。这些文件应属于原始代码、二进制文件，或是帮助文件。该指令只能用于查找二进制文件、源代码文件和man手册页，一般文件的定位需使用locate命令。
+
+```
+whereis [-bfmsu][-B <目录>...][-M <目录>...][-S <目录>...][文件...]
+```
+
+**参数**：
+
+- -b 　只查找二进制文件。
+- -B<目录> 　只在设置的目录下查找二进制文件。
+- -f 　不显示文件名前的路径名称。
+- -m 　只查找说明文件。
+- -M<目录> 　只在设置的目录下查找说明文件。
+- -s 　只查找原始代码文件。
+- -S<目录> 　只在设置的目录下查找原始代码文件。
+- -u 　查找不包含指定类型的文件。
+
+```
+[root@master01 ~]# whereis bash 
+bash: /usr/bin/bash /usr/share/man/man1/bash.1.gz
+```
+
+注意：以上输出信息从左至右分别为查询的程序名、bash路径、bash的man 手册页路径。
+
+如果用户需要单独查询二进制文件或帮助文件，可使用如下命令：
+
+```
+[root@master01 ~]# whereis -b bash   # 显示bash 命令的二进制程序
+bash: /usr/bin/bash                  # bash命令的二进制程序的地址
+[root@master01 ~]# whereis -m bash   # 显示bash 命令的帮助文件
+bash: /usr/share/man/man1/bash.1.gz  # bash命令的帮助文件地址
+```
 
 ### 5.11 locate
 
+&emsp;Linux locate命令用于查找符合条件的文档，他会去保存文档和目录名称的数据库内，查找合乎范本样式条件的文档或目录。一般情况我们只需要输入 **locate your_file_name** 即可查找指定文件。
+
+**语法**
+
+```
+locate [-d ][--help][--version][范本样式...]
+```
+
+**参数：**
+
+- -d或--database= 配置locate指令使用的数据库。locate指令预设的数据库位于/var/lib/slocate目录里，文档名为slocate.db，您可使用 这个参数另行指定。
+- --help 　在线帮助。
+- --version 　显示版本信息。
+
+```
+root@leco:~/book# locate book.conf
+/etc/nginx/sites-enabled/book.conf
+/var/lib/dpkg/info/account-plugin-facebook.conffiles
+
+只显示匹配到的行数
+root@leco:~/book# locate book.conf -c
+2
+```
+
+&emsp;locate与find 不同: find 是去硬盘找，locate 只在/var/lib/slocate资料库中找。
+
+&emsp;locate的速度比find快，它并不是真的查找，而是查数据库，一般文件数据库在/var/lib/slocate/slocate.db中，所以locate的查找并不是实时的，而是以数据库的更新为准，一般是系统自己维护。
+
 ### 5.12 updatedb
+
+&emsp;创建或者修改数据库，
+
+```
+root@leco:~# ls /var/lib/mlocate/mlocate.db 
+/var/lib/mlocate/mlocate.db
+
+root@leco:~# locate cmz -c
+1951
+root@leco:~# touch cmz12.txt
+root@leco:~# locate cmz -c  # 没有变
+1951
+root@leco:~# updatedb -vU /root/  # 更新数据库
+root@leco:~# ll /var/lib/mlocate/mlocate.db  # 数据库时间也变了
+-rw-r----- 1 root mlocate 3694627 5月   7 17:54 /var/lib/mlocate/mlocate.db 
+root@leco:~# locate cmz -c  # 出现了
+1952
+```
 
 ##  6. 文件压缩和解压
 
 ### 6.1 tar
 
+&emsp;Linux tar命令用于备份文件。tar是用来建立，还原备份文件的工具程序，它可以加入，解开备份文件内的文件。
+
+**语法**
+
+```
+tar [-ABcdgGhiklmMoOpPrRsStuUvwWxzZ][-b <区块数目>][-C <目的目录>][-f <备份文件>][-F <Script文件>][-K <文件>][-L <媒体容量>][-N <日期时间>][-T <范本文件>][-V <卷册名称>][-X <范本文件>][-<设备编号><存储密度>][--after-date=<日期时间>][--atime-preserve][--backuup=<备份方式>][--checkpoint][--concatenate][--confirmation][--delete][--exclude=<范本样式>][--force-local][--group=<群组名称>][--help][--ignore-failed-read][--new-volume-script=<Script文件>][--newer-mtime][--no-recursion][--null][--numeric-owner][--owner=<用户名称>][--posix][--erve][--preserve-order][--preserve-permissions][--record-size=<区块数目>][--recursive-unlink][--remove-files][--rsh-command=<执行指令>][--same-owner][--suffix=<备份字尾字符串>][--totals][--use-compress-program=<执行指令>][--version][--volno-file=<编号文件>][文件或目录...]
+```
+
+**参数**：
+
+- -A或--catenate 新增文件到已存在的备份文件。
+- -b<区块数目>或--blocking-factor=<区块数目> 设置每笔记录的区块数目，每个区块大小为12Bytes。
+- -B或--read-full-records 读取数据时重设区块大小。
+- -c或--create 建立新的备份文件。
+- -C<目的目录>或--directory=<目的目录> 切换到指定的目录。
+- -d或--diff或--compare 对比备份文件内和文件系统上的文件的差异。
+- -f<备份文件>或--file=<备份文件> 指定备份文件。
+- -F<Script文件>或--info-script=<Script文件> 每次更换磁带时，就执行指定的Script文件。
+- -g或--listed-incremental 处理GNU格式的大量备份。
+- -G或--incremental 处理旧的GNU格式的大量备份。
+- -h或--dereference 不建立符号连接，直接复制该连接所指向的原始文件。
+- -i或--ignore-zeros 忽略备份文件中的0 Byte区块，也就是EOF。
+- -k或--keep-old-files 解开备份文件时，不覆盖已有的文件。
+- -K<文件>或--starting-file=<文件> 从指定的文件开始还原。
+- -l或--one-file-system 复制的文件或目录存放的文件系统，必须与tar指令执行时所处的文件系统相同，否则不予复制。
+- -L<媒体容量>或-tape-length=<媒体容量> 设置存放每体的容量，单位以1024 Bytes计算。
+- -m或--modification-time 还原文件时，不变更文件的更改时间。
+- -M或--multi-volume 在建立，还原备份文件或列出其中的内容时，采用多卷册模式。
+- -N<日期格式>或--newer=<日期时间> 只将较指定日期更新的文件保存到备份文件里。
+- -o或--old-archive或--portability 将资料写入备份文件时使用V7格式。
+- -O或--stdout 把从备份文件里还原的文件输出到标准输出设备。
+- -p或--same-permissions 用原来的文件权限还原文件。
+- -P或--absolute-names 文件名使用绝对名称，不移除文件名称前的"/"号。
+- -r或--append 新增文件到已存在的备份文件的结尾部分。
+- -R或--block-number 列出每个信息在备份文件中的区块编号。
+- -s或--same-order 还原文件的顺序和备份文件内的存放顺序相同。
+- -S或--sparse 倘若一个文件内含大量的连续0字节，则将此文件存成稀疏文件。
+- -t或--list 列出备份文件的内容。
+- -T<范本文件>或--files-from=<范本文件> 指定范本文件，其内含有一个或多个范本样式，让tar解开或建立符合设置条件的文件。
+- -u或--update 仅置换较备份文件内的文件更新的文件。
+- -U或--unlink-first 解开压缩文件还原文件之前，先解除文件的连接。
+- -v或--verbose 显示指令执行过程。
+- -V<卷册名称>或--label=<卷册名称> 建立使用指定的卷册名称的备份文件。
+- -w或--interactive 遭遇问题时先询问用户。
+- -W或--verify 写入备份文件后，确认文件正确无误。
+- -x或--extract或--get 从备份文件中还原文件。
+- -X<范本文件>或--exclude-from=<范本文件> 指定范本文件，其内含有一个或多个范本样式，让ar排除符合设置条件的文件。
+- -z或--gzip或--ungzip 通过gzip指令处理备份文件。
+- -Z或--compress或--uncompress 通过compress指令处理备份文件。
+- -<设备编号><存储密度> 设置备份用的外围设备编号及存放数据的密度。
+- --after-date=<日期时间> 此参数的效果和指定"-N"参数相同。
+- --atime-preserve 不变更文件的存取时间。
+- --backup=<备份方式>或--backup 移除文件前先进行备份。
+- --checkpoint 读取备份文件时列出目录名称。
+- --concatenate 此参数的效果和指定"-A"参数相同。
+- --confirmation 此参数的效果和指定"-w"参数相同。
+- --delete 从备份文件中删除指定的文件。
+- --exclude=<范本样式> 排除符合范本样式的问家。
+- --group=<群组名称> 把加入设备文件中的文件的所属群组设成指定的群组。
+- --help 在线帮助。
+- --ignore-failed-read 忽略数据读取错误，不中断程序的执行。
+- --new-volume-script=<Script文件> 此参数的效果和指定"-F"参数相同。
+- --newer-mtime 只保存更改过的文件。
+- --no-recursion 不做递归处理，也就是指定目录下的所有文件及子目录不予处理。
+- --null 从null设备读取文件名称。
+- --numeric-owner 以用户识别码及群组识别码取代用户名称和群组名称。
+- --owner=<用户名称> 把加入备份文件中的文件的拥有者设成指定的用户。
+- --posix 将数据写入备份文件时使用POSIX格式。
+- --preserve 此参数的效果和指定"-ps"参数相同。
+- --preserve-order 此参数的效果和指定"-A"参数相同。
+- --preserve-permissions 此参数的效果和指定"-p"参数相同。
+- --record-size=<区块数目> 此参数的效果和指定"-b"参数相同。
+- --recursive-unlink 解开压缩文件还原目录之前，先解除整个目录下所有文件的连接。
+- --remove-files 文件加入备份文件后，就将其删除。
+- --rsh-command=<执行指令> 设置要在远端主机上执行的指令，以取代rsh指令。
+- --same-owner 尝试以相同的文件拥有者还原文件。
+- --suffix=<备份字尾字符串> 移除文件前先行备份。
+- --totals 备份文件建立后，列出文件大小。
+- --use-compress-program=<执行指令> 通过指定的指令处理备份文件。
+- --version 显示版本信息。
+- --volno-file=<编号文件> 使用指定文件内的编号取代预设的卷册编号。
+
+```
+压缩文件
+[root@master01 cmz]# touch {1..10}.txt
+[root@master01 cmz]# ls
+10.txt  1.txt  2.txt  3.txt  4.txt  5.txt  6.txt  7.txt  8.txt  9.txt
+[root@master01 cmz]# tar zcvf all.tgz ./*  # -v 显示过程
+./10.txt
+./1.txt
+./2.txt
+./3.txt
+./4.txt
+./5.txt
+./6.txt
+./7.txt
+./8.txt
+./9.txt
+-----------------------------------------------------------------------------------------
+[root@master01 cmz]# tar tvfz all.tgz  # 查看压缩包详细内容，-t不解压意思，-v显示属性
+-rw-r--r-- root/root         0 2019-05-07 07:36 ./10.txt
+-rw-r--r-- root/root         0 2019-05-07 07:36 ./1.txt
+-rw-r--r-- root/root         0 2019-05-07 07:36 ./2.txt
+-rw-r--r-- root/root         0 2019-05-07 07:36 ./3.txt
+-rw-r--r-- root/root         0 2019-05-07 07:36 ./4.txt
+-rw-r--r-- root/root         0 2019-05-07 07:36 ./5.txt
+-rw-r--r-- root/root         0 2019-05-07 07:36 ./6.txt
+-rw-r--r-- root/root         0 2019-05-07 07:36 ./7.txt
+-rw-r--r-- root/root         0 2019-05-07 07:36 ./8.txt
+-rw-r--r-- root/root         0 2019-05-07 07:36 ./9.txt
+-----------------------------------------------------------------------------------------
+[root@master01 cmz]# tar tfz all.tgz # 查看包内容
+./10.txt
+./1.txt
+./2.txt
+./3.txt
+./4.txt
+./5.txt
+./6.txt
+./7.txt
+./8.txt
+./9.txt
+-----------------------------------------------------------------------------------------
+[root@master01 cmz]# tar tf all.tgz # 若不指定-z，那么tar会自动判断压缩包类型，自动调用gzip命令
+./10.txt
+./1.txt
+./2.txt
+./3.txt
+./4.txt
+./5.txt
+./6.txt
+./7.txt
+./8.txt
+./9.txt
+-----------------------------------------------------------------------------------------
+解压
+[root@master01 cmz]# ls
+10.txt  1.txt  2.txt  3.txt  4.txt  5.txt  6.txt  7.txt  8.txt  9.txt  all.tgz
+[root@master01 cmz]# mkdir cc
+[root@master01 cmz]# tar zxvf all.tgz -C cc/ # -C 指定解压后的目录，若不加-C，解压到当前的目录下
+./10.txt
+./1.txt
+./2.txt
+./3.txt
+./4.txt
+./5.txt
+./6.txt
+./7.txt
+./8.txt
+./9.txt
+[root@master01 cmz]# ls cc/
+10.txt  1.txt  2.txt  3.txt  4.txt  5.txt  6.txt  7.txt  8.txt  9.txt
+-----------------------------------------------------------------------------------------
+精简输出。不输出相关信息，脚本建议使用这样模式
+[root@master01 cmz]# rm cc/* -rf
+[root@master01 cmz]# tar xf all.tgz -C cc/
+[root@master01 cmz]# ls cc/
+10.txt  1.txt  2.txt  3.txt  4.txt  5.txt  6.txt  7.txt  8.txt  9.txt
+-----------------------------------------------------------------------------------------
+打包的时候排除某个目录
+[root@master01 cmz]# tree .
+.
+├── 1.txt
+├── 2.txt
+├── 3.txt
+├── 4.txt
+├── aa
+│   ├── aa_1.txt
+│   ├── aa_2.txt
+│   ├── aa_3.txt
+│   └── aa_4.txt
+└── bb
+    ├── bb_1.txt
+    ├── bb_2.txt
+    ├── bb_3.txt
+    └── bb_4.txt
+
+2 directories, 12 files
+[root@master01 cmz]# tar zcvf all.tgz * --exclude=aa    # 文件后不能加/.否则失败
+1.txt
+2.txt
+3.txt
+4.txt
+bb/
+bb/bb_1.txt
+bb/bb_2.txt
+bb/bb_3.txt
+bb/bb_4.txt
+[root@master01 cmz]# tar tvf all.tgz 
+-rw-r--r-- root/root         0 2019-05-07 07:46 1.txt
+-rw-r--r-- root/root         0 2019-05-07 07:46 2.txt
+-rw-r--r-- root/root         0 2019-05-07 07:46 3.txt
+-rw-r--r-- root/root         0 2019-05-07 07:46 4.txt
+drwxr-xr-x root/root         0 2019-05-07 07:48 bb/
+-rw-r--r-- root/root         0 2019-05-07 07:48 bb/bb_1.txt
+-rw-r--r-- root/root         0 2019-05-07 07:48 bb/bb_2.txt
+-rw-r--r-- root/root         0 2019-05-07 07:48 bb/bb_3.txt
+-rw-r--r-- root/root         0 2019-05-07 07:48 bb/bb_4.txt
+[root@master01 cmz]# ls
+1.txt  2.txt  3.txt  4.txt  aa  all.tgz  bb
+
+排除多个目录
+[root@master01 cmz]# rm all.tgz 
+rm: remove regular file ‘all.tgz’? y
+[root@master01 cmz]# ls
+1.txt  2.txt  3.txt  4.txt  aa  bb
+排除多个目录就是有多个 --exclude
+[root@master01 cmz]# tar zcvf all.tgz * --exclude=aa --exclude=bb  
+1.txt
+2.txt
+3.txt
+4.txt
+[root@master01 cmz]# tar tvf all.tgz 
+-rw-r--r-- root/root         0 2019-05-07 07:46 1.txt
+-rw-r--r-- root/root         0 2019-05-07 07:46 2.txt
+-rw-r--r-- root/root         0 2019-05-07 07:46 3.txt
+-rw-r--r-- root/root         0 2019-05-07 07:46 4.txt
+-----------------------------------------------------------------------------------------
+排除某个文件
+[root@master01 cmz]# ls
+1.txt  2.txt  3.txt  4.txt  aa  bb
+[root@master01 cmz]# tar zcvf paichu1.tgz * --exclude=1.txt
+2.txt
+3.txt
+4.txt
+aa/
+aa/aa_1.txt
+aa/aa_2.txt
+aa/aa_3.txt
+aa/aa_4.txt
+bb/
+bb/bb_1.txt
+bb/bb_2.txt
+bb/bb_3.txt
+bb/bb_4.txt
+[root@master01 cmz]# tar tvf paichu1.tgz 
+-rw-r--r-- root/root         0 2019-05-07 07:46 2.txt
+-rw-r--r-- root/root         0 2019-05-07 07:46 3.txt
+-rw-r--r-- root/root         0 2019-05-07 07:46 4.txt
+drwxr-xr-x root/root         0 2019-05-07 07:47 aa/
+-rw-r--r-- root/root         0 2019-05-07 07:47 aa/aa_1.txt
+-rw-r--r-- root/root         0 2019-05-07 07:47 aa/aa_2.txt
+-rw-r--r-- root/root         0 2019-05-07 07:47 aa/aa_3.txt
+-rw-r--r-- root/root         0 2019-05-07 07:47 aa/aa_4.txt
+drwxr-xr-x root/root         0 2019-05-07 07:48 bb/
+-rw-r--r-- root/root         0 2019-05-07 07:48 bb/bb_1.txt
+-rw-r--r-- root/root         0 2019-05-07 07:48 bb/bb_2.txt
+-rw-r--r-- root/root         0 2019-05-07 07:48 bb/bb_3.txt
+-rw-r--r-- root/root         0 2019-05-07 07:48 bb/bb_4.txt
+[root@master01 cmz]# 
+排除多个文件,和排除文件夹一样
+[root@master01 cmz]# tar zcvf paichu2.tgz * --exclude=1.txt --exclude=2.txt
+3.txt
+4.txt
+aa/
+aa/aa_1.txt
+aa/aa_2.txt
+aa/aa_3.txt
+aa/aa_4.txt
+bb/
+bb/bb_1.txt
+bb/bb_2.txt
+bb/bb_3.txt
+bb/bb_4.txt
+[root@master01 cmz]# tar tvf paichu2.tgz 
+-rw-r--r-- root/root         0 2019-05-07 07:46 3.txt
+-rw-r--r-- root/root         0 2019-05-07 07:46 4.txt
+drwxr-xr-x root/root         0 2019-05-07 07:47 aa/
+-rw-r--r-- root/root         0 2019-05-07 07:47 aa/aa_1.txt
+-rw-r--r-- root/root         0 2019-05-07 07:47 aa/aa_2.txt
+-rw-r--r-- root/root         0 2019-05-07 07:47 aa/aa_3.txt
+-rw-r--r-- root/root         0 2019-05-07 07:47 aa/aa_4.txt
+drwxr-xr-x root/root         0 2019-05-07 07:48 bb/
+-rw-r--r-- root/root         0 2019-05-07 07:48 bb/bb_1.txt
+-rw-r--r-- root/root         0 2019-05-07 07:48 bb/bb_2.txt
+-rw-r--r-- root/root         0 2019-05-07 07:48 bb/bb_3.txt
+-rw-r--r-- root/root         0 2019-05-07 07:48 bb/bb_4.txt
+
+排除多个文件，使用文件
+[root@master01 cmz]# cat list.txt  # 指定一个目当前目录下文件，里面记录不需要的打包的文件
+2.txt
+bb/bb_1.txt
+[root@master01 cmz]# ls
+1.txt  2.txt  3.txt  4.txt  aa  bb  list.txt
+[root@master01 cmz]# ll
+total 4
+-rw-r--r-- 1 root root  0 May  7 07:46 1.txt
+-rw-r--r-- 1 root root  0 May  7 07:46 2.txt
+-rw-r--r-- 1 root root  0 May  7 07:46 3.txt
+-rw-r--r-- 1 root root  0 May  7 07:46 4.txt
+drwxr-xr-x 2 root root 70 May  7 07:47 aa
+drwxr-xr-x 2 root root 70 May  7 07:48 bb
+-rw-r--r-- 1 root root 18 May  7 07:53 list.txt
+[root@master01 cmz]# tar zcvfX paichu.tgz list.txt *
+1.txt
+3.txt
+4.txt
+aa/
+aa/aa_1.txt
+aa/aa_2.txt
+aa/aa_3.txt
+aa/aa_4.txt
+bb/
+bb/bb_2.txt
+bb/bb_3.txt
+bb/bb_4.txt
+list.txt
+[root@master01 cmz]# tar tvf paichu.tgz 
+-rw-r--r-- root/root         0 2019-05-07 07:46 1.txt
+-rw-r--r-- root/root         0 2019-05-07 07:46 3.txt
+-rw-r--r-- root/root         0 2019-05-07 07:46 4.txt
+drwxr-xr-x root/root         0 2019-05-07 07:47 aa/
+-rw-r--r-- root/root         0 2019-05-07 07:47 aa/aa_1.txt
+-rw-r--r-- root/root         0 2019-05-07 07:47 aa/aa_2.txt
+-rw-r--r-- root/root         0 2019-05-07 07:47 aa/aa_3.txt
+-rw-r--r-- root/root         0 2019-05-07 07:47 aa/aa_4.txt
+drwxr-xr-x root/root         0 2019-05-07 07:48 bb/
+-rw-r--r-- root/root         0 2019-05-07 07:48 bb/bb_2.txt
+-rw-r--r-- root/root         0 2019-05-07 07:48 bb/bb_3.txt
+-rw-r--r-- root/root         0 2019-05-07 07:48 bb/bb_4.txt
+-rw-r--r-- root/root        18 2019-05-07 07:53 list.txt
+```
+
 ### 6.2 gzip
+
+&emsp;Linux gzip命令用于压缩文件。gzip是个使用广泛的压缩程序，文件经它压缩过后，其名称后面会多出".gz"的扩展名。
+
+**语法**
+
+```
+gzip [-acdfhlLnNqrtvV][-S &lt;压缩字尾字符串&gt;][-&lt;压缩效率&gt;][--best/fast][文件...] 或 gzip [-acdfhlLnNqrtvV][-S &lt;压缩字尾字符串&gt;][-&lt;压缩效率&gt;][--best/fast][目录]
+```
+
+**参数**：
+
+- -a或--ascii 　使用ASCII文字模式。
+- -c或--stdout或--to-stdout 　把压缩后的文件输出到标准输出设备，不去更动原始文件。
+- -d或--decompress或----uncompress 　解开压缩文件。 **
+- -f或--force 　强行压缩文件。不理会文件名称或硬连接是否存在以及该文件是否为符号连接。
+- -h或--help 　在线帮助。
+- -l或--list 　列出压缩文件的相关信息。
+- -L或--license 　显示版本与版权信息。
+- -n或--no-name 　压缩文件时，不保存原来的文件名称及时间戳记。
+- -N或--name 　压缩文件时，保存原来的文件名称及时间戳记。
+- -q或--quiet 　不显示警告信息。
+- -r或--recursive 　递归处理，将指定目录下的所有文件及子目录一并处理。
+- -S<压缩字尾字符串>或----suffix<压缩字尾字符串> 　更改压缩字尾字符串。
+- -t或--test 　测试压缩文件是否正确无误。
+- -v或--verbose 　显示指令执行过程。
+- -V或--version 　显示版本信息。
+- -<压缩效率> 　压缩效率是一个介于1－9的数值，预设值为"6"，指定愈大的数值，压缩效率就会愈高。
+- --best 　此参数的效果和指定"-9"参数相同。
+- --fast 　此参数的效果和指定"-1"参数相同。
+
+```
+[root@master01 cmz]# touch {1..5}.txt
+[root@master01 cmz]# ls
+1.txt  2.txt  3.txt  4.txt  5.txt
+[root@master01 cmz]# gzip *   # 直接压缩当前每个文件，源文件消失
+[root@master01 cmz]# ls
+1.txt.gz  2.txt.gz  3.txt.gz  4.txt.gz  5.txt.gz
+
+不解压查看压缩包信息
+[root@master01 cmz]# gzip -l *
+         compressed        uncompressed  ratio uncompressed_name
+                 26                   0   0.0% 1.txt
+                 26                   0   0.0% 2.txt
+                 26                   0   0.0% 3.txt
+                 26                   0   0.0% 4.txt
+                 26                   0   0.0% 5.txt
+解压
+[root@master01 cmz]# ls
+1.txt.gz  2.txt.gz  3.txt.gz  4.txt.gz  5.txt.gz
+[root@master01 cmz]# gzip -dv *.gz  # -d解压，-v显示解压过程，解压后压缩包消失
+1.txt.gz:	  0.0% -- replaced with 1.txt
+2.txt.gz:	  0.0% -- replaced with 2.txt
+3.txt.gz:	  0.0% -- replaced with 3.txt
+4.txt.gz:	  0.0% -- replaced with 4.txt
+5.txt.gz:	  0.0% -- replaced with 5.txt
+[root@master01 cmz]# ls
+1.txt  2.txt  3.txt  4.txt  5.txt
+```
 
 ### 6.3 zip
 
+&emsp;Linux zip命令用于压缩文件。zip是个使用广泛的压缩程序，文件经它压缩后会另外产生具有".zip"扩展名的压缩文件。
+
+**语法**
+
+```
+zip [-AcdDfFghjJKlLmoqrSTuvVwXyz$][-b <工作目录>][-ll][-n <字尾字符串>][-t <日期时间>][-<压缩效率>][压缩文件][文件...][-i <范本样式>][-x <范本样式>]
+```
+
+**参数**：
+
+- -A 调整可执行的自动解压缩文件。
+- -b<工作目录> 指定暂时存放文件的目录。
+- -c 替每个被压缩的文件加上注释。
+- -d 从压缩文件内删除指定的文件。
+- -D 压缩文件内不建立目录名称。
+- -f 此参数的效果和指定"-u"参数类似，但不仅更新既有文件，如果某些文件原本不存在于压缩文件内，使用本参数会一并将其加入压缩文件中。
+- -F 尝试修复已损坏的压缩文件。
+- -g 将文件压缩后附加在既有的压缩文件之后，而非另行建立新的压缩文件。
+- -h 在线帮助。
+- -i<范本样式> 只压缩符合条件的文件。
+- -j 只保存文件名称及其内容，而不存放任何目录名称。
+- -J 删除压缩文件前面不必要的数据。
+- -k 使用MS-DOS兼容格式的文件名称。
+- -l 压缩文件时，把LF字符置换成LF+CR字符。
+- -ll 压缩文件时，把LF+CR字符置换成LF字符。
+- -L 显示版权信息。
+- -m 将文件压缩并加入压缩文件后，删除原始文件，即把文件移到压缩文件中。
+- -n<字尾字符串> 不压缩具有特定字尾字符串的文件。
+- -o 以压缩文件内拥有最新更改时间的文件为准，将压缩文件的更改时间设成和该文件相同。
+- -q 不显示指令执行过程。
+- -r 递归处理，将指定目录下的所有文件和子目录一并处理。
+- -S 包含系统和隐藏文件。
+- -t<日期时间> 把压缩文件的日期设成指定的日期。
+- -T 检查备份文件内的每个文件是否正确无误。
+- -u 更换较新的文件到压缩文件内。
+- -v 显示指令执行过程或显示版本信息。
+- -V 保存VMS操作系统的文件属性。
+- -w 在文件名称里假如版本编号，本参数仅在VMS操作系统下有效。
+- -x<范本样式> 压缩时排除符合条件的文件。
+- -X 不保存额外的文件属性。
+- -y 直接保存符号连接，而非该连接所指向的文件，本参数仅在UNIX之类的系统下有效。
+- -z 替压缩文件加上注释。
+- -$ 保存第一个被压缩文件所在磁盘的卷册名称。
+- -<压缩效率> 压缩效率是一个介于1-9的数值。
+
+```
+[root@master01 cmz]# ls
+2.txt  3.txt  4.txt  5.txt
+[root@master01 cmz]# zip all.zip *
+  adding: 2.txt (stored 0%)
+  adding: 3.txt (stored 0%)
+  adding: 4.txt (stored 0%)
+  adding: 5.txt (stored 0%)
+[root@master01 cmz]# ls
+2.txt  3.txt  4.txt  5.txt  all.zip
+-----------------------------------------------------------------------------------------
+递归压缩
+[root@master01 cmz]# tree .
+.
+├── 2.txt
+├── 3.txt
+├── 4.txt
+├── 5.txt
+└── cc
+    ├── 2.txt
+    ├── 3.txt
+    ├── 4.txt
+    └── 5.txt
+
+1 directory, 8 files
+[root@master01 cmz]# zip all.zip *
+  adding: 2.txt (stored 0%)
+  adding: 3.txt (stored 0%)
+  adding: 4.txt (stored 0%)
+  adding: 5.txt (stored 0%)
+  adding: cc/ (stored 0%) # 没有压缩cc下面文件
+[root@master01 cmz]# ls
+2.txt  3.txt  4.txt  5.txt  all.zip  cc
+
+[root@master01 cmz]# zip -r all.zip * # 递归压缩
+  adding: 2.txt (stored 0%)
+  adding: 3.txt (stored 0%)
+  adding: 4.txt (stored 0%)
+  adding: 5.txt (stored 0%)
+  adding: cc/ (stored 0%)
+  adding: cc/2.txt (stored 0%)
+  adding: cc/3.txt (stored 0%)
+  adding: cc/4.txt (stored 0%)
+  adding: cc/5.txt (stored 0%)
+  
+排除某个文件不压缩
+[root@master01 cmz]# zip -r all.zip * -x 2.txt  # -x 指定某个文件不压缩
+  adding: 3.txt (stored 0%)
+  adding: 4.txt (stored 0%)
+  adding: 5.txt (stored 0%)
+  adding: cc/ (stored 0%)
+  adding: cc/2.txt (stored 0%)
+  adding: cc/3.txt (stored 0%)
+  adding: cc/4.txt (stored 0%)
+  adding: cc/5.txt (stored 0%)
+[root@master01 cmz]# zip -r all.zip * -x 2.txt 3.txt # -x后面可以接多个文件，表示都不参与压缩
+  adding: 4.txt (stored 0%)
+  adding: 5.txt (stored 0%)
+  adding: cc/ (stored 0%)
+  adding: cc/2.txt (stored 0%)
+  adding: cc/3.txt (stored 0%)
+  adding: cc/4.txt (stored 0%)
+  adding: cc/5.txt (stored 0%)
+
+删除压缩包内某个文件
+[root@master01 cmz]# zip -dv all.zip 4.txt
+1>1: updating: 4.txt (stored 0%)
+
+不显示执行过程 -q
+[root@master01 cmz]# ls
+2.txt  3.txt  4.txt  5.txt  cc
+[root@master01 cmz]# zip -qr all.zip *
+[root@master01 cmz]# ls
+2.txt  3.txt  4.txt  5.txt  all.zip  cc
+```
+
 ### 6.4 unzip
+
+&emsp;Linux unzip命令用于解压缩zip文件,unzip为.zip压缩文件的解压缩程序。
+
+**语法**
+
+```
+unzip [-cflptuvz][-agCjLMnoqsVX][-P <密码>][.zip文件][文件][-d <目录>][-x <文件>] 或 unzip [-Z]
+```
+
+**参数**：
+
+- -c 将解压缩的结果显示到屏幕上，并对字符做适当的转换。
+- -f 更新现有的文件。
+- -l 显示压缩文件内所包含的文件。**
+- -p 与-c参数类似，会将解压缩的结果显示到屏幕上，但不会执行任何的转换。
+- -t 检查压缩文件是否正确。
+- -u 与-f参数类似，但是除了更新现有的文件外，也会将压缩文件中的其他文件解压缩到目录中。
+- -v 执行是时显示详细的信息。 **
+- -z 仅显示压缩文件的备注文字。
+- -a 对文本文件进行必要的字符转换。
+- -b 不要对文本文件进行字符转换。
+- -C 压缩文件中的文件名称区分大小写。
+- -j 不处理压缩文件中原有的目录路径。
+- -L 将压缩文件中的全部文件名改为小写。
+- -M 将输出结果送到more程序处理。
+- -n 解压缩时不要覆盖原有的文件。
+- -o 不必先询问用户，unzip执行后覆盖原有文件。**
+- -P<密码> 使用zip的密码选项。
+- -q 执行时不显示任何信息。
+- -s 将文件名中的空白字符转换为底线字符。
+- -V 保留VMS的文件版本信息。
+- -X 解压缩时同时回存文件原来的UID/GID。
+- [.zip文件] 指定.zip压缩文件。
+- [文件] 指定要处理.zip压缩文件中的哪些文件。
+- -d<目录> 指定文件解压缩后所要存储的目录。 **
+- -x<文件> 指定不要处理.zip压缩文件中的哪些文件。
+- -Z unzip -Z等于执行zipinfo指令。
+
+```
+查看zip包中文件列表
+[root@master01 cmz]# unzip -l all.zip 
+Archive:  all.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+        0  05-07-2019 08:02   2.txt
+        0  05-07-2019 08:02   3.txt
+        0  05-07-2019 08:02   4.txt
+        0  05-07-2019 08:02   5.txt
+        0  05-07-2019 08:12   cc/
+        0  05-07-2019 08:12   cc/2.txt
+        0  05-07-2019 08:12   cc/3.txt
+        0  05-07-2019 08:12   cc/4.txt
+        0  05-07-2019 08:12   cc/5.txt
+---------                     -------
+        0                     9 files
+        
+[root@master01 cmz]# unzip -v all.zip  # -v 参数用于查看压缩文件目录信息，但是不解压该文件。
+Archive:  all.zip
+ Length   Method    Size  Cmpr    Date    Time   CRC-32   Name
+--------  ------  ------- ---- ---------- ----- --------  ----
+       0  Stored        0   0% 05-07-2019 08:02 00000000  2.txt
+       0  Stored        0   0% 05-07-2019 08:02 00000000  3.txt
+       0  Stored        0   0% 05-07-2019 08:02 00000000  4.txt
+       0  Stored        0   0% 05-07-2019 08:02 00000000  5.txt
+       0  Stored        0   0% 05-07-2019 08:12 00000000  cc/
+       0  Stored        0   0% 05-07-2019 08:12 00000000  cc/2.txt
+       0  Stored        0   0% 05-07-2019 08:12 00000000  cc/3.txt
+       0  Stored        0   0% 05-07-2019 08:12 00000000  cc/4.txt
+       0  Stored        0   0% 05-07-2019 08:12 00000000  cc/5.txt
+--------          -------  ---                            -------
+       0                0   0%                            9 files
+[root@master01 cmz]# 
+----------------------------------------------------------------------------
+解压，-d指定解压到该后面文件夹内，不指定就解压到当前目录下
+[root@master01 cmz]# ls
+2.txt  3.txt  4.txt  5.txt  all.zip  cc
+[root@master01 cmz]# unzip all.zip 
+Archive:  all.zip
+replace 2.txt? [y]es, [n]o, [A]ll, [N]one, [r]ename: n         
+replace 3.txt? [y]es, [n]o, [A]ll, [N]one, [r]ename: n
+replace 4.txt? [y]es, [n]o, [A]ll, [N]one, [r]ename: N
+
+[root@master01 cmz]# mkdir caimz
+[root@master01 cmz]# unzip all.zip -d caimz/
+Archive:  all.zip
+ extracting: caimz/2.txt             
+ extracting: caimz/3.txt             
+ extracting: caimz/4.txt             
+ extracting: caimz/5.txt             
+   creating: caimz/cc/
+ extracting: caimz/cc/2.txt          
+ extracting: caimz/cc/3.txt          
+ extracting: caimz/cc/4.txt          
+ extracting: caimz/cc/5.txt          
+[root@master01 cmz]# ls caimz/
+2.txt  3.txt  4.txt  5.txt  cc
+
+解压不提示文件是否覆盖
+[root@master01 cmz]# unzip -o all.zip 
+Archive:  all.zip
+ extracting: 2.txt                   
+ extracting: 3.txt                   
+ extracting: 4.txt                   
+ extracting: 5.txt                   
+ extracting: cc/2.txt                
+ extracting: cc/3.txt                
+ extracting: cc/4.txt                
+ extracting: cc/5.txt   
+```
 
 ### 6.5 scp
 
+&emsp;Linux scp命令用于Linux之间复制文件和目录。scp是 secure copy的缩写, scp是linux系统下基于ssh登陆进行安全的远程文件拷贝命令。
+
+**语法**
+
+```
+scp [-1246BCpqrv] [-c cipher] [-F ssh_config] [-i identity_file]
+[-l limit] [-o ssh_option] [-P port] [-S program]
+[[user@]host1:]file1 [...] [[user@]host2:]file2
+```
+
+简易写法:
+
+```
+scp [可选参数] file_source file_target 
+```
+
+**参数说明：**
+
+- -1： 强制scp命令使用协议ssh1
+- -2： 强制scp命令使用协议ssh2
+- -4： 强制scp命令只使用IPv4寻址
+- -6： 强制scp命令只使用IPv6寻址
+- -B： 使用批处理模式（传输过程中不询问传输口令或短语）
+- -C： 允许压缩。（将-C标志传递给ssh，从而打开压缩功能）**
+- -p：保留原文件的修改时间，访问时间和访问权限。
+- -q： 不显示传输进度条。
+- -r： 递归复制整个目录。**
+- -v：详细方式显示输出。scp和ssh(1)会显示出整个过程的调试信息。这些信息用于调试连接，验证和配置问题。
+- -c cipher： 以cipher将数据传输进行加密，这个选项将直接传递给ssh。
+- -F ssh_config： 指定一个替代的ssh配置文件，此参数直接传递给ssh。
+- -i identity_file： 从指定文件中读取传输时使用的密钥文件，此参数直接传递给ssh。
+- -l limit： 限定用户所能使用的带宽，以Kbit/s为单位。**
+- -o ssh_option： 如果习惯于使用ssh_config(5)中的参数传递方式，
+- -P port：注意是大写的P, port是指定数据传输用到的端口号 **
+- -p:  不显示传输进度条 **
+- -S program： 指定加密传输时所使用的程序。此程序必须能够理解ssh(1)的选项。
+
+````
+scp local_file remote_username@remote_ip:remote_folder 
+或者 
+scp local_file remote_username@remote_ip:remote_file 
+或者 
+scp local_file remote_ip:remote_folder 
+或者 
+scp local_file remote_ip:remote_file 
+
+第1,2个指定了用户名，命令执行后需要再输入密码，第1个仅指定了远程的目录，文件名字不变，第2个指定了文件名；
+第3,4个没有指定用户名，命令执行后需要输入用户名和密码，第3个仅指定了远程的目录，文件名字不变，第4个指定了文件名；
+````
+
+
+
+````
+推送[本地文件/文件夹推送到远端]
+1. 文件发送
+root@master01 cmz]# ls
+master.txt
+[root@master01 cmz]# scp master.txt root@192.168.5.110:/tmp/
+root@192.168.5.110's password: 
+master.txt       100%    9    13.4KB/s   00:00 
+2. 文件夹发送
+[root@master01 cmz]# scp -r caimengzhi root@192.168.5.110:/tmp
+root@192.168.5.110's password: 
+hosts            100%  266   359.6KB/s   00:00  
+----------------------------------------------------------------------------
+拉取[远端文件/文件夹拉取到本地]
+1. 拉取文件
+[root@master01 cmz]# scp 192.168.5.110:/tmp/master.txt .
+root@192.168.5.110's password: 
+master.txt    100%    9     7.7KB/s   00:00    
+[root@master01 cmz]# ls
+master.txt
+
+2. 拉取文件夹
+[root@master01 cmz]# scp -r 192.168.5.110:/tmp/caimengzhi .
+root@192.168.5.110's password: 
+hosts          100%  266   174.7KB/s   00:00    
+[root@master01 cmz]# ls
+caimengzhi  master.txt
+[root@master01 cmz]# ls caimengzhi/
+hosts
+````
+
+> scp是全量复制，本地有也会再起拉取
+
 ### 6.6 rsync
+
+&emsp;`rsync`是一款开源的，多功能的，快速的，可以实现全量和增量的本地或者远程的数据同步工具。`rsync` 命令一般有三种常见模式
+
+```
+1. 本地模式
+	rsync	[选项]	[源文件]	[目标文件]
+2. shell访问模式
+	1. 拉取
+		rsync	[选项]	[用户@主机:源文件]	   [目标文件]
+	2. 推送
+		rsync	[选项]	[目标文件]            [用户@主机:源文件]
+3. rsync守护进程模式
+	1. 拉取
+		rsync	[选项]	[用户名@主机::源文件]  [目标文件]
+		rsync	[选项]	rsync://用户@主机:端口/源文件	[目标文件]
+	2. 推送
+		rsync	[选项]	[源文件]	用户@主机::目标文件
+		rsync	[选项]	[源文件]	rsync://用户@主机:端口/目标文件
+```
+
+> 命令之间，至少要有一个空格。
+
+**参数说明：**
+
+- -v, --verbose 详细模式输出
+- -q, --quiet 精简输出模式
+- -c, --checksum 打开校验开关，强制对文件传输进行校验
+- -a, --archive 归档模式，表示以递归方式传输文件，并保持所有文件属性，等于-rlptgoD
+- -r, --recursive 对子目录以递归模式处理
+- -R, --relative 使用相对路径信息
+- -b, --backup 创建备份，也就是对于目的已经存在有同样的文件名时，将老的文件重新命名为~filename。可以使用--suffix选项来指定不同的备份文件前缀。
+- --backup-dir 将备份文件(如~filename)存放在在目录下。
+- -suffix=SUFFIX 定义备份文件前缀
+- -u, --update 仅仅进行更新，也就是跳过所有已经存在于DST，并且文件时间晚于要备份的文件。(不覆盖更新的文件)
+- -l, --links 保留软链结
+- -L, --copy-links 想对待常规文件一样处理软链结
+- --copy-unsafe-links 仅仅拷贝指向SRC路径目录树以外的链结
+- --safe-links 忽略指向SRC路径目录树以外的链结
+- -H, --hard-links 保留硬链结
+- -p, --perms 保持文件权限
+- -o, --owner 保持文件属主信息
+- -g, --group 保持文件属组信息
+- -D, --devices 保持设备文件信息
+- -t, --times 保持文件时间信息
+- -S, --sparse 对稀疏文件进行特殊处理以节省DST的空间
+- -n, --dry-run现实哪些文件将被传输
+- -W, --whole-file 拷贝文件，不进行增量检测
+- -x, --one-file-system 不要跨越文件系统边界
+- -B, --block-size=SIZE 检验算法使用的块尺寸，默认是700字节
+- -e, --rsh=COMMAND 指定使用rsh、ssh方式进行数据同步
+- --rsync-path=PATH 指定远程服务器上的rsync命令所在路径信息
+- -C, --cvs-exclude 使用和CVS一样的方法自动忽略文件，用来排除那些不希望传输的文件
+- --existing 仅仅更新那些已经存在于DST的文件，而不备份那些新创建的文件
+- --delete 删除那些DST中SRC没有的文件
+- --delete-excluded 同样删除接收端那些被该选项指定排除的文件
+- --delete-after 传输结束以后再删除
+- --ignore-errors 及时出现IO错误也进行删除
+- --max-delete=NUM 最多删除NUM个文件
+- --partial 保留那些因故没有完全传输的文件，以是加快随后的再次传输
+- --force 强制删除目录，即使不为空
+- --numeric-ids 不将数字的用户和组ID匹配为用户名和组名
+- --timeout=TIME IP超时时间，单位为秒
+- -I, --ignore-times 不跳过那些有同样的时间和长度的文件
+- --size-only 当决定是否要备份文件时，仅仅察看文件大小而不考虑文件时间
+- --modify-window=NUM 决定文件是否时间相同时使用的时间戳窗口，默认为0
+- -T --temp-dir=DIR 在DIR中创建临时文件
+- --compare-dest=DIR 同样比较DIR中的文件来决定是否需要备份
+- -P 等同于 --partial
+- --progress 显示备份过程
+- -z, --compress 对备份的文件在传输时进行压缩处理
+- --exclude=PATTERN 指定排除不需要传输的文件模式
+- --include=PATTERN 指定不排除而需要传输的文件模式
+- --exclude-from=FILE 排除FILE中指定模式的文件
+- --include-from=FILE 不排除FILE指定模式匹配的文件
+- --version 打印版本信息
+- --address 绑定到特定的地址
+- --config=FILE 指定其他的配置文件，不使用默认的rsyncd.conf文件
+- --port=PORT 指定其他的rsync服务端口
+- --blocking-io 对远程shell使用阻塞IO
+- -stats 给出某些文件的传输状态
+- --progress 在传输时现实传输过程
+- --log-format=formAT 指定日志文件格式
+- --password-file=FILE 从FILE中得到密码
+- --bwlimit=KBPS 限制I/O带宽，KBytes per second
+- -h, --help 显示帮助信息
+
+```
+[root@master01 cmz]# ls
+caimengzhi  master.txt
+[root@master01 cmz]# mkdir aa bb
+[root@master01 cmz]# tree .
+.
+├── aa
+├── bb
+├── caimengzhi
+│   └── hosts
+└── master.txt
+
+3 directories, 2 files
+[root@master01 cmz]# rsync -avz caimengzhi/ aa/  # 源文件后加/，就复制源文件里面文件到目标文件下
+sending incremental file list
+./
+hosts
+
+sent 210 bytes  received 38 bytes  496.00 bytes/sec
+total size is 266  speedup is 1.07
+[root@master01 cmz]# rsync -avz caimengzhi bb/ # 源文件后不加/，就复制源文件和源文件下文件到目标文件下
+sending incremental file list
+caimengzhi/
+caimengzhi/hosts
+
+sent 229 bytes  received 39 bytes  536.00 bytes/sec
+total size is 266  speedup is 0.99
+[root@master01 cmz]# tree .
+.
+├── aa
+│   └── hosts
+├── bb
+│   └── caimengzhi
+│       └── hosts
+├── caimengzhi
+│   └── hosts
+└── master.txt
+
+4 directories, 4 files
+```
+
+> 目标文件后面有没有/都没有影响，主要是源文件后面的/
+
+```
+目标文件和源文件都在一个机器上，也就是同机器上的文件拷贝.
+[root@master01 cmz]# rsync -avz caimengzhi /tmp/
+sending incremental file list
+caimengzhi/
+caimengzhi/hosts
+
+sent 229 bytes  received 39 bytes  536.00 bytes/sec
+total size is 266  speedup is 0.99
+[root@master01 cmz]# ls /tmp/caimengzhi/
+hosts
+```
+
+> 类似`cp`，只不过能增量复制。	
+
+````
+删除文件的特殊例子 --delete，怎么能快速删除海量文件，
+[root@master01 cmz]# mkdir null aa
+[root@master01 cmz]# touch aa/{1..100000}.txt
+[root@master01 cmz]# ls
+aa  null
+[root@master01 cmz]# ll aa|wc -l
+100001
+[root@master01 cmz]# rsync -abz --delete null/ aa/
+--delete 使aa目录下内容要和控目录null保持一致，不同的文件及目录将会呗删除，即null里面有什么内容，aa里面就有什么内容，null里面没有的，aa里面必须要删除，因为null目录为空，因此会删除aa目录下所有内容。
+
+
+对比删除时间
+[root@master01 cmz]# touch aa/{1..100000}.txt
+[root@master01 cmz]# time rsync -abz --delete null/ aa/
+
+real	0m6.731s
+user	0m0.242s
+sys	0m5.141s
+[root@master01 cmz]# touch aa/{1..100000}.txt
+[root@master01 cmz]# time rm -rf aa/
+
+real	0m6.647s
+user	0m0.178s
+sys	0m6.276s
+因为文件比较少，差异不是那么明显
+````
+
+```
+远程推送
+	1. 文件推送
+	[root@master01 cmz]# rsync -avz 1.txt 2.txt 3.txt  root@192.168.5.110:/tmp/
+    root@192.168.5.110's password: 
+    sending incremental file list
+    1.txt
+    2.txt
+    3.txt
+
+    sent 188 bytes  received 73 bytes  104.40 bytes/sec
+    total size is 0  speedup is 0.00
+	
+	2. 文件夹推送
+	[root@master01 cmz]# rsync -avz aa  root@192.168.5.110:/tmp/
+    root@192.168.5.110's password: 
+    sending incremental file list
+    aa/
+    aa/1.txt
+    aa/2.txt
+    aa/3.txt
+
+    sent 216 bytes  received 77 bytes  83.71 bytes/sec
+    total size is 0  speedup is 0.00
+	
+	源目录后面没有/，就是推送目录。源目录后面有/，就是推送目录下文件及目录
+
+远程拉取
+	1. 拉取文件
+	[root@master01 cmz]# ls
+    1.txt  2.txt  3.txt  aa
+    [root@master01 cmz]# rm -rf *  # 删除文件
+    [root@master01 cmz]# ls
+    [root@master01 cmz]# rsync -avz root@192.168.5.110:/tmp/{1,2,3}.txt .
+    root@192.168.5.110's password: 
+    receiving incremental file list
+    1.txt
+    2.txt
+    3.txt
+
+    sent 81 bytes  received 185 bytes  106.40 bytes/sec
+    total size is 0  speedup is 0.00
+	[root@master01 cmz]# ls 
+	1.txt  2.txt  3.txt   # 可见文件已经被拉取过来了
+	
+	2. 拉取目录
+	[root@master01 cmz]# rsync -avz root@192.168.5.110:/tmp/aa .
+    root@192.168.5.110's password: 
+    receiving incremental file list
+    aa/
+    aa/1.txt
+    aa/2.txt
+    aa/3.txt
+
+    sent 85 bytes  received 216 bytes  120.40 bytes/sec
+    total size is 0  speedup is 0.00
+    [root@master01 cmz]# ll
+    total 0
+    -rw-r--r-- 1 root root  0 May  7 22:41 1.txt
+    -rw-r--r-- 1 root root  0 May  7 22:41 2.txt
+    -rw-r--r-- 1 root root  0 May  7 22:41 3.txt
+    drwxr-xr-x 2 root root 45 May  7 22:41 aa
+    [root@master01 cmz]# tree a
+    a [error opening dir]
+
+    0 directories, 0 files
+    [root@master01 cmz]# tree aa
+    aa
+    ├── 1.txt
+    ├── 2.txt
+    └── 3.txt
+
+    0 directories, 3 files
+	
+	效果一样，源目录下后加/，就同步源目录下文件及目录
+	[root@master01 cmz]# rsync -avz root@192.168.5.110:/tmp/aa/ .
+    root@192.168.5.110's password: 
+    receiving incremental file list
+    ./
+    1.txt
+    2.txt
+    3.txt
+
+    sent 84 bytes  received 203 bytes  114.80 bytes/sec
+    total size is 0  speedup is 0.00
+    [root@master01 cmz]# ls
+    1.txt  2.txt  3.txt
+```
+
+> `rsync`和`scp`都可以远程同步数据，scp是全量拷贝。而rsync可以是增量拷贝。
+
+```
+[root@master01 cmz]# rm -rf *
+[root@master01 cmz]# rsync -avz root@192.168.5.110:/tmp/aa/ .
+root@192.168.5.110's password: 
+receiving incremental file list
+./
+1.txt
+2.txt
+3.txt
+
+sent 84 bytes  received 203 bytes  114.80 bytes/sec
+total size is 0  speedup is 0.00
+[root@master01 cmz]# ls
+1.txt  2.txt  3.txt
+[root@master01 cmz]# rsync -avz root@192.168.5.110:/tmp/aa/ .
+root@192.168.5.110's password: 
+receiving incremental file list
+
+sent 20 bytes  received 88 bytes  43.20 bytes/sec
+total size is 0  speedup is 0.00
+和本地一样就不拷贝了。
+去远程机器上，增加一个文件。再次拷贝一下，
+root@leco:/tmp# cd aa/
+root@leco:/tmp/aa# cp /etc/hosts .
+[root@master01 cmz]# rsync -avz root@192.168.5.110:/tmp/aa/ .
+root@192.168.5.110's password: 
+receiving incremental file list
+./
+hosts
+
+sent 46 bytes  received 373 bytes  167.60 bytes/sec
+total size is 387  speedup is 0.92
+
+改变源文件数据
+root@leco:/tmp/aa# ls
+1.txt  2.txt  3.txt  hosts
+root@leco:/tmp/aa# echo "1111">1.txt 
+[root@master01 cmz]# rsync -avz root@192.168.5.110:/tmp/aa/ .
+root@192.168.5.110's password: 
+receiving incremental file list
+1.txt
+
+sent 43 bytes  received 167 bytes  84.00 bytes/sec
+total size is 392  speedup is 1.87
+可见只同步有差异的数据，
+---------------------------------------------------------------------------------------------------
+[root@master01 cmz]# scp -r  root@192.168.5.110:/tmp/aa/ .
+root@192.168.5.110's password: 
+1.txt                           100%    5     4.3KB/s   00:00    
+hosts                           100%  387   237.5KB/s   00:00    
+3.txt                           100%    0     0.0KB/s   00:00    
+2.txt                           100%    0     0.0KB/s   00:00    
+[root@master01 cmz]# scp -r  root@192.168.5.110:/tmp/aa/ .
+root@192.168.5.110's password: 
+1.txt                           100%    5     6.4KB/s   00:00    
+hosts                           100%  387   322.5KB/s   00:00    
+3.txt                           100%    0     0.0KB/s   00:00    
+2.txt                           100%    0     0.0KB/s   00:00   
+可见scp复制数据，都是全量的。不管你本地有没有，都给你再拷贝一遍过来。
+```
+
+> 不管是`rsync`还是`scp`都是基于ssh通道，所有输入的密码就是ssh对应的账号密码。
 
 ## 7. 用户管理
 
@@ -2442,6 +4002,122 @@ dos2unix: converting file c1.log to Unix format ...
 
 ### 10.1 ifconfig
 
+&emsp;Linux ifconfig命令用于显示或设置网络设备。ifconfig可设置网络设备的状态，或是显示目前的设置。
+
+
+````
+ifconfig [网络设备][down up -allmulti -arp -promisc][add<地址>][del<地址>][<hw<网络设备类型><硬件地址>][io_addr<I/O地址>][irq<IRQ地址>][media<网络媒介类型>][mem_start<内存地址>][metric<数目>][mtu<字节>][netmask<子网掩码>][tunnel<地址>][-broadcast<地址>][-pointopoint<地址>][IP地址]
+````
+
+- add<地址> 设置网络设备IPv6的IP地址。
+- del<地址> 删除网络设备IPv6的IP地址。
+- down 关闭指定的网络设备。
+- hw<网络设备类型><硬件地址> 设置网络设备的类型与硬件地址。
+- io_addr<I/O地址> 设置网络设备的I/O地址。
+- irq<IRQ地址> 设置网络设备的IRQ。
+- media<网络媒介类型> 设置网络设备的媒介类型。
+- mem_start<内存地址> 设置网络设备在主内存所占用的起始地址。
+- metric<数目> 指定在计算数据包的转送次数时，所要加上的数目。
+- mtu<字节> 设置网络设备的MTU。
+- netmask<子网掩码> 设置网络设备的子网掩码。
+- tunnel<地址> 建立IPv4与IPv6之间的隧道通信地址。
+- up 启动指定的网络设备。
+- broadcast<地址> 将要送往指定地址的数据包当成广播数据包来处理。
+- pointopoint<地址> 与指定地址的网络设备建立直接连线，此模式具有保密功能。
+- promisc 关闭或启动指定网络设备的promiscuous模式。
+- [IP地址] 指定网络设备的IP地址。
+- [网络设备] 指定网络设备的名称。
+
+```
+显示所有网卡信息
+[root@master01 ~]# ifconfig
+docker0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1450
+        inet 172.17.7.1  netmask 255.255.255.0  broadcast 172.17.7.255
+        inet6 fe80::42:eeff:fe6d:570b  prefixlen 64  scopeid 0x20<link>
+        ether 02:42:ee:6d:57:0b  txqueuelen 0  (Ethernet)
+        RX packets 45  bytes 4919 (4.8 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 62  bytes 4736 (4.6 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+eno1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.5.100  netmask 255.255.255.0  broadcast 192.168.5.255
+        inet6 fe80::56d2:664e:e6f6:82db  prefixlen 64  scopeid 0x20<link>
+        ether 0c:54:a5:01:7c:5b  txqueuelen 1000  (Ethernet)
+        RX packets 15724030  bytes 3085207447 (2.8 GiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 16417165  bytes 3228395397 (3.0 GiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+flannel.1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1450
+        inet 172.17.7.0  netmask 255.255.255.255  broadcast 0.0.0.0
+        inet6 fe80::ec2e:1dff:fea3:e33e  prefixlen 64  scopeid 0x20<link>
+        ether ee:2e:1d:a3:e3:3e  txqueuelen 0  (Ethernet)
+        RX packets 60  bytes 7875 (7.6 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 68  bytes 5195 (5.0 KiB)
+        TX errors 0  dropped 8 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 14094691  bytes 3311043347 (3.0 GiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 14094691  bytes 3311043347 (3.0 GiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+veth5db34eb: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1450
+        inet6 fe80::e88d:90ff:fe4d:4cd6  prefixlen 64  scopeid 0x20<link>
+        ether ea:8d:90:4d:4c:d6  txqueuelen 0  (Ethernet)
+        RX packets 26  bytes 4079 (3.9 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 44  bytes 3364 (3.2 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+
+
+显示指定网卡信息
+root@leco:~# ifconfig enp3s0
+enp3s0    Link encap:以太网  硬件地址 74:27:ea:b0:aa:2c  
+          inet 地址:192.168.5.110  广播:192.168.5.255  掩码:255.255.255.0
+          inet6 地址: fe80::7627:eaff:feb0:aa2c/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  跃点数:1
+          接收数据包:318562 错误:0 丢弃:0 过载:0 帧数:0
+          发送数据包:219695 错误:0 丢弃:0 过载:0 载波:0
+          碰撞:0 发送队列长度:1000 
+          接收字节:23933588 (23.9 MB)  发送字节:243692185 (243.6 MB)
+
+网卡开启和关闭
+# ifconfig eth0 down
+# ifconfig eth0 up
+
+用ifconfig修改MAC地址
+# ifconfig eth0 down //关闭网卡
+# ifconfig eth0 hw ether 00:AA:BB:CC:DD:EE //修改MAC地址
+# ifconfig eth0 up //启动网卡
+# ifconfig eth1 hw ether 00:1D:1C:1D:1E //关闭网卡并修改MAC地址 
+# ifconfig eth1 up //启动网卡
+
+配置IP地址
+# ifconfig eth0 192.168.1.56 
+//给eth0网卡配置IP地址
+# ifconfig eth0 192.168.1.56 netmask 255.255.255.0 
+// 给eth0网卡配置IP地址,并加上子掩码
+# ifconfig eth0 192.168.1.56 netmask 255.255.255.0 broadcast 192.168.1.255
+// 给eth0网卡配置IP地址,加上子掩码,加上个广播地址
+
+开启和关闭arp
+# ifconfig eth0 arp  //开启
+# ifconfig eth0 -arp  //关闭
+
+设置最大的传输单元
+# ifconfig eth0 mtu 1500 
+//设置能通过的最大数据包大小为 1500 bytes
+```
+
+
+
 ### 10.2 ifup
 
 ### 10.3 ifdown
@@ -2486,9 +4162,255 @@ dos2unix: converting file c1.log to Unix format ...
 
 ### 11.1 lsof
 
+&emsp;Linux 查看端口占用情况可以使用 **lsof** 和 **netstat** 命令。lsof 查看端口占用语法格式：
+
+```
+lsof -i:端口号
+```
+
+```
+root@leco:~# lsof -i:22
+COMMAND  PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+sshd    1401 root    3u  IPv4  39679      0t0  TCP *:ssh (LISTEN)
+sshd    1401 root    4u  IPv6  39681      0t0  TCP *:ssh (LISTEN)
+sshd    3518 root    3u  IPv4  34543      0t0  TCP 192.168.5.110:ssh->192.168.5.1:7644 (ESTABLISHED)
+sshd    3589 leco    3u  IPv4  34543      0t0  TCP 192.168.5.110:ssh->192.168.5.1:7644 (ESTABLISHED)
+root@leco:~# lsof -i:6000
+COMMAND  PID     USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+nginx   1443     root    6u  IPv4  21120      0t0  TCP *:x11 (LISTEN)
+nginx   1444 www-data    6u  IPv4  21120      0t0  TCP *:x11 (LISTEN)
+nginx   1445 www-data    6u  IPv4  21120      0t0  TCP *:x11 (LISTEN)
+nginx   1446 www-data    6u  IPv4  21120      0t0  TCP *:x11 (LISTEN)
+nginx   1447 www-data    6u  IPv4  21120      0t0  TCP *:x11 (LISTEN)
+```
+
+可以看到 `6000` 端口已经被轻 `nginx`服务占用。
+
+
+
+```
+# 使用root用户来执行lsof -i 命令
+root@leco:~# lsof -i
+COMMAND     PID            USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+cupsd       795            root   10u  IPv6  19840      0t0  TCP ip6-localhost:ipp (LISTEN)
+cupsd       795            root   11u  IPv4  19841      0t0  TCP localhost:ipp (LISTEN)
+mongod      811         mongodb   10u  IPv4  25119      0t0  TCP localhost:27017 (LISTEN)
+avahi-dae   871           avahi   12u  IPv4  20687      0t0  UDP *:mdns 
+avahi-dae   871           avahi   13u  IPv6  20688      0t0  UDP *:mdns 
+avahi-dae   871           avahi   14u  IPv4  20689      0t0  UDP *:51183 
+avahi-dae   871           avahi   15u  IPv6  20690      0t0  UDP *:41768 
+cups-brow   954            root    8u  IPv4  20845      0t0  UDP *:ipp 
+proxysql   1074            root   19u  IPv4  20827      0t0  TCP *:6033 (LISTEN)
+proxysql   1074            root   20u  IPv4  20828      0t0  TCP *:6033 (LISTEN)
+proxysql   1074            root   21u  IPv4  20829      0t0  TCP *:6033 (LISTEN)
+proxysql   1074            root   22u  IPv4  20830      0t0  TCP *:6033 (LISTEN)
+proxysql   1074            root   23u  IPv4  25711      0t0  TCP *:6032 (LISTEN)
+sshd       1401            root    3u  IPv4  39679      0t0  TCP *:ssh (LISTEN)
+sshd       1401            root    4u  IPv6  39681      0t0  TCP *:ssh (LISTEN)
+mysqld     1421           mysql   24u  IPv6  31901      0t0  TCP *:mysql (LISTEN)
+mysqld     1421           mysql   51u  IPv4  31943      0t0  TCP 192.168.5.110:53860->192.168.2.146:mysql (ESTABLISHED)
+nginx      1443            root    6u  IPv4  21120      0t0  TCP *:x11 (LISTEN)
+nginx      1443            root    7u  IPv4  21121      0t0  TCP *:90 (LISTEN)
+nginx      1443            root    8u  IPv4  21122      0t0  TCP *:afs3-fileserver (LISTEN)
+nginx      1443            root    9u  IPv4  21123      0t0  TCP *:kerberos (LISTEN)
+nginx      1444        www-data    6u  IPv4  21120      0t0  TCP *:x11 (LISTEN)
+nginx      1444        www-data    7u  IPv4  21121      0t0  TCP *:90 (LISTEN)
+nginx      1444        www-data    8u  IPv4  21122      0t0  TCP *:afs3-fileserver (LISTEN)
+nginx      1444        www-data    9u  IPv4  21123      0t0  TCP *:kerberos (LISTEN)
+nginx      1445        www-data    6u  IPv4  21120      0t0  TCP *:x11 (LISTEN)
+nginx      1445        www-data    7u  IPv4  21121      0t0  TCP *:90 (LISTEN)
+nginx      1445        www-data    8u  IPv4  21122      0t0  TCP *:afs3-fileserver (LISTEN)
+nginx      1445        www-data    9u  IPv4  21123      0t0  TCP *:kerberos (LISTEN)
+nginx      1446        www-data    6u  IPv4  21120      0t0  TCP *:x11 (LISTEN)
+nginx      1446        www-data    7u  IPv4  21121      0t0  TCP *:90 (LISTEN)
+nginx      1446        www-data    8u  IPv4  21122      0t0  TCP *:afs3-fileserver (LISTEN)
+nginx      1446        www-data    9u  IPv4  21123      0t0  TCP *:kerberos (LISTEN)
+nginx      1447        www-data    6u  IPv4  21120      0t0  TCP *:x11 (LISTEN)
+nginx      1447        www-data    7u  IPv4  21121      0t0  TCP *:90 (LISTEN)
+nginx      1447        www-data    8u  IPv4  21122      0t0  TCP *:afs3-fileserver (LISTEN)
+nginx      1447        www-data    9u  IPv4  21123      0t0  TCP *:kerberos (LISTEN)
+chronogra  1477      chronograf    5u  IPv6  27287      0t0  TCP *:8888 (LISTEN)
+rwhod      1600           rwhod    3u  IPv4  28701      0t0  UDP *:who 
+rwhod      1604           rwhod    3u  IPv4  28701      0t0  UDP *:who 
+redis-sen  1629           redis    4u  IPv4  29195      0t0  TCP localhost:26379 (LISTEN)
+redis-sen  1629           redis    5u  IPv4  29198      0t0  TCP localhost:49615->localhost:6379 (ESTABLISHED)
+redis-sen  1629           redis    6u  IPv4  29199      0t0  TCP localhost:45091->localhost:6379 (ESTABLISHED)
+redis-ser  1630           redis    4u  IPv4  27754      0t0  TCP *:6379 (LISTEN)
+redis-ser  1630           redis    5u  IPv4  27218      0t0  TCP localhost:6379->localhost:49615 (ESTABLISHED)
+redis-ser  1630           redis    6u  IPv4  27219      0t0  TCP localhost:6379->localhost:45091 (ESTABLISHED)
+ntpd       1661             ntp   16u  IPv6  25007      0t0  UDP *:ntp 
+ntpd       1661             ntp   17u  IPv4  25010      0t0  UDP *:ntp 
+ntpd       1661             ntp   18u  IPv4  25014      0t0  UDP localhost:ntp 
+ntpd       1661             ntp   19u  IPv6  25016      0t0  UDP ip6-localhost:ntp 
+ntpd       1661             ntp   23u  IPv4  28496      0t0  UDP 192.168.5.110:ntp 
+ntpd       1661             ntp   24u  IPv6  28499      0t0  UDP [fe80::7627:eaff:feb0:aa2c]:ntp 
+ntpd       1661             ntp   25u  IPv4  32965      0t0  UDP 172.16.1.1:ntp 
+ntpd       1661             ntp   26u  IPv4  32967      0t0  UDP 172.16.97.1:ntp 
+ntpd       1661             ntp   27u  IPv6  37238      0t0  UDP [fe80::250:56ff:fec0:1]:ntp 
+ntpd       1661             ntp   28u  IPv6  37240      0t0  UDP [fe80::250:56ff:fec0:8]:ntp 
+tp_core    1688            root    4u  IPv4  27214      0t0  UDP localhost:56899->localhost:42396 
+tp_core    1688            root    5u  IPv4  27215      0t0  UDP localhost:42396->localhost:56899 
+tp_core    1688            root    6u  IPv4  27216      0t0  TCP localhost:52080 (LISTEN)
+tp_core    1688            root   14u  IPv4  29269      0t0  TCP *:52189 (LISTEN)
+tp_core    1688            root   15u  IPv4  27896      0t0  TCP *:52089 (LISTEN)
+tp_core    1688            root   22u  IPv4  27307      0t0  TCP *:52389 (LISTEN)
+tp_web     1775            root    6u  IPv4  30834      0t0  TCP *:7190 (LISTEN)
+teamviewe  1820            root   13u  IPv4  27559      0t0  TCP localhost:5939 (LISTEN)
+teamviewe  1820            root   15u  IPv4 654847      0t0  TCP 192.168.5.110:50896->CA-VAN-ANX-R004.teamviewer.com:5938 (ESTABLISHED)
+shellinab  2145     shellinabox    4u  IPv4  25421      0t0  TCP *:4200 (LISTEN)
+apache2    2217            root    4u  IPv6  31746      0t0  TCP *:http (LISTEN)
+apache2    2219        www-data    4u  IPv6  31746      0t0  TCP *:http (LISTEN)
+apache2    2220        www-data    4u  IPv6  31746      0t0  TCP *:http (LISTEN)
+ntop       2320            ntop    1u  IPv4  28413      0t0  TCP *:3000 (LISTEN)
+vmware-au  2551            root    8u  IPv6  32242      0t0  TCP *:902 (LISTEN)
+vmware-au  2551            root    9u  IPv4  32243      0t0  TCP *:902 (LISTEN)
+vmware-ho  2629            root   14u  IPv4  34056      0t0  TCP *:https (LISTEN)
+vmware-ho  2629            root   15u  IPv6  34057      0t0  TCP *:https (LISTEN)
+vmware-ho  2629            root   18u  IPv4  34059      0t0  TCP localhost:8307 (LISTEN)
+nmbd       2696            root   16u  IPv4  31252      0t0  UDP *:netbios-ns 
+nmbd       2696            root   17u  IPv4  31253      0t0  UDP *:netbios-dgm 
+nmbd       2696            root   18u  IPv4  31255      0t0  UDP 192.168.5.110:netbios-ns 
+nmbd       2696            root   19u  IPv4  31256      0t0  UDP 192.168.5.255:netbios-ns 
+nmbd       2696            root   20u  IPv4  31257      0t0  UDP 192.168.5.110:netbios-dgm 
+nmbd       2696            root   21u  IPv4  31258      0t0  UDP 192.168.5.255:netbios-dgm 
+nmbd       2696            root   22u  IPv4  31259      0t0  UDP 172.16.97.1:netbios-ns 
+nmbd       2696            root   23u  IPv4  31260      0t0  UDP 172.16.97.255:netbios-ns 
+nmbd       2696            root   24u  IPv4  31261      0t0  UDP 172.16.97.1:netbios-dgm 
+nmbd       2696            root   25u  IPv4  31262      0t0  UDP 172.16.97.255:netbios-dgm 
+nmbd       2696            root   26u  IPv4  31263      0t0  UDP 172.16.1.1:netbios-ns 
+nmbd       2696            root   27u  IPv4  31264      0t0  UDP 172.16.1.255:netbios-ns 
+nmbd       2696            root   28u  IPv4  31265      0t0  UDP 172.16.1.1:netbios-dgm 
+nmbd       2696            root   29u  IPv4  31266      0t0  UDP 172.16.1.255:netbios-dgm 
+nmbd       2696            root   31u  IPv4  56357      0t0  UDP 172.17.0.1:netbios-ns 
+nmbd       2696            root   32u  IPv4  56358      0t0  UDP 172.17.255.255:netbios-ns 
+nmbd       2696            root   33u  IPv4  56359      0t0  UDP 172.17.0.1:netbios-dgm 
+nmbd       2696            root   34u  IPv4  56360      0t0  UDP 172.17.255.255:netbios-dgm 
+nmbd       2696            root   35u  IPv4  56361      0t0  UDP 172.18.0.1:netbios-ns 
+nmbd       2696            root   36u  IPv4  56362      0t0  UDP 172.18.255.255:netbios-ns 
+nmbd       2696            root   37u  IPv4  56363      0t0  UDP 172.18.0.1:netbios-dgm 
+nmbd       2696            root   38u  IPv4  56364      0t0  UDP 172.18.255.255:netbios-dgm 
+nmbd       2696            root   39u  IPv4  56365      0t0  UDP 172.19.0.1:netbios-ns 
+nmbd       2696            root   40u  IPv4  56366      0t0  UDP 172.19.255.255:netbios-ns 
+nmbd       2696            root   41u  IPv4  56367      0t0  UDP 172.19.0.1:netbios-dgm 
+nmbd       2696            root   42u  IPv4  56368      0t0  UDP 172.19.255.255:netbios-dgm 
+nmbd       2696            root   43u  IPv4  56369      0t0  UDP 172.20.0.1:netbios-ns 
+nmbd       2696            root   44u  IPv4  56370      0t0  UDP 172.20.255.255:netbios-ns 
+nmbd       2696            root   45u  IPv4  56371      0t0  UDP 172.20.0.1:netbios-dgm 
+nmbd       2696            root   46u  IPv4  56372      0t0  UDP 172.20.255.255:netbios-dgm 
+nmbd       2696            root   47u  IPv4  56373      0t0  UDP 192.168.122.1:netbios-ns 
+nmbd       2696            root   48u  IPv4  56374      0t0  UDP 192.168.122.255:netbios-ns 
+nmbd       2696            root   49u  IPv4  56375      0t0  UDP 192.168.122.1:netbios-dgm 
+nmbd       2696            root   50u  IPv4  56376      0t0  UDP 192.168.122.255:netbios-dgm 
+smbd       2767            root   34u  IPv6  34828      0t0  TCP *:microsoft-ds (LISTEN)
+smbd       2767            root   35u  IPv6  34829      0t0  TCP *:netbios-ssn (LISTEN)
+smbd       2767            root   36u  IPv4  34830      0t0  TCP *:microsoft-ds (LISTEN)
+smbd       2767            root   37u  IPv4  34831      0t0  TCP *:netbios-ssn (LISTEN)
+sshd       3518            root    3u  IPv4  34543      0t0  TCP 192.168.5.110:ssh->192.168.5.1:7644 (ESTABLISHED)
+sshd       3589            leco    3u  IPv4  34543      0t0  TCP 192.168.5.110:ssh->192.168.5.1:7644 (ESTABLISHED)
+dnsmasq    3858 libvirt-dnsmasq    3u  IPv4  39695      0t0  UDP *:bootps 
+dnsmasq    3858 libvirt-dnsmasq    5u  IPv4  39698      0t0  UDP 192.168.122.1:domain 
+dnsmasq    3858 libvirt-dnsmasq    6u  IPv4  39699      0t0  TCP 192.168.122.1:domain (LISTEN)
+smbd      27361            root   38u  IPv4 522400      0t0  TCP 192.168.5.110:microsoft-ds->192.168.5.1:52759 (ESTABLISHED)
+
+字段详解
+COMMAND: 进程的名称
+PID：进程的标识符
+USER：进程所有者
+FD：文件描述符，应用程序通过文件描述符识别该文件，如cwd，txt等
+TYPE：文件类型，如DIR,REG等
+DEVICE：指定磁盘的名称
+SIZE: 文件的大小
+NODE: 索引节点(文件在磁盘上的标识)
+NAME：打开文件的确切名称
+```
+
+更多`lsof`用法
+
+```
+lsof -i:8080：查看8080端口占用
+lsof abc.txt：显示开启文件abc.txt的进程
+lsof -c abc：显示abc进程现在打开的文件
+lsof -c -p 1234：列出进程号为1234的进程所打开的文件
+lsof -g gid：显示归属gid的进程情况
+lsof +d /usr/local/：显示目录下被进程开启的文件
+lsof +D /usr/local/：同上，但是会搜索目录下的目录，时间较长
+lsof -d 4：显示使用fd为4的进程
+lsof -i -U：显示所有打开的端口和UNIX domain文件
+```
+
 ### 11.2 uptime
 
+```
+root@leco:~# uptime
+ 14:35:59 up  4:17,  1 user,  load average: 0.10, 0.04, 0.01
+   |       |   |     |            |          |     |     |_ 15分钟负载
+   |       |   |     |            |          |     |_  5分钟负载
+   |       |   |     |            |          |__ 1分钟负载
+   |       |   |     |            |__ 负载[后面表示1,5,15分钟系统负载的值，越大表示负载越高]
+   |       |   |     |___ 登录当前系统yoghurt
+   |       |   |
+   |       |___|__  开机状态UP，开机到现在时间4h17m
+   |___  目前系统当前时间
+```
+
 ### 11.3 free
+
+&emsp;Linux free命令用于显示内存状态。free指令会显示内存的使用情况，包括实体内存，虚拟的交换文件内存，共享内存区段，以及系统核心使用的缓冲区等。
+
+用法
+
+```
+free [-bkmotV][-s <间隔秒数>]
+```
+
+**参数说明**：
+
+- -b 　以Byte为单位显示内存使用情况。
+- -k 　以KB为单位显示内存使用情况。
+- -m 　以MB为单位显示内存使用情况。
+- -o 　不显示缓冲区调节列。
+- -s<间隔秒数> 　持续观察内存使用状况。
+- -t 　显示内存总和列。
+- -V 　显示版本信息。
+
+显示内存使用情况
+
+```
+[root@master01 ~]# free //显示内存使用信息
+              total        used        free      shared  buff/cache   available
+Mem:        3312584      676996      138616      174628     2496972     2166080
+Swap:       3538940        5384     3533556
+```
+
+以上不好读[按照字节]，不友好，一般不推荐使用。
+
+以总和的形式显示内存的使用信息
+
+```
+[root@master01 ~]# free -g  # 显示单位是GB
+              total        used        free      shared  buff/cache   available
+Mem:              3           0           0           0           2           2
+Swap:             3           0           3
+[root@master01 ~]# free -m  # 显示单位是MB
+              total        used        free      shared  buff/cache   available
+Mem:           3234         661         126         178        2446        2107
+Swap:          3455           5        3450
+[root@master01 ~]# free -k  # 显示单位是KB
+              total        used        free      shared  buff/cache   available
+Mem:        3312584      677092      129836      182820     2505656     2157784
+Swap:       3538940        5384     3533556
+
+# 显示单位是MB,且每隔2秒，执行一次
+[root@master01 ~]# free -m -s 2
+              total        used        free      shared  buff/cache   available
+Mem:           3234         662         125         178        2447        2106
+Swap:          3455           5        3450
+
+              total        used        free      shared  buff/cache   available
+Mem:           3234         662         125         178        2447        2106
+```
+
+
 
 ### 11.4 iftop
 
@@ -2504,26 +4426,1608 @@ dos2unix: converting file c1.log to Unix format ...
 
 ### 11.10 chkconfig
 
+&emsp;Linux chkconfig命令用于检查，设置系统的各种服务。这是Red Hat公司遵循GPL规则所开发的程序，它可查询操作系统在每一个执行等级中会执行哪些系统服务，其中包括各类常驻服务。
+
+> 该命令在centos7上即将废除了。在centos6用的很多。
+
+**语法**
+
+```
+chkconfig [--add][--del][--list][系统服务] 或 chkconfig [--level <等级代号>][系统服务][on/off/reset]
+```
+
+**参数**：
+
+- --add 　增加所指定的系统服务，让chkconfig指令得以管理它，并同时在系统启动的叙述文件内增加相关数据。
+- --del 　删除所指定的系统服务，不再由chkconfig指令管理，并同时在系统启动的叙述文件内删除相关数据。
+- --level<等级代号> 　指定读系统服务要在哪一个执行等级中开启或关毕。
+
+```
+[root@iZwz9e73kbnnm5ufk088lnZ ~]# chkconfig --list
+aegis          	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+agentwatch     	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+auditd         	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+blk-availability	0:off	1:on	2:on	3:on	4:on	5:on	6:off
+cgconfig       	0:off	1:off	2:off	3:off	4:off	5:off	6:off
+cgred          	0:off	1:off	2:off	3:off	4:off	5:off	6:off
+cloud-config   	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+cloud-final    	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+cloud-init     	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+cloud-init-local	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+crond          	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+ecs_mq-service 	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+eni-service    	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+htcacheclean   	0:off	1:off	2:off	3:off	4:off	5:off	6:off
+httpd          	0:off	1:off	2:off	3:off	4:off	5:off	6:off
+ip6tables      	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+iptables       	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+irqbalance     	0:off	1:off	2:off	3:on	4:on	5:on	6:off
+iscsi          	0:off	1:off	2:off	3:on	4:on	5:on	6:off
+iscsid         	0:off	1:off	2:off	3:on	4:on	5:on	6:off
+lvm2-monitor   	0:off	1:on	2:on	3:on	4:on	5:on	6:off
+mdmonitor      	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+messagebus     	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+multipathd     	0:off	1:off	2:off	3:off	4:off	5:off	6:off
+netconsole     	0:off	1:off	2:off	3:off	4:off	5:off	6:off
+netfs          	0:off	1:off	2:off	3:on	4:on	5:on	6:off
+network        	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+nginx          	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+nscd           	0:off	1:off	2:off	3:off	4:off	5:off	6:off
+ntpd           	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+ntpdate        	0:off	1:off	2:off	3:off	4:off	5:off	6:off
+rdisc          	0:off	1:off	2:off	3:off	4:off	5:off	6:off
+redis          	0:off	1:off	2:off	3:off	4:off	5:off	6:off
+redis-sentinel 	0:off	1:off	2:off	3:off	4:off	5:off	6:off
+restorecond    	0:off	1:off	2:off	3:off	4:off	5:off	6:off
+rsyslog        	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+salt-master    	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+salt-minion    	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+saslauthd      	0:off	1:off	2:off	3:off	4:off	5:off	6:off
+smartd         	0:off	1:off	2:off	3:off	4:off	5:off	6:off
+sshd           	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+udev-post      	0:off	1:on	2:on	3:on	4:on	5:on	6:off
+vsftpd         	0:off	1:off	2:off	3:off	4:off	5:off	6:off
+
+[root@iZwz9e73kbnnm5ufk088lnZ ~]# chkconfig --list nginx
+nginx          	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+[root@iZwz9e73kbnnm5ufk088lnZ ~]# chkconfig nginx off  # 开机不自启动
+[root@iZwz9e73kbnnm5ufk088lnZ ~]# chkconfig --list nginx
+nginx          	0:off	1:off	2:off	3:off	4:off	5:off	6:off
+[root@iZwz9e73kbnnm5ufk088lnZ ~]# chkconfig nginx on   # 开机自启动
+[root@iZwz9e73kbnnm5ufk088lnZ ~]# chkconfig --list nginx
+nginx          	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+```
+
+&emsp;Linux运行等级。
+
+**参数**：
+
+- 0:     关机
+- 1:     单用户模式
+- 2：  没有网络的多用户模式
+- 3：  完全的多用户模式
+- 4：  预留
+- 5：  图形界面多用户模式
+- 6：  重启
+
+```
+[root@iZwz9e73kbnnm5ufk088lnZ ~]# cat /etc/inittab 
+# inittab is only used by upstart for the default runlevel.
+#
+# ADDING OTHER CONFIGURATION HERE WILL HAVE NO EFFECT ON YOUR SYSTEM.
+#
+# System initialization is started by /etc/init/rcS.conf
+#
+# Individual runlevels are started by /etc/init/rc.conf
+#
+# Ctrl-Alt-Delete is handled by /etc/init/control-alt-delete.conf
+#
+# Terminal gettys are handled by /etc/init/tty.conf and /etc/init/serial.conf,
+# with configuration in /etc/sysconfig/init.
+#
+# For information on how to write upstart event handlers, or how
+# upstart works, see init(5), init(8), and initctl(8).
+#
+# Default runlevel. The runlevels used are:
+#   0 - halt (Do NOT set initdefault to this)
+#   1 - Single user mode
+#   2 - Multiuser, without NFS (The same as 3, if you do not have networking)
+#   3 - Full multiuser mode
+#   4 - unused
+#   5 - X11
+#   6 - reboot (Do NOT set initdefault to this)
+# 
+id:3:initdefault:
+```
+
+centos7
+
+````
+查看当前模式
+[root@master01 tmp]# systemctl get-default
+multi-user.target
+````
+
+
+
 ### 11.11 ntsysv
+
+&emsp;Linux ntsysv命令用于设置系统的各种服务。这是Red Hat公司遵循GPL规则所开发的程序，它具有互动式操作界面，您可以轻易地利用方向键和空格键等，开启，关闭操作系统在每个执行等级中，所要执行的系统服务。
+
+**语法**
+
+```
+ntsysv [--back][--level <等级代号>]
+```
+
+**参数**：
+
+- --back 　在互动式界面里，显示Back钮，而非Cancel钮。
+- --level <等级代号> 　在指定的执行等级中，决定要开启或关闭哪些系统服务。
+
+```
+[root@iZwz9e73kbnnm5ufk088lnZ ~]# ntsysv
+ntsysv 1.3.49.5 - (C) 2000-2001 Red Hat, Inc. 
+
+┌──────────────────┤ Services ├──────────────────┐
+│                                                │ 
+│ What services should be automatically started? │ 
+│                                                │ 
+│            [*] aegis             ↑             │ 
+│            [*] agentwatch        ▮             │ 
+│            [*] auditd            ▒             │ 
+│            [*] blk-availability  ▒             │ 
+│            [ ] cgconfig          ▒             │ 
+│            [ ] cgred             ▒             │ 
+│            [*] cloud-config      ▒             │ 
+│            [*] cloud-final       ▒             │ 
+│            [*] cloud-init        ▒             │ 
+│            [*] cloud-init-local  ▒             │ 
+│            [*] crond             ▒             │ 
+│            [*] ecs_mq-service    ▒             │ 
+│            [*] eni-service       ▒             │ 
+│            [ ] htcacheclean      ▒             │ 
+│            [ ] httpd             ▒             │ 
+│            [*] ip6tables         ▒             │ 
+│            [*] iptables          ▒             │ 
+│            [*] irqbalance        ▒             │ 
+│            [*] iscsi             ▒             │ 
+│            [*] iscsid            ▒             │ 
+│            [*] lvm2-monitor      ▒             │ 
+│            [*] mdmonitor         ▒             │ 
+│            [*] messagebus        ↓             │ 
+│                                                │ 
+│        ┌────┐               ┌────────┐         │ 
+│        │ Ok │               │ Cancel │         │ 
+│        └────┘               └────────┘         │ 
+│                                                │ 
+│                                                │ 
+└────────────────────────────────────────────────┘ 
+Press <F1> for more information on a service.
+```
+
+> 以上就可以图形化操作，配置开机自启动那些服务了
 
 ### 11.12 setup
 
+> 没有命令就安装包 yum install setuptool
+
+图形配置
+
+```
+[root@iZwz9e73kbnnm5ufk088lnZ ~]# setup
+Text Mode Setup Utility 1.19.9  (c) 1999-2006 Red Hat, Inc.
+
+ ┌────────┤ Choose a Tool ├─────────┐
+ │                                  │ 
+ │   Authentication configuration   │ 
+ │   System services                │ 
+ │                                  │ 
+ │      ┌──────────┐  ┌──────┐      │ 
+ │      │ Run Tool │  │ Quit │      │ 
+ │      └──────────┘  └──────┘      │ 
+ │                                  │ 
+ │                                  │ 
+ └──────────────────────────────────┘ 
+                                                                     
+authconfig-tui - (c) 1999-2005 Red Hat, Inc.
+
+ ┌────────────────┤ Authentication Configuration ├─────────────────┐
+ │                                                                 │ 
+ │  User Information        Authentication                         │ 
+ │  [ ] Cache Information   [ ] Use MD5 Passwords                  │ 
+ │  [ ] Use LDAP            [*] Use Shadow Passwords               │ 
+ │  [ ] Use NIS             [ ] Use LDAP Authentication            │ 
+ │  [ ] Use IPAv2           [ ] Use Kerberos                       │ 
+ │  [ ] Use Winbind         [ ] Use Fingerprint reader             │ 
+ │                          [ ] Use Winbind Authentication         │ 
+ │                          [*] Local authorization is sufficient  │ 
+ │                                                                 │ 
+ │            ┌────────┐                      ┌──────┐             │ 
+ │            │ Cancel │                      │ Next │             │ 
+ │            └────────┘                      └──────┘             │ 
+ │                                                                 │ 
+ │                                                                 │ 
+ └─────────────────────────────────────────────────────────────────┘ 
+ <Tab>/<Alt-Tab> between elements   |   <Space> selects   |  <F12> next screen
+```
+
+
+
 ### 11.13 ethool
 
-### 11.14 mill-tool
+&emsp;ethtool 是用于查询及设置网卡参数的命令。
 
-### 11.15 dmidecode
+语法
 
-### 11.16 ipcs
+```
+ethool [网卡名] 参数列表[-h|-i|-d|-r|-s|-S]
+```
 
-### 11.17 ipcrm
+**参数说明**：
 
-### 11.18 rpm
+- 网卡名 查询网卡基本信息
+- -h    显示帮助信息
+- -i     查询后面网卡信息
+- -d    查询后面网卡的注册信息
+- -r     重置后面网卡到自适应模式
+- -S    查询后面网卡收发包统计
+- -s    设置网卡速率
 
-### 11.19 yum
+```
+[root@master01 ~]# ethtool eno1
+Settings for eno1:
+	Supported ports: [ TP MII ]
+	Supported link modes:   10baseT/Half 10baseT/Full 
+	                        100baseT/Half 100baseT/Full 
+	                        1000baseT/Half 1000baseT/Full 
+	Supported pause frame use: No
+	Supports auto-negotiation: Yes
+	Supported FEC modes: Not reported
+	Advertised link modes:  10baseT/Half 10baseT/Full 
+	                        100baseT/Half 100baseT/Full 
+	                        1000baseT/Half 1000baseT/Full 
+	Advertised pause frame use: Symmetric Receive-only
+	Advertised auto-negotiation: Yes
+	Advertised FEC modes: Not reported
+	Link partner advertised link modes:  10baseT/Half 10baseT/Full 
+	                                     100baseT/Half 100baseT/Full 
+	                                     1000baseT/Full 
+	Link partner advertised pause frame use: Symmetric Receive-only
+	Link partner advertised auto-negotiation: Yes
+	Link partner advertised FEC modes: Not reported
+	Speed: 1000Mb/s
+	Duplex: Full
+	Port: MII
+	PHYAD: 0
+	Transceiver: internal
+	Auto-negotiation: on
+	Supports Wake-on: pumbg
+	Wake-on: d
+	Current message level: 0x00000033 (51)
+			       drv probe ifdown ifup
+	Link detected: yes
 
-### 11.20 lspci
+[root@master01 ~]# ethtool -i eno1
+driver: r8169
+version: 2.3LK-NAPI
+firmware-version: rtl_nic/rtl8168e-2.fw
+expansion-rom-version: 
+bus-info: 0000:01:00.0
+supports-statistics: yes
+supports-test: no
+supports-eeprom-access: no
+supports-register-dump: yes
+supports-priv-flags: no
 
-### 11.21 lscpu
+[root@master01 ~]# ethtool -d eno1
+RealTek RTL8168e/8111e registers:
+--------------------------------------------------------
+0x00: MAC Address                      0c:54:a5:01:7c:5b
+0x08: Multicast Address Filter     0x00000050 0x00000080
+0x10: Dump Tally Counter Command   0x34c12000 0x00000001
+0x20: Tx Normal Priority Ring Addr 0x96bf4000 0x00000000
+0x28: Tx High Priority Ring Addr   0x30c67800 0x11866c14
+0x30: Flash memory read/write                 0x00000000
+0x34: Early Rx Byte Count                              0
+0x36: Early Rx Status                               0x00
+0x37: Command                                       0x0c
+      Rx on, Tx on
+0x3C: Interrupt Mask                              0x803f
+      SERR LinkChg RxNoBuf TxErr TxOK RxErr RxOK 
+0x3E: Interrupt Status                            0x0000
+      
+0x40: Tx Configuration                        0x2f200700
+0x44: Rx Configuration                        0x0002874e
+0x48: Timer count                             0x5b91711f
+0x4C: Missed packet counter                     0x8ef7bb
+0x50: EEPROM Command                                0x00
+0x51: Config 0                                      0x00
+0x52: Config 1                                      0x0f
+0x53: Config 2                                      0x5d
+0x54: Config 3                                      0xc0
+0x55: Config 4                                      0x54
+0x56: Config 5                                      0x80
+0x58: Timer interrupt                         0x00000000
+0x5C: Multiple Interrupt Select                   0x0000
+0x60: PHY access                              0x8005cde1
+0x64: TBI control and status                  0x27ffff01
+0x68: TBI Autonegotiation advertisement (ANAR)    0xf70c
+0x6A: TBI Link partner ability (LPAR)             0x0000
+0x6C: PHY status                                    0xf3
+0x84: PM wakeup frame 0            0x00000000 0x5b91783f
+0x8C: PM wakeup frame 1            0x00000000 0x14c67c06
+0x94: PM wakeup frame 2 (low)      0x14e46914 0x12c47894
+0x9C: PM wakeup frame 2 (high)     0x34c67914 0x34c66816
+0xA4: PM wakeup frame 3 (low)      0x68c67d16 0x30c47906
+0xAC: PM wakeup frame 3 (high)     0x30447d16 0x00000000
+0xB4: PM wakeup frame 4 (low)      0x00000000 0x00000000
+0xBC: PM wakeup frame 4 (high)     0x00000000 0x00000000
+0xC4: Wakeup frame 0 CRC                          0x0000
+0xC6: Wakeup frame 1 CRC                          0x0000
+0xC8: Wakeup frame 2 CRC                          0x0000
+0xCA: Wakeup frame 3 CRC                          0x0000
+0xCC: Wakeup frame 4 CRC                          0x0000
+0xDA: RX packet maximum size                      0x4000
+0xE0: C+ Command                                  0x21e1
+      Home LAN enable
+      VLAN de-tagging
+      RX checksumming
+0xE2: Interrupt Mitigation                        0x5151
+      TxTimer:       5
+      TxPackets:     1
+      RxTimer:       5
+      RxPackets:     1
+0xE4: Rx Ring Addr                 0x96953000 0x00000000
+0xEC: Early Tx threshold                            0x3f
+0xF0: Func Event                              0x00000030
+0xF4: Func Event Mask                         0x00000000
+0xF8: Func Preset State                       0x0003ffff
+0xFC: Func Force Event                        0x00000000
+
+[root@master01 ~]# ethtool -S eno1
+NIC statistics:
+     tx_packets: 15463169
+     rx_packets: 14713138
+     tx_errors: 0
+     rx_errors: 0
+     rx_missed: 0
+     align_errors: 0
+     tx_single_collisions: 0
+     tx_multi_collisions: 0
+     unicast: 14388193
+     broadcast: 315968
+     multicast: 8977
+     tx_aborted: 0
+     tx_underrun: 0
+
+[root@master01 ~]#  ethtool -s eno1 autoneg off speed 100 duplex full
+```
+
+### 11.15 mii-tool
+
+&emsp;查看物理网卡的网线是否在线
+
+```
+[root@master01 ~]# mii-tool eno1
+eno1: negotiated 1000baseT-FD flow-control, link ok
+```
+
+### 11.16 dmidecode
+
+&emsp;查看内存详细信息,比如内存大小，型号，主板型号等等.
+
+语法
+
+```
+dmidecode [选项]
+```
+
+**参数说明**：
+
+- -t  只显示指定条目
+- -s 只显示指定DMI字符串信息
+- -q 精简输出
+
+??? note "详细"
+    ```
+    [root@master01 ~]# dmidecode 
+    # dmidecode 3.1
+    Getting SMBIOS data from sysfs.
+    SMBIOS 2.7 present.
+    58 structures occupying 2363 bytes.
+    Table at 0x000E9BF0.
+
+    Handle 0x0000, DMI type 0, 24 bytes
+    BIOS Information
+        Vendor: Acer   
+        Version: MAP23SB
+        Release Date: 09/02/2013
+        Address: 0xF0000
+        Runtime Size: 64 kB
+        ROM Size: 4096 kB
+        Characteristics:
+            PCI is supported
+            APM is supported
+            BIOS is upgradeable
+            BIOS shadowing is allowed
+            Boot from CD is supported
+            Selectable boot is supported
+            BIOS ROM is socketed
+            EDD is supported
+            5.25"/1.2 MB floppy services are supported (int 13h)
+            3.5"/720 kB floppy services are supported (int 13h)
+            3.5"/2.88 MB floppy services are supported (int 13h)
+            Print screen service is supported (int 5h)
+            Serial services are supported (int 14h)
+            Printer services are supported (int 17h)
+            ACPI is supported
+            USB legacy is supported
+            BIOS boot specification is supported
+            Targeted content distribution is supported
+            UEFI is supported
+        BIOS Revision: 4.6
+    
+    Handle 0x0001, DMI type 1, 27 bytes
+    System Information
+        Manufacturer: Acer
+        Product Name: Shangqi N6120
+        Version:         
+        Serial Number: DTA0CCN010346043DC9600
+        UUID: 906e720a-4cf8-11e3-a582-cd6b93fb380d
+        Wake-up Type: Power Switch
+        SKU Number:                       
+        Family: Acer Desktop
+    
+    Handle 0x0002, DMI type 2, 15 bytes
+    Base Board Information
+        Manufacturer: Acer
+        Product Name: AAHD3-VF
+        Version: 1.02
+        Serial Number: DBA0CC1001345002916311
+        Asset Tag:                       
+        Features:
+            Board is a hosting board
+            Board is replaceable
+        Location In Chassis:                                 
+        Chassis Handle: 0x0003
+        Type: Motherboard
+        Contained Object Handles: 0
+    
+    Handle 0x0003, DMI type 3, 22 bytes
+    Chassis Information
+        Manufacturer: Acer
+        Type: Desktop
+        Lock: Not Present
+        Version:         
+        Serial Number:                       
+        Asset Tag:                       
+        Boot-up State: Safe
+        Power Supply State: Safe
+        Thermal State: Safe
+        Security Status: None
+        OEM Information: 0x00000000
+        Height: Unspecified
+        Number Of Power Cords: 1
+        Contained Elements: 0
+        SKU Number:                       
+    
+    Handle 0x0004, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J1A1
+        Internal Connector Type: None
+        External Reference Designator: PS2Mouse
+        External Connector Type: PS/2
+        Port Type: Mouse Port
+    
+    Handle 0x0005, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J1A1
+        Internal Connector Type: None
+        External Reference Designator: Keyboard
+        External Connector Type: PS/2
+        Port Type: Keyboard Port
+    
+    Handle 0x0006, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J2A1
+        Internal Connector Type: None
+        External Reference Designator: TV Out
+        External Connector Type: Mini Centronics Type-14
+        Port Type: Other
+    
+    Handle 0x0007, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J2A2A
+        Internal Connector Type: None
+        External Reference Designator: COM A
+        External Connector Type: DB-9 male
+        Port Type: Serial Port 16550A Compatible
+    
+    Handle 0x0008, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J2A2B
+        Internal Connector Type: None
+        External Reference Designator: Video
+        External Connector Type: DB-15 female
+        Port Type: Video Port
+    
+    Handle 0x0009, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J3A1
+        Internal Connector Type: None
+        External Reference Designator: USB1
+        External Connector Type: Access Bus (USB)
+        Port Type: USB
+    
+    Handle 0x000A, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J3A1
+        Internal Connector Type: None
+        External Reference Designator: USB2
+        External Connector Type: Access Bus (USB)
+        Port Type: USB
+    
+    Handle 0x000B, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J3A1
+        Internal Connector Type: None
+        External Reference Designator: USB3
+        External Connector Type: Access Bus (USB)
+        Port Type: USB
+    
+    Handle 0x000C, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J9A1 - TPM HDR
+        Internal Connector Type: Other
+        External Reference Designator: Not Specified
+        External Connector Type: None
+        Port Type: Other
+    
+    Handle 0x000D, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J9C1 - PCIE DOCKING CONN
+        Internal Connector Type: Other
+        External Reference Designator: Not Specified
+        External Connector Type: None
+        Port Type: Other
+    
+    Handle 0x000E, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J2B3 - CPU FAN
+        Internal Connector Type: Other
+        External Reference Designator: Not Specified
+        External Connector Type: None
+        Port Type: Other
+    
+    Handle 0x000F, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J6C2 - EXT HDMI
+        Internal Connector Type: Other
+        External Reference Designator: Not Specified
+        External Connector Type: None
+        Port Type: Other
+    
+    Handle 0x0010, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J3C1 - GMCH FAN
+        Internal Connector Type: Other
+        External Reference Designator: Not Specified
+        External Connector Type: None
+        Port Type: Other
+    
+    Handle 0x0011, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J1D1 - ITP
+        Internal Connector Type: Other
+        External Reference Designator: Not Specified
+        External Connector Type: None
+        Port Type: Other
+    
+    Handle 0x0012, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J9E2 - MDC INTPSR
+        Internal Connector Type: Other
+        External Reference Designator: Not Specified
+        External Connector Type: None
+        Port Type: Other
+    
+    Handle 0x0013, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J9E4 - MDC INTPSR
+        Internal Connector Type: Other
+        External Reference Designator: Not Specified
+        External Connector Type: None
+        Port Type: Other
+    
+    Handle 0x0014, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J9E3 - LPC HOT DOCKING
+        Internal Connector Type: Other
+        External Reference Designator: Not Specified
+        External Connector Type: None
+        Port Type: Other
+    
+    Handle 0x0015, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J9E1 - SCAN MATRIX
+        Internal Connector Type: Other
+        External Reference Designator: Not Specified
+        External Connector Type: None
+        Port Type: Other
+    
+    Handle 0x0016, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J9G1 - LPC SIDE BAND
+        Internal Connector Type: Other
+        External Reference Designator: Not Specified
+        External Connector Type: None
+        Port Type: Other
+    
+    Handle 0x0017, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J8F1 - UNIFIED
+        Internal Connector Type: Other
+        External Reference Designator: Not Specified
+        External Connector Type: None
+        Port Type: Other
+    
+    Handle 0x0018, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J6F1 - LVDS
+        Internal Connector Type: Other
+        External Reference Designator: Not Specified
+        External Connector Type: None
+        Port Type: Other
+    
+    Handle 0x0019, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J2F1 - LAI FAN
+        Internal Connector Type: Other
+        External Reference Designator: Not Specified
+        External Connector Type: None
+        Port Type: Other
+    
+    Handle 0x001A, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J2G1 - GFX VID
+        Internal Connector Type: Other
+        External Reference Designator: Not Specified
+        External Connector Type: None
+        Port Type: Other
+    
+    Handle 0x001B, DMI type 8, 9 bytes
+    Port Connector Information
+        Internal Reference Designator: J1G6 - AC JACK
+        Internal Connector Type: Other
+        External Reference Designator: Not Specified
+        External Connector Type: None
+        Port Type: Other
+    
+    Handle 0x001C, DMI type 9, 17 bytes
+    System Slot Information
+        Designation: PCIEx16
+        Type: x16 PCI Express 2 x16
+        Current Usage: Available
+        Length: Long
+        ID: 1
+        Characteristics:
+            3.3 V is provided
+            Opening is shared
+            PME signal is supported
+        Bus Address: 0000:ff:02.0
+    
+    Handle 0x001D, DMI type 9, 17 bytes
+    System Slot Information
+        Designation: PCIE_X1_1
+        Type: x1 PCI Express 2 x1
+        Current Usage: Available
+        Length: Short
+        ID: 33
+        Characteristics:
+            3.3 V is provided
+            Opening is shared
+            PME signal is supported
+        Bus Address: 0000:ff:15.0
+    
+    Handle 0x001E, DMI type 9, 17 bytes
+    System Slot Information
+        Designation: PCIE_X1_2
+        Type: x1 PCI Express 2 x1
+        Current Usage: Available
+        Length: Short
+        ID: 34
+        Characteristics:
+            3.3 V is provided
+            Opening is shared
+            PME signal is supported
+        Bus Address: 0000:ff:15.1
+    
+    Handle 0x001F, DMI type 9, 17 bytes
+    System Slot Information
+        Designation: MINI_CARD1
+        Type: x1 PCI Express 2 x1
+        Current Usage: Available
+        Length: Short
+        ID: 4
+        Characteristics:
+            3.3 V is provided
+            Opening is shared
+            PME signal is supported
+        Bus Address: 0000:ff:15.2
+    
+    Handle 0x0020, DMI type 9, 17 bytes
+    System Slot Information
+        Designation: PCI_1
+        Type: 32-bit PCI
+        Current Usage: Available
+        Length: Long
+        ID: 6
+        Characteristics:
+            3.3 V is provided
+            Opening is shared
+            PME signal is supported
+        Bus Address: 0000:ff:14.4
+    
+    Handle 0x0021, DMI type 10, 12 bytes
+    On Board Device 1 Information
+        Type: Video
+        Status: Enabled
+        Description:  Onboard AMD Graphics
+    On Board Device 2 Information
+        Type: Ethernet
+        Status: Enabled
+        Description:  Realtek Gigabit Network Connection
+    On Board Device 3 Information
+        Type: Sound
+        Status: Enabled
+        Description:  Realtek Audio
+    On Board Device 4 Information
+        Type: SATA Controller
+        Status: Enabled
+        Description:  Onboard SATA
+    
+    Handle 0x0022, DMI type 11, 5 bytes
+    OEM Strings
+        String 1: AMD FM2 APU + AMD Hudson D3
+    
+    Handle 0x0023, DMI type 12, 5 bytes
+    System Configuration Options
+        Option 1: To Be Filled By O.E.M.
+    
+    Handle 0x0024, DMI type 16, 23 bytes
+    Physical Memory Array
+        Location: System Board Or Motherboard
+        Use: System Memory
+        Error Correction Type: None
+        Maximum Capacity: 16 GB
+        Error Information Handle: Not Provided
+        Number Of Devices: 4
+    
+    Handle 0x0025, DMI type 19, 31 bytes
+    Memory Array Mapped Address
+        Starting Address: 0x00000000000
+        Ending Address: 0x000FFFFFFFF
+        Range Size: 4 GB
+        Physical Array Handle: 0x0024
+        Partition Width: 255
+    
+    Handle 0x0026, DMI type 17, 34 bytes
+    Memory Device
+        Array Handle: 0x0024
+        Error Information Handle: Not Provided
+        Total Width: 64 bits
+        Data Width: 64 bits
+        Size: 4096 MB
+        Form Factor: DIMM
+        Set: None
+        Locator: DIMM1
+        Bank Locator: BANK1
+        Type: DDR3
+        Type Detail: Synchronous
+        Speed: 1600 MT/s
+        Manufacturer: Kingston        
+        Serial Number: BE222EA4  
+        Asset Tag:                       
+        Part Number: ACR16D3LU1NGG/4G      
+        Rank: 2
+        Configured Clock Speed: 1600 MT/s
+    
+    Handle 0x0027, DMI type 20, 35 bytes
+    Memory Device Mapped Address
+        Starting Address: 0x00000000000
+        Ending Address: 0x000FFFFFFFF
+        Range Size: 4 GB
+        Physical Device Handle: 0x0026
+        Memory Array Mapped Address Handle: 0x0025
+        Partition Row Position: 1
+    
+    Handle 0x0028, DMI type 17, 34 bytes
+    Memory Device
+        Array Handle: 0x0024
+        Error Information Handle: Not Provided
+        Total Width: Unknown
+        Data Width: Unknown
+        Size: No Module Installed
+        Form Factor: DIMM
+        Set: None
+        Locator: DIMM2
+        Bank Locator: BANK2
+        Type: Other
+        Type Detail: None
+        Speed: Unknown
+        Manufacturer:                 
+        Serial Number:           
+        Asset Tag:                       
+        Part Number:                       
+        Rank: Unknown
+        Configured Clock Speed: Unknown
+    
+    Handle 0x0029, DMI type 126, 35 bytes
+    Inactive
+    
+    Handle 0x002A, DMI type 17, 34 bytes
+    Memory Device
+        Array Handle: 0x0024
+        Error Information Handle: Not Provided
+        Total Width: Unknown
+        Data Width: Unknown
+        Size: No Module Installed
+        Form Factor: DIMM
+        Set: None
+        Locator: DIMM3
+        Bank Locator: BANK3
+        Type: Other
+        Type Detail: None
+        Speed: Unknown
+        Manufacturer:                 
+        Serial Number:           
+        Asset Tag:                       
+        Part Number:                       
+        Rank: Unknown
+        Configured Clock Speed: Unknown
+    
+    Handle 0x002B, DMI type 126, 35 bytes
+    Inactive
+    
+    Handle 0x002C, DMI type 17, 34 bytes
+    Memory Device
+        Array Handle: 0x0024
+        Error Information Handle: Not Provided
+        Total Width: Unknown
+        Data Width: Unknown
+        Size: No Module Installed
+        Form Factor: DIMM
+        Set: None
+        Locator: DIMM4
+        Bank Locator: BANK4
+        Type: Other
+        Type Detail: None
+        Speed: Unknown
+        Manufacturer:                 
+        Serial Number:           
+        Asset Tag:                       
+        Part Number:                       
+        Rank: Unknown
+        Configured Clock Speed: Unknown
+    
+    Handle 0x002D, DMI type 126, 35 bytes
+    Inactive
+    
+    Handle 0x002E, DMI type 24, 5 bytes
+    Hardware Security
+        Power-On Password Status: Disabled
+        Keyboard Password Status: Not Implemented
+        Administrator Password Status: Disabled
+        Front Panel Reset Status: Not Implemented
+    
+    Handle 0x002F, DMI type 32, 20 bytes
+    System Boot Information
+        Status: No errors detected
+    
+    Handle 0x0030, DMI type 41, 11 bytes
+    Onboard Device
+        Reference Designation:  Onboard AMD Graphics
+        Type: Video
+        Status: Enabled
+        Type Instance: 1
+        Bus Address: f000:00:01.0
+    
+    Handle 0x0031, DMI type 41, 11 bytes
+    Onboard Device
+        Reference Designation:  Realtek Gigabit Network Connection
+        Type: Ethernet
+        Status: Enabled
+        Type Instance: 1
+        Bus Address: f000:01:00.0
+    
+    Handle 0x0032, DMI type 41, 11 bytes
+    Onboard Device
+        Reference Designation:  Realtek Audio
+        Type: Sound
+        Status: Enabled
+        Type Instance: 1
+        Bus Address: f000:00:01.1
+    
+    Handle 0x0033, DMI type 41, 11 bytes
+    Onboard Device
+        Reference Designation:  Onboard SATA
+        Type: SATA Controller
+        Status: Enabled
+        Type Instance: 1
+        Bus Address: f000:00:11.0
+    
+    Handle 0x0034, DMI type 7, 19 bytes
+    Cache Information
+        Socket Designation: L2 CACHE
+        Configuration: Enabled, Not Socketed, Level 2
+        Operational Mode: Write Back
+        Location: Internal
+        Installed Size: 4096 kB
+        Maximum Size: 4096 kB
+        Supported SRAM Types:
+            Pipeline Burst
+        Installed SRAM Type: Pipeline Burst
+        Speed: 1 ns
+        Error Correction Type: Multi-bit ECC
+        System Type: Unified
+        Associativity: 16-way Set-associative
+    
+    Handle 0x0035, DMI type 7, 19 bytes
+    Cache Information
+        Socket Designation: L1 CACHE
+        Configuration: Enabled, Not Socketed, Level 1
+        Operational Mode: Write Back
+        Location: Internal
+        Installed Size: 192 kB
+        Maximum Size: 192 kB
+        Supported SRAM Types:
+            Pipeline Burst
+        Installed SRAM Type: Pipeline Burst
+        Speed: 1 ns
+        Error Correction Type: Multi-bit ECC
+        System Type: Unified
+        Associativity: 2-way Set-associative
+    
+    Handle 0x0037, DMI type 4, 42 bytes
+    Processor Information
+        Socket Designation: P0
+        Type: Central Processor
+        Family: Other
+        Manufacturer: AMD
+        ID: FF FB 8B 17 01 0F 61 00
+        Version: AMD A8-5500 APU with Radeon(tm) HD Graphics    
+        Voltage: 1.3 V
+        External Clock: 100 MHz
+        Max Speed: 3200 MHz
+        Current Speed: 3200 MHz
+        Status: Populated, Enabled
+        Upgrade: Other
+        L1 Cache Handle: 0x0035
+        L2 Cache Handle: 0x0034
+        L3 Cache Handle: Not Provided
+        Serial Number: Not Specified
+        Asset Tag: Not Specified
+        Part Number: Not Specified
+        Core Count: 4
+        Core Enabled: 4
+        Thread Count: 4
+        Characteristics:
+            64-bit capable
+    
+    Handle 0x0038, DMI type 172, 18 bytes
+    OEM-specific Type
+        Header and Data:
+            AC 12 38 00 03 02 FF FF FF 02 02 00 FF FF FF 04
+            03 00
+    
+    Handle 0x0039, DMI type 13, 22 bytes
+    BIOS Language Information
+        Language Description Format: Long
+        Installable Languages: 1
+            en|US|iso8859-1
+        Currently Installed Language: en|US|iso8859-1
+    
+    Handle 0x003A, DMI type 127, 4 
+    ```
+
+内存信息
+
+```
+[root@master01 ~]# dmidecode -t memory
+# dmidecode 3.1
+Getting SMBIOS data from sysfs.
+SMBIOS 2.7 present.
+
+Handle 0x0024, DMI type 16, 23 bytes
+Physical Memory Array
+	Location: System Board Or Motherboard
+	Use: System Memory
+	Error Correction Type: None
+	Maximum Capacity: 16 GB
+	Error Information Handle: Not Provided
+	Number Of Devices: 4
+
+Handle 0x0026, DMI type 17, 34 bytes
+Memory Device
+	Array Handle: 0x0024
+	Error Information Handle: Not Provided
+	Total Width: 64 bits
+	Data Width: 64 bits
+	Size: 4096 MB
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM1
+	Bank Locator: BANK1
+	Type: DDR3
+	Type Detail: Synchronous
+	Speed: 1600 MT/s
+	Manufacturer: Kingston        
+	Serial Number: BE222EA4  
+	Asset Tag:                       
+	Part Number: ACR16D3LU1NGG/4G      
+	Rank: 2
+	Configured Clock Speed: 1600 MT/s
+
+Handle 0x0028, DMI type 17, 34 bytes
+Memory Device
+	Array Handle: 0x0024
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM2
+	Bank Locator: BANK2
+	Type: Other
+	Type Detail: None
+	Speed: Unknown
+	Manufacturer:                 
+	Serial Number:           
+	Asset Tag:                       
+	Part Number:                       
+	Rank: Unknown
+	Configured Clock Speed: Unknown
+
+Handle 0x002A, DMI type 17, 34 bytes
+Memory Device
+	Array Handle: 0x0024
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM3
+	Bank Locator: BANK3
+	Type: Other
+	Type Detail: None
+	Speed: Unknown
+	Manufacturer:                 
+	Serial Number:           
+	Asset Tag:                       
+	Part Number:                       
+	Rank: Unknown
+	Configured Clock Speed: Unknown
+
+Handle 0x002C, DMI type 17, 34 bytes
+Memory Device
+	Array Handle: 0x0024
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM4
+	Bank Locator: BANK4
+	Type: Other
+	Type Detail: None
+	Speed: Unknown
+	Manufacturer:                 
+	Serial Number:           
+	Asset Tag:                       
+	Part Number:                       
+	Rank: Unknown
+	Configured Clock Speed: Unknown
+```
+
+查看服务器型号
+
+```
+[root@master01 ~]# dmidecode -s system-product-name
+Shangqi N6120
+```
+
+查查系统序列号
+
+```
+[root@master01 ~]# dmidecode -s system-serial-number
+DTA0CCN010346043DC9600
+```
+
+### 11.17 rpm
+
+&emsp;Linux rpm 命令用于管理套件。rpm(redhat package manager) 原本是 Red Hat Linux 发行版专门用来管理 Linux 各项套件的程序，由于它遵循 GPL 规则且功能强大方便，因而广受欢迎。逐渐受到其他发行版的采用。RPM 套件管理方式的出现，让 Linux 易于安装，升级，间接提升了 Linux 的适用度。
+
+**语法**
+
+```
+rpm [-acdhilqRsv][-b<完成阶段><套间档>+][-e<套件挡>][-f<文件>+][-i<套件档>][-p<套件档>＋][-U<套件档>][-vv][--addsign<套件档>+][--allfiles][--allmatches][--badreloc][--buildroot<根目录>][--changelog][--checksig<套件档>+][--clean][--dbpath<数据库目录>][--dump][--excludedocs][--excludepath<排除目录>][--force][--ftpproxy<主机名称或IP地址>][--ftpport<通信端口>][--help][--httpproxy<主机名称或IP地址>][--httpport<通信端口>][--ignorearch][--ignoreos][--ignoresize][--includedocs][--initdb][justdb][--nobulid][--nodeps][--nofiles][--nogpg][--nomd5][--nopgp][--noorder][--noscripts][--notriggers][--oldpackage][--percent][--pipe<执行指令>][--prefix<目的目录>][--provides][--queryformat<档头格式>][--querytags][--rcfile<配置档>][--rebulid<套件档>][--rebuliddb][--recompile<套件档>][--relocate<原目录>=<新目录>][--replacefiles][--replacepkgs][--requires][--resign<套件档>+][--rmsource][--rmsource<文件>][--root<根目录>][--scripts][--setperms][--setugids][--short-circuit][--sign][--target=<安装平台>+][--test][--timecheck<检查秒数>][--triggeredby<套件档>][--triggers][--verify][--version][--whatprovides<功能特性>][--whatrequires<功能特性>]
+```
+
+**参数说明**：
+
+- -a 　查询所有套件。
+- -b<完成阶段><套件档>+或-t <完成阶段><套件档>+ 　设置包装套件的完成阶段，并指定套件档的文件名称。
+- -c 　只列出组态配置文件，本参数需配合"-l"参数使用。
+- -d 　只列出文本文件，本参数需配合"-l"参数使用。
+- -e<套件档>或--erase<套件档> 　删除指定的套件。
+- -f<文件>+ 　查询拥有指定文件的套件。
+- -h或--hash 　套件安装时列出标记。
+- -i 　显示套件的相关信息。
+- -i<套件档>或--install<套件档> 　安装指定的套件档。
+- -l 　显示套件的文件列表。
+- -p<套件档>+ 　查询指定的RPM套件档。
+- -q 　使用询问模式，当遇到任何问题时，rpm指令会先询问用户。
+- -R 　显示套件的关联性信息。
+- -s 　显示文件状态，本参数需配合"-l"参数使用。
+- -U<套件档>或--upgrade<套件档> 升级指定的套件档。
+- -v 　显示指令执行过程。
+- -vv 　详细显示指令执行过程，便于排错。
+- -addsign<套件档>+ 　在指定的套件里加上新的签名认证。
+- --allfiles 　安装所有文件。
+- --allmatches 　删除符合指定的套件所包含的文件。
+- --badreloc 　发生错误时，重新配置文件。
+- --buildroot<根目录> 　设置产生套件时，欲当作根目录的目录。
+- --changelog 　显示套件的更改记录。
+- --checksig<套件档>+ 　检验该套件的签名认证。
+- --clean 　完成套件的包装后，删除包装过程中所建立的目录。
+- --dbpath<数据库目录> 　设置欲存放RPM数据库的目录。
+- --dump 　显示每个文件的验证信息。本参数需配合"-l"参数使用。
+- --excludedocs 　安装套件时，不要安装文件。
+- --excludepath<排除目录> 　忽略在指定目录里的所有文件。
+- --force 　强行置换套件或文件。
+- --ftpproxy<主机名称或IP地址> 　指定FTP代理服务器。
+- --ftpport<通信端口> 　设置FTP服务器或代理服务器使用的通信端口。
+- --help 　在线帮助。
+- --httpproxy<主机名称或IP地址> 　指定HTTP代理服务器。
+- --httpport<通信端口> 　设置HTTP服务器或代理服务器使用的通信端口。
+- --ignorearch 　不验证套件档的结构正确性。
+- --ignoreos 　不验证套件档的结构正确性。
+- --ignoresize 　安装前不检查磁盘空间是否足够。
+- --includedocs 　安装套件时，一并安装文件。
+- --initdb 　确认有正确的数据库可以使用。
+- --justdb 　更新数据库，当不变动任何文件。
+- --nobulid 　不执行任何完成阶段。
+- --nodeps 　不验证套件档的相互关联性。
+- --nofiles 　不验证文件的属性。
+- --nogpg 　略过所有GPG的签名认证。
+- --nomd5 　不使用MD5编码演算确认文件的大小与正确性。
+- --nopgp 　略过所有PGP的签名认证。
+- --noorder 　不重新编排套件的安装顺序，以便满足其彼此间的关联性。
+- --noscripts 　不执行任何安装Script文件。
+- --notriggers 　不执行该套件包装内的任何Script文件。
+- --oldpackage 　升级成旧版本的套件。
+- --percent 　安装套件时显示完成度百分比。
+- --pipe<执行指令> 　建立管道，把输出结果转为该执行指令的输入数据。
+- --prefix<目的目录> 　若重新配置文件，就把文件放到指定的目录下。
+- --provides 　查询该套件所提供的兼容度。
+- --queryformat<档头格式> 　设置档头的表示方式。
+- --querytags 　列出可用于档头格式的标签。
+- --rcfile<配置文件> 　使用指定的配置文件。
+- --rebulid<套件档> 　安装原始代码套件，重新产生二进制文件的套件。
+- --rebuliddb 　以现有的数据库为主，重建一份数据库。
+- --recompile<套件档> 　此参数的效果和指定"--rebulid"参数类似，当不产生套件档。
+- --relocate<原目录>=<新目录> 　把本来会放到原目录下的文件改放到新目录。
+- --replacefiles 　强行置换文件。
+- --replacepkgs 　强行置换套件。
+- --requires 　查询该套件所需要的兼容度。
+- --resing<套件档>+ 　删除现有认证，重新产生签名认证。
+- --rmsource 　完成套件的包装后，删除原始代码。
+- --rmsource<文件> 　删除原始代码和指定的文件。
+- --root<根目录> 　设置欲当作根目录的目录。
+- --scripts 　列出安装套件的Script的变量。
+- --setperms 　设置文件的权限。
+- --setugids 　设置文件的拥有者和所属群组。
+- --short-circuit 　直接略过指定完成阶段的步骤。
+- --sign 　产生PGP或GPG的签名认证。
+- --target=<安装平台>+ 　设置产生的套件的安装平台。
+- --test 　仅作测试，并不真的安装套件。
+- --timecheck<检查秒数> 　设置检查时间的计时秒数。
+- --triggeredby<套件档> 　查询该套件的包装者。
+- --triggers 　展示套件档内的包装Script。
+- --verify 　此参数的效果和指定"-q"参数相同。
+- --version 　显示版本信息。
+- --whatprovides<功能特性> 　查询该套件对指定的功能特性所提供的兼容度。
+- --whatrequires<功能特性> 　查询该套件对指定的功能特性所需要的兼容度。
+
+```
+[root@master01 tmp]# wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+--2019-05-07 06:55:46--  https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+Resolving dl.fedoraproject.org (dl.fedoraproject.org)... 209.132.181.25, 209.132.181.23, 209.132.181.24
+Connecting to dl.fedoraproject.org (dl.fedoraproject.org)|209.132.181.25|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 15080 (15K) [application/x-rpm]
+Saving to: ‘epel-release-latest-7.noarch.rpm’
+
+100%[===================================================================================================================================================>] 15,080      71.3KB/s   in 0.2s   
+
+2019-05-07 06:55:52 (71.3 KB/s) - ‘epel-release-latest-7.noarch.rpm’ saved [15080/15080]
+
+[root@master01 tmp]# rpm -ivh epel-release-latest-7.noarch.rpm 
+warning: epel-release-latest-7.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY
+Preparing...                          ################################# [100%]
+	package epel-release-7-11.noarch is already installed
+
+
+查看rpm包信息
+[root@master01 tmp]# rpm -qpi epel-release-latest-7.noarch.rpm 
+warning: epel-release-latest-7.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY
+Name        : epel-release
+Version     : 7
+Release     : 11
+Architecture: noarch
+Install Date: (not installed)
+Group       : System Environment/Base
+Size        : 24834
+License     : GPLv2
+Signature   : RSA/SHA256, Mon 02 Oct 2017 01:52:02 PM EDT, Key ID 6a2faea2352c64e5
+Source RPM  : epel-release-7-11.src.rpm
+Build Date  : Mon 02 Oct 2017 01:45:58 PM EDT
+Build Host  : buildvm-ppc64le-05.ppc.fedoraproject.org
+Relocations : (not relocatable)
+Packager    : Fedora Project
+Vendor      : Fedora Project
+URL         : http://download.fedoraproject.org/pub/epel
+Summary     : Extra Packages for Enterprise Linux repository configuration
+Description :
+This package contains the Extra Packages for Enterprise Linux (EPEL) repository
+GPG key as well as configuration for yum.
+
+查看rpm包内容
+[root@master01 tmp]# rpm -qpl epel-release-latest-7.noarch.rpm 
+warning: epel-release-latest-7.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY
+/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+/etc/yum.repos.d/epel-testing.repo
+/etc/yum.repos.d/epel.repo
+/usr/lib/systemd/system-preset/90-epel.preset
+/usr/share/doc/epel-release-7
+/usr/share/doc/epel-release-7/GPL
+
+插卡rpm包依赖
+[root@master01 tmp]# rpm -qpR epel-release-latest-7.noarch.rpm 
+warning: epel-release-latest-7.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY
+config(epel-release) = 7-11
+redhat-release >= 7
+rpmlib(CompressedFileNames) <= 3.0.4-1
+rpmlib(FileDigests) <= 4.6.0-1
+rpmlib(PayloadFilesHavePrefix) <= 4.0-1
+rpmlib(PayloadIsXz) <= 5.2-1
+
+查看系统是否安装指定rpm包
+[root@master01 tmp]# rpm -qa lrzsz
+lrzsz-0.12.20-36.el7.x86_64
+
+卸载指定rpm包
+[root@master01 tmp]# rpm -e lrzsz # 卸载
+[root@master01 tmp]# rpm -qa lrzsz # 查看
+[root@master01 tmp]# rz
+-bash: rz: command not found
+
+查看文件属于哪个rpm 包
+[root@master01 tmp]# rpm -qf $(which ifconfig)
+net-tools-2.0-0.24.20131004git.el7.x86_64
+
+```
+
+
+
+### 11.18 yum
+
+&emsp;yum（ Yellow dog Updater, Modified）是一个在Fedora和RedHat以及SUSE中的Shell前端软件包管理器。基于RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软体包，无须繁琐地一次次下载、安装。
+
+**语法**
+
+```
+yum [options] [command] [package ...]
+```
+
+- **options：**可选选项包括-h[帮助]，-y[当安装过程提示选择全部为"yes"]，-q[不显示安装的过程]等等。
+- **command：**要进行的操作。
+- **package**操作的对象。
+
+**常用命令**
+
+- 1.列出所有可更新的软件清单命令：yum check-update
+- 2.更新所有软件命令：yum update
+- 3.仅安装指定的软件命令：yum install <package_name>
+- 4.仅更新指定的软件命令：yum update <package_name>
+- 5.列出所有可安裝的软件清单命令：yum list
+- 6.删除软件包命令：yum remove <package_name>
+- 7.查找软件包 命令：yum search <keyword>
+- 8.安装本地rpm包:  yum localinstall <package.rpm>
+- 9.获取软件包信息: yum info <package>
+- 10 .清除缓存命令:
+  - yum clean packages: 清除缓存目录下的软件包
+  - yum clean headers: 清除缓存目录下的 headers
+  - yum clean oldheaders: 清除缓存目录下旧的 headers
+  - yum clean, yum clean all (= yum clean packages; yum clean oldheaders) :清除缓存目录下的软件包及旧的headers
+
+```
+安装
+[root@master01 ~]# yum install pam-devel
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.163.com
+ * epel: mirrors.yun-idc.com
+ * extras: mirrors.cn99.com
+ * updates: mirrors.163.com
+Resolving Dependencies
+--> Running transaction check
+---> Package pam-devel.x86_64 0:1.1.8-22.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=============================================================================================================================================================================================
+ Package                                       Arch                                       Version                                             Repository                                Size
+=============================================================================================================================================================================================
+Installing:
+ pam-devel                                     x86_64                                     1.1.8-22.el7                                        base                                     184 k
+
+Transaction Summary
+=============================================================================================================================================================================================
+Install  1 Package
+
+Total download size: 184 k
+Installed size: 528 k
+Is this ok [y/d/N]: y
+Downloading packages:
+pam-devel-1.1.8-22.el7.x86_64.rpm                                                                                                                                     | 184 kB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : pam-devel-1.1.8-22.el7.x86_64                                                                                                                                             1/1 
+  Verifying  : pam-devel-1.1.8-22.el7.x86_64                                                                                                                                             1/1 
+
+Installed:
+  pam-devel.x86_64 0:1.1.8-22.el7                                                                                                                                                            
+
+Complete!
+
+卸载
+[root@master01 ~]# yum remove pam-devel
+Loaded plugins: fastestmirror
+Resolving Dependencies
+--> Running transaction check
+---> Package pam-devel.x86_64 0:1.1.8-22.el7 will be erased
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=============================================================================================================================================================================================
+ Package                                       Arch                                       Version                                            Repository                                 Size
+=============================================================================================================================================================================================
+Removing:
+ pam-devel                                     x86_64                                     1.1.8-22.el7                                       @base                                     528 k
+
+Transaction Summary
+=============================================================================================================================================================================================
+Remove  1 Package
+
+Installed size: 528 k
+Is this ok [y/N]: y
+Downloading packages:
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Erasing    : pam-devel-1.1.8-22.el7.x86_64                                                                                                                                             1/1 
+  Verifying  : pam-devel-1.1.8-22.el7.x86_64                                                                                                                                             1/1 
+
+Removed:
+  pam-devel.x86_64 0:1.1.8-22.el7                                                                                                                                                            
+
+Complete!
+
+找到的文件包含ng
+[root@master01 ~]# yum list ng*
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.163.com
+ * epel: mirrors.yun-idc.com
+ * extras: mirrors.cn99.com
+ * updates: mirrors.163.com
+Available Packages
+nghttp2.x86_64                                                                                1.31.1-1.el7                                                                               epel
+nginx.x86_64                                                                                  1:1.12.2-2.el7                                                                             epel
+nginx-all-modules.noarch                                                                      1:1.12.2-2.el7                                                                             epel
+nginx-filesystem.noarch                                                                       1:1.12.2-2.el7                                                                             epel
+nginx-mod-http-geoip.x86_64                                                                   1:1.12.2-2.el7                                                                             epel
+nginx-mod-http-image-filter.x86_64                                                            1:1.12.2-2.el7                                                                             epel
+nginx-mod-http-perl.x86_64                                                                    1:1.12.2-2.el7                                                                             epel
+nginx-mod-http-xslt-filter.x86_64                                                             1:1.12.2-2.el7                                                                             epel
+nginx-mod-mail.x86_64                                                                         1:1.12.2-2.el7                                                                             epel
+nginx-mod-stream.x86_64                                                                       1:1.12.2-2.el7                                                                             epel
+ngircd.x86_64                                                                                 23-1.el7                                                                                   epel
+ngrep.x86_64                                                                                  1.47-1.1.20180101git9b59468.el7                                                            epel
+
+查看yum安装某软件的详细信息
+[root@master01 ~]# yum info nginx
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.163.com
+ * epel: mirrors.yun-idc.com
+ * extras: mirrors.cn99.com
+ * updates: mirrors.163.com
+Available Packages
+Name        : nginx
+Arch        : x86_64
+Epoch       : 1
+Version     : 1.12.2
+Release     : 2.el7
+Size        : 530 k
+Repo        : epel/x86_64
+Summary     : A high performance web server and reverse proxy server
+URL         : http://nginx.org/
+License     : BSD
+Description : Nginx is a web server and a reverse proxy server for HTTP, SMTP, POP3 and
+            : IMAP protocols, with a strong focus on high concurrency, performance and low
+            : memory usage.
+```
+
+&emsp;更换`yum`源,网易（163）yum源是国内最好的yum源之一 ，无论是速度还是软件版本，都非常的不错。
+
+将yum源设置为163 yum，可以提升软件包安装和更新的速度，同时避免一些常见软件版本无法找到。
+
+```
+wget http://mirrors.163.com/.help/CentOS6-Base-163.repo
+mv CentOS6-Base-163.repo /etc/yum.repos.d/CentOS-Base.repo
+```
+
+centos5,6,7对应的yum源
+
+```
+CentOS5 ：http://mirrors.163.com/.help/CentOS5-Base-163.repo
+CentOS6 ：http://mirrors.163.com/.help/CentOS6-Base-163.repo
+CentOS7 ：http://mirrors.163.com/.help/CentOS7-Base-163.repo
+```
+
+运行以下命令生成缓存
+
+```
+yum clean all
+yum makecache
+```
+
+除了网易之外，国内还有其他不错的 yum 源，比如中科大和搜狐,阿里源。
+
+```
+中科大的 yum 源安装方法查看：https://lug.ustc.edu.cn/wiki/mirrors/help/centos
+sohu 的 yum 源安装方法查看: http://mirrors.sohu.com/help/centos.html
+阿里yum源
+curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+```
+
+
+
+### 11.19 lspci
+
+&emsp;查询pci设备详细信息，
+
+语法
+
+```
+lspci [选项]
+```
+
+**参数说明**：
+
+- -v 显示详细信息
+- -vv 显示更详细信息
+- -s 显示指定总线信息
+
+```
+root@leco:~# lspci
+00:00.0 Host bridge: Intel Corporation Xeon E3-1200 v2/3rd Gen Core processor DRAM Controller (rev 09)
+00:01.0 PCI bridge: Intel Corporation Xeon E3-1200 v2/3rd Gen Core processor PCI Express Root Port (rev 09)
+00:16.0 Communication controller: Intel Corporation 6 Series/C200 Series Chipset Family MEI Controller #1 (rev 04)
+00:1a.0 USB controller: Intel Corporation 6 Series/C200 Series Chipset Family USB Enhanced Host Controller #2 (rev 05)
+00:1b.0 Audio device: Intel Corporation 6 Series/C200 Series Chipset Family High Definition Audio Controller (rev 05)
+00:1c.0 PCI bridge: Intel Corporation 6 Series/C200 Series Chipset Family PCI Express Root Port 1 (rev b5)
+00:1c.2 PCI bridge: Intel Corporation 6 Series/C200 Series Chipset Family PCI Express Root Port 3 (rev b5)
+00:1d.0 USB controller: Intel Corporation 6 Series/C200 Series Chipset Family USB Enhanced Host Controller #1 (rev 05)
+00:1f.0 ISA bridge: Intel Corporation H61 Express Chipset Family LPC Controller (rev 05)
+00:1f.2 SATA controller: Intel Corporation 6 Series/C200 Series Chipset Family SATA AHCI Controller (rev 05)
+00:1f.3 SMBus: Intel Corporation 6 Series/C200 Series Chipset Family SMBus Controller (rev 05)
+01:00.0 VGA compatible controller: NVIDIA Corporation GF119 [GeForce GT 620 OEM] (rev a1)
+01:00.1 Audio device: NVIDIA Corporation GF119 HDMI Audio Controller (rev a1)
+03:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller (rev 0b)
+```
+
+
+
+### 11.02 lscpu
+
+&emsp;查看cpu详细信息
+
+```
+root@leco:~#  lscpu
+Architecture:          x86_64
+CPU 运行模式：    32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                4
+On-line CPU(s) list:   0-3
+每个核的线程数：1
+每个座的核数：  4
+Socket(s):             1
+NUMA 节点：         1
+厂商 ID：           GenuineIntel
+CPU 系列：          6
+型号：              58
+Model name:            Intel(R) Core(TM) i5-3350P CPU @ 3.10GHz
+步进：              9
+CPU MHz：             1647.663
+CPU max MHz:           3300.0000
+CPU min MHz:           1600.0000
+BogoMIPS:              6186.27
+虚拟化：           VT-x
+L1d 缓存：          32K
+L1i 缓存：          32K
+L2 缓存：           256K
+L3 缓存：           6144K
+NUMA node0 CPU(s):     0-3
+Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant
+_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer xsave avx f16c rdrand lahf_lm cpuid_fault epb pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts flush_l1d
+```
+
+```
+lspci -v
+lspci -vv
+```
+
+显示单一信息
+
+```
+root@leco:~# lspci 
+00:00.0 Host bridge: Intel Corporation Xeon E3-1200 v2/3rd Gen Core processor DRAM Controller (rev 09)
+00:01.0 PCI bridge: Intel Corporation Xeon E3-1200 v2/3rd Gen Core processor PCI Express Root Port (rev 09)
+00:16.0 Communication controller: Intel Corporation 6 Series/C200 Series Chipset Family MEI Controller #1 (rev 04)
+00:1a.0 USB controller: Intel Corporation 6 Series/C200 Series Chipset Family USB Enhanced Host Controller #2 (rev 05)
+00:1b.0 Audio device: Intel Corporation 6 Series/C200 Series Chipset Family High Definition Audio Controller (rev 05)
+00:1c.0 PCI bridge: Intel Corporation 6 Series/C200 Series Chipset Family PCI Express Root Port 1 (rev b5)
+00:1c.2 PCI bridge: Intel Corporation 6 Series/C200 Series Chipset Family PCI Express Root Port 3 (rev b5)
+00:1d.0 USB controller: Intel Corporation 6 Series/C200 Series Chipset Family USB Enhanced Host Controller #1 (rev 05)
+00:1f.0 ISA bridge: Intel Corporation H61 Express Chipset Family LPC Controller (rev 05)
+00:1f.2 SATA controller: Intel Corporation 6 Series/C200 Series Chipset Family SATA AHCI Controller (rev 05)
+00:1f.3 SMBus: Intel Corporation 6 Series/C200 Series Chipset Family SMBus Controller (rev 05)
+01:00.0 VGA compatible controller: NVIDIA Corporation GF119 [GeForce GT 620 OEM] (rev a1)
+01:00.1 Audio device: NVIDIA Corporation GF119 HDMI Audio Controller (rev a1)
+03:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller (rev 0b)
+root@leco:~# lspci -s 01:00.1
+01:00.1 Audio device: NVIDIA Corporation GF119 HDMI Audio Controller (rev a1)
+root@leco:~# lspci -s 00:1f.2  # 设备编号，根据lspci输出，第一列就是设备编号
+00:1f.2 SATA controller: Intel Corporation 6 Series/C200 Series Chipset Family SATA AHCI Controller (rev 05)
+root@leco:~# lspci -s 00:1f.2 -v
+00:1f.2 SATA controller: Intel Corporation 6 Series/C200 Series Chipset Family SATA AHCI Controller (rev 05) (prog-if 01 [AHCI 1.0])
+	DeviceName:  Onboard Intel SATA Controller
+	Subsystem: Acer Incorporated [ALI] 6 Series/C200 Series Chipset Family SATA AHCI Controller
+	Flags: bus master, 66MHz, medium devsel, latency 0, IRQ 28
+	I/O ports at f070 [size=8]
+	I/O ports at f060 [size=4]
+	I/O ports at f050 [size=8]
+	I/O ports at f040 [size=4]
+	I/O ports at f020 [size=32]
+	Memory at f7206000 (32-bit, non-prefetchable) [size=2K]
+	Capabilities: [80] MSI: Enable+ Count=1/1 Maskable- 64bit-
+	Capabilities: [70] Power Management version 3
+	Capabilities: [a8] SATA HBA v1.0
+	Capabilities: [b0] PCI Advanced Features
+	Kernel driver in use: ahci
+	Kernel modules: ahci
+```
 
 

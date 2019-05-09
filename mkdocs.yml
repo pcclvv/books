@@ -207,7 +207,18 @@ nav:
             - 助攻:
                 - 1. 路由器: linux/tutorial/linux.router.md
             - 命令:
-                - 1. 命令集合: linux/tutorial/linux.commands.md
+                - 01. 命令 集合: linux/tutorial/linux.commands.md
+                - 01. 命令 介绍: linux/tutorial/linux.command_info.md
+                - 02. 命令 文件和目录: linux/tutorial/linux.command_file_directory.md
+                - 03. 命令 文件操作: linux/tutorial/linux.command_opt_file.md
+                - 04. 命令 三剑客: linux/tutorial/linux.command_grep_sed_awk.md
+                - 05. 命令 系统显示: linux/tutorial/linux.command_sys_dis.md
+                - 06. 命令 压缩和解压: linux/tutorial/linux.command_compression_decompression.md
+                - 07. 命令 用户管理: linux/tutorial/linux.command_user_control.md
+                - 08. 命令 磁盘管理: linux/tutorial/linux.command_disk_control.md
+                - 09. 命令 进程管理: linux/tutorial/linux.command_process_control.md
+                - 10. 命令 网络管理: linux/tutorial/linux.command_network_control.md
+                - 11. 命令 系统管理: linux/tutorial/linux.command_sys_control.md
     - Kubernetes:
         - docker:
             - 1. docker 安装: linux/k8s/docker/docker.index.md

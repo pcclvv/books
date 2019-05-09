@@ -42,11 +42,11 @@
 ![image](../../pictures/linux/tutorial/hardware/compare.png)
 
 ### 4.2 固态硬盘
-### 4.2.1 sata接口
+#### 4.2.1 sata接口
 
 ![image](../../pictures/linux/tutorial/hardware/ssd1.png)
 
-### 4.2.1 m2接口
+#### 4.2.1 m2接口
 
 ![image](../../pictures/linux/tutorial/hardware/m2.png)
 
