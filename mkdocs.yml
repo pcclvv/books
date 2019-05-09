@@ -350,8 +350,9 @@ nav:
     - frontend:
         - Vue: frontend/vue/index.md
         - CSS: frontend/css/css.index.md
-    - server:
+    - VLibrary:
         - 1. git: 
+            - 1. git 命令速查表: tools/git/git.commands.md
             - 1. git 介绍: tools/git/git.index.md
             - 2. git 回滚: tools/git/git.rollback.md
             - 3. git 分支: tools/git/git.branch.md
