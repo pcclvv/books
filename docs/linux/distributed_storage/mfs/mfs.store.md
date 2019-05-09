@@ -250,11 +250,11 @@ root@cmz12:/etc/mfs# du -sh /var/lib/mfsmeta/
 ```
 root@cmz5:~# ps aux|grep -v grep | grep mfs
 mfs      17555  0.1  0.0  18608  2384 ?        S<    2016 1253:40 /usr/sbin/mfsmetalogger start
-root@loocha5:~# egrep -v '#|^$' /etc/mfs/mfsmetalogger.cfg
+root@cmz5:~# egrep -v '#|^$' /etc/mfs/mfsmetalogger.cfg
 DATA_PATH = /home/sdc/metalogger
 MASTER_HOST = 192.168.5.112
 MASTER_PORT = 9519
-root@loocha5:~# du -sh /home/sdc/metalogger
+root@cmz5:~# du -sh /home/sdc/metalogger
 1.3M	/home/sdc/metalogger
 
 root@cmz4:/etc/mfs# egrep -v '#|^$' /etc/mfs/mfsmetalogger.cfg
@@ -274,9 +274,9 @@ mfs       9410  0.1  0.0  19188  2352 ?        S<    2017 799:25 /usr/sbin/mfsme
 文件
 
 ```
-root@loocha12:/usr/local/sersync/conf# crontab  -l|grep rsync_log.sh
+root@cmz12:/usr/local/sersync/conf# crontab  -l|grep rsync_log.sh
 *     *    *    *    *    /bin/bash /usr/local/sersync/script/rsync_log.sh       >/dev/null 2>&1
-root@loocha12:/usr/local/sersync/conf# cat /usr/local/sersync/script/rsync_log.sh
+root@cmz12:/usr/local/sersync/conf# cat /usr/local/sersync/script/rsync_log.sh
 #!/bin/bash
 # Author : caimengzhi
 # Date   : 2018-08-29
@@ -284,7 +284,7 @@ root@loocha12:/usr/local/sersync/conf# cat /usr/local/sersync/script/rsync_log.s
 # Description : rsync mfs master log(/var/lib/mfs/) to 192.168.5.31:/BackFile/mfs/192_168_5_32/
 
 ip_last=$(/sbin/ifconfig bridge01 | awk -F'[ . :]+' '/inet addr:/{print $7}')
-username='admin_loocha11'
+username='admin_cmz11'
 ip_dest=192.168.5.31
 # log path
 log_spath=/var/lib/mfs
@@ -314,7 +314,7 @@ root@cmz4:/home/sdc/mfsmaster# cat /usr/local/sersync/script/rsync_log.sh
 # Description : rsync mfs master log(/var/lib/mfs/) to 192.168.1.31:/BackFile/mfs/192_168_5_32/
 
 ip_last=$(/sbin/ifconfig bridge01 | awk -F'[ . :]+' '/inet addr:/{print $7}')
-username='admin_loocha11'
+username='admin_cmz11'
 ip_dest=192.168.5.31
 # log path
 log_spath=/home/sdc/mfsmaster
