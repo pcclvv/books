@@ -40,7 +40,7 @@
     
     
       
-        <title>04. 命令 三剑客 - 笔记</title>
+        <title>1. grep - 笔记</title>
       
     
     
@@ -106,7 +106,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#4" tabindex="1" class="md-skip">
+      <a href="#41-grep" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -132,7 +132,7 @@
                 笔记
               </span>
               <span class="md-header-nav__topic">
-                04. 命令 三剑客
+                1. grep
               </span>
             
           
@@ -2425,17 +2425,38 @@
   
 
 
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-7-3-5" type="checkbox" id="nav-6-7-3-5" checked>
+    
+    <label class="md-nav__link" for="nav-6-7-3-5">
+      04. 命令 三剑客
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-6-7-3-5">
+        04. 命令 三剑客
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
   <li class="md-nav__item md-nav__item--active">
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        04. 命令 三剑客
+        1. grep
       </label>
     
-    <a href="./" title="04. 命令 三剑客" class="md-nav__link md-nav__link--active">
-      04. 命令 三剑客
+    <a href="./" title="1. grep" class="md-nav__link md-nav__link--active">
+      1. grep
     </a>
     
       
@@ -2447,36 +2468,9 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#4" title="4. 三剑客" class="md-nav__link">
-    4. 三剑客
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#41-grep" title="4.1 grep" class="md-nav__link">
     4.1 grep
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42-sed" title="4.2 sed" class="md-nav__link">
-    4.2 sed
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-awk" title="4.3 awk" class="md-nav__link">
-    4.3 awk
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2488,6 +2482,11 @@
   
 </nav>
     
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -5813,36 +5812,9 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#4" title="4. 三剑客" class="md-nav__link">
-    4. 三剑客
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#41-grep" title="4.1 grep" class="md-nav__link">
     4.1 grep
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42-sed" title="4.2 sed" class="md-nav__link">
-    4.2 sed
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-awk" title="4.3 awk" class="md-nav__link">
-    4.3 awk
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -5862,17 +5834,763 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/caimengzhi/books/edit/master/docs/linux/tutorial/linux.command_grep_sed_awk.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/caimengzhi/books/edit/master/docs/linux/tutorial/linux.command_grep.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <p><center><h1>Linux命令 三剑客</h1></center></p>
+                  <h1>1. grep</h1>
+                
+                <h3 id="41-grep">4.1 grep<a class="headerlink" href="#41-grep" title="Permanent link">&para;</a></h3>
+<p>&emsp;Linux grep命令用于查找文件里符合条件的字符串。<code>grep</code>指令用于查找内容包含指定的范本样式的文件，如果发现某文件的内容符合所指定的范本样式，预设grep指令会把含有范本样式的那一列显示出来。若不指定任何文件名称，或是所给予的文件名为"-"，则grep指令会从标准输入设备读取数据。</p>
+<p><strong>语法</strong></p>
+<div class="codehilite"><pre><span></span>grep [-abcEFGhHilLnqrsvVwxy][-A&lt;显示列数&gt;][-B&lt;显示列数&gt;][-C&lt;显示列数&gt;][-d&lt;进行动作&gt;][-e&lt;范本样式&gt;][-f&lt;范本文件&gt;][--help][范本样式][文件或目录...]
+</pre></div>
+
+<p><strong>参数</strong>：</p>
+<ul>
+<li>
+<p><strong>-a 或 --text</strong> : 不要忽略二进制的数据。</p>
+</li>
+<li>
+<p><strong>-A&lt;显示行数&gt; 或 --after-context=&lt;显示行数&gt;</strong> : 除了显示符合范本样式的那一列之外，并显示该行之后的内容。</p>
+</li>
+<li>
+<p><strong>-b 或 --byte-offset</strong> : 在显示符合样式的那一行之前，标示出该行第一个字符的编号。</p>
+</li>
+<li>
+<p><strong>-B&lt;显示行数&gt; 或 --before-context=&lt;显示行数&gt;</strong> : 除了显示符合样式的那一行之外，并显示该行之前的内容。</p>
+</li>
+<li>
+<p><strong>-c 或 --count</strong> : 计算符合样式的列数。</p>
+</li>
+<li>
+<p><strong>-C&lt;显示行数&gt; 或 --context=&lt;显示行数&gt;或-&lt;显示行数&gt;</strong> : 除了显示符合样式的那一行之外，并显示该行之前后的内容。</p>
+</li>
+<li>
+<p><strong>-d &lt;动作&gt; 或 --directories=&lt;动作&gt;</strong> : 当指定要查找的是目录而非文件时，必须使用这项参数，否则grep指令将回报信息并停止动作。</p>
+</li>
+<li>
+<p><strong>-e&lt;范本样式&gt; 或 --regexp=&lt;范本样式&gt;</strong> : 指定字符串做为查找文件内容的样式。</p>
+</li>
+<li>
+<p><strong>-E 或 --extended-regexp</strong> : 将样式为延伸的普通表示法来使用。</p>
+</li>
+<li>
+<p><strong>-f&lt;规则文件&gt; 或 --file=&lt;规则文件&gt;</strong> : 指定规则文件，其内容含有一个或多个规则样式，让grep查找符合规则条件的文件内容，格式为每行一个规则样式。</p>
+</li>
+<li>
+<p><strong>-F 或 --fixed-regexp</strong> : 将样式视为固定字符串的列表。</p>
+</li>
+<li>
+<p><strong>-G 或 --basic-regexp</strong> : 将样式视为普通的表示法来使用。</p>
+</li>
+<li>
+<p><strong>-h 或 --no-filename</strong> : 在显示符合样式的那一行之前，不标示该行所属的文件名称。</p>
+</li>
+<li>
+<p><strong>-H 或 --with-filename</strong> : 在显示符合样式的那一行之前，表示该行所属的文件名称。</p>
+</li>
+<li>
+<p><strong>-i 或 --ignore-case</strong> : 忽略字符大小写的差别。</p>
+</li>
+<li>
+<p><strong>-l 或 --file-with-matches</strong> : 列出文件内容符合指定的样式的文件名称。</p>
+</li>
+<li>
+<p><strong>-L 或 --files-without-match</strong> : 列出文件内容不符合指定的样式的文件名称。</p>
+</li>
+<li>
+<p><strong>-n 或 --line-number</strong> : 在显示符合样式的那一行之前，标示出该行的列数编号。</p>
+</li>
+<li>
+<p><strong>-o 或 --only-matching</strong> : 只显示匹配PATTERN 部分。</p>
+</li>
+<li>
+<p><strong>-q 或 --quiet或--silent</strong> : 不显示任何信息。</p>
+</li>
+<li>
+<p><strong>-r 或 --recursive</strong> : 此参数的效果和指定"-d recurse"参数相同。</p>
+</li>
+<li>
+<p><strong>-s 或 --no-messages</strong> : 不显示错误信息。</p>
+</li>
+<li>
+<p><strong>-v 或 --revert-match</strong> : 显示不包含匹配文本的所有行。</p>
+</li>
+<li>
+<p><strong>-V 或 --version</strong> : 显示版本信息。</p>
+</li>
+<li>
+<p><strong>-w 或 --word-regexp</strong> : 只显示全字符合的列。</p>
+</li>
+<li>
+<p><strong>-x --line-regexp</strong> : 只显示全列符合的列。</p>
+</li>
+<li>
+<p><strong>-y</strong> : 此参数的效果和指定"-i"参数相同。</p>
+</li>
+<li>
+<p>正则</p>
+</li>
+<li>
+<p>‘^‘： 锚定行首</p>
+</li>
+<li>
+<p>‘$’： 锚定行尾 </p>
+</li>
+<li>
+<p>‘.‘： 匹配任一一个字符</p>
+</li>
+<li>
+<p>‘*’： 匹配零个或多个先前字符 </p>
+</li>
+<li>
+<p>‘\?‘：匹配其前面的字符0次或者1次；</p>
+</li>
+<li>
+<p>‘+’：匹配其前面的字符1次或者多次；</p>
+</li>
+<li>
+<p>‘{m}‘：匹配其前面的字符m次（\为转义字符）</p>
+</li>
+<li>
+<p>‘{m,n}’：匹配其前面的字符至少m次，至多n次</p>
+</li>
+<li>
+<p>‘[]‘： 匹配一个指定范围内的字符 | ‘[^]’匹配指定范围外的任意单个字符</p>
+</li>
+<li>
+<p>‘\&lt;‘或‘\b’：锚定词首，‘>’或‘\b’：锚定词尾（可用\&lt;PATTERN>：匹配完整单词）</p>
+</li>
+<li>
+<p>‘()’：将多个字符当做一个整体进行处理</p>
+</li>
+<li>
+<p>后向引用：引用前面的分组括号中的模式所匹配到的字符分组括号中的模式匹配到的内容或被正则表达式引擎自动记录于内部的变量中：**</p>
+<p><strong>\1：模式从左侧起，第一个左括号及与之匹配的右括号之间模式匹配到的内容</strong></p>
+<p><strong>\2：模式从左侧起，第二个左括号及与之匹配的右括号之间模式匹配到的内容...</strong></p>
+<p>扩展正则表达式与正则表达式略有不同：</p>
+<p>'[]'：依旧匹配指定范围内的任意单个字符；但是有很多特殊匹配方式。</p>
+<p>[:digit:] 匹配任意单个数字</p>
+<p>[:lower:] 匹配任意单个小写字母               </p>
+<p>[:upper:] 匹配任意单个大写字母</p>
+<p>[:alpha:] 匹配任意单个字母</p>
+<p>[:alnum:] 匹配任意单个字母或数字</p>
+<p>[:punct:] 匹配任意单个符号</p>
+<p>[:space:] 匹配单个空格</p>
+<p>一些地方取消了转义字符的使用：</p>
+<p>‘?‘：匹配其前面的字符0次或者1次；</p>
+<p>‘+’：匹配其前面的字符1次或者多次；</p>
+<p>‘{m}‘：匹配其前面的字符m次（\为转义字符）</p>
+<p>‘{m,n}’：匹配其前面的字符至少m次，至多n次</p>
+<p>()：将一个或多个字符捆绑在一起，当做一个整体进行处理，反向引用照常使用。</p>
+<p>‘|’：或（<strong>注</strong>：‘C|cat’为C与cat，‘（C|c）at才是Cat与cat’）</p>
+</li>
+</ul>
 <blockquote>
-<p>作者: caimengzhi</p>
+<p><strong>注</strong>：使用grep匹配时需使用双引号引起来（单引号为强引用），防止被系统误认为参数或者特殊命令而报错。</p>
+<p>基本的正则表达式元字符 ?、+、 {、 |、 ( 和 ) 已经失去了它们原来的意义，要使用的话用反斜线的版本 /?、/+、/{、/|、/( 和 /) 来代替。 传统的 egrep 并不支持 { 元字符，一些 egrep 的实现是以 /{ 替代的，所以一个可移植的脚本应该避免在 grep -E 使用 { 符号，要匹配字面的 { 应该使用 [}]。</p>
 </blockquote>
-<h2 id="4">4. 三剑客<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
-<h3 id="41-grep">4.1 grep<a class="headerlink" href="#41-grep" title="Permanent link">&para;</a></h3>
-<h3 id="42-sed">4.2 sed<a class="headerlink" href="#42-sed" title="Permanent link">&para;</a></h3>
-<h3 id="43-awk">4.3 awk<a class="headerlink" href="#43-awk" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>过滤
+root@leco:/tmp/cmz# cat cmz.txt 
+my name is caimengzhi
+MY NAME IS CAIMENGZHI
+my age is 32
+MY AGE IS 32
+my hobby is python
+MY HOBBY IS PYTHON
+root@leco:/tmp/cmz# grep name cmz.txt 
+my name is caimengzhi
+
+-i 不区分大小写
+root@leco:/tmp/cmz# grep -i name cmz.txt 
+my name is caimengzhi
+MY NAME IS CAIMENGZHI
+</pre></div>
+
+<div class="codehilite"><pre><span></span>-你显示行号[过滤出信息]
+root@leco:/tmp/cmz# grep -n &#39;name&#39; cmz.txt 
+1:my name is caimengzhi
+root@leco:/tmp/cmz# grep -ni &#39;name&#39; cmz.txt 
+1:my name is caimengzhi
+2:MY NAME IS CAIMENGZHI
+root@leco:/tmp/cmz# grep -nE &#39;name|NAME&#39; cmz.txt 
+1:my name is caimengzhi
+2:MY NAME IS CAIMENGZHI
+</pre></div>
+
+<div class="codehilite"><pre><span></span>-v 排除不需要的行
+root@leco:/tmp/cmz# cat cmz.txt 
+my name is caimengzhi
+my age is 32
+my hobby is Python
+root@leco:/tmp/cmz# grep -v &#39;age&#39; cmz.txt 
+my name is caimengzhi
+my hobby is Python
+
+root@leco:/tmp/cmz# grep -Ev &#39;age|name&#39; cmz.txt 
+my hobby is Python
+</pre></div>
+
+<blockquote>
+<p>需要多个的话，需要使用-E，多个条件使用|链接</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>-c 显示匹配到的数据的行数
+root@leco:/tmp/cmz# grep caimengzhi cmz.txt 
+my name is caimengzhi
+root@leco:/tmp/cmz# grep -i caimengzhi cmz.txt 
+my name is caimengzhi
+MY NAME IS CAIMENGZHI
+root@leco:/tmp/cmz# grep -c caimengzhi cmz.txt 
+1
+root@leco:/tmp/cmz# grep -ci caimengzhi cmz.txt 
+2
+</pre></div>
+
+<div class="codehilite"><pre><span></span>root@leco:/tmp/cmz# grep caimengzhi cmz.txt 
+my name is caimengzhi
+root@leco:/tmp/cmz# grep -o caimengzhi cmz.txt 
+caimengzhi
+root@leco:/tmp/cmz# grep -no caimengzhi cmz.txt 
+1:caimengzhi
+</pre></div>
+
+<blockquote>
+<p>只输出匹配的内容</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>-w 精确匹配
+root@leco:/tmp/cmz# cat cmz.txt 
+my name is caimengzhi
+my na is caimengzhi
+MY NAME IS CAIMENGZHI
+my age is 32
+MY AGE IS 32
+my hobby is python
+MY HOBBY IS PYTHON
+root@leco:/tmp/cmz# grep na cmz.txt 
+my name is caimengzhi
+my na is caimengzhi
+root@leco:/tmp/cmz# grep -w na cmz.txt 
+my na is caimengzhi
+</pre></div>
+
+<blockquote>
+<p>-w 是精确匹配，没有-w是模糊匹配。</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>root@leco:/tmp/cmz# cat cmz.conf 
+
+# 这个是注释
+my name is caimegzhi
+
+root@leco:/tmp/cmz# cat -n cmz.conf 
+     1  
+     2  # 这个是注释
+     3  my name is caimegzhi
+     4  
+root@leco:/tmp/cmz# grep -v &#39;#&#39; cmz.conf  # 去掉带有#的行
+
+my name is caimegzhi
+
+root@leco:/tmp/cmz# grep -v &#39;^$&#39; cmz.conf # 去掉空行
+# 这个是注释
+my name is caimegzhi
+root@leco:/tmp/cmz# grep -vE &#39;^$|#&#39; cmz.conf  # 去掉带有#号和空行
+my name is caimegzhi
+</pre></div>
+
+<div class="codehilite"><pre><span></span>-r 递归查询
+root@leco:/tmp/cmz# ls
+cmz
+root@leco:/tmp/cmz# tree .
+.
+└── cmz
+    ├── cmz.conf
+    └── cmz.txt
+
+1 directory, 2 files
+root@leco:/tmp/cmz# grep -r name *
+cmz/cmz.conf:my name is caimegzhi
+cmz/cmz.txt:my name is caimengzhi
+
+root@leco:/tmp/cmz# grep -rn name *  # -n 显示所在文件的行号
+cmz/cmz.conf:3:my name is caimegzhi
+cmz/cmz.txt:1:my name is caimengzhi
+</pre></div>
+
+<blockquote>
+<p>在目录下查询所有的文件中包括name的字段的文件，因为目录下又有很多目录和文件，使用-r 递归查询</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>root@leco:/tmp/cmz/cmz# cat cmz.txt
+my name is caimengzhi
+my age is 32
+my hobby is python
+root@leco:/tmp/cmz/cmz# grep -A1 age cmz.txt 
+my age is 32
+my hobby is python
+root@leco:/tmp/cmz/cmz# grep -B1 age cmz.txt 
+my name is caimengzhi
+my age is 32
+root@leco:/tmp/cmz/cmz# grep -C1 age cmz.txt 
+my name is caimengzhi
+my age is 32
+my hobby is python
+</pre></div>
+
+<blockquote>
+<p>-A 就是after,匹配到数据，后面几行</p>
+<p>-B就是before,匹配到数据，前面几行</p>
+<p>-C就是匹配到数据，前后几行</p>
+</blockquote>
+<hr />
+<p>正则表达式</p>
+<ol>
+<li>正则表达式就是为了处理大量的文本|字符串而定义的一套规则和方法</li>
+<li>通过定义的这些特殊符号的辅助，系统管理员就可以快速过滤，替换或输出需要的字符串。Linux正则表达式一般以行为单位处理</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基础正则BRE</td>
+<td>扩展正则ERE</td>
+</tr>
+<tr>
+<td>\?</td>
+<td>?</td>
+</tr>
+<tr>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>{}</td>
+<td>{}</td>
+</tr>
+<tr>
+<td>(  )</td>
+<td>()</td>
+</tr>
+<tr>
+<td>\</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>所谓基础正则实际上就是得需要转义字符配合表达的正则，而扩展正则就是让命令扩展它的权限让他直接就认识正则表达符号（egrep，sed -r，awk直接支持）</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>正则表达式</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[:alnum:]</td>
+<td>[a-zA-Z0-9]匹配任意一个字母或数字字符</td>
+<td>[[:alnum:]]+</td>
+</tr>
+<tr>
+<td>[:alpha:]</td>
+<td>匹配任意一个字母字符（包括大小写字母）</td>
+<td>[[:alpha:]]{4}</td>
+</tr>
+<tr>
+<td>[:blank:]</td>
+<td>空格与制表符（横向纵向）</td>
+<td>[[:blank:]]*</td>
+</tr>
+<tr>
+<td>[:digit:]</td>
+<td>匹配任意一个数字字符</td>
+<td>[[:digit:]]?</td>
+</tr>
+<tr>
+<td>[:lower:]</td>
+<td>匹配小写字母</td>
+<td>[[:lower:]]{5,}</td>
+</tr>
+<tr>
+<td>[:upper:]</td>
+<td>匹配大写字母</td>
+<td>([[:upper:]]+)?</td>
+</tr>
+<tr>
+<td>[:punct:]</td>
+<td>匹配标点符号</td>
+<td>[[:punct:]]</td>
+</tr>
+<tr>
+<td>[:space:]</td>
+<td>匹配一个包括换行符，回车等在内的所有空白符</td>
+<td>[[:space:]]+</td>
+</tr>
+<tr>
+<td>[:graph:]</td>
+<td>匹配任何一个可以看得见的且可以打印的字符</td>
+<td>[[:graph:]]</td>
+</tr>
+<tr>
+<td>[:xdigit:]</td>
+<td>任何一个十六进制数</td>
+<td>[[:xdigit:]]+</td>
+</tr>
+<tr>
+<td>[:cntrl:]</td>
+<td>任何一个控制字符（ASCII字符集中的前32个字符）</td>
+<td>[[:cntrl:]]</td>
+</tr>
+<tr>
+<td>[:print:]</td>
+<td>任何一个可以打印的字符</td>
+<td>[[:print:]]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>元字符是一种Perl风格的正则表达式，只有一部分文本处理工具支持它，并不是所有的文本处理工具都支持</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>正则表达式</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\b</td>
+<td>单词边界</td>
+<td>\bcool\b匹配cool，不匹配coolant</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>非单词边界</td>
+<td>cool\B匹配coolant不匹配cool</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>单个数字字符</td>
+<td>b\db匹配b2b，不匹配bcb</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>单个非数字字符</td>
+<td>b\Db匹配bcb不匹配b2b</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>单个单词字符（字母，数字与_)</td>
+<td>\w匹配1或a，不匹配&amp;</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>单个非单词字符</td>
+<td>\W匹配&amp;，不匹配1或a</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行符</td>
+<td>\n匹配一个新行</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>单个空白字符</td>
+<td>x\sx匹配xx，不匹配xx</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>单个非空白字符</td>
+<td>x\S\x匹配xkx，不匹配xx</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车</td>
+<td>\r匹配回车</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>横向制表符</td>
+<td>\t匹配一个横向制表符</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>垂直制表符</td>
+<td>\v匹配一个垂直制表符</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页符</td>
+<td>\f匹配一个换页符</td>
+</tr>
+</tbody>
+</table>
+<div class="codehilite"><pre><span></span>-[] 匹配括号内任何一个字符
+root@leco:/tmp/cmz/cmz# cat cmz.txt 
+1 my name is caimengzhi
+my age is 32
+ac my hobby is python
+root@leco:/tmp/cmz/cmz# grep &quot;[ag]&quot; cmz.txt 
+1 my name is caimengzhi
+my age is 32
+ac my hobby is python
+
+root@leco:/tmp/cmz/cmz# grep &quot;[0-9]&quot; cmz.txt 
+1 my name is caimengzhi
+my age is 32
+</pre></div>
+
+<blockquote>
+<p>[ag]匹配的是包含a或者g的行,[0-9]匹配0到9</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>^ 以什么开头的行
+root@leco:/tmp/cmz/cmz# grep &quot;^my&quot; cmz.txt 
+my age is 32
+
+root@leco:/tmp/cmz/cmz# grep &quot;^[^m]&quot; cmz.txt 
+1 my name is caimengzhi.
+ac my hobby is python
+</pre></div>
+
+<blockquote>
+<p>^匹配以my开头的行,两次就表示取反</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>root@leco:/tmp/cmz/cmz# cat cmz.txt 
+1 my name is caimengzhi.
+my age is 32.
+ac my hobby is python
+root@leco:/tmp/cmz/cmz# grep &#39;n$&#39; cmz.txt 
+ac my hobby is python
+root@leco:/tmp/cmz/cmz# grep &#39;.$&#39; cmz.txt 
+1 my name is caimengzhi.
+my age is 32.
+ac my hobby is python
+root@leco:/tmp/cmz/cmz# grep &#39;\.$&#39; cmz.txt 
+1 my name is caimengzhi.
+my age is 32.
+</pre></div>
+
+<blockquote>
+<p>$ 配置以什么什么结尾，但是碰见特殊字符需要转意。</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>正则.和*
+. (小数点)：代表『一定有一个任意字节』的意思；
+* (星号)：代表『重复前一个字符， 0 到无穷多次』的意思，为组合形态
++ (加号): 代表前面重复的字符1次或者多次
+? (问号): 代表前面重复的字符0次或者1次
+
+root@leco:/tmp/cmz/cmz# cat cmz.txt 
+1 my name is caimengzhi.
+my age is 32.
+my agge is 32.
+my aggge is 32.
+ac my hobby is python
+root@leco:/tmp/cmz/cmz# grep &#39;a.e&#39; cmz.txt 
+1 my name is caimengzhi.
+my age is 32.
+root@leco:/tmp/cmz/cmz# grep &#39;a..e&#39; cmz.txt 
+1 my name is caimengzhi.
+my agge is 32.
+root@leco:/tmp/cmz/cmz# grep &#39;a...e&#39; cmz.txt 
+my aggge is 32.
+root@leco:/tmp/cmz/cmz# grep &#39;a*e&#39; cmz.txt 
+1 my name is caimengzhi.
+my age is 32.
+my agge is 32.
+my aggge is 32.
+root@leco:/tmp/cmz/cmz# egrep &#39;(gg)+&#39; cmz.txt 
+my agge is 32.
+my aggge is 32.
+root@leco:/tmp/cmz/cmz# grep &#39;\(gg\)\+&#39; cmz.txt 
+my agge is 32.
+my aggge is 32.
+
+root@leco:/tmp/cmz/cmz# egrep &#39;(g)?&#39; cmz.txt 
+1 my name is caimengzhi.
+my age is 32.
+my agge is 32.
+my aggge is 32.
+ac my hobby is python
+AB C
+hellocaimengzhi
+</pre></div>
+
+<blockquote>
+<p>a.e 表示a和e之间只有一个任意字符</p>
+<p>a..e 表示a和e之间只有两个任意字符</p>
+<p>a...e 表示a和e之间只有三个任意字符</p>
+<p>a*e表示a和e之间有0到无穷多个任意字符。贪婪匹配</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>{}使用
+c{n}  # 匹配c字符n次以上包括n次
+c{n,} # 等价c{n}
+c{n,m}# 匹配c字符n次到m次，包括n和m
+root@leco:/tmp/cmz/cmz# cat leco.txt 
+cmz
+ccmz
+cccmz
+ccccmz
+leco
+icpc
+root@leco:/tmp/cmz/cmz# grep &#39;c\{1\}&#39; leco.txt 
+cmz
+ccmz
+cccmz
+ccccmz
+leco
+icpc
+root@leco:/tmp/cmz/cmz# grep &#39;c\{1,\}&#39; leco.txt 
+cmz
+ccmz
+cccmz
+ccccmz
+leco
+icpc
+root@leco:/tmp/cmz/cmz# grep &#39;c\{2,\}&#39; leco.txt 
+ccmz
+cccmz
+ccccmz
+root@leco:/tmp/cmz/cmz# grep &#39;c\{3,\}&#39; leco.txt 
+cccmz
+ccccmz
+root@leco:/tmp/cmz/cmz# grep &#39;c\{4,\}&#39; leco.txt 
+ccccmz
+root@leco:/tmp/cmz/cmz# grep &#39;c\{5,\}&#39; leco.txt 
+root@leco:/tmp/cmz/cmz# grep &#39;c\{2,3\}&#39; leco.txt 
+ccmz
+cccmz
+ccccmz
+</pre></div>
+
+<blockquote>
+<p>如是不是用\转移使用egrep 替换grep或者grep -E</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>root@leco:/tmp/cmz/cmz# egrep &#39;c{1}&#39; leco.txt 
+cmz
+ccmz
+cccmz
+ccccmz
+leco
+icpc
+root@leco:/tmp/cmz/cmz# egrep &#39;c{2}&#39; leco.txt 
+ccmz
+cccmz
+ccccmz
+root@leco:/tmp/cmz/cmz# egrep &#39;c{3}&#39; leco.txt 
+cccmz
+ccccmz
+root@leco:/tmp/cmz/cmz# egrep &#39;c{4}&#39; leco.txt 
+ccccmz
+root@leco:/tmp/cmz/cmz# egrep &#39;c{5}&#39; leco.txt 
+root@leco:/tmp/cmz/cmz# egrep &#39;c{2,3}&#39; leco.txt 
+ccmz
+cccmz
+ccccmz
+</pre></div>
+
+<div class="codehilite"><pre><span></span>[]扩展正则
+root@leco:/tmp/cmz/cmz# cat cmz.txt 
+1 my name is caimengzhi.
+my age is 32.
+my agge is 32.
+my aggge is 32.
+ac my hobby is python
+AB C
+hellocaimengzhi
+
+[:digit:] 匹配任意单个数字
+root@leco:/tmp/cmz/cmz# grep &#39;[[:digit:]]&#39; cmz.txt 
+1 my name is caimengzhi.
+my age is 32.
+my agge is 32.
+my aggge is 32.
+期中数字会高亮
+
+[:lower:] 匹配任意单个小写字母               
+root@leco:/tmp/cmz/cmz# grep &#39;[[:lower:]]&#39; cmz.txt 
+1 my name is caimengzhi.
+my age is 32.
+my agge is 32.
+my aggge is 32.
+ac my hobby is python
+hellocaimengzhi
+期中小写字母会高亮
+
+[:upper:] 匹配任意单个大写字母
+root@leco:/tmp/cmz/cmz# grep &#39;[[:upper:]]&#39; cmz.txt 
+AB C
+期中大写字母会高亮
+
+[:alpha:] 匹配任意单个字母
+root@leco:/tmp/cmz/cmz# grep &#39;[[:alpha:]]&#39; cmz.txt 
+1 my name is caimengzhi.
+my age is 32.
+my agge is 32.
+my aggge is 32.
+ac my hobby is python
+AB C
+hellocaimengzhi
+期中所有字母会高亮
+
+[:alnum:] 匹配任意单个字母或数字
+root@leco:/tmp/cmz/cmz# grep &#39;[[:alnum:]]&#39; cmz.txt 
+1 my name is caimengzhi.
+my age is 32.
+my agge is 32.
+my aggge is 32.
+ac my hobby is python
+AB C
+hellocaimengzhi
+期中数字或者字母会高亮
+
+[:punct:] 匹配任意单个符号
+root@leco:/tmp/cmz/cmz# grep &#39;[[:punct:]]&#39; cmz.txt 
+1 my name is caimengzhi.
+my age is 32.
+my agge is 32.
+my aggge is 32.
+期中符号会高亮也就是本文中的最后的英文点
+
+[:space:] 匹配单个空格
+root@leco:/tmp/cmz/cmz# grep &#39;[[:space:]]&#39; cmz.txt 
+1 my name is caimengzhi.
+my age is 32.
+my agge is 32.
+my aggge is 32.
+ac my hobby is python
+AB C
+期中空格会高亮显示
+</pre></div>
+
+<p>单例</p>
+<div class="codehilite"><pre><span></span>grep -c &quot;88&quot; cmz.txt 统计所有以“88”字符开头的行有多少
+grep -i &quot;May&quot; cmz.txt 不区分大小写查找“May”所有的行）
+grep -n &quot;88&quot; cmz.txt 显示行号；显示匹配字符“88”的行及行号，相同于 nl cmz.txt |grep 88）
+grep -v &quot;88&quot; cmz.txt 显示输出没有字符“88”所有的行）
+grep &quot;471&quot; cmz.txt 显示输出字符“471”所在的行）
+grep &quot;88;&quot; cmz.txt 显示输出以字符“88”开头，并在字符“88”后是一个tab键所在的行
+grep &quot;88[34]&quot; cmz.txt 显示输出以字符“88”开头，第三个字符是“3”或是“4”的所有的行）
+grep &quot;^[^88]&quot; cmz.txt 显示输出行首不是字符“88”的行）
+grep &quot;[Mm]ay&quot; cmz.txt 设置大小写查找：显示输出第一个字符以“M”或“m”开头，以字符“ay”结束的行）
+grep &quot;K…D&quot; cmz.txt 显示输出第一个字符是“K”，第二、三、四是任意字符，第五个字符是“D”所在的行）
+grep &quot;[A-Z][9]D&quot; cmz.txt 显示输出第一个字符的范围是“A-D”，第二个字符是“9”，第三个字符的是“D”的所有的行
+grep &quot;[35]..1998&quot; cmz.txt 显示第一个字符是3或5，第二三个字符是任意，以1998结尾的所有行
+grep &quot;4\{2,\}&quot; cmz.txt 模式出现几率查找：显示输出字符“4”至少重复出现两次的所有行
+grep &quot;9\{3,\}&quot; cmz.txt 模式出现几率查找：显示输出字符“9”至少重复出现三次的所有行
+grep &quot;9\{2,3\}&quot; cmz.txt 模式出现几率查找：显示输出字符“9”重复出现的次数在一定范围内，重复出现2次或3次所有行
+grep -n &quot;^$&quot; cmz.txt 显示输出空行的行号
+ls -l |grep &quot;^d&quot; 如果要查询目录列表中的目录 同：ls -d *
+ls -l |grep &quot;^d[d]&quot; 在一个目录中查询不包含目录的所有文件
+ls -l |grpe &quot;^d…..x..x&quot; 查询其他用户和用户组成员有可执行权限的目录集合
+</pre></div>
                 
                   
                 
