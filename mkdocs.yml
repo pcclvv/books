@@ -201,7 +201,7 @@ nav:
         - 教程:
             - 基础:
                 - 1. 简书: linux/tutorial/brief_book.index.md
-                - 2. 硬件: linux/tutorial/pc.hardware.md 
+                - 2. 硬件: linux/tutorial/linux.pchardware.md 
                 - 3. 历史: linux/tutorial/linux.history.md
                 - 4. 系统安装: linux/tutorial/linux.vmware.md
                 - 5. 链接: linux/tutorial/linux.conn.md 
@@ -210,6 +210,7 @@ nav:
                 - 8. 启动顺序: linux/tutorial/linux.sequence_start.md 
             - 助攻:
                 - 1. 路由器: linux/tutorial/linux.router.md
+                - 2. TCP模型: linux/tutorial/linux.tcp7.md 
             - 命令:
                 - 01. 命令 集合: linux/tutorial/linux.commands.md
                 - 01. 命令 介绍: linux/tutorial/linux.command_info.md
