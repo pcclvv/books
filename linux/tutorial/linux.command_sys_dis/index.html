@@ -2230,7 +2230,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../pc.hardware/" title="2. 硬件" class="md-nav__link">
+    <a href="../linux.pchardware/" title="2. 硬件" class="md-nav__link">
       2. 硬件
     </a>
   </li>
@@ -2340,6 +2340,18 @@
   <li class="md-nav__item">
     <a href="../linux.router/" title="1. 路由器" class="md-nav__link">
       1. 路由器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../linux.tcp7/" title="2. TCP模型" class="md-nav__link">
+      2. TCP模型
     </a>
   </li>
 
@@ -6321,6 +6333,118 @@ Change: 2019-05-04 22:33:38.758177561 -0400
 </pre></div>
 
 <h3 id="56-date">5.6 date<a class="headerlink" href="#56-date" title="Permanent link">&para;</a></h3>
+<p>&emsp;Linux date命令可以用来显示或设定系统的日期与时间，在显示方面，使用者可以设定欲显示的格式，格式设定为一个加号后接数个标记，其中可用的标记列表如下：</p>
+<p>时间方面:</p>
+<div class="codehilite"><pre><span></span>% : 印出 %
+%n : 下一行
+%t : 跳格
+%H : 小时(00..23)
+%I : 小时(01..12)
+%k : 小时(0..23)
+%l : 小时(1..12)
+%M : 分钟(00..59)
+%p : 显示本地 AM 或 PM
+%r : 直接显示时间 (12 小时制，格式为 hh:mm:ss [AP]M)
+%s : 从 1970 年 1 月 1 日 00:00:00 UTC 到目前为止的秒数
+%S : 秒(00..61)
+%T : 直接显示时间 (24 小时制)
+%X : 相当于 %H:%M:%S
+%Z : 显示时区
+</pre></div>
+
+<p>日期方面</p>
+<div class="codehilite"><pre><span></span>%a : 星期几 (Sun..Sat)
+%A : 星期几 (Sunday..Saturday)
+%b : 月份 (Jan..Dec)
+%B : 月份 (January..December)
+%c : 直接显示日期与时间
+%d : 日 (01..31)
+%D : 直接显示日期 (mm/dd/yy)
+%h : 同 %b
+%j : 一年中的第几天 (001..366)
+%m : 月份 (01..12)
+%U : 一年中的第几周 (00..53) (以 Sunday 为一周的第一天的情形)
+%w : 一周中的第几天 (0..6)
+%W : 一年中的第几周 (00..53) (以 Monday 为一周的第一天的情形)
+%x : 直接显示日期 (mm/dd/yy)
+%y : 年份的最后两位数字 (00.99)
+%Y : 完整年份 (0000..9999)
+</pre></div>
+
+<blockquote>
+<p>若是不以加号作为开头，则表示要设定时间，而时间格式为 MMDDhhmm[[CC]YY][.ss]，其中 MM 为月份，DD 为日，hh 为小时，mm 为分钟，CC 为年份前两位数字，YY 为年份后两位数字，ss 为秒数。</p>
+<p>当您不希望出现无意义的 0 时(比如说 1999/03/07)，则可以在标记中插入 - 符号，比如说 date '+%-H:%-M:%-S' 会把时分秒中无意义的 0 给去掉，像是原本的 08:09:04 会变为 8:9:4。另外，只有取得权限者(比如说 root)才能设定系统时间。</p>
+<p>当您以 root 身分更改了系统时间之后，请记得以 clock -w 来将系统时间写入 CMOS 中，这样下次重新开机时系统时间才会持续抱持最新的正确值。</p>
+</blockquote>
+<p><strong>语法</strong></p>
+<div class="codehilite"><pre><span></span>date [-u] [-d datestr] [-s datestr] [--utc] [--universal] [--date=datestr] [--set=datestr] [--help] [--version] [+FORMAT] [MMDDhhmm[[CC]YY][.ss]]
+</pre></div>
+
+<p><strong>参数说明</strong>：</p>
+<ul>
+<li>-d datestr : 显示 datestr 中所设定的时间 (非系统时间)</li>
+<li>--help : 显示辅助讯息</li>
+<li>-s datestr : 将系统时间设为 datestr 中所设定的时间</li>
+<li>-u : 显示目前的格林威治时间</li>
+<li>--version : 显示版本编号</li>
+</ul>
+<div class="codehilite"><pre><span></span>[root@master01 ~]# date
+Mon May 13 16:49:36 CST 2019
+[root@master01 ~]# date &#39;+%c&#39; 
+Mon 13 May 2019 04:49:40 PM CST
+[root@master01 ~]#  date &#39;+%D&#39; # 显示完整的时间
+05/13/19
+[root@master01 ~]# date &#39;+%x&#39;  # 显示数字日期，年份两位数表示
+05/13/2019
+[root@master01 ~]# date &#39;+%T&#39;  # 显示日期，年份用四位数表示
+16:50:12
+[root@master01 ~]# date &#39;+%X&#39;  # 显示24小时的格式
+04:50:25 PM
+
+自定义格式
+[root@master01 ~]# date &#39;+当前时间: %I:%M %P -hey&#39;
+当前时间: 04:52 pm -hey
+
+显示日期后在跳行
+[root@master01 ~]# date &#39;+%T%n%D&#39;
+16:53:00
+05/13/19
+
+显示月份
+[root@master01 ~]# date &#39;+%B %d&#39;
+May 13
+
+[root@master01 ~]# date &quot;+%Y-%m-%d %H:%M:%S&quot;
+2019-05-13 16:55:04
+
+[root@master01 ~]# date -d today 
+Mon May 13 16:55:36 CST 2019
+[root@master01 ~]# date -d now
+Mon May 13 16:55:44 CST 2019
+[root@master01 ~]# date -d tomorrow
+Tue May 14 16:55:48 CST 2019
+[root@master01 ~]# date -d yesterday
+Sun May 12 16:55:53 CST 2019
+
+设置时间
+[root@master01 ~]# date
+Mon May 13 16:57:02 CST 2019
+[root@master01 ~]# date -d &quot;+2 days ago&quot; 
+Sat May 11 16:57:07 CST 2019
+[root@master01 ~]# date
+Mon May 13 16:57:09 CST 2019
+
+date -s &quot;06:12:00 2019-12-12&quot; //这样可以设置全部时间
+date -s &quot;06:12:00 20191212&quot; //这样可以设置全部时间
+date -s &quot;2019-12-12 06:12:00&quot; //这样可以设置全部时间
+date -s &quot;20191212 06:12:00&quot; //这样可以设置全部时间
+</pre></div>
+
+<blockquote>
+<p>UTC  (Universal Time Coordinated,UTC)世界协调时间</p>
+<p>CST  (China Standard Time UTC+8:00)中国沿海时间(北京时间)</p>
+<p>GMT  (Greenwich Mean Time)格林威治标准时间</p>
+</blockquote>
 <h3 id="57-echo">5.7 echo<a class="headerlink" href="#57-echo" title="Permanent link">&para;</a></h3>
 <p>&emsp;Linux echo命令用于显示输出</p>
 <p><strong>语法</strong></p>
@@ -6382,6 +6506,55 @@ caimengzhi
 caimengzhi
 [root@master01 ~]# echo -n &#39;caimengzhi&#39;;echo &#39;caimengzhi&#39;
 caimengzhicaimengzhi
+</pre></div>
+
+<div class="codehilite"><pre><span></span>echo显示带颜色，需要使用参数-e，格式如下:
+echo -e &quot;\033[字背景颜色;文字颜色m字符串\033[0m&quot;
+echo -e &quot;\033[41;37m TonyZhang \033[0m&quot;
+其中41的位置代表底色, 37的位置是代表字的颜色
+ 注：
+1、字背景颜色和文字颜色之间是英文的“&quot;&quot;”
+2、文字颜色后面有个m
+3、字符串前后可以没有空格，如果有的话，输出也是同样有空格
+-----------------------------------------------------------------------------------------
+echo -e &quot;\033[30m 黑色字 \033[0m&quot;
+echo -e &quot;\033[31m 红色字 \033[0m&quot;
+echo -e &quot;\033[32m 绿色字 \033[0m&quot;
+echo -e &quot;\033[33m 黄色字 \033[0m&quot;
+echo -e &quot;\033[34m 蓝色字 \033[0m&quot;
+echo -e &quot;\033[35m 紫色字 \033[0m&quot;
+echo -e &quot;\033[36m 天蓝字 \033[0m&quot;
+echo -e &quot;\033[37m 白色字 \033[0m&quot;
+
+echo -e &quot;\033[40;37m 黑底白字 \033[0m&quot;
+echo -e &quot;\033[41;37m 红底白字 \033[0m&quot;
+echo -e &quot;\033[42;37m 绿底白字 \033[0m&quot;
+echo -e &quot;\033[43;37m 黄底白字 \033[0m&quot;
+echo -e &quot;\033[44;37m 蓝底白字 \033[0m&quot;
+echo -e &quot;\033[45;37m 紫底白字 \033[0m&quot;
+echo -e &quot;\033[46;37m 天蓝底白字 \033[0m&quot;
+echo -e &quot;\033[47;30m 白底黑字 \033[0m&quot;
+
+控制选项
+\33[0m 关闭所有属性 
+\33[1m 设置高亮度 
+\33[4m 下划线 
+\33[5m 闪烁 
+\33[7m 反显 
+\33[8m 消隐 
+\33[30m -- \33[37m 设置前景色 
+\33[40m -- \33[47m 设置背景色 
+\33[nA 光标上移n行 
+\33[nB 光标下移n行 
+\33[nC 光标右移n行 
+\33[nD 光标左移n行 
+\33[y;xH设置光标位置 
+\33[2J 清屏 
+\33[K 清除从光标到行尾的内容 
+\33[s 保存光标位置 
+\33[u 恢复光标位置 
+\33[?25l 隐藏光标 
+\33[?25h 显示光标 
 </pre></div>
 
 <h3 id="58-watch">5.8 watch<a class="headerlink" href="#58-watch" title="Permanent link">&para;</a></h3>
