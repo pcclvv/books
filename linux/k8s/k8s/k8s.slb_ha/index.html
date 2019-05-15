@@ -10,11 +10,11 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="笔记">
+        <meta name="description" content="NoteBook">
       
       
       
-        <meta name="author" content="流浪地球">
+        <meta name="author" content="caimengzhi">
       
       
         <meta name="lang:clipboard.copy" content="复制">
@@ -40,7 +40,7 @@
     
     
       
-        <title>08. K8S slb_ha - 笔记</title>
+        <title>08. K8S slb_ha - NoteBook</title>
       
     
     
@@ -115,7 +115,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../../.." title="笔记" class="md-header-nav__button md-logo">
+        <a href="../../../.." title="NoteBook" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -129,7 +129,7 @@
           
             
               <span class="md-header-nav__topic">
-                笔记
+                NoteBook
               </span>
               <span class="md-header-nav__topic">
                 08. K8S slb_ha
@@ -211,12 +211,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../../.." title="笔记" class="md-nav__button md-logo">
+    <a href="../../../.." title="NoteBook" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    笔记
+    NoteBook
   </label>
   
     <div class="md-nav__source">
@@ -6476,7 +6476,7 @@ NAME              STATUS   ROLES    AGE     VERSION   INTERNAL-IP       EXTERNAL
 192.168.186.142   Ready    &lt;none&gt;   3d17h   v1.13.4   192.168.186.142   &lt;none&gt;        CentOS Linux 7 (Core)   3.10.0-957.10.1.el7.x86_64   docker://18.9.5
 </pre></div></p>
 <blockquote>
-<p>可以看出，我们从其他非机器的机器通过证书和命令链接到机器中[其实就是通过加载证书，链接apiserver，我没有其他闲置机器。我使用了node1节点，你找其他机器都可以，但是保证你的apiserver的证书中允许该ip]</p>
+<p>可以看出，我们从其他非master的机器通过证书和命令链接到机器中[其实就是通过加载证书，链接apiserver，我没有其他闲置机器。我使用了node1节点，你找其他机器都可以，但是保证你的apiserver的证书中允许该ip]</p>
 </blockquote>
 <div class="codehilite"><pre><span></span>在k8s-cert.sh中指定了api server允许链接的ip
 
