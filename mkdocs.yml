@@ -198,7 +198,7 @@ nav:
             - 2. 网卡信息: linux/shell/system/linux.network.md
             - 3. mysql:
                 - 1. 安装: linux/shell/mysql/install/mysql.install.md
-            - 4. 系统初始化脚本: linux/shell/init.md
+            - 4. 系统初始化脚本: linux/shell/init/init.md
         - 教程:
             - 基础:
                 - 1. 简书: linux/tutorial/brief_book.index.md
