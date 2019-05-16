@@ -492,7 +492,7 @@ NAME              STATUS   ROLES    AGE     VERSION   INTERNAL-IP       EXTERNAL
 192.168.186.141   Ready    <none>   3d18h   v1.13.4   192.168.186.141   <none>        CentOS Linux 7 (Core)   3.10.0-957.el7.x86_64        docker://18.9.5
 192.168.186.142   Ready    <none>   3d17h   v1.13.4   192.168.186.142   <none>        CentOS Linux 7 (Core)   3.10.0-957.10.1.el7.x86_64   docker://18.9.5
 ```
-> 可以看出，我们从其他非机器的机器通过证书和命令链接到机器中[其实就是通过加载证书，链接apiserver，我没有其他闲置机器。我使用了node1节点，你找其他机器都可以，但是保证你的apiserver的证书中允许该ip]
+> 可以看出，我们从其他非master的机器通过证书和命令链接到机器中[其实就是通过加载证书，链接apiserver，我没有其他闲置机器。我使用了node1节点，你找其他机器都可以，但是保证你的apiserver的证书中允许该ip]
 
 ```
 在k8s-cert.sh中指定了api server允许链接的ip

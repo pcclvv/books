@@ -307,3 +307,123 @@ systemctl stop $SERVICES
 done
 ```
 
+!!! note "centos6 优化脚本"
+    ```
+    #!/bin/sh
+
+    echo "------ step 1: config yum ------"
+    cd /etc/yum.repos.d/
+    wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo
+
+    echo "------ step 2: config  profile------"
+    echo 'export LC_ALL=C'>> /etc/profile
+    source /etc/profile
+
+    echo "------ step 3: stop iptables and selinux------"
+    /etc/init.d/iptables stop
+    /etc/init.d/iptables stop
+    /etc/init.d/NetworkManager stop
+    chkconfig NetworkManager off
+    chkconfig iptables off
+    setenforce 0
+    if [ -f /etc/selinux/config ]; then
+        sed -i 's#SELINUX=enforcing#SELINUX=disabled#g' /etc/selinux/config
+        setenforce 0
+    fi
+
+    echo "------ step 4: config time sync------"
+    ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+    cp /etc/sysconfig/clock /etc/sysconfig/clock.ori
+    > /etc/sysconfig/clock
+    echo " ZONE="Asia/Shanghai"">/etc/sysconfig/clock
+
+    /usr/sbin/ntpdate pool.ntp.org
+    echo '#time sync by caimengzhi at 2016-2-1'>>/var/spool/cron/root
+    echo '*/10 * * * * /usr/sbin/ntpdate pool.ntp.org >/dev/null 2>&1'>>/var/spool/cron/root
+
+    #配置SSHD
+    sed -i '/^#Port/s/#Port 22/Port 65535/g' /etc/ssh/sshd_config
+    sed -i '/^#UseDNS/s/#UseDNS yes/UseDNS no/g' /etc/ssh/sshd_config
+    sed -i 's/#PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
+    sed -i 's/#PermitEmptyPasswords no/PermitEmptyPasswords no/g' /etc/ssh/sshd_config
+    /etc/init.d/sshd restart
+    #关闭系统不用的服务
+    for server in `chkconfig --list |grep 3:on|awk '{ print $1}'`
+    do
+        chkconfig --level 3 $server off
+    done
+     
+    for server in crond network rsyslog sshd
+    do
+       chkconfig --level 3 $server on
+    done
+     
+    #优化内核参数
+    cat >> /etc/sysctl.conf << ENDF
+    net.ipv4.tcp_max_syn_backlog = 65536
+    net.core.netdev_max_backlog =  32768
+    net.core.somaxconn = 32768
+    net.core.wmem_default = 8388608
+    net.core.rmem_default = 8388608
+    net.core.rmem_max = 16777216
+    net.core.wmem_max = 16777216
+    net.ipv4.tcp_timestamps = 0
+    net.ipv4.tcp_synack_retries = 2
+    net.ipv4.tcp_syn_retries = 2
+    net.ipv4.tcp_tw_recycle = 1
+    #net.ipv4.tcp_tw_len = 1
+    net.ipv4.tcp_tw_reuse = 1
+    net.ipv4.tcp_mem = 94500000 915000000 927000000
+    net.ipv4.tcp_max_orphans = 3276800
+    net.ipv4.ip_local_port_range = 1024  65535
+    ENDF
+    sysctl -p 
+
+    cat >/etc/hosts <<ENDF
+    127.0.0.1 $MYHOSTNAME $MYHOSTNAME.$DOMAINNAME localhost
+    $IPADDR $MYHOSTNAME $MYHOSTNAME.$DOMAINNAME  localhost
+    ENDF
+
+    cat >/etc/resolv.conf <<ENDF
+    domain $DOMAINNAME 
+    search $DOMAINNAME 
+    nameserver $MYDNS1 
+    nameserver $MYDNS2 
+    ENDF
+     
+    #加固
+    #------------------------------------------------------------------------------------------------------------
+    echo "Welcome to Server" >/etc/issue 
+    echo "Welcome to Server" >/etc/redhat-release 
+    #修改历史记录为5
+    sed -i "s#HISTSIZE=1000#HISTSIZE=5#g" /etc/profile
+    #修改crtl+alt+delete键盘重启
+    sed -i "s#exec#\#exec#g" /etc/init/control-alt-delete.conf
+    #修改打开文件数
+    echo "ulimit -SHn 102400">> /etc/rc.local #设置开机自动生效
+    userdel adm
+    userdel lp
+    userdel shutdown
+    userdel halt
+    userdel uucp
+    userdel operator
+    userdel games
+    userdel gopher 
+     
+    yum install epel-release
+    crontab -l
+    yum update -y
+
+    yum install -y dos2unix  lrzsz  nc telnet zip   gcc* gcc-c++ libstdc++-devel
+    cat <<EOF >>/etc/security/limits.conf
+    * soft nofile 65536
+    * hard nofile 65536
+    * soft nproc unlimited
+    * hard nproc unlimited
+    EOF
+    
+    cat <<EOF >>/etc/security/limits.d/90-nproc.conf
+    *          soft    nproc     unlimited
+    root       soft    nproc     unlimited
+    EOF
+    ```

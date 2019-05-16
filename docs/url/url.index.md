@@ -89,3 +89,8 @@ http://github.tiankonguse.com/doc/redis/index.html
 ```
 http://yearning.io/
 ```
+
+## 16. scrapy
+```
+https://scrapy-chs.readthedocs.io/zh_CN/0.24/topics/commands.html#
+```

@@ -97,6 +97,8 @@ service/nginx-service   NodePort    10.0.0.152   <none>        80:34641/TCP   3m
 [root@k8s-master01 ui]# kubectl get pod -o wide
 NAME                  READY   STATUS    RESTARTS   AGE    IP            NODE              NOMINATED NODE   READINESS GATES
 web-bbb9f66c9-gt486   1/1     Running   0          8m5s   172.17.66.2   192.168.186.141   <none>           <none>
+```
+```
 [root@k8s-master01 ui]# curl 192.168.186.141:34641
 <!DOCTYPE html>
 <html>

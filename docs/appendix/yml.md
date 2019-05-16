@@ -1,11 +1,11 @@
 ```yaml
 site_name: markdown语法详解(基于mkdocs-material) - cyent笔记
 site_description: 关于mkdocs-material支持的markdown语法，包括传统语法和扩展语法
-site_author: cyent
-site_url: https://cyent.github.io/markdown-with-mkdocs-material/
+site_author: caimengzhi
+site_url: https://github.com/caimengzhi/books
 
-repo_name: 'cyent/markdown-with-mkdocs-material'
-repo_url: 'https://github.com/cyent/markdown-with-mkdocs-material'
+repo_name: 'caimengzhi'
+repo_url: 'https://github.com/caimengzhi/books'
 
 theme:
   name: material
@@ -22,7 +22,7 @@ theme:
 extra:
   social:
     - type: github
-      link: https://github.com/cyent
+      link: https://github.com/caimengzhi/books/
   search:
     language: 'jp'
 
