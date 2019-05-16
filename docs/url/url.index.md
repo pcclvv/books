@@ -94,3 +94,8 @@ http://yearning.io/
 ```
 https://scrapy-chs.readthedocs.io/zh_CN/0.24/topics/commands.html#
 ```
+
+## 17. seafile
+```
+https://manual-cn-origin.seafile.com/
+```
