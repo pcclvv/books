@@ -2167,6 +2167,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../shell/init/init/" title="4. 系统初始化脚本" class="md-nav__link">
+      4. 系统初始化脚本
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -3236,6 +3248,18 @@
   <li class="md-nav__item">
     <a href="../../nginx/nginx.http2/" title="12. nginx http2" class="md-nav__link">
       12. nginx http2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../nginx/nginx.auth/" title="13. nginx 认证" class="md-nav__link">
+      13. nginx 认证
     </a>
   </li>
 
@@ -6319,6 +6343,129 @@ systemctl disable $SERVICES
 systemctl stop $SERVICES
 done
 </pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">centos6 优化脚本</p>
+<div class="codehilite"><pre><span></span>#!/bin/sh
+
+echo &quot;------ step 1: config yum ------&quot;
+cd /etc/yum.repos.d/
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo
+
+echo &quot;------ step 2: config  profile------&quot;
+echo &#39;export LC_ALL=C&#39;&gt;&gt; /etc/profile
+source /etc/profile
+
+echo &quot;------ step 3: stop iptables and selinux------&quot;
+/etc/init.d/iptables stop
+/etc/init.d/iptables stop
+/etc/init.d/NetworkManager stop
+chkconfig NetworkManager off
+chkconfig iptables off
+setenforce 0
+if [ -f /etc/selinux/config ]; then
+    sed -i &#39;s#SELINUX=enforcing#SELINUX=disabled#g&#39; /etc/selinux/config
+    setenforce 0
+fi
+
+echo &quot;------ step 4: config time sync------&quot;
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+cp /etc/sysconfig/clock /etc/sysconfig/clock.ori
+&gt; /etc/sysconfig/clock
+echo &quot; ZONE=&quot;Asia/Shanghai&quot;&quot;&gt;/etc/sysconfig/clock
+
+/usr/sbin/ntpdate pool.ntp.org
+echo &#39;#time sync by caimengzhi at 2016-2-1&#39;&gt;&gt;/var/spool/cron/root
+echo &#39;*/10 * * * * /usr/sbin/ntpdate pool.ntp.org &gt;/dev/null 2&gt;&amp;1&#39;&gt;&gt;/var/spool/cron/root
+
+#配置SSHD
+sed -i &#39;/^#Port/s/#Port 22/Port 65535/g&#39; /etc/ssh/sshd_config
+sed -i &#39;/^#UseDNS/s/#UseDNS yes/UseDNS no/g&#39; /etc/ssh/sshd_config
+sed -i &#39;s/#PermitRootLogin yes/PermitRootLogin no/g&#39; /etc/ssh/sshd_config
+sed -i &#39;s/#PermitEmptyPasswords no/PermitEmptyPasswords no/g&#39; /etc/ssh/sshd_config
+/etc/init.d/sshd restart
+#关闭系统不用的服务
+for server in `chkconfig --list |grep 3:on|awk &#39;{ print $1}&#39;`
+do
+    chkconfig --level 3 $server off
+done
+
+for server in crond network rsyslog sshd
+do
+   chkconfig --level 3 $server on
+done
+
+#优化内核参数
+cat &gt;&gt; /etc/sysctl.conf &lt;&lt; ENDF
+net.ipv4.tcp_max_syn_backlog = 65536
+net.core.netdev_max_backlog =  32768
+net.core.somaxconn = 32768
+net.core.wmem_default = 8388608
+net.core.rmem_default = 8388608
+net.core.rmem_max = 16777216
+net.core.wmem_max = 16777216
+net.ipv4.tcp_timestamps = 0
+net.ipv4.tcp_synack_retries = 2
+net.ipv4.tcp_syn_retries = 2
+net.ipv4.tcp_tw_recycle = 1
+#net.ipv4.tcp_tw_len = 1
+net.ipv4.tcp_tw_reuse = 1
+net.ipv4.tcp_mem = 94500000 915000000 927000000
+net.ipv4.tcp_max_orphans = 3276800
+net.ipv4.ip_local_port_range = 1024  65535
+ENDF
+sysctl -p 
+
+cat &gt;/etc/hosts &lt;&lt;ENDF
+127.0.0.1 $MYHOSTNAME $MYHOSTNAME.$DOMAINNAME localhost
+$IPADDR $MYHOSTNAME $MYHOSTNAME.$DOMAINNAME  localhost
+ENDF
+
+cat &gt;/etc/resolv.conf &lt;&lt;ENDF
+domain $DOMAINNAME 
+search $DOMAINNAME 
+nameserver $MYDNS1 
+nameserver $MYDNS2 
+ENDF
+
+#加固
+#------------------------------------------------------------------------------------------------------------
+echo &quot;Welcome to Server&quot; &gt;/etc/issue 
+echo &quot;Welcome to Server&quot; &gt;/etc/redhat-release 
+#修改历史记录为5
+sed -i &quot;s#HISTSIZE=1000#HISTSIZE=5#g&quot; /etc/profile
+#修改crtl+alt+delete键盘重启
+sed -i &quot;s#exec#\#exec#g&quot; /etc/init/control-alt-delete.conf
+#修改打开文件数
+echo &quot;ulimit -SHn 102400&quot;&gt;&gt; /etc/rc.local #设置开机自动生效
+userdel adm
+userdel lp
+userdel shutdown
+userdel halt
+userdel uucp
+userdel operator
+userdel games
+userdel gopher 
+
+yum install epel-release
+crontab -l
+yum update -y
+
+yum install -y dos2unix  lrzsz  nc telnet zip   gcc* gcc-c++ libstdc++-devel
+cat &lt;&lt;EOF &gt;&gt;/etc/security/limits.conf
+* soft nofile 65536
+* hard nofile 65536
+* soft nproc unlimited
+* hard nproc unlimited
+EOF
+
+cat &lt;&lt;EOF &gt;&gt;/etc/security/limits.d/90-nproc.conf
+*          soft    nproc     unlimited
+root       soft    nproc     unlimited
+EOF
+</pre></div>
+
+</div>
                 
                   
                 
