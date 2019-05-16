@@ -363,7 +363,9 @@ nav:
             - 4. git 标签: tools/git/git.label.md
             - 5. git 分支管理: tools/git/git.standard.md
             - 6. git GUI: tools/git/git.gui.md
-        - 2. github: tools/github/github.index.md
+        - 2. github: 
+            - 1. github 基础: tools/github/github.index.md
+            - 2. github PR: tools/github/github_PullRequest.md
         - 3. gitlab:
             - 1. gitlab: tools/gitlab/gitlab.index.md
             - 2. 关闭注册: tools/gitlab/gitlab.close_register.md
